@@ -59,6 +59,38 @@ class cURL {
           
           return $return;
      }
+     
+     /*
+     * Saves a GET request to the local filesystem
+     */
+     function save($url, $fullpath, $refer=''){
+		$process = curl_init($url);
+		curl_setopt($process, CURLOPT_REFERER, $refer);
+		curl_setopt($process, CURLOPT_HTTPHEADER, $this->headers);
+		curl_setopt($process, CURLOPT_USERAGENT, $this->user_agent);
+		if ($this->cookies == TRUE) curl_setopt($process, CURLOPT_COOKIEFILE, $this->cookie_file);
+		if ($this->cookies == TRUE) curl_setopt($process, CURLOPT_COOKIEJAR, $this->cookie_file);
+		curl_setopt($process,CURLOPT_ENCODING , $this->compression);
+		curl_setopt($process, CURLOPT_TIMEOUT, 30);
+		if ($this->proxy) curl_setopt($cUrl, CURLOPT_PROXY, 'proxy_ip:proxy_port');
+		curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($process, CURLOPT_FOLLOWLOCATION, TRUE);
+		curl_setopt($process, CURLOPT_HEADER, 0); ;
+    	curl_setopt($process, CURLOPT_BINARYTRANSFER, 1);
+    	$rawdata=curl_exec($process);
+    	curl_close ($process);
+	
+		if(file_exists($fullpath)){
+			unlink($fullpath);
+		}
+		
+		$fp = fopen($fullpath,'x');
+		fwrite($fp, $rawdata);
+		fclose($fp);
+		
+		return (file_exists($fullpath));
+     }
+     
      /* 
      * Runs a POST through cURL
      */

@@ -33,7 +33,7 @@
 			}
 
 			// Compile the info for each line item
-	        $info = array('url' => 'http://' . trim($url) . '/',
+	        $info = array('url' => trim($url),
 	        			'url_final' => $page['info']['url'],
 	        			'title' => $title,
 	        			'http_code' => $page['info']['http_code'],
