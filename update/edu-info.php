@@ -29,7 +29,8 @@
 	        if ($page['info']['http_code'] == '200'){
 				// Grab the page title
 				$html = str_get_html($page['response']);
-				$title = trim($html->find('title', 0)->plaintext);
+				if (is_object($html))
+					$title = trim($html->find('title', 0)->plaintext);
 			}
 
 			// Compile the info for each line item
