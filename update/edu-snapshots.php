@@ -31,6 +31,9 @@
 				// Report Success
 				print_r('Saved snapshot for: ' . $data[0] . "\n");
 				//print_r($data);
+				
+				// Give the image service a rest
+				sleep(1);
 			}
 		}
 		// Close the CSV
