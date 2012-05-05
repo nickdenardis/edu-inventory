@@ -11,7 +11,7 @@
 	include_once('simple_html_dom.php');
 	
 	// Reset the edu-info.csv file
-	$fp = fopen(realpath(__DIR__) . '/../edu-list.csv', 'w');
+	$fp = fopen(realpath(__DIR__) . '/../edu-info.csv', 'w');
 	
 	// Write the column headers
 	fwrite($fp, 'URL,Final URL,Title,HTTP Code,File Size,Speed' . "\n");
