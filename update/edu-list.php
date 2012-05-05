@@ -1,5 +1,5 @@
 <?php
-	ini_set('memory_limit', '64M');
+	ini_set('memory_limit', '128M');
 
 	define('DEBUG', true);
 
@@ -20,21 +20,19 @@
 	}
 
 	// The basics
-	$alpha = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
-	$alpha_b = array('','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+	$alpha = array('','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
 	$limit = 50;
 	$i = 0;
 
 	// Reset the edu-list.txt file
-	if(!file_put_contents('../edu-list.txt', ''))
-		Pre('CANNOT WRITE FILE');
-	
+	$fp = fopen('../edu-list.txt', 'w');
+
 	// Let's build some combos
 	foreach ($alpha as $first){
 		$edu_list = array();
 		$edu_string = '';
 	
-		foreach ($alpha_b as $second){
+		foreach ($alpha as $second){
 			//if ($i < $limit){
 				//Pre($first . $second);
 				
@@ -69,27 +67,16 @@
 			$edu_string .= $domain . "\n";
 		
 		// Write the list to the file
-		if(!file_put_contents('../edu-list.txt', $edu_string, FILE_APPEND))
-			echo 'ERROR';
+		fwrite($fp, $edu_string);
+		
+		//Unset the vars
+		unset($edu_list);
+		unset($edu_string);
+		unset($html);
+		unset($ret);
 		
 		sleep(10);
 	}
 	
-	
-	
-	/*
-	foreach ($edu_list as $domain){
-		$edu_string .= $domain . "\n";
-	}
-	
-	// Display the full list without dupes
-	Pre($edu_string);
-	
-	Pre('Total: ' . count($edu_list));
-	
-	// Write the list to the file
-	if(!file_put_contents('../edu-list.txt', $edu_string)){
-		echo 'ERROR';
-	}
-	*/
+	fclose($fp);
 ?>
