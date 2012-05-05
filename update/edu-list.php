@@ -61,7 +61,7 @@
 			// Create a string of all the domains
 			foreach ($edu_list as $domain){
 				// Write the list to the file
-				fwrite($fp, $domain . "\n");
+				fwrite($fp, trim($domain) . "\n");
 			}
 			
 			// Display the count per letter
