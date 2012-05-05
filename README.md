@@ -1,4 +1,4 @@
-EDU Inventory
+Higher Education Website Inventory
 =============
 
 A list of all .edu domains and information about them.
