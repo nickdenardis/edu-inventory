@@ -1,7 +1,7 @@
 EDU Inventory
 =============
 
-A collection of all .edu domains and information about them.
+A list of all .edu domains and information about them.
 
 
 Files
