@@ -37,7 +37,7 @@ class cURL {
      /*
      * Runs a GET through cURL
      */
-     function get($url,$refer='') {
+     function get($url,$refer='', $info=false) {
           $process = curl_init($url);
           curl_setopt($process, CURLOPT_REFERER, $refer);
           curl_setopt($process, CURLOPT_HTTPHEADER, $this->headers);
@@ -48,8 +48,15 @@ class cURL {
           curl_setopt($process, CURLOPT_TIMEOUT, 30);
           if ($this->proxy) curl_setopt($cUrl, CURLOPT_PROXY, 'proxy_ip:proxy_port');
           curl_setopt($process, CURLOPT_RETURNTRANSFER, 1);
-          $return = curl_exec($process);
+          curl_setopt($process, CURLOPT_FOLLOWLOCATION, TRUE);
+          curl_setopt($process, CURLOPT_HEADER, 0); 
+          $return['response'] = curl_exec($process);
+          $return['info'] = curl_getinfo($process);
           curl_close($process);
+          
+          if (!$info)
+          	return $return['response'];
+          
           return $return;
      }
      /* 
