@@ -64,7 +64,10 @@
 	// Display the full list without dupes
 	Pre($edu_string);
 	
-	
-	
 	Pre('Total: ' . count($edu_list));
+	
+	// Write the list to the file
+	if(!file_put_contents('../edu-list.txt', $edu_string)){
+		echo 'ERROR';
+	}
 ?>
