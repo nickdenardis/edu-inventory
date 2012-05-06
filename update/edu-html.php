@@ -16,14 +16,14 @@
 			// Only get screenshots from domains that were successful
 			if ($data[3] == '200'){
 				// Make sure the snapshots directory exists
-				if (!is_dir(realpath(__DIR__) . '/../snapshots/' . $data[0] . '/')){
+				if (!is_dir(realpath(__DIR__) . '/../snapshots/html/')){
 					// Need to do some more work to ensure it is writable
-					mkdir(realpath(__DIR__) . '/../snapshots/' . $data[0] . '/');
+					mkdir(realpath(__DIR__) . '/../snapshots/html/');
 				}
 				
 				// Get the HTML of the homepage
-				if (!$myCurl->save($data[1], realpath(__DIR__) . '/../snapshots/' . $data[0] . '/' . $data[0] . '-' . time() . '.html'))
-					print_r('Error creating file: ' . realpath(__DIR__) . '/../snapshots/' . $data[0] . '/' . $data[0] . '-' . time() . '.html' . "\n");
+				if (!$myCurl->save($data[1], realpath(__DIR__) . '/../snapshots/html/' . $data[0] . '.html'))
+					print_r('Error creating file: ' . realpath(__DIR__) . '/../snapshots/html/' . $data[0] . '.html' . "\n");
 				
 				// Report Success
 				print_r('Saved HTML for: ' . $data[0] . "\n");
