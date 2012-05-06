@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+    <link href="http://www.meridian.edu/css/dropdown.css" rel="stylesheet" type="text/css" />
+    <link href="http://www.meridian.edu/css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="http://www.meridian.edu/css/colorbox.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="css/ie6.css" />
+    <![endif]-->    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <script type="text/javascript" src="http://www.meridian.edu/js/slideshow.js"></script>
+    <script type="text/javascript" src="http://www.meridian.edu/js/multi.js"></script>
+    <script type="text/javascript" src="http://www.meridian.edu/js/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="http://www.meridian.edu/js/bookmark.js"></script>
+ 
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            //Examples of how to assign the ColorBox event to elements
+            $(".sarasota_map").colorbox({width:"50%", height:"75%", iframe:true});
+            $(".tampa_map").colorbox({width:"50%", height:"75%", iframe:true});
+        });
+    </script>     
+    <script type="text/javascript" src="http://www.meridian.edu/js/validator.js"></script>
+    <script type="text/javascript" src="http://www.meridian.edu/js/masked_input.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var showText='read more';
+            var hideText='hide';
+            var is_visible = false;
+            $('.toggle').prev().append(' (<a href="#" class="toggleLink">'+showText+'</a>)');
+            $('.toggle').hide();
+            $('a.toggleLink').click(function() {
+                is_visible = !is_visible;
+                $(this).html( (!is_visible) ? showText : hideText);
+                $(this).parent().next('.toggle').toggle('slow');
+                return false;
+            });
+        });
+ 
+        // FORM MASKING FOR PHONE NUMBERS
+        jQuery(function($){
+           $("#phone_day").mask("(999) 999-9999");
+           $("#emergency_phone").mask("(999) 999-9999");
+        });
+        // SUBMIT FORMS AFTER VALIDATION
+          $.validator.setDefaults({
+            submitHandler: function() {  
+                form.submit(); 
+            }
+        });       
+        // SHORT FORM REQS/VALIDATION
+        $(document).ready(function() {
+            $("#shortform").validate({  
+                rules: {
+                    name: "required",
+                    campus: "required",
+                    career: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    name: "",
+                    email: "",
+                    campus: "",
+                    career: ""
+                }
+            });    
+        }); 
+        // REMOVE AND RETURN VALUES FROM TEXT INPUTS
+        $(document).ready(function(){
+            $('input, textarea').focus(function() {
+                    value=$(this).val();
+                    $(this).attr("value","");
+                });
+            $('input, textarea').blur(function() {
+                if($(this).val()=="") {
+                    $(this).val(value);
+                }
+            });
+        });
+        // CONTACT FORM REQS/VALIDATION    
+        $(document).ready(function() {        
+            $("#contactform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    career: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone_day: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    campus: "",
+                    career: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone_day: ""
+                }
+            });    
+        });         
+        // SLIDESHOW TRANSITIONS
+        $(document).ready(function() {
+            $('.slideshow').cycle({
+                fx: 'fade'
+            });
+        });
+        // NAVIGATION DROPDOWN
+        $(document).ready(function(){
+            $('#multi-ddm').dropDownMenu({timer: 1000, parentMO: 'parent-hover', childMO: 'child-hover1'});
+        });
+        // APPLICATION STEP 1 FORM REQS        
+        $(document).ready(function() {       
+            $("#applyonline").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone_day: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone_day: ""
+                }
+            });             
+        });     
+        // APPLICATION STEP 2 FORM REQS/VALIDATION    
+        $(document).ready(function() {      
+            $("#applyonline-step2").validate({  
+                rules: {
+                    citizen: "required",
+                    emergency_name: "required",
+                    emergency_phone: "required",
+                    military: "required"                                                 
+                },
+                messages: {
+                    citizen: "",
+                    emergency_name: "",
+                    emergency_phone: "",
+                    military: ""
+                }
+            });     
+        });
+        // EMPLOYER FORM REQS
+        $(document).ready(function() {      
+            $("#employercontactform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone_day: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    phone_day: "",
+                }
+            });     
+        });
+        // SWAP PROGRAMS BASED ON CAMPUS
+        
+        function setOptions(chosen) {
+            var selbox = document.getElementById("career");
+             
+            selbox.options.length = 0;
+            if (chosen == " ") {
+              selbox.options[selbox.options.length] = new Option('Please select one of the options above first',' ');
+             
+            }
+            if (chosen == "tampa") {
+              selbox.options[selbox.options.length] = new Option('Cosmetology','Cosmetology');
+              selbox.options[selbox.options.length] = new Option('Medical Assistant','Medical Assistant');
+              selbox.options[selbox.options.length] = new Option('Medical Insurance Billing and Coding','Medical Insurance Billing and Coding');
+              selbox.options[selbox.options.length] = new Option('Dental Assistant','Dental Assistant');
+            }
+            if (chosen == "sarasota") {
+              selbox.options[selbox.options.length] = new Option('Cosmetology','Cosmetology');
+              selbox.options[selbox.options.length] = new Option('Medical Assistant','Medical Assistant');
+              selbox.options[selbox.options.length] = new Option('Medical Insurance Billing and Coding','Medical Insurance Billing and Coding');
+              selbox.options[selbox.options.length] = new Option('Dental Assistant','Dental Assistant');
+              selbox.options[selbox.options.length] = new Option('Medical Administration','Medical Administration');
+              selbox.options[selbox.options.length] = new Option('Medical Assisting','Medical Assisting');
+              selbox.options[selbox.options.length] = new Option('Business Administration','Business Administration');         
+            }            
+        }                            
+    </script>                
+<title>Meridian College                Florida Career Colleges | Index | Meridian Career Institute</title>
+<meta name="keywords" content="beauty schools, school, cosmetology, schools, beauty school,barber schools,vocational schools, medical school, trade school, barber school, business schools, beauty college, medical college, beauty schools, school, cosmetology, schools, beauty school,barber schools,vocational schools, medical school, trade school, barber school, business schools, beauty college, medical college,Business Schools Sarasota, Business programs Sarasota, Florida cosmetology school, medical assistant programs in FL, Florida career training, Sarasota career college, Tampa career training, dental assistant degrees in FL, medical billing and coding careers in Tampa, health care administration degrees in Sarasota, Florida beauty careers"/>
+<meta name="description" content="Meridian Career Institute offers you hands-on training in some of todays most popular careers. Develop the skills you need to join some of todays fastest growing job markets. Contact us today to find out more!"/>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8173471-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8173471-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>                                                                                                                               
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-8173471-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>                                                                                                                               
+<style type="text/css">
+<!--
+#wrapper #header #headerPhone h1 {
+	font-size: 18px;
+	font-family: Arial, "Arial Narrow", sans-serif;
+}
+.Number {
+	font-size: 18px;
+}
+.asdf {
+	font-size: 18px;
+}
+-->
+</style>
+</head>
+<body>
+    <div id="wrapper">
+                <div id="header">
+           <div id="social" style="float:right; padding-top:2px; padding-right:2px;"><a href="http://www.facebook.com/#!/pages/Sarasota-FL/Meridian-Career-Institute-Sarasota-Campus/160418391115?ref=ts" title="Meridian Career Institute on Facebook"><img src="/images/facebook_16.png" align="absmiddle" border="0"/></a> <a href="https://twitter.com/Meridian_Career" title="Meridian Career Institute on Twitter"><img src="/images/twitter_16.png" align="absmiddle" border="0"/></a></div>
+            <div id="logo">
+                <a href="http://www.meridian.edu"><img src="http://www.meridian.edu/images/header_logo.jpg" alt="Meridian Logo"/></a>
+            </div>
+            <div id="headerPhone">
+              <h1>Sarasota		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h1>
+                <h1 class="Number">941.377.4880</h1>
+            </div>
+            <div id="headerCTA">
+                <a href="http://www.meridian.edu/apply-now"><img src="http://www.meridian.edu/images/apply_now.gif" alt="Apply Now!"/></a>                
+                <a href="http://www.meridian.edu/contact-us"><img src="http://www.meridian.edu/images/request_info.gif" alt="Request Information"/></a>               
+            </div>
+        </div>
+        <div id="navigation">
+                            <ul id='multi-ddm'>
+                <li>
+                    <a href='http://www.meridian.edu/programs' style="width:150px; border-left:none;">CAREER PROGRAMS</a>
+                    <ul>
+                        <li>
+                            <a class="first" href='http://www.meridian.edu/programs/'><span>&raquo;</span>Diploma Programs</a>
+                            <ul>
+                                <li><a href='http://www.meridian.edu/programs/cosmetology' style="width:205px;">Cosmetology</a></li>
+                                <li><a href='http://www.meridian.edu/programs/medical-assistant' style="width:205px;">Medical Assistant</a></li>
+                                <li><a href='http://www.meridian.edu/programs/dental-assistant' style="width:205px;">Dental Assistant</a></li>
+                                <li><a href='http://www.meridian.edu/programs/medical-insurance-billing-and-coding' style="width:205px;">Medical Insurance Billing &amp; Coding</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href='http://www.meridian.edu/programs/'><span>&raquo;</span>Associate's Degree</a>
+                            <ul>
+                                <li><a href='http://www.meridian.edu/programs/medical-administration'>Medical Administration</a></li>
+                                <li><a href='http://www.meridian.edu/programs/medical-assisting'>Medical Assisting</a></li>
+                                <li><a href='http://www.meridian.edu/programs/business-administration'>Business Administration</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+ 
+                <li>
+                    <a href='http://www.meridian.edu/student-center' style="width:140px;">STUDENT CENTER</a>
+                    <ul>
+                        <li><a class="first" href='http://www.meridian.edu/student-center/staff-directory'>Staff Directory</a></li>
+                        <li><a href='http://www.meridian.edu/student-center/academic-calendar'>Academic Calendar</a></li>
+                        <li><a href='http://www.meridian.edu/student-center/community-resources'>Community Resources</a></li>
+                        <li><a href='http://www.meridian.edu/financial-aid'>Financial Aid</a></li>                        
+                        <li><a href='http://www.meridian.edu/apply-now'>Apply Online</a></li>
+                        <li><a href='http://www.meridian.edu/student-center/online-resources'>Online Resources</a></li>
+                        <li><a href='http://www.meridian.edu/student-center/policies-and-information'>Policies and Information</a></li>
+                        <!--<li><a href='http://www.meridian.edu/student-center/student-catalog'>Student Catalog</a></li> -->
+                    </ul>
+                </li>
+                <li>
+ 
+                    <a href='http://www.meridian.edu/career-services' style="width:140px;">CAREER SERVICES</a>
+                    <ul>
+                        <li>
+                            <a class="first" href='http://www.meridian.edu/career-services/job-openings'>Job Openings</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='/about-us' style="width:90px;">ABOUT US</a>
+                    <ul>
+                        <li><a class="first" href='http://www.meridian.edu/about-us/licensure-and-accreditation'>Licensure &amp; Accreditation</a></li>
+                        <li><a href='http://www.meridian.edu/about-us/campus-locations'>Campus Locations</a></li>
+                        <li><a href='http://www.meridian.edu/about-us/testimonials'>Testimonials</a></li>
+                        <li><a href='http://www.meridian.edu/about-us/salon-info'>Salon Info</a></li>                        
+                        <li><a href='http://www.meridian.edu/career-services/job-openings'>Careers at Meridian</a></li>
+                        <li><a href='http://www.meridian.edu/about-us/employers'>Employers</a></li>
+                    </ul>                    
+                </li>
+                <li>
+                    <a href='about-us/salon-info/index.htm' style="width:130px;">SALON INFO</a>
+                </li>                
+            </ul>                <div id="search">
+      <form action="http://www.meridian.edu/index/search-site" method="post">
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <td><img src="/images/magnifying_glass.jpg" alt="Search"/></td>
+                    <td><input type="text" name="query_string" value="Keyword Search"/></td>
+                    <td><input type="submit" value="" style="margin-left:10px; border:none; width:58px; height:18px; background-image:url(/images/search_btn.jpg);"/></td>
+                </tr>
+            </table>      
+      </form>
+</div>        </div>             
+        <div class="slideshowWrapper">
+            <div class="slideshow"> 
+               <!-- flash slideshow here -->
+               <object id="myOther" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="948" height="291">
+               <param name="movie" value="/flash/slideshow.swf" />
+               <param name="wmode" value="transparent">
+               <!--[if !IE]>-->
+               <object type="application/x-shockwave-flash" data="/flash/slideshow.swf" width="948" height="291">
+               <param name="wmode" value="transparent">
+               <!--<![endif]-->
+ 
+               <h1>Alternative content</h1>
+               <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+               <!--[if !IE]>-->
+               </object>
+             <!--<![endif]-->
+             </object>
+         </div>
+         <!-- end flash slideshow -->
+           <!-- <div id="slideshowText">
+                <p>Meridian understands the challenges you face daily. When you enroll in one of our career training programs, you'll receive an education that will prepare you for a better life.</p>
+                <p class="space">
+                    <a href=""><img src="images/find_program.gif" alt="Find a Program"/></a>
+                </p>
+            </div> -->
+        </div>
+ 
+        <div id="content">
+            <div id="callouts">
+                <div class="callouts"><h1><a href="http://www.meridian.edu/programs">Career Programs</a></h1><a href="http://www.meridian.edu/programs"><img src="images/callout_career_programs.jpg" alt="Meridian Career Programs"/></a></div>
+                <div class="callouts"><h1><a href="http://www.meridian.edu/student-center">Student Services</a></h1><a href="http://www.meridian.edu/student-center"><img src="images/callout_student_services.jpg" alt="Meridian Student Services"/></a></div>
+                <div class="callouts"><h1><a href="http://www.meridian.edu/career-services/">Career Services</a></h1><a href="http://www.meridian.edu/career-services/"><img src="images/callout_career_services.jpg" alt="Meridian Career Services"/></a></div>
+                <div class="callouts"><h1><a href="http://www.meridian.edu/about-us/salon-info">Meridian Salon</a></h1><a href="http://www.meridian.edu/about-us/salon-info"><img src="images/callout_meridian_salon.jpg" alt="Meridian Salon Info"/></a></div>
+            </div>        
+            <div id="contentLeftCol">
+              <div class="contentNode">    
+                  <img src="images/leftcol_image_1.jpg" alt="The Distance from Dream to Reality"/>
+<h1>Make Your Dream a Reality</h1>
+                    <p>Does it seem like the life you planned and the life you have now just keep getting farther apart? Now is the time to change your life. You can be just months away from a new career and a new life.</p>
+                    <p>At Meridian College, our Admissions Representative specialize in removing the roadblocks that lie between where you are, and where you dream of being. If you dream of a new career, <a href="contact-us">contact us</a> today.</p>
+ 
+                </div>
+                <div class="contentNode">    
+                    <img src="images/leftcol_image_2.jpg" alt="Can I Afford to Get a Degree"/>
+                    <h1>Can I Afford to Get a Degree?</h1>
+                    <p>Absolutely. We offer various forms of financial aid for those who qualify. You can start toward a better future now with no worries of how you will pay tuition.</p>
+                    <p>We will assist you through the simple application process. At Meridian College, we work with you to make sure that you are in the right program for your goals. When you re successful, we are successful.</p>
+                    <p>So the real question is, can you afford not to? <a href="contact-us">Contact us</a>.</p>
+ 
+                </div>
+                <div class="contentNode">    
+                    <img src="images/leftcol_image_3.jpg" alt="Keep Doing What You're Doing"/>
+                    <h1>Ready to Begin?</h1>
+                    <p>If you love helping people, and want to be directly involved in helping people feel better, a career program from Meridian could be right for you. We look forward to speaking with you to help you decide on the right career for you.</p>
+                    <p>Already know what field is right for you? Fill out the short form to the right and begin your future right now.</p>
+ 
+                </div>
+                <div class="clear"></div>   
+                <h2>Why wait to get started? Call Meridian College at 941.377.4880
+ 
+ or <a href="/contact-us">Contact Us Today!</a></h2>                             
+            </div>
+            <div id="contentRightCol"> 
+                <div class="contentNodeRight">
+                    <div id="socialMedia">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td><iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2FSarasota-FL%2FMeridian-Career-Institute-Sarasota-Campus&amp;layout=button_count&amp;show_faces=false&amp;width=100&amp;action=like&amp;colorscheme=light&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe></td>
+                            </tr>
+                        </table>    
+                    </div>            
+                    <h1>Ready to Begin?</h1>
+                    <p>If you love helping people, and want to be directly involved in helping people feel better, a career program from Meridian could be right for you.  We look forward to speaking with you to help you decide on the right career for you.</p>
+                    <p>Already know what field is right for you?  Fill out the short form below and begin your future right now.                
+                    </p>
+                </div>
+                
+                <div class="contentNodeRight">
+                    <h1>Take the First Step Now.</h1>
+                                        <p class="required">All fields are required</p>
+                         <form method="POST" action="https://meridian.topschoollive.com/BasicFeed/PostData.aspx">
+                            <p>
+                                <label for="firstname">First:</label>
+                                <input type="text" name="firstname" value=""/>
+                            </p>
+                            <p>
+                                <label for="lastname">Last: </label>
+                                <input type="text" name="lastname" value=""/>
+                            </p>
+                            <p><label for="email">Email: </label>
+                            <input type="text" name="email" value=""/>
+                            </p>
+                            <p>
+                            <label for="homephone">Phone: </label>    
+                            <input type="text" name="homephone" id="homephone"/>
+                            </p>                        
+                            <p>
+                                <label for="ins">Campus:</label>
+                                <select name="ins" id="ins">
+                                            <option value="">Please Select</option>
+                                            <option value="Meridian College-Sarasota" >Sarasota</option>
+                                            
+                                </select>
+                            </p>
+                            <p>
+                                <label for="poi">Career:</label>
+                                <select name="poi" id="poi">
+                                            <option value="">Please Select</option>
+                                            <option value="Cosmetology Clock Hour" >Cosmetology</option>
+                                            <option value="12 Medical Assistant">Medical Assistant </option>
+                                            <option value="12 Medical Insurance Billing and Coding" >Medical Insurance Billing and Coding</option>
+                                            <option value="Dental Assistant">Dental Assistant </option>
+                                            <option value="AS Medical Administration">AS Medical Administration </option>
+                                            <option value="AS Medical Assisting" >AS Medical Assistant</option>
+                                            <option value="AS Business Administration">AS Business Administration </option>
+                                            <option value="AS DMU">AS Diagnostic Medical Ultrasound </option>
+                                </select>                        
+                            </p>
+								<input type="hidden" name="ca" value="internet"/>    
+                          		<input type="hidden" name="it" value="meridian"/>
+                                <input type="hidden" name="ic" value="password!"/>
+                                <input type="hidden" name="lso" value="MCI Website"/>
+                                <input type="hidden" name="rds" value="http://www.meridian.edu/thankyou.aspx"/>
+								<input type="hidden" name="rd" value="true"/>
+                                <input type="hidden" name="submitted" value="true"/>
+                            <p>
+                                <input type="submit" class="submit" value=""/>
+                            </p>
+                                    
+                        </form>
+                                        </div>  
+                <div class="contentNodeRight">
+                <h2>SARASOTA CAMPUS</h2>
+                <h3>Diploma</h3>
+                    <ul>
+                        <li><a href="http://www.meridian.edu/programs/cosmetology">Cosmetology</a></li>
+                        <li><a href="http://www.meridian.edu/programs/medical-assistant">Medical Assistant</a></li>
+                        <li><a href="http://www.meridian.edu/programs/dental-assistant">Dental Assistant (with expanded functions)</a></li>
+                        <li><a href="http://www.meridian.edu/programs/medical-insurance-billing-and-coding">Medical Insurance Billing &amp; Coding</a></li>
+                    </ul>
+                <h3>Associate Degree</h3>
+                    <ul>
+                        <li><a href="http://www.meridian.edu/programs/medical-administration">Medical Administration</a></li>
+                        <li><a href="http://www.meridian.edu/programs/medical-assisting">Medical Assisting</a></li>
+                        <li><a href="http://www.meridian.edu/programs/business-administration">Business Administration</a></li>
+                    </ul>
+                
+                   </ul>            
+                </div>              
+                    
+            </div>
+        </div>
+                <div id="footer">
+            <div class="color_spacer" style="margin-bottom:10px;"></div>
+ 
+            <div id="footerCol1">
+                <h1>MAIN</h1>
+                <ul>
+                    <li><a href="http://www.meridian.edu">Home</a></li>
+                    <li><a href="http://www.meridian.edu/apply-now">Apply Online</a></li>
+                    <li><a href="http://www.meridian.edu/contact-us">Contact Us</a></li>
+                    <li><a href="http://www.meridian.edu/student-center">Student Center</a></li>
+                    <li><a href="http://www.meridian.edu/financial-aid">Financial Aid</a></li>
+                    <li><a href="http://www.meridian.edu/student-center/community-resources">Community Resources</a></li>
+                    <li><a href="http://www.meridian.edu/about-us/testimonials">Student Testimonials</a></li>
+                    <li><a href="http://www.meridian.edu/career-services/">Career Services</a></li>
+                    <li><a href="http://www.meridian.edu/career-services/job-openings">Find a Job</a></li>
+                    <li><a href="http://www.meridian.edu/about-us/employers">For Employers</a></li>
+                    <li><a href="http://www.meridian.edu/about-us/campus-locations">Campus Locations</a></li>
+                    <li><a href="http://www.meridian.edu/about-us">About Meridian</a></li>
+                    <li><a href="http://www.meridian.edu/about-us/licensure-and-accreditation">Licensure &amp; Accreditation</a></li>
+                    <li><a href="http://www.meridian.edu/about-us/privacy-policy">Privacy Policy &amp; Consumer Disclosures</a></li>
+                    <li><a href="http://www.meridian.edu/student-center/policies-and-information">Admissions  Information</a></li>
+                </ul>
+            </div>
+            <div id="footerCol2">
+                <h1>CAREER PROGRAMS</h1>
+                <ul>
+                    <li><a href="http://www.meridian.edu/programs/medical-assistant">Medical Assistant</a></li>
+                    <li><a href="http://www.meridian.edu/programs/medical-insurance-billing-and-coding">Medical Insurance Billing and Coding</a></li>
+                    <li><a href="http://www.meridian.edu/programs/dental-assistant">Dental Assistant</a></li>
+                    <li><a href="http://www.meridian.edu/programs/cosmetology">Cosmetology</a></li>
+                    <li><a href="http://www.meridian.edu/programs/medical-assisting">Medical Assisting</a></li>
+                    <li><a href="http://www.meridian.edu/programs/medical-administration">Medical Administration</a></li>
+                    <li><a href="http://www.meridian.edu/programs/business-administration">Business Administration</a></li>
+                </ul>
+               <!-- <p>
+                    <a href="http://www.facebook.com/#!/pages/Sarasota-FL/Meridian-Career-Institute-Sarasota-Campus/160418391115?ref=ts" target="_blank"><img src="http://www.meridian.edu/images/facebook_logo_lg.jpg" alt="Facebook Logo"/></a>
+                </p> -->
+            </div>
+            <div id="footerCol3">
+                <h1>LOCATIONS</h1>
+                <p style="font-weight:900">Sarasota Campus</p>
+                <p>7020 Professional Pkwy E<br/>
+                Sarasota, FL 34240 <a class='sarasota_map' href="http://www.meridian.edu/maps/sarasota.html">[Map]</a></p>
+                <div class="spacer"></div>  
+                <!-- <p>
+                    <a href=""><img src="http://www.meridian.edu/images/twitter_logo_lg.gif" alt="Twitter Logo"/></a>
+                </p>  -->                            
+            </div>
+            
+            <div id="copyrightBar">
+                <p>&copy; 2011 Meridian College. All Rights Reserved. 941.377.4880
+ 
+</p>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+ 
+</html> 
+

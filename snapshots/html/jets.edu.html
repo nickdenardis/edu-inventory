@@ -1,0 +1,399 @@
+<html>
+<head>
+
+	<style type="text/css" media="screen">
+		body{
+	margin: 0;
+	padding: 25px 0 0 0;}
+div#ToggleNav{
+	position:absolute; /* only effects browsers that cannot accept Fixed positioning */
+	top: 0; /* only effects browsers that cannot accept Fixed positioning */
+	left: 0; /* only effects browsers that cannot accept Fixed positioning */
+	background: #666 url(/images/Admin/Skins/HardCandyBlack/images/ToggleLoginBg.gif) repeat-x top left;
+	border-bottom: 0px solid #333;
+	border-top: 0px solid #FFFFFF;
+	width:100%;
+	height:25px;
+	z-index: 1000;
+	overflow:hidden;}
+div#ToggleNav td{
+	font: bold 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #9EA8C3;}
+div#ToggleNav input {
+	margin: 0;
+	padding: 0;
+	font: normal 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #303040;
+	vertical-align:middle;}
+div#ToggleNav .formUsername {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/UsernameBg.gif) no-repeat top left;}
+div#ToggleNav .formPassword {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/PasswordBg.gif) no-repeat top left;}
+div#ToggleNav .formSelected {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/LoginFieldBlank.gif) repeat-x top left;}
+div#ToggleNav .formButton {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat 0 0;}
+div#ToggleNav .formButtonHover {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat -46px 0;}
+div#ToggleNav a.help:link, div#ToggleNav a.help:visited {
+	display:block;
+	height: 16px;
+	color: #D9D8E6;
+	border: 0;
+	margin: 4px 5px 0 1px;}
+div#ToggleNav a.help:hover, div#ToggleNav a.help:active {
+	display: block;
+	height: 16px;
+	border: 0;}
+body > div#ToggleNav .formUsername {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formPassword {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formSelected {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formButton {margin-bottom: 3px;}/* non-IE browsers only */
+body > div#ToggleNav .formButtonHover {margin-bottom: 3px;}/* non-IE browsers only */
+@media screen {
+	body > div#ToggleNav{
+		position:fixed;}
+}
+* html body {
+	overflow:hidden;} 
+* html div#AdminDefaultIncludes{
+	position: fixed;
+	top: 25px;
+	bottom:0;
+ 	width: 100%;
+	overflow: auto;	
+	_position: absolute;
+	_top: expression( ( 25 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	_height: expression( ( -25 + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );}
+	</style>
+    
+	<script type="text/javascript" src="/JavaScripts/JavaScripts.js"></script>
+
+	<script type="text/javascript" src="/JavaScripts/NiceTitles.js"></script>
+	
+	
+
+	<div id="ToggleNav">
+	
+		<table cellpadding="0" cellspacing="0" align="right">
+			<tr>
+				<form name="frmLogin" method="post" action="https://securesite.pcmac.org/login/" style="margin:0;">				
+					<td align="right" valign="top">
+						<input type="text" name="Username" value="" class="formUsername" onFocus="this.className='formSelected';CheckLoginFields();" onBlur="if(this.value==''){this.className='formUsername'};CheckLoginFields();" />
+						<input type="Password" name="Password" value="" class="formPassword" onFocus="this.className='formSelected'" onBlur="if(this.value==''){this.className='formPassword'}">
+						<input type="submit" name="Submit" value="" class="formButton" onMouseOver="this.className='formButtonHover'" onMouseOut="this.className='formButton'"> &nbsp;
+						<input type="hidden" name="ClientID" value="117" class="formitem">
+						<input type="hidden" name="SiteID" value="258" class="formitem">
+						<input type="hidden" name="SessID" value="829513278" class="formitem">
+						<input type="hidden" name="DestURL" value="http://www.jets.edu" class="formitem">
+						<input type="hidden" name="SiteServerName" value="www.jets.edu" class="formitem">
+						<input type="hidden" name="ProductName" value="SAMO" class="formitem">
+						<input type="hidden" name="ProductVersion" value="4.2.0.0" class="formitem">
+						<input type="hidden" name="ProductBuild" value="110929 (x64)" class="formitem">
+						<input type="hidden" name="AuthType" size="40" value="" class="formitem" />
+					</td>
+					<td align="left" valign="middle" class="smalltxt">
+						<a href="http://www.jets.edu/Admin1/PasswordReminder.asp" title="Forgot Password?" class="help">Forgot Password?</a> &nbsp;
+						<!--span class="formButtonHover" style="visibility:hidden; position:absolute; left:-1234px;">preload button background image</span>
+						<span class="formSelected" style="visibility:hidden; position:absolute; left:-1234px;">preload input background image</span-->
+					</td>
+				</form>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function CheckLoginFields() {
+				//document.frmLogin.Username.focus();
+				if(document.frmLogin.Username.value!='') {
+					document.frmLogin.Username.className='formSelected';
+				}
+				if(document.frmLogin.Password.value!='') {
+					document.frmLogin.Password.className='formSelected';
+				}
+			}
+			
+			CheckLoginFields();
+		</script>
+	
+	</div>
+	
+	<div id="AdminDefaultIncludes">
+
+	<title>Jordan Evangelical Theological Seminary :: </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Keywords" content="JETS" />
+	<meta name="Description" content="To Equip Arab Leaders for the Arab World" />
+	<meta name="Author" content="GOD" />
+	<meta name="ROBOTS" content="INDEX, NOFOLLOW" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link href="/CommonTemplates/SiteElements/Styles/Include-Styles.asp" type="text/css" rel="stylesheet" />
+	<link href="http://images.pcmac.org/Websites/JETS/JETS/Styles.css" rel="stylesheet" type="text/css" />
+	<!--script src="http://images.pcmac.org/Websites/JETS/JETS/JavaScripts.js" type="text/javascript"></script-->
+	
+<script src="http://images.pcmac.org/Websites/JETS/JETS/JavaScripts.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://images.pcmac.org/Websites/JETS/JETS/Styles2.css" type="text/css">
+</head>
+
+<body>
+<div id="PageWrapper">
+	<table width="782" height="100%" border="0" align="center" cellpadding="0" cellspacing="0" class="MainTable">
+		<tr>
+			<td valign="bottom" id="Header">
+				<div class="TopNavigation">
+					<a href="/" class="Active">Home</a>
+					
+			<a href="?DivisionID=1035">Student Resources  </a>
+		
+			<a href="?DivisionID=1032">Who We Are </a>
+		
+			<a href="?DivisionID=1033">Theological Programs</a>
+		
+			<a href="?DivisionID=3002">How to Apply  </a>
+		
+			<a href="?DivisionID=1036">Donations  </a>
+		
+			<a href="?DivisionID=1078">Contact Us</a>
+		
+			<a href="?DivisionID=7158">Prayer Requests</a>
+		
+					<!---a href="?PN=News"<'%if DivisionID="" and PN="News" then%> class="Active"<'%end if%>>News</a-->
+					<!---a href="?PN=Calendar"<'%if DivisionID="" and PN="Calendar" then%> class="Active"<'%end if%>>Events</a-->
+					<!--a href="?PN=Contact"<'%if DivisionID="" and PN="Contact" then%> class="Active"<'%end if%>>Contact</a-->
+				</div>
+				<div class="TopSubNavigation">
+					&nbsp;
+					
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td height="100%" valign="top">
+				<div id="TopNews">
+	<div class="IndexNewsPortalDistrict">
+		<!--- # include file="Include-News.asp"--->
+		
+	<div class="IndexNewsPortalDistrict">
+	<a href="Default.asp?PN=News2">District News
+</a>
+	
+	</div>
+
+	</div>
+	<div align="right"><a href="?PN=News2&SubP=DNews">More News</a> <img src="http://images.pcmac.org/Websites/JETS/JETS/images/RightArrow.gif" width="7" height="8" align="absmiddle"></div>
+</div>
+<div id="SlideShow">
+	
+	<div style="width:448px; height:287px; overflow:hidden;">
+		 
+<script type="text/javascript" src="/JavaScripts/slideshow.js"></script>
+<script type="text/javascript">
+<!--
+	 
+	SLIDES31334 = new slideshow("SLIDES31334");
+	SLIDES31334.timeout =1000;
+
+	function SlideTiming(time,slide)
+	{
+	slide.timeout = time.value
+	}
+
+	
+		<!--	
+		SLIDES31334.add_slide(s = new slide('http://images.schoolinsites.com/cache/Site_258/906112d1e8ef31a0e7c38766de68c5e5.jpg'));
+		s.link = '';
+		s.target = '_blank';
+		s.filter = 'progid:DXImageTransform.Microsoft.Fade()';		
+		//-->
+			
+</script>
+
+<table WIDTH="100%" height="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" bgcolor="#ffffff" id="theTable">
+	<tr>
+		<td align="center" valign="middle" colspan="2"><a href="javascript:SLIDES31334.hotlink()"><img name="SLIDES31334IMG" src="/Images/NoImages.jpg" style="filter:progid:DXImageTransform.Microsoft.Fade()" border="0" alt="" /></a></td>
+	</tr>
+	
+		<tr>
+			
+				<td width="30" align="left">
+				  <table>
+					 <tr>
+					   <td>
+							<img src="/images/Timer3.jpg" height="25" border="0">
+					   </td>
+					   <td>
+						<select name="SlideTime" onChange="SlideTiming(this,SLIDES31334);" class="formitem">
+							<option value="1000" selected>1 Seconds</option>
+							<option value="2000" >2 Seconds</option>
+							<option value="3000" >3 Seconds</option>
+							<option value="5000" >5 Seconds</option>
+							<option value="10000" >10 Seconds</option>
+							<option value="15000" >15 Seconds</option>
+							<option value="20000" >20 Seconds</option>
+							<option value="25000" >25 Seconds</option>
+						</select> 
+					   </td>
+					 </tr>
+				  </table> 		   
+				</td>   
+			
+				<td align="right">
+				  <img SRC="/images/Buttons/btn_previous.gif" onclick="SLIDES31334.previous();" WIDTH="22" HEIGHT="22" style="cursor: pointer"> 
+				  <img SRC="/images/Buttons/btn_next.gif" onclick="SLIDES31334.next();" WIDTH="22" HEIGHT="22" style="cursor: pointer">
+				  <img SRC="/images/Buttons/btn_start.gif" onclick="SLIDES31334.play();" WIDTH="22" HEIGHT="22" style="cursor: pointer">
+				  <img SRC="/images/Buttons/btn_stop.gif" onclick="SLIDES31334.pause();" WIDTH="22" HEIGHT="22" style="cursor: pointer">
+				</td>		
+			
+		</tr>
+	
+</table>
+<script type="text/javascript">
+	<!--
+
+	if (document.images) {
+
+	SLIDES31334.image = document.images.SLIDES31334IMG;
+	SLIDES31334.textid = "ss_text";
+	SLIDES31334.update();
+	SLIDES31334.play();
+
+	// Create a function to ramp up the image opacity in Mozilla
+	var fadein_opacity = 0.04;
+	var fadein_img = SLIDES31334.image;
+	function fadein(opacity) {
+	  if (typeof opacity != 'undefined') { fadein_opacity = opacity; }
+	  if (fadein_opacity < 0.99 && fadein_img && fadein_img.style &&
+	      typeof fadein_img.style.MozOpacity != 'undefined') {
+
+	    fadein_opacity += .05;
+	    fadein_img.style.MozOpacity = fadein_opacity;
+	    setTimeout("fadein()", 50);
+	  }
+	}
+
+	// Tell the slideshow to call our function whenever the slide is changed
+	SLIDES31334.post_update_hook = function() { fadein(0.04); }
+
+	}
+//-->
+</script>	
+	</div>
+	
+</div>
+<div class="Divider">
+	Jump to an area: 
+	
+			<select name="select" onChange="iJump(this);" class="formitem1">
+				<option>- make a selection -</option>
+					
+						<option value="Default.asp?PN=''&amp;DivisionID='5438'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Acadimec Cataloge</option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1035'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Student Resources  </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1032'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Who We Are </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1033'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Theological Programs</option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1034'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Applying to JETS </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='3002'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >How to Apply  </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1036'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Donations  </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1189'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Publishing House </option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='1078'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Contact Us</option>
+				
+						<option value="Default.asp?PN=''&amp;DivisionID='7158'&amp;DepartmentID='0'&amp;FromDate='5/1/2012'&amp;ToDate='5/31/2012'&amp;iMonth='5'&amp;iYear='2012'&amp;iDay=''" >Prayer Requests</option>
+				
+			</select>
+</div>
+<div id="DefaultIncludes">
+	<table cellpadding="0" cellspacing="0" border="0">
+		<tr>
+			<td width="390" valign="top">
+				
+<div align=left>		
+<span class="header"></span><BR>
+ <p style="text-align: center;"><span style="color: #ff0000; font-family: arial, helvetica, sans-serif; font-size: 18px;"><span style="text-decoration: underline;"><br /></span></span></p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Update%20on%20Courses8.jpg" border="0" style="-webkit-user-select: none;" /></span></span></p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><br /></span></span></p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><span style="font-family: arial, helvetica, sans-serif; font-size: 18px;"><br /></span></span></p>
+<p style="text-align: left;"><span style="font-family: 'times new roman', times; font-size: 16px; color: #000000;"><strong>For more information please contact&nbsp;</strong><em>hannahmu@jets.edu</em></span></p>
+<p style="text-align: center;"><em><br /></em></p>
+<p><em><br /></em></p>
+<p><a href="http://jets.schoolinsites.com/?DivisionID=1078" target="_blank"><span style="color: #ff0000; font-family: arial, helvetica, sans-serif; font-size: 300%;"><em><em><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Contact%20Us.jpg" border="0" style="display: block; margin-left: auto; margin-right: auto;" /></em></em></span></a></p>
+<p style="text-align: center;"><a href="http://www.jetsusa.org/Donations.html" target="_blank"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Donate.jpg" border="0" /></a></p>
+<p><a href="http://jetsftp.pcmac.org/prayerrequestapril2012.jpg" target="_blank"><span style="color: #ff0000; font-family: arial, helvetica, sans-serif; font-size: 300%;"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Prayer%20Requests.jpg" border="0" style="display: block; margin-left: auto; margin-right: auto;" /></span></a></p>
+<p><span style="color: #ff0000; font-family: arial, helvetica, sans-serif; font-size: 300%;"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Salaam%20Program%201.jpg" border="0" style="display: block; margin-left: auto; margin-right: auto;" /></span></p>
+<p style="text-align: center;"><a href="http://jetsftp.pcmac.org/summer%20schedule%20for%202012.jpg"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//summer%20schedual%202012%20.jpg" border="0" /></a></p>
+<p><a href="http://jetsftp.pcmac.org/Journal__March_2012.pdf" target="_blank"><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//JETS%20Journals%20scaled.jpg" border="0" style="display: block; margin-left: auto; margin-right: auto;" /></a></p>
+<p style="text-align: center;"><a href="http://jetsftp.pcmac.org/24.html" target="_blank"><strong><em><img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Chapel%20Messages.jpg" border="0" /></em></strong></a></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p>&nbsp;<img src="http://images.pcmac.org//images/Users/henryish@hotmail.com//Books%20published%20by%20JETS%203.jpg" border="0" style="display: block; margin-left: auto; margin-right: auto;" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p><br>
+</div>
+			</td>
+			<td id="TopEvents" valign="top" style="width:345px; _width:350; padding-left: 5px;">
+				<br/>
+				<div class="IndexNewsPortalEvents">
+					
+<div class="IndexNewsPortalEvents">
+<a href="Default.asp?PN='Calendar'&ShowNav='Yes'">Top Events</a>
+
+</div>
+
+					<!--- # include file="Include-Events.asp"--->
+				</div>
+				<div align="right"><a href="?PN='Calendar'&ShowNav='Yes'">More Events</a> <img src="http://images.pcmac.org/Websites/JETS/JETS/images/RightArrow.gif" width="7" height="8" align="absmiddle"></div>
+			</td>
+		</tr>
+	</table>
+</div>
+			</td>
+		</tr>
+		<tr>
+			<td valign="bottom">
+				<div class="Divider">&nbsp;</div>
+				<div id="Legal">
+	<a  href="http://www.schoolinsites.com/"><img src="/images/SisPoweredSmall.png" id="PoweredBy" height="30" width="120" alt="Powered and Designed by SCHOOLinSITES"/></a>
+	
+	<p class="right">
+		Copyright &copy; 2011-2012 &nbsp;Jordan Evangelical Theological Seminary
+	</p>
+</div>
+
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

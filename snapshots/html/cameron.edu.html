@@ -1,0 +1,1332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">                                                                                   
+
+<html lang="en">
+<head>
+	<title>CU Home - Cameron University</title>
+<link rel="icon" type="image/vnd.microsoft.icon" href="http://www.cameron.edu/favicon.ico" >
+<link href="/css/dropdown.css" rel="stylesheet" type="text/css">
+	<link href="/css/main.css" rel="stylesheet" type="text/css">
+<link href="/cuprint.css" rel="stylesheet" type="text/css" media="print">
+	<script src="/js/rollover.js" type="text/javascript"></script>
+	<script src="/js/dropdown.js" type="text/javascript"></script>
+
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="generator" content="WebGUI 7.9.14" /><meta http-equiv="Content-Script-Type" content="text/javascript" /><meta http-equiv="Content-Style-Type" content="text/css" /><script type="text/javascript">function getWebguiProperty (propName) {var props = new Array();props["extrasURL"] = "/extras/";props["pageURL"] = "/home";props["firstDayOfWeek"] = "0";return props[propName];}</script><link href="/css/shutter.css" rel="stylesheet" type="text/css"><script src="/js/shutter.js" type="text/javascript"></script><META HTTP-EQUIV="Pragma" CONTENT="no-cache"><META HTTP-EQUIV="Expires" CONTENT="-1"><META HTTP-EQUIV="Cache-Control" content="no-cache"><meta name="google-site-verification" content="AvSgaViVaqjQesa9RTXol2RRJwTXRS3fq65puEQjDwQ" /><body topmargin="0" onLoad="initRollovers();feature_text.innerHTML = featuretext0" bgcolor="#adadad"><style type="text/css">
+#mCAL * {
+			margin:0px;			
+		}
+		#mCAL table {
+
+			padding: 2px 2px 2px 2px;
+			text-align: center;
+			background-color: #CCCCCC;
+			-moz-border-radius-topLeft: 5px;
+			-moz-border-radius-topRight: 5px;
+			-moz-border-radius-bottomLeft: 5px;
+			-moz-border-radius-bottomRight: 5px;
+			color: #000000;
+			font-size: 10pt;
+
+		}
+
+		#mCAL td {
+			font-size:10px;
+			font-family:arial;
+		}
+		#mCAL .caltab {
+
+			border-bottom-style: none;
+			font-weight: bold;
+			padding: 2px 15px 0px 15px;
+			text-align: center;
+			background-color: #999999;
+			-moz-border-radius-topLeft: 10px;
+			-moz-border-radius-topRight: 10px;
+			color: #000000;
+			text-decoration: none;
+			font-size: 10pt;
+			display: block;
+			float: left;
+			margin-right: 5px;
+		}
+		#mCAL .tab:hover {
+			color:black;
+		}	
+		#mCAL .active {
+			background-color:#EDB840;
+			color:#000000;
+			border-bottom:solid #DFE3EE 1px;
+		}	
+		#mCAL .controls {
+			float:right;
+			vertical-align:bottom;
+		}
+		#mCAL a {
+			font-size:11px;
+			color:#AC742E;
+		}	
+		#mCAL .months {
+			text-align:center;
+			background-color:#FFFFFF;			
+		}
+		#mCAL .months a {
+			color:#000000;
+			text-decoration:none;
+		}
+		#mCAL .months .monthLink {
+			text-decoration:none;			
+			padding-left:25px;
+			padding-right:25px;
+			color:#000000;
+			font-size:14px;
+			font-weight:bold;
+                        text-transform: UPPERCASE;
+		}	
+
+		#mCAL .months .current, #mCAL .months .monthLink:hover {
+			font-weight:bold;
+			color:#000;
+			background-color:#fff;			
+			-moz-border-radius:5px;
+		}
+		#mCAL .curMonth {
+			text-align:center;
+			margin: 2px 0px;
+			background-color:#000;
+			color:white;
+			font-size:14px;
+			font-weight:bold;
+		}
+
+
+/**** Month view ****/
+/* Table */
+#mCAL table#month
+{
+
+}
+
+#mCAL table#month *
+{
+	padding:		0px;
+	margin:			0px;
+}
+
+#mCAL table#month a
+{
+	text-decoration:	none;
+}
+
+#mCAL table#month th
+{
+	-moz-box-sizing:border-box;
+	width:			15px;
+	background-color:	#FFF;
+	text-align:		center;
+	font-weight:		bold;
+	color:			#666;
+        font-size:              12px;
+}
+
+#mCAL table#month div
+{
+	position:		relative;
+	width:			15px;
+	height:			12px;
+	margin:			0px;
+	background-color:	#FFF;
+}
+
+#mCAL table#month ul
+{	
+	overflow:		hidden;
+}
+
+#mCAL table#month .active
+{
+	-moz-border-radius-topLeft:	0px;
+	-moz-border-radius-bottomLeft:	0px;
+	-moz-border-radius-bottomRight:	0px;
+	-moz-border-radius-topRight:	0px;
+	vertical-align:		top;		
+	background-color:	#FFF;
+}
+#mCAL table#month .current
+{
+	background-color:	#EDB840;
+}
+
+#mCAL table#month .number
+{
+	display:		block;
+	position:		absolute;
+	top:			0px;
+	right:			0px;
+	height:			10px;
+	width:			10px;
+	background-color:	white;
+	color:			black;
+	text-align:		center;
+	vertical-align:		middle;
+        padding:                0px 3px 0px 0px;
+	font-weight:		bold;
+}
+#mCAL table#month .current .number
+{
+	background-color:	EDB840;
+	color:			black;
+}
+
+#mCAL table#month .events
+{
+	padding:		3px;
+	padding-top:		8px;
+	font-weight:		bold;			
+}
+#mCAL table#month .events a
+{
+	color:			#4F4F4F;
+	text-decoration:	none;
+	font-size:		9px;
+}
+
+#mCAL table#month .moreButton
+{
+	border-style:		none;
+	position:		absolute;
+	bottom:			0px;
+	width:			100%;
+	height:			9px;
+	background-color:	#517AC8;	
+	font-size:		5px;
+	text-align:		center;
+	-moz-border-radius-bottomLeft:	8px;
+	-moz-border-radius-bottomRight:	8px;
+}
+
+#mCAL table#month .moreButton img
+{
+	border:			none;
+}
+
+
+/* MORE STYLES */
+
+moreDisplay
+{
+	position: 		absolute;
+	border:			solid black 1px;
+	border-top:		solid black 2px;
+	font-family:		arial;
+	font-size:		10px;
+	width:			200px;
+	height: 		auto;
+	padding:		2px;
+	background-color:	#FFEACD;
+	color:			black;
+	display:        none;
+	z-index: 		100;
+}
+.moreDisplay a {
+   color: black;
+}
+
+* html body table#month td { position: relative; z-index: 1; }
+</style>
+
+<script type="text/javascript" src='/extras/yui/build/yahoo/yahoo.js'></script>
+<script type="text/javascript" src='/extras/yui/build/event/event.js' ></script>
+
+<script type="text/javascript">
+<!--
+//<![CDATA[
+	
+   //-----------------------------------------------------------------------------------   	
+   function isSelfOrChildOf(parent,node) {
+      if(parent == node) return true;
+	  if(parent == null || node == null) return false;
+	  var childLen = parent.childNodes.length;
+      for (var i = 0; i < childLen; i++) {
+         var child = parent.childNodes[i];
+	     if(child.nodeType != 1) continue; //Skip text and attribute nodes
+	     if(isSelfOrChildOf (child,node)) {
+	        return true;
+	     }
+      }
+      return false;
+   }	
+  
+   //-----------------------------------------------------------------------------------   
+   function findParentNodeFromChild (node,tagName) {
+      if(node == null) return node;
+	  var parent = node.parentNode;
+	  if(parent == null) return node;
+	  if(parent.tagName == tagName) {
+	     return parent;
+	  }
+	  return findParentNodeFromChild (parent,tagName);
+   }
+  
+  
+   //-----------------------------------------------------------------------------------   
+   function showEvents(eventId) {
+	  var evt = YAHOO.util.Event.getEvent();
+      var targ = YAHOO.util.Event.getTarget(evt);
+	 
+	  var elem = document.getElementById(eventId);
+	  var td;
+      var pPagex;
+      var pPagey;
+         
+      //IE is stupid
+      var isIE = navigator.userAgent.indexOf("MSIE") > -1;
+      var isIE7 = navigator.userAgent.indexOf("MSIE 7") > -1;
+      if(isIE && !isIE7) {
+         //IE 6 and below don't register offsetTop or offsetLeft for the div
+         td = findParentNodeFromChild(targ,"TD");
+         pPagex = td.offsetTop;
+         pPagey = td.offsetLeft;
+      } else {
+         var cDiv = findParentNodeFromChild(targ,"DIV");
+	     pPagex = cDiv.offsetTop;
+	     pPagey = cDiv.offsetLeft;
+         td = findParentNodeFromChild(cDiv,"TD");
+      }
+     
+      var tdHeight = td.offsetHeight;
+
+	  var eventX = tdHeight + pPagex;
+	  var eventY = pPagey;
+		 
+	  elem.style.top = eventX + 'px';
+	  elem.style.left = eventY + 'px';
+	  elem.style.display = "block";
+     
+	  //Register listener
+	  YAHOO.util.Event.addListener(document.body,"mousemove",hideEvents,{ "targ":targ, "elem": elem, "td": td })
+	  return false;
+   }
+  
+   //-----------------------------------------------------------------------------------   
+   function hideEvents(e, el) {
+	  if(!e || !el) return;
+	 
+	  var elem = el.elem;
+	  var td = el.td;
+	  var targ = el.targ;
+	 
+	  var evtTarg = YAHOO.util.Event.getTarget(e);
+	 
+	  var inDiv = isSelfOrChildOf(elem,evtTarg);
+      var inTd = isSelfOrChildOf(td,evtTarg);
+	  var inTarget = isSelfOrChildOf(targ,evtTarg);
+	 
+	  if(inDiv || inTd || inTarget) {
+	     //do nothing
+	  } else {
+	     elem.style.display = "none";
+		 YAHOO.util.Event.removeListener (document.body,"mousemove",hideEvents);   
+	  }
+	  return false;
+   }
+  
+//]]>
+-->     
+</script>
+
+<style type="text/css">
+.hidden { position:absolute;
+          left:0px;
+          top:-500px;
+          width:1px;
+          height:1px;
+          overflow:hidden;
+}
+</style><meta http-equiv="Cache-Control" content="must-revalidate" />
+
+</head>
+
+<body topmargin="0" onLoad="initRollovers()" bgcolor="#adadad">
+
+<center>
+<div id="outerlayer">
+
+
+	<table cellspacing="0" cellpadding="0" border="0" class="maintable">
+	<tr>
+	<td class="maincolumn">
+		<!-- START MASTHEAD -->
+<div id="printmast">
+<img src="/uploads/a6/7c/a67c999bea15e55a124236775d685874/print_masthead2011.jpg" alt="Cameron University" align="left">
+			<div style="padding-top: 75px;" float: left>
+				<img src="/2007newdesign/lawton_ok.gif" alt="Lawton Oklahoma" border="0" height="18" width="143"><br>
+					<font style="font-family: tahoma; font-size: 11px; color: rgb(204, 204, 204); font-weight: bold;">
+<script src="/CU/rss2html.js" type="text/javascript"></script>
+					</font>
+			</div>
+
+<hr>
+</div>
+		<table id="masthead" cellspacing="0" cellpadding="0" border="0" width="741">
+		<tr>
+		<td width="310" rowspan=2><a href="#maincontent"><img src="/uploads/GG/i3/GGi3aVpBGCkr6J4OfvUoxA/pixel.gif" height="1" width="1" border="0" alt="Skip to Main Content"></A><a href="/"><img src="/uploads/GG/i3/GGi3aVpBGCkr6J4OfvUoxA/pixel.gif" height="100" width="300" border="0" alt="Cameron University Homepage"></a></td>
+		<td style="padding-top:10px;" align="right">
+<script type="text/javascript" defer="defer">
+<!--
+function go2(formObj) {
+	if (formObj.quicklinks.options[formObj.quicklinks.selectedIndex].value != "none") {
+		location = formObj.quicklinks.options[formObj.quicklinks.selectedIndex].value;
+	}
+}
+//-->
+</script>
+<form action="#"><label for="quicklinks" class="hidden">Select from a list of Quick Links</label><select id="quicklinks" name="quicklinks" size="1" style="font-size:10px" class="searchform" onchange="go2(this.form)">
+<option value="none" selected>Quick Links</option>
+<option value="/advising-center">Academic Advising Center</option>
+<option value="/academic">Academic Affairs</option>
+<option value="/info/calendars/academic">Academic Calendar</option>
+<option value="/admin">Administration</option>
+<option value="/admissions">Admissions - Undergrad</option>
+<option value="/graduate">Admissions - Graduate</option>
+<option value="https://aggieaccess.cameron.edu">AggieAccess</option>
+<option value="/alumni">Alumni Relations</option>
+<option value="http://www.cameronaggies.com">Athletics</option>
+<option value="http://blackboard.cameron.edu">Blackboard</option>
+<option value="http://cameron.bkstr.com">Bookstore</option>
+<option value="/career_services">Career Services</option>
+<option value="/organizations">Clubs and Organizations</option>
+<option value="/info/schedules">Courses Offered</option>
+<option value="/duncan">CU-Duncan</option>
+<option value="/academic/degrees.html">Degrees Offered</option>
+<option value="https://banner01.cameron.edu/prod/bwpkedir.P_DisplayDirectory">Directory</option>
+<option value="https://owa.cameron.edu">Email - Faculty/Staff</option>
+<option value="http://gmail.cameron.edu">Email - Student</option>
+<option value="/personnel">Faculty Positions</option>
+<option value="/financial_aid">Financial Assistance</option>
+<option value="/cu_foundation">Giving to CU</option>
+<option value="/housing">Housing</option>
+<option value="/admissions/international">International Center</option>
+<option value="/personnel">Job Listings</option>
+<option value="/library">Library</option>
+<option value="/goarmyed">Military</option>
+<option value="/online">Online Programs &amp; Courses</option>
+<option value="/ops/parkingregulations.html">Parking</option>
+<option value="/ops">Public Safety</option>
+<option value="/registrar">Registrar</option>
+<option value="/academic/liberal_arts/communications/spchcamp/">Speech-Debate Camp</option>
+<option value="/personnel">Staff Openings</option>
+<option value="/studentservices">Student Services</option>
+<option value="/wellnesscenter">Student Wellness Center</option>
+<option value="/registrar/transcripts.html">Transcript Requests</option>
+<option value="/transfer">Transfer Admission</option>
+<option value="/info/schedules">Tuition and Fees</option>
+</select>
+</form></td>
+		<td style="padding-top:10px;" align="right"><script type="text/javascript" defer="defer">
+<!--
+function go(formObj) {
+	if (formObj.chooser.options[formObj.chooser.selectedIndex].value != "none") {
+		location = formObj.chooser.options[formObj.chooser.selectedIndex].value;
+	}
+}
+//-->
+</script>
+
+<form action="#"><label for="chooser" class="hidden">Select a link from a more comprehensive list</label>
+<select id="chooser" name="chooser" size="1" style="font-size:10px" class="searchform" onchange="go(this.form)"><option value="none" selected>A-Z Directory</option>
+
+	<option value="/academic">&nbsp;&nbsp;Academics</option>
+    <option value="/advising-center">&nbsp;&nbsp;&nbsp;&nbsp;Academic Advising Center</option>
+	<option value="/ace">&nbsp;&nbsp;&nbsp;&nbsp;Adult and Cont. Educ.</option>
+	<option value="/completedegree">&nbsp;&nbsp;&nbsp;&nbsp;Adult Degree Completion</option>
+	<option value="/agriculture">&nbsp;&nbsp;&nbsp;&nbsp;Agriculture</option>
+	<option value="/art">&nbsp;&nbsp;&nbsp;&nbsp;Art</option>
+	<option value="/biology">&nbsp;&nbsp;&nbsp;&nbsp;Biological Sciences</option>
+	<option value="/duncan">&nbsp;&nbsp;&nbsp;&nbsp;CU - Duncan</option>
+	<option value="/cj_sociology">&nbsp;&nbsp;&nbsp;&nbsp;CJ & Sociology</option>
+	<option value="/communication">&nbsp;&nbsp;&nbsp;&nbsp;Communication</option>
+    <option value="/comptech">&nbsp;&nbsp;&nbsp;&nbsp;Computing & Technology</option>
+	<option value="/education">&nbsp;&nbsp;&nbsp;&nbsp;Education</option>
+	<option value="/english_languages">&nbsp;&nbsp;&nbsp;&nbsp;English & Foreign Lang</option>
+	<option value="/graduate">&nbsp;&nbsp;&nbsp;&nbsp;Graduate Studies</option>
+	<option value="/nursing">&nbsp;&nbsp;&nbsp;&nbsp;Health & Interdisc. Studies</option>
+	<option value="/health_physical_ed">&nbsp;&nbsp;&nbsp;&nbsp;Health and Physical Ed</option>
+	<option value="/history_government">&nbsp;&nbsp;&nbsp;&nbsp;History & Government</option>
+	<option value="/honors">&nbsp;&nbsp;&nbsp;&nbsp;Honors Program</option>
+	<option value="/library">&nbsp;&nbsp;&nbsp;&nbsp;Library</option>
+	<option value="/math">&nbsp;&nbsp;&nbsp;&nbsp;Mathematical Sciences</option>
+	<option value="/military">&nbsp;&nbsp;&nbsp;&nbsp;Military Science</option>
+    <option value="/music">&nbsp;&nbsp;&nbsp;&nbsp;Music</option>
+	<option value="/online">&nbsp;&nbsp;&nbsp;&nbsp;Online Programs &amp; Courses</option>
+	<option value="/physical_science">&nbsp;&nbsp;&nbsp;&nbsp;Physical Sciences</option>
+	<option value="/psychology">&nbsp;&nbsp;&nbsp;&nbsp;Psychology</option>
+	<option value="/info/schedules">&nbsp;&nbsp;&nbsp;&nbsp;Semester Schedules</option>
+	<option value="/business">&nbsp;&nbsp;&nbsp;&nbsp;School of Business</option>
+	<option value="/education_school">&nbsp;&nbsp;&nbsp;&nbsp;Educ. & Behavioral Sci.</option>
+	<option value="/liberal_arts">&nbsp;&nbsp;&nbsp;&nbsp;School of Liberal Arts</option>
+	<option value="/science">&nbsp;&nbsp;&nbsp;&nbsp;Science & Technology</option>
+	<option value="/theatre_arts">&nbsp;&nbsp;&nbsp;&nbsp;Theatre Arts</option>
+	<option value="/swahec">&nbsp;&nbsp;&nbsp;&nbsp;SW Okla AHEC</option>
+	<option value="/writing_center">&nbsp;&nbsp;&nbsp;&nbsp;Writing Center</option>
+	<option value="/admin">&nbsp;&nbsp;Administrative Offices</option>
+	<option value="/academic_affairs">&nbsp;&nbsp;&nbsp;&nbsp;Academic Affairs</option>
+	<option value="/academic_research">&nbsp;&nbsp;&nbsp;&nbsp;Academic Research</option>
+	<option value="/admissions">&nbsp;&nbsp;&nbsp;&nbsp;Admissions</option>
+	<option value="/alumni">&nbsp;&nbsp;&nbsp;&nbsp;Alumni Relations</option>
+	<option value="/business_office">&nbsp;&nbsp;&nbsp;&nbsp;Business Office</option>
+	<option value="/cu_foundation">&nbsp;&nbsp;&nbsp;&nbsp;CU Foundation</option>
+	<option value="/ed_outreach">&nbsp;&nbsp;&nbsp;&nbsp;Educational Outreach</option>
+	<option value="/financial_aid">&nbsp;&nbsp;&nbsp;&nbsp;Financial Assistance</option>
+	<option value="/its">&nbsp;&nbsp;&nbsp;&nbsp;ITS</option>
+	<option value="/oeo">&nbsp;&nbsp;&nbsp;&nbsp;Equal Opportunity Office</option>
+	<option value="/personnel">&nbsp;&nbsp;&nbsp;&nbsp;Personnel Office</option>
+	<option value="/phys_facilities">&nbsp;&nbsp;&nbsp;&nbsp;Physical Facilities</option>
+	<option value="/president">&nbsp;&nbsp;&nbsp;&nbsp;President</option>
+	<option value="/printing">&nbsp;&nbsp;&nbsp;&nbsp;Printing Services</option>
+	<option value="/public_affairs">&nbsp;&nbsp;&nbsp;&nbsp;Public Affairs</option>
+	<option value="/ops">&nbsp;&nbsp;&nbsp;&nbsp;Public Safety</option>
+	<option value="/registrar">&nbsp;&nbsp;&nbsp;&nbsp;Registrar</option>
+	<option value="/ira">&nbsp;&nbsp;&nbsp;&nbsp;Research & Assessment</option>
+	<option value="/testing">&nbsp;&nbsp;&nbsp;&nbsp;Testing Center</option>
+	<option value="/veteran_affairs">&nbsp;&nbsp;&nbsp;&nbsp;Veteran Affairs</option>
+	<option value="/studentservices">&nbsp;&nbsp;Student Services</option>
+	<option value="/career_services">&nbsp;&nbsp;&nbsp;&nbsp;Career Services</option>
+	<option value="/fitness_center">&nbsp;&nbsp;&nbsp;&nbsp;Fitness Center</option>
+	<option value="/od">&nbsp;&nbsp;&nbsp;&nbsp;Open Doors</option>
+	<option value="/plus">&nbsp;&nbsp;&nbsp;&nbsp;PLUS</option>
+	<option value="/activities">&nbsp;&nbsp;&nbsp;&nbsp;Student Activities</option>
+	<option value="/student_development">&nbsp;&nbsp;&nbsp;&nbsp;Student Development</option>
+	<option value="/housing">&nbsp;&nbsp;&nbsp;&nbsp;Student Housing</option>
+	<option value="/sss">&nbsp;&nbsp;&nbsp;&nbsp;Student Support Services</option>
+    <option value="/wellnesscenter">&nbsp;&nbsp;&nbsp;&nbsp;Student Wellness Center</option>
+    <option value="/trio">&nbsp;&nbsp;&nbsp;&nbsp;TRIO</option>
+	<option value="/ub">&nbsp;&nbsp;&nbsp;&nbsp;Upward Bound</option>
+</select></form>
+</td>
+		<td style="padding-top:10px;" valign="top" align="right"><form id="searchbox_014940064196211141993:ottnfsmx9t0" action="http://www.cameron.edu/search"><label for="q" class="hidden">Enter search information</label>
+<input id="q" type=text name="q" value="Search" onClick="this.value=''" size="15" class="searchform"><input name="cx" value="014940064196211141993:ottnfsmx9t0" type="hidden">
+<input name="cof" value="FORID:11" type="hidden"></td>
+		<td style="padding-top:11px;" align="right" valign="top"><input name="sa" type="image" src="/uploads/CW/zh/CWzhgm4d84tzmIlZCCVj4g/icon_search.gif" alt="Search"></form></td>
+		</tr>
+		<tr>
+		<td colspan=3>
+			<div align=right style="padding-top:25px">
+				<img src="/2007newdesign/lawton_ok.gif" width="143" height="18" alt="Lawton Oklahoma" border="0"><br>
+					<font style="font-family:tahoma;font-size:11px;color:#cccccc;font-weight:bold;">
+<script src="/CU/rss2html.js" type="text/javascript"></script>
+					</font>
+			</div>
+		</td><td></td>
+		</tr>
+		</table>
+		<!-- END MASTHEAD -->
+		<!-- START TOP NAV -->
+		<table cellspacing="0" cellpadding="0" border="0" width="741" id="topnav">
+			<tr>
+			<td class="navcell">
+				<div id="myLabel1"><a href="/" onMouseover="return !showMenuTest('1', event, 'myLabel1');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_home.gif" width="183" height="26" alt="Home" border="0" class="imgover"></a></div>
+				<div id="myMenu1" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				</div>
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>
+			<td class="navcell">
+				<div id="myLabel2"><a href="/info" onMouseover="return !showMenuTest('2', event, 'myLabel2');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_about_cu.gif" width="161" height="26" alt="About Cameron" border="0" class="imgover"></a></div>
+				<div id="myMenu2" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="200">
+					<tr>
+						<td valign=top>
+<!--About Cameron University -->
+    <a href="/accreditation">Accreditation</a><br>
+	<a href="/info/mission.html">Mission Statement</a><br>
+	<a href="/president">Message from the President</a><br>
+        <a href="/admin">Administration</a><br>
+<a href="https://banner01.cameron.edu/prod/bwpkedir.P_DisplayDirectory">Campus Directory</a><br>
+<a href="/info/campus_map">Campus Map</a><BR>
+	<a href="/fastfacts">Facts about Cameron</a><br>
+        <a href="/duncan">CU-Duncan</a><br>
+	<a href="/info/aboutcu.html">Community</a><br>
+	<a href="/personnel">Jobs</a><br>
+        <a href="http://www.cetes.org" target="_new">CETES</a><br>
+        <a href="/info">More...</a><br>
+						</td>						
+					</tr>
+				</table>
+				</div>				
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>
+<td class="navcell">
+				<div id="myLabel4"><a href="/academic" onMouseover="return !showMenuTest('4', event, 'myLabel4');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_academics.gif" width="73" height="26" alt="Academics" border="0" class="imgover"></a></div>
+				<div id="myMenu4" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="161">
+					<tr>
+						<td valign=top>
+<!--Academics -->
+	<a href="/academic">Schools &amp; Departments</a><br>
+	<a href="/academic/degrees.html">Degrees &amp; Majors</a><br>
+        <a href="/catalog">Undergraduate Catalog</a><br>
+        <a href="/graduate/graduate_catalog.pdf">Graduate Catalog (pdf)</a><br>
+	<a href="/online">Online Programs</a><br>
+	<a href="/info/calendars/academic">Academic Calendar</a><br>
+	<a href="/info/schedules">Enrollment Schedules</a><br>
+    <a href="/advising-center">Academic Advising Center</a><br>
+    <a href="http://cameron.bkstr.com">Bookstore</a><br>
+        <a href="/registrar">Registrar's Office</a><br>
+        <a href="/registrar/transcripts.html">Transcripts</a><BR>
+        <a href="/academic">More...</a><br>
+					</td>
+					</tr>
+				</table>
+				</div>					
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>			
+			<td class="navcell">
+				<div id="myLabel3"><a href="/admissions" onMouseover="return !showMenuTest('3', event, 'myLabel3');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_admissions.gif" width="75" height="26" alt="Admissions" border="0" class="imgover"></a></div>
+				<div id="myMenu3" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="161">
+					<tr>
+						<td valign=top>
+<!--Admissions -->
+	<a href="/admissions">Undergraduate</a><br>
+	<a href="/graduate">Graduate</a><br>
+        <a href="/transfer">Transfer</a><br>
+        <a href="/admissions/international">International</a><br>
+	<a href="/goarmyed">Military</a><br>
+    <a href="/advising-center">Academic Advising Center</a><br>
+        <a href="/info/schedules/tuition">Tuition and Fees</a><br>
+	<a href="/financial_aid">Financial Assistance</a><br>
+	<a href="https://banner01.cameron.edu/prod/bwskalog.P_DispLoginNon">Apply Online</a><br>
+        <a href="/prospective">More...</a><br>
+				</td>
+					</tr>
+				</table>
+				</div>	
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>
+
+			<td class="navcell">
+				<div id="myLabel5"><a href="/studentservices" onMouseover="return !showMenuTest('5', event, 'myLabel5');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_student_life.gif" width="78" height="26" alt="Student Life" border="0" class="imgover"></a></div>
+				<div id="myMenu5" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="161">
+					<tr>
+						<td valign=top>
+<!--Student Life -->
+	<a href="http://www.cameronaggies.com" target="_new">Athletics</a><br>
+	<a href="/career_services">Career Services</a><br>
+	<a href="/organizations">Clubs &amp; Organizations</a><br>
+        <a href="/disability_services">Disability Services</a><br>
+	<a href="/housing">Housing</a><br>
+        <a href="/ops">Public Safety</a><br>
+        <a href="/activities">Student Activities</a><br>
+    <a href="/student_development">Student Development</a><br>
+    <a href="/wellnesscenter">Wellness Center</a><br>
+    <a href="/studentservices">More...</a><br>
+						</td>
+					</tr>
+				</table>
+				</div>	
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>
+			<td class="navcell">
+				<div id="myLabel6"><a href="/library" onMouseover="return !showMenuTest('6', event, 'myLabel6');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_library.gif" width="52" height="26" alt="Library" border="0" class="imgover"></a></div>
+				<div id="myMenu6" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="157">
+					<tr>
+						<td valign=top>
+<!--Library -->
+	<a href="http://libinfosource.cameron.edu/">CU Library Catalog</a><br>
+        	<a href="/library/databaseoff.html">Database Search</a><br>
+        <a href="http://ezproxy.cameron.edu/login?url=http://site.ebrary.com/lib/cameron">ebrary</a><br>
+	<a href="http://cameron.illiad.oclc.org/illiad/logon.html">Interlibrary Loan: ILLiad</a><br>
+	<a href="/library/services.html">Library Services and Hours</a><br>
+	<a href="/library">More...</a><br>
+						</td>
+					</tr>
+				</table>
+				</div>	
+			</td>
+			<td><img src="/uploads/G9/2D/G92DH36tk5kl6MauqP7_Ww/topnav_divider.gif" width="3" height="26" alt="" border="0"></td>
+			<td class="navcell">
+				<div id="myLabel7"><a href="/info/news.html" onMouseover="return !showMenuTest('7', event, 'myLabel7');"  onMouseOut = "return !hideMenuTest(event);"><img src="/2007newdesign/topnav_news_events.gif" width="102" height="26" alt="News and Events" border="0" class="imgover"></a></div>
+				<div id="myMenu7" class="drop_down" style="position:absolute; z-index:18; visibility:hidden" onmouseover="event.cancelBubble = true;">
+				<table cellpadding="0" cellspacing="0" border="0" id="drop_down" width="102">
+					<tr>
+						<td valign=top>
+<!--News and Events -->
+        <a href="/eventcalendar">Event Calendar</a><br>
+        <a href="/community_relations/presspg.html">Current News</a><br>
+	<a href="/community_relations/press_archives">News Archives</a><br>
+        <a href="http://www.aggiecentral.com"><I>Collegian</I></a><br>
+	<a href="http://www.aggiecentral.com">CUTV</a><br>
+        <a href="http://www.kccu.org">KCCU-FM</a><br>
+        <a href="/info/news.html">More...</a><br>
+						</td>
+					</tr>
+				</table>
+				</div>
+			</td>
+			</tr>
+		</table>
+		<!-- END TOP NAV -->
+		
+<a name="maincontent"></A>
+				<div><a name="idP6ZXdH7d9Z5j4yNrAbPjig" id="idP6ZXdH7d9Z5j4yNrAbPjig"></a></div>
+<img src="/2007newdesign/pixel.gif" width=1 height=10 alt=""><br>
+
+
+
+
+
+
+
+		
+<!-- START CONTENT AREA -->
+<table cellspacing="0" cellpadding="0" border="0" width="742" id="maintable_content">
+<tr>
+<td colspan=5>
+
+<!-- begin position 1 -->
+
+
+
+	
+
+	<div class="content">		<!-- START SHUTTERS -->
+		<img src="/uploads/GG/i3/GGi3aVpBGCkr6J4OfvUoxA/pixel.gif" width=1 height="5" alt=""><br>
+			
+			<table cellspacing="0" cellpadding="0" border="0" bgcolor="#ffffff">
+			<tr>
+			<td width="184" valign=top id="shutters">
+				<a href="/prospective"><img src="/uploads/AG/qA/AGqAh4E8P7VdbEGs8BntMw/shutter_prospective_students.jpg" alt="Prospective Students" width="184" height="24" border="0" onMouseOver="swapFeature(1)"></a><br>
+				<a href="/current"><img src="/uploads/O9/6V/O96VMkIL2M3XYWphMvDyOA/shutter_current_students.jpg" alt="Current Students" width="184" height="24" border="0" onMouseOver="swapFeature(2)"></a><br>
+				<a href="/parents"><img src="/uploads/l1/Qc/l1QcH4ZnlzQtHVGNQY7qQQ/shutter_parents_families.jpg" alt="Parents & Families" width="184" height="23" border="0" onMouseOver="swapFeature(3)"></a><br>
+				<a href="/facultystaff"><img src="/uploads/Aj/o3/Ajo3jn3IOwXZp8sPtYloaw/shutter_faculty_staff.jpg" alt="Faculty & Staff" width="184" height="24" border="0" onMouseOver="swapFeature(4)"></a><br>
+				<a href="/alumnimenu"><img src="/uploads/XJ/2C/XJ2ClCg8eh7PBHhjprV4Bg/shutter_alumni_doners.jpg" alt="Alumni & Donors" width="184" height="24" border="0" onMouseOver="swapFeature(5)"></a><br>
+				<a href="/visitors"><img src="/uploads/Ba/jc/BajcfSgC5rlow2G8_XPQLQ/shutter_visitors_community.jpg" alt="Visitors & Community" width="184" height="23" border="0" onMouseOver="swapFeature(6)"></a><br>
+				<a href="http://www.cameronaggies.com"><img src="/uploads/GU/Xo/GUXoFDyvO5sKPMApzI-U-w/shutter_aggie_sports.jpg" alt="Aggie Sports" width="184" height="24" border="0" onMouseOver="swapFeature(7)"></a><br>
+<a href="/community_relations/specialevents"><img src="/uploads/Pt/Gb/PtGbOvw5xeEvPgvzAWP9FA/shutter_special_events2.jpg" alt="Special Events" width="184" height="24" border="0" onMouseOver="swapFeature(8)"></a><br>				<div id="feature_text" name="feature_text" class="feature_sub" onMouseOver="feature_sublinks.style.visibility='hidden';"></div>
+			</td>
+			<td valign=top>
+				<img xonMouseOut="evalResetFeature(event)" name="feature_img" id="feature_img" src="/2007newdesign/shutterimages/shutters-main/cu278.jpg" width="557" height="282" alt="members of the Cameron community" border="0"><br>
+			</td>
+			</tr>
+			</table>
+		<div id="feature_sublinks" name="feature_sublinks"></div>
+		<!-- END SHUTTERS -->
+</div>
+
+	
+
+	
+
+	<div class="content">		<!-- START UTILITY ICONS -->
+		<div align=right style="background-color:#C7C9CB;height:27px;width:741px;">
+		<a href="https://banner01.cameron.edu/prod/bwskalog.P_DispLoginNon"><img alt="Apply Online" title="Apply Online" src="/2007newdesign/icon-apply2.gif" width=74 height=27 border=0></a>
+                <a href="/online"><img alt="CU Online Programs" title="CU Online Programs" src="/2007newdesign/icon_onlineprograms-5.gif" width="144" height="27" border="0"></a>
+		<a href="https://aggieaccess.cameron.edu"><img alt="AggieAccess Login" title="AggieAccess Login" src="/2007newdesign/icon_AggieAccess.gif" width="110" height="27" border="0"></a>
+		<a href="http://blackboard.cameron.edu"><img alt="Blackboard" title="Blackboard" src="/2007newdesign/icon-blackboard.gif" width="110" height="27"  border="0"></a>
+	    <a href="http://gmail.cameron.edu"><img alt="Student Web Email" title="Student Web Email" src="/2007newdesign/icon-stuemail.gif" width="129" height="27" border="0"></a>
+	    <a href="https://owa.cameron.edu/"><img alt="Employee Web Email" title="Employee Web Email" src="/2007newdesign/icon-empemail.gif" width="143" height="27" border="0"></a>
+		</div>
+		<!-- END UTILITY ICONS -->
+</div>
+
+	
+
+	
+
+	<div class="content"><div id="articled02bb2a491031aebe842212354d382eb" class="article default">
+
+<a name="id0CuypJEDGuvoQiEjVNOC6w" id="id0CuypJEDGuvoQiEjVNOC6w"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<p><div id="article653211ad6bbf60b6113a73f0d5ba6cda" class="article default">
+
+<a name="idZTIRrWu-YLYROnPw1bps2g" id="idZTIRrWu-YLYROnPw1bps2g"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<p><a href="/commencement"><img style="border: 0;" src="/media/community-relations/com2012-live-graphic-banner.jpg" alt="banner graphic for commencement" /></a></p>
+	<!--/description-->
+	</div>
+
+
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/article653211ad6bbf60b6113a73f0d5ba6cda /article default-->
+</div>
+</p>
+	<!--/description-->
+	</div>
+
+
+
+	
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/articled02bb2a491031aebe842212354d382eb /article default-->
+</div>
+</div>
+
+	
+
+	
+
+	<div class="content"><div id="image8a7216b6510d70a3c41822f582f39250" class="image">
+<a name="idinIWtlENcKPEGCL1gvOSUA" id="idinIWtlENcKPEGCL1gvOSUA"></a>
+
+
+
+<img src="/uploads/aI/TN/aITNKMKGG-XeCtWrakQY3Q/hdr_content_area.jpg" style="border-style:none;" alt="" width=747 height=16 id="inIWtlENcKPEGCL1gvOSUA" />
+
+<!--/image8a7216b6510d70a3c41822f582f39250 /image-->
+</div></div>
+
+	
+
+
+
+<!-- end position 1 -->
+</td></tr>
+<tr>
+<td width="133" align=left class="copy" valign="top">
+<!-- begin position 2 -->
+
+
+
+	
+
+	<div class="content"><div id="image3f77cc918aaff52ea67f042e04c997bd" class="image">
+<a name="idP3fMkYqv9S6mfwQuBMmXvQ" id="idP3fMkYqv9S6mfwQuBMmXvQ"></a>
+
+
+
+<img src="/uploads/nJ/RF/nJRFgDnH8HlWK9-LjlUqdQ/content_welcome.jpg" style="border-style:none;" alt="Welcome to Cameron University" width=133 height=133 id="P3fMkYqv9S6mfwQuBMmXvQ" />
+
+<!--/image3f77cc918aaff52ea67f042e04c997bd /image-->
+</div></div>
+
+	
+
+	
+
+	<div class="content"><div id="article4f87baa2613e6237863db954dc86bf45" class="article default">
+
+<a name="idT4e6omE_YjeGPblU3Ia-RQ" id="idT4e6omE_YjeGPblU3Ia-RQ"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<p><a target="_blank" href="http://www.militaryfriendlyschools.com/search/profile.aspx?id=206914"><img src="/media/community-relations/2011-12-press-release-photos/mfs_100x100_2012.jpg" alt="military friendly logo" style="border: 0;" /></a><a target="_blank" href="http://www.militaryfriendlyschools.com/search/profile.aspx?id=206914"><img height="100" width="100" src="/media/community-relations/2011-12-press-release-photos/military-friendly-logo300x300.gif" alt="military friendly logo" style="border: 0;" /></a></p>
+	<!--/description-->
+	</div>
+
+
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/article4f87baa2613e6237863db954dc86bf45 /article default-->
+</div>
+</div>
+
+	
+
+
+
+<!-- end position 2 -->
+
+</td>
+<td width="177" class="copy" valign="top">
+<!-- start main content column -->
+<!-- begin position 3 -->
+
+
+
+	
+
+	<div class="content"><div id="articled892f60aaaad674c656c71ddaf88c81e" class="article default">
+
+<a name="id2JL2CqqtZ0xlbHHdr4jIHg" id="id2JL2CqqtZ0xlbHHdr4jIHg"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<img width="177" src="/uploads/Dl/AR/DlARFzFkI65MINF3RtLnZA/content_hdr_welcome.gif" alt="Welcome to Cameron University" height="44" title="Welcome to Cameron University" /><br />Students are the heart of our commitment. By making Cameron your university of choice, you are choosing to pursue your academic endeavors where you can grow personally, excel academically, and receive a complete university experience. <a href="/prospective">More information for prospective students...</a>
+	<!--/description-->
+	</div>
+
+
+
+	
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/articled892f60aaaad674c656c71ddaf88c81e /article default-->
+</div>
+</div>
+
+	
+
+
+
+<!-- end position 3 -->
+</td>
+<td width="143" class="copy" valign="top">
+<!-- begin position 4 -->
+
+
+
+	
+
+	<div class="content"><div id="article124d91629798cdbe4f069afcc6996eb8" class="article default">
+
+<a name="idEk2RYpeYzb5PBpr8xpluuA" id="idEk2RYpeYzb5PBpr8xpluuA"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<p><a href="/tour" title="Take a Tour"><img height="133" width="143" src="/uploads/vz/HA/vzHAmS-v0oyG1cilmVxQ7A/content_tour.jpg" alt="Take a Tour" hspace="0" border="0" title="Take a Tour" /></a><br /><br /><br /></p>
+	<!--/description-->
+	</div>
+
+
+
+	
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/article124d91629798cdbe4f069afcc6996eb8 /article default-->
+</div>
+</div>
+
+	
+
+	
+
+	<div class="content"><a name="rHZykYr9bgHiKelW8FF6Dw"></a>
+	
+		<center>
+
+
+
+
+
+  <p><br /><a href="http://www.collegeportraits.org/OK/CU" title="Summary Information about Cameron"><img height="73" width="150" src="/uploads/Dt/bK/DtbKmgtdHghul2CZGmFOVw/CollegePortrait-earlyadopter-small.gif" alt="College Portrait - link to summary info about CU" border="0" /></a></p><p>
+
+
+
+  
+
+
+
+
+
+
+
+</center>
+</div>
+
+	
+
+
+
+<!-- end position 4 -->
+</td>
+<td width="169" class="copy" valign="top">
+<!-- begin position 5 -->
+
+
+
+	
+
+	<div class="content"><div id="articlea63bafa363aa06f44a83fa16208a5e8e" class="article default">
+
+<a name="idpjuvo2OqBvRKg-oWIIpejg" id="idpjuvo2OqBvRKg-oWIIpejg"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<h2 style="text-align: center;"><span style="color: #9e7c0c;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; UPCOMING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; </span><span style="color: #9e7c0c;">EVENTS @ CU</span></h2>
+<ul>
+<li><a href="http://www.cameron.edu/uploads/cd/1f/cd1ff567f6c837bcb0f2c6cca1b0399f/Finals_Spring2012_toRegistrar.pdf">Final Exams</a></li>
+<li><a href="http://www.google.com/calendar/event?eid=XzhkOWxjZ3JmZHByNmFzams3MG9tOGM5aDcwbzNjcDM1Y2RpM2VlOWk2MWhqZ2RobjcxaWphZGoyNjFpajhwMWxja3BnXzIwMTIwNDEwVDE1MDAwMFogY2FtZXJvbi5lZHVfNDU2dWQ5bDQ5M2k0NzNycHNxOWw0aTc1NjhAZw&amp;ctz=America/Chicago"><span style="color: #ba8d45;"></span></a><a href="http://www.google.com/calendar/event?eid=XzhkOWxjZ3JmZHByNmFzams3MG9tOGM5aDcwbzNjcDM1Y2RpM2VlOWk2MWhqZ2RobjcxaWphZGoyNjFpajhwMWxja3BnXzIwMTIwNDEwVDE1MDAwMFogY2FtZXJvbi5lZHVfNDU2dWQ5bDQ5M2k0NzNycHNxOWw0aTc1NjhAZw&amp;ctz=America/Chicago"><span style="color: #ba8d45;">Senior Art Exhibit</span></a></li>
+<li><a href="http://www.cameronaggies.com">Baseball vs. Tarleton State</a></li>
+<li><a href="http://www.google.com/calendar/event?eid=XzhkOWxjZ3JmZHByNmFzams2OHEzNGQ5bjc1Z2o0b3I2NjhyM2dwOW02Z3JqYXBoaDZrb2o0ZTlrNmRnbWNkYjM2c3EwIGNhbWVyb24uZWR1XzQ1NnVkOWw0OTNpNDczcnBzcTlsNGk3NTY4QGc&amp;ctz=America/Chicago">Cameron Guitar Ensemble</a></li>
+<li><a href="http://www.cameron.edu/hooding">Hooding Ceremony</a></li>
+<li><a href="http://www.google.com/calendar/event?eid=dHJ1dmowaHIzYWw3OG0xaGFic2pwNXFkbTAgY2FtZXJvbi5lZHVfYnM2bmZkcTBhMG0yM2hlMHN2NWF2cGw2MTRAZw&amp;ctz=America/Chicago">Finals Breakfast</a></li>
+<li><span style="color: #ba8d45;"><a href="http://www.cameron.edu/commencement">Commencement</a></span></li>
+</ul>
+	<!--/description-->
+	</div>
+
+
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/articlea63bafa363aa06f44a83fa16208a5e8e /article default-->
+</div>
+</div>
+
+	
+
+
+
+<!-- end position 5 -->
+
+</td>
+<td width="125" class="copy" valign="top">
+<!-- begin position 6 -->
+
+
+
+	
+
+	<div class="content">
+
+
+
+
+
+
+<table cellspacing="0" cellpadding="0" width="120" id="mCAL">
+<tr>
+    <td class="months">
+        <div style="padding:3px 0px;">
+           
+            <a style="text-align:center;" href="/eventcalendar" class="monthLink">May</a>
+
+        </div>
+    </td>
+</tr>
+<tr>
+    <td style="width:120px">
+  
+    <!-- the calendar table -->
+        <table id="month" width="120" cellspacing="1" cellpadding="0">
+        <!-- day names -->
+        <tr>
+            <th>S</th>
+            <th>M</th>
+            <th>T</th>
+            <th>W</th>
+            <th>T</th>
+            <th>F</th>
+            <th>S</th>
+        </tr>
+       
+        <!-- the grid -->
+        <tr>
+        <td><div class="">
+             <!--/day-->
+        </div></td><td><div class="">
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">1</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">2</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">3</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">4</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">5</a>
+             <!--/day-->
+        </div></td> <!--/days-->
+        </tr><tr>
+        <td><div class="active current">
+            
+               <a class="number" href="/eventcalendar">6</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">7</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">8</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">9</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">10</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">11</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">12</a>
+             <!--/day-->
+        </div></td> <!--/days-->
+        </tr><tr>
+        <td><div class="active">
+            
+               <a class="number" href="/eventcalendar">13</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">14</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">15</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">16</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">17</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">18</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">19</a>
+             <!--/day-->
+        </div></td> <!--/days-->
+        </tr><tr>
+        <td><div class="active">
+            
+               <a class="number" href="/eventcalendar">20</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">21</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">22</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">23</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">24</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">25</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">26</a>
+             <!--/day-->
+        </div></td> <!--/days-->
+        </tr><tr>
+        <td><div class="active">
+            
+               <a class="number" href="/eventcalendar">27</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">28</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">29</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">30</a>
+             <!--/day-->
+        </div></td><td><div class="active">
+            
+               <a class="number" href="/eventcalendar">31</a>
+             <!--/day-->
+        </div></td><td><div class="">
+             <!--/day-->
+        </div></td><td><div class="">
+             <!--/day-->
+        </div></td> <!--/days-->
+        </tr>
+    </table>
+</tr>
+</table>
+
+
+
+</div>
+
+	
+
+	
+
+	<div class="content"><div id="article1199184bb100c16c537ffb3e90243626" class="article default">
+
+<a name="idEZkYS7EAwWxTf-s_kCQ2Jg" id="idEZkYS7EAwWxTf-s_kCQ2Jg"></a>
+
+
+
+
+
+<div class="articleContent">
+
+
+	<div class="description">
+		<p><a href="/guarantee"><img style="border: 0;" alt="Guarantee of Quality Degrees from Cameron University" src="/media/community-relations/cu-guarantee.jpg" width="135" height="128" /></a></p>
+	<!--/description-->
+	</div>
+
+
+
+
+<!--/articlecontent-->
+</div>
+
+
+
+<div class="wg-clear"></div>
+
+<!--/article1199184bb100c16c537ffb3e90243626 /article default-->
+</div>
+</div>
+
+	
+
+
+
+<!-- end position 6 -->
+</td></tr></table>
+
+	<!-- END CONTENT AREA -->
+<div class="endFloat">&nbsp;</div>
+
+
+
+		
+		<!-- END CONTENT AREA -->
+	
+	</td>
+	</tr>
+	<tr>
+		<td class="footer_content" valign="bottom">
+			<div style="margin-left:27px;margin-right:40px;">
+				<table cellspacing="0" cellpadding="0" border="0">
+				<tr>
+				<td id="campusnotice" width="190"><a href="/community_relations/campusnotices"><img src="/2007newdesign/campus_notices.gif" alt="Campus Notices" width="157" height="35" border="0"></a></td>
+				<td>
+				<div class="footer_div">
+				Cameron University . 2800 West Gore Boulevard . Lawton Oklahoma 73505-6377 . (580) 581-2200<br>
+<a href="/duncan" class="footer_link">Cameron University-Duncan</a> . 3100 West Bois D’arc, Duncan Oklahoma 73533 . 1-877-282-3626<BR>
+			 &copy;2012, Cameron University, All Rights Reserved . <a href="/oeo" class="footer_link">Cameron University is an Equal Opportunity Employer</A> <br>
+		 	 <a href="/info/contact.html" class="footer_link">Contact Us</a> :
+				<a href="/map" class="footer_link">Site Map</a> :
+				<a href="/disclaimer" class="footer_link">Terms of Use</a> :
+<a href="/accreditation" class="footer_link">Accreditation</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a class="loginToggleLink" href="/home?op=auth;method=init">Visitor</a> &nbsp; 
+				</div>
+			</div>
+				</td>
+				</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	<tr id="footimg"><td><img src="/uploads/60/S7/60S7vVLvBrJghRiC7xnI7g/footer_main.jpg" width="830" height="44" alt="" border="0"></td></tr>
+	</table>
+
+
+</div>
+</center>
+<!--12.17.07 added code for site analyzation-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3240596-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+pageTracker._trackPageLoadTime();
+</script>
+</body>
+</html>

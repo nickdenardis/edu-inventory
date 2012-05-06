@@ -1,0 +1,337 @@
+
+	<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		_uacct = "UA-451500-1";
+		urchinTracker();
+	</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head><script type="text/javascript" src="/CFIDE/scripts/cfform.js"></script>
+<script type="text/javascript" src="/CFIDE/scripts/masks.js"></script>
+
+<title>The Heritage Institute - Educating for Humanity &amp; the World We Want</title>
+<meta name="Description" content="" />
+<meta name="Keywords" content="" />
+<meta name="Copyright" content="The Heritage Institute, www.hol.edu. All rights reserved.">
+<meta name="Language" content="en" />
+<meta name="Distribution" content="Global" />
+<meta name="Robots" content="index, follow" />
+<meta name="Rating" content="General" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta http-equiv="Expires" content="never" />
+<meta name="google-site-verification" content="ey2_GoR-Hb0hCZFAlL1HivMC1RnKxOCNY0_YM7eTOls" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script language="JavaScript" type="text/javascript" src="scripts/swfobject.js"></script>
+<script language="JavaScript" type="text/javascript" src="scripts/preload.js"></script>
+<script language="JavaScript" type="text/javascript" src="scripts/ufo.js"></script>
+<script language="JavaScript" type="text/javascript" src="scripts/jquery1-3.js"></script>
+<script language="JavaScript" type="text/javascript" src="scripts/jquery-droppy.js"></script>
+<script type="text/javascript">
+	function openData(section, courseID) {
+		window.open('class_data.cfm?cid=' + courseID + '&sid=' + section, 'classdata', 'width=600,height=600,scrollbars=yes');
+	}
+	function sendEmail(address, subject){
+		var fixEmail = address.replace(' [at] ', '@');
+		window.location.href='mailto:' + fixEmail + '?subject=' + subject
+	}
+
+	
+	
+
+	function searchUpdate(){
+		if ($('#searchCriteria').val() == 'ByCredits') {
+			$('#keywordDiv').html(' \
+				<select name="keyword" id="keyword" style="width: 155px;"> \
+					<option value="1">1 credit</option> \
+					<option value="2">2 credits</option> \
+					<option value="3">3 credits</option> \
+					<option value="4">4 credits</option> \
+					<option value="5">5 credits</option> \
+          <option value="6">6 credits</option> \
+				</select>');
+		} else if ($('#searchCriteria').val() == 'BySubject') {
+			$('#keywordDiv').html(' \
+				<select name="keyword" style="width:155px;font-size: 11px;"> \
+				<option value="65"> Not Applicable \<option value="62">Art & Drama & Dance \<option value="2">Assessment \<option value="60">Business \<option value="4">Classroom Management \<option value="38">Counseling & Guidance \<option value="57">Driving Tours-Regional History \<option value="50">Early Childhood Ed. (Pre-K) \<option value="44">Ecology \<option value="37">Education \<option value="51">ELL/ESL \<option value="8">Health/Physical Education \<option value="9">History \<option value="6">Instruction & Teaching \<option value="39">K-3 Instruction \<option value="35">Language Arts & Reading \<option value="55">Leadership & Administration \<option value="12">Literature \<option value="13">Math \<option value="23">Music \<option value="45">Natural History \<option value="36">Parent Involvement \<option value="33">Regional History \<option value="15">Science \<option value="52">Service Learning \<option value="64">Social Justice \<option value="16">Social Studies \<option value="17">Special Education \<option value="61">Sustainability \<option value="18">Technology \<option value="59">Wellness/Spirituality \<option value="26">World Language \<option value="25">Writing \
+				</select>');
+		} else {
+			$('#keywordDiv').html(' \
+				<input name="keyword" id="keyword" type="text" style="width: 155px;" \
+				onclick="if(this.value==\'For...\'){this.value=\'\';}" value="For..." \
+				required="Yes" message="Please enter a search criteria."/>');
+		}
+	}
+</script>
+
+<link href="css/site.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function showabout(){
+		document.getElementById('abouttext').style.display='block';
+		document.getElementById('aboutreadmore').style.display='none';
+	}
+</script>
+
+<script type="text/javascript">
+	if (window.ColdFusion) ColdFusion.required['keyword']=true;
+</script>
+<script type="text/javascript">
+<!--
+    _CF_checkCourseSearchForm = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element keyword required check
+        if( !_CF_hasValue(_CF_this['keyword'], "TEXT", false ) )
+        {
+            _CF_onError(_CF_this, "keyword", _CF_this['keyword'].value, "Please enter the Course number, Title, Instructor or Credits.");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+
+<script type="text/javascript">
+	if (window.ColdFusion) ColdFusion.required['email']=true;
+</script>
+<script type="text/javascript">
+<!--
+    _CF_checkSubscribeForm = function(_CF_this)
+    {
+        //reset on submit
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element email required check
+        if( !_CF_hasValue(_CF_this['email'], "TEXT", false ) )
+        {
+            _CF_onError(_CF_this, "email", _CF_this['email'].value, "Please enter your email address.");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="topwrap">
+
+    <div id="mainnav">
+        <ul>
+            <li><a id="nav1" href="/" title="Home"></a></li>
+            <li><a id="nav2" href="classes_new.cfm" title="NEW Courses"></a></li>
+            <li><a id="nav3" href="distancecourses.cfm" title="Distance & Online Courses"></a></li>
+            <li><a id="nav4" href="#" title="Workshops Field & Travel"></a>
+				<ul>
+                	<li><a href="workshops.cfm">Workshop</a></li>
+                	<li><a href="history.cfm">Field Study</a></li>
+					<li><a href="studyabroad.cfm">Global Travel</a></li>
+                </ul>
+			</li>
+            <li><a id="nav5" href="designcourse.cfm" title="Create Your Own Course"></a></li>
+            <li><a id="nav6" href="instructors.cfm" title="Instructor"></a></li>
+            <li><a id="nav7" href="proposeacourse.cfm" title="Propose a Course"></a></li>
+            <li><a id="nav8" href="cart.cfm" title="Register"></a></li>
+        </ul>
+    </div>
+    
+    <div id="header">
+        <div id="header-logo">
+            <a href="/" title=""><img src="images/hol.png" alt="" width="160" height="134" /></a>
+        </div>
+        <div id="header-like">
+        	<iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/TheHeritageInstitute&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+        </div>
+        <div id="header-fb">
+        	<a href="http://www.facebook.com/TheHeritageInstitute" target="_blank" title="Follow Heritage Institute Online on Facebook!"><img src="images/icon-fb.png" alt="" width="24" height="24" /></a>
+        </div>
+        <div id="header-masthead">
+            <h1>The Heritage Institute</h1>
+            <div><img src="images/collage.png" alt="" /></div>
+            <div>
+            	Distance, Online and On-Site Continuing<br />
+				Education Courses for Teachers
+            </div>
+        </div>
+        <div id="header-course-search">
+            <form name="CourseSearchForm" id="CourseSearchForm" action="search_results.cfm" method="get" onsubmit="return _CF_checkCourseSearchForm(this)"><input name="keyword" id="keyword"  type="text" value="Search: course #, title, instructor, credits" class="headerformfield"  onfocus="if(this.value=='Search: course #, title, instructor, credits')this.value='';"  onblur="if(this.value=='')this.value='Search: course #, title, instructor, credits';" />
+                <input name="Submit" type="submit" class="goblue" value="go">
+            </form>
+
+        </div>
+        <div id="header-updates">
+            <form name="SubscribeForm" id="SubscribeForm" action="signup-new.cfm" method="post" onsubmit="return _CF_checkSubscribeForm(this)"><input name="email" id="email"  type="text" value="Receive updates: Your email address" class="headerformfield"  onfocus="if(this.value=='Receive updates: Your email address')this.value='';"  onblur="if(this.value=='')this.value='Receive updates: Your email address';" />
+                <input name="Submit" type="submit" class="gored" value="go">
+            </form>
+
+        </div>
+        <div id="header-note">
+		<a href="http://www.hol.edu/view_course.cfm?cid=2716&nav=distance"><img src="/uploads/THI-new-Springl-specials-bug-Spring.jpg" /></a>
+        </div>
+    </div>
+
+    <div id="content-frame-intro">
+	  <h2>About The Heritage Institute</h2> 
+	  <p>For over 35 years, The Heritage Institute has offered <strong><a href="distancecourses.cfm">distance and online courses</a></strong>, <strong><a href="workshops.cfm">workshops</a></strong>, and <strong><a href="studyabroad.cfm">global travel study</a></strong> to teachers in the Pacific Northwest, nationally  and internationally. We offer WA State clock hours, Oregon PDUs, and continuing education quarter credits in affiliation with Antioch University Seattle. The Heritage Institute supports your professional development at school by offering university credit for in-services, customizing courses for schools. <span id="aboutreadmore"><a href="javascript:showabout();">Read More</a></span></p> 
+	  <div id="abouttext" style="display:none;">
+		<p>Antioch University CE credits are acceptable in most states for recertification and most
+school districts for salary enhancement. Please check with your district human resources department to be assured of the acceptability of Antioch University CE credits.</p>
+
+<p>Antioch University Seattle is accredited by the Commission on Institutions of Higher Education of the North Central Association of Colleges and Schools, 30 North La Salle St. #2400, Chicago IL 60602-2504. Antioch has held accreditation continuously since 1975. Antioch University is authorized by the Washington Higher Education Coordinating Board (HECB) and meets the requirements and minimum educational standards established for degree-granting institutions under the Degree Authorization Act.</p>
+
+<p>CE quarter credits reflect the equivalent of 10 hours of classroom time and 20 hours of academic work outside the classroom. Three quarter credits are the equivalent of two semester credits. Continuing Education (CE) quarter credit are offered at the 400 level (upper division), and at the 500 level or postbaccalaureate.</p>
+
+<p>Credits shown are for professional continuing education are not applicable to Antioch University academic degrees. CE credits are not guaranteed applicable for inclusion in degree programs from other institutions. Check with your degree program advisor to determine if these credits will qualify. We also recommend that you check with your state and district offices prior to registering for courses to confirm that Antioch University CE credits will apply.</p>
+
+<p>Two kinds of distance courses are offered. In our basic distance course (Guided Independent Study) students communicate with their instructor and send assignments by email. In our online courses, designated by a computer symbol*, students complete their work using web-based forms.</p>
+
+<p>Whether online or distance, all courses are self-paced, and may be registered for at any time.</p>
+
+<p>*<img src="images/monitor.png" border="0" align="top">  Courses with this symbol are done online using web-based fill-in forms. 
+</p>
+	  </div>
+	  </div>
+  <div id="content-frame">
+        
+        
+        
+      <div id="icontent">
+            <div id="icontent-left">
+            	<h2>Helping Educators Make a Difference</h2>
+                <p>The Heritage Institute helps educators make a difference in the lives of young people. Our teacher-tested courses help develop skilled, caring and enthusiastic educators who can count on our experienced faculty and applied learning course design to improve their students’ engagement in learning, while encouraging character, caring and citizenship. Hear from some of the <strong><a href="teacherfeature.cfm">many teachers</a></strong> whose course work with The Heritage Institute has inspired success among their students. <strong><a href="/about.cfm#The%20Heritage%20Institute">Read more</a></strong></p>
+            	
+                <div class="clear"></div>
+                
+                <div id="teacher-tips">
+                	<div><a href="teaching-tips.cfm"><img src="images/teaching-tips.png" alt="Teaching Tips" border="0"/></a></div>
+                    <div>
+                    	<ul>
+						
+							<li>Solutions for chatterboxes</li>
+							
+							<li>Love & Logic in the Classroom & Home</li>
+							
+							<li>Share Your Brilliance With Social Bookmarking</li>
+							
+                        </ul>
+                    	<p><strong><a href="teaching-tips.cfm">Read more...</a></strong></p>
+                        <div style="float:left;"><iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/TheHeritageInstitute&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=lucida+grande&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe></div>
+        				<div style="float:left;"><a href="http://www.facebook.com/TheHeritageInstitute" target="_blank" title="Follow Heritage Institute Online on Facebook!"><img src="images/icon-fb.png" alt="" width="24" height="24" /></a></div>
+                    </div>
+                </div>
+            	
+            </div>
+            <div id="icontent-right">
+				
+            	<div id="teacher-future">
+                	<div id="teacher-future-left">
+                    	<div><img src="/uploads/kellysimpson.jpg" /></div>
+                        <div class="caption">Kelly Simpson</div>
+						<br />
+						<div><img src="/uploads/Mike.jpg" /></div>
+                        <div class="caption">Mike Seymour, Instructor</div>
+                    </div>
+                    <div id="teacher-future-right">
+                    	<div style="padding-bottom:10px;"><a href="teacherfeature.cfm"><img src="images/teacher-feature-sm.png" alt="Teacher Feature" border="0"/></a></div>
+                      <div>
+                        	<Strong>Middle School students connect around the world</Strong><br />
+							Kelly Simpson, Hazlebrook Middle School Tualatin, OR<br />
+							<p><span style="font-size: 12px;"><span style="font-family: Arial;">My name is Kelly Simpson and I am an English Language Development (ELD)  teacher at Hazelbrook Middle School in Tualatin, Oregon. I was fortunate  enough to be one of the first teachers to take the &ldquo;Be the Change&rdquo;  course through Heritage Institute. I was searching for a class that  would give me ideas on how to positively engage pre-teens in their own  community and the world around them, and hopefully deter them from  getting into gangs and/or dropping out of school.</span></span></p> <strong><a href="teacherfeature-view.cfm?id=5">Read more... </a></strong><br /><a href="teacherfeature.cfm">Read all... </a></div>
+                    </div>
+                	<div class="clear"></div>
+                </div>
+				
+				
+				<div style="padding-top:15px;"><a href="/worldwewant.cfm"><img src="images/btn-the-world.png" alt="The World We Want - Earth, Justice &amp; Spirit" border="0"/></a></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</div> <!-- /#topwrap -->
+
+<div id="footer">
+	<div>
+    	The Heritage<br />
+		Institute<br />
+		PO Box 860<br />
+		Clinton, WA 98236
+    </div>
+    <div>
+    	360-341-3020<br />
+		800-445-1305<br />
+		360-341-3070 fax
+    </div>
+    <div>
+    	<ul>
+            <li><a href="mailto:customerservice@hol.edu">Customer Service</a></li>
+            <li><a href="mailto:registrar@hol.edu">Registrar</a></li>
+            <li><a href="mailto:Catalog@hol.edu?subject=Catalog Request&body=Please send a catalog to me at the following address">Request a Catalog</a></li>
+            <li><a href="contact.cfm">Contact Us</a></li>        	
+        </ul>
+    </div>
+    <div>
+    	<ul>
+            <li><a href="syllabus.cfm">Syllabus</a></li>
+            <li><a href="transcript.cfm">Transcript Request</a></li>
+            <li><a href="policies.cfm">Policies</a></li>
+            <li><a href="faq.cfm">FAQ</a></li>
+        </ul>
+    </div>
+        <div>
+    	<ul>
+            <li><a href="view_course.cfm?cid=2359&nav=distance">Group Collaboration</a></li>
+            <li><a href="view_course.cfm?cid=2368">In-Service</a></li>
+            <li><a href="about.cfm#The Heritage Institute">About Us</a></li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>

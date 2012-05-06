@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="description" content="As one of the great Bible Colleges, Appalachian Bible College will equip you for ministry." />
+		<meta name="keywords" content="Bible Colleges" />
+		<meta name="aesop" content="Information" />
+		<meta name="abstract" content="Bible Colleges" />
+		<meta name="classification" content="Bible Colleges" />
+		<meta name="robots" content="index,follow,noydir,noodp" />
+<meta http-equiv="content-language" content="en" />
+<meta name="geo.region" content="US-WV" />
+<meta name="geo.placename" content="Mt Hope" />
+<meta name="geo.position" content="37.852625;-81.200063" />
+<meta name="ICBM" content="37.852625, -81.200063" />
+
+<!-- dynamic canonical URL / --><link rel="canonical" href="http://www.abc.edu/" />
+
+		<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+		<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+		<meta name="DC.title" content="Bible Colleges: Appalachian Bible College – ABC.edu" />
+		<meta name="DC.subject" content="Bible Colleges" />
+		<meta name="DC.description" content="As one of the great Bible Colleges, Appalachian Bible College will equip you for ministry." />
+		<meta name="DC.publisher" content="#" />
+		<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text" />
+		<meta name="DC.format" content="text/html" />
+		<meta name="DC.format" content="19626 bytes" />
+		<meta name="DC.identifier" scheme="DCTERMS.URI" content="http://www.abc.edu/" />
+
+		<meta name="google-site-verification" content="9JqXAThEohPYlNKwo409I7rGA8qswN-P8FOmN7_LxrM" />
+		<title>Bible Colleges: Appalachian Bible College &ndash; ABC.edu</title>
+
+		<link rel="shortcut icon" href="http://www.abc.edu/favicon.ico" type="image/ico" />
+		<!--<link rel="canonical" href="http://www.abc.edu/" />-->
+		<link href="http://www.abc.edu/_css/reset.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="http://www.abc.edu/_css/application.css" media="screen" rel="stylesheet" type="text/css" />
+
+		<link href="http://www.abc.edu/_css/home.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+		<script src="/_js/libs/protoaculous.1.8.3.min.js" type="text/javascript"></script>
+		<script src="/_js/libs/easing.js" type="text/javascript"></script>
+		<script src="/_js/libs/cookiejar.js" type="text/javascript"></script>
+		<script src="/_js/application.js" type="text/javascript"></script>
+		<script src="/_js/sdc-trax.js" type="text/javascript"></script>
+		<script src="/_js/libs/swfobject.js" type="text/javascript"></script>
+
+		<!--[if IE 6]>
+			<script src="/_js/libs/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+			<script type="text/javascript">
+			  document.observe("dom:loaded", function() {
+				$$('div.panel a', 'img.selected').each(function(element) {
+				  DD_belatedPNG.fixPng(element);
+				});
+			  });
+			</script>
+		<![endif]-->
+		<script src="/_js/libs/effect.rotate.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			document.observe("dom:loaded", function() {
+				$$('div#fourPanels .thumbs').invoke('show');
+				newsclick = false;
+				auto_news_rotate(1);
+			});
+
+			Event.observe(window,'load', function() {
+				x = new FancyAccordion('programsAccordion','h3.trigger','div.content', {
+					easing: Effect.Transitions.Cubic.easeOut,
+					duration: 0.3,
+					useOpacity: true,
+					closedOpacity: .3,
+					openOpacity: 1,
+					opacityPattern: 'img',
+					initialOpacity: .3,
+					useRotation: !Prototype.Browser.IE,
+					rotatePattern: 'img',
+					rotation: 90,
+					openOnLoad: 0
+				});
+
+				p = new Panelizer('fourPanels','div.thumbs', 'img', 'img.selected', {
+					easing: Effect.Transitions.Cubic.easeIn,
+					autoSwitch: true,
+					switchDelay: 7,
+					pauseTime: 10,
+					startPosition: 0,
+					duration: .5,
+					useMorph: false,
+					useOpacity: true,
+					indicatorOffsetTop: -10,
+					opacityValues: {
+						initial: .4,
+						hover: .8,
+						full: 1,
+						timing: .2
+					}
+				});
+
+				Event.observe($('abc_video_button'), 'click', function(){start_abc_video('zJKfdOOdveQ');});
+				Event.observe($('dra_video_button'), 'click', function(){start_abc_video('bsZYlsaQFOs');});
+				Event.observe($('abc_video_shade'), 'click', close_abc_video);
+				Event.observe($('abc_video_frame'), 'click', close_abc_video);
+			});
+
+			start_abc_video = function(video_id) {
+				Effect.Appear($('abc_video_shade'), {from: 0, to: 0.7, afterFinish: function(){
+						Effect.SlideDown($('abc_video_frame'), {afterFinish: function(){
+								var params = { allowScriptAccess: "always" };
+								var atts = { id: "abc_video" };
+								swfobject.embedSWF("http://www.youtube.com/v/"+video_id+"?enablejsapi=1&playerapiid=abcvideoapi&autoplay=1&rel=0&showinfo=0&hd=0", "abc_video", "640", "385", "8", null, null, params, atts);
+							}});
+					}});
+			}
+
+			close_abc_video = function() {
+				Effect.SlideUp($('abc_video_frame'), {beforeStart: function() {if(ytplayer) {$('abc_video').stopVideo();} $('abc_video').hide();}, afterFinish: function() {
+						Effect.Fade($('abc_video_shade'));
+					}});
+			}
+
+			ytplayer = false;
+			function onYouTubePlayerReady(playerId) {
+				ytplayer = $("abc_video");
+				ytplayer.addEventListener("onStateChange", "onytplayerStateChange");
+			}
+
+			function onytplayerStateChange(newState) {
+				if(newState == 0) {
+					close_abc_video();
+				}
+			}
+
+			function auto_news_rotate(num) {
+				if(num>3) {
+					num = 1;
+				}
+				if(newsclick == false) {
+					news_rotate('news_menu'+num, 'news_box'+num);
+					auto_news_rotate.delay(7, num+1)
+				}
+			}
+
+			function news_rotate(clicked, elid) {
+				curmenu = $$('.curmenu').first();
+				newmenu = $(clicked);
+
+				x = $(newmenu).positionedOffset().toArray().first();
+				w = $(newmenu).getWidth();
+				w = w/2;
+				offset = -9;
+				t_pos = x + w + offset;
+
+				curbox = $$('.curbox').first();
+				newbox = $(elid);
+				if(curbox.identify() != newbox.identify()) {
+					new Effect.Parallel([
+						new Effect.Fade(curbox, { sync: true }),
+						new Effect.Appear(newbox, { sync: true }),
+						new Effect.Morph(curmenu, { sync: true, style: 'color: #7c7c7c;'}),
+						new Effect.Morph(newmenu, { sync: true, style: 'color: #7b0900;'}),
+						new Effect.Morph('news_triangle', { sync: true, style: 'left: '+t_pos+'px;'})
+					], {
+						duration: 0.8,
+						afterFinish: function() {
+							$(curbox).removeClassName('curbox');
+							$(newbox).addClassName('curbox');
+							$(curmenu).removeClassName('curmenu');
+							$(newmenu).addClassName('curmenu');
+						}
+					});
+				}
+			}
+
+		</script>
+		<script type="text/javascript">
+
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1500868-1']);
+			_gaq.push(['_trackPageview']);
+			_gaq.push(['_trackPageLoadTime']);
+
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+
+
+		</script>
+	</head>
+	<body style="height: 1366px !important;">
+		<div id="wideHead">
+			<div id="header">
+				<div style="display:none"><h1>Appalachian Bible College – ABC.edu</h1></div>
+				<div class="logo"><a  title="Appalachian Bible College" href="http://www.abc.edu/index.php" >Appalachian Bible College</a></div>
+				<div id="topNav">
+
+					<a title="Parents" id="topNav_parents" href="http://www.abc.edu/parents.php">Parents</a>
+					<a title="Current Students" id="topNav_current" href="http://www.abc.edu/current-students.php">Current Students</a>
+					<a title="Alumni" id="topNav_alumni" href="http://www.abc.edu/alumni/index.php">Alumni</a>
+					<a title="Church Ministries" id="topNav_churches" href="http://www.abc.edu/church-ministries.php">Church Ministries</a>
+					<a title="Friends of the School" id="topNav_friends" href="http://www.abc.edu/friends-of-the-school.php">Friends of the School</a>
+
+				</div>
+				<div id="otherLinks" class="serif">
+
+					<a title="Schedule a Visit to Appalachin Bible College" id="utilityVisit" href="http://www.abc.edu/schedule-a-visit.php">Schedule a Visit</a>
+					<a title="Virtual Tour of Appalachin Bible College" id="utilityTour" href="http://www.abc.edu/virtual-tour/index.php">Virtual Tour</a>
+					<a title="Contact Us" id="utilityContact" href="http://www.abc.edu/contact-us.php">Contact Us</a>
+
+				</div>
+				<div id="buttonBar" class="serif">
+
+					<a title="Request Info about Appalachin Bible College" id="utilityTalk" href="http://www.abc.edu/request-info.php">Request Info</a>
+					<a title="Apply Now" id="utilityApply" href="http://www.abc.edu/apply-now.php">Apply Now</a>
+
+				</div>
+				<div id="primaryNav" class="serif">
+
+					<ul>
+						<li id="academicsIndex" class="first"><a  title="Academics" href="http://www.abc.edu/academics/index.php">Academics</a></li>
+						<li id="admissionsIndex"><a title="Admissions &amp; Financial Aid" href="http://www.abc.edu/admissions-and-financial-aid/index.php">Admissions &amp; Financial Aid</a></li>
+						<li id="lifeIndex"><a title="Student Life" href="http://www.abc.edu/student-life/index.php">Student Life</a></li>
+						<li id="aboutIndex" class="last"><a title="About Appalachin Bible College" href="http://www.abc.edu/about-us/index.php">About Us</a></li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="mainContent">
+
+
+			<div id="fourPanels">
+				<div class="panelContainer">
+
+					<a href="http://www.abc.edu/about-us/stories/trained-to-serve-2012.php">
+						<div class="panel p4-4" style="display: none;"></div>
+					</a>
+					
+					<a href="http://www.abc.edu/academics/bachelor-of-arts.php">
+						<div class="panel p1-1" style="display: none;"></div>
+					</a>
+					
+					<a href="http://www.abc.edu/academics/online-courses.php">
+						<div class="panel p3-3" style="display: none;"></div>
+					</a>
+				
+					<a href="http://www.abc.edu/academics/missions-nursing.php">
+						<div class="panel p2-2" style="display: none; float:right"></div>
+					</a>
+
+				</div>
+
+				<img src="/_images/photos/fourPanel/selected.png" alt="selected panel indicator" class="selected" style="display: none; top: 0; left: 0;" />
+				<div class="thumbs" style="display: none;">
+					<div><img src="/_images/photos/fourPanel/commencement-thumb.jpg" alt="Commencement" /></div>
+					<div><img src="/_images/photos/fourPanel/biblical-counseling-thumb.jpg" alt="Biblical Counseling" /></div>
+					<div><img src="/_images/photos/fourPanel/abc-connect-thumb.jpg" alt="ABC Connect" /></div>
+					<div><img src="/_images/photos/fourPanel/nursing-thumb.jpg" alt="Nursing" /></div>
+				</div>
+			</div>
+			<div id="programs">
+				<h2>Because Life is for Service</h2>
+				<p>
+					Singular in our focus, Appalachian Bible College specializes in biblical and theological
+					instruction and development of Christlike character, resulting in men and women equipped
+					to realize God's purpose &mdash; a life of service.
+				</p>
+				<div id="programsAccordion">
+					<h3 class="trigger"><img src="/_images/interface/icons/blueArrow.png" alt="content trigger" />Bachelor of Arts</h3>
+					<div class="content" style="display: none;">
+						<p>
+							Two majors give you a solid Bible &amp; Theology Foundation, plus the education needed to follow your specific passion to serve the Lord.
+							<a href="http://www.abc.edu/academics/bachelor-of-arts.php">More</a>
+						</p>
+					</div>
+					<h3 class="trigger"><img src="/_images/interface/icons/blueArrow.png" alt="content trigger" />Master of Arts</h3>
+					<div class="content" style="display: none;">
+						<p>
+							Develop the leadership, communication and counseling skills needed for effective ministry in a
+							local church, evangelism, church planting, Christian education and more.
+							<a href="http://www.abc.edu/academics/master-of-arts-in-ministry.php">More</a>
+						</p>
+					</div>
+					<h3 class="trigger"><img src="/_images/interface/icons/blueArrow.png" alt="content trigger" />Associate of Arts</h3>
+					<div class="content" style="display: none;">
+						<p>
+							Are you interested in building a strong foundation in God's Word as you seek His direction for your life?
+							This two&#45;year degree can help.
+							<a href="http://www.abc.edu/academics/associate-of-arts.php">More</a>
+						</p>
+					</div>
+					<h3 class="trigger"><img src="/_images/interface/icons/blueArrow.png" alt="content trigger" />Bible Certificate</h3>
+					<div class="content" style="display: none;">
+						<p>
+							Unsure of what to do after high school? Spend time learning God's Word, meeting life long friends, and
+							gaining direction for your future.
+							<a href="http://www.abc.edu/academics/bible-certificate.php">More</a>
+						</p>
+					</div>
+					<h3 class="trigger"><img src="/_images/interface/icons/blueArrow.png" alt="content trigger" />Online Learning</h3>
+					<div class="content" style="display: none;">
+						<p>
+							Experience classes in the comfort of your own home through ABC Connect.
+							<a href="http://www.abc.edu/academics/online-courses.php">Register Today!</a>
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="callouts">
+				<div id="callouts_head"></div>
+				<div class="message" style="border: none;">
+					<img src="/_images/photos/home/rightforme.jpg" alt="Family&#45;Like Support" id="abc_video_button" style="cursor: pointer;" />
+					<h3>Is ABC Right For You?</h3>
+					<p>
+						Since everyone at ABC seeks to follow our Savior, Jesus Christ, a unique closeness exists
+						here that's hard to find at other colleges. See if this shared mission matches yours.<br />
+						<a href="http://www.abc.edu/about-us/is-abc-right-for-me.php">Learn More</a>
+					</p>
+				</div>
+				<div class="message">
+					<img src="/_images/photos/home/appalachiabeauty.jpg" alt="Appalachian Beauty" />
+					<h3>Appalachian Beauty</h3>
+					<p>
+						Whether you want to get outside and enjoy the
+						stillness of nature, or challenge yourself to some
+						whitewater rafting, our location lets you embrace the world God created.
+						<a href="http://www.abc.edu/student-life/appalachian-beauty.php">Learn More</a>
+					</p>
+				</div>
+				<div class="message">
+					<img src="/_images/photos/home/president.jpg" alt="President of ABC" id="dra_video_button" style="cursor: pointer;" />
+					<h3>President&rsquo;s Message</h3>
+					<p>
+						How exciting to know that the best way to know your future is to intimately know
+						God. And the best way to know God is to be skillfully saturated in the Bible, God's
+						personal message to us.<br />
+						<a href="http://www.abc.edu/about-us/office-of-the-president.php">Learn More</a>
+					</p>
+				</div>
+				<div id="newsEvents">
+					<div id="news_top">
+						<img src="/_images/interface/backgrounds/news_triangle.png" id="news_triangle" />
+						<a href="#" id="news_menu1" class="curmenu" onclick="news_rotate(this, 'news_box1'); newsclick=true; return false;">News</a>
+						<a href="#" id="news_menu2" onclick="news_rotate(this, 'news_box2'); newsclick=true; return false;">Events</a>
+						<a href="#" id="news_menu3" onclick="news_rotate(this, 'news_box3'); newsclick=true; return false;">Campus Visits</a>
+					</div>
+					<div id="news_body">
+						<div id="news_box1" class="news_body_box curbox">
+
+							<div class="message" onclick="window.location='about-us/stories/trained-to-serve-2012.php'">
+								<img src="/_images/photos/home/servants-mantel.jpg" alt="Bible Teaching" />
+								<h3>Trained to Serve!</h3>
+								<p>Dr. Daniel Anderson, President of ABC, closed the service with a reminder to the graduates, “Remember, it’s not just ‘…Because Life is for Service;’ the rest of your life should be spent in service...."
+									<a href="http://www.abc.edu/about-us/stories/trained-to-serve-2012.php">Read More</a></p>
+							</div>
+							
+							<div class="message" onclick="window.location='about-us/stories/bible-conference-review.php'">
+								<img src="/_images/photos/home/pulpit-bible.jpg" alt="" />
+								<h3>Bible Conference in Review</h3>
+								<p>By removing the distraction of coursework, students are able to be immersed in concentrated time around the Bible....
+									<a href="http://www.abc.edu/about-us/stories/bible-conference-review.php">Read More</a></p>
+							</div>
+							
+							<div class="message" onclick="window.location='about-us/stories/work-day-2012.php'">
+								<img src="/_images/photos/home/work-day-2012.jpg" alt="" />
+								<h3>Work Day 2012</h3>
+								<p> Students and Staff joined forces to battle the effects of sin: weeds, germs, and general deterioration.  The Campus Work Day is a favorite.... 
+									<a href="http://www.abc.edu/about-us/stories/work-day-2012.php">Read More</a> 
+
+								</p>
+							</div>
+										
+
+						</div>
+
+						<div id="news_box2" class="news_body_box" style="display: none;"> 
+							
+							
+
+							<div class="message" onclick="window.location='http://www.abc.edu/about-us/events.php#year-end'">
+								<img src="/_images/photos/home/graduation.jpg" alt="" />
+								<h3>Commencement</h3>
+								<p>Saturday, May 5th
+									<br />Family and friends are invited to join us for this special occasion as we recognize and honor...
+									<a href="http://www.abc.edu/about-us/events.php#year-end">Read More</a></p>
+							</div>
+
+							<div class="message" onclick="window.location='http://www.alpineministries.com/'">
+								<img src="/_images/photos/home/alpine.jpg" alt="" />
+								<h3>Alpine Bible Camps & Adventures</h3>
+								<p>
+									Alpine Ministries provides a variety of Bible camps and adventures for all ages.  Come with a friend, bring your youth group...
+								</p>
+								<p>
+									<a href="http://www.alpineministries.com/">More Info</a>
+								</p>
+							</div>
+							
+							<div class="message" onclick="window.location='http://www.abc.edu/ministry-partners/ladies-auxiliary/index.php'">
+								<img src="/_images/photos/home/ladies-aux-summer.jpg" alt="" />
+								<h3>Ladies Conference</h3>
+								<p>June 22-23, 2012<br />
+									Guest Speaker: <br />Dr. Georgia Purdom with Answers in Genesis
+								</p>
+							</div>
+							
+						</div>
+
+						<div id="news_box3" class="news_body_box" style="display: none;">
+							<div class="message" onclick="window.location='http://www.abc.edu/schedule-a-visit.php'">
+								<img src="/_images/photos/home/cupola.jpg" alt="" />
+								<h3>Personalized Visit</h3>
+								<p>Experience a visit that fits your interest, answers your question and meets your needs.
+									<a href="http://www.abc.edu/schedule-a-visit.php">Read More</a>
+								</p>
+							</div>
+							<div class="message" onclick="window.location='http://www.abc.edu/schedule-a-visit.php'">
+								<img src="/_images/photos/home/pipkin.jpg" alt="" />
+								<h3>Church or Group Visit</h3>
+								<p>Hospitality fits any size. Arrange special sessions like "Financial Aid" for all.
+									<a href="http://www.abc.edu/schedule-a-visit.php">Read More</a></p>
+							</div>
+							<div class="message" onclick="window.location='spring-preview.php'">
+								<img src="/_images/photos/home/spring-preview.jpg" alt="" />
+								<h3>Spring Preview</h3>
+								<p>Beginning planning now for the 2013 Spring Preview and experience life on campus.
+									<a href="http://www.abc.edu/spring-preview.php">Read More</a></p>
+							</div>
+						</div>
+					</div>
+					<div id="news_bottom"></div>
+				</div>
+
+				<div id="footer">
+					<div style="margin-left: 20px; margin-bottom: 7px; font-size: 16px; text-align: center; padding-bottom: 11px; border-bottom: 1px solid #ddd;">
+						<a href="https://secure.abc.edu/ministry-partners/give-to-abc.php">Donate to ABC</a>
+						<a href="http://www.abc.edu/chapel-messages/">Listen to Chapel Messages</a>
+						<a rel="nofollow" class="last" href="http://www.alpineministries.com" onclick="window.open(this.href); return false;">Alpine Ministries</a>
+					</div>
+					<p class="links">
+
+						&copy;2009 Appalachian Bible College
+						<a href="http://www.abc.edu/site-map.php">Site Map</a>
+						<a href="http://www.abc.edu/privacy-policy.php">Privacy Policy</a>
+						<a  href="http://www.abc.edu/accreditation.php" class="last">Accreditation</a>
+
+						<a rel="nofollow" class="icon" href="http://www.facebook.com/pages/Bradley-WV/Appalachian-Bible-College/174006840360" onclick="window.open(this.href); return false;"><img src="/_images/interface/buttons/facebook.png" alt="Join us on Facebook" title="Join us on Facebook" /></a>
+						<a rel="nofollow" class="icon" href="http://feeds.feedburner.com/ABCChapelMessages" onclick="window.open(this.href); return false;"><img src="/_images/interface/buttons/rss.png" alt="Subscribe to Chapel Messages" title="Subscribe to Chapel Messages" /></a>
+					</p>
+					<p class="credit">
+						<a rel="nofollow" href="http://www.elliance.com" onclick="window.open(this.href); return false;">Website design</a> by Elliance
+					</p>
+					<div id="callouts_foot"></div>
+				</div>
+
+			</div>
+
+
+			<div id="bgSwitcher" style="display: none; margin: 0px auto 0;">
+				<div id="switchBox" style="display: none;">
+					<div>
+						<div class="thumbs">
+							<img src="/_images/photos/bgSwitcher/thumbs/1.jpg" alt="Click to set steeple and woods background" />
+							<img src="/_images/photos/bgSwitcher/thumbs/2.jpg" alt="Click to set snowy field background" />
+							<img src="/_images/photos/bgSwitcher/thumbs/3.jpg" alt="Click to set autumn woods background" />
+							<img src="/_images/photos/bgSwitcher/thumbs/4.jpg" alt="Click to set dandelion background" />
+							<img src="/_images/photos/bgSwitcher/thumbs/5.jpg" alt="Click to set summer river background" />
+						</div>
+					</div>
+				</div>
+				<div id="switchTease">
+					<h4>See the beauty of God's creation in southern West Virginia</h4>
+					<img id="switchTab" src="/_images/interface/icons/switchTabDown.png" alt="Toggle background image switcher" />
+				</div>
+			</div>
+		</div>
+
+		<div id="abc_video_shade" style="display: none; position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; background-color: #000; z-index: 9999"></div>
+		<div id="abc_video_frame" style="display: none; position: fixed; top: 50%; left: 50%; width: 702px; height: 464px; margin-left: -351px; margin-top: -232px; background: url(/_images/interface/backgrounds/youtube640_bak.png) no-repeat center; z-index: 10000">
+			<div style="margin-left:31px; margin-top: 44px;"><div id="abc_video"></div></div>
+		</div>
+
+	</body>
+</html>

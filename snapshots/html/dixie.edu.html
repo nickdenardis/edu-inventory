@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dixie State College of Utah</title>
+	<script type="text/javascript">
+var xajaxRequestUri="/index.php";
+var xajaxDebug=false;
+var xajaxStatusMessages=false;
+var xajaxWaitCursor=true;
+var xajaxDefinedGet=0;
+var xajaxDefinedPost=1;
+var xajaxLoaded=false;
+	</script>
+	<script type="text/javascript" src="/lib/ajax/xajax_js/xajax.js"></script>
+	<script type="text/javascript">
+window.setTimeout(function () { if (!xajaxLoaded) { alert('Error: the xajax Javascript file could not be included. Perhaps the URL is incorrect?\nURL: /lib/ajax/xajax_js/xajax.js'); } }, 6000);
+	</script>
+<link rel="stylesheet" type="text/css" href="/templates/homepage/images/style.css">
+<link rel="icon" type="image/png" href="/fscode/images/dsc_logo.ico" />
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript" src="/templates/homepage/script.js"></script>
+
+<script type="text/javascript" src="/jquery-1.6.min.js"></script>
+
+<script src="/templates/homepage/js/jquery-1.6.js" type="text/javascript"></script>
+<script src="/templates/homepage/jquery.showcase-2.0.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function () { 
+		$("#showcase").showcase({
+			navigator: { orientation: "vertical" },
+			animation: { type: "fade", speed: 1500, interval: 5500 },
+			titleBar: { enabled: false },
+			css: { width: "938px" }
+		});
+	});
+</script>
+<script type="text/javascript" src="/templates/homepage/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	//On Hover Over
+function megaHoverOver(){
+    $(this).find(".sub").stop().fadeTo('fast', 1).show(); //Find sub and fade it in
+    (function($) {
+        //Function to calculate total width of all ul's
+        jQuery.fn.calcSubWidth = function() {
+            rowWidth = 0;
+            //Calculate row
+            $(this).find("ul").each(function() { //for each ul...
+                rowWidth += $(this).width(); //Add each ul's width together
+            });
+        };
+    })(jQuery); 
+
+    if ( $(this).find(".row").length > 0 ) { //If row exists...
+
+        var biggestRow = 0;	
+
+        $(this).find(".row").each(function() {	//for each row...
+            $(this).calcSubWidth(); //Call function to calculate width of all ul's
+            //Find biggest row
+            if(rowWidth > biggestRow) {
+                biggestRow = rowWidth;
+            }
+        });
+
+        $(this).find(".sub").css({'width' :biggestRow}); //Set width
+        $(this).find(".row:last").css({'margin':'0'});  //Kill last row's margin
+
+    } else { //If row does not exist...
+
+        $(this).calcSubWidth();  //Call function to calculate width of all ul's
+        $(this).find(".sub").css({'width' : rowWidth}); //Set Width
+
+    }
+}
+//On Hover Out
+function megaHoverOut(){
+  $(this).find(".sub").stop().fadeTo('fast', 0, function() { //Fade to 0 opactiy
+      $(this).hide();  //after fading, hide it
+  });
+}
+//Set custom configurations
+var config = {
+     sensitivity: 2, // number = sensitivity threshold (must be 1 or higher)
+     interval: 100, // number = milliseconds for onMouseOver polling interval
+     over: megaHoverOver, // function = onMouseOver callback (REQUIRED)
+     timeout: 500, // number = milliseconds delay before onMouseOut
+     out: megaHoverOut // function = onMouseOut callback (REQUIRED)
+};
+
+$("ul#topnav li .sub").css({'opacity':'0'}); //Fade sub nav to 0 opacity on default
+$("ul#topnav li").hoverIntent(config); //Trigger Hover intent with custom configurations
+
+});
+</script>
+<script type="text/javascript" charset="utf-8">
+	var is_ssl = ("https:" == document.location.protocol);
+	var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+	document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  
+  <script type="text/javascript" charset="utf-8">
+	var feedback_widget_options = {};
+	feedback_widget_options.display = "overlay";  
+	feedback_widget_options.company = "dixiestatecollege";
+	feedback_widget_options.placement = "hidden";
+	feedback_widget_options.color = "#222";
+	feedback_widget_options.style = "question";
+	feedback_widget_options.limit = "5";
+//we can eventually style this window however we want using a stylesheet. For instance, I've been able to remove the "powered by GetSatisfaction" image
+//      feedback_widget_options.custom_css = "http://enrltst.dixie.edu/fscode/css/template_5/faq_widget.css";
+	
+	var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+	$(document).ready(function(){
+		//add click event here
+			  $("#faq_link").click(function(event){
+					event.preventDefault();//prevent default link behavior
+					feedback_widget.show();//display the faq modal window
+			  });
+	});
+  </script>
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-1727441-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<meta name="google-site-verification" content="R0KuySCipsaCjV5Cf3Z_VlsqqyOBHRU2K-3esVBxm3U" />
+<meta name="google-site-verification" content="MAaUKZShObls41ObX0js00vGv8Mwkt-ky6ouE_o7gdI" />
+</head>
+
+<body>
+<div id="frame" style="height: 100%;"><div class="top-right" align="right">
+<a href="http://go.dixie.edu/mydixie"><img src="/templates/homepage/images/login_b.png" style="margin-bottom:18px;" border="0"/></a><br /><a href="http://www.dixie.edu/directory/directory.php">Directory</a> | <a href="http://new.dixie.edu/index/index.php">A-Z Index</a> | <a href="http://new.dixie.edu/contact/contact.php">Contact Us</a> | <a href="#" id="faq_link" name="faq_link">FAQ</a> | <a href="http://www.dixie.edu/search/">Search</a>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td class="header" align="center">
+        <table border="0" cellpadding="0" cellspacing="0" width="970">
+            <tr>
+                <td align="left">
+                <div class="logo"><a href="/"><img src="/templates/homepage/images/homepage-logo.png" border="0"/></a></div></td>
+                <td height="71" width="100%" align="center" valign="top"><img src="/templates/homepage/images/dsc-dixiebackground.jpg" border="0"/></td>
+            </tr>
+        </table></td>
+    </tr>
+    <tr>
+        <td class="buttons" align="center"><table border="0" cellpadding="0" cellspacing="0" width="0">
+            <tr>
+                <td align="left">
+                			<ul id="topnav">
+                    <li><a href="http://www.dixie.edu/futurestudents/" class="menulink">Future Students</a></li>
+                    <li>
+                        <li><a href="http://www.dixie.edu/currentstudents/" class="menulink">Current Students</a>
+                        <div class="sub" style="left:-132px;">
+                            <ul>
+                                <li><h2>Academics</h2></li>
+                                <li><a href="http://www.dixie.edu/advisement/">Academic Advisement</a></li>
+                                <li><a href="http://www.dixie.edu/academics/">Academic Departments</a></li>
+                                <li><a href="http://www.dixie.edu/admissions/">Admissions</a></li>
+                                <li><a href="http://www.dixie.edu/rotc/">Army ROTC</a></li>
+                                <li><a href="http://www.dixie.edu/degreeprograms/">Bachelors, Associates, and Certificates</a></li>
+                                <li><a href="http://new.dixie.edu/reg/?page=schedule">Class Schedules</a></li>
+                                <li><a href="http://www.dixie.edu/catalog/">College Catalog</a></li>
+                                <li><a href="http://www.dixie.edu/post/">DSC Police Academy</a></li>
+                                <li><a href="http://www.dixie.edu/fye_handbook/">First Year Experience</a></li>
+                                <li><a href="http://library.dixie.edu/">Library</a></li>
+                                <li><a href="http://www.dixie.edu/testing/">Testing Center</a></li>
+                                <li><a href="http://www.dixie.edu/tutoring/">Tutoring</a></li>
+                            </ul>
+                            <ul>
+                                <li><h2>Calendars &amp; Media</h2></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=calendar">Academic Calendar</a></li>
+                                <li><a href="http://www.dixieathletics.com/calendar.aspx?">Athletic's Calendar</a></li>
+                                
+                                <li><a href="http://www.dixie.edu/classical91/">Classical 91</a></li>
+                                <li><a href="http://www.dixiesunlink.com/">Dixie Sun</a></li>
+                                <li><a href="http://www.calendarwiz.com/calendars/calendar.php?crd=dcox&&PHPSESSID=115dd69494f8c63f4c1c40b46c78b415&jsenabled=1&winH=767">Master Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=events_calendar">Public Events Calendar</a></li>
+                                <li><a href="http://new.dixie.edu/radio/">Storm Radio</a></li>
+                                <li><a href="http://southernutahnow.com/">SUN News</a></li>  
+                                <li style="padding-top:10px;"><h2>Financial Aid</h2></li>
+                                <li><a href="http://www.dixie.edu/financial/">Financial Aid Office</a></li>
+                                <li><a href="http://new.dixie.edu/financial/scholarships/">Scholarships</a></li>
+                                <li style="padding-top:10px;"><h2>Registration</h2></li>
+                                <li><a href="http://www.dixie.edu/registration/">Registrar's Office</a></li>
+                                <li><a href="http://www.dixie.edu/registration/?page=tuition">Tuition &amp; Fees</a></li>
+                            </ul>
+                            <ul>
+                                <li><h2>Campus Information</h2></li>
+                                <li><a href="http://www.dixie.edu/aboutdixie/">About Dixie</a></li>
+                                <li><a href="https://dixie.edu/reg/map/">Campus Map</a></li>
+                                <li><a href="http://www.dixie.edu/publicsafety/">DSC Public Safety</a></li>
+                                <li><a href="http://getsatisfaction.com/dixiestatecollege">FAQ</a></li>
+                                <li style="padding-top:10px;"><h2>Student Life</h2></li>
+                                <li><a href="http://dixieathletics.com/">Athletics</a></li>
+                                <li><a href="http://www.dixie.edu/rec/">Campus Recreation</a></li>
+                                <li><a href="http://dstate.net/dscsa/student-clubs/">Clubs &amp; Organizations</a></li>
+                                <li><a href="http://dstate.net/dscsa/">DSCSA</a></li>
+                                <li><a href="http://www.dixie.edu/intramurals/">Intramurals</a></li>
+                                <li><a href="https://orgsync.com/login/dixie-state-college-of-utah">OrgSync</a></li>
+                                <li><a href="http://dstate.net/dscsa/student-government/">Student Government</a></li>
+                                <li><a href="http://dstate.net/dscsa/student-life/">Student Activities</a></li>
+                                <li><a href="http://www.dixie.edu/humanres/policy/sec5/533.html">Student Rights and Responsibilities Code</a></li>
+                            </ul>
+                            <ul>
+                                <li><h2>Student Services</h2></li>
+                                
+                                <li><a href="http://bookstore.dixie.edu/home.aspx">Bookstore</a></li>
+                                <li><a href="http://www.dixie.edu/career/">Career Services</a></li>
+                                <li><a href="http://dining.dixie.edu/">Dining Services</a></li>
+                                <li><a href="http://www.dixie.edu/drcenter/">Disability Resource Center</a></li>
+                                <li><a href="https://dixieonecard.higheroneaccount.com/">Dixie One Card</a></li>
+                                <li><a href="http://mail.dmail.dixie.edu">Dmail</a></li>
+                                
+                                <li><a href="http://www.dixie.edu/wellness/">Health and Wellness Center</a></li>
+                                <li><a href="http://www.dixie.edu/diversity/">Multicultural/Diversity Center</a></li>
+                                <li><a href="http://www.dixie.edu/tuition/">Pay Tuition Online/1098t</a></li>
+                                <li><a href="http://www.dixie.edu/helpdesk/">IT Helpdesk</a></li>
+                                <li><a href="http://www.dixie.edu/housing/">Student Housing</a></li>
+                                <li><a href="http://right2know.dixie.edu/">Students Right to Know</a></li>
+                                <li style="padding-top:10px;"><h2>TRiO</h2></li>
+                                <li><a href="http://www.dixie.edu/trio/talent_search/index.php">Talent Search</a></li>
+                                <li><a href="http://www.dixie.edu/trio/student_support_services.php">Student Support Services</a></li>
+                                <li><a href="http://www.dixie.edu/trio/upward_bound.php">Upward Bound</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="http://www.dixie.edu/alumni/" class="menulink">Alumni &amp; Friends</a>
+                    <div class="sub" style="left:-270px;">
+                            <ul>
+                            	<li><h2>Alumni and Friends</h2></li>
+                                <li><a href="http://www.dixie.edu/alumni/alumniandfriends/">Alumni and Friends</a></li>
+                                <li style="padding-top:10px;"><h2>Events</h2></li>
+                                <li><a href="http://tickets.dixie.edu/Box_Office/Main.html?">Box Office</a></li>
+                                <li><a href="http://www.dixie.edu/concerts/">Celebrity Concert Series</a></li>
+                                <li><a href="http://www.dixie.edu/culturalarts/sears_art_gallery.php">Sears Art Museum Gallery</a></li>
+                                <li><a href="http://www.dixie.edu/tanner/index.html">Tanner Amphitheater</a></li>
+                            </ul>
+                            <ul>
+                            	<li><h2>Auxiliary Services</h2></li>
+                                <li><a href="http://bookstore.dixie.edu/home.aspx">Bookstore</a></li>
+                                <li><a href="http://www.dixie.edu/ce/">Community Education</a></li>
+                                <li><a href="http://dining.dixie.edu">Dining Services</a></li>
+                                <li><a href="http://www.dixiebusinessalliance.com/">Dixie Business Alliance</a></li>
+                                <li><a href="http://www.dixie.edu/gardner/">Gardner Student Center</a></li>
+                                <li><a href="http://www.dixie.edu/com/icl/">ICL</a></li>
+                                <li><a href="http://www.dixie.edu/preschool/">Preschool</a></li>
+                                <li><a href="http://www.dixie.edu/roadscholar/Welcome.html">Road Scholar Program</a></li>
+                                <li><a href="http://www.dixie.edu/technology/short_term_intensive_training.php">Short Term Intensive Training</a></li> 
+                                <li><a href="http://www.dixie.edu/housing/">Student Housing</a></li>
+                            </ul>
+                            <ul>
+                                <li><h2>Calendars &amp; Media</h2></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=calendar">Academic Calendar</a></li>
+                                <li><a href="http://www.dixieathletics.com/calendar.aspx?">Athletic's Calendar</a></li>
+
+                                <li><a href="http://www.dixie.edu/news/news.php">Campus News</a></li>
+                                <li><a href="http://www.dixie.edu/classical91/">Classical 91</a></li>
+                                <li><a href="http://www.dixiesunlink.com/">Dixie Sun</a></li>
+                                <li><a href="http://www.calendarwiz.com/calendars/calendar.php?crd=dcox&&PHPSESSID=115dd69494f8c63f4c1c40b46c78b415&jsenabled=1&winH=767">Master Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=events_calendar">Public Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/radio/">Storm Radio</a></li>
+                                <li><a href="http://southernutahnow.com/">SUN News</a></li>  
+                            </ul>
+                            <ul>
+                            	<li><h2>Campus Information</h2></li>
+                                <li><a href="http://www.dixie.edu/aboutdixie/">About Dixie</a></li>
+                                <li><a href="https://dixie.edu/reg/map/">Campus Map</a></li>
+                                <li><a href="http://dsc.infowest.com/">Campus Master Plan</a></li>
+                                <li><a href="http://www.dixie.edu/campus/">Campus Services</a></li>
+                                <li><a href="http://www.dixie.edu/publicsafety/">DSC Public Safety</a></li>
+                                <li><a href="http://getsatisfaction.com/dixiestatecollege">FAQ</a></li>
+                                <li><a href="http://www.dixie.edu/pr/">Public Relations</a></li>
+                                <li style="padding-top:10px;"><h2>Social Networks</h2></li>
+                                <li><a href="http://www.facebook.com/DixieStateAlumni">Alumni and Friends Facebook</a></li>
+                            </ul>
+                    </div>
+                    </li>
+                    <li><a href="http://www.dixie.edu/faculty/" class="menulink">Faculty &amp; Staff</a>
+                    <div class="sub" style="left:-402px;">
+                            <ul>
+                            	<li><h2>Administration</h2></li>
+                                <li><a href="http://www.dixie.edu/as/">Administrative Services</a></li>
+                                <li><a href="http://it.dixie.edu/banner/">Banner Links</a></li>
+                                <li><a href="http://www.dixie.edu/busoff/">Business Services</a></li>
+                                <li><a href="http://www.dixie.edu/campus/">Campus Services</a></li>
+                                <li><a href="http://www.dixie.edu/staffassociation/">Classified Staff Association</a></li>
+                                <li><a href="http://dining.dixie.edu">Dining Services</a></li>
+                                <li><a href="http://www.dixie.edu/esa/">Exempt Staff Association</a></li>
+                                <li><a href="http://www.dixie.edu/advancement/">Institutional Advancement</a></li>
+                                <li><a href="http://www.dixie.edu/ir/">Institutional Research</a></li>
+                                <li><a href="http://www.dixie.edu/iaudit/">Internal Audit</a></li>
+                                <li><a href="http://www.dixie.edu/pr/">Public Relations</a></li>
+                                <li><a href="http://www.dixie.edu/purchasing/">Purchasing &amp; Risk Management</a></li>
+                                
+                            </ul>
+                            <ul>
+                                <li><h2>Calendars &amp; Media</h2></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=calendar">Academic Calendar</a></li>
+                                <li><a href="http://www.dixieathletics.com/calendar.aspx?">Athletic's Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/news/news.php">Campus News</a></li>
+                                <li><a href="http://www.dixie.edu/classical91/">Classical 91</a></li>
+                                <li><a href="http://www.dixiesunlink.com/">Dixie Sun</a></li>
+                                <li><a href="http://www.calendarwiz.com/calendars/calendar.php?crd=dcox&&PHPSESSID=115dd69494f8c63f4c1c40b46c78b415&jsenabled=1&winH=767">Master Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=events_calendar">Public Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/radio/">Storm Radio</a></li>
+                                <li><a href="http://southernutahnow.com/">SUN News</a></li>  
+                            </ul>
+                            <ul>
+                            	<li><h2>Faculty Resources</h2></li>
+                                <li><a href="http://www.dixie.edu/catalog/">College Catalog</a></li>
+                                <li><a href="https://www.digitalmeasures.com/login/dixie/faculty">DM ePortfolio</a></li>
+                                <li><a href="http://www.dixie.edu/faculty_senate/">Faculty Senate</a></li>
+                                <li><a href="http://www.dixie.edu/reg/faculty/index.php">Faculty Web Services</a></li>
+                                <li><a href="http://it.dixie.edu/itc/">Instructional Technology Center</a></li>
+                            </ul>
+                            <ul>
+                            	<li><h2>Human Resources</h2></li>
+                                <li><a href="http://www.dixie.edu/humanres/">Human Resources Homepage</a></li>
+                                <li><a href="http://www.dixie.edu/humanres/comlst.html">Committee Lists</a></li>
+                                <li><a href="http://agency.governmentjobs.com/dixie/default.cfm">Employment Opportunities</a></li>
+                                <li><a href="http://www.dixie.edu/humanres/pol.html">Policies &amp; Procedures</a></li>
+                                <li style="padding-top:10px;"><h2>Work Order Forms</h2></li>
+                                <li><a href="http://app.its.utah.gov/dixie/DixieReq.jsp">Campus Services Work Order Form</a></li>
+                                <li><a href="http://help.dixie.edu/">IT Work Order Form</a></li>
+                                <li><a href="http://dsc.dixie.edu/physplant/workorders/index.htm">Key Request Form</a></li>
+                            </ul>
+                    </div>
+                    </li>
+                    <li><a href="http://www.dixie.edu/community/" class="menulink">Community</a>
+                    <div class="sub" style="left:-523px;">
+                    		<ul>
+                            	<li><h2>Business</h2></li>
+                                <li><a href="http://www.dixiebusinessalliance.com/">Dixie Business Alliance</a></li>
+                                <li><a href="http://www.whatsupdownsouth.com/">Economic Summit</a></li>
+                                <li><a href="http://www.dixie.edu/advancement/">Institutional Advancement</a></li>
+                                <li><a href="http://www.stgeorgechamber.com/">St. George Chamber of Commerce</a></li>
+                                <li style="padding-top:10px;"><h2>Free Accounting Help</h2></li>
+                                <li><a href="http://www.dixie.edu/business/business_consulting.php">Free Accounting Help</a></li>
+                                <li style="padding-top:10px;"><h2>Free Tax Prep</h2></li>
+                                <li><a href="http://www.dixie.edu/business/personal_tax_assistance.php">Free Tax Prep</a></li>
+                            </ul>
+                            <ul>
+                                <li><h2>Calendars &amp; Media</h2></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=calendar">Academic Calendar</a></li>
+                                <li><a href="http://www.dixieathletics.com/calendar.aspx?">Athletic's Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/news/news.php">Campus News</a></li>
+                                <li><a href="http://www.dixie.edu/classical91/">Classical 91</a></li>
+                                <li><a href="http://www.dixiesunlink.com/">Dixie Sun</a></li>
+                                <li><a href="http://www.calendarwiz.com/calendars/calendar.php?crd=dcox&&PHPSESSID=115dd69494f8c63f4c1c40b46c78b415&jsenabled=1&winH=767">Master Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=events_calendar">Public Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/radio/">Storm Radio</a></li>
+                                <li><a href="http://southernutahnow.com/">SUN News</a></li>  
+                            </ul>
+                            <ul>
+                            	<li><h2>Community Services</h2></li>
+                                <li><a href="http://dsc.infowest.com/">Campus Master Plan</a></li>
+                                <li><a href="http://www.dixie.edu/ce/">Community Education</a></li>
+                                <li><a href="http://www.dixie.edu/com/icl/">ICL</a></li>
+                                <li><a href="http://www.dixie.edu/preschool/">Preschool</a></li>
+                                <li><a href="http://www.dixie.edu/roadscholar/Welcome.html">Road Scholar Program</a></li>
+                                <li><a href="http://www.dixie.edu/technology/short_term_intensive_training.php">Short Term Intensive Training</a></li>
+                                <li><a href="http://www.dixie.edu/finearts/art_tours.php">Travel Study</a></li> 
+                            </ul>
+                            <ul>
+                            	<li><h2>Events &amp; Arts</h2></li>
+                                <li><a href="http://tickets.dixie.edu/Box_Office/Main.html?">Box Office</a></li>
+                                <li><a href="http://www.dixie.edu/bizart/">Business of Arts</a></li>
+                                <li><a href="http://www.dixie.edu/concerts/">Celebrity Concert Series</a></li>
+                                <li><a href="http://www.dixie.edu/culturalarts/">Cultural Arts</a></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=events_calendar">Events Calendar</a></li>
+                                <li><a href="http://www.dixie.edu/tanner/index.html">Tanner Amphitheater</a></li>
+                            </ul>
+                    </div></li>
+                    <li class="last"><a href="http://www.dixie.edu/mydsc/" class="menulink">MyDSC &amp; Logins</a>
+                    <div class="sub" style="left:-623px;">
+                    		<ul>
+                            	<li><h2>Computing</h2></li>
+                                <li><a href="https://bannersec.dixie.edu/proddad/twbkwbis.P_GenMenu?name=homepage">Login to Student Services</a></li>
+                                <li><a href="http://www.dixie.edu/academicoutreach/index.php">Login to Blackboard Vista</a></li>
+                                <li><a href="http://mail.dmail.dixie.edu">Login to Dmail</a></li>
+                                <li><a href="http://mail.dixie.edu">Login to Faculty-Mail</a></li>
+                                <li><a href="https://orgsync.com/login/dixie-state-college-of-utah">Login to OrgSync</a></li>
+                                <li style="padding-top:10px;"><h2>Calendars</h2></li>
+                                <li><a href="http://www.dixie.edu/reg/?page=calendar">College Calendars</a></li>
+                                <li><a href="https://www.google.com/calendar/embed?src=sgu.calendar@gmail.com&color=%2329527A&src=1hkrtboutjr8a6mne9skf1kr3c@group.calendar.google.com&color=%23B1440E&src=0sfr466fu7nommq1s62jsgvas8@group.calendar.google.com&color=%23A32929&src=1kkv66f846mc9pgivqc0iqqf8k@group.calendar.google.com&color=%237A367A&src=820ig00rconp8jkiu7lsmgmg5k@group.calendar.google.com&color=%230D7813&gsessionid=OK">Dates at a Glance</a></li>
+                            </ul>
+                            <ul>
+                            	<li><h2>College Catalog</h2></li>
+                                <li><a href="http://www.dixie.edu/catalog/">College Catalog Home</a></li>
+                                <li style="padding-top:10px;"><h2>News &amp; Media</h2></li>
+                                <li><a href="http://www.dixiesunlink.com/">Dixie Sun News</a></li>
+                                <li><a href="http://www.dixie.edu/classical91/">Classical 91</a></li>
+                                <li><a href="http://www.dixie.edu/radio/">Storm Radio</a></li>
+                                <li><a href="http://southernutahnow.com/">SUN News</a></li>
+                                <li><a href="http://revelaciondsc.blogspot.com/">RevelacionDSC</a></li>
+                            </ul>
+                            <ul>
+                            	<li><h2>Money Matters</h2></li>
+                                <li><a href="https://dixieonecard.higheroneaccount.com/">Dixie One Card (ID/Debit)</a></li>
+                                <li><a href="http://www.tutormatchingservice.com">DSC Tutor Matching Service</a></li>
+                                <li><a href="http://www.dixie.edu/career/student_jobs.php">Student Employment</a></li>
+                                <li><a href="http://www.dixie.edu/financial/">Financial Aid</a></li>
+                            </ul>
+                            <ul>
+                            	<li><h2>Bookstore &amp; More</h2></li>
+                                <li><a href="http://bookstore.dixie.edu/home.aspx">Book Store Home</a></li>
+                                <li><a href="http://www.facebook.com/pages/Saint-George-UT/Dixie-State-College/55482695129">Join us on Facebook</a></li>
+                                <li><a href="http://twitter.com/dixiestate">Follow us on Twitter</a></li>
+                                <li><a href="http://www.dixie.edu/it/wireless/index.php">Campus WiFi Access</a></li>
+                                <li><a href="http://www.dixie.edu/helpdesk/">IT Helpdesk</a></li>
+                            </ul>
+                    </div>
+                    </li>
+                </ul>                </td>
+            </tr>
+        </table>
+        </td>
+    </tr>
+    <tr>
+    	<td class="homepage-banners" align="center"><table border="0" cellpadding="0" cellspacing="0" width="938" height="252">
+        	<tr>
+            	<td align="right">
+                <div id="showcase" align="left" style="max-height:251px;">
+                
+                <!--- WEB BANNERS START HERE --->
+
+				<a href="http://www.dixie.edu/commencement"><img src="/images/front/Grad-banner.jpg" alt="Dixie State College Commencement" /></a>
+				
+                
+                <a href="http://www.dixie.edu/commencement"><img src="/images/front/congrats-grads-2012-webbanner-red.jpg" alt="Dixie State College 2012 Congratulations" /></a>
+
+                <a href="http://www.dixie.edu/giving/"><img src="/images/front/donation_webbanner.jpg" alt="Donate to Dixie State College" /></a>
+                <a href="http://www.dixie.edu/taxes"><img src="/images/front/taxes-thankyou.jpg" alt="Dixie State College Taxes Thank You" /></a>
+                
+                
+                <!--- <a href="http://dixieathletics.com"><img src="/images/front/MENS-BASKETBALL-2012.jpg" alt="Dixie State College Mens Basketball" /></a> --->
+                <!--- <a href="http://www.dixie.edu/phoneapp/"><img src="/images/front/app-webbanner-new-size.jpg" alt="Dixie State College Phone App" /></a> --->
+				<!--- <a href="http://www.dixie.edu/business/personal_tax_assistance.php"><img src="/images/front/veta-tax.jpg" alt="Dixie State College Free Tax Preparation" /></a> --->
+                <!--- <a href="http://dixie.edu/live/"><img src="/images/front/technology.jpg" alt="Dixie State College Technology &amp; Entrepreneurship Event Schedule" /></a>  --->
+                <!--- <a href="http://www.dixie.edu/construction/"><img src="/images/front/holland-webbanner.jpg" alt="Dixie State College Jeffrey R Holland Centennial Commons" /></a> --->
+                <!--- <a href="http://www.dixie.edu/catalog/"><img src="/images/front/lunchbreak.jpg" alt="Dixie State College" /></a>
+                <a href="http://www.dixie.edu/lovedixie/"><img src="images/front/what-I-LOVE-about-DIXIE.jpg" alt="What I Love About Dixie" /></a>
+                <a href="http://bookstore.dixie.edu"><img src="/images/front/book.jpg" alt="A Century of Dixie State College of Utah" /></a>
+                <a href="http://bookstore.dixie.edu"><img src="/images/front/bookstore.jpg" alt="New Dixie State Store" /></a>
+                <a href="http://dixie.edu/news/news.php?id=575"><img src="/images/front/4 Year Degrees April 2010.jpg" alt="4 Year Degrees April 2010" /></a> --->
+                <!--- <a href="http://centennial.dixie.edu/index.php?q=node/5"><img src="/images/front/100Years.jpg" alt="100 Years Event Calendar" /></a> --->
+               
+                <!--- END OF WEB BANNERS --->
+                
+                </div>
+                <!--- <div class="background">
+                <div class="textarea"><a href="http://explore.dixie.edu">Learn More >></a></div>
+                <div class="transbox">
+                <p>Dixie State College is the #1 College in the State of Utah. To get started at Dixie State College <a 
+    
+    href="http://new.dixie.edu/futurestudents/?page=getting_started" style="color:#FFF; font-weight:bolder;"><u>click here</u></a>.
+                </p>
+                </div>
+                </div>
+                <div id="slideshow">
+                <div class="active">
+                    <a href="http://www.dixie.edu/catalog/"><img src="images/front/lunchbreak.jpg" alt="Dixie State College" /></a>
+                </div>
+                <div>
+                    <a href="http://www.dixie.edu/lovedixie/"><img src="images/front/what-I-LOVE-about-DIXIE.jpg" alt="What I Love About Dixie" /></a>
+                </div>
+                <div>
+                    <a href="http://bookstore.dixie.edu"><img src="images/front/book.jpg" alt="A Century of Dixie State College of Utah" /></a>
+                </div>
+                <div>
+                    <a href="http://tickets.dixie.edu"><img src="images/front/DIXIE-WEBBANNER.jpg" alt="Mormon Tabernacle Choir" /></a>
+                </div>
+                <div>
+                    <a href="http://bookstore.dixie.edu"><img src="images/front/bookstore.jpg" alt="New Dixie State Store" /></a>
+                </div>
+                <div>
+                    <a href="http://dixie.edu/news/news.php?id=575"><img src="images/front/4 Year Degrees April 2010.jpg" alt="4 Year Degrees April 2010" /></a>
+                </div>
+				<div>
+                    <a href="http://centennial.dixie.edu/index.php?q=node/5"><img src="images/front/100Years.jpg" alt="100 Years Event Calendar" /></a>
+                </div>
+                <div>
+                    <a href="http://www.dixie.edu/news/news.php?id=520"><img src="images/front/degrees25Jan10.jpg" alt="Dixie State College Degrees" /></a>
+                </div>
+                
+            </div>
+            <div class="background">
+            <div class="textarea"><a href="http://explore.dixie.edu">Learn More >></a></div>
+            <div class="transbox">
+            <p>Dixie State College is the #1 College in the State of Utah. To get started at Dixie State College <a href="http://new.dixie.edu/futurestudents/?page=getting_started" style="color:#FFF; font-weight:bolder;"><u>click here</u></a>.
+            </p>
+            </div>
+            </div> ---></td>
+            </tr>
+        </table></td>
+    </tr>
+    <tr>
+        <td align="center"><table border="0" cellpadding="0" cellspacing="0" width="970" class="main-body">
+            <tr>
+                <td valign="top"><table border="0" cellpadding="0" cellspacing="0" class="left-nav">
+                    <tr>
+                        <td class="nav1"><h3 class="title">Welcome to DSC</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="content" align="left"><ul class="sidemenu">
+                            <li class="leaf first last">
+                                <a title="Academic Schools & Departments" href="http://www.dixie.edu/academics/">Academic Departments</a>
+                                <a title="Apply for Graduation" href="https://www.dixie.edu/graduation/">Apply for Graduation</a>
+                                <a title="Athletics" href="http://dixieathletics.com/index.aspx?path=">Athletics</a>
+                                <a title="Blackboard Vista" href="http://www.dixie.edu/lmsonline">Blackboard Vista / Canvas</a>
+                                <a title="Bookstore" href="http://bookstore.dixie.edu/home.aspx">Bookstore</a>
+                                <a title="Class Schedules" href="http://new.dixie.edu/reg/?page=schedule">Class Schedules</a>
+                                <!--- <a title="Degree Programs" href="http://www.dixie.edu/futurestudents/programs.php">Degree &amp; Certificate Programs</a> --->
+                                <a title="College Catalog" href="http://www.dixie.edu/catalog/">College Catalog</a>
+                                <a title="Commencement" href="http://www.dixie.edu/commencement/">Commencement</a>
+                                <a title="Dmail" href="https://www.google.com/a/dmail.dixie.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=http%3A%2F%2Fmail.google.com%2Fa%2Fdmail.dixie.edu%2F&bsv=1eic6yu9oa4y3&ltmpl=default&ltmplcache=2">Dmail</a>
+                                <a title="DSCSA - Student Life" href="http://dstate.net/dscsa">DSCSA - Student Life</a>
+                                <a title="IT Helpdesk" href="http://www.dixie.edu/helpdesk/">IT Helpdesk</a>
+                                <a title="Library" href="http://library.dixie.edu/">Library</a>
+                                <a title="Online Courses" href="http://new.dixie.edu/academicoutreach/index.php">Online Courses</a>
+                                <!--- <a title="Request College Information" href="https://bannersec.dixie.edu/proddad/bwskwpro.P_WebProspectMain?prel_type_in=&prel_code_in=WEB&matl_flag_in=&matl_code_in=&lend_flag_in=&lend_code_in=&ints_flag_in=&ints_code_in=&race_cde_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&tests_flag_in=&test_tesc_code_in=&test_score_in=&test_dd_in=&test_mm_in=&test_yyyy_in=&button_text_in=Continue">Request College Information</a> --->
+                                <a title="Request College Information" href="https://dixie.edu/futurestudents/inquireNow.php">Request College Information</a>
+                                <a title="Student Employment" href="http://new.dixie.edu/career/student_jobs.php">Student Employment</a>
+                                <a title="Tuition & Fees" href="http://www.dixie.edu/registration/?page=tuition">Tuition &amp; Fees</a>
+                            </li>
+                        </ul></td>
+                    </tr>
+                    <tr>
+                        <td class="nav2"><h3 class="title">Featured Links</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="content"><div class="featured_links_main">
+                        <form name="jump1">
+                        <select name="myjumpbox"
+                         OnChange="location.href=jump1.myjumpbox.options[selectedIndex].value" class="featured_links">
+                             <option selected>--- FEATURED LINKS ---</option>
+                             <!--- <option value="https://www.dixie.edu/graduation/">Apply for Graduation</option> --->
+                             <!--- <option value="http://www.dixie.edu/reg/?page=schedule">Class Schedule</option> --->
+                             <!--- <option value="http://new.dixie.edu/catalog/">College Catalog</option> --->
+                             <!--- <option value="http://new.dixie.edu/commencement/">Commencement</option> --->     
+                             <option value="http://www.dixie.edu/catalog/file/degrees.pdf">Degree Requirements</option>
+                             <option value="https://dixieonecard.higheroneaccount.com/">Dixie One Card</option>
+                             <!--- <option value="http://new.dixie.edu/flu/index.php">H1N1 Flu Information</option> --->
+                             <option value="http://new.dixie.edu/reg/international/">International Students</option>
+                             <option value="https://www.dixie.edu/registration/?page=change_major">Major Change Form</option>
+                             <option value="http://www.dixie.edu/registration/?page=Transcripts">Order Transcripts</option>
+                             <option value="http://www.dixie.edu/tuition/">Pay Tuition Online</option>
+                             <option value="https://commerce.cashnet.com/Preschool">Preschool eMarket</option>
+                             <option value="http://www.dixie.edu/publicsafety/">Public Safety</option>
+                             <option value="http://new.dixie.edu/financial/scholarships/">Scholarships</option>  
+                             <option value="https://commerce.cashnet.com/cashnetg/SelfServe/eBillLogin.aspx?client=DIXIE_PROD">Tuition Payment Plan</option>  
+                             <option value="http://www.dixie.edu/tuition/">1098t information</option>       
+                        </select>
+                        </form>
+                        </div></td>
+                    </tr>
+                    <tr>
+                    	<td style="padding:10px 10px;"><a href="http://www.dixie.edu/giving/direct_my_gift.php"><img src="/templates/homepage/images/giving.png" alt="Giving" /></a></td>
+                    </tr>
+                    <!--- <tr>
+                        <td class="nav2"><h3 class="title">Getting Started at DSC</h3></td>
+                    </tr>
+                    <tr>
+                        <td class="content"><ul class="menu">
+                            <li class="leaf first last">
+                                <a title="" href="">1. Apply for Admission</a>
+                                <a title="" href="">2. Apply for Financial Aid</a>
+                                <a title="" href="">3. Select your Classes</a>
+                                <a title="" href="">4. Register for Classes</a>
+                                <a title="" href="">5. New Student Advisement &amp; Registration (A&amp;R)</a>
+                                <a title="" href="">Additional Steps</a>
+                            </li>
+                        </ul></td>
+                    </tr> --->
+                </table></td>
+                <td valign="top" align="left">
+                <table border="0" cellpadding="0" cellspacing="0" width="742" class="main-body-content">
+    <tr>
+        <td width="366" valign="top">
+        <div class="messages-front" dir="ltr" id="calendar">
+        <h3>Upcoming Events</h3>
+        			<!--- <script type='text/javascript' src='fscode/javascript/jquery/jquery-1.3.2.min.js'></script> --->
+			<script type='text/javascript' src='fscode/javascript/jquery/jquery.qtip/jquery.qtip-1.0.0-rc3.min.js'></script>
+			<script type='text/javascript' src='gcal_rss/gcal_rss.js'></script>
+			<link href="gcal_rss/gcal_style.css" rel="stylesheet" type="text/css" />
+			<style type="text/css">
+			/*just to position the ul on this test page*/
+			.event_list{margin-top: 4px;margin-left: 4px;}
+			</style>
+			<ul class='event_list'>
+<li title='President&#39;s Colleagues of Dixie State College Meeting'><img src='/templates/default/images/calendar_icon_sm.png' align=left style='margin-right:4px;'><span class='event_time'>Mon 5/7 12:00pm</span><br><span class='event_short_title'>President's Colleagues of Dixie...</span><div class='event_tooltip'><h3 class='event_title'>President's Colleagues of Dixie State College Meeting</h3><div class='event_description'>Free Admission</div><ul class='event_extra_info'><li class='event_time'>Time: [ Mon May, 7th 12:00pm-1:00pm ]</li><li class='event_location'>Location: Russell C. Taylor Health Sciences Center Room 156 (<a target='_blank' href='http://maps.google.com/maps?q=37.099448	-113.550653(Russell C. Taylor Health Sciences Center Room 156)&t=h&z=17&iwloc=A'>map</a>)</li><li class='event_link'><a target='_blank' href='http://www.google.com/calendar/event?action=TEMPLATE&text=President%27s Colleagues of Dixie State College Meeting&details=Free Admission&dates=20120507T120000/20120507T130000&sprop=website:www.dixie.edu&location=37099448	113550653(Russell C Taylor Health Sciences Center Room 156)'><img src='gcal_rss/add_to_gmail.png' border='0' title='Add to my Google Calendar' alt='Add to my Google Calendar'></img></a><a target='_blank' href='http://www.google.com/calendar/hosted/dmail.dixie.edu/event?action=TEMPLATE&text=President%27s Colleagues of Dixie State College Meeting&details=Free Admission&dates=20120507T120000/20120507T130000&sprop=website:www.dixie.edu&location=37099448	113550653(Russell C Taylor Health Sciences Center Room 156)'><img src='gcal_rss/add_to_dmail.png' border='0' title='Add to my Dmail Calendar' alt='Add to Dmail Calendar'></img></a></li></ul></div></li>
+<li title='Softball vs  NCAA West Super Regionals'><img src='/templates/default/images/calendar_icon_sm.png' align=left style='margin-right:4px;'><span class='event_time'>Fri 5/11 11:00am</span><br><span class='event_short_title'>Softball vs  NCAA West Super...</span><div class='event_tooltip'><h3 class='event_title'>Softball vs  NCAA West Super Regionals</h3><div class='event_description'></div><ul class='event_extra_info'><li class='event_time'>Time: [ Fri May, 11th 11:00am-4:00pm ]</li><li class='event_location'>Location: TBD</li><li class='event_link'><a target='_blank' href='http://www.google.com/calendar/event?action=TEMPLATE&text=Softball vs  NCAA West Super Regionals&details=&dates=20120511T170000Z/20120512T220000Z&sprop=website:www.dixie.edu&location=TBD'><img src='gcal_rss/add_to_gmail.png' border='0' title='Add to my Google Calendar' alt='Add to my Google Calendar'></img></a><a target='_blank' href='http://www.google.com/calendar/hosted/dmail.dixie.edu/event?action=TEMPLATE&text=Softball vs  NCAA West Super Regionals&details=&dates=20120511T170000Z/20120512T220000Z&sprop=website:www.dixie.edu&location=TBD'><img src='gcal_rss/add_to_dmail.png' border='0' title='Add to my Dmail Calendar' alt='Add to Dmail Calendar'></img></a></li></ul></div></li>
+<li title='Softball vs  NCAA DII National Championship'><img src='/templates/default/images/calendar_icon_sm.png' align=left style='margin-right:4px;'><span class='event_time'>Fri 5/18 9:00am</span><br><span class='event_short_title'>Softball vs  NCAA DII National...</span><div class='event_tooltip'><h3 class='event_title'>Softball vs  NCAA DII National Championship</h3><div class='event_description'></div><ul class='event_extra_info'><li class='event_time'>Time: [ Fri May, 18th 9:00am-12:00pm ]</li><li class='event_location'>Location: Louisville, KY</li><li class='event_link'><a target='_blank' href='http://www.google.com/calendar/event?action=TEMPLATE&text=Softball vs  NCAA DII National Championship&details=&dates=20120518T150000Z/20120518T180000Z&sprop=website:www.dixie.edu&location=Louisville, KY'><img src='gcal_rss/add_to_gmail.png' border='0' title='Add to my Google Calendar' alt='Add to my Google Calendar'></img></a><a target='_blank' href='http://www.google.com/calendar/hosted/dmail.dixie.edu/event?action=TEMPLATE&text=Softball vs  NCAA DII National Championship&details=&dates=20120518T150000Z/20120518T180000Z&sprop=website:www.dixie.edu&location=Louisville, KY'><img src='gcal_rss/add_to_dmail.png' border='0' title='Add to my Dmail Calendar' alt='Add to Dmail Calendar'></img></a></li></ul></div></li>
+<li title='DSC Castle Rock Music Camp'><img src='/templates/default/images/calendar_icon_sm.png' align=left style='margin-right:4px;'><span class='event_time'>Tue 6/5</span><br><span class='event_short_title'>DSC Castle Rock Music Camp</span><div class='event_tooltip'><h3 class='event_title'>DSC Castle Rock Music Camp</h3><div class='event_description'>More Information: 435-652-7904/abegg@dixie.edu</div><ul class='event_extra_info'><li class='event_location'>Location: Eccles Fine Arts Center (<a target='_blank' href='http://maps.google.com/maps?q=37.105532	-113.567396(Eccles Fine Arts Center)&t=h&z=17&iwloc=A'>map</a>)</li><li class='event_link'><a target='_blank' href='http://www.google.com/calendar/event?action=TEMPLATE&text=DSC Castle Rock Music Camp&details=More Information: 435-652-7904/abegg@dixie.edu&dates=20120605/20120609&sprop=website:www.dixie.edu&location=37105532	113567396(Eccles Fine Arts Center)'><img src='gcal_rss/add_to_gmail.png' border='0' title='Add to my Google Calendar' alt='Add to my Google Calendar'></img></a><a target='_blank' href='http://www.google.com/calendar/hosted/dmail.dixie.edu/event?action=TEMPLATE&text=DSC Castle Rock Music Camp&details=More Information: 435-652-7904/abegg@dixie.edu&dates=20120605/20120609&sprop=website:www.dixie.edu&location=37105532	113567396(Eccles Fine Arts Center)'><img src='gcal_rss/add_to_dmail.png' border='0' title='Add to my Dmail Calendar' alt='Add to Dmail Calendar'></img></a></li></ul></div></li>
+</ul>
+        <p class="started-bottom"><a href="http://new.dixie.edu/reg/?page=events_calendar">--Campus Calendars</a> | <a href="http://tickets.dixie.edu/Box_Office/Main.html?">Box Office</a></p>
+        </div>
+        <div class="messages-front" dir="ltr" id="started">
+        <h3>Getting Started at DSC</h3>
+        <p class="started"><b>1.</b> <a href="http://www.dixie.edu/futurestudents/howToApply.php"><b>Apply for Admission</b></a></p>
+        <p class="started"><b>2.</b> <a href="http://www.dixie.edu/financial/"><b>Apply for Financial Aid</b></a></p>
+        <p class="started"><b>3.</b> <a href="http://www.dixie.edu/oandr/"><b>Register for Freshmen Orientation</b></a></p>
+        <p class="started"><b>4.</b> <a href="http://www.dixie.edu/advisement/"><b>Contact the Academic Advisement Center</b></a></p>
+        <p class="started"><b>5.</b> <a href="https://bannersec.dixie.edu/proddad/twbkwbis.P_GenMenu?name=homepage"><b>Register for Classes</b></a></p>
+        
+        <p class="started-bottom"><a href="http://new.dixie.edu/futurestudents/whatsNext.php">--Additional Steps</a></p>
+        </div>
+        </td><td valign="top">
+        <div class="messages-front" dir="ltr" id="news">
+    
+        <div id="news-page">
+        
+        <h3>DSC News</h3>
+        
+        <div id="content_div_122">
+				<p class="news"><a href="/news/news.php?id=981"><b>Dixie State College Celebrates Largest Graduating Class in School History at 101st Commencement Friday</b></a></p>
+				<p class="news"><a href="/news/news.php?id=981"><img src="images/news/DSC_2012Commencement.jpg" height="50" hspace="8" vspace="0" border="0" align="left"></a>Dixie State College of Utah celebrated its largest graduating class in the institution's history Friday afternoon at its 101st Commencement Exercises  ...</p>
+				</div><div id="content_div_122">
+				<p class="news"><a href="/news/news.php?id=979"><b>Dixie State College Announces New Board of Trustees Member and Leadership</b></a></p>
+				<p class="news"><a href="/news/news.php?id=979"><img src="images/news/DSC_trustees.jpg" height="50" hspace="8" vspace="0" border="0" align="left"></a>Dixie State College of Utah announced Thursday the appointment of former Utah State Representative and Speaker of the House David Clark as a new membe ...</p>
+				</div><div id="content_div_122">
+				<p class="news"><a href="/news/news.php?id=978"><b>Dixie State College Representatives Honored at Annual Utah Campus Compact Awards Luncheon</b></a></p>
+				<p class="news"><a href="/news/news.php?id=978"><img src="images/news/DSC_news.jpg" height="50" hspace="8" vspace="0" border="0" align="left"></a>Four members of the Dixie State College of Utah community were honored last month at the 15th-Annual Utah Campus Compact Conference on Civic Engagemen ...</p>
+				</div>        <p class="started-bottom"><a href="http://www.dixie.edu/news/news.php">--More News</a></p>
+        </div>
+        
+        </div></td>
+    </tr>
+</table>
+
+    
+</body>
+</html>
+                 </td>
+            </tr> 
+        </table></td>
+    </tr>
+    <tr>
+        <td class="footer" colspan="2"><p><a href="http://www.dixie.edu/accreditation/">Accreditation</a> | <a href="http://www.dixie.edu/aboutdixie/">About DSC</a> | <a href="https://dixie.edu/futurestudents/?page=Campus%20Map">Campus Map</a> | <a href="http://dixie.edu/contact/contact.php">Contact DSC</a> | <a href="http://www.dixie.edu/campus/File/Emergency%20Procedures%20booklet%284%29.pdf">Emergency Information</a> | <a href="http://www.dixie.edu/giving/">Giving</a> | <a href="http://www.dixie.edu/helpdesk/">IT Helpdesk</a> | <a href="http://www.dixie.edu/humanres/pol.html">Policy &amp; Procedures</a> | <a href="http://right2know.dixie.edu/">Students Right to Know</a></p><p><a href="http://www.dixie.edu/phoneapp" target="_blank"><img src="http://www.dixie.edu/images/phoneapp.png" alt="DSC Phone App" name="DSC Phone App"/></a><a href="http://www.facebook.com/DixieStateCollege" target="_blank"><img src="http://www.dixie.edu/images/facebook.png" /></a><a href="http://twitter.com/dixiestate" target="_blank"><img src="http://www.dixie.edu/images/twitter.png" /></a><a href="http://www.youtube.com/dixiestatecollege" target="_blank"><img src="http://www.dixie.edu/images/youtube.png" /></a><a href="http://southernutahnow.com/" target="_blank"><img src="http://www.dixie.edu/images/sunnews.png" /></a></p>
+        NEARLY 9,000 CURRENTLY ENJOYING THE BEST EDUCATION UNDER THE SUN...AND COUNTING<br />
+        Copyright &copy; 2010 Dixie State College of Utah - 225 S. 700 E. St George, UT 84770 - Phone: (435) 652-7500<br />
+        For more information contact the webmaster.</td>
+    </tr>
+</table>
+<script type="text/javascript">
+	var menu=new menu.dd("menu");
+	menu.init("menu","menuhover");
+</script>
+</body>
+</html>

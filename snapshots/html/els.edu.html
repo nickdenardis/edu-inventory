@@ -1,0 +1,581 @@
+
+
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    
+
+    <!-- Global Includes Begin-->
+    <link href="/assets/css/global.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/print.css" rel="stylesheet" type="text/css" media="print" />
+    
+    <link rel="icon" type="image/png" href='/assets/favicon.ico' />
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.8.1/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.validate.unobtrusive.min.js"></script>
+    
+    <script type="text/javascript" src="/assets/js/global.min.js"></script>
+    
+
+    <script type="text/javascript">
+        //helper method for resolving relative urls
+        Url = function () { }
+        Url.prototype =
+            {
+                _relativeRoot: '/',
+                resolve: function (relative) {
+                    var resolved = relative;
+                    if (relative.charAt(0) == '~') resolved = this._relativeRoot + relative.substring(2);
+                    return resolved;
+                }
+            }
+        $Url = new Url();
+    </script>
+    <!-- Global Includes End-->
+
+    
+	
+    <!-- Mobile-->
+    <meta content="user-scalable=yes,width=1060" name="viewport" />
+    <link href='/assets/css/home.css' rel="stylesheet" type="text/css" />
+    <title>Discover ELS Language Schools ELS Courses for Learning English - ELS</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta name="description" content='Take a course with ELS, world leader in English language instruction for international students. Discover ELS language schools to improve English proficiency.' />
+    <meta name="keywords" content='els course, els language schools, els language center' />
+    <meta name="google-site-verification" content="bjwM_E9npQty-_KbsgR41G7SJEKByOHVfczgc7MJE9s" />
+    <meta name="y_key" content="e3496e7d41231f54" />
+    <meta name="msvalidate.01" content="8C2818069608E9AAF33F3CE5C99E155C" />
+    <script type="text/javascript" src='/assets/video/jwplayer.js'></script>
+    <script type="text/javascript" src='/assets/video/swfobject.js'></script>
+</head>
+
+<body id="home">
+
+<div id="container">
+
+	<div id="header">
+    	<div id="static">
+            
+
+<a href='/en'><img id="logo" src='/assets/img/global/els-logo-white.png' alt="ELS Educational Services, Inc." title="ELS Educational Services, Inc."/></a>
+<img id="logo-print" src='/assets/img/global/els-logo-print.png' alt="ELS Educational Services, Inc." title="ELS Educational Services, Inc."/>
+
+
+<ul id="topnav">
+    <!--<li><a href="#">Login</a></li>
+    <li><a href="#">Create an ELS profile</a></li>-->
+    <li ><a href='/en/Help'>Help</a></li>
+    <li ><a href='/en/ContactUs'>Contact Us</a></li>
+    <li ><a href='/en/News'>News</a></li>
+    <li ><a href='/en/Careers'>Careers</a></li>
+    <li><a id="user-country-name" href='/en/Language?url=http%3A%2F%2Fwww.els.edu%2Fen'><strong>English</strong></a></li>
+</ul>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var Cookies = new CookieHandler();
+
+        var country = Cookies.getCountryName('els_edu_culture');
+        if (country.length > 0) {
+            $("#user-country-name").text($("#user-country-name").text() + country);
+        } else {
+            //if country is empty get/set by IP
+            $.ajax({
+                type: "POST",
+                url: $Url.resolve("~/Tasks/SetCountry"),
+                cache: false,
+                success: function (result) {
+                    $("#user-country-name").text($("#user-country-name").text() + result.Country);
+                }
+            });
+        }
+    });
+
+</script>
+
+  
+            <div id="prev"></div>
+            <div id="next"></div>
+    
+        
+
+    <ul id="nav">
+        <li >
+            <a href='/en/DiscoverELS' alt='Discover ELS' title='Discover ELS'>Discover <br />ELS</a>
+        </li>
+        <li >
+            <a href='/en/ELSCenters' alt='Centers & Locations' title='Centers & Locations'>Centers &<br />Locations</a>
+        </li>
+        <li >
+            <a href='/en/EnglishPrograms' alt='English Programs' title='English Programs'>English<br />Programs</a>
+        </li>
+        <li >
+            <a href='/en/UniversityAdmissions' alt='University Admissions' title='University Admissions'>University<br />Admissions</a>
+        </li>
+        <li >
+            <a href='/en/CounselorConnect' alt='Counselor Connect' title='Counselor Connect'>Counselor <br />Connect</a>
+        </li>
+        <li class="calculator"><span><a href="javascript: void(0);" alt="Cost Calculator" title="Cost Calculator">Cost <br />Calculator</a></span>
+            <div class="calculator-content" style="display: none;">
+                <form action="/en/Calculator/CalculateFee" method="post">
+    <input type="hidden" id="culture" value='en' />
+    <input type="hidden" id="select-one" value='Select One...' />
+    <div id="edit-location-wrapper" class="form-item">
+        <label for="edit-location">Location:<span title="This field is required." class="form-required">*</span></label>
+        <select id="calLocations" name="calLocations">
+            <option value="">Select One...</option>
+        </select>
+        <div id="calLocVal" class="field-validation"></div>
+    </div>
+    <div id="edit-program-wrapper" class="form-item">
+        <label for="edit-program">Program:<span title="This field is required." class="form-required">*</span></label>
+        <select id="calPrograms" name="calPrograms">
+            <option value="">Select One...</option>
+        </select>
+        <div id="calProgVal" class="field-validation"></div>
+    </div>
+    <div id="edit-session-wrapper" class="form-item">
+        <label for="edit-session">Number of Sessions:<span title="This field is required." class="form-required">*</span><br /><span id="sessions-to-weeks1">1 session = 4 weeks</span><span style="display: none" id="sessions-to-weeks2">1 session = 3 weeks</span></label>
+        <select id="calSessions" name="calSessions">
+            <option value="">Select One...</option>
+        </select>
+        <div id="calSesVal" class="field-validation"></div>
+    </div>
+    <div id="edit-housing-wrapper" class="form-item">
+        <label for="edit-housing">Type of Housing:<span title="This field is required." class="form-required">*</span></label>
+        <select id="calHousing" name="calHousing">
+            <option value="">Select One...</option>
+        </select>
+        <div id="calHouseVal" class="field-validation"></div>
+    </div> 
+    <input type="submit" class="form-submit" value='Estimate Cost' id="cal-submit" name="op" /> 
+  
+</form>
+<div class="total" style="display: none;"></div> 
+<input type="hidden" value='Location Details' id="loc-details-label" />
+<input type="hidden" value='Program Features' id="prg-details-label" />
+<span id="estimate-legal" style="display: none">Estimated cost includes tuition and housing costs only. All prices are listed in US Dollars. Program & housing availability as well as cost are subject to change.</span>
+            </div>
+        </li>
+
+    </ul><!--end nav-->
+        
+    <div id="share"></div>
+            
+            <ul id="homenav">
+                
+                    <li class="on"><a href='#StudyAbroad'>Study English Abroad</a></li>
+                
+                    <li><a href='#University'>Attend University</a></li>
+                
+                    <li><a href='#English'>English Programs</a></li>
+                
+                    <li><a href='#Junior'>Junior Programs</a></li>
+                
+                    <li><a href='#Executive'>Executive Programs</a></li>
+                
+                    <li><a href='#TestPrep'>Test Prep Programs</a></li>
+                
+                    <li><a href='#50th'>50th Anniversary</a></li>
+                
+            </ul>
+            
+            <div id="share"></div>
+        
+        <br class="clear" />
+        </div><!--end static content-->
+        
+        <div id="header-slider">
+            <div id="header-bg">
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Welcome to ELS, where the world comes to …</h2>
+Study English abroad ... be accepted to top universities in the USA, Canada, and Australia ...  and enjoy the experience of a lifetime!
+
+</div>
+<!--end content-->
+<div class="bottom"><a class="choose" href="/en/ELSCenters">Choose the right ELS location</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="Study English Abroad" title="Study English Abroad" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_study_english_abroad.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Be accepted to universities in the USA, Canada, and Australia</h2>
+ELS’ pathway to 650+ universities via Conditional Letters of Admission means you can be accepted before you achieve English proficiency.</div>
+<!--end content-->
+<div class="bottom"><a class="learn" href="/en/UniversityAdmissions">Learn more</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="Attend University" title="Attend University" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_attend_university.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Travel to ELS and arrive at your goals</h2>
+At ELS you choose from General English, English for Academic Purposes, Semi-Intensive English, Test Prep Programs, and much more.</div>
+<!--end content-->
+<div class="bottom"><a class="learn" href="/en/EnglishPrograms/GeneralEnglish">Learn more</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="English Programs" title="English Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_english_programs.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Learn English and make friends from around the world!</h2>
+Play on the beach in Florida and Malibu or prepare for University studies, and study English!</div>
+<!--end content-->
+<div class="bottom"><a class="learn" href="/en/EnglishPrograms/Junior">Learn more</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="Junior Programs" title="Junior Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_junior_programs.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Be Successful: ELS Executive English Programs</h2>
+When your career requires English, be prepared to communicate confidently, accurately, and effectively.</div>
+<!--end content-->
+<div class="bottom"><a class="learn" href="/en/EnglishPrograms/Executive">Learn more</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="Executive Programs" title="Executive Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_executive_english.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Do your best<br class="br" />on the test</h2>
+Prepare for TOEFL<sup>®</sup> iBT success with ELS's renowned preparation programs.</div>
+<!--end content-->
+<div class="bottom"><a class="learn" href="/en/EnglishPrograms/TestPrep">Learn more</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="Test Prep Programs" title="Test Prep Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_test_prep_programs.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<p class="anniversary">This year marks ELS's 50th Anniversary and 50 years of leadership<br class="br" /> in international education, offering the largest network of campus-based<br class="br" /> English language instruction centers in the world.</p>
+
+                    </div><!--end info-->
+                    <img alt="50th Anniversary" title="50th Anniversary" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_50_anniversary.jpg' />
+                </div>
+                
+                <div class="bg">
+                    <div class="info">
+                        
+<div class="content">
+<h2>Welcome to ELS, where the world comes to …</h2>
+Study English abroad ... be accepted to top universities in the USA, Canada, and Australia ...  and enjoy the experience of a lifetime!
+
+</div>
+<!--end content-->
+<div class="bottom"><a class="choose" href="/en/ELSCenters">Choose the right ELS location</a></div>
+<!--end bottom-->
+                    </div><!--end info-->
+                    <img alt="" src='http://wp.els.edu/wp-content/uploads/2011/03/slide_study_english_abroad.jpg' />
+                </div>
+    
+            </div><!--end header-bg-->
+        </div><!--end header-slider-->
+        
+        <h1>ELS English Language Centers</h1>
+        
+    </div>
+    
+    <div id="main">
+        
+        <div id="content">
+        	<div class="top"></div>
+            
+            <div id="anniv-content">
+                <h2>How best to measure five decades of success for ELS, our students and our university partners? <span>Here are just a few ways:</span></h2>
+<div class="col">
+<h3>1,000</h3>
+<h4>Student Arrival Days</h4>
+<p>with crowds of eager young students filled with anticipation arriving at ELS Language Centers across the USA.</p>
+<h3>78,000</h3>
+<h4>ESL Classes Enrolled and Taught</h4>
+<p>by warm, patient and caring professional teachers sharing language, culture and energy each day.</p>
+<h3>350,000</h3>
+<h4>Homestays Arranged and Roommates Matched</h4>
+<p>with cultures, customs and hospitality shared.</p>
+<h3>1,000s</h3>
+<h4>ELS Graduate Success Stories</h4>
+<p>from heads of government and top researchers to internationally successful musicians, artists, athletes and multi-millionaire entrepreneurs.</p></div>
+<div class="col">
+<h3>10,000s</h3>
+<h4>of International Students</h4>
+<p>admitted to colleges, universities and post graduate studies in institutions of higher learning.</p>
+<h3>1,000s</h3>
+<h4>Graduations</h4>
+<p>with farewells to friends and teachers who will be remembered for a lifetime.</p>
+<h3>1,000,000</h3>
+<h4>Students From More Than<br class="br" />140 Countries</h4>
+<p>mastering English and study skills for success in higher education, careers and life.</p>
+<h3>1,000,000</h3>
+<h4>Global Citizenships Attained</h4>
+<p>through the ELS experience, encourage our graduates to value peace and communion with their fellow citizens around the globe.</p></div>
+<div class="col" style="width:298px; padding-right:0;"><a class="video-modal" href="#video" rel="http://www.youtube.com/watch?v=MOx_UXo6qXM"><img src="/assets/img/home/video-50th-anniv.jpg" alt="" /></a><br class="br" /><br class="br" /><a class="video-modal" href="#video" rel="http://www.youtube.com/watch?v=0SIHJJ8AbTs"><img src="/assets/img/home/video-50-years-photos.jpg" alt="" /></a><br class="br" />
+<div class="button right"><a href="/en/DiscoverELS/ELSExperience">Discover More</a></div>
+</div>
+
+            </div><!--end main-anniv-->
+            
+            <div class="main">
+            
+				<div class="column" style="width:350px;">
+                	<h3>Recent News</h3>
+                    <div class="content">
+                        <h4>ELS offers excellent academic and vacation programs in Vancouver and Toronto Canada!</h4>
+                        <p>Experience the wonderful cultural activities and natural beauty of Canada while enhancing your English at the same time!
+                        <p class="readmore"><a href='/News/Detail?newsid=20103'>Read more</a></p>
+                    </div>
+                </div><!--end column-->
+            
+				<div class="column" style="width:380px;">
+                	<h3>Discover ELS</h3>
+<div class="content"> <a class="video-modal" href="#video" rel="http://www.youtube.com/watch?v=DVV0KVv5uyg"><img src="/assets/img/home/video-link.jpg"></a></div>
+
+                </div><!--end column-->
+                
+                <div class="column last">
+                	<h3>Contact a Counselor</h3>
+<div class="content">
+<h4>Need Help?</h4>
+<p>ELS counselors will guide you through the selection process, help you choose a program that satisfies all of your goals, work with you to complete your application and fulfill all immigration documents.</p>
+<p class="readmore"><a href="/en/CounselorConnect">Get Started</a></p>
+</div>
+
+                </div><!--end column-->
+                
+                <div class="column last" style="display:none;">
+                	<div class="content">
+                    	<img src="/assets/img/global/create-profile.png" class="icon" height="50" width="51" />
+                        <h5>JOIN TODAY</h5>
+                        <h4>Create an ELS profile</h4>
+                        <br class="clear" />
+                    	<p>There are many benefits to having an ELS profile. Save your favorite programs, sessions, preferred travel dates, and more.  Connect with counselors and receive one-on-one help as your choose the ELS program that's right for you. It only takes a few minutes!</p>
+                        <p class="readmore"><a href="javascript: void(0);">Start</a></p>
+                    </div>
+                </div><!--end column-->
+            
+            <div class="clear"></div>    
+            </div><!--end main-->
+            <br class="clear" />  
+            <div class="bottom"></div>
+        </div><!--end content id-->
+
+    </div><!--end main id-->
+    
+</div><!--end container-->
+
+
+
+<div id="footer">
+	<div class="content">
+        
+        <ul>
+            <li><h3>Help</h3></li>
+            <li><a href='/en/Help'>Help Center</a></li>
+            <li><a href='/en/HowToApply'>How to Apply</a></li>
+            <li><a href='/en/ContactUs'>Contact Us</a></li>
+            <li><a href='/en/EBrochures'>ELS E-Brochures</a></li>
+            <li><a href='/en/Language'>Language / Country</a></li>
+            <li><br /><br />
+				<a href="http://www.facebook.com/els" target="_blank"><img src="/assets/img/interior/icon-facebook.png" title="facebook.com/els" /></a>&nbsp;&nbsp;
+                <a href="http://www.twitter.com/elscenters" target="_blank"><img src="/assets/img/interior/icon-twitter.png" title="twitter.com/elscenters" /></a>&nbsp;&nbsp;
+				<a href="http://www.youtube.com/elslanguagecenters" target="_blank"><img src="/assets/img/interior/icon-youtube.png" title="youtube.com/elslanguagecenters" /></a>
+			</li>
+        </ul>
+
+        <ul>
+            <li><h3>ELS Educational<br/>Services, Inc.</h3></li>
+            <li><a href='/en/AboutELS'>About ELS</a></li>
+            <li><a href='/en/DiscoverELS/ELSExperience'>ELS Experience</a></li>
+            <li><a href='/en/News'>News</a></li>
+            <li><a href='/en/Careers'>Careers</a></li>
+            <li><a href='/en/Sitemap'>Sitemap</a></li>
+            <li><a href='/en/Downloads'>Downloads</a></li>
+            <li><a href='/en/PrivacyPolicy'>Privacy Policy</a></li>
+            <li><a href='/en/TermsOfUse'>Terms of Use</a></li>
+        </ul>
+                
+        <ul>
+            <li><h3>Centers &<br />Locations</h3></li>
+            <li><a href='/en/ELSCenters'>Centers & Locations</a></li>
+            <li><h3>Counselors</h3></li>
+            <li><a href='/en/CounselorConnect'>Counselor <br />Connect</a></li>
+        </ul>
+        
+        <ul>
+            <li><h3>Programs</h3></li>
+            <li><a href='/en/DiscoverELS/UniversityAdmissions'>Attend a University</a></li>
+            <li><a href='/en/EnglishPrograms/GeneralEnglish'>Take an ELS English Program</a></li>
+            <li><a href='/en/EnglishPrograms/Junior'>Learn English in a Junior Camp</a></li>
+            <li><a href='/en/EnglishPrograms/Executive'>Learn English for Executives</a></li>
+            <li><a href='/en/EnglishPrograms/TestPrep'>Take an ELS Prep Course</a></li>
+            <li><a href='/en/EnglishPrograms/PAT'>Take an ELS Pre-Arrival Test</a></li>
+            <li><a href='/en/ELSCenters/International'>Learn English Outside the US</a></li>
+            <li><a href='/en/EnglishPrograms/Program?prgm=CEL-TeacherTraining-Celta'>Teacher Training</a></li>
+        </ul>
+        
+        <ul class="language">
+            <li class="h3"><h3>Language Selection</h3></li>
+            <li class="on"><a href='/en/Language/Change?language=en'>English</a></li>
+            <li ><a href='/en/Language/Change?language=es'>Español</a></li>
+            <li ><a href='/en/Language/Change?language=pt'>Português</a></li>
+            <li ><a href='/en/Language/Change?language=ar'>العربية</a></li>
+            <li ><a href='/en/Language/Change?language=zh-chs'>简体中文</a></li>
+            <li ><a href='/en/Language/Change?language=zh-cht'>繁體中文</a></li>
+            <li ><a href='/en/Language/Change?language=ko'>한국어</a></li>
+            <li ><a href='/en/Language/Change?language=ja'>日本語</a></li>
+            <li ><a href='/en/Language/Change?language=tr'>Türkçe</a></li>
+            <li ><a href='/en/Language/Change?language=it'>Italiano</a></li>
+            <li ><a href='/en/Language/Change?language=fr'>Français</a></li>
+            <li ><a href='/en/Language/Change?language=ru'>Русский</a></li>
+            <li ><a href='/en/Language/Change?language=th'>ไทย</a></li>
+            <li ><a href='/en/Language/Change?language=de'>Deutsch</a></li>
+            <li ><a href='/en/Language/Change?language=vi'>Tiếng Việt</a></li>
+            <li ><a href='/en/Language/Change?language=hi'>हिन्दी</a></li>
+        </ul>
+       
+        <p>
+        <h3>ELS Language Centers is accredited by or members of:</h3>
+        <a href="/AboutELS/#accreditation" target="_self"><img src="/assets/img/accreditation/AACRAO.png" alt="AACRAO: American Association of Collegiate Registrars and Admissions Officers" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/AAIEP.png" alt="AAIEP: American Association of Intensive English Programs" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/ACCET.png" alt="ACCET - Accrediting Council for Continuing Education and Training" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/AIEA.png" alt="AIEA- Association of International Education Administrators" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/AIRC.png" alt="AIRC - American International Recruitment Council" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/ALTO.png" alt="ALTO - Association of Language Travel Organisations" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/CANADA.png" alt="Languages Canada" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/NAFSA.png" alt="NAFSA - Association of International Educators" border="0" />&nbsp;&nbsp;&nbsp;
+        <img src="/assets/img/accreditation/TESOL.png" alt="TESOL - Teachers of English to Speakers of Other Languges" border="0" /></a></p>
+        <div style="font-size:14px; margin-right:625px;">Universal Education Centre Pty. Ltd. CRICOS Code: 00053J</div><br />
+        <p>&copy; Copyright 2012 ELS Educational Services, Inc., 400 Alexander Park, Princeton, N.J. 08540 USA, a <a href="http://www.berlitz.com" target="_blank">Berlitz company</a></p>
+	</div>
+</div><!--end footer-->
+<div id="fb-root"></div>
+<div id="mask"></div>
+<div id="logout" class="modal small">
+	<div class="top">
+		<a class="close"></a>
+    	<h2>Logout</h2>
+	</div>
+    <div class="content">
+    	<div class="graybox"><p>Logging out will save any data, and return you to the homepage.</p></div>
+        <div class="bottom selfclear">
+			<div class="button alignright"><a id="logout-ok" class="cancel">OK</a></div>
+			<div class="alignright margin"><a class="cancel textonly" href="javascript: void(0);">Cancel</a></div>
+		</div>
+    </div><!-- .content-->
+</div>
+
+    <script type="text/javascript" src="/assets/js/fb.js"></script>
+    
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	    var pageTracker = _gat._getTracker("UA-1623609-1");
+	    pageTracker._trackPageview();
+</script>
+
+<script type="text/javascript"><!--
+    document.write('<'
+                                + 'script type="text/javascript" src="'
+                                + document.location.protocol
+                                + '//stats.clicktracks.com/cgi-bin/ctasp-server.cgi?i=zX91hjL7weAUk6'
+                                + '"><'
+                                + '/script>');
+                // -->
+</script>
+
+<!-- WebCertain tracking code for ELS.edu -->
+<script language='javascript' type="text/javascript">
+    var str;
+    var res;
+    str = (document.location.href.indexOf("https") == 0) ? "https" : "http";
+    res = "<script language='javascript'>UserID=4736;<\/script>";
+    res += "<script language='javascript' src='" + str + ":\/\/tracker.roitesting.com\/roitracker2.js'><\/script>";
+    document.write(res);
+</script>
+<form action="/en/ContactUs/SendShare" id="share-page" method="post"> 
+<input type="hidden" id="url" name="url" />
+<div id="email" class="modal small">
+	<div class="top">
+        <a class="close"></a>
+        <h3>Email this Page</h3>
+    </div><!-- .top-->
+    <div class="content selfclear">
+    <p>Enter your email address and your friend&#39;s email address, then click the Send button. No personal information including e-mail addresses about you or the recipient will be collected from this email notification.</p>
+    <div class="form-item">
+        <input id="remail" name="remail" type="text" value="Recipient&rsquo;s Email" class="text" onFocus="if (this.value=='Recipient&rsquo;s Email') this.value='';" onblur="if (this.value=='') this.value='Recipient&rsquo;s Email';" />
+        <span style="display:none; color: #CC0000;" id="remail-validate">Please enter a valid email address</span>
+    </div>
+    <div class="form-item">
+    <input id="yemail" name="yemail" type="text" value="Your Email" class="text" onFocus="if (this.value=='Your Email') this.value='';" onblur="if (this.value=='') this.value='Your Email';" />
+    <span style="display:none; color: #CC0000;" id="yemail-validate">Please enter a valid email address</span>
+    </div>
+    <div class="form-item">
+    	<p>Message:</p>
+    	<textarea id="comments" name="comments" cols="" rows=""></textarea>
+        <div id="share-loading"><img alt="Sending" src="/assets/img/locations/loader.gif" /></div>
+    </div>
+    <div class="section bottom selfclear"> 
+        <div class="button alignright"><input type="submit" class="buttons" value="Send Message" name="send"></div>
+    </div>
+    </div><!-- .content-->
+</div><!-- #email-->
+</form>
+
+
+<div id="background">      
+
+    
+        <img alt="" title="Study English Abroad" src='http://wp.els.edu/wp-content/uploads/2011/03/background_study_english_abroad.jpg'  class="on" style="display:block;" />
+    
+        <img alt="" title="Attend University" src='http://wp.els.edu/wp-content/uploads/2011/03/background_attend_university.jpg'  />
+    
+        <img alt="" title="English Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/background_english_programs.jpg'  />
+    
+        <img alt="" title="Junior Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/background_junior_programs.jpg'  />
+    
+        <img alt="" title="Executive Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/background_executive_english.jpg'  />
+    
+        <img alt="" title="Test Prep Programs" src='http://wp.els.edu/wp-content/uploads/2011/03/background_test_prep_programs.jpg'  />
+    
+        <img alt="" title="50th Anniversary" src='http://wp.els.edu/wp-content/uploads/2011/03/background_50_anniversary.jpg'  />
+    
+
+</div>
+<div id="video" class="modal">
+	<div class="top">
+        <a class="close"></a>
+        <h3>The ELS Experience</h3>
+    </div><!-- .top-->
+    <div class="content">
+        <div class="player"><div id="jwplayer"></div></div>
+    </div><!-- .content-->
+</div><!-- #video-->
+
+</body>
+</html>

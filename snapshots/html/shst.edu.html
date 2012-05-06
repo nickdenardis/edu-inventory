@@ -1,0 +1,362 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>Sacred Heart - School of Theology</title>
+<meta http-equiv="content-type" content="text/html;charset=iso-8859-1">
+<meta http-equiv="Content-Language" content="en-us">
+<META NAME="description" CONTENT="">
+<META NAME="keywords" CONTENT="">
+<META NAME="author" CONTENT="ascedia.com">
+<META NAME="robots" CONTENT="index, follow">
+<META NAME="revisit-after" CONTENT="14 days">
+<script language="JavaScript" type="text/JavaScript" src="/__utm.js"></script>
+<link rel="stylesheet" href="main.css" type="text/css">
+<link rel="home" title="" href="">
+<script language="JavaScript" type="text/JavaScript" src="main.js"></script>
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="/pngfix.js"></script>
+<![endif]-->
+<script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js"></script>
+
+
+
+<script language="JavaScript1.2" type="text/javascript">
+    var slideshow_width = '679px'; // image width
+    var slideshow_height = '375px'; // image height
+    var pause = 3000; // interval betwwen images (3000=3 seconds)
+    var curpos = 10;
+    var degree = 5; // higher the number the faster it fades 10 is default
+    var curcanvas = "canvas0";
+    var curimageindex = 0;
+    var nextimageindex = 1;
+    var loadImage = true;
+    var ie4 = document.all;
+    var dom = document.getElementById;
+    var fadeimages = new Array();
+
+    //[imagePath,optional link,optional link target]
+
+    fadeimages[0] = ["images/index-main-img.jpg", "", ""];
+    fadeimages[1] = ["images/index-main-img2.jpg", "", ""];
+    fadeimages[2] = ["images/index-main-img3.jpg", "", ""];
+    fadeimages[3] = ["images/index-main-img4.jpg", "", ""];
+    fadeimages[4] = ["images/index-main-img5.jpg", "", ""];
+
+    var preloadedimages = new Array()
+    for (p = 0; p < fadeimages.length; p++) {
+        preloadedimages[p] = new Image();
+        preloadedimages[p].src = fadeimages[p][0];
+    }
+
+    function fadepic() {
+        if (curpos < 100) {
+            curpos += degree;
+            if (tempobj.filters) {
+                tempobj.filters.alpha.opacity = curpos;
+            } else if (tempobj.style.MozOpacity) {
+                tempobj.style.MozOpacity = curpos / 101;
+            }
+        } else {
+            clearInterval(dropslide);
+            nextcanvas = (curcanvas == "canvas0") ? "canvas0" : "canvas1";
+            tempobj = ie4 ? eval("document.all." + nextcanvas) : document.getElementById(nextcanvas);
+            tempobj.innerHTML = insertimage(nextimageindex);
+            nextimageindex = (nextimageindex < fadeimages.length - 1) ? nextimageindex + 1 : 0;
+            var tempobj2 = ie4 ? eval("document.all." + nextcanvas) : document.getElementById(nextcanvas);
+            tempobj2.style.visibility = "hidden";
+            setTimeout("rotateimage()", pause);
+        }
+    }
+
+    function insertimage(i) {
+        var tempcontainer = fadeimages[i][1] != "" ? '<a href="' + fadeimages[i][1] + '" target="' + fadeimages[i][2] + '">' : "";
+        tempcontainer += '<img src="' + fadeimages[i][0] + '" border="0" galleryimg="false">';
+        tempcontainer = fadeimages[i][1] != "" ? tempcontainer + '</a>' : tempcontainer;
+        return tempcontainer;
+    }
+
+    function rotateimage() {
+        if (ie4 || dom) {
+            resetFilters(curcanvas);
+            var crossobj = tempobj = ie4 ? eval("document.all." + curcanvas) : document.getElementById(curcanvas);
+            crossobj.style.zIndex++;
+            //alert(crossobj.style.zIndex);
+            tempobj.style.visibility = "visible";
+            var temp = 'setInterval("fadepic()",50)';
+            dropslide = eval(temp);
+            curcanvas = (curcanvas == "canvas0") ? "canvas1" : "canvas0";
+        } else {
+            document.images.defaultslide.src = fadeimages[curimageindex][0];
+        }
+        curimageindex = (curimageindex < fadeimages.length - 1) ? curimageindex + 1 : 0;
+    }
+
+    function resetFilters(what) {
+        if (loadImage) {
+            curpos = 100;
+            loadImage = false;
+        } else {
+            curpos = 10;
+        }
+        var crossobj = ie4 ? eval("document.all." + what) : document.getElementById(what);
+        if (crossobj.filters) {
+            crossobj.filters.alpha.opacity = curpos;
+        } else if (crossobj.style.MozOpacity) {
+            crossobj.style.MozOpacity = curpos / 101;
+        }
+    }
+
+    function startRotate() {
+        var crossobj = ie4 ? eval("document.all." + curcanvas) : document.getElementById(curcanvas);
+        crossobj.innerHTML = insertimage(curimageindex);
+        crossobj.style.visibility = "visible";
+        rotateimage();
+    }
+	
+	function doSearch() {
+		var searchText = form1.elements["textfield"].value;
+		var baseURL = location.host;
+		var goTo = "http://shst.beta.ascedia.com/search/index.asp?q=" + searchText + "&cmd=Search!";
+		alert(goTo);
+		window.location.href = goTo;
+		
+		return false;
+	}
+    // --></script>
+<style type="text/css">
+     
+</style> 
+</head>
+
+<body><div id="container">
+  <table width="926" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="221" rowspan="3" valign="top" background="images/side-bg.jpg"><table width="221" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="../index.aspx"><img src="images/logo.jpg" alt="Sacred Heart School of Theology" width="221" height="125" border="0" title="Sacred Heart School of Theology"></a></td>
+          </tr>
+          <tr>
+            <td><div><!-- #BeginLibraryItem "/Library/nav-index.lbi" -->
+
+  <ul id="navcontainer"><div class="nav-bg">
+    <li id="nav"  ><a  href="aboutus/index.htm"  onClick="document.getElementById('mainNav_1').style.display = 'block'">ABOUT US</a></li>
+  </div>
+   
+  <div class="nav-bg"><li id="nav"><a  href="programs/index.htm" onClick="document.getElementById('mainNav_2').style.display = 'block'" >PROGRAMS</a></li>
+  </div>
+ 
+  
+  <div class="nav-bg"><li id="nav"><a  href="PressReleases.aspx" onClick="document.getElementById('mainNav_3').style.display = 'block'">NEWS &amp; EVENTS</a> </li>
+  </div>
+  
+ 
+  <div class="nav-bg">
+    <li id="nav"><a  href="faculty/index.htm">FACULTY / ADMINISTRATION</a><br>
+    </li>
+  </div>
+  <div class="nav-bg"><li id="nav"><a  href="leodehon-library/index.htm">LEO DEHON LIBRARY</a><br>
+    </li>
+  </div>
+  <div class="nav-bg" >
+    <li id="nav"><a  href="request-information/index.asp">INQUIRY FORM</a><br>
+    </li>
+  </div>
+  <div class="nav-bg"><li id="nav"><a  href="contact-us/index.htm" onClick="document.getElementById('mainNav_4').style.display = 'block'">CONTACT US</a> </li>
+  </div>
+
+ 
+  </ul>
+<!-- #EndLibraryItem --></div></td>
+          </tr>
+      </table></td>
+      <td width="679" colspan="2" valign="top"><div style="position: relative">
+          <div id="search">
+            <form name="form1" method="post" action="../search/search.aspx" style="padding:0; margin:4 0 0 0">
+                    <span class="search">Search:</span>
+                    <input name="words" id="words" type="text" class="body" size="16">
+                    <input src="../images/index-search-arrow.png" type="image"  width="9" height="11" hspace="0" >
+            </form>
+          </div>
+        <script language="JavaScript1.2" type="text/javascript">
+            if (ie4 || dom) {
+                document.write('<div style="position:relative;width:' + slideshow_width + ';height:' + slideshow_height + ';overflow:hidden"><div  id="canvas0" style="position:absolute;width:' + slideshow_width + ';height:' + slideshow_height + ';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10"></div><div id="canvas1" style="position:absolute;width:' + slideshow_width + ';height:' + slideshow_height + ';top:0;left:0;filter:alpha(opacity=10);-moz-opacity:10;visibility: hidden"></div></div>')
+            } else {
+                document.write('<img name="defaultslide" src="' + fadeimages[0][0] + '" galleryimg="false">');
+            }
+							</script>
+      </div></td>
+      <td width="26" rowspan="6" valign="top" id="png" ><img src="images/bg-right.png" width="26" height="325"></td>
+    </tr>
+    <tr>
+      <td width="472" valign="top"></td>
+    </tr>
+    <tr> </tr>
+    <tr>
+      <td width="221" height="150" valign="top" background="images/side-bg.jpg" style="padding-left:26px"><p class="header-white">Accredited By:</p>
+          <p class="body-white">The Higher Learning Commission: A Commission of the North Central Association of Colleges and Schools. Association of Theological Schools in the United States and Canada. <br>
+          <img src="images/logos-accreditedby.jpg" width="145" height="26" vspace="5" align="left"></p>
+      </td>
+      <td colspan="2"><table width="679" height="150" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="260" colspan="3" valign="top" background="images/box1-top.jpg"><img src="images/box1-top.jpg" width="260" height="5"></td>
+            <td width="2" rowspan="3" valign="top" bgcolor="#DCD7D1"><img src="images/spacer.gif" width="2" height="2"></td>
+            <td width="220" colspan="3" rowspan="2" valign="bottom" id="indexbox2">
+              
+              <div id="NewsHorizontal">
+              <!-- "previous page" action -->
+<a class="prev browse left"><img src="images/index-arrow-left.gif" width="20" height="24"></a>
+
+
+
+<!-- root element for scrollable -->
+<div><h4>News & Events</h4></div>
+<div class="scrollable">   
+   
+   <!-- root element for the items -->
+   <div class="items">
+   
+     
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl00_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129803581916634702.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl00_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=132"><span id="ctlNewsIndex1_dlNews_ctl00_lblTitle">SHST bids fond farewell to Fr. Jan de Jong, SCJ</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl00_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=132"><span id="ctlNewsIndex1_dlNews_ctl00_lblPostDate">Published May 01</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl00_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=132"><span id="ctlNewsIndex1_dlNews_ctl00_lblBlurb" class="lblBlurb">Sacred Heart School of Theology held a tribute celebration for the Very Rev. Jan de Jong, SCJ, president-rector,</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl00_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=132">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl01_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129798516756814259.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl01_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=131"><span id="ctlNewsIndex1_dlNews_ctl01_lblTitle">Four admitted to candidacy</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl01_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=131"><span id="ctlNewsIndex1_dlNews_ctl01_lblPostDate">Published April 25</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl01_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=131"><span id="ctlNewsIndex1_dlNews_ctl01_lblBlurb" class="lblBlurb">Four seminarians were admitted as candidates for holy orders at an Apr. 25 all-school Mass. This is an important</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl01_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=131">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl02_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129794211656681303.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl02_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=130"><span id="ctlNewsIndex1_dlNews_ctl02_lblTitle">Bishop Ricken gives day of recollection on 'interior life'</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl02_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=130"><span id="ctlNewsIndex1_dlNews_ctl02_lblPostDate">Published April 20</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl02_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=130"><span id="ctlNewsIndex1_dlNews_ctl02_lblBlurb" class="lblBlurb">The Most Rev. David Ricken, DD, Bishop of the Diocese of Green Bay, presented Sacred Heart School of Theology's</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl02_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=130">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl03_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129774465185846783.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl03_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=129"><span id="ctlNewsIndex1_dlNews_ctl03_lblTitle">Msgr. Ross Shecterle of Milwaukee Archdiocese named president-rector of Sacred Heart</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl03_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=129"><span id="ctlNewsIndex1_dlNews_ctl03_lblPostDate">Published March 28</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl03_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=129"><span id="ctlNewsIndex1_dlNews_ctl03_lblBlurb" class="lblBlurb">&nbsp;Msgr. Ross Shecterle has been selected as the new president-rector of Sacred Heart School of Theology,</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl03_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=129">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl04_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129772468390250228.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl04_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=128"><span id="ctlNewsIndex1_dlNews_ctl04_lblTitle">Two SHST leaders tapped for ATS panels</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl04_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=128"><span id="ctlNewsIndex1_dlNews_ctl04_lblPostDate">Published March 23</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl04_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=128"><span id="ctlNewsIndex1_dlNews_ctl04_lblBlurb" class="lblBlurb">Two Sacred Heart School of Theology staff have been named to leadership positions with the Association of</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl04_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=128">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl05_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129768991298198528.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl05_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=127"><span id="ctlNewsIndex1_dlNews_ctl05_lblTitle">Eight instituted as readers</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl05_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=127"><span id="ctlNewsIndex1_dlNews_ctl05_lblPostDate">Published March 22</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl05_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=127"><span id="ctlNewsIndex1_dlNews_ctl05_lblBlurb" class="lblBlurb">Eight Sacred Heart School of Theology seminarians were instituted as readers at a March 21 Mass. The Most Rev. J</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl05_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=127">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl06_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129762364021529873.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl06_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=126"><span id="ctlNewsIndex1_dlNews_ctl06_lblTitle">Fr. Heille presents Dehon lecture on preaching</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl06_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=126"><span id="ctlNewsIndex1_dlNews_ctl06_lblPostDate">Published March 14</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl06_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=126"><span id="ctlNewsIndex1_dlNews_ctl06_lblBlurb" class="lblBlurb">Fr. Gregory Heille, O.P., lead sessions on preaching for Sacred Heart School of Theology's March 14 Dehon</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl06_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=126">Read More.</a></span></p>
+    </div>
+    
+    <div>
+        <img id="ctlNewsIndex1_dlNews_ctl07_imgNewsImage" class="imgNewsImage" align="left" src="images/resources/thumb_200x200_news_129738065858016338.jpg" style="height:80px;border-width:0px;width: auto;" />
+        <h3 class="title"><a id="ctlNewsIndex1_dlNews_ctl07_hlLinkTitle" class="linkTitle" href="NewsDetails.aspx?ID=125"><span id="ctlNewsIndex1_dlNews_ctl07_lblTitle">Landau's Lux Center lecture sees models for peace in Genisis passages</span></a></h3>
+        <p class="date" style="color: #333;"><a id="ctlNewsIndex1_dlNews_ctl07_hlLinkDate" class="linkDate" href="NewsDetails.aspx?ID=125"><span id="ctlNewsIndex1_dlNews_ctl07_lblPostDate">Published February 15</span></a></p>
+        <p><a id="ctlNewsIndex1_dlNews_ctl07_hlLinkBlurb" class="linkBlurb" href="NewsDetails.aspx?ID=125"><span id="ctlNewsIndex1_dlNews_ctl07_lblBlurb" class="lblBlurb">The Lux Center for Catholic-Jewish Studies at Sacred Heart School of Theology hosted a lecture by Professor</span>... </a><span class="readmore"><a id="ctlNewsIndex1_dlNews_ctl07_hlReadMore" class="readMore" href="NewsDetails.aspx?ID=125">Read More.</a></span></p>
+    </div>
+    
+      
+   </div>
+   
+</div>
+
+<!-- "next page" action -->
+<a class="next browse right"><img src="images/index-arrow-right.gif" width="20" height="24"></a>
+
+<br clear="all" />
+
+<div class="small-news-link"><span class="smalllinks"><a href="PressReleases.aspx">View Press Releases</a> &nbsp;&nbsp;&#124&nbsp;&nbsp; <a href="CurrentNewsAndEvents.aspx">View Seminary Events</a></span></div>
+
+              </div>
+            </td>
+            <td width="2" rowspan="3" valign="top" bgcolor="#DCD7D1"><img src="images/spacer.gif" width="2" height="2"></td>
+            <td width="2" rowspan="3" valign="top"><img src="images/spacer.gif" width="2" height="2"></td>
+          </tr>
+          <tr>
+            <td width="22" rowspan="1" valign="top" background="images/box1-left.jpg"><img src="images/box1-left.jpg" width="22" height="5"></td>
+            <td width="220" rowspan="1" valign="top" bgcolor="#666666"><div class="quicklinks">Quick Links</div>
+              <hr width="100%" size="1" color="#E2D2AB" />
+              <div class="indexbox-bodywhite">
+                <ul>
+                  <li><a href="aboutus/tour.htm">Tour Our Seminary, including the Sacred Heart Chapel<img src="images/arrow-white.jpg" width="8" height="10" hspace="6" border="0"></a></li>
+                  <li><a href="request-information/index.asp">Request Information Form<img src="images/arrow-white.jpg" width="8" height="10" hspace="6" border="0" /></a></li>
+                  <li><a href="/aboutus/stlife.htm">Student Life, what's it like at <br />Sacred Heart?<img src="images/arrow-white.jpg" width="8" height="10" hspace="6" border="0" /></a></li>
+                  <li><a href="/news-events/podcasts.htm">Seminary Voices<img src="images/arrow-white.jpg" width="8" height="10" hspace="6" border="0" /></a></li>
+                </ul>
+            </div></td>
+            <td width="18" rowspan="2" valign="top" bgcolor="#666666"><img src="images/spacer.gif" width="18" height="5"></td>
+          </tr>
+          
+      </table></td>
+    </tr>
+    <tr>
+      <td colspan="3" valign="top" style="padding-left:26px"><img src="newsletter/dateyymmdd/images/spacer.gif" width="10" height="2"></td>
+    </tr>
+  </table>
+  <div id="footerbg">
+    <table width="926" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><!-- #BeginLibraryItem "/Library/footer.lbi" -->
+<ul id="footer" style="margin:0 0 0 10px; padding:0">
+  <li>Sacred Heart School of Theology	</li>
+  <li>| </li>
+  <li>7335 S. Hwy 100 P.O. Box 429	</li>
+  <li>| </li>
+  <li>Hales Corners, WI 53130-0429	</li>
+  <li>| </li>
+  <li>(414) 425-8300</li>
+</ul>
+<!-- #EndLibraryItem --></td>
+        <td><!-- #BeginLibraryItem "/Library/nav-footer.lbi" -->
+<ul id="footer" style="margin:0; padding:0">
+  <li><a href="donations/index.htm">Donations</a> </li>
+  <li><a href="links/index.htm">Links			</a></li>
+  <li><a href="sitemap/index.htm">Site Map</a></li>
+</ul>
+<!-- #EndLibraryItem --></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- javascript coding -->
+
+
+<script>
+// execute your scripts when the DOM is ready. this is mostly a good habit
+$(function() {
+
+	// initialize scrollable
+    $(".scrollable").scrollable({ circular: true }).autoscroll({ interval: 5000, autoplay: true });
+
+});
+</script>
+
+</body>
+<script language="JavaScript1.2" type="text/javascript">
+<!--
+    if (ie4 || dom) {
+        startRotate();
+    } else {
+        setInterval("rotateimage()", pause);
+    }
+// -->
+</script>
+</html>

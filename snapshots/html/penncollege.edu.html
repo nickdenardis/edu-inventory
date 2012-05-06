@@ -1,0 +1,231 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Pennsylvania College of Technology</title>
+<meta name="Keywords" content="degree,technology,associate,bachelor,college,technical,education,accounting,degrees that work,business,business administration,business management,information technology,IT,legal,legal assistant,architecture,architectural technology,construction,CAD,electrical,hvac,plumbing,dental,dental hygiene,ems,emt,paramedic,fitness,nursing,rn,practical nursing,applied health,ot,occupational therapy,pa,physician assistant,radiography,surgical tech,surg tech,surgical technology,baking,culinary,hospitality,cooking,manufacturing,machinist,civil engineer,survey,cisco,fiber optics,electronics,nanofabrication,robotics,plastics,polymer,welding,art,advertising art,mass media,early childhood,human services,diesel,Mack,Caterpillar,diesel technician,environmental technology,forest,landscape,nursery,turfgrass,aviation,aviation maintenance,automotive service,Ford,Ford ASSET,Honda,Toyota,collision repair,PCT,Penn Tech,Penn State,Pennsylvania College of Technology,Penn College,Williamsport,Pennsylvania,PA"/>
+<meta name="Description" content="Pennsylvania College of Technology, Pennsylvania's premier technical college and a Penn State affiliate, provides the best opportunities for education, hands-on skills development, and real-world work experience. Penn College, in Williamsport, PA, offers majors in more than 100 career areas, with a special focus on applied technology. Our bachelor degrees, associate degrees, and certificates combine hands-on technical experience with education in theory and management practices."/>
+<style type="text/css" media="screen, projection">
+@import url("http://www.pct.edu/cgi-bin/styles/v1.1/default.css");
+@import url("/cgi-bin/styles/v1.1/aud.css");
+@import url("http://www.pct.edu/cgi-bin/styles/v1.1/home.css");
+</style>
+<style type="text/css" media="print">
+@import url("http://www.pct.edu/cgi-bin/styles/v1.1/print.css");
+</style>
+<script src="/cgi-bin/scripts/jquery1.4.4.js" type="text/javascript"></script>
+<script src="/cgi-bin/scripts/jqColor.js" type="text/javascript"></script>
+<script src="/cgi-bin/scripts/ui1.1.js" type="text/javascript"></script>
+<script type="text/javascript" src="/cgi-bin/scripts/aud.js"></script>
+<script type="text/javascript">
+var h = 240; var w = 0; var th = 10;  var sh = 10; var rotateTimer, rotateDelay
+$(document).ready(function(){
+	$("#alertbox").hide().delay(250).slideDown(750, "swing");
+	$(window).scroll( function(){$("#nav").css({"top":"0px", "position":"static"}); $(".pagetop").remove();}).resize(function() {initFeatures();}); 
+	$.get("/homeimages/home_winter_2011.xml",function(data){ rotate(1, data);});
+	$("#features a.slide").css("height","auto");
+	if ($("#features a").length>5){
+		$("#feature_wrapper").append('<div id="next_feature"><div id="next_bg">&nbsp;</div></div><div id="prev_feature"><div id="prev_bg" >&nbsp;</div></div>');  // add controls to the feature area
+		$("#features .slide_wrapper:last").prependTo('#features');
+		$('#features').css({"left":$('#features').position().left - $("#features a.slide:first").width()/2});
+		$("#prev_feature").click(function(){
+			if($("#features:animated").length==0){
+				$("#features").prepend($("#features .slide_wrapper:last")).css({'left':($("#features a.slide:first").width()*-1.5)});
+				$("#features").animate({'left':$("#features a.slide:first").width()/-(2)},300, function(){initFeatures();});
+			}
+		});
+		$("#next_feature").click(function(){
+			if($("#features:animated").length==0){
+				$("#features").animate({'left':( $("#features a.slide:first").width()*-1.5)},300, function(){
+					$("#features").append($("#features .slide_wrapper:first")).css({'left':($("#features a.slide:first").width()/-2)}); initFeatures();
+				});
+			}
+		});
+	}
+	initFeatures();
+	$(window).load(function() {initFeatures();});//runs again to ensure all images are loaded.
+	rotateTimer = setInterval("autoRotate()",6000);
+	$("#feature_wrapper").hover(
+		function(event){ event.stopPropagation(); clearTimeout(rotateDelay); clearInterval(rotateTimer);},
+		function(event){ event.stopPropagation(); clearTimeout(rotateDelay); clearInterval(rotateTimer); rotateTimer = setInterval("autoRotate()",6000);}
+	);	
+});
+function autoRotate() {	rotateDelay = setTimeout(function(){$("#next_feature").click();},2000);}
+
+function initFeatures(){
+	th=0;sh=0;h=150;w=0
+	$("#features a.slide").each(function(){th = ($(".title",this).height()>th)?$(".title",this).height():th; sh = ($(".story",this).height()>sh)?$(".story",this).height():sh;});
+	$("#features a.slide").each(function(){$(".category",this).css({'padding-top':th-$(".title",this).height()}); });
+	$("#features a.slide").each(function(){$(".story",this).css({'padding-bottom':sh-$(".story",this).height()}); h=($(this).outerHeight()>h)?$(this).outerHeight():h; w = $(this).width(); });
+	if ($("#features a").length>5){ // arrange for sliding (auto/manual)
+		$("#features a.slide").css({"width":(100/$('#features a').length)+"%"}); 
+		$("#features").css({"width":($("#features a").length/5)*100+"%","height":(h+10)+"px"});
+		image_center=($("#features a.slide:first img:first").height()/2+$("#features a.slide:first img:first").position().top)-10; image_center=image_center>50?image_center:50;
+		$("#next_bg, #prev_bg").css({"background-position": "center "+image_center+"px","height":(h+20)+"px"});
+	}
+}
+</script>
+</head>
+<body>
+
+<div id="pagebody">
+  <ul id="nav">
+    <li><a class="logo" href="/"><img src="/cgi-bin/images/logo.jpg" alt="Pennsylvania College of Technology"/></a>
+      <ul>
+  <li class="DTW"><a href="/schools/"><em>degrees that work</em>.<sup>&reg;</sup><span class="smallerer">Academic Majors</span></a></li>
+  <li><a href="/futurestudents/">Future Students</a></li>
+  <li><a href="/transferstudents/">Transfer Students</a></li> 
+  <li><a href="/currentstudents/">Current Students</a></li>
+  <li><a href="/parents/">Parents</a></li>
+  <li><a href="/afd/">Alumni, Friends &amp; Donors</a></li>
+  <li><a href="/k12educators/">K-12 Educators</a></li>
+  <li><a href="/busind/">Business &amp; Industry</a></li>
+  <li><a href="/jobsAtPennCollege/">Jobs @ Penn College<sup>&reg;</sup></a></li>
+</ul>
+    </li>
+    <li><a href="/centennial/" ><img src="/homeimages/stories/cent.jpg" alt="Centennial 1914-2014" /></a></li>
+    <li class="brdr"><a href="https://secure.pct.edu/ia/giving.asp" ><img src="/homeimages/stories/gift.jpg" alt="Make a gift" /></a></li>
+  </ul>
+  <div id="global_wrapper">
+    <div id="global">
+      <form action="/search/" method="post">
+        <input id="q" name="q" type="text" title="Search" />
+        <input id="qSearchBtn" type="image" value="submit" src="/cgi-bin/images/search_button.jpg" alt="search" />
+        <label for="qSearchBtn" class="hidden">Search</label>
+      </form>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pctoday/">News</a></li>
+        <li><a href="/visit/">Visit Us</a></li>
+        <li><a href="http://calendar.pct.edu/">Calendars</a></li>
+        <li><a href="/catalog/">Catalog</a></li>
+        <li><a href="/admissions/application_types.htm">Apply</a></li>
+        <li><a href="/about/">About Us</a></li>
+        <li><a href="/contact/">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content_wrapper"> 
+    <!--end gloabal-->
+    <div id="content">
+      <div class="homepage" style="background-image:url(/homeimages/spring_2012/11.jpg)" > 
+        <!--<a class="wrapAround" title="Choosing the Right College" rel="box" href="/videos/index.asp?i=SVC_Admissions_09_OffCampus&amp;t=Admissions&amp;st=Your Future at Penn College&amp;width=690"><img src="homeImages/newVideoBanner.png" width="358" height="62" alt="NEW! Choosing the right college video." /></a>--> 
+        
+        <div class="reverse">
+          <h5><a id="itemtitle" class="ajaxhtml" href=""><span id="itemsubtitle">Klump Academic Center</span></a></h5>
+        </div>
+        <a href="/photos/" class="photo_ad"><span>Share your creativity</span>Submit your photograph</a></div>
+      <div id="feature_wrapper">
+        <div id="features"> 
+		
+        	<span class="slide_wrapper">
+                <a class="slide" title="Reading & Math Preparation" href="/rampup/" > 
+                <span class="category">Academics</span><span class="title">Reading &amp; Math Preparation</span><img class="scale" src="/homeImages/stories/rampup.jpg" width="195" height="125" alt="" /> 
+                <span class="story">Take the RAMP Up for College summer course to boost your reading and arithmetic/pre-algebra skills.</span> 
+                <span class="action">Read more</span></a></span> 
+				
+        	<span class="slide_wrapper">
+                <a class="slide" title="Save 25%" href="/summer12/" > 
+                <span class="category">Academics</span>
+                <span class="title">Save 25% this summer</span>
+                <img class="scale" src="/homeImages/stories/summer_disc.jpg" width="195" height="125" alt="" /> 
+                <span class="story">Enroll in non-mandated summer classes and save 25%. This special offer is available to Penn College students and to students from all other colleges and universities.</span> 
+                <span class="action">Learn more</span></a></span> 
+				
+           	<span class="slide_wrapper"> 
+                <a class="slide" href="http://www.pct.edu/pctoday/photos/GrandPastryBuffet.shtml" title="Grand Pastry Buffet"> 
+                <span class="category">PCToday</span> 
+                <span class="title">Grand Pastry Buffet</span><img class="scale" src="homeImages/stories/17.jpg" width="195" height="125" alt="Grand Pastry Buffet" /> 
+                <span class="story">The Keystone Dining Room was recently transformed into the "Keystone Theatre" for the annual Grand Pastry Buffet to recognize scholarship donors and their student recipients.</span> 
+                <span class="action">View</span></a></span>
+
+            <span class="slide_wrapper"> 
+            	<a class="slide" title="Me? Procrastinate?" href="/oca/articles/12spring/meProcrastinate.htm" > 
+                <span class="category">ONE College Avenue</span> 
+                <span class="title">Me? Procrastinate?</span><img class="scale" src="homeImages/stories/21.jpg" width="195" height="125" alt="Me? Procrastinate?" /> 
+                <span class="story">It's finals week. Time to buckle down and hit the books. Graphic designer Sarah Patterson and director of the Academic Success Center Kim Bolig share tips for overcoming procrastination.</span> 
+                <span class="action">Read more</span></a></span> 
+				
+            <span class="slide_wrapper"><a class="slide" href="/athletics/" title="Go Wildcats!"> 
+                <span class="category">Athletics</span> 
+                <span class="title">Go Wildcats!</span><img class="scale" src="homeImages/stories/13.jpg" width="195" height="125" alt="Go Wildcats!" /> 
+                <span class="story">Visit the Athletics website for highlights, scores, schedules, and features.</span> 
+                <span class="action">Read more</span></a></span>
+                
+             <span class="slide_wrapper">  
+                <a rel="box" class="slide" title="Employers Seek Landscape/Horticulture Technology Students" href="/videos/detail.aspx?v=2QM2TM-ZNRg#detail" > 
+                <span class="category" style="font-family:Arial, Helvetica, sans-serif">VIDEO</span> 
+                <span class="title">Growing demand ...</span><img class="scale" src="homeImages/stories/24.jpg" width="195" height="125" alt="Employers Seek Landscape/Horticulture Technology Students" /> 
+                <span class="story">...for landscape/horticulture professionals is evident, and employers want to hire Penn College majors.</span> 
+                <span class="action">Watch Video</span></a></span>
+
+             <span class="slide_wrapper"><a class="slide" rel="box" href="/videos/detail.aspx?v=mhf5Wp6QMJY#detail" title="See Penn College"> 
+                <span class="category">Video</span> 
+                <span class="title">See Penn College</span><img class="scale" src="homeImages/stories/6.jpg" width="195" height="125" alt="" /> 
+                <span class="story">Learn about “degrees that work” and the campus life experience.</span> 
+                <span class="action">Watch video</span></a></span>
+                
+             <span class="slide_wrapper"><a class="slide" href="/Centennial/" title="Countdown to the Centennial"> 
+                <span class="category">CELEBRATION</span> 
+                <span class="title">Countdown to the Centennial</span><img class="scale" src="homeImages/stories/10.jpg" width="195" height="125" alt="Countdown to the Centennial" /> 
+                <span class="story">Nearly 100 years of history, from Williamsport Technical Institute (WTI) to Williamsport Area Community College (WACC) to Pennsylvania College of Technology.</span> 
+                <span class="action">Learn more</span></a></span>
+                
+             <span class="slide_wrapper"><a class="slide" title="Veterans welcome" href="http://www.pct.edu/finaid/vets.htm" > 
+                <span class="category">RECOGNITION</span> 
+                <span class="title">Veterans welcome</span><img class="scale" src="homeImages/stories/8.jpg" width="195" height="125" alt="Veterans welcome" /> 
+                <span class="story"><img width="60" height="42" alt="Military Friendly School 2012" style="float:left; padding:0 10px 10px 0 " src="/images/gijobs2012_60.png" title="Military Friendly School 2012"/>Penn College is recognized as a Military Friendly School by G.I. Jobs.</span> 
+                <span class="action">Read more</span></a></span>
+                
+             <span class="slide_wrapper"><a class="slide" href="http://colleges.usnews.rankingsandreviews.com/best-colleges/pennsylvania-college-of-technology-3395 " title="Among the “top 10”"> 
+                <span class="category">RECOGNITION</span> 
+                <span class="title">Among the “top 10”...</span><img class="scale" src="homeImages/stories/11.jpg" width="195" height="125" alt="Among the “top 20”" /> 
+                <span class="story" style="background:url(/cgi-bin/images/USNews2012.png?width=40) right 5px no-repeat; padding-right:45px;"> … best public, four-year colleges in the north region of the United States, according to America’s Best Colleges by the U.S. News Media Group.</span> 
+                <span class="action">Learn more</span></a></span>
+                
+        </div>
+      </div>
+    </div>
+    <!--end content--> 
+  </div>
+  <!--end main--> 
+</div>
+<!--end pagebody-->
+<div class="foot "> 
+	<a href="http://www.pct.edu/cgi-bin/as400redirect/mypct.asp" target="_blank" class="mypct">myPCT Login</a>
+    <p class="address">Pennsylvania College of Technology<br />
+
+		One College Avenue<br />
+		Williamsport, PA 17701<br />
+		<br />
+		570-326-3761<br />
+		800-367-9222</p>
+	<ul>
+		<li>Help</li>
+
+		<li><a href="/askPennCollege/">Ask Penn College<sup>&reg;</sup></a></li>
+		<li><a href="/search/">Site map</a></li>
+		<li><a href="/about/website.htm">About this website</a></li>
+	</ul>
+	<ul>
+		<li>Statements About</li>
+		<li><a href="/privacy/">Privacy</a></li>
+
+		<li><a href="/disabilityservices/accessibility.htm">Accessibility</a></li>
+		<li><a href="/studentpolicy/nondiscrim.htm">Nondiscrimination</a></li>
+	</ul>
+	<ul class="social">
+		<li>Follow Us</li>
+		<li class="img_wrapper">
+			<a href="http://www.facebook.com/penncollege" class="addthis_button_www.facebook.com" title="Go to Facebook"><img src="/cgi-bin/images/facebook.png"  border="0" alt="Go to Facebook" /></a> 
+			<a href="http://www.youtube.com/PennCollegeVideos" class="addthis_button_www.youtube.com" title="Go to YouTube"><img src="/cgi-bin/images/youtube.png"  border="0" alt="Go to YouTube" /></a> 
+			<a href="http://www.twitter.com/penncollege" class="addthis_button_www.twitter.com" title="Go to Twitter"><img src="/cgi-bin/images/twitter.png"  border="0" alt="Go to Twitter" /></a> 
+			<a href="/contact/social.asp"><img src="/cgi-bin/images/more32.png?width=16"  border="0" alt="View all social networks" /></a>
+
+		</li>
+	</ul>
+	<p class="copy">&copy; 1995 Pennsylvania College of Technology. Penn College<sup>&reg;</sup> and degrees that work<sup>&reg;</sup> are registered in the U.S. Patent and Trademark Office.</p>
+</div>
+</body>
+</html>

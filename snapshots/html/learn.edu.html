@@ -1,0 +1,992 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<Script Language="JavaScript">
+
+function replacequote(formname, string, field)
+{
+	var fieldname = eval("document." + formname + "." + field)
+	var replacequote = (string.replace(/'/g, "`"));
+	
+	fieldname.value = replacequote;
+}
+
+</script><script language="Javascript">
+
+
+function doublecheck(val, name, frmname)
+{
+	objname = eval("document." + frmname + "." + name + "2")
+	chkname = eval("document." + name)
+	
+	if (val == "http://www.learn.edu/images/check_off.gif")
+	{
+		document.next = "http://www.learn.edu/images/check_on.gif";
+		chkname.src = document.next
+		objname.value = 1
+	}
+	
+	if (val == "http://www.learn.edu/images/check_on.gif")
+	{
+		document.next = "http://www.learn.edu/images/check_off.gif";
+		chkname.src = document.next
+		objname.value = 0
+	}
+}
+
+</script><script language="Javascript">
+
+function radiobutton(name, frmname, yesorno)
+{
+	objname = eval("document." + frmname + "." + name)
+	radnameyes = eval("document." + name + "Yes")
+	radnameno = eval("document." + name + "No")
+	
+	if (yesorno == "Yes")
+	{
+		radnameyes.src = "http://www.learn.edu/images/radio_on.png"
+		radnameno.src = "http://www.learn.edu/images/radio.png";
+		objname.value = 1
+	}
+	
+	if (yesorno == "No")
+	{
+		radnameyes.src = "http://www.learn.edu/images/radio.png"
+		radnameno.src = "http://www.learn.edu/images/radio_on.png";
+		objname.value = 0
+	}
+
+}
+
+</script><Script Language="JavaScript">
+
+function goToAnchor() {
+	location.href = "#app";
+}
+
+
+
+
+function submitapplication(frmname)
+{
+
+	application.HomePhone.value=stripchars(application.HomePhone.value);
+	application.WorkPhone.value=stripchars(application.WorkPhone.value);
+
+	valid = true;
+	go = 0;
+
+	if (document.application.FirstName.value == "")
+	{
+		
+		document.getElementById('FirstName').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('FirstName').style.backgroundColor='e9ccb5'
+	}
+	        
+	if (document.application.LastName.value == "")
+	{
+		document.getElementById('LastName').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('LastName').style.backgroundColor='e9ccb5'
+	}
+		
+	if (document.application.Street.value == "")
+	{
+		document.getElementById('Street').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('Street').style.backgroundColor='e9ccb5'
+	}
+	
+	if (document.application.City.value == "")
+	{
+		document.getElementById('City').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('City').style.backgroundColor='e9ccb5'
+	}
+	
+	if (document.application.state.value == "00")
+	{
+		document.getElementById('state').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('state').style.backgroundColor='e9ccb5'
+	}
+	
+	if (document.application.ZIP.value == "")
+	{
+		document.getElementById('ZIP').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('ZIP').style.backgroundColor='e9ccb5'
+	}
+	
+	if (document.application.HomePhone.value == "")
+	{
+		document.getElementById('HomePhone').style.backgroundColor='D36B6B'
+		valid = false;
+		go = 1;
+	}
+	else
+	{
+		document.getElementById('HomePhone').style.backgroundColor='e9ccb5'
+	}
+	
+	if (document.application.AppAgreement.checked !== true)
+	{
+		alert("You must agree to the terms of the application by checking the box.");
+		document.getElementById('agree').style.backgroundColor='D36B6B'
+		valid = false;
+	}
+	
+	if (go == 1)
+	{
+		goToAnchor();
+	}
+	
+	if (valid == false)
+	{
+		var newHTML = '<table border="0" bordercolor="#6284a4"; style="border-collapse: collapse;" cellpadding="0" cellspacing="0">'
+		newHTML = newHTML + '<tr>'
+		newHTML = newHTML + '<td width="24px"><img src="http://www.learn.edu/images/spacer.png"></td>'
+		newHTML = newHTML + '<td width="33%" bgcolor="#D36B6B"></td>'
+		newHTML = newHTML + '<td width="33%" bgcolor="#D36B6B"><input style="border-style: solid; border-width: 0px; background-color:#D36B6B;  color:#000000; font-size: 16px; font-weight: bold; type="text" name="forgottoninfo" size="50" readonly value="Please fill out all required fields."></td>'
+		newHTML = newHTML + '<td width="33%" bgcolor="#D36B6B"></td>'
+		newHTML = newHTML + '<td width="24px"><img src="http://www.learn.edu/images/spacer.png"></td>'
+		newHTML = newHTML + '</tr>'
+		newHTML = newHTML + '</table>'
+				
+			
+		document.getElementById('forgottoninfo').innerHTML = newHTML;
+	}
+	
+	if ((go == 0) && (valid !== false))
+	{
+		valid = true;
+		newHTML = ''
+		document.getElementById('forgottoninfo').innerHTML = newHTML;
+	}
+	
+	if (valid == true)
+	{
+		document.forms[frmname].submit();
+	}
+
+}
+</script>
+<Script Language="JavaScript">
+
+
+
+function submitform(frmname)
+{
+
+
+	document.forms[frmname].submit();
+	
+
+		
+}
+
+</script>
+
+
+<Script Language="JavaScript">
+
+
+
+function clearform(frmname)
+{
+    
+      document[frmname].reset();
+       
+}
+
+
+</script>
+<Script Language="JavaScript">
+var PopUpWindow=null;
+function PopUp(mypage,myname,w,h,pos,infocus,scroll){
+
+if (pos == 'random')
+{LeftPosition=(screen.width)?Math.floor(Math.random()*(screen.width-w)):100;TopPosition=(screen.height)?Math.floor(Math.random()*((screen.height-h)-75)):100;}
+else
+{LeftPosition=(screen.width)?(screen.width-w)/2:100;TopPosition=(screen.height)?(screen.height-h)/2:100;}
+settings='width='+ w + ',height='+ h + ',top=' + TopPosition + ',left=' + LeftPosition + ',scrollbars=' + scroll +',location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';PopUpWindow=window.open('',myname,settings);
+if(infocus=='front'){PopUpWindow.focus();PopUpWindow.location=mypage;}
+if(infocus=='back'){PopUpWindow.blur();PopUpWindow.location=mypage;PopUpWindow.blur();}
+
+}
+</Script><Script Language="JavaScript">
+
+function stripchars(string)
+{
+    for (var i=0, output='', valid="`0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"; i<string.length; i++)
+       if (valid.indexOf(string.charAt(i)) != -1)
+          output += string.charAt(i)
+    return output;
+}
+
+</script><Script Language="JavaScript">
+
+function EventLocation()
+{
+
+if ((newevent.eventlocationname.value != 'Other (Please Specify)') && (newevent.eventlocationname.value != ''))
+	{
+	newevent.eventstreet.disabled = true;
+	newevent.eventstreet.style.backgroundColor = '#d7d7d7'
+	newevent.eventcity.disabled = true;
+	newevent.eventcity.style.backgroundColor = '#d7d7d7'
+	newevent.eventstate.disabled = true;
+	newevent.eventstate.style.backgroundColor = '#d7d7d7'
+	newevent.eventzip.disabled = true;
+	newevent.eventzip.style.backgroundColor = '#d7d7d7'
+	newevent.neweventlocationname.disabled = true;
+	newevent.neweventlocationname.style.backgroundColor = '#d7d7d7'
+	}
+else
+	{
+	newevent.eventstreet.disabled = false;
+	newevent.eventstreet.style.backgroundColor = '#e9ccb5'
+	newevent.eventcity.disabled = false;
+	newevent.eventcity.style.backgroundColor = '#e9ccb5'
+	newevent.eventstate.disabled = false;
+	newevent.eventstate.style.backgroundColor = '#e9ccb5'
+	newevent.eventzip.disabled = false;
+	newevent.eventzip.style.backgroundColor = '#e9ccb5'
+	newevent.neweventlocationname.disabled = false;
+	newevent.neweventlocationname.style.backgroundColor = '#e9ccb5'
+	}
+
+
+
+}
+
+var count = 0	
+function add(tblId)
+{
+
+if (count < 8) 
+{	
+	
+	var tblHeadObj = document.getElementById(tblId).tHead;
+	for (var h=0; h<tblHeadObj.rows.length; h++)
+	{
+		var newTH = document.createElement('th');
+		tblHeadObj.rows[h].appendChild(newTH);
+		newTH.innerHTML = '&nbsp;<input style="border-style:solid; border-width:1px; background-color:#e9ccb5; border-color:#6284a4" type="text" name="'+tblId+(tblHeadObj.rows[h].cells.length - 1)+'" size="9">'
+	
+	}
+	
+	count = (count + 1)
+		
+	var newHTML = '<input style="background-color: #FFFFCC" type="hidden" name="count'+tblId+'" value="'+count+'">'
+		document.getElementById('count'+tblId).innerHTML = newHTML;
+}
+	
+}
+function remove(tblId)
+{
+
+if (count > 0)
+{	
+	var allRows = document.getElementById(tblId).rows;
+	for (var i=0; i<allRows.length; i++) {
+		if (allRows[i].cells.length > 1) {
+			allRows[i].deleteCell(-1);
+		}
+	
+	}
+	count = (count - 1)
+	
+	var newHTML = '<input type="hidden" name="count'+tblId+'" value="'+count+'">'
+	document.getElementById('count'+tblId).innerHTML = newHTML;
+}
+
+}
+
+function paypalinfo(i)
+{
+	if (i == 1)
+	{
+
+		var newHTML = '<table border="0" width="100%" cellpadding="1" style="border-collapse: collapse"><tr>'
+		newHTML = newHTML + '<td width="330"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment For:</font></td>'
+		newHTML = newHTML + '<td><input style="border-style:solid; border-width:1px; background-color:#e9ccb5; border-color:#6284a4" type="text" name="item_name" size="64"></td>'
+		newHTML = newHTML + '</tr><tr>'
+		newHTML = newHTML + '<td width="330"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment Amount:</font></td>'
+		newHTML = newHTML + '<td><input style="border-style:solid; border-width:1px; background-color:#e9ccb5; border-color:#6284a4" type="text" name="amount" size="9"></td>'
+		newHTML = newHTML + '</tr></table>'
+
+
+		document.getElementById('paypaltable').innerHTML = newHTML;
+
+		
+	}
+	
+	
+	if (i == 0)
+	{
+	
+	
+		var newHTML = ''
+		document.getElementById('paypaltable').innerHTML = newHTML;
+		
+	}
+
+
+
+
+
+
+}
+
+function otherrsvp(i)
+{
+	if (i == 1)
+	{
+
+		var newHTML = '<table border="0" width="100%" cellpadding="1" style="border-collapse: collapse"><tr>'
+		newHTML = newHTML + '<td width="330"><font face="Arial" size="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outside Event Registrar Web '
+		newHTML = newHTML + 'Address:</font> <br>'
+		newHTML = newHTML + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Arial" size="1">(www.sitename.com/...)</font></td>'
+		newHTML = newHTML + '<td>'
+		newHTML = newHTML + '<input style="border-style:solid; border-width:1px; background-color:#e9ccb5; border-color:#6284a4" type="text" name="rsvpsite" size="64"></td>'
+		newHTML = newHTML + '</tr></table>'
+
+
+		document.getElementById('otherrsvptable').innerHTML = newHTML;
+
+		
+	}
+	
+	
+	if (i == 0)
+	{
+	
+	
+		var newHTML = ''
+		document.getElementById('otherrsvptable').innerHTML = newHTML;
+		
+	}}
+
+
+</script><Script Language="JavaScript">
+
+
+function checkEnter(e){ 
+var characterCode 
+
+if(e && e.which){ 
+e = e
+characterCode = e.which 
+}
+else{
+e = event
+characterCode = e.keyCode 
+}
+
+if(characterCode == 13){ 
+document.forms.login.submit();
+return false 
+}
+else{
+return true 
+}
+
+}
+
+
+</script><Script Language="JavaScript">
+
+
+
+var mins
+var secs;
+
+function cd() {
+ 	mins = 1 * m(""); // change minutes here
+ 	secs = 0 + s(":05"); // change seconds here (always add an additional second to your total)
+ 	redo();
+}
+
+function m(obj) {
+ 	for(var i = 0; i < obj.length; i++) {
+  		if(obj.substring(i, i + 1) == "")
+  		break;
+ 	}
+ 	return(obj.substring(0, i));
+}
+
+function s(obj) {
+ 	for(var i = 0; i < obj.length; i++) {
+  		if(obj.substring(i, i + 1) == ":")
+  		break;
+ 	}
+ 	return(obj.substring(i + 1, obj.length));
+}
+
+function dis(mins,secs) {
+ 	var disp;
+ 	if(mins <= 9) {
+  		disp = " ";
+ 	} else {
+  		disp = "";
+ 	}
+ 	disp += mins + "";
+ 	if(secs <= 9) {
+  		disp += "" + secs;
+ 	} else {
+  		disp += secs;
+ 	}
+ 	return(disp);
+}
+
+function redo() {
+ 	secs--;
+ 	if(secs == -1) {
+  		secs = 59;
+  		mins--;
+ 	}
+ 	if(mins == 0){
+ 		mins = ''
+ 		}
+ 	document.cd.disp.value = dis(mins,secs); // setup additional displays here.
+ 	if((mins == 0) && (secs == 0)) {
+  		window.location = "http://www.learn.edu/login"
+ 	} else {
+ 		cd = setTimeout("redo()",1000);
+ 	}
+}
+
+function init() {
+  cd();
+}
+
+
+
+
+</script>
+
+<script language="Javascript">
+
+function textCounter(field,cntfield,maxlimit)
+{
+	if (field.value.length > maxlimit)
+	{
+		field.value = field.value.substring(0, maxlimit);
+	}
+	else
+	{
+		cntfield.value = maxlimit - field.value.length;
+	}
+}
+
+</script>
+
+<Script Language="JavaScript">
+
+function submitpresenter(){
+	
+	valid = true;
+
+	if ((guestpresenter.coordinator.value == "" ) || (guestpresenter.cohort.value == "" ) || (guestpresenter.sessiondate.value == "" ) ||  (guestpresenter.nameofguest.value == "" )){
+	
+		alert ( "Please fill in:\n\n Program Coordinator's Name\n Guest Presenter's Name\n Session Date\n Cohort");
+		valid = false;
+	}
+	
+	if ((guestpresenter.homephone.value == "" ) && (guestpresenter.workphone.value == "" ) && (guestpresenter.cellphone.value == "" )){
+	
+		alert ( "Please fill in a phone number for the Guest Presenter." );
+		valid = false;
+	}
+
+	return valid;
+}
+</script>
+
+
+
+<head><meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta name="verify-v1" content="qF6JuYb2x0IP/UX/xFL65VgEjuJI9RWseTbR9pBq9+o=" />
+<link rel="stylesheet" href="/includes/css/style.css" type="text/css" />
+<script type="text/javascript" src="/includes/js/script.js"></script>
+<LINK REL="SHORTCUT ICON" HREF="http://www.learn.edu/logo.ico">
+</head>
+
+
+			<div align="center">
+	<table border="0" cellpadding="0" style="border-collapse: collapse">
+	<tr>
+		<td valign="bottom" height="26">
+				 &nbsp;
+				 </td>
+	</tr>
+	</table>
+	</div>
+		
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0" background="/images/bg.png" link="#000000" vlink="#000000" alink="#000000" style="margin:0; color: #000000; font-size: 11pt; font-family: Arial; text-align: justify; list-style-type:square" class="body">
+
+
+
+
+		
+	<div align="center" style="position: absolute; width: 100%; height: 600px; z-index: -2; background-image: url('/images/grad.png'); background-repeat: repeat-x; top:0" id="layer1">
+		</div>	
+		
+		
+		
+	<div align="center">
+	<table border="0" id="table1" cellspacing="0" cellpadding="0" height="90%">
+		<tr>
+			<td valign="top" align="center">
+			<div align="center">
+				<div style="position: absolute; align: center; height: 100px; z-index: -3; top: 0" id="layer2" class="default">
+					<img border="0" src="/images/arcs.png" width="821" height="321"></div>
+				<table border="0" width="980" id="table2" cellpadding="0" style="border-collapse: collapse">
+					<tr>
+						<td width="20" valign="bottom" style="background-image: url('../images/1.png'); background-repeat: no-repeat; background-position: right bottom">
+						&nbsp;</td>
+						<td width="940" valign="bottom" style="background-image: url('../images/2b.png'); background-repeat: repeat-x; background-position: center bottom">
+						&nbsp;</td>
+						<td width="20" valign="bottom" style="background-image: url('../images/3.png'); background-repeat: no-repeat; background-position: left bottom">&nbsp;</td>
+					</tr>
+					<tr>
+						<td width="20" valign="top" background="/images/4b.png">
+						<img border="0" src="/images/4a.png" width="20" height="84"></td>
+						<td bgcolor="#fcf7ed">
+						<table border="0" width="100%" id="table3" cellpadding="0" style="border-collapse: collapse" height="65%">
+							<tr>
+								<td background="/images/banner02.png" height="84">
+								<table border="0" width="100%" id="table4" cellpadding="0" style="border-collapse: collapse" height="84">
+									<tr>
+										<td width="400" align="center">
+										<a href="/default.asp">
+										<img border="0" src="/images/hotspot.png"></a></td>
+										<td>
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										<div align="right">
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										<table border="0" width="516" id="table9" cellpadding="0" style="border-collapse: collapse">
+											<tr>
+												<td align="center">
+														
+	<ul class="menu" id="menu">
+		<li><font face="Arial" style="font-size: 11px"><a href="/about" class="menulink">About</a>
+			</font>
+			<ul>
+				<li><font face="Arial" style="font-size: 11px"><a href="/about/(1)Mission%20and%20Vision/">Mission and Vision</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/about/(2)Emerging%20Academic%20Fields/">Emerging Academic Fields</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/about/(3)Cohort%20Community/">Cohort Community</a></font></li>
+			</ul>
+		</li>
+
+		<li><font face="Arial" style="font-size: 11px"><a href="#" class="menulink">Programs</a>
+			</font>
+			<ul>
+				<li><font face="Arial" style="font-size: 11px"><a href="/programs">Degree Programs</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/certificates">Certificates</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/workshops">Workshops</a></font></li>
+			</ul>
+		</li>
+			
+		<li><font face="Arial" style="font-size: 11px"><a href="/admissions#" class="menulink">Admissions</a>
+			</font>
+			<ul>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#joining">Joining a Cohort Community</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#program">Program Start Dates</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#applying">Applying to The Graduate Institute</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#tuition">Tuition and Fees</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#financial">Financial Aid</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/#immunization">Immunization</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/admissions/Online%20Application/">Online Application</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/paypal/">Making a Tuition Payment</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/faqs/">Frequently Asked Questions</a></font></li>
+				<li><font face="Arial" style="font-size: 11px"><a href="/testimonials/">Alumni and Colleague Testimonials</a></font></li>
+			</ul>
+		</li>	
+		<li><font face="Arial" style="font-size: 11px"><a href="/news" class="menulink">News & Events</a></font></li>
+	
+	
+		<li><font face="Arial" style="font-size: 11px"><a href="/faculty" class="menulink">Faculty</a></font></li>
+
+		
+		<li><font face="Arial" style="font-size: 11px"><a href="/alumni" class="menulink">Alumni</a>
+			</font>
+			<ul>
+				<li><font face="Arial" style="font-size: 11px"><a href="/giving">Giving</a></font></li>
+			</ul>
+		</li>
+		
+		<li><font face="Arial" style="font-size: 11px"><a href="/login" class="menulink">Login</a></font></li>
+		
+		
+		
+
+
+	</ul>								
+												</td>
+											</tr>
+										</table>
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										</div>
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									
+										
+										
+										
+										
+										
+										
+										
+										
+										<table border="0" id="table8" cellpadding="0" style="border-collapse: collapse">
+											<tr>
+												<td align="center">
+										</td>
+											</tr>
+										</table>
+
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2" valign="bottom" height="36">
+										<table border="0" width="100%" id="table6" cellpadding="0" style="border-collapse: collapse" height="27">
+											<tr>
+				
+
+								
+												
+											</tr>
+										</table>
+										</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<tr>
+						
+								<td>
+								<table cellpadding="0" style="border-collapse: collapse" width="100%">
+								<tr>
+								<td width="25"></td>
+								<td>							
+						
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" marginheight="0">
+
+
+<table border="0" id="table3" cellpadding="0" style="border-collapse: collapse; background-image: url('/images/171.png'); background-repeat: no-repeat; background-position: right top" width="100%">
+	<tr>
+		<td width="444">
+			<table>
+		<tr>
+			<td height="16"></td>
+		</tr>
+	</table>
+		<table id="table6" style="border-collapse: collapse" cellpadding="0" width="100%" border="0">
+        <tr>
+            <td valign="bottom">
+			<img height="58" width="892" border="0" alt="" src="/images/welcome_tgi.png" /></td>
+        </tr>
+</table>
+
+
+		<table border="0" width="891" id="table7" cellspacing="0" cellpadding="0" height="358">
+			<tr>
+				<td width="446" rowspan="2">
+
+
+<p align="justify" style="line-height: 150%"><b><font color="#2D5174"><br>
+An accredited, not-for-profit institution of higher education, The Institute 
+creates an environment for learners to pursue their passions and affect changes 
+in their lives and work. Our programs are designed to meet the intellectual and 
+spiritual needs of contemporary thinkers on their paths of personal and 
+professional evolution. <br>
+&nbsp;</font></b></p>
+<p align="justify" style="line-height: 150%">The Institute’s innovative program 
+content is enriched by the contributions of leading thinkers in the realms of 
+integrative medicine, holistic health, transformative education, sustainability 
+and the environment, consciousness studies and metaphysics, storytelling, and 
+creative expression.&nbsp; Its transdisciplinary approach creates a learning 
+experience that is authentic, interactive, and empowering to individuals who 
+seek to contribute to their culture and society. 
+<p align="justify" style="line-height: 150%">Our 
+	<a title="/programs" style="text-decoration: underline" href="/programs">
+	<font color="#000000">Masters degrees</font></a> and
+	<a title="/certificates/" style="text-decoration: underline" href="/certificates/">
+<font color="#000000">Certificate programs</font></a> are offered in
+	<a title="/about/(3)Cohort%20Community/default.asp" style="text-decoration: underline" href="/about/(3)Cohort%20Community/default.asp">
+<font color="#000000">cohort learning communities</font></a>.&nbsp; If you are 
+considering enrollment at the Institute, we encourage you to schedule a campus 
+visit or attend an Open House.&nbsp; For more information, please contact an 
+admissions representative at (203) 874-4252 or write to
+	<a title="mailto:info@learn.edu" style="text-decoration: underline" href="mailto:info@learn.edu">
+	<font color="#000000">info@learn.edu</font></a>. </td>
+				<td valign="bottom" align="right" height="420"> 
+
+
+		
+				<table border="0" cellpadding="0" cellspacing="0" width="404" id="table11" background="/images/new_events.png" height="233">
+					<tr>
+						<td>
+						<p align="center">
+		<iframe src="/announcements/default.asp" width="92%" height="100%" scrolling="no" frameborder="0" name="returned">
+		</iframe>
+								</td>
+					</tr>
+				</table>
+
+
+		
+				</td>
+			</tr>
+			<tr>
+				<td valign="bottom" align="right"> 
+
+
+		
+<div align="right">
+	<table border="0" cellpadding="0" cellspacing="0" id="table12" width="404">
+		<tr>
+			<td>
+				<p align="left">
+				<a target="_blank" href="http://twitter.com/GradInstitute">
+				<img border="0" src="../images/twitter.png" width="24" height="24"></a>&nbsp;
+				<a target="_blank" href="http://www.facebook.com/pages/The-Graduate-Institute-Bethany-CT/223329197725494">
+				<img border="0" src="../images/facebook.png"></a></td>
+			<td width="20" align="left" valign="top">
+			&nbsp;</td>
+			<td width="200" align="left" valign="top">
+			<font face="Arial" size="1">Join our mailing list</font><br>
+			<font color="#FFFFFF">
+				<input style="border:1px solid #6284A4; background-color: #E9CCB5; padding-bottom:-3px; float:left" id="FormsEditField1" maxlength="25" size="30" name="ea" /></font></td>
+			<td width="71" align="left" valign="top"> 
+				&nbsp; 
+				<img style="cursor: hand; padding-bottom:-3px" border="0" alt="Submit" onclick="submitform('ccoptin');" onmouseout="this.src='/images/submitnew.png'" onmouseover="this.src='/images/submitnew_on.png'" src="/images/submitnew.png" align="right" vspace="14" /></td>
+		</tr>
+	</table>
+</div>
+
+				</td>
+			</tr>
+			</table>
+
+
+
+		<table>
+		<tr>
+			<td height="16"></td>
+		</tr>
+	</table></td>
+		<td rowspan="2" width="1%">
+	</td>
+	</tr>
+	<tr>
+		<td>
+
+
+
+<form method="post" action="http://visitor.constantcontact.com/d.jsp" target="_blank" name="ccoptin">
+    <input type="hidden" name="p" value="oi" />
+                <input type="hidden" name="m" value="1101634996558" />
+</form></td>
+	</tr>
+</table>
+<div align="center">
+	<p>&nbsp;</div>
+</td>
+								
+
+								</tr></table>
+								
+								</td>							</tr>
+						</table>
+						</td>
+						<td width="20" valign="top" background="/images/6b.png">
+						<img border="0" src="/images/6a.png" width="20" height="84"></td>
+					</tr>
+
+
+					<tr>
+						<td width="20" height="20" valign="top" style="background-image: url('../images/7.png'); background-repeat: no-repeat; background-position: right top">
+						&nbsp;</td>
+						<td width="940" height="20" style="background-image: url('/images/8c.png'); background-repeat: repeat-x; background-position: center top" valign="top">&nbsp;</td>
+						<td width="20" valign="top" style="background-image: url('../images/9.png'); background-repeat: no-repeat; background-position: left top">&nbsp;</td>
+					</tr>
+				</table>
+
+						<b>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/">home</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/about">about</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/programs">master of arts 
+						programs</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/certificates">
+						certificates</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/news">news & events</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/faculty">faculty</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/admissions">admissions</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/login">login</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/contact">contact</a></font></b><p align="center">
+						<b>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/alumni">alumni</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/search">search</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/giving">giving</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/links">community 
+						resources</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/faqs">faqs</a></font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;&nbsp;&nbsp; 
+						|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/testimonials">testimonials</a>&nbsp;&nbsp; </font><font face="Arial" color="#92A3B1" style="font-size: 9pt">&nbsp;|&nbsp;&nbsp;&nbsp; </font>
+						<font face="Arial" color="#FFFFFF" style="font-size: 9pt">
+						<a style="color:#92A3B1" href="/media">media</a> <br>
+&nbsp;</font></b><p>
+				<b>
+				<font face="Arial" size="1" color="#748A9C">171 Amity Road, 
+				Bethany, CT 06524&nbsp; |&nbsp; 
+				phone:&nbsp; (203) 874-4252&nbsp; |&nbsp; 
+				fax:&nbsp; (203) 874-8070&nbsp; |&nbsp;
+				</font>
+				<font face="Arial" size="1" color="#92A3B1">
+				<a style="color: #748A9C" href="mailto:info@learn.edu">info@learn.edu</a></font></font><font face="Arial" size="1" color="#748A9C"><br>
+				Copyright © 2011 The Graduate Institute, Inc.</font><font face="Arial" size="1" color="#92A3B1"><br>
+&nbsp;</font></b></div>
+			</td>
+		</tr>
+	</table>
+
+</div>
+</body>
+
+<script type="text/javascript">
+	var menu=new menu.dd("menu");
+	menu.init("menu","menuhover");
+</script>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15566954-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+</html>

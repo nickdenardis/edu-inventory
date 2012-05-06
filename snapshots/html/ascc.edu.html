@@ -1,0 +1,1005 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	
+	<style type="text/css" media="screen">
+		body{
+	margin: 0;
+	padding: 25px 0 0 0;}
+div#ToggleNav{
+	position:absolute; /* only effects browsers that cannot accept Fixed positioning */
+	top: 0; /* only effects browsers that cannot accept Fixed positioning */
+	left: 0; /* only effects browsers that cannot accept Fixed positioning */
+	background: #666 url(/images/Admin/Skins/HardCandyBlack/images/ToggleLoginBg.gif) repeat-x top left;
+	border-bottom: 0px solid #333;
+	border-top: 0px solid #FFFFFF;
+	width:100%;
+	height:25px;
+	z-index: 1000;
+	overflow:hidden;}
+div#ToggleNav td{
+	font: bold 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #9EA8C3;}
+div#ToggleNav input {
+	margin: 0;
+	padding: 0;
+	font: normal 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #303040;
+	vertical-align:middle;}
+div#ToggleNav .formUsername {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/UsernameBg.gif) no-repeat top left;}
+div#ToggleNav .formPassword {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/PasswordBg.gif) no-repeat top left;}
+div#ToggleNav .formSelected {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/LoginFieldBlank.gif) repeat-x top left;}
+div#ToggleNav .formButton {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat 0 0;}
+div#ToggleNav .formButtonHover {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat -46px 0;}
+div#ToggleNav a.help:link, div#ToggleNav a.help:visited {
+	display:block;
+	height: 16px;
+	color: #D9D8E6;
+	border: 0;
+	margin: 4px 5px 0 1px;}
+div#ToggleNav a.help:hover, div#ToggleNav a.help:active {
+	display: block;
+	height: 16px;
+	border: 0;}
+body > div#ToggleNav .formUsername {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formPassword {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formSelected {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formButton {margin-bottom: 3px;}/* non-IE browsers only */
+body > div#ToggleNav .formButtonHover {margin-bottom: 3px;}/* non-IE browsers only */
+@media screen {
+	body > div#ToggleNav{
+		position:fixed;}
+}
+* html body {
+	overflow:hidden;} 
+* html div#AdminDefaultIncludes{
+	position: fixed;
+	top: 25px;
+	bottom:0;
+ 	width: 100%;
+	overflow: auto;	
+	_position: absolute;
+	_top: expression( ( 25 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	_height: expression( ( -25 + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );}
+	</style>
+    
+	<script type="text/javascript" src="/JavaScripts/JavaScripts.js"></script>
+
+	<script type="text/javascript" src="/JavaScripts/NiceTitles.js"></script>
+	
+	
+
+	<div id="ToggleNav">
+	
+		<table cellpadding="0" cellspacing="0" align="right">
+			<tr>
+				<form name="frmLogin" method="post" action="https://securesite.pcmac.org/login/" style="margin:0;">				
+					<td align="right" valign="top">
+						<input type="text" name="Username" value="" class="formUsername" onFocus="this.className='formSelected';CheckLoginFields();" onBlur="if(this.value==''){this.className='formUsername'};CheckLoginFields();" />
+						<input type="Password" name="Password" value="" class="formPassword" onFocus="this.className='formSelected'" onBlur="if(this.value==''){this.className='formPassword'}">
+						<input type="submit" name="Submit" value="" class="formButton" onMouseOver="this.className='formButtonHover'" onMouseOut="this.className='formButton'"> &nbsp;
+						<input type="hidden" name="ClientID" value="71" class="formitem">
+						<input type="hidden" name="SiteID" value="147" class="formitem">
+						<input type="hidden" name="SessID" value="829269323" class="formitem">
+						<input type="hidden" name="DestURL" value="http://www.ascc.edu" class="formitem">
+						<input type="hidden" name="SiteServerName" value="www.ascc.edu" class="formitem">
+						<input type="hidden" name="ProductName" value="SAMO" class="formitem">
+						<input type="hidden" name="ProductVersion" value="4.2.0.0" class="formitem">
+						<input type="hidden" name="ProductBuild" value="110929 (x64)" class="formitem">
+						<input type="hidden" name="AuthType" size="40" value="" class="formitem" />
+					</td>
+					<td align="left" valign="middle" class="smalltxt">
+						<a href="http://www.ascc.edu/Admin1/PasswordReminder.asp" title="Forgot Password?" class="help">Forgot Password?</a> &nbsp;
+						<!--span class="formButtonHover" style="visibility:hidden; position:absolute; left:-1234px;">preload button background image</span>
+						<span class="formSelected" style="visibility:hidden; position:absolute; left:-1234px;">preload input background image</span-->
+					</td>
+				</form>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function CheckLoginFields() {
+				//document.frmLogin.Username.focus();
+				if(document.frmLogin.Username.value!='') {
+					document.frmLogin.Username.className='formSelected';
+				}
+				if(document.frmLogin.Password.value!='') {
+					document.frmLogin.Password.className='formSelected';
+				}
+			}
+			
+			CheckLoginFields();
+		</script>
+	
+	</div>
+	
+	<div id="AdminDefaultIncludes">
+
+	<style type="text/css">
+        	body {padding-top:0;}
+        	div#ToggleNav {visibility:hidden;}
+		* html div#AdminDefaultIncludes{top:0; _height: 100%;}
+    	</style>
+	
+	<title>Alabama Southern Community College :: </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Keywords" content="Alabama Southern Community College" />
+	<meta name="Description" content="Alabama Southern Community College" />
+	<meta name="Author" content="Alabama Southern Community College" />
+	<meta name="ROBOTS" content="INDEX, FOLLOW" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link href="/CommonTemplates/SiteElements/Styles/Include-Styles.asp" type="text/css" rel="stylesheet" />
+	<link href="http://images.pcmac.org/Websites/David/Ascc/Styles.css" rel="stylesheet" type="text/css" />
+	<!--script src="http://images.pcmac.org/Websites/David/Ascc/JavaScripts.js" type="text/javascript"></script-->
+	 
+
+	<script type="text/javascript"><!--//--><![CDATA[//><!--
+	startList = function() {
+		if (document.all&&document.getElementById) {
+			navRoot = document.getElementById("nav");
+			for (i=0; i<navRoot.childNodes.length; i++) {
+				node = navRoot.childNodes[i];
+				if (node.nodeName=="LI") {
+					node.onmouseover=function() {
+						this.className+=" over";
+					}
+					node.onmouseout=function() {
+						this.className=this.className.replace(" over", "");
+					}
+				}
+			}
+		}
+	}
+	window.onload=startList;
+	
+	//--><!]]></script>
+	<link href="http://images.pcmac.org/Websites/David/Ascc/NewStyles.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div align="center">
+		
+<table width="990" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="SiteWrapper" style=" border: 2px solid #FFF; border-top: 0; border-bottom: 0; " >
+	<tr>
+		<td align="left" >
+		<div ></div>
+			<div id="SlideShowNew" >
+				
+	<div style="width:990px; height:250px; overflow:hidden;">
+		<script type="text/javascript" src="/JavaScripts/UltimateFadeSlideshow.js"></script>
+<script type="text/javascript">
+		 
+	var fadeimages=new Array()
+	//SET IMAGE PATHS. Extend or contract array as needed
+	//fadeimages[#]=["Image URL", "Link URL", "Link Target", "Tool Tip Text"]
+	
+		fadeimages[0]=["http://images.pcmac.org/cache/Site_147/a7113161fa6d1691f7ad986fa2c518a3.jpg", "", "_blank", ""]
+		
+		fadeimages[1]=["http://images.pcmac.org/cache/Site_147/67ff6e5352095ad3b4259c7eb4e6c435.jpg", "", "_self", ""]
+		
+		fadeimages[2]=["http://images.pcmac.org/cache/Site_147/d093c65e16c3375ad06a74b62078e229.jpg", "http://www.ascc.edu/Download.asp?L=0&LMID=21911&PN=DocumentUploads&DivisionID=&DepartmentID=&SubDepartmentID=&SubP=Documents&Act=Download&T=1&I=172095", "_self", ""]
+		
+		fadeimages[3]=["http://images.pcmac.org/cache/Site_147/8845adcce44daaa4cdb4f2bb212ab084.jpg", "", "_self", ""]
+		
+		fadeimages[4]=["http://images.pcmac.org/cache/Site_147/7397c17d3206f2d63622e1a8841708d2.jpg", "", "_self", ""]
+			
+	
+	var fadebgcolor="white"
+</script>
+<script type="text/javascript">
+	//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause on mouseover (0=no, 1=yes), optionalRandomOrder)
+	new fadeshow(fadeimages, 990, 250, 0, 5000, 0)
+</script>
+	</div>
+	
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td align="center" style=" padding: 0 10px; ">
+			<ul id="nav">
+
+
+
+	<li class="TopNav"><a href="/" target="" class="Active">Home</a></li>
+	<li class="TopNav"><a href="/?PN=News2" >News</a>
+<!--	<li class="TopNav"><a href="/?PN=AboutUs" >About Us</a></li> -->
+
+	
+			<li class="TopNav">
+				<a href="?DivisionID=638" target=""  style="cursor: default;">About Us</a>
+				<ul>
+					
+											<li>
+												<a href="?DivisionID=638&DepartmentID=5128">
+													Accreditation Information
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=820">
+													Mission Statement
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=3557">
+													National Center for Pulp and Paper Technology Training
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=6074">
+													Quick Facts about ASCC
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=786">
+													President's Message
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=795">
+													Campus Locations
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=796">
+													Monroeville
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=797">
+													Thomasville
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=798">
+													Gilbertown
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=799">
+													Jackson
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=3058">
+													Vendor Disclosure Requirements
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=638&DepartmentID=3565">
+													Financial Disclosure
+												</a>
+											</li>
+											
+						</ul>
+					
+			<li class="TopNav">
+				<a href="?DivisionID=7300" target=""  style="cursor: default;">Jobs</a>
+				<ul>
+					
+													<li>
+														<a href="Default.asp?PN=MainPage&L=0&DivisionID=7300&DepartmentID=0&SubDepartmentID=0&ToggleSideNav=">
+															
+														</a>													
+													</li>
+												
+						</ul>
+					
+			<li class="TopNav">
+				<a href="?DivisionID=639" target=""  style="cursor: default;">Programs</a>
+				<ul>
+					
+													<li>
+														<a href="Default.asp?PN=DocumentUploads&L=0&DivisionID=639&DepartmentID=0&SubDepartmentID=0&ToggleSideNav=">
+															Program Brochures
+														</a>													
+													</li>
+												
+											<li>
+												<a href="?DivisionID=639&DepartmentID=794">
+													Distance Learning
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=792">
+													University Transfer
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=838">
+													Associate in Arts Degrees
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=837">
+													Associate in Science Degrees
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=793">
+													Occupational Programs
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=803">
+													Advanced Technology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=840">
+													Business Technology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=819">
+													Construction Electricity
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=805">
+													Cosmetology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=818">
+													Engineering Technology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=807">
+													Machine Technology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=804">
+													Nursing
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=832">
+													Paper and Chemical Technology
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=830">
+													Practical Nursing (PN)
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=829">
+													Registered Nursing (RN)
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=639&DepartmentID=806">
+													Welding
+												</a>
+											</li>
+											
+						</ul>
+					
+			<li class="TopNav">
+				<a href="?DivisionID=2365" target=""  style="cursor: default;">Current Students</a>
+				<ul>
+					
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2295">
+													Admissions
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2947">
+													Adult Education
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2960">
+													Catalog
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2959">
+													Dual Enrollment
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2297">
+													Financial Aid
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=3032">
+													GPA Calculator
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=7687">
+													Graduation Information 2012
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=7201">
+													Higher Education Opportunity Act
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2300">
+													Honors Program
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2944">
+													Register for Classes
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2299">
+													Schedule of Classes
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2958">
+													Scholarships
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=2301">
+													STARS
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2365&DepartmentID=6645">
+													Testing Center
+												</a>
+											</li>
+											
+						</ul>
+					
+			<li class="TopNav">
+				<a href="?DivisionID=710" target=""  style="cursor: default;">Future Students</a>
+				<ul>
+					
+											<li>
+												<a href="?DivisionID=710&DepartmentID=823">
+													Accelerated Enrollment
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=7439">
+													Applications & Forms
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=825">
+													Catalog
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=1910">
+													Dollars and Sense
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=822">
+													Dual Enrollment
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=7438">
+													Financial Aid
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=2956">
+													Honors Program
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=2955">
+													Schedule of Classes
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=821">
+													Scholarships
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=2957">
+													STARS
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=710&DepartmentID=6646">
+													Testing Center
+												</a>
+											</li>
+											
+						</ul>
+					
+			<li class="TopNav">
+				<a href="?DivisionID=2332" target=""  style="cursor: default;">Community</a>
+				<ul>
+					
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2237">
+													Adult Education
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2245">
+													Alabama Center for the Literary Arts
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2240">
+													Alabama Southern Industry Alliance for a Technologically Advanced Workforce
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2242">
+													Alabama Technology Network
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2235">
+													Alabama Writers Symposium
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2954">
+													Kathryn Tucker Windham Museum
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2233">
+													LifeTech Institute
+												</a>
+											</li>
+											
+											<li>
+												<a href="?DivisionID=2332&DepartmentID=2239">
+													National Center for Pulp and Paper Technology Training
+												</a>
+											</li>
+											
+						</ul>
+					
+
+	<li class="TopNav"><a href="?PN=Calendar" >Calendar</a></li>	
+	<!--<li class="TopNav"><a href="/?PN=Directory" >Directory</a></li>
+	<li class="TopNav"><a href="/?PN=Contact" >Contact</a></li> -->
+	<li class="TopNav"><a href="Default.asp?PN=AdvancedSearch" >Search</a></li>
+	<li class="TopNav"><a href="Default.asp?PN=SiteMap" >Site Map</a></li>
+	
+
+
+</ul>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 15px 5px 5px 5px; overflow: hidden;">
+			<table width="980"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td align="left" valign="top" class="Column1">
+			<div id="DefaultIncludes" style="padding: 4px 0; ">
+				<span class="header" style="display:block; padding: 0; margin:0;"></span>
+				<div style="text-align: center;"><img src="http://images.pcmac.org//images/Clients/71/147//welcome.jpg" border="0" width="300" height="25" /></div>
+<table style="width: 315px;" border="0" cellspacing="3" align="center">
+<tbody>
+<tr align="center" valign="middle">
+<td align="center" valign="middle">&nbsp;<a href="http://www.ascc.edu//?PN=Pages&amp;SubP=Level1Page&amp;L=2&amp;DivisionID=2365&amp;DepartmentID=2295&amp;PageID=3596&amp;ToggleSideNav=ShowAll"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Start.jpg" border="0" width="100" /></a></td>
+<td>
+<p><strong>New to Alabama Southern?<br />Click here to start off on<br />the right track!</strong></p>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr align="center" valign="bottom">
+<td align="center" valign="middle"><a href="http://www.ascc.edu//?DivisionID=2365&amp;DepartmentID=2297&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Financial.jpg" border="0" width="100" /></a></td>
+<td>
+<p><strong>Download everything you need <br />to apply for Financial Aid<br />at Alabama Southern</strong></p>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr align="center" valign="bottom">
+<td align="center" valign="middle">&nbsp;<a href="http://www.ascc.edu//?DivisionID=676&amp;ToggleSideNav="><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Directory2.jpg" border="0" width="100" height="84" /></a></td>
+<td>
+<p><strong>Find Alabama Southern faculty &amp; staff listed by campus location or department</strong></p>
+</td>
+<td>&nbsp;</td>
+</tr>
+<tr align="center" valign="middle">
+<td>&nbsp;<a href="http://files.ascc.schoolinsites.com/npcalc.htm" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//CalculatorPaths2.jpg" border="0" width="75" height="75" /></a></td>
+<td><strong>Tuition, Fees &amp;<br />Estimated Student Expenses<br /></strong></td>
+<td>
+<p>&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+			</div>
+			<!--Top Events -->
+				<p>
+				<div id="IndexNewsPortalEvents">
+				
+<div class="IndexNewsPortalEvents">
+<a href="Default.asp?PN='Calendar'&ShowNav='Yes'">Top Events</a>
+
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:08 AM&amp;CalendarID=480127',540,400); return false;" class="atnav">May 7th-8th- Second Mini-term Finals
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:18 AM&amp;CalendarID=480128',540,400); return false;" class="atnav">May 7th-8th- Final Exams
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/1/2012 8:07:39 AM&amp;CalendarID=513613',540,400); return false;" class="atnav">May 10 - Nursing Pinning Ceremony - Monroeville
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:25 AM&amp;CalendarID=480129',540,400); return false;" class="atnav">May 11th- Graduation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 2:55:39 PM&amp;CalendarID=480130',540,400); return false;" class="atnav">May 18th- Registration
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:42 AM&amp;CalendarID=480131',540,400); return false;" class="atnav">May 21st- First Mini-term Begins
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:51 AM&amp;CalendarID=480132',540,400); return false;" class="atnav">May 21st- Classes Begin
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:09:58 AM&amp;CalendarID=480133',540,400); return false;" class="atnav">May 25th- Online Course Orientation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=1/5/2012 10:10:04 AM&amp;CalendarID=480134',540,400); return false;" class="atnav">May 28th- College Closed in observance of Memorial Day
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=2/14/2012 3:46:11 PM&amp;CalendarID=506702',540,400); return false;" class="atnav">May 31 - KTW Birthday Celebration Kickoff
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=3/9/2012 3:12:20 PM&amp;CalendarID=509223',540,400); return false;" class="atnav">June 5 - "OWN the Night" Summer Reading Program at KTW
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=3/8/2012 2:15:07 PM&amp;CalendarID=509110',540,400); return false;" class="atnav">June 11-13 - NPT2 Summer Faculty Institute and High School Workshop
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=3/8/2012 2:14:52 PM&amp;CalendarID=509111',540,400); return false;" class="atnav">June 14 - NPT2 & KTW Library Event
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=3/8/2012 2:16:04 PM&amp;CalendarID=509112',540,400); return false;" class="atnav">June 18-19 - Upward Bound Workshop
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:57:58 PM&amp;CalendarID=480135',540,400); return false;" class="atnav">June 19th- New Student Orientation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 2:59:27 PM&amp;CalendarID=480136',540,400); return false;" class="atnav">June 22nd- First Mini-term Finals
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 3:00:01 PM&amp;CalendarID=480137',540,400); return false;" class="atnav">June 25th- Second Mini-term Registration
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 3:00:18 PM&amp;CalendarID=480138',540,400); return false;" class="atnav">June 25th- Midterm
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:58:10 PM&amp;CalendarID=480139',540,400); return false;" class="atnav">June 26th- New Student Orientation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 3:01:16 PM&amp;CalendarID=480140',540,400); return false;" class="atnav">June 26th- Second Mini-term Begins
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:57:20 PM&amp;CalendarID=480141',540,400); return false;" class="atnav">July 4th- College Closed in observance of Independence Day
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:58:35 PM&amp;CalendarID=480142',540,400); return false;" class="atnav">July 10th- New Student Orientation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/11/2011 3:03:43 PM&amp;CalendarID=480143',540,400); return false;" class="atnav">July 15th- Financial Aid Priority Deadline
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:59:06 PM&amp;CalendarID=480144',540,400); return false;" class="atnav">July 17th- New Student Orientation
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=4/30/2012 2:58:56 PM&amp;CalendarID=480145',540,400); return false;" class="atnav">July 24th- New Student Orientation
+		</a>	
+	</span>
+    
+</div>
+
+				</div>
+				</p>
+		</td>
+		<td align="left" valign="top" class="Column2">
+			<div style="padding: 4px 0;">
+				<div align="left" style="text-align: center;"><img src="http://images.pcmac.org//images/Clients/71/147//connected.jpg" border="0" width="300" height="25" /></div>
+<div align="left" style="text-align: center;"><span style="color: #ff00ff;">&nbsp;</span></div>
+<div align="left" style="text-align: center;">
+<table style="width: 331px; height: 72px;" border="0">
+<tbody>
+<tr>
+<td style="text-align: left;">
+<p><span style="color: #993300;"><strong>See the&nbsp;<a href="http://www.ascc.edu/Download.asp?L=0&amp;LMID=21911&amp;PN=DocumentUploads&amp;DivisionID=&amp;DepartmentID=&amp;SubDepartmentID=&amp;SubP=&amp;Act=Download&amp;T=1&amp;I=176457" target="_blank">&nbsp;Spring 2012 Final Exam schedule.</a></strong></span></p>
+<p><span style="color: #800080;"><strong>ATTENTION 2012 GRADUATES!!!</strong></span></p>
+<p><span style="color: #800080;">Student Cap &amp; Gown packages have arrived and are available for pickup at your campus bookstore.</span></p>
+<p><span style="color: #800080;">Information has been posted at <a href="http://www.ascc.edu/?DivisionID=2365&amp;DepartmentID=7687"><span style="color: #800080;">http://www.ascc.edu/?DivisionID=2365&amp;DepartmentID=7687</span></a></span></p>
+<p><span style="color: #008080;"><strong>INTERESTED IN CHEERING AT ASCC??&nbsp;&nbsp;</strong></span><span style="color: #008080;"><strong>The Cheer Clinic is scheduled for Saturday, May 5, 9-12 and 1-4. Cheer and Mascot tryouts will be on Sunday, May 6 at 2:00 pm.&nbsp; </strong></span><span style="color: #008080;"><strong>C</strong></span><span style="color: #008080;">ontact Brittany Mattox at 251-593-0536 for more information</span></p>
+<p>&nbsp;</p>
+<p style="text-align: center;"><strong><span style="color: #ff6600;">We have created another form of communication for receiving ASCC News. If you are interested, you can sign up for a TWITTER account (<a href="http://twitter.com/"><span style="color: #ff6600;">http://twitter.com</span></a>) and start <span style="text-decoration: underline;">following</span> Alabama Southern by searching for &ldquo;Alabama Southern CC&rdquo; or &ldquo;@ASCC News&rdquo;. You can also opt to receive these &ldquo;tweets&rdquo; as text messages on your phone.</span></strong></p>
+<a href="http://issuu.com/ascc/docs/2011anthology_revised1213/1" target="_blank" title="Anthology of Poetry Vol 3"><img src="http://images.pcmac.org//images/Users/spettis@ascc.edu//2011anthology%20cover.jpg" border="0" width="40" id="TheImage" style="float: left; margin-left: 10px; margin-right: 10px;" /></a>
+<p><span style="color: #008000;"><strong><br />The&nbsp;</strong></span><strong style="color: #008000;">Alabama Southern Community College Library Ser</strong><strong><span style="color: #008000;">vices presents </span><em style="color: #008000;">Anthology of Poetry Vol 3. <a href="http://issuu.com/ascc/docs/2011anthology_revised1213/1">Check it out</a>!</em></strong></p>
+<p><strong><em><br /></em></strong></p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<table style="width: 315px;" border="0" cellspacing="3" cellpadding="4" align="center">
+<tbody>
+<tr align="center" valign="middle">
+<td align="center" valign="middle">&nbsp;<a href="http://www.ascc.edu//?DivisionID=734&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//web.jpg" border="0" width="100" height="84" /></a></td>
+<td align="center" valign="middle">&nbsp;<a href="https://info810.ascc.edu/cgi-bin/advlogin.mbr/login#"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//online.jpg" border="0" width="100" height="84" /></a></td>
+<td align="center" valign="middle">&nbsp;<a href="http://www.ascc.edu//?DivisionID=645&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Library.jpg" border="0" width="100" height="84" /></a></td>
+</tr>
+<tr align="center" valign="middle">
+<td align="center" valign="middle">&nbsp;<a href="http://www.ascc.edu//?DivisionID=644&amp;ToggleSideNav="><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Athletics.jpg" border="0" width="100" height="84" /></a></td>
+<td align="center" valign="middle"><a href="http://www.ascc.edu/?DivisionID=5901&amp;DepartmentID=9216&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/spettis@ascc.edu//gainful.jpg" border="0" width="100" height="84" id="TheImage" style="display: block; margin-left: auto; margin-right: auto;" /></a></td>
+<td align="center" valign="middle"><a href="http://www.ascc.edu/?PN=Pages&amp;SubP=Level1Page&amp;L=2&amp;DivisionID=2365&amp;DepartmentID=2295&amp;PageID=3597&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//transcript.jpg" border="0" width="100" height="84" /></a></td>
+</tr>
+<tr align="center" valign="middle">
+<td align="center" valign="middle"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Blanksmall.jpg" border="0" width="100" /></td>
+<td align="center" valign="middle">
+<p><a href="http://www.ascc.edu/Default.asp?PN=DocumentUploads&amp;L=2&amp;DivisionID=2365&amp;DepartmentID=2960&amp;LMID=118669&amp;ToggleSideNav=ShowAll" target="_blank">&nbsp; <img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//catalog.jpg" border="0" width="92" height="78" /></a></p>
+</td>
+<td align="center" valign="middle">&nbsp;<img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Blank.jpg" border="0" width="100" /></td>
+</tr>
+<tr align="center" valign="middle">
+<td align="center" valign="top">&nbsp;</td>
+<td align="center" valign="top">&nbsp;</td>
+<td align="center" valign="top">&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 200px;" border="0" cellspacing="0" align="center">
+<tbody>
+<tr align="left" valign="middle">
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">
+<p><a href="http://www.ascc.edu//?DivisionID=4403&amp;ToggleSideNav=ShowAll" target="_blank"><br /></a><a href="http://www.ascc.edu//?DivisionID=4403&amp;ToggleSideNav=ShowAll" target="_blank"><strong><br /></strong></a></p>
+</td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="width: 60px;">&nbsp;<a href="http://www.facebook.com/pages/Alabama-Southern-Community-College-Official-College-Page/142006889688" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//facebookwithtype.jpg" border="0" width="52" height="58" /></a><a href="http://www.ascc.edu/Admin1/Common/PagesLevel1/" target="_blank"><br /></a><a href="http://www.ascc.edu/Admin1/Common/PagesLevel1/" target="_blank"><strong><br /></strong></a></td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;"><a href="http://www.twitter.com/asccnews"><img src="http://images.pcmac.org//images/Users/spettis@ascc.edu//twitter.jpg" border="0" width="50" /></a></td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;"><a href="http://www.ascc.edu//?DivisionID=4403&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//arrawithtype2.jpg" border="0" width="56" height="68" /></a></td>
+<td style="width: 60px;">&nbsp;</td>
+<td style="width: 60px;">&nbsp;<a href="http://www.ascc.edu//?DivisionID=5901&amp;ToggleSideNav=ShowAll" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//higheredact.jpg" border="0" width="53" height="62" /></a></td>
+</tr>
+</tbody>
+</table>
+			</div>
+		</td>
+		<td align="left" valign="top" class="Column3">
+			<div style="padding: 4px 0;">
+				<div style="text-align: center;"><img src="http://images.pcmac.org//images/Clients/71/147//community.jpg" border="0" width="300" height="25" /></div>
+<table style="width: 306px; height: 116px;" border="0" align="center">
+<tbody>
+<tr>
+<td style="text-align: left;" align="left" valign="top">
+<p style="text-align: center;"><span style="font-family: verdana, geneva; font-size: 24px;"><strong>SUMMER&nbsp; SCHOOL REGISTRATION</strong></span></p>
+<p class="NoSpacing"><span style="font-size: 10px; font-family: verdana, geneva;"><em>April 9- May 4&nbsp; All continuing students</em></span></p>
+<p class="NoSpacing"><span style="font-size: 10px; font-family: verdana, geneva;"><em>April 16&nbsp;(starting at 12:30&nbsp; p.m.) - May 4&nbsp; All new and transient students</em></span></p>
+<table style="width: 305px; height: 162px;" border="0" cellspacing="3" align="center">
+<tbody>
+<tr align="center" valign="bottom">
+<td align="center" valign="top"><a href="http://www.ascc.edu/?L=1&amp;PN=MainPage&amp;DivisionID=%27678%27&amp;DepartmentID=%27%27&amp;SubDepartmentID=%27%27&amp;TabNo=2"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Symposium.jpg" border="0" width="100" /></a></td>
+<td align="center" valign="middle"><br />
+<p><span style="font-family: verdana,geneva; font-size: 10px;"><strong>15th Annual<br />Alabama Writers Symposium<br />a big success!<br /></strong></span></p>
+<p>&nbsp;</p>
+</td>
+<td align="center" valign="middle">&nbsp;</td>
+</tr>
+<tr align="center" valign="top">
+<td align="center" valign="top"><a href="http://www.ascc.edu/Download.asp?L=0&amp;LMID=21911&amp;PN=DocumentUploads&amp;DivisionID=&amp;DepartmentID=&amp;SubDepartmentID=&amp;SubP=&amp;Act=Download&amp;T=1&amp;I=150213"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//guide11.jpg" border="0" width="100" height="84" /></a></td>
+<td align="center" valign="middle"><span style="font-family: verdana,geneva; font-size: 10px;"><strong>Download the latest issue of <br />My Guide to Alabama Southern!</strong></span></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="width: 305px; height: 162px;" border="0" cellspacing="3" align="center">
+<tbody>
+<tr align="center" valign="middle">
+<td>
+<p><a href="https://info810.ascc.edu/cgi-bin/dispcrsesa.mbr/select" target="_blank"><img src="http://images.pcmac.org//images/Users/uzzelle@bellsouth.net/Buttons//Summer12.jpg" border="0" width="76" height="76" /></a></p>
+</td>
+<td><span style="font-family: verdana,geneva; font-size: 10px;"><strong>View Summer 2012<br />Schedule of Classes</strong></span></td>
+<td>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</td>
+</tr>
+<tr align="center" valign="middle">
+<td>&nbsp;&nbsp;</td>
+<td style="text-align: center;">&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+			</div>
+			<!--District News -->
+				<p>
+				<div id="IndexNewsPortalDistrict">
+				
+	<div class="IndexNewsPortalDistrict">
+	<a href="Default.asp?PN=News2">News</a>
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=35697&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				2nd Annual Alabama Southern Foundation Scholarship Golf Tournament
+			</a>
+		</span>							
+	
+	</div>
+
+				</div>
+				</p>
+		</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 2px 10px 5px 10px" class="LegalText">
+			<div id="Legal">
+	<a  href="http://www.pcmac.org/"><img src="/images/PcmacPoweredSmall.png" id="PoweredBy" height="30" width="107" alt="Powered and Designed by pc|mac"/></a>
+	<p class="left">
+		<a href="http://www.pcmac.org/tos/">Terms and Conditions</a><br />
+		pc|mac is not responsible for the content of this site. 
+	</p>
+	<p class="right">
+		Copyright &copy; 2011-2012 &nbsp;Alabama Southern Community College
+	</p>
+</div>
+
+		</td>
+	</tr>
+</table>
+</div>

@@ -1,0 +1,828 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head>
+<title>Eastern Connecticut State University</title>
+<link rel="stylesheet" type="text/css" href="script/indexCustom.css">
+<script type="text/JavaScript" src="http://www.easternct.edu/script/curvycorners.src.js"></script>
+
+<script src="script/jquery-1.5.2.min.js" type="text/javascript"></script>
+<script src="script/jcarousellite_1.0.1c4.js" type="text/javascript"></script>
+<script src="http://www.easternct.edu/script/SpryAssets/SpryTooltip.js" type="text/javascript"></script>
+<script type="text/JavaScript">
+// Announcement carousel
+$(function() {
+	$("#newsticker-demo").jCarouselLite({
+		vertical: true,
+		hoverPause: true,
+		btnPrev: ".previous",
+		btnNext: ".next",
+		visible: 4,
+		scroll: 1,
+		circular: true,
+		auto: 10000,
+		speed: 200
+	});
+});
+
+// rounded corners
+curvyCorners.addEvent(window, 'load', initCorners);
+function initCorners() {
+	var settings1 = { tl: { radius: 12 }, tr: { radius: 12 }, bl: { radius: 12 }, br: { radius: 12 }, antiAlias: true }
+	var settings2 = { tl: { radius: 10 }, tr: { radius: 10 }, bl: { radius: 00 }, br: { radius: 00 }, antiAlias: true } // note: should be 2px less radius than the setting1
+	var settings3 = { tl: { radius: 10 }, tr: { radius: 00 }, bl: { radius: 00 }, br: { radius: 00 }, antiAlias: true }
+	var settings4 = { tl: { radius: 00 }, tr: { radius: 10 }, bl: { radius: 00 }, br: { radius: 00 }, antiAlias: true }
+	curvyCorners(settings1, "#leftMidContent, #middleMidContent, #rightMidContent");
+	curvyCorners(settings2, ".header"); curvyCorners(settings3, ".tabLeft"); curvyCorners(settings4, ".tabRight");
+}
+
+// javascript function to change the 3-tab when clicked
+function showonlyone(thechosenone) {
+	var contentShow = document.getElementsByTagName("div");
+		for(var x=0; x<contentShow.length; x++) {
+			name = contentShow[x].getAttribute("name");
+			if (name == 'contentShow') {
+				if (contentShow[x].id == thechosenone) {
+					contentShow[x].style.display = 'block';
+				}// end if
+				else {
+					contentShow[x].style.display = 'none';
+				}// end else
+			}// end if
+		}// end for
+}// end function
+
+
+
+// javascript function to change the 3-tab style when clicked
+function changeColor(changeMe) {
+	elem1 = document.getElementById('tabbed1');
+	elem2 = document.getElementById('tabbed2');
+	elem3 = document.getElementById('tabbed3');
+	
+	if (changeMe == 'tabOne') {
+		elem1.innerHTML = '&raquo; Announcements &laquo;';	elem1.style.fontWeight = 'bold';	elem1.style.textDecoration = 'underline';
+		elem2.innerHTML = 'News';							elem2.style.fontWeight = 'normal';	elem2.style.textDecoration = 'none';
+		elem3.innerHTML = 'Events';							elem3.style.fontWeight = 'normal';	elem3.style.textDecoration = 'none';
+	}// end if
+	else if (changeMe == 'tabTwo') {
+		elem1.innerHTML = 'Announcements';				elem1.style.fontWeight = 'normal';	elem1.style.textDecoration = 'none';
+		elem2.innerHTML = '&raquo; News &laquo;';		elem2.style.fontWeight = 'bold';	elem2.style.textDecoration = 'underline';
+		elem3.innerHTML = 'Events';						elem3.style.fontWeight = 'normal';	elem3.style.textDecoration = 'none';
+	}// end else if
+	else if (changeMe == 'tabThree') {
+		elem1.innerHTML = 'Announcements';				elem1.style.fontWeight = 'normal';	elem1.style.textDecoration = 'none';
+		elem2.innerHTML = 'News';						elem2.style.fontWeight = 'normal';	elem2.style.textDecoration = 'none';
+		elem3.innerHTML = '&raquo; Events &laquo;';		elem3.style.fontWeight = 'bold'; 	elem3.style.textDecoration = 'underline';
+	}// end else if
+}// end function
+
+// function to save a cookie (remembers which tab was selected)
+function createCookie(name,value,days) {	// saves the cookie
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	if (name == "onTabOne") {
+		value = "tabOne";
+	}
+	else if (name == "onTabTwo") {
+		value = "tabTwo";
+	}
+	else if (name == "onTabThree") {
+		value = "tabThree";
+	}
+	document.cookie = "currentTabEasternIndex"+"="+value+expires+"; path=/";	// currentTabEastern## must be specific for each page, and match the check below
+}
+
+function readCookie(name) {	// reads the cookie
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+window.onload = cookieCheck;
+function cookieCheck() {									// on page load, check the cookie (to see which tab to show)
+	var currentTab = readCookie("currentTabEasternIndex");	// currentTabEastern## must be specific for each page, and match variable above
+	var passAlong;
+	//alert('current cookie is '+currentTab);
+	if 		(currentTab == "tabOne")	{ passAlong = "contentShow1"; }
+	else if (currentTab == "tabTwo")	{ passAlong = "contentShow2"; }
+	else if (currentTab == "tabThree")	{ passAlong = "contentShow3"; }
+	else 								{ passAlong = "contentShow1";currentTab = "tabOne"; }
+	showonlyone(passAlong);
+	changeColor(currentTab);
+}
+
+// newswire loader!
+$(document).ready(function() {
+$("#newsWireFeed").load("http://www.easternct.edu/mt-static/press_releases/headlines.html");
+} );
+
+// Google Analytics
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23434713-1']);
+  _gaq.push(['_setDomainName', '.easternct.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script src="http://www.easternct.edu/script/AC_RunActiveContent.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.easternct.edu/script/milonic_src.js"></script> 
+<script type="text/javascript">
+	if(ns4)_d.write("<scr"+"ipt type=text/javascript src=http://www.easternct.edu/script/mmenuns4.js><\/scr"+"ipt>");      
+	else _d.write("<scr"+"ipt type=text/javascript src=http://www.easternct.edu/script/mmenudom.js><\/scr"+"ipt>");
+</script>
+<link href="http://www.easternct.edu/script/SpryAssets/SpryTooltip.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<!-- note: this is the javascript for the emergency alert pop up. Remove when threat is resolved. -->
+
+<div id="container">
+	<div id="topContent">
+		<div id="banner">
+			<img src="images/banner.jpg">
+		</div><!-- closes banner -->
+		
+		<div id="navigationBar">
+			<script language="javascript" src="script/twentyTwelve_top_menu.js" type="text/javascript"></script>
+		</div><!-- closes navigationBar -->
+		<div id="searchBar">
+		<form method="GET" target="_self" action="http://search.easternct.edu/search">
+		   <input class="searchBar" type="text" name="q" size="15" maxlength="256" value="Search Eastern" onfocus="this.value = ''" />
+		   <input class="button" type="submit" value="Go" alt="Submit Search of Eastern">		
+		   <input type="hidden" name="site" value="default_collection" />
+		   <input type="hidden" name="client" value="my_frontend" />
+		   <input type="hidden" name="output" value="xml_no_dtd" />
+		   <input type="hidden" name="proxystylesheet" value="my_frontend" />
+		   <input type="hidden" name="filter" value="p" />
+		   <input type="hidden" name="getfields" value="*" />
+		</form>
+		</div><!-- closes searchBar -->
+		
+		<div id="leftMenu">
+			<a href="http://transcoder.usablenet.com/tt/referrer" class="textOnly">Text Only Version</a><br>
+			<script language="javascript" src="http://www.easternct.edu/script/twentyTwelve_side_menu.js" type="text/javascript"></script>
+		</div><!-- closes leftMenu -->
+		<div id="rightSSP">
+		<!-- START EMBED CODE --> 
+			<script type="text/javascript" src="http://www.easternct.edu/ssp_director/m/embed.js"></script>
+			<div id="album-91"></div>
+			<script type="text/javascript">
+				SlideShowPro({
+				attributes: {
+					id: "album-91",
+					width: 707,
+					height: 264
+				},
+				mobile: {
+					auto: false
+				},
+				params: {
+					bgcolor: "#000000",
+					wmode: "opaque",
+					allowfullscreen: true
+				},
+				flashvars: {
+					xmlFilePath: "http://www.easternct.edu/ssp_director/images.php?album=91",
+					videoAutoStart: "Off",
+					feedbackPreloaderAppearance: "Hidden",
+					feedbackTimerAppearance: "Hidden",
+					directorLargeQuality: "100",
+					transitionPause: "4",
+					transitionLength: "2",
+					navAppearance: "Visible on Rollover",
+					captionAppearance: "Overlay on Rollover",
+					captionTextSize: "18",
+					captionBackgroundAlpha: "0",
+					captionTextColor:"#FFFFFF",
+					captionTextShadowAlpha: "1",
+					captionElements: "Caption Only",
+					galleryAppearance: "Hidden",
+					navButtonInactiveAlpha: "0",
+					navButtonGlowAlpha: ".50",
+					navLinkRolloverColor: "#750017",
+					contentScale: "Crop to Fit All"
+				}
+				});
+			</script> 
+		<!-- END EMBED CODE --> 
+		</div><!-- closes rightSSP -->
+	</div><!-- closes topContent -->
+
+	<div id="middleContent">
+		<div id="leftMidContent">
+			<div class="header">Spotlight</div>
+
+			<div id="randomdiv1">
+				<a href="http://academicaffairs.easternct.edu/servicelearnproject.htm">
+				<img src="images/spotlight/spotlight0.jpg" alt="Alicia DeMaio"></a>
+			</div>
+			<div id="randomdiv2">
+				<a href="http://www.easternct.edu/athletics/men_baseball/men_baseball.htm">
+				<img src="images/spotlight/spotlight1.jpg" alt="Jim Schult"></a>
+			</div>
+			<div id="randomdiv3">
+
+				<a href="http://www.easternct.edu/engagedlearning/tahiti.html">
+				<img src="images/spotlight/spotlight2.jpg" alt="Nick Shoenfelt"></a>
+			</div>
+			<div id="randomdiv4">
+				<a href="http://academicaffairs.easternct.edu/internship.htm">
+				<img src="images/spotlight/spotlight3.jpg" alt="Kenton Webley"></a>
+			</div>
+			<div id="randomdiv5">
+				<a href="http://www.easternct.edu/performingarts/theatre/londonpro.html">
+
+				<img src="images/spotlight/spotlight4.jpg" alt="Laura Cuffe"></a>
+			</div>
+			<div id="randomdiv6">
+				<a href="http://nutmeg.easternct.edu/learningtools/URE-ver1/index.html">
+				<img src="images/spotlight/spotlight5.jpg" alt="Leah Hanrahan"></a>
+			</div>
+			<div id="randomdiv7">
+				<a href="http://www.easternct.edu/performingarts/">
+				<img src="images/spotlight/spotlight6.jpg" alt="Shane Kegler"></a>
+
+			</div>
+			<div id="randomdiv8">
+				<a href="http://www.easternct.edu/visualarts/">
+				<img src="images/spotlight/spotlight7.jpg" alt="Ismael Gracia"></a>
+			</div>
+			<div id="randomdiv9">
+				<a href="http://www.easternct.edu/biology/">
+				<img src="images/spotlight/spotlight8.jpg" alt="Mai Fujiwara"></a>
+			</div>
+
+			<div id="randomdiv10">
+				<a href="http://academicaffairs.easternct.edu/paidprofexp.htm">
+				<img src="images/spotlight/spotlight9.jpg" alt="Feng Cui"></a>
+			</div>
+			<div id="randomdiv11">
+				<a href="http://www.easternct.edu/business/accounting_major.htm">
+				<img src="images/spotlight/spotlight10.jpg" alt="Krista Juliano"></a>
+			</div>
+			<div id="randomdiv12">
+
+				<a href="http://www.easternct.edu/psychology/">
+				<img src="images/spotlight/spotlight11.jpg" alt="Carline Charmelus"></a>
+			</div>
+			<div id="randomdiv13">
+				<a href="http://www.easternct.edu/business/info_major.htm">
+				<img src="images/spotlight/spotlight12.jpg" alt="Ethan Harris"></a>
+			</div>
+			<div id="randomdiv14">
+				<a href="http://www.easternct.edu/mt-static/communication/2011/04/2010-us-census-psas-created-by-eastern-students.html">
+
+				<img src="images/spotlight/spotlight13.jpg" alt="Leo Gaviria"></a>
+			</div>
+			<div id="randomdiv15">
+				<a href="http://www.easternct.edu/politicalscience/internships.htm">
+				<img src="images/spotlight/spotlight14.jpg" alt="Olivia Puckett"></a>
+			</div>
+		</div>
+		
+		<div id="middleMidContent">
+			<div class="tabLeft" id="tabLeft"><a onClick="changeColor('tabOne');" href="javascript:showonlyone('contentShow1'); javascript:createCookie('onTabOne')" id="tabbed1">Announcements</a></div>
+
+			<div class="tabMiddle"><a onClick="changeColor('tabTwo');" href="javascript:showonlyone('contentShow2'); javascript:createCookie('onTabTwo')" id="tabbed2">News</a></div>
+			<div class="tabRight"><a onClick="changeColor('tabThree');" href="javascript:showonlyone('contentShow3'); javascript:createCookie('onTabThree')" id="tabbed3">Events</a></div>
+			<div style="clear:both;"></div>
+			
+			<div name="contentShow" id="contentShow1"><!-- Announcements -->
+			<!--<img src="news-arrow-previous.png" class="previous" />-->
+			<div id="newsticker-demo">
+				<ul>
+                
+                <li>
+						<p>
+								<a href="http://www.easternct.edu/mt-static/press_releases/2012/05/kick-it-for-cancer-kickball-game.html" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+                                <img src="images/events/Kick-It.jpg">
+								<span>Kick&#8211;It for Cancer Kickball Game</span></a>
+                                Eastern&rsquo;s Center for  Community Engagement (CCE) is asking Eastern students to participate in a  charity that will help raise money for cancer research.</p>
+</li>
+				
+					<li>
+						<p>
+								<a><img src="images/events/easternClocktower.jpg">
+								<span>Emergency Alert: Situation Resolved</span></a>
+							All clear in High Rise. The Package contained a commonly used household product. The building is safe and the incident is closed.
+						</p>
+					</li>
+				
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/commencement/" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/commencement2012.jpg">
+								<span>Commencement 2012</span>
+							</a>
+							WECS 90.1 FM will be broadcasting the Commencement Exercises live over-the-air and over the Internet at 6:30 p.m. on Tuesday, May 15, 
+							2012. Tune into 90.1 on the FM dial or stream the live audio feed by visiting <a href="http://www.easternct.edu/wecs" target="_blank">WECS</a>.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/pdfs/CLIPInvite2012.pdf" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/clipEvent.jpg">
+								<span>Community Life Improvement Project</span>
+							</a>
+							Come join your Eastern friends, faculty, staff, administrators, and neighbors in the community for an amazing barbecue, games, music, 
+							and give-aways, as well as learn what CLIP is about and it's goals.
+						</p>
+					</li>
+				
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2012/05/church-farm-family-day.html" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/churchFarm.jpg">
+								<span>Church Farm Family Day</span>
+							</a>
+							Area families can enjoy a fun afternoon on the "farm" on Saturday, May 5 from 1-4 p.m. at Eastern's Church Farm Center for the Arts and Sciences.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2012/04/caitlin-carenen-named-academic-fellow-in-terrorism-studies.html" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/Caitlin-Carenen.jpg">
+								<span>Caitlin Carenen Named to Academic Fellowship in Terrorism Studies</span>
+							</a>
+							The Foundation for the Defense of Democracies has named History Professor Caitlin Carenen an &#8220;Academic Fellow&#8221; for 2012&#8211;13.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/universityrelations/documents/excellenceExpo12.pdf" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/excellenceExpo12.jpg">
+								<span>12th Annual Excellence Expo</span>
+							</a>
+							The School of Education and Professional Studies at Eastern is hosting its 12th Annual Excellence Expo on May 2 from 2 to 6 p.m.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/images/events/Summer-Undergraduate-Research-Projects.pdf" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/ugr.jpg">
+								<span>Summer Undergraduate Research Projects: Apply now!</span>
+							</a>
+							Eastern students are encouraged to apply to participate in four faculty-sponsored undergraduate research projects.
+						</p>                        
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://calendar.easternct.edu/EventList.aspx?view=EventDetails&eventidn=8234&information_id=39992&type=&syndicate=syndicate" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/young-alumni.jpg">
+								<span>Young Alumni Reunion!</span>
+							</a>
+							Friday, May 11, 2012; 8-11 p.m.<br>
+							Join your friends from the Classes of 2002&#8211;11 for one more  night at Blarney&rsquo;s. RSVP by May 7 to (860) 465-5302 or <a href="mailto:alumni@easternt.edu">alumni@easternt.edu</a>.
+						</p>
+					</li>                   
+                    
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2012/03/eastern-honored-for-community-service.html" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/CNCSEastern.jpg">
+								<span>Eastern Honored for Community Service</span>
+							</a>
+							Eastern was honored by the Corporation for National and Community Service (CNCS) and the U.S. Department of Education as 
+							a university that leads the way in bettering it's community through community service and service learning.
+						</p>
+				  	</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2012/03/wesleyan-president-michael-roth-commencement-speaker.html" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/Michael-Roth.jpg">
+								<span>Eastern Announces Commencement Speaker</span>
+							</a>
+							Michael S. Roth, president of Wesleyan University, will deliver the commencement address at Eastern Connecticut State University&rsquo;s 122nd 
+							Commencement Exercises on May 15, 2012 at the XL Center in Hartford.
+						</p>
+				  	</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/advancement/AP_Summer_Institute_2012.htm" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/AP-Summer-Institute.jpg">
+								<span>AP Summer Institute</span>
+							</a>
+							Eastern Connecticut State University is hosting Advanced Placement Summer Institutes for Teachers this summer. Institutes in biology, English literature 
+							and English composition are being offered. 
+						</p>
+					</li>
+					
+                	<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2012/02/easterns-global-field-course-to-cuba.html" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/visualArtsCuba.jpg">
+								<span>Eastern&rsquo;s Global Field Course to Cuba</span>
+							</a>
+							The Department of Visual Arts at Eastern is conducting a three-credit global field course titled &ldquo;ART 316 Art and Travel: 
+							Cuba&rdquo; from May 19 to May 29.
+						</p>
+				  	</li>			
+				
+					<li>
+						<p>
+							<a>
+								<img src="images/events/deansList.jpg">
+								<span>Dean&rsquo;s Lists Fall 2011</span>
+							</a>
+							Eastern  Connecticut State University announced the students who attained the Dean&rsquo;s List for the fall 2011 semester.<br>
+							<a href="http://www.easternct.edu/images/documents/Fall2011FullTimeDeanList.pdf">Dean&rsquo;s Lists Fall 2011- Full Time students</a><br>
+							<a href="http://www.easternct.edu/images/documents/Fall2011PartTimeDeanList.pdf">Dean&rsquo;s Lists Fall 2011- Part Time students</a>
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.transloc.com/" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/wheresTheShuttle.jpg">							
+								<span>Where&rsquo;s the Shuttle Bus?</span>
+							</a>
+							Download a <i>free</i> mobile app and find out where the shuttle bus is every second of the day. Go to Eastern&rsquo;s Transloc website to see the application and download it to your mobile phone. Accessible versions are also available.
+						</p>
+					</li>
+					
+					<li>
+						<p>					
+							<a href="http://www.easternct.edu/easternalert" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/easternAlert.jpg">
+								<span>&ldquo;Eastern Alert&rdquo;</span>
+							</a>
+							An Emergency Notification System for Eastern students, faculty, and staff in cases of weather closings and campus emergencies. To sign up for text, voice, e&ndash;mail, and phone alerts, go to the Eastern Alert Website.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/advancement/development/giving.htm" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/SBMCharitableFoundation.jpg">
+								<span>FEATURED DONOR: SBM Charitable Foundation, Inc.</span>
+							</a>
+							The SBM Charitable Foundation, Inc. has given the University two major leadership gifts in support of early childhood education programs.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.collegeportraits.org/CT/ECSU" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/collegePortrait.jpg">
+								<span style="color:#000; background:#dddcdc; font-size:1.75em; font-weight:bold; line-height:1em; text-align:center;">College Portrait</span>
+								<span style="color:#000; background:#dddcdc; font-size:.8em; text-align:center;">of Undergraduate Education</span>
+								<span style="color:#8c8d8e; text-align:center;">Voluntary System of Accountability</span>							
+								<span style="color:#FFF; background:#2e3d6b; text-align:center;">EARLY ADOPTER</span>
+							</a>
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a>
+								<img src="images/events/bestColleges.jpg">
+								<span>Eastern Ranked in Top 30 in U.S. News and World Report</span>							
+							</a>
+							Eastern Connecticut State University was again ranked in the top 30 public regional universities in the North by U.S. News and World Report in its 2012 rankings, released on Sept. 13.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2011/09/eastern-named-one-of-top-five-places-to-work.html" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/hartfordCourantTWP.jpg">
+								<span>Eastern Named A Top Workplace</span>							
+							</a>
+							Easten has been named one of the top five workplaces in Connecticut in the large organization category by the Hartford Courant for 2011.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.collegesofdistinction.com/index.php?option=com_colleges&view=college&parent_id=CT:connecticut&id=16:eastern-connecticut-state-university" target="_blank" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/greenColleges.jpg">
+								<span>Eastern Named a Green College Two Years in a Row</span>
+							</a>
+							Eastern has been named one of the nation&rsquo;s Green Colleges for 2011 by The Princeton Review and the U.S. Green Building Council (USGBC). This is the second year in a row that Eastern has received the designation.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2011/08/eastern-named-a-great-college-to-work-for-for-third-year.html" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/chronicleGreatColleges.jpg">
+								<span>Eastern Named &ldquo;A Great College to Work For&rdquo; for Third Year</span>
+							</a>
+							For the third year in a row, Eastern Connecticut State University has made the list of &ldquo;Great Colleges to Work For.&rdquo;
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.collegesofdistinction.com/index.php?option=com_colleges&view=college&parent_id=CT:connecticut&id=16:eastern-connecticut-state-university" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/collegesofDistinction.jpg">
+								<span>A College of Distinction</span>					
+							</a>
+							Student Horizons, Inc., a leading publisher of college guides and informational materials for students considering their college options has announced that it has included Eastern in the 2011&ndash;12 edition of Colleges of Distinction.
+						</p>
+					</li>
+					
+					<li>
+						<p>
+							<a href="http://www.easternct.edu/mt-static/press_releases/2010/08/eastern-named-a-best-in-the-northeast-college.html" title="Click here for more information about this announcement" alt="Click here for more information about this announcement">
+								<img src="images/events/princetonReviewNortheast.jpg">
+								<span>One of the Best in Northeast</span>					
+							</a>
+							Eastern has been named one of the top colleges in the Northeast by The Princeton Review.
+						</p>
+					</li>
+				</ul>
+			</div><!-- closes newsticker-demo -->
+			<img src="images/upArrow.png" class="previous"><br>
+			<img src="images/downArrow.png" class="next">
+			</div><!-- closes contentShow1 div (Announcements) -->
+					
+			<div name="contentShow" id="contentShow2"><!-- Newswire -->
+				<div id="newsContent">
+
+					<div class="newsFull">
+					<p>
+						<img src="images/news-releases.jpg">
+						<div id="newsWireFeed">
+						</div>
+						<!-- note:	This section is now "automatic", and is updated whenever http://www.easternct.edu/mt-static/press_releases/headlines.html
+									is updated by Dwight Bachman (or whoever he has update the news headlines). The old format is below, commented out, in case
+									you need to use it for whatever reason (ie: this breaks!).
+						-->
+					<!--	<ul>
+							<li><a href="http://www.easternct.edu/mt-static/press_releases/2012/01/continuing-education-receives-grant-for-reach-program.html" target="_parent">Continuing Education Receives Grant for REACH Program</a></li>
+							<li><a href="http://www.easternct.edu/mt-static/press_releases/2012/01/volunteers-needed-for-special-olympics.html" target="_parent">Volunteers Needed for Special Olympics</a></li>
+							<li><a href="http://www.easternct.edu/mt-static/press_releases/2012/01/study-abroad-in-jamaica.html">Study Abroad in Jamaica</a></li>
+							<li><a href="http://www.easternct.edu/mt-static/press_releases/2012/01/student-achievements-receive-special-attention.html" target="_parent">Student Achievements Receive Special Attention</a></li>														
+						</ul> -->
+						<a href="http://www.easternct.edu/mt-static/press_releases/" class="subMore"><img src="images/moreArrow.png"></a>
+					</p>
+
+					</div><!-- closes newsFull div -->
+
+					<div class="newsDouble">
+						<div class="newsLeft">
+							<a href="http://www.easternct.edu/inthenews"><img src="images/eastern-in-news.jpg"><br>Headlines</a>
+						</div><!-- closes nnewsLeft div -->
+					
+						<div class="newsRight">
+							<a href="http://www.easternct.edu/mt-static/news/"><img src="images/news-flash.jpg"><br>News Flash</a>
+
+						</div><!-- closes newsRight div -->
+					</div>
+					<div class="newsDouble">
+						<div class="newsLeft">
+							<a href="http://www.easternct.edu/universityrelations/eastern_magazine/easternMagazine2012Winter.pdf" target="_blank"><img src="images/EasternMagWinter2012.jpg"><br>EASTERN Magazine</a>
+						</div><!-- closes newsLeft div -->
+						
+						<div class="newsRight">
+							<a href="http://www.easternct.edu/universityrelations/annual_report/annual1011/"><img src="images/annual-report.jpg"><br>Annual Report</a>
+
+						</div><!-- closes newsLeft div -->
+					</div>
+					<div class="newsDouble">
+						<div class="newsLeft">
+							<a href="http://readabout.me/edu/eastern-connecticut-state-university"><img src="images/hometownNews.jpg"><br>Hometown News</a>
+						</div><!-- closes nnewsLeft div -->
+					
+						<div class="newsRight">
+							<a href="http://www.easternct.edu/easterntelevision/choosecategory.htm"><img src="images/eastern-on-video.jpg"><br>Eastern on Video</a>
+
+						</div><!-- closes newsRight div -->
+					</div>
+					
+				</div><!-- closes newsContent div -->
+
+			</div><!-- closes contentShow2 (Newswire) div -->
+			
+			<div name="contentShow" id="contentShow3"><!-- Events -->	
+            
+            
+            <div class="textItLink">
+					<a href="http://calendar.easternct.edu/EventList.aspx?fromdate=4/30/2012&todate=5/30/2012&display=Month&type=public&eventidn=9815&view=EventDetails&information_id=44945" target="_blank">
+						<img src="images/events/clipEvent.jpg">
+						<span>Community Life Improvement Project &ndash; 5/3/2012</span>
+					</a>
+						Come join your Eastern friends, faculty, staff, administrators, and neighbors in the community for an amazing barbecue, games, music, and 
+						give-aways, as well as learn what CLIP is about and it's goals.
+				</div>			               
+                
+				
+				
+				<div class="textItLink">
+					<a href="http://calendar.easternct.edu/EventList.aspx?fromdate=5/12/2012&todate=5/12/2012&display=Day&type=public&eventidn=8236&view=EventDetails&information_id=39996" target="_blank">
+						<img src="images/events/easternCelebrate.jpg">
+						<span>Eastern Celebrates Big Tent Barbeque &ndash; 5/12/2012</span>
+					</a>
+						Our annual &#8220;Big Tent Barbeque&#8221; will take place on Saturday, May 12 beginning at 5pm in the Student Center Parking Lot, and continuing until 7pm.
+				</div>
+                
+                <div class="textItLink">
+						<a href="http://www.easternct.edu/commencement/" target="_blank" >
+							<img src="images/events/commencement2012event.jpg">
+							<span>Commencement 2012 &ndash; 5/15/2012</span>
+						</a>
+						Eastern&#8217;s commencement exercises will take place on Tuesday, May 15, 2012.
+				</div>
+				
+                
+                <div class="textItLink">
+						<a href="http://calendar.easternct.edu/EventList.aspx?fromdate=4/30/2012&todate=5/30/2012&display=Month&type=public&eventidn=9850&view=EventDetails&information_id=45035" target="_blank" >
+							<img src="images/events/scenes-songs.jpg">
+							<span>CSU NYC Showcase 2012 &ndash; 5/20/2012</span>
+						</a>
+						Eastern Connecticut State University<br>
+Scenes, Songs, and Monologues 2012
+
+				</div>
+				<!--<div class="textItLink">
+					<a href="http://www.easternct.edu/commencement/" target="_blank">
+						<img src="images/events/commencement2012event.jpg">
+						<span>Commencement 2012 &ndash; 5/15/2012</span>
+					</a>
+					Eastern&#8217;s commencement exercises will take place on Tuesday, May 15, 2012.
+				</div>-->
+				
+				
+
+				<!--<div class="textItLink">
+					<a href="http://calendar.easternct.edu/EventList.aspx?fromdate=5/1/2012&todate=5/31/2012&display=Month&type=public&eventidn=8982&view=EventDetails&information_id=42192" target="_blank">
+						<img src="images/events/annual-expo.jpg">
+						<span>12th Annual Excellence Expo &ndash; 5/2/2012</span>
+					</a>
+					The program features a poster session, a gallery photography exhibit with a color slide show and framed prints, and research presentations. It is sponsored by Eastern's School of Education and Professional Studies.
+				</div>-->
+
+				<a href="http://calendar.easternct.edu/default.aspx?type=&view=Category&numdays=31" class="subMore"><img src="images/moreArrow.png"></a>
+			</div><!-- closes contentShow3 (Events) div -->
+		</div>
+		
+		<div id="rightMidContent">
+			<div class="header">Quick Links</div>
+				<ul>
+					<li><a href="http://www.easternct.edu/admissions/admissionsMessage.html"><strong>A Message from Dr. N&uacute;&ntilde;ez</strong></a></li>
+
+					<li><a href="http://www.easternct.edu/contactus/alphaindex.htm">A&ndash;Z Index</a></li>
+					<li><a href="http://www.easternct.edu/ecsu/calendars.html">Academic Calendar</a></li>
+					<li><a href="https://eweb.easternct.edu/wfbprod/bwskalog.P_DispLoginNon">Admissions Application</a></li>
+					<li><a href="http://www.easternct.edu/advising/">Advising</a></li>
+					<li><a href="http://www.easternct.edu/ecsu/bookstore.htm">Bookstore</a></li>
+					<li><a href="http://www.easternct.edu/career/">Career Services</a></li>
+
+					<li><a href="http://www.easternct.edu/communityengagement">Community Engagement</a></li>
+					<li><a href="http://eweb.easternct.edu/wfbprod/bwskfcls.p_termsel">Class Schedule</a></li>
+					<li><a href="http://www.easternct.edu/continuingeducation/">Continuing Education</a></li>
+					<li><a href="http://www.easternct.edu/finaid/netpricecalculator.htm">Cost of Attendance</a></li>
+					<li><a href="http://www.dineoncampus.com/easternct/" target="_blank">Dining Services</a></li>							
+					<li><a href="http://www.easternct.edu/phptelephonedirectory2/index.php?search=true&searchkey=*">Directories</a></li>
+
+					<li><a href="http://www.easternct.edu/finaid/index.html">Financial Aid</a></li>
+					<li id="sprytrigger1"><a href="http://www.easternct.edu/advancement/development/giving.htm" id="giving">Giving to Eastern</a></li>
+					<li><a href="http://www.easternct.edu/housing/index.html">Housing</a></li>
+					<li><a href="http://www.easternct.edu/smithlibrary/index.htm">Library</a></li>
+					<li><a href="http://www.easternct.edu/academics/majors.htm">Majors</a></li>
+					<li><a href="http://www.easternct.edu/ecsu/map/">Map/Directions</a></li>
+
+					<li><a href="http://nutmeg.easternct.edu/registrar/index.html">Registrar</a></li>
+					<li><a href="http://www.easternct.edu/studentaffairs/index.html">Student Affairs</a></li>
+					<!--<li><a href="#">Shuttle Service</a></li>-->
+				</ul>
+				
+				<div id="connect"><!-- When the connectwithus page is updated, add anchor links to properly link to sections -->
+					<a href="http://www.easternct.edu/contactus/connectwithus.html">Connect With Us</a><br>
+					<a href="http://www.easternct.edu/contactus/connectwithus.html#facebook"><img src="images/facebook.png"></a>
+					<a href="http://www.easternct.edu/contactus/connectwithus.html#twitter"><img src="images/twitter.png"></a>
+
+					<a href="http://www.easternct.edu/contactus/connectwithus.html#twitter"><img src="images/youtube.png"></a>
+					<a href="http://www.easternct.edu/contactus/connectwithus.html#blogs"><img src="images/blogs.png"></a>
+					<a href="http://www.easternct.edu/contactus/connectwithus.html#blogs"><img src="images/rss.png"></a>
+				</div>
+		</div>
+	</div><!-- closes middleContent -->
+
+	<div id="bottomContent">
+		<div id="bottomLeft">
+            <a href="http://www.easternct.edu/advancement/development/giving.htm"><img src="images/footer0202.png" name="whyGive" id="whyGive" ></a>
+			<a href="http://www.easternct.edu/universityrelations/cancellations.htm"><img src="images/footer01.png"></a>			
+			<a href="http://www.easternct.edu/commencement/"><img src="images/Commencement2012.png"></a>
+		</div>
+		
+		<div id="bottomMiddle">
+			<div class="pLeft">
+				<h2>OTHER LINKS</h2>
+					<a href="http://www.easternct.edu/abouteastern/">About Eastern</a><br>
+
+					<a href="http://www.easternct.edu/police">Campus Police</a><br>
+					<a href="http://www.collegeportraits.org/CT/ECSU" target="_blank">College Portrait</a><br>
+					<a href="http://www.easternct.edu/easternalert/">Eastern Alert</a><br>
+					<a href="http://www.easternct.edu/humanresources/jobs.html">Employment</a><br>
+					<a href="http://www.weather.com/weather/today/Willimantic+CT+06226" target="_blank">Local Weather</a><br>
+					<a href="http://www.easternct.edu/easterntelevision/">Eastern TV</a>/<a href="http://www.easternct.edu/wecs/">WECS&ndash;FM</a><!--<br>
+					<a href="http://www.easternct.edu/admissions/VirtualTour.htm">Virtual Tour</a>-->
+			</div>
+			
+			<div class="pRight">
+				<h2>DISTINCTIONS</h2>			
+				<a href="http://www.easternct.edu/universityrelations/usNews.html">U.S. News and World Report</a><br>
+				<a href="http://www.easternct.edu/mt-static/press_releases/2011/09/eastern-named-one-of-top-five-places-to-work.html">Hartford Courant Top  Workplace</a><br>
+				<a href="http://www.easternct.edu/mt-static/press_releases/2011/08/eastern-named-a-great-college-to-work-for-for-third-year.html">Great Colleges to Work For</a><br>
+
+				<a href="http://www.easternct.edu/mt-static/press_releases/2010/08/eastern-named-a-best-in-the-northeast-college.html">Princeton Review/Northeast Colleges</a><br>
+				<a href="http://www.easternct.edu/mt-static/press_releases/2011/10/eastern-named-a-green-college-two-years-in-a-row.html">Princeton Review/Green Colleges</a><br>				
+				<a href="http://www.collegesofdistinction.com/index.php?option=com_colleges&view=college&parent_id=CT:connecticut&id=16:eastern-connecticut-state-university" target="_blank">Colleges of Distinction</a><br>
+				<a href="http://www.easternct.edu/universityrelations/topCollegesSupportingVeterans.html">Top Colleges Supporting Veterans</a>
+			</div>
+		</div>
+		
+		<div id="bottomRight">
+
+			<a href="http://www.easternct.edu/engagedlearning"><img src="images/engagedLearning.png"><br>
+					Engaged<br>
+					Learning</a>
+		</div>
+		
+		<div id="footer">
+			<p>
+				Connecticut&rsquo;s Public Liberal Arts University<br>
+				83 Windham Street, Willimantic, Connecticut 06226 USA | Phone Number: (860) 465-5000<br>
+				<a href="http://www.easternct.edu/contactus/contact_us.htm">Contact Us</a> |  <a href="http://www.easternct.edu/ecsu/map/">Directions</a> |  <a href="http://www.easternct.edu/disclaimer/">University Disclaimer</a> |  <a href="http://www.easternct.edu/">Eastern Home</a>
+			</p>
+		</div><!-- closes footer -->
+	</div><!-- closes bottomContent -->
+
+</div>
+<div class="tooltipContent" id="sprytooltip2"><strong>WHY I GIVE TO EASTERN</strong>: Find out how your tax deductible gift helps keep the University strong and growing by providing opportunities for deserving students. Give Now!</div>
+<div class="tooltipContent" id="sprytooltip1"><strong>WHY I GIVE TO EASTERN</strong>: Find out how your tax deductible gift helps keep the University strong and growing by providing opportunities for deserving students. Give Now!</div>
+<!-- closes container -->
+<script type="text/javascript" language="JavaScript">
+<!--
+/*
+	NOTE! This code must remain on the page, BELOW the random images!!
+	Random Div Display
+	Version 1.0
+	March 9, 2009
+	Will Bontrager
+	http://www.willmaster.com/
+	Copyright 2009 Bontrager Connection, LLC
+
+	For information about implementing this software, see the article at
+	http://www.willmaster.com/library/javascript/random-div-display.php
+*/
+
+// One place to customize:
+//
+// Type the number of div containers to randomly display.
+
+NumberOfDivsToRandomDisplay = 15;
+
+// No other customizations required.
+////////////////////////////////////
+var CookieName = 'DivRamdomValueCookie';
+function DisplayRandomDiv() {
+	var r = Math.ceil(Math.random() * NumberOfDivsToRandomDisplay);
+	if(NumberOfDivsToRandomDisplay > 1) {
+		var ck = 0;
+		var cookiebegin = document.cookie.indexOf(CookieName + "=");
+		if(cookiebegin > -1) {
+		  cookiebegin += 1 + CookieName.length;
+		  cookieend = document.cookie.indexOf(";",cookiebegin);
+		  if(cookieend < cookiebegin) { cookieend = document.cookie.length; }
+		  ck = parseInt(document.cookie.substring(cookiebegin,cookieend));
+		}
+		while(r == ck) { r = Math.ceil(Math.random() * NumberOfDivsToRandomDisplay); }
+		document.cookie = CookieName + "=" + r;
+	}
+	for( var i=1; i<=NumberOfDivsToRandomDisplay; i++) {
+		document.getElementById("randomdiv"+i).style.display="none";
+	}
+		document.getElementById("randomdiv"+r).style.display="block";
+}
+DisplayRandomDiv();
+var sprytooltip1 = new Spry.Widget.Tooltip("sprytooltip1", "#sprytrigger1");
+var sprytooltip2 = new Spry.Widget.Tooltip("sprytooltip2", "#whyGive");
+//-->
+</script>
+</body>
+</html>

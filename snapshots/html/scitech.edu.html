@@ -1,0 +1,601 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+<title>SCIT - Southern California Institute of Technology | Anaheim, Orange County College of Engineering & Business</title>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="imagetoolbar" content="false" />
+<meta name="copyright" content="Copyright (c) 2010 SCIT - Southern California Institute of Technology" />
+<meta name="author" content="SCIT - Southern California Institute of Technology" />
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="archive" />
+<meta name="googlebot" content="index,follow" />
+<meta name="keywords" content="career college, college, school, trade programs, degree programs, engineering, business, anaheim, orange county, southern california" /> 
+<meta name="description" content="SCIT is a College located in Anaheim, Orange County California offering career and degree programs in engineering, trade and business." />
+<meta name="verify-v1" content="/KySUBqQdavc6eiP0yFNdtlpRtgmY8kFHE2UoaHlJZc=" />
+<meta name="y_key" content="40e2ff146656befb" />
+<meta name="msvalidate.01" content="297F55D870E6E1A3C4749E26C569025E" />
+<meta name="google-site-verification" content="A4_kLK7Tbg4aMqhkEHNGtXqI97zI6vZSawPBWmGCde8" />
+
+<link href="_css/main.css" rel="stylesheet" type="text/css" media="all" />
+<link href="_css/home.css" rel="stylesheet" type="text/css" media="all" />
+
+<script type="text/javascript" src="/_js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/_js/mainNav.js"></script>
+<script type="text/javascript" src="/_js/ga.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//irPaging on top but below nav
+	$('#boxWrapper').css('zIndex', 996);
+
+//-----------------------------------main window----------------------------------
+
+	var $activeNav = $("#homeNav a:first");
+	$("#mainWindow > div").hide();
+	$("#mainWindow div:first").show();
+	var $activeWindow = $("#mainWindow div:first");
+	
+	$("#homeNav a").click(function(){
+		if($(this).attr("class")=='active'){
+			return false;
+		}
+		$oldWindow = $activeWindow;
+		$activeNav = $(this);
+		activeWindowID = $activeNav.attr("rel");
+		$activeWindow = $(activeWindowID);
+		mainWindowLoadImage($activeWindow.children("img"),activeWindowID.replace("#",""));
+		rotate();
+		return false;
+	});
+	
+	function rotate(){
+		$("#homeNav a").removeClass('active');
+		$activeNav.addClass('active');
+		$oldWindow.fadeOut(200,function(){$activeWindow.fadeIn();});
+	};//end rotate	
+	
+	function mainWindowLoadImage(img, id){
+		if(img.attr("class")=="unloaded"){
+			
+			var imageLocation;
+			switch (id){
+				case "approach":
+				imageLocation = "/_assets/image/home/mainWindow-approach.jpg";
+				break;
+				case "campus":
+				imageLocation = "/_assets/image/home/mainWindow-campus.jpg";
+				break;
+			}
+			img.attr("src",imageLocation);
+			img.attr("class","loaded");
+		}
+	}//mainWindowLoadImage
+	
+//-----------------------------------box content-------------------------------------
+	
+	//Program Expand
+	var rowCloseHeight = 40;
+	var rowOpenHeight = 120;
+	var currentOpenRowID = null;
+	var currentOpenRowIDa = null;
+	$("div.row .col3 a").click(function(){
+		$clickedRow = $(this);
+		var rowID = $clickedRow.attr("rel");
+		if($clickedRow.attr("class") == "active"){//if clicking on active row
+		//close row only and set currentOpenRowID to null
+		$(rowID).animate({height : rowCloseHeight},400);
+		$clickedRow.removeClass();
+		currentOpenRowID = null;
+		}
+		else {
+		//close all rows
+		if(currentOpenRowID != null){//if there is another row currently open
+			$(currentOpenRowID).animate({height : rowCloseHeight},400);
+			currentOpenRowIDa = currentOpenRowID + " .col3 a";//this is the jquery path to the anchor tag of the currently open row
+			$(currentOpenRowIDa).removeClass();
+			$clickedRow.addClass('active');
+			$(rowID).animate({height : rowOpenHeight},400);
+			currentOpenRowID = $clickedRow.attr("rel");
+			}
+		else{//there this is the first row being clicked on
+			$clickedRow.addClass('active');
+			$(rowID).animate({height : rowOpenHeight},400);
+			currentOpenRowID = $clickedRow.attr("rel");
+			}
+		}
+	});
+
+//----------------------------------box navigation------------------------------------
+var tabs = $('.tab');
+var boxNavAs = $('.boxNav ul li');
+var degreeBoxNavA = $('#boxNavDegree');
+var degreeTab = $('#degreeTab');
+var diplomaBoxNavA = $('#boxNavDiploma');
+var diplomaTab = $('#diplomaTab');
+resetTabs();
+
+boxNavAs.click(function(){
+
+	if($(this).attr("class") == "active"){
+			return false;
+	}
+	else{
+		boxNavAs.removeClass().addClass("boxNavA");
+		$(this).removeClass().addClass('active');//need to remove and then add because another class was added just prior.
+		tabs.hide();
+		var tabID = $(this).attr('rel');
+		$(tabID).show();
+		loadImage(tabID);
+	}
+});//click
+
+function resetTabs(){
+	tabs.hide();
+	diplomaTab.show();
+	degreeTab.show();
+	boxNavAs.removeClass().addClass("boxNavA");
+	degreeBoxNavA.removeClass().addClass('active');
+	diplomaBoxNavA.removeClass().addClass('active');
+};
+
+//------image loader function--------
+
+function loadImage(id){
+	
+	var tabImg = $(id).children("img");
+	if(tabImg.attr("class")=="unloaded"){
+		var imgLocation = "/_assets/image/home/boxContent-" + id.replace("#","") + "-img.jpg";//image name is based on tab id, replace function removes # symbol
+		tabImg.attr("src", imgLocation);
+		tabImg.attr("class","loaded");
+	}
+}//loadImage
+
+//---------------------------------boxes----------------------------------	
+//initialization variables
+var state = 0; //1 = something is open
+var activeBox = null;
+
+var stdHeight = 149;
+var hoverHeight = 180;//#boxWrapper CSS "height" value
+var maxHeight = 430;
+var selectorHeight = 25;
+
+//Wrapper Heights
+var wrapperHeight = 500; //#boxWrapper CSS height
+var wrapperMinTop = wrapperHeight - hoverHeight;//CSS "top" value when wrapper is min
+var wrapperMaxTop = wrapperHeight - maxHeight;//CSS "top" value when wrapper is max
+var wrapperMinHeight = hoverHeight;//height of the hover box
+var wrapperMaxHeight = maxHeight;//height of the maximized box
+
+//margin heights (MH = Margin Height)
+var stdMHwrapperMin = hoverHeight - stdHeight;
+var stdMHwrapperMax = maxHeight - stdHeight
+var hoverMHwrapperMin = 0;
+var hoverMHwrapperMax = maxHeight - hoverHeight;
+var stdMHboxSelectorInner = 10; //CSS for boxSelectorInner
+var hoverMHboxSelectorInner = 25; //boxSelector moves up by 25 (selectorHeight), so adds 15 to top and bottom
+
+var speed = 400;
+var hoverSpeed = 100;
+
+$('.boxSelector').click(function(){
+	box = $(this).parent();
+	$('.boxSelector').clearQueue();
+	if(state == 0){//if everything is closed
+		resetTabs();//need to reset all the tabs to make sure it opens with first tab
+		$(this).children('.boxSelectorInner').fadeOut();
+		$('#boxWrapper').animate({'top':wrapperMaxTop, 'height':maxHeight});
+		box.siblings().stop().animate({'height':stdHeight, 'margin-top':stdMHwrapperMax},speed);
+		box.stop().animate({'margin-top': 0, 'height':maxHeight},speed,openBoxNav(box)).attr('rel','active');
+		$(this).animate({'height':selectorHeight},speed);
+		openBoxNav(box);
+		activeBox = box;
+		$(this).children('.min').show();//minimize button
+		state = 1;
+	}
+	else{//something is open
+	
+		if(box.attr("rel") == "active"){//the box being clicked is the active one
+			
+			closeBoxNav(box);
+			$(this).children('.boxSelectorInner').fadeIn();
+			$(this).children('.min').hide();//close minimize button
+			$('#boxWrapper').animate({'top':wrapperMinTop, 'height':hoverHeight});
+			box.stop().animate({'margin-top': stdMHwrapperMin, 'height':stdHeight,},speed).attr('rel','');
+			$(this).animate({'height':hoverHeight},speed);
+			box.siblings().stop().animate({'height':stdHeight, 'margin-top':stdMHwrapperMin},speed);
+			state = 0;
+			$(this).children('.boxSelectorInner').css({'margin-top':stdMHboxSelectorInner});
+			$(this).css({'background-image':'url(/_assets/image/home/boxSelector-background-unselected.png)'});
+		}
+		else{//the button being clicked is not active
+		resetTabs();
+		closeBoxNav(activeBox);
+		activeBox.stop().animate({'margin-top': stdMHwrapperMax, 'height':stdHeight},speed).attr('rel','');
+		activeBoxSelector = activeBox.children('.boxSelector');
+		activeBoxSelector.animate({'height':hoverHeight},speed);
+		activeBoxSelector.children('.boxSelectorInner').css({'margin-top':stdMHboxSelectorInner}).fadeIn();//sets the margin height of boxSelectorInner of the closing box to its regular amount
+		activeBoxSelector.css({'background-image':'url(/_assets/image/home/boxSelector-background-unselected.png)'}).children('.min').hide();//hide minimize button
+		box.stop().animate({'margin-top': 0, 'height':maxHeight},speed,openBoxNav(box)).attr('rel','active');
+		$(this).animate({'height':selectorHeight},speed);
+		$(this).children('.boxSelectorInner').fadeOut();
+		$(this).children('.min').show();//minimize button
+		activeBox = box;
+		state = 1;
+		}
+	}
+});//click
+
+function openBoxNav(selectedBox){
+	selectedBox.css({'overflow':'visible'}).find('.boxNav').delay(300).animate({'left':-201, 'width':200},200);//left and width of boxNav
+};
+function closeBoxNav(selectedBox){
+	selectedBox.find('.boxNav').css({'left':0, 'width':0});
+	selectedBox.css({'overflow':'hidden'});
+};
+
+$('.boxSelector').hover(function(){
+	if(state == 0){//if everything is closed
+		if($(this).parent().attr('rel') != "active" && $(this).parent().queue().length < 2){
+			$(this).parent().animate({'height':hoverHeight, 'margin-top': hoverMHwrapperMin},hoverSpeed);
+			$(this).children('.boxSelectorInner').animate({'margin-top':hoverMHboxSelectorInner}, hoverSpeed);
+			$(this).css({'background-image':'url(/_assets/image/home/boxSelector-background-selected.png)'});
+		}
+	}
+	else{//one of the boxes is open
+		if($(this).parent().attr('rel') != "active" && $(this).parent().queue().length < 2){
+			$(this).parent().animate({'height':hoverHeight, 'margin-top': hoverMHwrapperMax},hoverSpeed);
+			$(this).children('.boxSelectorInner').animate({'margin-top':hoverMHboxSelectorInner}, hoverSpeed);
+			$(this).css({'background-image':'url(/_assets/image/home/boxSelector-background-selected.png)'});
+		}
+	}
+},function(){
+	if(state == 0){//if everything is closed
+		if($(this).parent().attr('rel') != "active"){
+			$(this).parent().animate({'height':stdHeight, 'margin-top': stdMHwrapperMin},hoverSpeed);
+			$(this).children('.boxSelectorInner').animate({'margin-top':stdMHboxSelectorInner}, hoverSpeed);
+			$(this).css({'background-image':'url(/_assets/image/home/boxSelector-background-unselected.png)'});
+		}
+	}
+	else{//one of the boxes is open
+		if($(this).parent().attr('rel') != "active"){
+			$(this).parent().animate({'height':stdHeight, 'margin-top': stdMHwrapperMax},hoverSpeed);
+			$(this).children('.boxSelectorInner').animate({'margin-top':stdMHboxSelectorInner}, hoverSpeed);
+			$(this).css({'background-image':'url(/_assets/image/home/boxSelector-background-unselected.png)'});
+		}
+	}
+});//hover
+
+});//end
+</script>
+
+</head>
+
+<body>
+
+<div id="top">
+
+<div id="header">
+<a href="/index.php"><img src="/_assets/image/main/scit-logo.png" width="250" height="29" alt="SCIT Logo" id="logo"/></a>
+<p class="headerRight">CALL US &nbsp;<span id="headerNumber">714.300.0300</span></p>
+<a class="headerRight" href="/forms/request-info.php">&nbsp; REQUEST INFO</a>
+</div><!--end header-->
+
+
+
+<div id="mainNav">
+
+  <!--Home-->
+  <ul>
+	<li id="mHome" class="menuItem"><a href="/index.php"><img src="/_assets/image/main/home-icon.png"/></a></li>
+  </ul><!--end Home-->
+ 
+ <!--About Us-->
+  <ul>
+	<li id="mAbout" class="menuItem"><a href="/about/index.php">ABOUT SCIT</a>
+		<ul id="dmAbout" class="dropMenu">
+		  <li><a href="/about/why-scit.php">Why SCIT</a></li>
+          <li><a href="/about/our-approach.php">Our Approach</a></li>
+		  <li><a href="/about/accreditation.php">Accreditation</a></li>
+		  <li><a href="/about/anaheim-campus/index.php">Anaheim Campus</a></li>
+		  <li><a href="/about/mission.php">Our Mission</a></li>
+		  <li><a href="/about/history.php">History</a></li>
+          <!--<li><a href="/about/news/index.php">Campus News</a></li>-->
+		</ul>	
+	</li>	
+	</ul><!--end About Us-->
+	
+  <!--Programs-->
+  <ul>
+	<li id="mPrograms" class="menuItem"><a href="/programs.php">PROGRAMS</a>
+		<ul id="dmPrograms" class="dropMenu">
+			<!--Diploma Programs-->
+			<div id="dmDiplomaPrograms">
+              <li id="dmDiplomaHeaderLink"><a href="/diploma-programs/index.php">DIPLOMA PROGRAMS</a></li>
+			  <li><a href="/diploma-programs/electrician-program/index.php">Electrician</a></li>
+			  <li><a href="/diploma-programs/biomedical-technology-program/index.php">Biomedical Technology</a></li>
+			  <li><a href="/diploma-programs/information-technology-program/index.php">Information Technology</a></li>
+			  <li><a href="/diploma-programs/accounting-specialist-program/index.php">Accounting Specialist</a></li>
+			  <li><a href="/diploma-programs/administrative-assistant-program/index.php">Administrative Assistant</a></li>
+			</div><!--end Diploma Programs-->
+			
+			<!--Degree Programs-->
+			<div id="dmDegreePrograms">
+              <li id="dmDegreeHeaderLink"><a href="/degree-programs/index.php">DEGREE PROGRAMS</a></li>
+			  <li><a href="/degree-programs/electrical-engineering-degree/index.php">Electrical Engineering</a></li>
+			  <li><a href="/degree-programs/electronic-engineering-degree/index.php">Electronic Engineering</a></li>
+			  <li><a href="/degree-programs/computer-science-degree/index.php">Computer Science</a></li>
+			  <li><a href="/degree-programs/accounting-degree/index.php">Accounting</a></li>
+			  <li><a href="/degree-programs/business-management-degree/index.php">Business Management</a></li>
+			</div><!--end Degree Programs-->
+		
+		</ul>
+	</li>
+  </ul><!--end Programs-->
+
+
+  <!--Admissions-->
+  <ul>
+	<li id="mAdmissions" class="menuItem"><a href="/admissions/index.php">ADMISSIONS</a>
+		<ul id="dmAdmissions" class="dropMenu">
+          <li><a href="/admissions/application-process.php">Application Process</a></li>
+		  <li><a href="/admissions/entrance-requirements.php">Entrance Requirements</a></li>
+     <!-- <li><a href="/admissions/academic-calendar.php">Academic Calendar</a></li>-->
+		  <li><a href="/admissions/transfer-credit.php">Transfer Credit</a></li>
+		  <li><a href="/admissions/international-students/index.php">International Students</a></li>
+          <li><a href="/admissions/military-students/index.php">Military Students</a></li>
+		</ul>
+	</li>	
+  </ul><!--end Admissions-->
+
+
+  <!--Labs-->
+  <ul>
+	<li id="mLabs" class="menuItem"><a href="/labs-facilities/index.php">LABS & FACILITIES</a>
+		<ul id="dmLabs" class="dropMenu">
+		  <li id="dmlElectricalLab"><a href="/labs-facilities/electrical-lab/index.php">Electrical Wiring Lab</a></li>
+		  <li id="dmlMotorsLab"><a href="/labs-facilities/electric-motors-lab/index.php">Electric Motors Lab</a></li>
+		  <li id="dmlPLCLab"><a href="/labs-facilities/plc-lab/index.php">Programmable Logic Controller (PLC) Lab</a></li>
+		  <!--<li><a href="/labs-facilities/industrial-automation-lab.php">Industrial Automation lab</a></li>-->
+		  <li id="dmlRoboticsLab"><a href="/labs-facilities/robotics-lab/index.php">Robotics Lab</a></li>
+		 <!-- <li><a href="/labs-facilities/pneumatics-lab.php">Pneumatics Lab</a></li>-->
+		  <li id="dmlNetworkingLab"><a href="/labs-facilities/computer-networking-lab/index.php">Computer Networking Lab</a></li>
+		  <li id="dmlBiomedLab"><a href="/labs-facilities/biomedical-instrumentations-lab/index.php">Biomedical Instrumentations Lab</a></li>
+		</ul>
+	</li>	
+  </ul><!--end Labs-->
+
+  <!--FA-->
+  <ul>
+	<li id="mFA" class="menuItem"><a href="/financial-aid/index.php">FINANCIAL AID</a>
+		<ul id="dmFA" class="dropMenu">
+		  <li><a href="/financial-aid/applying.php">Applying for Financial Aid</a></li>
+		  <li><a href="/financial-aid/fa-programs/index.php">Financial Aid Programs</a></li>
+		  <!--<li><a href="/financial-aid/tuition.php">Tuition</a></li>-->
+		  <li><a href="/financial-aid/resources.php">FA Resources</a></li>
+		  <li><a href="/financial-aid/faq-glossary.php">FAQ &amp; Glossary</a></li>
+		</ul>
+	</li>	
+  </ul><!--end FA-->
+
+  <!--SA-->
+  <ul>
+	<li id="mSA" class="menuItem"><a href="/student-affairs/index.php">STUDENT AFFAIRS</a>
+		<ul id="dmSA" class="dropMenu">
+		  <li><a href="/student-affairs/student-services/index.php">Student Services Office</a></li>
+		  <li><a href="/student-affairs/registrar/index.php">Registrars Office</a></li>
+		  <li><a href="/student-affairs/career-services/index.php">Career Services Office</a></li>
+		</ul>
+	</li>	
+  </ul><!--end SA-->
+
+</div><!--end mainNav-->
+
+</div><!--end top-->
+<!------------------------------------------------------------------------------------- MAIN SECTION----------------------------------------------------------------->
+
+<div id="homeDivider">
+	<div id="homeNavDivider">
+    	<div id="homeNav">
+        	<a rel="#spotlight" class="active">Spotlight</a>
+            <a rel="#approach">Approach</a>
+            <a rel="#campus">Campus</a>
+            <p>Next Program Start: <span style="color:#1867b9">May 14, 2012</span></p>
+        </div>
+    </div><!--homeNav-->
+    
+  <div id="homeContent">
+      	<div id="mainWindow">
+        	<div id="spotlight">
+           	  <div id="spotlightContent">
+               	<p id="spotlightH1">Hands-On <span style="font-size:32px;">Learning</span></p>
+                <p>Our programs are developed to <strong>bridge the gap between education and industry</strong> by offering a balanced combination of theory and hands-on labs.<br /><br /><a href="/about/why-scit.php">Learn more about what makes SCIT different.</a></p>
+                </div>
+                <img class="loaded" src="/_assets/image/home/spotlight/quality-education.jpg" alt="SCIT Quality Education" />
+        	</div><!--spotlight-->
+          <div id="approach">
+  				<div id="approachContent">
+                    <p id="approachH1">A Different, Application Based<br />Style of Education</p>
+                    <p>Learn by applying what you learn. Our motto is simple; &quot;Learn. Apply.&quot;<br /><br /><a href="/about/our-approach.php">Learn about our approach.</a></p>
+                </div>
+              	<img class="unloaded" src="/_assets/image/main/loading.gif" />
+            </div><!--approach-->
+            <div id="campus">
+           	  <div id="campusContent">
+                <p id="campusH1">Our Campus &amp; Labs</p>
+                <p>The world is changing and education needs to change with it. We are trying to bring change straight to the heart of education, the classroom; because we believe the classroom should be more than only big textbooks and fancy desks. It should be a place where you learn to apply your education.<br /><br /><a href="/labs-facilities/index.php">Learn more about our labs.</a></p>
+                </div>
+              	<img class="unloaded" style="margin-top:70px"src="/_assets/image/main/loading.gif" />
+            </div><!--campus-->
+        </div><!--mainWindow-->
+
+<!------------------------------------------------------------------------------------- BOXES----------------------------------------------------------------->
+
+<div id="boxWrapper">         
+<!---------------- OUR STORY BOX------------------------>        
+        <div class="box" style="margin-left:0;"><!-- style here to cancel the left margin default for box CSS-->
+        <div class="boxSelector">
+        	<div class="min"></div>
+        	<div class="boxSelectorInner" id="boxSelectorOurStory"></div><!--boxSelectorInner-->
+        </div><!--boxSelector-->
+        <div class="boxContent">
+            	<div id="welcomeTab">
+                <div id="welcomeTabContent">
+               	  <h1>Southern California<br />Institute of Technology</h1>
+                  <p>SCIT was founded by a team of educators in 1987 to pioneer <strong>effective, application focused educational methods</strong> in the engineering, business and trade disciplines.  At our campus located in Anaheim, Orange County CA, we aim to provide students with an in-depth and engaging learning experience centered on <strong>industry relevant and practical curricula.</strong></p>
+                  <p>Our mission is to provide programs that foster and unite creativity with a hands-on approach to learning, what we call <strong>"Education Through Application."</strong> We achieve this by offering programs that are sound and practical in concept, implement by experienced, dedicated faculty and staff, and that utilize innovative <strong>instructional labs for students to apply what they learn in the classroom.</strong></p>
+                </div><!--welcomeTabContent-->
+                </div><!--welcomeTab-->
+         </div><!--boxContent-->
+         </div><!--box-->  
+
+<!---------------- DIPLOMAS BOX------------------------>                
+        
+      <div class="box">
+        <div class="boxSelector">
+        	<div class="min"></div>
+        	<div class="boxSelectorInner" id="boxSelectorDiploma"></div>
+        </div><!--boxSelector-->
+        <div class="boxContent">
+        		<div class="boxNav">
+	  				<ul>
+                    	<li class="active" id="boxNavDiploma" rel="#diplomaTab" style="font-weight:bold;">Diploma Programs</li><!-- this is initially active -->
+						<li class="boxNavA" id="boxNavGE" rel="#GETab">General Electrician</li>
+                        <li class="boxNavA" id="boxNavIT" rel="#ITTab">Information Technology</li>
+                        <li class="boxNavA" id="boxNavBT" rel="#BTTab">Biomedical Technology</li>
+                        <li class="boxNavA" id="boxNavAS" rel="#ASTab">Accounting Specialist</li>
+                    </ul>
+         		</div><!-- boxNav -->
+
+                <div class="tab" id="diplomaTab">
+                	<h2>Diploma Programs</h2>
+                    <img class="loaded" src="/_assets/image/home/boxContent-diplomaTab-img.jpg" />
+                    <ul>
+                    	<li>Career Focused</li>
+                        <li>Heavy Hands-On Training</li>
+                        <li>Industry Experienced Faculty</li>
+                        <li>Placement Services Available</li>
+                        <li>AM &amp; PM Courses Available</li>
+                    </ul>
+                    <p><strong>Programs</strong></p>
+                    <p><a href="/diploma-programs/electrician-program/index.php">General Electrician</a><br /><a href="/diploma-programs/biomedical-technology-program/index.php">Biomedical Technology</a><br /><a href="/diploma-programs/information-technology-program/index.php">Information Technology</a><br /><a href="/diploma-programs/accounting-specialist-program/index.php">Accounting Specialist</a></p>
+                </div><!--diplomaTab-->
+                
+                <div class="tab" id="GETab">
+                        <h3>General Electrician</h3>
+                      	<img class="unloaded" src="/_assets/image/main/loading.gif" />
+                  <p>Study &amp; train to install &amp; maintain residential, commercial and industrial electrical systems based on the national electrical code (NEC). Students learn electrical wiring codes used in residential homes and programmable logic controllers (PLC) in conjunction with electric motors used in the commercial and industrial sectors. Program developed to meet the California <strong>"Whole General Electrician"</strong> curriculum standards. <a href="/diploma-programs/electrician-program/index.php">Learn more.</a></p>
+                </div><!-- GETab -->
+                    
+                    <div class="tab" id="BTTab">
+                        <h3>Biomedical Technology</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p>Study how to troubleshoot and repair electronic based medical devices. Students train for entry level employment as Biomedical Technicians (BMET) and other professions involving medical device repair. The program curriculum has been developed <strong>based on CBET certification</strong> subjects. <a href="/diploma-programs/biomedical-technology-program/index.php">Learn more.</a></p>                 
+                    </div><!-- BTTab-->
+                    
+                    <div class="tab" id="ITTab">
+                        <h3>Information Technology</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p>Install, configure and administer industry simulating computer networks using Cisco equipment &amp; Microsoft Software. Courses are structured around IT industry certifications such as the <strong>Cisco CCNA and Microsoft MCITP certifications</strong>. SCIT is a Microsoft IT Academy Program Partner. <a href="/diploma-programs/information-technology-program/index.php">Learn more.</a></p>
+                    </div><!-- ITTab -->
+                    
+                    <div class="tab" id="ASTab">
+						<h3>Accounting Specialist</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p>Learn manual and computerized accounting principles and skills used in modern businesses. Student study both manual and computerized accounting principles based on GAAP to provide a comprehensive overview of the accounting cycle and how accounting is practiced in business. <a href="/diploma-programs/accounting-specialist-program/index.php">Learn more.</a></p>
+                    </div><!-- ASTab -->
+             </div><!--boxContent-->
+       </div><!--box--> 
+ 
+<!---------------- DEGREES BOX------------------------> 
+
+       <div class="box">
+        <div class="boxSelector">
+        <div class="min"></div>
+        	<div class="boxSelectorInner" id="boxSelectorDegree"></div>
+        </div><!--boxSelector-->
+        
+        <div class="boxContent">
+        		<div class="boxNav">
+                	<ul>
+        				<li class="active" id="boxNavDegree" rel="#degreeTab" style="font-weight:bold;">Degree Programs</li><!-- this is initially active -->
+						<li class="boxNavA" id="boxNavBSELECTRICAL" rel="#BSELECTRICALTab">BS Electrical Engineering</li>
+                        <li class="boxNavA" id="boxNavBSELECTRONIC" rel="#BSELECTRONICTab">BS Electronic Engineering</li>
+                        <li class="boxNavA" id="boxNavBSCS" rel="#BSCSTab">BS Computer Science</li>
+                        <li class="boxNavA" id="boxNavBSA" rel="#BSATab">BS Accounting</li>
+                        <li class="boxNavA" id="boxNavBSA" rel="#BSBMTab">BS Business Management</li>
+        			</ul>
+         		</div><!-- boxNav -->                
+                <div class="tab" id="degreeTab">
+                	<h2>Degree Programs</h2>
+                    <img class="loaded" src="/_assets/image/home/boxContent-degreeTab-img.jpg" />
+                    <ul>
+                    	<li>Accelerated Degree Programs</li>
+                        <li>Hands-on Learning Approach</li>
+                        <li>PM Courses Available</li>
+                        <li>Industry Relevant, Practical Education</li>
+                    </ul>
+                    <p><strong>Programs</strong></p>
+                    <p><a href="/degree-programs/electrical-engineering-degree/index.php">BS Electrical Engineering</a><br /><a href="/degree-programs/electronic-engineering-degree/index.php">BS Electronic Engineering</a><br /><a href="/degree-programs/computer-science-degree/index.php">BS Computer Science</a><br /><a href="/degree-programs/accounting-degree/index.php">BS Accounting</a><br /><a href="/degree-programs/business-management-degree/index.php">BS Business Management</a></p>
+                </div><!--degreeTabs-->
+                
+                <div class="tab" id="BSELECTRICALTab">
+                        <h3>BS Electrical Engineering</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p class="moreDescription">The Bachelors of Science in Electrical Engineering (BSEE) program emphasizes utility &amp; industrial aspects of the electrical field such as electrical energy generation &amp; transmission, factory automation systems and robotics. Topics include: <strong>industrial automation, robotics, power systems and electrical CAD.</strong> Courses offer a balanced mix of engineering principles and practice involving hands-on labs. <a href="/degree-programs/electrical-engineering-degree/index.php">Learn more.</a></p>
+                 </div><!-- BSELECTRICALTab -->
+                    
+                 <div class="tab" id="BSELECTRONICTab">
+                        <h3>BS Electronic Engineering</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p class="moreDescription">The Bachelor of Science in Electronic Engineering (BSEE) program introduces students to applications of electronic systems used in various industries such as healthcare, telecommunications, and consumer products. Students study foundational electronics and build toward designing both analog and digital systems. <a href="/degree-programs/electronic-engineering-degree/index.php">Learn more.</a></p>
+                 </div><!-- BSELECTRONICTab-->
+                    
+                 <div class="tab" id="BSCSTab">
+						<h3>BS Computer Science</h3></a>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p class="moreDescription">The Bachelor of Science in Computer Science (BSCS) program emphasizes the challenges and practical issues of building and maintaining computer data systems. Topics include: <strong>network security, virtualization, web technologies and databases</strong>. Students apply concepts learned in courses to projects based on IT scenarios found in practice. <a href="/degree-programs/computer-science-degree/index.php">Learn more.</a></p>
+                 </div><!-- BSCS Tab -->
+                 
+                 <div class="tab" id="BSATab">
+						<h3>BS Accounting</h3></a>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p class="moreDescription">The Bachelor of Science in Accounting (BSA) program is designed to introduce students to the various fields within accounting to ultimately lead toward CPA preparation. Topics include: <strong>auditing, tax, cost and managerial accounting</strong>. Students apply classroom concepts to projects involving accounting scenarios found in practice. <a href="/degree-programs/accounting-degree/index.php">Learn more.</a></p>
+                 </div><!-- BSATab-->
+                 
+                 <div class="tab" id="BSBMTab">
+						<h3>BS Business Management</h3>
+                        <img class="unloaded" src="/_assets/image/main/loading.gif" />
+                        <p class="moreDescription">The Bachelor of Science in Business Management (BSBM) is designed to touch upon the various fragments of a typical business to provide students with a comprehensive understanding of company structure. Topics include: <strong>human resources, business law, finance and information systems</strong>. <a href="/degree-programs/business-management-degree/index.php">Learn more.</a></p>
+                 </div><!-- BSBMTab-->
+             </div><!--boxContent-->
+         </div><!--box--> 
+</div><!--boxWrapper-->
+
+  </div><!--end homeContent-->
+</div><!--homeDivider-->  				
+<div id="footer">
+	<div id="footerAddress">
+      <p id="footerSiteName">scitech.edu</p>
+      <p>&#169; 2012 Southern California Institute of Technology. All Rights Reserved.</p>
+      <p>222 South Harbor Boulevard, Suite 200</p>
+      <p>Anaheim, CA 92805</p>
+      <p>T:	714.300.0300</p>
+      <p>E:	info@scitech.edu</p>
+      <p><a href="/legal/privacy-policy.php">Privacy</a> &nbsp; &nbsp;<a href="/legal/disclaimers.php">Disclaimers</a></p>
+    </div><!--footerAddress-->
+    
+    <div id="footerLogo">
+    	<a href="/forms/contact-us.php">Contact Us</a>
+        <a href="/forms/request-info.php">Request Information</a>
+        <a href="/forms/quick-question.php">Quick Question</a>
+        <a href="/about/anaheim-campus/map-and-parking.php">Map &amp; Location</a>
+        <a href="/programs.php">Programs</a>
+        <a href="/about/accreditation.php">Accreditation</a>
+    </div><!--logoLinks-->
+
+</div></body>
+</html>

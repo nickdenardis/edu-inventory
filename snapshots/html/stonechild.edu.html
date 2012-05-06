@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/hometemplate.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Stone Child College</title>
+
+<script src="scripts/jquery-1.7.2.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+	});
+
+
+
+</script>
+
+<!-- InstanceEndEditable -->
+<style type="text/css">
+<!--
+body {
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	background: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	background-image: url(images/mainbackground.jpg);
+	background-repeat: repeat-x;
+	background-color: #e4e4e4;
+}
+
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* removing the top margin gets around an issue where margins can escape from their containing div. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 15px;
+	padding-left: 15px; /* adding the padding to the sides of the elements within the divs, instead of the divs themselves, gets rid of any box model math. A nested div with side padding can also be used as an alternate method. */
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+
+/* ~~ Styling for your site's links must remain in this order - including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #00F;
+	text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+a:visited {
+	color: #00F;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+}
+
+/* ~~this fixed width container surrounds the other divs~~ */
+.container {
+	width: 1050px; /* the auto value on the sides, coupled with the width, centers the layout */
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+/* ~~ the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo ~~ */
+.header {
+	height: 189px;
+	background-color: #e4e4e4;
+	background-image: url(images/header.jpg);
+	text-align: right;
+	padding-top: 5px;
+	color: #00F;
+}
+
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the divs. The elements within these divs have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the div itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design. You may also choose to remove the padding on the element in the div and place a second div within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a div set to float right). Many times, padding can be used instead. For divs where this rule must be broken, you should add a "display:inline" declaration to the div's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar divs could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the right instead of the left, simply float these columns the opposite direction (all right instead of all left) and they'll render in reverse order. There's no need to move the divs around in the HTML source.
+
+*/
+.sidebar1 {
+	float: left;
+	width: 220px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+.container .navigation {
+	height: 52px;
+	background-image: url(images/navbg.jpg);
+}
+.content {
+	width: 1050px;
+	float: left;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+}
+.container .content .missionstatement {
+	text-align: center;
+	font-size: 18pt;
+	font-family: Papyrus;
+	font-weight: bold;
+	color: #00F;
+}
+.container .content .rockyboypic {
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+.container .content .upcomingevents {
+	float: left;
+	width: 600px;
+	padding-left: 50px;
+}
+.container .content .littlebearpic {
+	float: left;
+	width: 200px;
+	text-align: center;
+}
+.container .content .upcomingevents .upcomingeventsheader {
+	padding-bottom: 10px;
+	text-align: center;
+	width: 550px;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+
+/* ~~ The footer ~~ */
+.footer {
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+	font-family: Verdana;
+	font-size: 8pt;
+	color: #00F;
+	background-image: url(images/footerbg.jpg);
+	text-align: right;
+	height: 116px;
+	padding-top: 10px;
+	padding-right: 0;
+	padding-bottom: 10px;
+	padding-left: 0;
+	background-repeat: no-repeat;
+}
+
+/* ~~ miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.container .content .bottomcontent {
+	float: left;
+	width: 100%;
+	text-align: center;
+}
+.container .content .design {
+	text-align: center;
+	float: left;
+	width: 1050px;
+	padding-top: 10px;
+}
+-->
+</style>
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+a:hover {
+	text-decoration: underline;
+	color: #00F;
+}
+a:active {
+	text-decoration: none;
+	color: #00F;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: Verdana;
+	font-weight: bold;
+}
+h2 {
+	color: #00F;
+}
+h3 {
+	color: #00C;
+}
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+</head>
+
+<body onload="MM_preloadImages('images/homebtns/images/homepagebtnsup_02.jpg','images/homebtns/images/homepagebtnsup_04.jpg','images/homebtns/images/homepagebtnsup_06.jpg','images/homebtns/images/homepagebtnsup_08.jpg')">
+
+<div class="container">
+  <div class="header"><a href="http://login.secureserver.net">SCC Email</a> || <a href="http://scconline.stonechild.edu">SCC Online</a><!-- end .header --></div>
+  <div class="navigation">
+    <ul class="MenuBarHorizontal" id="homenav">
+      <li><a href="index.html">Home</a>      </li>
+      <li><a href="#" class="MenuBarItemSubmenu">About SCC</a>
+        <ul>
+          <li><a href="presidentswelcome.html">President's Welcome</a></li>
+          <li><a href="accreditation.html">Accreditation</a></li>
+          <li><a href="boardofregents.html">Board of Regents</a></li>
+          <li><a href="employment.html">Employment</a></li>
+          <li><a href="foundationresearch.html">Foundation &amp; Research</a></li>
+          <li><a href="#" class="MenuBarItemSubmenu">Grants</a>
+            <ul>
+              <li><a href="academicgrants.html">Academic Grants</a></li>
+              <li><a href="facilitiesgrants.html">Facilities Grants</a></li>
+              <li><a href="foundationgrants.html">Foundation Grants</a></li>
+            </ul>
+          </li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="location.html">Location</a></li>
+          <li><a href="missionvision.html">Mission &amp; Vision</a></li>
+        </ul>
+      </li>
+      <li><a class="MenuBarItemSubmenu" href="#">Academics</a>
+        <ul>
+          <li><a href="academiccalendar.html">Academic Calendar</a>          </li>
+          <li><a href="degreesoffered.html">Degrees Offered</a></li>
+          <li><a href="netcalc/npcalc.htm">Net Price Calculator</a></li>
+          <li><a href="tuitionfees.html">Tuition &amp; Fees</a></li>
+          <li><a href="academicpolicies.html">Policies &amp; Procedures</a></li>
+<li><a href="scholarships.html">Scholarships</a></li>
+          <li><a href="catalog.html">SCC Catalog</a></li>
+        </ul>
+      </li>
+      <li><a href="#" class="MenuBarItemSubmenu">Students</a>
+        <ul>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="financialaid.html">Financial Aid</a></li>
+          <li><a href="studentpolicies.html">Policies &amp; Procedures</a></li>
+          <li><a href="registrar.html">Registrar</a></li>
+<li><a href="studentapplications.html">Student Applications</a></li>
+          <li><a href="studentgroups.html">Student Groups</a></li>
+          <li><a href="bookstore.html">SCC Bookstore</a></li>
+          <li><a href="library.html">SCC Library</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact SCC</a></li>
+      <li><a href="directory.html">SCC Directory</a></li>
+      <li><a href="athletics.html">SCC Athletics</a></li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="missionstatement">
+      <p>&quot;Making our Dreams Happen with Academic Excellence, Culture and Commitment&quot;</p>
+    </div>
+    <div class="rockyboypic"><img src="images/rockyboypic.jpg" width="137" height="300" /></div>
+    <div class="upcomingevents">
+      <div class="upcomingeventsheader">
+        <h3>Important Dates</h3>
+      </div>
+    <marquee behavior="scroll" scrollamount="2" direction="up" height="257px" onmouseover="this.stop();" onmouseout="this.start();">
+    <!-- InstanceBeginEditable name="importantinformation" -->
+    <p>April 20 ~ Last Day to Withdraw</p>
+    <p>April 30 - May 3 ~ Summer 2012 Pre-Registration</p>
+    <p>April 30 - May 3 ~ Finals Week    </p>
+    <p>Another CNA Class is getting ready to start! Apply now to reserve your spot! <a href="#" onclick="MM_openBrWindow('pdfs/cnaapplication.pdf','','toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=1000,height=1000')">Click here</a> for the application! They can be turned into LaVerne Parker at SCC.</p>
+    <!-- InstanceEndEditable -->
+    </marquee>
+    </div><div class="littlebearpic"><img src="images/littlebearpic.jpg" width="137" height="300" /></div>
+    <div class="design"><img src="images/homedesign.jpg" width="890" height="4" /></div>
+    <div class="bottomcontent"><img src="images/homebtns/images/homepagebtnsover_01.jpg" width="85" height="215" /><a href="printshop.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('homebtns','','images/homebtns/images/homepagebtnsup_02.jpg',1)"><img src="images/homebtns/images/homepagebtnsover_02.jpg" alt="SCC Printshop" name="homebtns" width="172" height="215" border="0" id="homebtns" /></a><img src="images/homebtns/images/homepagebtnsover_03.jpg" width="63" height="215" /><a href="bookstore.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('bookstorebtn','','images/homebtns/images/homepagebtnsup_04.jpg',1)"><img src="images/homebtns/images/homepagebtnsover_04.jpg" alt="SCC Bookstore" name="bookstorebtn" width="174" height="215" border="0" id="bookstorebtn" /></a><img src="images/homebtns/images/homepagebtnsover_05.jpg" width="63" height="215" /><a href="library.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('librarybtn','','images/homebtns/images/homepagebtnsup_06.jpg',1)"><img src="images/homebtns/images/homepagebtnsover_06.jpg" alt="SCC Library" name="librarybtn" width="174" height="215" border="0" id="librarybtn" /></a><img src="images/homebtns/images/homepagebtnsover_07.jpg" width="62" height="215" /><a href="daycare.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('daycarebtn','','images/homebtns/images/homepagebtnsup_08.jpg',1)"><img src="images/homebtns/images/homepagebtnsover_08.jpg" alt="SCC Daycare" name="daycarebtn" width="173" height="215" border="0" id="daycarebtn" /></a><img src="images/homebtns/images/homepagebtnsover_09.jpg" width="84" height="215" /></div>
+    
+  <!-- end .content --></div>
+  <div class="footer">
+    <p>&copy; 2011 Stone Child College<br/>
+    Stone Child College | 8294 Upper Box Elder Rd | Box Elder, MT 59521<br/>
+    Phone: (406) 395-4875 | Fax: (406) 395-4836<br/>
+    <a href="sitemap.html">Site Map</a><!-- end .footer --> | <a href="#" onclick="MM_openBrWindow('http://ope.ed.gov/security/index.aspx','','toolbar=yes,location=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes,width=1000,height=1000')">Campus Crime Report</a></p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+<script type="text/javascript">
+var MenuBar1 = new Spry.Widget.MenuBar("homenav", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+</body>
+<!-- InstanceEnd --></html>

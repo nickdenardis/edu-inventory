@@ -1,0 +1,297 @@
+
+
+<html>
+<head><title>
+	Boston College High School
+</title><link rel="stylesheet" type="text/css" href="/style.css" /><meta name="description" content="Boston College High School is a Jesuit Catholic college-preparatory school for young men founded in 1863. The school enrolls approximately 1,300 day students in grades seven through twelve from over 100 communities in eastern Massachusetts." /><meta name="keywords" content="Boston College High School Jesuit Catholic college-preparatory bchigh Massachusetts" />
+<script type="text/javascript">		
+//Podium MML OPEN
+function openMML(consoleid, galleryid, mediaid, mediatype) {
+	var pGallery = (galleryid > 0)?'&gallery_id=' + galleryid:'';
+	var pMedia = (mediaid > 0)?'&mediatype=' + mediatype +'&mediaid=' + mediaid:'';
+	window.open('/podium/MediaLibrary/player/default.aspx?console_id=' + consoleid + pGallery + pMedia + '&browse=yes&recent=yes', '_blank', 'location=no, menubar=no, scrollbar=no, status=no, resizable=no, height=497, width=700');
+}
+//Submit Form from Select statment		
+function jump(f) {
+	f.submit();
+}
+//Check for added variable to podium url
+function CheckForID(VarType) {
+	var beginValue,mylocation,MyID,FoundAnd
+	mylocation = new String(parent.window.location);
+	beginValue = mylocation.search(VarType);
+	if(beginValue > 0){
+		MyID = mylocation.substring(beginValue+VarType.length+1,mylocation.length);
+		FoundAnd = MyID.search("&");
+		if(FoundAnd > 0){
+			MyID = MyID.substring(0,FoundAnd);
+		}
+	}
+	if(MyID == null){
+		return 0;
+	}
+	else{
+		return MyID;
+	}
+}
+//Get Object
+function fe_getobj(obj) {
+	if (document.getElementById)
+		return document.getElementById(obj)
+	else if (document.all)
+		return document.all[obj]
+}
+//swap add remove and check to see if a css class is added to an object
+//fe_css('swap',objectname,'class1','class2')
+function fe_css(a,m,c1,c2) {
+	var o =  new fe_getobj(m);
+	switch (a){
+		case 'swap':
+			o.className=!fe_css('check',o,c1)?o.className.replace(c2,c1):o.className.replace(c1,c2);
+		break;
+		case 'add':
+			if(!fe_css('check',o,c1)){o.className+=o.className?' '+c1:c1;}
+		break;
+		case 'remove':
+			var rep=o.className.match(' '+c1)?' '+c1:c1;
+			o.className=o.className.replace(rep,'');
+		break;
+		case 'check':
+			return new RegExp('\\b'+c1+'\\b').test(o.className)
+		break;
+	}
+}
+//
+function ReSizeIFRAME() {
+	var aIF = window.parent.document.getElementsByTagName('IFRAME')
+	var objIF
+	for (x=0; x<aIF.length;x++) {
+		if(aIF[x].id.substring(0,2) == 'if') objIF = aIF[x]
+	}
+	var objBody = document.getElementById('__pdIFRAMEarea') 
+	objIF.style.height = objBody.offsetHeight;
+}
+
+function sendEmail(address, linkto) {
+   	var aryAddress = new Array
+   	var mailTo = new String;
+   	address = address.replace(/x/g, ',64');address = address.replace(/y/g, ',46');address = address.replace(/z/g, ',');
+   	aryAddress = address.split(',') 
+   	for (q=1; q<aryAddress.length;q++) {  
+		mailTo = mailTo + String.fromCharCode(aryAddress[q]);   
+	}
+	linkto.href = 'mailto:'+mailTo;
+} 
+
+function __pdL(taskid, taskname, tasktypeid, taskargs, path, clearhistory, subtaskid, subtaskname) {
+	parent.window.location = "/podium/default.aspx?t=" + taskid;
+}
+
+function MS_swap(Mitem,Mtype){
+  Mitem.src=Mitem.getAttribute(Mtype || "origsrc");
+}
+
+function MS(img_swap){
+	img_swap.setAttribute("onload","");
+	img_swap.setAttribute("origsrc",img_swap.src);
+	img_swap.oversrc_img = new Image();
+  	img_swap.oversrc_img.src=img_swap.getAttribute("oversrc");
+    img_swap.onmouseover = new Function("MS_swap(this,'oversrc');");
+    img_swap.onmouseout = new Function("MS_swap(this);");
+	img_swap.style.cursor = 'pointer';
+}
+
+function M_object(obj){
+		if (document.getElementById)
+			return document.getElementById(obj)
+		else if (document.all)
+			return document.all[obj]
+	}
+
+</script>	
+
+	
+	<script language=javascript type="text/javascript" >
+	    var t= new Array();
+	    var to;
+	    var newsnow;
+	    function runfade(){
+		    var q = 0;
+		    var x = document.getElementsByTagName("div");
+ 		    for (var i=0;i<x.length;i++){
+  		 		    if(x[i].id.substring(0,2)=='ne'){
+		 			    t[q]= x[i].id
+					    q++;	
+				    }
+		    }
+		    if(t.length > 0){
+			    newsnow=0;
+			    opacity=100;
+			    tpx = t[newsnow]
+			    getmyObj(tpx).style.display='';
+			    to = window.setTimeout("fadeout("+opacity+")", 8000);	
+		    }
+	    }
+	    function fader(opacity){
+	    if(getmyObj('fader')){
+		    //alert(opacity);
+		    var obj = new getmyObj('fader');
+    		
+		    obj.style.opacity = (opacity / 100); 
+   		    obj.style.MozOpacity = (opacity / 100); 
+    	    obj.style.KhtmlOpacity = (opacity / 100); 
+    	    obj.style.filter = "alpha(opacity=" + opacity + ")"; 
+		    }
+	    }
+	    function getmyObj(obj){
+		    if (document.getElementById)
+			    return document.getElementById(obj)
+		    else if (document.all)
+			    return document.all[obj]
+	    }
+	    function fadein(opacity){
+		    if (opacity < 100) {
+			    fader(opacity);
+			    opacity += 5;
+			    to = window.setTimeout("fadein("+opacity+")", 30);
+		    }
+		    else{
+			    to = window.setTimeout("fadeout("+opacity+")", 5000);	
+		    }
+	    }
+	    function fadeout(opacity) {
+	    if(getmyObj('fader')){
+		    if (opacity > 0) {
+			    opacity -= 5;
+			    fader(opacity);
+			     to = window.setTimeout("fadeout("+opacity+")", 30);
+		    }
+		    else{	
+			    fader(opacity);
+			    tpx = t[newsnow]
+			    getmyObj(tpx).style.display='none';
+			    newsnow++;
+			    if (newsnow>=t.length) {
+				    newsnow=0;
+			    }
+			    tpx = t[newsnow]
+			    getmyObj(tpx).style.display='';
+			    to = window.setTimeout("fadein("+opacity+")", 100);
+		    }
+		    }
+		    }
+		    function pause() {
+			    clearTimeout(to);
+			    fader(100);
+		    }
+
+		    function resume() {
+			    clearTimeout(to);
+			    to = window.setTimeout("fadeout(100)", 5000);
+		    }
+    	
+    </script>
+</head>
+<body class="homebody">
+    <form name="form1" method="post" action="default.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjA4NTI0NTMwOGRkv9cwlBq+TaIHZEWGpsdls3Z60dk=" />
+</div>
+
+    
+        <script type="text/javascript" src="swfobject/swfobject.js"></script>
+	    <script type="text/javascript">
+            var flashvars = {};
+	        
+		        flashvars.headlines='BC High Rower Selected for National Team|&quot;The Wiz&quot; Opens This Thursday|Students Win Art Awards';
+		        flashvars.headlinesLinks='/podium/default.aspx?t=18755&amp;newsid=642513|/podium/default.aspx?t=18755&amp;newsid=642050|/podium/default.aspx?t=18755&amp;newsid=642506';
+	        
+			var params = {menu: 'false', bgcolor:'"#303030"'};
+			var attributes = {id: 'page-wrap'};
+		    swfobject.embedSWF("/flash/bchigh_home3.swf", "page-wrap", "100%", "100%", "8", false, flashvars,params,attributes);
+	    </script>
+    
+    
+    <div id="page-wrap">
+        <table width="100%" height="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+	            <td style="background: url(/images/left.gif) top right repeat-x;" valign="top" align="left"><div><img src="/images/spacer.gif" alt="" width="1" height="1" border="0"></div></td>
+	            <td width="703px" valign="top" align="left"  style="background: url(/images/main_back.gif) top right no-repeat;">
+		            <table cellpadding="0" cellspacing="0" border="0">
+		            <tr>
+			            <td><a href="/podium/default.aspx?t=18732" ><img src="/images/L1_1.gif" oversrc="/images/L1_1_on.gif" alt="About BC High"  onload="MS(this);" height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18744" ><img src="/images/L1_2.gif" oversrc="/images/L1_2_on.gif" alt="Admissions"  onload="MS(this);"   height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18755" ><img src="/images/L1_3.gif" oversrc="/images/L1_3_on.gif" alt="News & Calendar"  onload="MS(this);"  height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18760" ><img src="/images/L1_4.gif" oversrc="/images/L1_4_on.gif" alt="School Life"  onload="MS(this);"    height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18789" ><img src="/images/L1_5.gif" oversrc="/images/L1_5_on.gif" alt="Giving" onload="MS(this);"    height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18816" ><img src="/images/L1_6.gif" oversrc="/images/L1_6_on.gif" alt="Parents" onload="MS(this);"   height="34" border="0"></a></td>
+			            <td><a href="/podium/default.aspx?t=18818" ><img src="/images/L1_7.gif" oversrc="/images/L1_7_on.gif" alt="Alumni" onload="MS(this);"   height="34" border="0"></a></td>
+		            </tr>
+		            </table>
+		            <div><img src="/images/center_photo.jpg" alt="BC High The Jesuit High School of Boston" width="703" height="456" border="0"></div>
+            		
+		            <table cellpadding="0" cellspacing="0" border="0">
+			            <tr>
+				            <td><img src="/images/flash.gif" alt="150 Morrissey Boulevard Boston Massachusetts 02125" width="265" height="69" border="0"></td>
+				            <td><a href="http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash&promoid=BIOW"><img src="/images/getflash.gif" alt="Get Flash Player" width="438" height="69" border="0"></a></td>
+			            </tr>
+		            </table> 
+            		
+		            <div><img src="/images/non_bottom.gif" alt="" width="703" height="21" border="0"></div>
+		            <table cellpadding="0" cellspacing="0" border="0">
+			            <tr>
+				            <td style="background: url(/images/news_back.gif) top left no-repeat; padding-left:110px;">
+				                
+								                <div style="width:432px;" onmouseover="pause();" onmouseout="resume();">
+									                <div id=fader name=fader style="width:432px;">
+										                
+											                <div class="fadetext" style="display:none;" order="0" name="news_642513" id="news_642513"><a class="newslink" href="/podium/default.aspx?t=18755&newsid=642513">BC High Rower Selected for National Team</a></div>
+										                
+											                <div class="fadetext" style="display:none;" order="1" name="news_642050" id="news_642050"><a class="newslink" href="/podium/default.aspx?t=18755&newsid=642050">"The Wiz" Opens This Thursday</a></div>
+										                
+											                <div class="fadetext" style="display:none;" order="2" name="news_642506" id="news_642506"><a class="newslink" href="/podium/default.aspx?t=18755&newsid=642506">Students Win Art Awards</a></div>
+										                
+									                </div>
+								                <script>runfade();</script>
+							                
+				            </td>
+				            <td><a href="/podium/default.aspx"><img src="/images/login.gif" alt="Login" oversrc="/images/login_on.gif" onload="MS(this);" width="95" height="32" border="0"></a></td>
+				            <td><img src="/images/news_right.gif" alt="" width="66" height="32" border="0"></td>
+			            </tr>
+		            </table>
+	            </td>
+	            <td style="background: url(/images/right.gif) top left repeat-x;" valign="top"><div><img src="/images/spacer.gif" alt="" width="1" height="1" border="0"></div></td>
+            </tr>
+
+        </table>
+    </div>
+    
+    
+    <div style="display:none;">
+<!-- SiteCatalyst code version: G.5.
+Copyright 1997-2003 Omniture, Inc. More info available at
+http://www.omniture.com --><script language="JavaScript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+var s_pageName="Home Page"
+var s_server=""
+var s_channel=""
+var s_pageType=""
+var s_prop1=""
+var s_prop2=""
+var s_prop3=""
+var s_prop4=""
+var s_prop5=""
+var s_prop6=""
+var s_prop7=""
+var s_prop8=""
+var s_prop9=""
+var s_prop10=""
+/********* INSERT THE DOMAIN AND PATH TO YOUR CODE BELOW ************/
+//--></script><script language="JavaScript" src="/common/omniture/s_code_remote.js"></script>
+<!-- End SiteCatalyst code version: G.5. -->
+
+</div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="/images/logo-16.png" type="image/png">
+
+<link rel="stylesheet" href="/style/website2011.css"
+  type="text/css">
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/nav-options.js"></script>
+<script type="text/javascript" src="/js/slideshow.js"></script>
+
+<script type="text/javascript">
+  maxPicWidth = 250;
+  maxPicHeight = 500;
+</script>
+
+<script type="text/javascript">
+  // timeout controls rate of slideshow changes - in msec.
+  $(document).ready(function() {
+    $('#slideshow').slideshow({
+      timeout: 40000,
+      //type: 'sequence' // or 'random'
+      type: 'sequence'
+    });
+  });
+</script>
+
+
+<!-- 71.205.227.242|nowhere| -->
+<title>OhioLINK &ndash; The Ohio Library and Information Network</title>
+
+<meta name="description" content="OhioLINK, the Ohio Library and
+  Information Network, is a consortium of Ohio's college and
+  university libraries and the State Library of Ohio, providing
+  research and information services to Ohio's higher education
+  community.">
+
+<style type="text/css">
+
+  body {
+    margin-left: 1.5em;
+  }
+
+  h1, h2, h3 {
+    font-weight: normal;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  #followUs {
+    font-size: 90%;
+    position: absolute;
+    top: 53px;
+    width: auto;
+    padding: .25em 0 .25em .25em;
+    right: 4%;
+    text-align: right;
+  }
+  #followUs img {
+    vertical-align: middle;
+    border: none;
+  }
+
+  #left-col {
+    float: left;
+    width: 16.5em;
+    min-width: 250px;
+    padding: .65em;
+    margin-right: .5em;
+    border-right: thin solid #E0E0E0;
+    min-height: 32em;
+  }
+
+  #left-col h2 {
+    margin-bottom: .5em;
+    margin-top: 0;
+  }
+
+  #left-col ul {
+    font-size: 95%;
+    margin-left: .5em;
+    padding-left: 0;
+  }
+
+  #left-col li {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  #chat {
+    margin-top: 1em;
+  }
+
+  #left-col li ul li {
+    margin-left: .75em;
+  }
+
+  #olinks img {
+    border: none;
+  }
+
+  #random-pic {
+    border-top: thin solid #E0E0E0;
+    margin-top: 1.5em;
+    padding-top: .75em;
+    /*text-align: center;*/
+  }
+
+  #random-pic a img {
+    display: block;
+    box-shadow: 2px 2px 2px #666;
+  }
+
+  #main-col {
+    margin-left: 20em;
+    margin-right: 2.5em;
+  }
+
+  .newsflash {
+    background: #FF3;
+    border: thin solid #999;
+    padding: .25em;
+    -moz-border-radius: .45em;
+    -webkit-border-radius: .45em;
+    border-radius: .45em;
+  }
+  a.newsflash:visited {
+    color: #227;
+  }
+
+  .hilite {
+    /*font-weight: normal;*/
+    color: black;
+    /*background: #FB3;*/
+    background: #FF9;
+  }
+
+  #main-search {
+    margin-top: 0;
+    padding: .5em;
+    margin-bottom: 1.5em;
+  }
+
+  #inputs {
+    background: #DDECFF;
+    margin: 0;
+    border: thin solid #C3C3D9;
+    border-bottom: none;
+    padding: .5em;
+
+    -moz-border-radius-topleft: .45em;
+    -moz-border-radius-topright: .45em;
+    -webkit-border-top-left-radius: .45em;
+    -webkit-border-top-right-radius: .45em;
+    border-top-left-radius: .45em;
+    border-top-right-radius: .45em;
+
+  }
+
+  #qs-search {
+    width: 80% !important;
+  }
+
+  #search-choices {
+    margin: 0 0 .5em;
+    padding: 0;
+    line-height: 180%;
+  }
+
+  #search-choices li {
+    margin: 0;
+    margin-left: 0;
+    margin-right: .25em;
+    padding: .25em;
+    display: inline;
+    font-size: 88%;
+    -moz-border-radius: .45em;
+    -webkit-border-radius: .45em;
+    border-radius: .45em;
+  }
+
+  #search-quicksearch {
+    border: thin solid #E0E0E0;
+    background: #DDECFF;
+  }
+
+  #search-catalog, #search-articles,
+  #search-videos, #search-pages, #search-more {
+    border: thin solid white;
+    background: white;
+  }
+
+  #choice-description {
+
+    border: thin solid #C3C3D9;
+    border-top: none;
+    background: #DDECFF;
+    padding: .5em; 
+    min-height: 2.5em;
+    margin: 0 0 1em;
+
+    -moz-border-radius-bottomright: .45em;
+    -moz-border-radius-bottomleft: .45em;
+    -webkit-border-bottom-right-radius: .45em;
+    -webkit-border-bottom-left-radius: .45em;
+    border-bottom-right-radius: .45em;
+    border-bottom-left-radius: .45em;
+
+
+  }
+
+  .search-box {
+    border: 3px ridge #DEF;
+    margin-left: 1.5em;
+    padding: .5em;
+    line-height: 115%;
+  }
+
+  #funding-alert {
+    border-top: thin solid #789;
+  }
+
+  #funding-alert img {
+    border: none;
+  }
+
+  #whats-new-box {
+    border-top: thin solid #C3C3D9;
+    line-height: 150%;
+    margin-top: 1.5em;
+  }
+ 
+  #narrowDisplayOptions {
+    display: none;
+  }
+  #narrowDisplayOptions li {
+    margin-bottom: 1em;
+  }
+
+  #slideshow div {
+    display: none;
+    /*text-align: center;*/
+    font-size: 88%;
+    width: 250px;
+  }
+
+  .libraryPic img {
+    -moz-box-shadow: 2px 2px 2px #666;
+    -webkit-box-shadow: 2px 2px 2px #666;
+    box-shadow: 2px 2px 2px #666;
+  }
+
+  .smalltext {
+    font-size: 75%;
+  }
+
+</style>
+
+<script type="text/javascript">
+
+  //amIMobile(navigator.userAgent, window.innerWidth);
+
+var lcUserAgent = navigator.userAgent.toLowerCase();
+iAmMobile = 0;
+if (lcUserAgent.search("iphone") > -1) {
+  iAmMobile = 1;
+} else if (lcUserAgent.search("ipod") > -1) {
+  iAmMobile = 1;
+} else if (lcUserAgent.search("ipad") > -1) {
+  iAmMobile = 1;
+} else if (lcUserAgent.search("symbian") > -1) {
+  iAmMobile = 1;
+} else if (lcUserAgent.search("android") > -1) {
+  iAmMobile = 1;
+} else if (lcUserAgent.search("blackberry") > -1) {
+  iAmMobile = 1;
+} else if (window.innerWidth <= 800) {
+  iAmMobile = 1;
+}
+
+function goNarrow () {
+  //document.write('<p><small>Your window is ' + window.innerWidth + ' pixels wide.</small></p>');
+
+  if (iAmMobile == 1) {
+    document.getElementById('left-col').style.display = "none";
+    document.getElementById('page-header').style.width = "85%";
+    document.getElementById('narrowDisplayOptions').style.display = "block";
+    document.getElementById('main-col').style.marginLeft = ".65em";
+
+    document.getElementById('terminalLogo').src = "http://www.ohiolink.edu/images/terminal-in-phone.png";
+
+  }
+}
+
+function goWide () {
+  document.getElementById('left-col').style.display = "block";
+  document.getElementById('page-header').style.width = "92%";
+  document.getElementById('narrowDisplayOptions').style.display = "none";
+  document.getElementById('main-col').style.marginLeft = "20em";
+
+    document.getElementById('terminalLogo').src = "http://www.ohiolink.edu/images/terminal-41x41.png";
+
+}
+
+function setSearch (search) {
+
+  document.getElementById('search-quicksearch').style.borderColor = "white";
+  document.getElementById('search-catalog').style.borderColor = "white";
+  document.getElementById('search-articles').style.borderColor = "white";
+  document.getElementById('search-videos').style.borderColor = "white";
+  document.getElementById('search-pages').style.borderColor = "white";
+
+  document.getElementById('search-quicksearch').style.backgroundColor = "white";
+  document.getElementById('search-catalog').style.backgroundColor = "white";
+  document.getElementById('search-articles').style.backgroundColor = "white";
+  document.getElementById('search-videos').style.backgroundColor = "white";
+  document.getElementById('search-pages').style.backgroundColor = "white";
+
+  if (search == 'quicksearch') {
+    document.getElementById('search-quicksearch').style.borderColor = "#C3C3D9";
+    document.getElementById('search-quicksearch').style.backgroundColor = "#DDECFF";
+    document.getElementById('inputs').style.backgroundColor = "#DDECFF";
+    document.getElementById('choice-description').style.backgroundColor = "#DDECFF";
+    //BROKEN QUICKSEARCH REMEDIATION
+    document.getElementById('choice-description').innerHTML = "Just looking for a few good " +
+      "<strong>articles</strong> and <strong>books</strong>?  Start here. Off-campus users will be asked to login before searching.";
+    //document.getElementById('choice-description').innerHTML = "QuickSearch is unavailable due to a software problem. See the alert message below for more details.  You may want to search " +
+    //'the <a href="http://olc1.ohiolink.edu/search/">OhioLINK library catalog</a> or the <a href="http://www.ohiolink.edu/resources/show_details.php?db=x_ebscoaph">Academic Search Complete</a> database.';
+  
+  } else if (search == 'catalog') {
+    document.getElementById('search-catalog').style.borderColor = "#C3C3D9";
+    document.getElementById('search-catalog').style.backgroundColor = "#F5F5F1";
+    document.getElementById('inputs').style.backgroundColor = "#F5F5F1";
+    document.getElementById('choice-description').style.backgroundColor = "#F5F5F1";
+    document.getElementById('choice-description').innerHTML = "Search for <strong>books</strong> " +
+      'and other materials owned by member libraries.  You may also search ' +
+      
+      ' <a href="/catalogs.cgi">any  member library&rsquo;s catalog</a>.';
+
+  } else if (search == 'articles') {
+    document.getElementById('search-articles').style.borderColor = "#C3C3D9";
+    document.getElementById('search-articles').style.backgroundColor = "#FFEBED";
+    document.getElementById('inputs').style.backgroundColor = "#FFEBED";
+    document.getElementById('choice-description').style.backgroundColor = "#FFEBED";
+    document.getElementById('choice-description').innerHTML = "Search for <strong>articles</strong> " +
+      "from two of OhioLINK&rsquo;s main electronic journal sources. Off-campus users will be asked to login before searching.";
+    //BROKEN QUICKSEARCH REMEDIATION
+    //document.getElementById('choice-description').innerHTML = "QuickSearch and the Articles Only search are unavailable due to a software problem.  See below for details.  You may want to search the " +
+    //'<a href="http://journals.ohiolink.edu/ejc/search.cgi">Electronic Journal Center</a> or the <a href="http://www.ohiolink.edu/resources/show_details.php?db=x_ebscoaph">Academic Search Complete</a> database.';
+
+  } else if (search == 'videos') {
+    document.getElementById('search-videos').style.borderColor = "#C3C3D9";
+    document.getElementById('search-videos').style.backgroundColor = "#FFFFE0";
+    document.getElementById('inputs').style.backgroundColor = "#FFFFE0";
+    document.getElementById('choice-description').style.backgroundColor = "#FFFFE0";
+    document.getElementById('choice-description').innerHTML = "Search for <strong>videos</strong> " +
+      "from the Digital Media Center. Off-campus users will be asked to login before searching.";
+
+  } else if (search == 'pages') {
+    document.getElementById('search-pages').style.borderColor = "#C3C3D9";
+    document.getElementById('search-pages').style.backgroundColor = "#F7D9FF";
+    document.getElementById('inputs').style.backgroundColor = "#F7D9FF";
+    document.getElementById('choice-description').style.backgroundColor = "#F7D9FF";
+    document.getElementById('choice-description').innerHTML = "Search for <strong>pages</strong> " +
+      "on the OhioLINK web site.";
+
+  }
+
+  document.getElementById('search-target').value = search;
+  document.getElementById('qs-search').focus()
+
+}
+</script>
+
+</head>
+
+<body onload="setSearch('catalog'); return false">
+<!-- This goes immediately after the opening body tag. -->
+
+<p class="skipper"><a href="#content">Skip navigation</a></p>
+<div id="page-header">
+<div id="terminal-icon"><a
+  onclick="toggleMainOLLinks('toggle'); return false"
+  href="http://www.ohiolink.edu/"><img id="terminalLogo"
+  src="http://www.ohiolink.edu/images/terminal-41x41.png" alt="OhioLINK Home"
+  title="OhioLINK, the Ohio Library and Information Network.  Click for options."/></a>
+<ul id="mainOLLinks">
+  <li class="listCloser"><span
+    onclick="toggleMainOLLinks('off'); return false">&times;</span></li>
+  <li class="firstOption"><a href="http://www.ohiolink.edu/">OhioLINK
+    Home</a></li>
+  <li><a href="http://olc1.ohiolink.edu/search/">Library Catalog</a></li>
+  <li><a href="http://www.ohiolink.edu/resources.cgi">Research
+    Databases</a></li>
+  <li><a href="http://journals.ohiolink.edu/">Electronic Journal
+    Center (EJC)</a></li>
+  <li><a href="http://ebooks.ohiolink.edu/">Electronic Book
+    Center (EBC)</a></li>
+  <li><a href="http://drc.ohiolink.edu/">Digital Resource
+    Commons (DRC)</a></li>
+</ul>
+</div>
+<span class="serviceTitle"
+  title="Ohio Library and Information Network">OhioLINK</span>
+<div class="topNavLinks">
+<a href="/" title="OhioLINK Home Page">OL Home</a>&nbsp;|
+<a href="/about/" >About Us</a><br/>
+<a href="/members-info/">Member Libraries</a>&nbsp;|
+<a href="/contact.php?from=homepage">Contact a Librarian</a>
+</div>
+
+</div>
+
+<p class="skipper" id="content"></p>
+
+
+<p id="followUs">Follow us! 
+<a href="http://www.facebook.com/OhioLINK"><img
+  src="images/site-icons/facebook-icon.png" alt="Facebook"
+  title="Follow us on Facebook"></a><a href="http://twitter.com/ohiolink"><img
+  src="images/site-icons/twitter-icon.png" alt="Twitter"
+  title="Follow us on Twitter"></a><a href="http://olc7.ohiolink.edu/whatsnew/index.xml"><img
+  src="images/site-icons/rss-icon.png" alt="Web Feed"
+  title="Follow our web feed"></a>
+</p>
+
+
+<h2>Welcome to OhioLINK</h2>
+
+<div id="left-col">
+
+<script type="text/javascript">
+  if (iAmMobile) {
+    document.write('<p class="smalltext">Full display.  <a href="#" onclick="goNarrow(); return false">Show mobile display</a>.</p>');
+  }
+</script>
+
+<ul>
+<li><a href="http://olc1.ohiolink.edu/search/">OhioLINK Library Catalog</a></li>
+<li><a href="http://journals.ohiolink.edu/">Electronic Journal Center</a></li>
+<li><a href="http://drc.ohiolink.edu/">Digital Resource Commons</a></li>
+<!--<li><a href="http://dmc.ohiolink.edu/">Digital Media Center</a></li>-->
+<li><a href="http://ebooks.ohiolink.edu/">E-Book Center</a></li>
+<li><a href="http://etd.ohiolink.edu"><abbr
+  title="Electronic Theses and Dissertations Center">ETD Center</abbr></a></li>
+</ul>
+
+<ul>
+<li><a href="/resources.cgi">Library Databases (<strong>articles</strong>
+and more)</a>
+
+  <ul>
+  <li><a href="/resources.cgi?by=subject">By Subject or Field</a></li>
+  <li><a href="/resources.cgi?by=type">By Type</a></li>
+  <li><a href="/resources.cgi?by=alpha">By Name or Title</a></li>
+  </ul>
+
+</li>
+
+<!-- 71.205.227.242|nowhere| -->
+<li><a href="/resources/ejournals.php">E-Journal Finder</a></li>
+
+<li><a href="http://rave.ohiolink.edu/qs/quick">Quick 
+Search&nbsp;@&nbsp;OhioLINK</a></li>
+
+</ul>
+
+<ul>
+
+<li id="olinks"><a href="http://olinks.ohiolink.edu/article-lookup.php">Already
+  have an article citation?</a><br>
+  <a href="http://olinks.ohiolink.edu/article-lookup.php"><img alt="Find It"
+  title="Find it with OLinks"
+  src="http://olinks.ohiolink.edu/images/olinks/olinks-new-54x19.png"></a></li>
+</ul>
+
+<div id="slideshow">
+<div class="libraryPic" id="firstPic" style="display: block">
+<img src="/images/library-pics/utol-1.jpg"><br>
+The Carlson Library at the University of Toledo, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/pont.jpg"><br>
+The A.T. Wehrle Memorial Library at the Pontifical College Josephinum, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cmsj.jpg"><br>
+The library at the College of Mount St. Joseph, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/mco.jpg"><br>
+The Mulford Library at the University of Toledo Health Science Campus, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/clark.jpg"><br>
+The library at Clark State Community College, an OhioLINK member.   OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/terra-1.jpg"><br>
+The library at Terra Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/case.jpg"><br>
+The Kelvin Smith Library at Case Western Reserve University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/clcln.jpg"><br>
+The library at the Cleveland Clinic, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/mntu.jpg"><br>
+The library at the University of Mount Union, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ucin2.jpg"><br>
+The Langsam Library at the University of Cincinnati, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/wsu.jpg"><br>
+The Paul Dunbar Library at Wright State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/john.jpg"><br>
+The Grasselli Library at John Carroll University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ou-zane.jpg"><br>
+The library at Ohio University&ndash;Zanesville, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/neo.jpg"><br>
+The library at NEOUCOM, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/mvnc.jpg"><br>
+The Thorne Library at Mount Vernon Nazarene College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cuya.jpg"><br>
+The Metropolitan Campus library at Cuyahoga Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/tiffin.jpg"><br>
+The Pfeiffer Library at Tiffin University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/stmary.jpg"><br>
+The library at Saint Mary Seminary, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/wash-1.jpg"><br>
+The library at Washington State Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/owens.jpg"><br>
+The library at Owens Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/defiance.jpg"><br>
+The Pilgrim Library at Defiance College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/nx.jpg"><br>
+The Clara Fritzsche Library at Notre Dame College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ou.jpg"><br>
+The Alden Library at Ohio University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/lourd.jpg"><br>
+The Duns Scotus Library at Lourdes College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/frank.jpg"><br>
+The library at Franklin University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/malone.jpg"><br>
+The Everett L. Cattell Library at Malone University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/unoh-1.jpg"><br>
+The library at the University of Northwest Ohio, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/shaw.jpg"><br>
+The Clark Memorial Library at Shawnee State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/keny.jpg"><br>
+The Olin Library at Kenyon College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/terra-2.jpg"><br>
+The library at Terra Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/walsh.jpg"><br>
+The library at Walsh University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ysu.jpg"><br>
+The Maag Library at Youngstown State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/otter.jpg"><br>
+The Courtright Memorial Library at Otterbein College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/hirm.jpg"><br>
+The library at Hiram College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cinb.jpg"><br>
+The George Mark Elliott Library at Cincinnati Christian University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/osu.jpg"><br>
+The main library at the Ohio State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/columcad.jpg"><br>
+The library at the Columbus College of Art and Design, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/jeff.jpg"><br>
+The library at Jefferson Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/athe.jpg"><br>
+The Eugene H. Maly Library at the Athenaeum of Ohio, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ufin.jpg"><br>
+The Shafer Library at the University of Findlay, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/kent.jpg"><br>
+The library at Kent State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cinst.jpg"><br>
+The Johnnie Mae Berry Library at Cincinnati State Technical and Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/obe.jpg"><br>
+The library at Oberlin College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/lorn.jpg"><br>
+The library at Lorain County Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/bel.jpg"><br>
+The library at Belmont Technical College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ysu-2.jpg"><br>
+The Maag Library at Youngstown State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/meth.jpg"><br>
+The John W. Dickhaut Library at the Methodist Theological School in Ohio, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/mz.jpg"><br>
+The library at Muskingum University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/lourd2.jpg"><br>
+The Duns Scotus Library at Lourdes College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/edsn.jpg"><br>
+The library at Edison Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/rio.jpg"><br>
+The Davis Library at the University of Rio Grande, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/onu.jpg"><br>
+The Heterick Memorial Library at Ohio Northern University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/wilming.jpg"><br>
+The S. Arthur Watson Library at Wilmington College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/edsn2.jpg"><br>
+The library at Edison Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/baldwin.jpg"><br>
+The Ritter Library at Baldwin-Wallace College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cscc.jpg"><br>
+The library at Columbus State Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/hock.jpg"><br>
+The library at Hocking College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/wilber.jpg"><br>
+The library at Wilberforce University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/osu-marion.jpg"><br>
+The library at the Ohio State University Marion Campus, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/bluff.jpg"><br>
+The Musselman Library at Bluffton University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/sin.jpg"><br>
+The Library at Sinclair Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/collw.jpg"><br>
+The Flo K. Gault Library at the College of Wooster, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/antioch.jpg"><br>
+The Olive Kettering Library at Antioch College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/clsu.jpg"><br>
+The University Library at Cleveland State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/edsn3.jpg"><br>
+The library at Edison Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cedar.jpg"><br>
+The Centennial Library at Cedarville University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/stlb.jpg"><br>
+The State Library of Ohio, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/witt2.jpg"><br>
+The Thomas Library at Wittenberg University, an OhioLINK member.   OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/bgsu.jpg"><br>
+The Jerome Library at Bowling Green State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ucin1.jpg"><br>
+The Langsam Library at the University of Cincinnati, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/francis.jpg"><br>
+The John Paul II Library at the Franciscan University of Steubenville, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/owes.jpg"><br>
+The Beeghly Library at Ohio Wesleyan University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/heid.jpg"><br>
+The Beeghly Library at Heidelberg College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ysu-3.jpg"><br>
+The Maag Library at Youngstown State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/den.jpg"><br>
+The Doane Library at Denison University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/clsu-2.jpg"><br>
+The Cleveland-Marshall College of Law Library at Cleveland State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/xav.jpg"><br>
+The McDonald Memorial Library at Xavier University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/wash-2.jpg"><br>
+The library at Washington State Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ash.jpg"><br>
+The library at Ashland University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/sou.jpg"><br>
+The South Campus library at Southern State Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ohdu.jpg"><br>
+The library at Ohio Dominican University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/lake.jpg"><br>
+The library at Lakeland Community College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/osu-oardc.jpg"><br>
+The library at the Ohio Agricultural Research&nbsp;&amp;&nbsp;Development Center of the Ohio State University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/unoh-2.jpg"><br>
+The library at the University of Northwest Ohio, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/trin.jpg"><br>
+The Hamma Library at Trinity Lutheran Seminary, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cap.jpg"><br>
+The Blackmore Library at Capital University, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/utol-2.jpg"><br>
+The Carlson Library at the University of Toledo, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/cmsj-2.jpg"><br>
+The library at the College of Mount St. Joseph, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/ux.jpg"><br>
+The Ralph M. Besse Library at Ursuline College, an OhioLINK member.   OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/marietta.jpg"><br>
+The Legacy Library at Marietta College, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+<div class="libraryPic">
+<img src="/images/library-pics/uday.jpg"><br>
+The Roesch Library at the University of Dayton, an OhioLINK member.  OhioLINK is a consortium of 88 Ohio colleges and universities, and the State Library of Ohio.</div>
+
+</div>
+
+
+</div>
+
+<div id="main-col">
+
+  <form method="get" action="/cgi-bin/search-redir.pl" id="main-search">
+
+  <h3>Search</h3>
+
+
+  <ul id="search-choices">
+  <li id="search-quicksearch"><a
+    href="#" onclick="setSearch('quicksearch');return false">QuickSearch</a></li>
+  <li id="search-catalog"><a
+    href="#" onclick="setSearch('catalog');return false">Books</a></li>
+  <li id="search-articles"><a
+    href="#" onclick="setSearch('articles');return false">Articles&nbsp;Only</a></li>
+  <li id="search-videos"><a
+    href="#" onclick="setSearch('videos');return false">Videos</a></li>
+  <li id="search-pages"><a
+    href="#" onclick="setSearch('pages');return false">Our&nbsp;Pages</a></li>
+  <li id="search-more"><a href="/resources.cgi">More&hellip;</a></li>
+  </ul>
+
+  <!-- BROKEN QUICKSEARCH REMEDIATION, 7/8/2010 -->
+  <p id="inputs"><input id="qs-search" name="q" size="38" type="search">
+  <input type="hidden" id="search-target" name="searchtarget"
+    value="quicksearch">
+  <input type="submit" value="Go"></p>
+
+  <p id="choice-description">Just need a few good <strong>articles</strong>
+    and <strong>books</strong>?  Start here.</p>
+  <!-- <p id="choice-description">QuickSearch is unavailable due to a 
+  software problem.  See the alert message below for more details.
+  You may want to search the <a href="http://olc1.ohiolink.edu/search/">OhioLINK
+  library catalog</a> or the <a
+  href="http://www.ohiolink.edu/resources/show_details.php?db=x_ebscoaph">Academic Search Complete</a> database.</p> -->
+
+
+  </form>
+
+
+
+
+<p>Students, staff, and faculty members at OhioLINK
+    member schools: <a href="https://auth.ohiolink.edu/">login now
+    for access to QuickSearch and other OhioLINK databases</a>.</p>
+
+
+
+
+
+<div id="narrowDisplayOptions">
+<p class="smalltext">Mobile display.  <a href="#" onclick="goWide(); return false">Show
+  full display</a>.</small><p>
+<h3>Other Starting Points</h3>
+<ul>
+
+  <li><a href="http://olc1.ohiolink.edu/search/">Library Catalog</a></li>
+  <li><a href="http://journals.ohiolink.edu/">Electronic Journal Center</a> (OL Only)</li>
+  <li><a href="http://drc.ohiolink.edu/">Digital Resource Commons</a></li>
+  <li><a href="http://ebooks.ohiolink.edu/">E-Book Center</a> (OL Only)</li>
+  <li><a href="http://etd.ohiolink.edu/"
+    title="Theses and Dissertations">ETD Center</a></li>
+
+  <li><a href="resources.cgi">Library Databases</a> (OL Only)</li>
+</ul>
+
+<p class="smalltext">&ldquo;OL Only&rdquo;: These resources contain
+commercially licensed content that we can offer only to students, staff,
+and faculty of OhioLINK member schools.  Off-campus and/or cell phone
+connections may need to <a href="http://auth.ohiolink.edu/">login for
+access</a>.</p>
+
+</div>
+
+<div id="whats-new-box">
+<h3>New at OhioLINK</h3>
+<p class="feature"><a href="http://olc7.ohiolink.edu/whatsnew/">OhioLINK Awarded NEH Grant to Build Creative Humanities Scholarship Tools</a> (March&nbsp;23, 2012)</p>
+
+
+<p>(<a href="http://olc7.ohiolink.edu/whatsnew">more&hellip;</a>)</p>
+</div>
+
+</div>
+
+<script type="text/javascript">
+  goNarrow();
+</script>
+
+</body>
+</html>

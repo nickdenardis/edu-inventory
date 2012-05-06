@@ -1,0 +1,1133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=8" /> -->
+<title>Welcome - Roane State Community College</title>
+<link href="/layout.css" rel="stylesheet" type="text/css">
+<style>
+body { background-image:url("/_images/background1.jpg"); }
+#layoutBanner { background-image:url("/_images/banners/.jpg"); }
+</style>
+
+<!-- Page Class CSS -->
+
+
+<!-- Mobile? -->
+<script> rscc_mobile = 0; </script>
+
+<!-- Head Items -->
+
+<!-- End Head Items -->
+
+</head>
+
+<body>
+
+
+<div id='mobileLink' style='position:absolute; top:0px; left:0px; font-size:2px;'><a href='/m/mobile.asp?toggle=1' style='color:white; text-decoration:none;'>Mobile Site</a></div>
+
+<div id='layoutMainContainer' class='layoutMainClass'>
+
+
+<!-- RSCC Top Row -->
+<table id='layoutRSCCBanner' class='layoutLinksBlack' cellpadding=0 cellspacing=0 border=0 >
+    <tr style='vertical-align:bottom;'>
+        <td style='width:360px;padding-left:3px;'>
+            <a href='http://www.roanestate.edu/'><img src='/_images/rscc.png' title='Roane State Community College' /></a>
+        </td>
+        <td align=right >
+
+            <table border=0 cellpadding=0 cellspacing=0 >
+                <tr>
+                	<td colspan=2 align=right style='padding-bottom:15px;padding-right:2px;'> 
+                		<a href='/?6693-GHGT'><img src='/_images/ghgt.png' title='Go Here. Get There.' /></a>
+                	</td>
+                </tr>
+                <tr>
+                	<td style='padding-right:18px;'>
+                		<a href='/?6110-RaiderNet'>RaiderNet</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='/?6022-Momentum-Login-Page'>Momentum</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='/?5354-About-Roane-State'>About the College</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href='/?6921-A-Z-Index'>A-Z Index</a>
+                	</td>
+                	<td align=left>
+                        <form id='layoutSearchForm' action='/search/' method='get' style='margin:0;padding:0;'>
+                            <div id='layoutSearchBackground'>
+                            	<input type=text id='layoutSearchBox' name='for' value='' onFocus='layoutSearchClick(this)' onBlur='layoutSearchBlur(this)'/>
+                            </div>
+                            <input type='image' class='noprint' value='Search' src='/_images/searchBox2.png' style='float:left;' alt='Search' />
+                        </form>
+                	</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+   
+	
+<!-- Print-Only Banner -->
+<h2 id='layoutRSCCPrintBanner'>Roane State Community College</h2>
+
+
+<!-- RSCC Nav Menu -->
+
+<script>
+
+/*
+function layoutMenuItemOver(idName) {
+	layoutMenuTimeoutClear();
+	
+	layoutMenuCloseAll();
+	if(idName != "layoutMenuBarApplyNow") {
+		document.getElementById("layoutMenuBarApplyNow").style.backgroundImage = "";
+	}
+	
+	document.getElementById(idName).style.backgroundImage = "url(/_images/menuBarHighlight.png)";
+	document.getElementById(idName + "Popup").style.display = "block"; 
+}
+*/
+
+layoutMenuItemCurrentMenu = "";
+layoutMenuItemOverTimeoutHolder = "";
+/*
+function layoutMenuItemOver(idName) {
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	
+	if(layoutMenuItemCurrentMenu == idName) {  
+		layoutMenuTimeoutClear();  // Same menu (rolling across text/div) don't close!
+	} else {
+		layoutMenuCloseAll();  // New menu.  Close all!
+	}
+	layoutMenuItemCurrentMenu = idName;
+	
+	clearTimeout(layoutMenuItemOverTimeoutHolder);
+	layoutMenuItemOverTimeoutHolder = setTimeout("layoutMenuItemOver_Timeout('" + idName + "')", 300);  // Delay opening (MUST be longer than the layoutMenuOut timer!)
+}
+*/
+/*
+function layoutMenuItemOver(idName) {
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	
+	if(layoutMenuItemCurrentMenu == idName) {  
+		layoutMenuTimeoutClear();  // Same menu (rolling across text/div) don't close!
+	} else {
+		layoutMenuCloseAll();  // New menu.  Close all!
+	}
+	
+	//alert(layoutMenuItemCurrentMenu);
+	clearTimeout(layoutMenuItemOverTimeoutHolder);
+	if(layoutMenuItemCurrentMenu == "") {
+		layoutMenuItemOverTimeoutHolder = setTimeout("layoutMenuItemOver_Timeout('" + idName + "')", 300);  // Delay opening (MUST be longer than the layoutMenuOut timer!)
+	} else {
+		layoutMenuItemOver_Timeout(idName);
+	}
+	
+	layoutMenuItemCurrentMenu = idName;
+}
+*/
+function layoutMenuItemOver(idName) {
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	
+	if(layoutMenuItemCurrentMenu == idName) {  
+		layoutMenuTimeoutClear();  // Same menu (rolling across text/div) don't close!
+	} else {
+		layoutMenuCloseAll(0);  // New menu.  Close all!
+	}
+	layoutMenuItemCurrentMenu = idName;
+	
+	clearTimeout(layoutMenuItemOverTimeoutHolder);
+	layoutMenuItemOverTimeoutHolder = setTimeout("layoutMenuItemOver_Timeout('" + idName + "')", 300);  // Delay opening (MUST be longer than the layoutMenuOut timer!)
+}
+
+function layoutMenuItemOver_Timeout(idName) {
+	if(idName != "layoutMenuBarApplyNow") {
+		document.getElementById("layoutMenuBarApplyNow").style.backgroundImage = "";
+	}
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	
+	document.getElementById(idName).style.backgroundImage = "url(/_images/menuBarHighlight.png)";
+	
+	if(idName != "layoutMenuBarWhyRSCC" && idName != "layoutMenuBarApplyNow") {
+		document.getElementById(idName + "Popup").style.display = "block";
+	}
+}
+
+
+function layoutMenuItemOut() {  // Don't open menu!  Just a quick rollover!
+	clearTimeout(layoutMenuItemOverTimeoutHolder);
+	layoutMenuTimeoutClear();
+}
+
+
+function layoutMenuOut() {
+	layoutMenuTimeoutClear();
+	layoutMenuTimeoutHolder = setTimeout("layoutMenuCloseAll(1)", 200);
+}
+
+layoutMenuTimeoutHolder = "";
+function layoutMenuTimeoutClear() {
+	clearTimeout(layoutMenuTimeoutHolder);
+}
+
+pingI = 0;
+function ping() {
+	++pingI;
+	document.getElementById("layoutMainArea02").innerHTML = "Ping: " + pingI;
+}
+
+function layoutMenuCloseAll(timeout) {	
+	document.getElementById("layoutMenuBarOurPrograms").style.backgroundImage = "";
+	document.getElementById("layoutMenuBarStudentResources").style.backgroundImage = "";
+	document.getElementById("layoutMenuBarWhyRSCC").style.backgroundImage = "";
+	document.getElementById("layoutMenuBarLocations").style.backgroundImage = "";
+	//document.getElementById("layoutMenuBarApplyNow").style.backgroundImage = "";
+	document.getElementById("layoutMenuBarFaculty").style.backgroundImage = "";
+
+	document.getElementById("layoutMenuBarAlumni").style.backgroundImage = "";
+	document.getElementById("layoutMenuBarBusiness").style.backgroundImage = "";
+	
+	//document.getElementById("layoutMenuBarApplyNow").style.backgroundImage = "url(/_images/menuBarHighlight.png)";
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	layoutMenuCloseAll_ApplyNowTimeoutHolder = setTimeout("layoutMenuCloseAll_ApplyNow()", 350);
+	
+	document.getElementById("layoutMenuBarOurProgramsPopup").style.display = "none";
+	document.getElementById("layoutMenuBarStudentResourcesPopup").style.display = "none";
+	//document.getElementById("layoutMenuBarWhyRSCCPopup").style.display = "none";
+	document.getElementById("layoutMenuBarLocationsPopup").style.display = "none";
+	//document.getElementById("layoutMenuBarApplyNowPopup").style.display = "none";
+	document.getElementById("layoutMenuBarFacultyPopup").style.display = "none";
+	document.getElementById("layoutMenuBarAlumniPopup").style.display = "none";
+	document.getElementById("layoutMenuBarBusinessPopup").style.display = "none";
+	
+	if(timeout == 1) {
+		//layoutMenuItemCurrentMenu = "";
+	}
+}
+
+layoutMenuCloseAll_ApplyNowTimeoutHolder = ""
+function layoutMenuCloseAll_ApplyNow() {
+	clearTimeout(layoutMenuCloseAll_ApplyNowTimeoutHolder);
+	document.getElementById("layoutMenuBarApplyNow").style.backgroundImage = "url(/_images/menuBarHighlight.png)";
+}
+
+// Test highlight apply now   (moved down for dialup timing)
+//setTimeout("layoutMenuCloseAll_ApplyNow()", 350);
+
+</script>
+
+<!-- width:980px;height:39px; -->
+
+<div id="layoutMenu" class="layoutLinksBlack" onMouseOut="layoutMenuOut()">
+
+	<!-- Tabs -->
+	<a id='layoutMenuBarOurPrograms' href="/?6690-Our-Programs" class='layoutMenuBarItem' style='width:111px;' onMouseOver="layoutMenuItemOver('layoutMenuBarOurPrograms')" onMouseOut="layoutMenuItemOut()"></a>
+	<a id='layoutMenuBarStudentResources' href="/?6691-Student-Resources" class='layoutMenuBarItem' style='width:147px;' onMouseOver="layoutMenuItemOver('layoutMenuBarStudentResources')" onMouseOut="layoutMenuItemOut()"></a>
+	<a id='layoutMenuBarWhyRSCC' href="/?6693-Why-Roane-State" class='layoutMenuBarItem' style='width:134px;' onMouseOver="layoutMenuItemOver('layoutMenuBarWhyRSCC')" onMouseOut="layoutMenuItemOut()"></a>
+    <a id='layoutMenuBarLocations' href="/?6924-Roane-State-Campuses" class='layoutMenuBarItem' style='width:91px;' onMouseOver="layoutMenuItemOver('layoutMenuBarLocations')" onMouseOut="layoutMenuItemOut()"></a>
+    <a id='layoutMenuBarApplyNow' href="/?6958-Admissions" class='layoutMenuBarItem' style='width:94px;background:url(/_images/menuBarHighlight.png);' onMouseOver="layoutMenuItemOver('layoutMenuBarApplyNow')" onMouseOut="layoutMenuItemOut()"></a>
+    <a id='layoutMenuBarFaculty' href="/?6680-Faculty/Staff" class='layoutMenuBarItem' style='width:102px;' onMouseOver="layoutMenuItemOver('layoutMenuBarFaculty')" onMouseOut="layoutMenuItemOut()"></a>
+    <a id='layoutMenuBarAlumni' href="/?6694-Alumni/Community" class='layoutMenuBarItem' style='width:140px;' onMouseOver="layoutMenuItemOver('layoutMenuBarAlumni')" onMouseOut="layoutMenuItemOut()"></a>
+    <a id='layoutMenuBarBusiness' href="/?6792-Workforce-Connections" class='layoutMenuBarItem' style='width:158px;' onMouseOver="layoutMenuItemOver('layoutMenuBarBusiness')" onMouseOut="layoutMenuItemOut()"></a>
+    
+    <div style="clear:both;"></div>
+    
+	<!-- Our Programs -->
+	
+		<div id='layoutMenuBarOurProgramsPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Explore Our Credit Programs</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5506-Academic-Programs-and-Majors">Academic Programs/Majors</a></li>
+		</ul>
+		<h3>Course Delivery Options</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?138-Distance-Education">Distance Education</a></li>
+		<li><span>&raquo;</span> <a href="/?6323-Dual-Studies">Dual Studies Program</a></li>
+		<li><span>&raquo;</span> <a href="/?424-Regents-Online-Degree-Program">Regents Online Degree Program</a></li>
+		<li><span>&raquo;</span> <a href="/?470-Schedule-of-Classes-RSCC">Schedule of Classes</a></li>
+		</ul>
+		<h3>Important Information</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6553-Academic-Calendar">Academic Calendars</a></li>
+		<li><span>&raquo;</span> <a href="/?7-Academic-Divisions">Academic Divisions</a></li>
+		<li><span>&raquo;</span> <a href="/?73-RSCC-Catalog">College Catalog</a></li>
+		</ul>
+		</td>
+		<td style="width: 30px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Non-Traditional Opportunities</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6328-International-Education">International Education/Study Abroad</a></li>
+		</ul>
+		<h3>CEU and Non-Credit Opportunities</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5632-Continuing-Healthcare-Education">Continuing Healthcare Education</a></li>
+		<li><span>&raquo;</span> <a href="/?6729-Community-Outreach-and-Professional-Training">View all non-credit programs &amp; classes</a></li>
+		</ul>
+		<h3>We&#39;re Here to Help!</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/catalog/?id=190">Academic Terminology Explained</a></li>
+		<li><span>&raquo;</span> <a href="/?5355-Admissions-Office">Contact an Admissions Advisor</a></li>
+		<li><span>&raquo;</span> <a href="/?5491-Career-Services">Contact a Career Counselor</a></li>
+		<li><span>&raquo;</span> <a href="/?7-Academic-Divisions">Contact an Academic Division</a></li>
+		</ul>
+		</td>
+	</tr>
+</tbody>
+</table></div>
+		</div>
+	
+	
+	<!-- Student Resources -->
+	
+		<div id='layoutMenuBarStudentResourcesPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Getting Ready for College</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6958-Admissions">Admissions Information</a></li>
+		<li><span>&raquo;</span> <a href="/?7941-Student-Email-Access">Regularly Check Your RSCC Email</a></li>
+		<li><span>&raquo;</span> <a href="/?5365-Records-and-Registration">Student Records &amp; Registration</a></li>
+		<li><span>&raquo;</span> <a href="/?505-Student-Handbook">Student Handbook</a></li>
+		<li><span>&raquo;</span> <a href="/?73-RSCC-Catalog">College Catalog</a></li>
+		<li><span>&raquo;</span> <a href="/?5491-Career-Services">Career Decision Making</a></li>
+		<li><span>&raquo;</span> <a href="../?6214-Veterans-Services">Veteran&#39;s Services</a></li>
+		</ul>
+		<h3>Financial Aid / Tuition</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5357-Financial-Aid">Financial Aid &amp; Scholarships</a></li>
+		<li><span>&raquo;</span> <a href="/?5505-Tuition-and-Fees">Tuition &amp; Fees</a></li>
+		</ul>
+		<h3>Getting Ready for Classes</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6553-Academic-Calendar">Academic Calendars</a></li>
+		<li><span>&raquo;</span> <a href="/?470-Schedule-of-Classes-RSCC">Schedule of Classes</a></li>
+		<li><span>&raquo;</span> <a href="/?55-Bookstore">Bookstore</a></li>
+		</ul>
+		</td>
+		<td style="width: 25px; vertical-align: top;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Student Services</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="../?6-Advising-Resource-Center">Academic Advising</a></li>
+		<li><span>&raquo;</span> <a href="/?5470-Student-Activities">Activities &amp; Organizations</a></li>
+		<li><span>&raquo;</span> <a href="/?6943-Help-to-Opportunities">Adult Learner Services</a></li>
+		<li><span>&raquo;</span> <a href="/?5454-Athletics">Athletics</a></li>
+		<li><span>&raquo;</span> <a href="/?5490-Counseling-Services">Counseling Services</a></li>
+		<li><span>&raquo;</span> <a href="/?6867-Dean-of-Students">Dean of Students</a></li>
+		<li><span>&raquo;</span> <a href="/?5488-Disability-Services">Disability Services</a></li>
+		<li><span>&raquo;</span> <a href="/?6216-RaiderAlert">RaiderAlert</a></li>
+		<li><span>&raquo;</span> <a href="/?5446-Testing-Center">Testing Center</a></li>
+		</ul>
+		<h3>Academic Assistance</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6143-Learning-Center">Learning Center</a></li>
+		<li><span>&raquo;</span> <a href="/?131-Learning-Support">Learning Support</a></li>
+		<li><span>&raquo;</span> <a href="/?297-Libraries">Library</a></li>
+		<li><span>&raquo;</span> <a href="/?6371-Student-SAILS-Website">SAILS</a></li>
+		<li><span>&raquo;</span> <a href="/?6697-Webpages-for-Courses">Webpages for Courses</a></li>
+		</ul>
+		</td>
+		<td style="vertical-align: top; width: 15px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Graduation Information</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?97-Commencement">Commencement Ceremony</a></li>
+		<li><span>&raquo;</span> <a href="/?5464-Graduation-Office">Graduation Requirements</a></li>
+		<li><span>&raquo;</span> <a href="/?6224-Placement">Job Placement</a></li>
+		</ul>
+		<h3><br />
+		We&#39;re Here to Help!</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?7604-Find-MajorChange-MajorChange-Advisor">Contact an Academic Advisor</a></li>
+		<li><span>&raquo;</span> <a href="/?5491-Career-Services">Contact a Career Counselor</a></li>
+		</ul>
+		</td>
+	</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+</div>
+		</div>
+
+	
+	<!-- Why Roane State -->
+	
+    <!--
+		<div id='layoutMenuBarWhyRSCCPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent">&nbsp;</div>
+		</div>
+    -->
+	
+	
+	<!-- Locations -->
+	
+		<div id='layoutMenuBarLocationsPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Roane State Has Campuses In:</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6257-Roane-County-Main-Campus">Roane County (Main Campus)</a></li>
+		<li><span>&raquo;</span> <a href="/?6258-Oak-Ridge-Branch-Campus">Oak Ridge</a></li>
+		<li><span>&raquo;</span> <a href="/?6259-Campbell-County-Center">Campbell County</a></li>
+		<li><span>&raquo;</span> <a href="/?6260-Cumberland-County-Center">Cumberland County</a></li>
+		<li><span>&raquo;</span> <a href="/?6261-Fentress-County-Center">Fentress County</a></li>
+		<li><span>&raquo;</span> <a href="/?6262-Knox-County-Center-for-Health-Sciences">Knox County (Center for Health Sciences)</a></li>
+		<li><span>&raquo;</span> <a href="/?6263-Loudon-County-Center">Loudon County</a></li>
+		<li><span>&raquo;</span> <a href="/?6264-Morgan-County-Higher-Education-Center">Morgan County</a></li>
+		<li><span>&raquo;</span> <a href="/?6265-Scott-County-Center">Scott County</a></li>
+		</ul>
+		</td>
+		<td>
+		<h3><img src="/_images/menu_counties.gif" style="margin-top: 20px; margin-left: 30px;" usemap="#m_menu_counties" /></h3>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="vertical-align: top;">
+		<h3>Take Courses or Get a Degree Online</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?138-Distance-Education">Distance Learning Options</a></li>
+		<li><span>&raquo;</span> <a href="/?424-Regents-Online-Degree-Program">Regents Online Degree Program</a></li>
+		</ul>
+		</td>
+	</tr>
+</tbody>
+</table>
+<p><map id="m_menu_counties" name="m_menu_counties"><area alt="Loudon County" coords="103,96,106,89,113,86,120,89,123,96,120,103,113,106,106,103,103,96,103,96" href="/?6263-Loudon-County-Center" shape="poly" title="Loudon County" /><br />
+<area alt="Roane County - Main Campus" coords="75,90,78,83,85,80,92,83,95,90,92,97,85,100,78,97,75,90,75,90" href="/?6257-Roane-County-Main-Campus" shape="poly" title="Roane County - Main Campus" /> <area alt="Cumberland County" coords="43,80,46,73,53,70,60,73,63,80,60,87,53,90,46,87,43,80,43,80" href="/?6260-Cumberland-County-Center" shape="poly" title="Cumberland County" /> <area alt="Morgan County" coords="71,63,74,56,81,53,88,56,91,63,88,70,81,73,74,70,71,63,71,63" href="/?6264-Morgan-County-Higher-Education-Center" shape="poly" title="Morgan County" /> <area alt="Oak Ridge" coords="109,62,112,55,119,52,126,55,129,62,126,69,119,72,112,69,109,62,109,62" href="/?6258-Oak-Ridge-Branch-Campus" shape="poly" title="Oak Ridge" /> <area alt="Knox County" coords="128,76,131,69,138,66,145,69,148,76,145,83,138,86,131,83,128,76,128,76" href="/?6262-Knox-County-Center-for-Health-Sciences" shape="poly" title="Knox County" /> <area alt="Campbell County" coords="114,25,117,18,124,15,131,18,134,25,131,32,124,35,117,32,114,25,114,25" href="/?6259-Campbell-County-Center" shape="poly" title="Campbell County" /> <area alt="Scott County" coords="84,26,87,19,94,16,101,19,104,26,101,33,94,36,87,33,84,26,84,26" href="/?6265-Scott-County-Center" shape="poly" title="Scott County" /> <area alt="Fentress County" coords="47,26,50,19,57,16,64,19,67,26,64,33,57,36,50,33,47,26,47,26" href="/?6261-Fentress-County-Center" shape="poly" title="Fentress County" /></map></p>
+</div>
+		</div>
+	
+	
+	<!-- Apply Now -->
+	
+    <!--
+		<div id='layoutMenuBarApplyNowPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent">&nbsp;</div>
+		</div>
+    -->
+	
+	
+	<!-- Faculty & Staff -->	
+
+		<div id='layoutMenuBarFacultyPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Policies</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?394-RSCC-Policies">RSCC Policies</a></li>
+		<li><span>&raquo;</span> <a href="http://www.tbr.edu/policies">TBR Policies</a></li>
+		</ul>
+		<h3>General Resources</h3>
+		<ul>
+		<li><span>&raquo;</span>&nbsp;<a href="/?98-Communicator">Communicator</a></li>
+		<li><span>&raquo;</span> <a href="/?6236-Event-Horizon">Event Horizon</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?266-Institutional-Research-and-Effectiveness">Factbook &amp; Reports</a></li>
+		<li><span>&raquo;</span> <a href="/?5849-Grant-Development">Grant Development</a></li>
+		<li><span>&raquo;</span> <a href="/?250-Help-Desk">Help Desk</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?267-Internal-Audit">Internal Audit</a></li>
+		<li><span>&raquo;</span> <a href="/?5535-Official-Roane-State-Logos-and-Templates">Logos &amp; Templates</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?5430-Outlook-Web-Access">Outlook Web Access</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?6216-RaiderAlert">RaiderAlert</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?6249-SPOL-(Strategic-Planning-Online)">SPOL</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?5427-Webwizard">Webwizard</a></li>
+		</ul>
+		</td>
+		<td style="width: 23px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Business &amp; Finance</h3>
+		<ul>
+		<li><span>&raquo;</span>&nbsp;<a href="https://sharepoint.roanestate.edu/sites/budgetupdate/">Budget News</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?65-Business-Office">Business Office </a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?203-Forms">Business/Finance Forms</a></li>
+		<li><span>&raquo;</span> <a href="https://eprintsrv.roanestate.edu/cgi-bin/eprint.cgi">e~Print</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?6798-Purchasing-Department">Purchasing</a></li>
+		<li><span>&raquo;</span> <a href="/?7671-Surplus-Property">Surplus Property</a></li>
+		</ul>
+		<h3>Travel Information</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?528-Travel-Guide">Forms &amp; Guidelines</a></li>
+		</ul>
+		<h3>Employment</h3>
+		<ul>
+		<li><span>&raquo;</span>&nbsp;<a href="/?5581-Current-Job-Listings">Current Job Openings</a></li>
+		<li><span>&raquo;</span> <a href="/?5576-Holiday-Calendar/Administrative-Closing">Holiday Schedule</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?5574-Human-Resources-Office">Human Resources</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?367-Payroll-Services">Payroll</a></li>
+		</ul>
+		</td>
+		<td style="width: 23px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Faculty Resources</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6553-Academic-Calendar">Academic Calendar</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?7-Academic-Divisions">Academic Divisions</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?114-CTAT">CTAT</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?5488-Disability-Services">Disability Services</a></li>
+		<li><span>&raquo;</span> <a href="/?6200-Faculty-Manuals">Faculty Manuals</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="/?6140-Final-Exam-Schedule">Final Exam Schedule</a></li>
+		<li><span>&raquo;</span> <a href="/?7219-Faculty-FAQ">Learning Center FAQ</a></li>
+		<li><span>&raquo;</span> <a href="/?6573-Faculty-QEP-Website">QEP Website</a></li>
+		</ul>
+		<h3>Committees &amp; Councils</h3>
+		<ul>
+		<li><span>&raquo;</span>&nbsp;<a href="../?6220-Committee-Assignments">Committees</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?191-Faculty-Senate">Faculty Senate</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?507-Support-Staff-Council">Support Staff Council</a></li>
+		</ul>
+		</td>
+		<td style="width: 23px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Activities &amp;<br />
+		Personal Enrichment</h3>
+		<ul>
+		<li><span>&raquo;</span>&nbsp;<a href="../?5454-Athletics">Athletics</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?6477-Expo-Center">Expo Center </a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?207-Fitness-Center">Fitness Center</a></li>
+		<li><span>&raquo;</span> <a href="../?297-Libraries">Library</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?349-Tamke-Allan-Observatory">Observatory</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="../?5585-Roane-State-Presents-%28Theater%29">Theatre/Music/Art </a></li>
+		</ul>
+		<h3>Other Links</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6863-Andersons-Grille">Anderson&#39;s Grille</a></li>
+<!--<li><span>»</span> <a href="/?6061-P-16-Big-South-Fork">P-16 Big South Fork</a></li>-->		<li><span>&raquo;</span>&nbsp;<a href="/?416-Raider-Cafe">Raider Caf&egrave;</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="http://www.tbr.edu/">TBR</a></li>
+		<li><span>&raquo;</span>&nbsp;<a href="http://www.state.tn.us/thec/">THEC</a></li>
+		</ul>
+		</td>
+	</tr>
+</tbody>
+</table></div>
+		</div>
+
+	
+	<!-- Alumni & Community -->
+
+		<div id='layoutMenuBarAlumniPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Alumni Relations Office</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?20-Office-of-Alumni-Relations">Alumni Relations Homepage</a></li>
+		<li><span>&raquo;</span> <a href="/?6962-Alumni-Chapters">Alumni Chapters</a></li>
+		</ul>
+		<h3>Things To Do On Campus</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6477-Expo-Center">Attend an Expo Center Event</a></li>
+		<li><span>&raquo;</span> <a href="/?5585-Roane-State-Presents-(Theater)">Explore Our Performing &amp; Visual Art Program</a></li>
+		<li><span>&raquo;</span> <a href="/?297-Libraries">Take Advantage of Our Library</a></li>
+		<li><span>&raquo;</span> <a href="/?5454-Athletics">Take in a Ballgame</a></li>
+		<li><span>&raquo;</span> <a href="/?207-Fitness-Center">Use Our Fitness Center</a></li>
+		<li><span>&raquo;</span> <a href="/?349-Tamke-Allan-Observatory">Visit the Tamke-Allen Observatory</a></li>
+		</ul>
+		<h3>Transcript Requests</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5365-Records-and-Registration">Available from Records &amp; Registration</a></li>
+		</ul>
+		</td>
+		<td style="width: 30px;">&nbsp;</td>
+		<td style="vertical-align: top;">
+		<h3>Sign Up for Some Classes</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5632-Continuing-Healthcare-Education">Continuing Healthcare Education</a></li>
+		<li><span>&raquo;</span> <a href="/?6729-Community-Outreach-and-Professional-Training">CEU / Training Opportunities</a></li>
+		<li><span>&raquo;</span> <a href="/?470-Schedule-of-Classes-RSCC">Schedule of Classes (Regular College Credit)</a></li>
+		</ul>
+		<h3>Employment at the College</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5574-Human-Resources-Office">Human Resources Office</a></li>
+		</ul>
+		<h3>Support the College</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5871-Roane-State-Foundation">Roane State Foundation</a></li>
+		</ul>
+		</td>
+	</tr>
+</tbody>
+</table></div>
+		</div>
+        
+	
+	<!-- Workforce Connections -->
+
+		<div id='layoutMenuBarBusinessPopup' class='layoutMenuPopup' onMouseOver="layoutMenuTimeoutClear()">
+			<div class="layoutMenuContent"><table border="0" cellpadding="0" cellspacing="0" class="rsccNavigationList">
+<tbody>
+	<tr>
+		<td style="vertical-align: top;">
+		<h3>Advanced Materials Training and Education Center</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?7006-Advanced-Materials-Training-and-Education-Center">Information about the AMTEC Program</a></li>
+		</ul>
+		<h3>CEU / Non-Credit Opportunities for Individuals or Employees</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?5632-Continuing-Healthcare-Education">Continuing Healthcare Education</a></li>
+		<li><span>&raquo;</span> <a href="/?6729-Community-Outreach-and-Professional-Training">Community Outreach &amp; Professional Training</a></li>
+		<li><span>&raquo;</span> <a href="/?6730-Computer-Training">Computer Training</a></li>
+		<li><span>&raquo;</span> <a href="/?6480-Adult-Education">GED Preparation &amp; Classes</a></li>
+		</ul>
+		<h3>Services Provided to Businesses</h3>
+		<ul>
+		<li><span>&raquo;</span> <a href="/?6439-Workforce-Connections-Business-Services">Business Services</a></li>
+		<li><span>&raquo;</span> <a href="/?6944-Small-Business-Development-Center">Business Development</a></li>
+		<li><span>&raquo;</span> <a href="/?6730-Computer-Training">Computer Training</a></li>
+		<li><span>&raquo;</span> <a href="http://www.cumberlandincubator.com/">Cumberland Business Incubator (CBI)</a></li>
+		<li><span>&raquo;</span> <a href="/?6224-Placement">Employer Placement Services</a></li>
+		<li><span>&raquo;</span> <a href="/?5632-Continuing-Healthcare-Education">First Aid / CPR / Blood borne Pathogens</a></li>
+		<li><span>&raquo;</span> <a href="/?5632-Continuing-Healthcare-Education">First Responder</a></li>
+		</ul>
+		</td>
+		<td style="width: 30px;">&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+</tbody>
+</table></div>
+		</div>
+
+	
+</div>
+
+<script>
+
+// Test highlight apply now  (moved from above for dialup timing)
+setTimeout("layoutMenuCloseAll_ApplyNow()", 350);
+
+</script>
+
+
+
+
+
+
+
+<!-- Emergency -->
+<span id="templateEmergency" style='margin-bottom:20px;'></span>
+
+<!-- Weather -->
+<span id="templateWeather" style='margin-bottom:20px;'></span>
+
+<!-- Banner -->
+
+
+
+<!-- Crumbs -->
+
+
+
+<!-- Main Area -->
+
+<!-- Using Content Container -->
+
+
+<!-- Page Content w/o Content Container -->
+<div id="layoutMainArea02" style='background-image:none;clear:both;width:976px;position:relative;left:0px;padding:0;'>
+
+<!-- Page Content Start -->
+	<!-- Home = 6692 -->
+
+<!-- Top -->
+
+<div style='left:0px;width:985px;position:relative;margin-bottom:10px;'>
+
+<div style='float:left;margin-right:5px;'><img src='/_images/indexLeft/1b.jpg' /></div>
+
+<!-- contentRotator -->
+
+<style type="text/css">
+#rotator { position:relative; width:298px; height:233px; overflow:hidden; background-color:black; }
+#rotator .bordermask { position:absolute; z-index:13; left:0; top:0; width:100%; height:100%; background-image:url(/_images/indexContentRotator/overlay.png); background-repeat:no-repeat; cursor:pointer; }
+#rotator .content { display:none; position:absolute; top:0px; left:0px; height:228px; width:100%; }
+#rotator .text { position:absolute; left:0px; bottom:0px; width:286px; padding:4px 6px; color:white; text-align:center; font-weight:bold; font-size:12px; background-image:url(/_images/indexContentRotator/TextBackground.png) }
+#rotator .current { display:block; z-index:10; }
+#rotator .next {display:block; z-index:9;  }
+</style>
+<script type="text/javascript" src="/_functions/jquery/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+var intervalContent = -1;	//for clearing interval
+var forwardingLocation;		//holds link to rotator story
+
+$(document).ready(function(){
+	
+	//assign class of "current" to a content div (as of right now we're doing the first div)
+	var $current = $("#rotator .content:first");
+	$current.addClass("current");
+	
+	//unhide divs (which were hidden to eliminate flicker)
+	$("#rotator .content").show();
+	
+	//create the click event to go to rotator story
+	forwardingLocation = $("#rotator div.current").attr("data-href");  //set the initial location
+	$("#rotator .bordermask").on("click", function() {
+		window.location = forwardingLocation;
+	});
+
+	//cancel animation on mouseover
+	$("#rotator").on("mouseover", function() {
+		clearInterval(intervalContent);
+		intervalContent = -1;
+	});
+	
+	//restart animation on mouseout
+	$("#rotator").on("mouseout", function() {
+		if (intervalContent == -1 ) startAnimation();
+	});
+	
+	//center text vertically
+	$("#rotator .text").each( function() {
+		var heightToAdd = 35 - $(this).innerHeight();  //35 being the minimum height of the text overlay
+		var currentPadTop = parseInt($(this).css("padding-top"));
+		var currentPadBot = parseInt($(this).css("padding-bottom"));
+		if (heightToAdd > 0) {
+			$(this).css("padding-top", currentPadTop + heightToAdd / 2 );
+			$(this).css("padding-bottom", currentPadBot + heightToAdd / 2 );
+		}
+	});
+
+	startAnimation();
+
+});
+
+function startAnimation() {
+	intervalContent = setInterval("contentSwitch()", 5500); //5500 is best
+}
+
+function contentSwitch() {
+	
+	var animationTime = 800;
+	var easingMethod = "swing";
+
+	//find the current element
+    var $current = $("#rotator div.current");
+	
+    //find the next element
+    var $next = $current.next(".content").length ? $current.next(".content") : $("#rotator .content:first");
+	
+	//put the next element under the current one
+	$next.addClass("next");
+	
+	//fade out the current element
+	$current.animate({ opacity: 0.0 }, animationTime, easingMethod, function() {
+		$(this).removeClass("current").css("opacity", 1.0);  //reset all attributes when finished
+		$next.addClass("current").removeClass("next");  //make the next one the current one
+		
+		//update the destination link
+		forwardingLocation = $next.attr("data-href");
+		
+	});	
+
+}
+</script>
+
+<div id="rotator">
+	<div class="bordermask"></div>
+	<div class="content" style="background-image:url(/_images/indexContentRotator/photo_graduation.jpg)" data-href="/?8019">
+		<div class="text">Roane State graduation is May 4-5!</div>
+	</div>
+	<div class="content" style="background-image:url(/_images/indexContentRotator/photo_fafsa.jpg)" data-href="/?7966">
+		<div class="text">Five tips that will help you prevent financial aid stress</div>
+	</div>
+	<div class="content" style="background-image:url(/_images/indexContentRotator/photo_incubator_business.jpg)" data-href="/?8000">
+		<div class="text">Facilities, expertise are reasons LeveragePlus moved into Cumberland Business Incubator</div>
+	</div>
+	<div class="content" style="background-image:url(/_images/indexContentRotator/photo_backroads.jpg)" data-href="/?7977">
+		<div class="text">Roane State communications students develop TV show 'Scenic Backroads'</div>
+	</div>
+</div>
+
+<div style='clear:both'></div>
+</div>
+
+
+<!-- Middle -->
+
+<!--
+<div style='width:985px;position:relative;margin-left:1px;margin-top:5px;border:solid blue 1px;'>
+-->
+<div id="layoutMainArea01"></div>
+<div id="layoutMainArea02">
+
+
+
+<table width=100% border=0 cellpadding=0 cellspacing=0 style="background-color:#FFF;"><tr valign=top>
+
+<!-- 3 Left -->
+
+<td valign='top' style='width:220px;padding:5px 25px 5px 0;'><table border=0>
+					<tr valign=top>
+						<td style='padding-bottom:10px;padding-right:20px;'><a href='/?6958-Admissions-Apply-Now'><img src='/_images/index3Items/3.png' style='margin-top:5px;padding-left:15px;'/></a></td>
+						<td><div style='font-size:16px;margin-bottom:2px;'>Admissions</div>
+							<div style='color:gray;'>Apply to the college / request information.<br />
+								<a href='/?6958-Admissions-Apply-Now'>Learn more</a></div></td>
+					</tr>
+					<tr valign=top>
+						<td style='padding-bottom:10px;'><a href='/?73-RSCC-Catalog'><img src='/_images/index3Items/1.png' style='margin-top:5px;padding-left:0px;'/></a></td>
+						<td><div style='font-size:16px;margin-bottom:2px;'>Catalog</div>
+							<div style='color:gray;'>
+								<!--Find out everything about the college.-->
+								Academic information and much more.<br />
+								<a href='/?73-RSCC-Catalog'>Learn more</a></div></td>
+					</tr>
+					<tr valign=top>
+						<td><a href='/?470-Schedule-of-Classes-RSCC'><img src='/_images/index3Items/2.png' style='margin-top:5px;padding-left: 0px;'/></a></td>
+						<td><div style='font-size:16px;margin-bottom:2px;margin-top:5px;'>Schedule</div>
+							<div style='color:gray;'>What classes are offered this semester?<br />
+								<a href='/?470-Schedule-of-Classes-RSCC'>Learn more</a></div></td>
+					</tr>
+				</table>
+
+
+</td><td style='width:1px;background:#e8e8e8;'></td>
+
+<!-- Dates and Events -->
+
+<td valign='top' style='padding:0px 10px 0px 25px;color:gray;'>
+    
+    <style>
+	#datesEvents { width:355px; height:227px; overflow:hidden; }
+	#datesEvents th { padding-top:10px; padding-bottom:4px; font-size:16px; font-weight:normal; color:black; text-align:left; }
+	#datesEvents td { padding:0px 10px 1px 0px; color:gray; vertical-align:top; }
+	#datesEvents td:first-child { white-space:nowrap; }
+	#datesEvents a { color:gray; text-decoration:none; }
+	#datesEvents a:hover { color:gray; text-decoration:underline }
+	</style>
+
+	<div id='datesEvents'>
+    <table>
+<tbody>
+	<tr>
+		<th colspan="2">
+			Important Dates <a href="/catalog/?id=63" style="font-size:10px;">View All...</a></th>
+	</tr>
+	<tr>
+		<td>Ongoing</td>
+		<td><a href="http://www.roanestate.edu/?7983-Web-registration-opens-April-2-8-am-EST-for-summer-fall">Class registration</a></td>
+	</tr>
+	<tr>
+		<td>May 4-5</td>
+		<td><a href="http://www.roanestate.edu/?97-Commencement">Commencement</a></td>
+	</tr>
+	<tr>
+		<td>May 6</td>
+		<td><a href="http://www.roanestate.edu/?8029-Please-note-fee-deadlines-for-summer">Fee deadline: Maymester</a></td>
+	</tr>
+	<tr>
+		<td>May 31</td>
+		<td><a href="http://www.roanestate.edu/?472-Foundation-Scholarship-Application">Deadline: Foundation scholarships</a></td>
+	</tr>
+	<tr>
+	</tr>
+	<tr>
+		<th colspan="2">
+			Featured Events <a href="/?6457-College-Calendar" style="font-size:10px;">View All...</a></th>
+	</tr>
+	<tr>
+		<td>May 4</td>
+		<td><a href="http://www.roanestate.edu/?7985-Audition-for-Music-Department-scholarships-on-May-4">Auditions: Music scholarships</a></td>
+	</tr>
+	<tr>
+		<td>May 4-6</td>
+		<td><a href="http://www.roanestate.edu/?6497-Events-Calendar">East TN Cutting Horse Association</a></td>
+	</tr>
+	<tr>
+		<td>May 12</td>
+		<td><a href="http://www.roanestate.edu/?8044-United-Way-Family-Fun-Day-CASA-5K-are-May-12-Roane-campus">United Way Family Fun Day, CASA 5K</a></td>
+	</tr>
+	<tr>
+		<td>May 14-21</td>
+		<td><a href="http://www.roanestate.edu/?8024-Registration-is-under-way-for-Wilderness-First-Responder-course">Wilderness First Responder course</a></td>
+	</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+
+    </div>
+
+</td><td style='width:1px;background:#e8e8e8;'></td>
+
+<!-- Announcements -->
+
+<td valign='top' style='width:248px;padding:5px 0 0 25px;'>
+
+	<div style='margin-bottom:5px;font-size:16px;'>Announcements&nbsp;<a href="/announcements.asp" style='font-size:10px;'>View All...</a></div>
+	<div style='margin-bottom:30px;font-size:10px;line-height:14px;'>
+    &raquo;&nbsp;<a href="/?8044-United-Way-Family-Fun-Day-CASA-5K-are-May-12-Roane-campus">United Way Family Fun Day, CASA 5K ...</a><br />&raquo;&nbsp;<a href="/?7956-New-service-gives-students-published-record-of-their-honors-achievements">New service gives students publishe...</a><br />&raquo;&nbsp;<a href="/?8045-Computer-lab-at-Coffey-Library-in-Oak-Ridge-will-be-unavailable-this-summer">Computer lab at Coffey Library in O...</a><br />
+    </div>
+    
+    <div style='margin-bottom:5px;'>I want to be a...</div>
+    <div style='margin-bottom:20px;'>
+        <style> .wantToBeHeading { background-color:#CCC; color:black; font-weight:bold; } </style>
+        <script>
+            wantToBePopup1HTML = "So you want to be an Entrepreneur? Roane State will help you get there. You can choose Roane State's traditional program, or you can choose an option specifically designed for full-time, working adults.<br><br>Select an option below.<br><br><a href='/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT BUSINESS ADMINISTRATION OPTION' style='color:white'>Traditional program</a><br><a href='/keyword.asp?keyword=CONTEMPORARY%20MANAGEMENT%20PROGRAM' style='color:white'>Program for full-time, working adults</a>";
+            wantToBePopup2HTML = "So you want to be a Manager? Roane State will help you get there. You can choose Roane State's traditional program, or you can choose an option specifically designed for full-time, working adults.<br><br>Select an option below.<br><br><a href='/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT BUSINESS MANAGEMENT OPTION' style='color:white'>Traditional program</a><br><a href='/keyword.asp?keyword=CONTEMPORARY%20MANAGEMENT%20PROGRAM' style='color:white'>Program for full-time, working adults</a>";
+            
+            function wantToBeClick() {
+            
+                // Get selection
+                i = document.getElementById("wantToBe").selectedIndex;
+                iVal = document.getElementById("wantToBe").options[i].value;
+                
+                // No item
+                if(iVal == "-" || iVal == "--") { document.getElementById("wantToBe").selectedIndex = 0; document.getElementById("wantToBe").blur(); return; }
+                
+                // Show popup
+                if(iVal == "popup1" || iVal == "popup2") {
+                    wantToBePopupShow();
+                    if(iVal == "popup1") {
+                        document.getElementById("wantToBePopupText").innerHTML = wantToBePopup1HTML;
+                    }
+                    if(iVal == "popup2") {
+                        document.getElementById("wantToBePopupText").innerHTML = wantToBePopup2HTML;
+                    }
+                    document.getElementById("wantToBe").blur();
+                    return;
+                }
+                
+                wantToBePopupHide();
+                
+                // Go to page
+                if(iVal == "page") {
+                    alert("Page link not set! - JCP");
+                    document.getElementById("wantToBe").selectedIndex = 0;
+                    document.getElementById("wantToBe").blur();
+                    return 0;
+                }
+                window.location = iVal;
+            }
+            
+            function wantToBePopupHide() { document.getElementById("wantToBePopup").style.visibility = "hidden"; document.getElementById("wantToBePopupBackground").style.visibility = "hidden"; document.getElementById("wantToBe").selectedIndex = 0; }
+            function wantToBePopupShow() { document.getElementById("wantToBePopup").style.visibility = "visible"; document.getElementById("wantToBePopupBackground").style.visibility = "visible"; }
+        
+        </script>
+        <select name="wantToBe" id="wantToBe" style="font-style:normal; width:225px; border:solid 1px gray; font-family:Verdana; color: black; font-size:12px; font: white; background-color: white;" onChange="wantToBeClick()" >
+            <option value="--" selected>choose your career here</option>
+            <option value="-"></option>
+            <option value="-" class="wantToBeHeading">Business Jobs</option>
+            <option value="/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT ACCOUNTING OPTION">Accounting assistant</option>
+            <option value="/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT ACCOUNTING OPTION">Accounts receivable clerk</option>
+            <option value="/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT ACCOUNTING OPTION">Control clerk</option>
+            <option value="/keyword.asp?keyword=CONTEMPORARY MANAGEMENT PROGRAM">Customer service representative</option>
+            <option value="popup1">Entrepreneur</option>
+            <option value="/keyword.asp?keyword=CONTEMPORARY MANAGEMENT PROGRAM">Human resources assistant</option>
+            <option value="popup2">Manager</option>
+            <option value="/keyword.asp?keyword=CONTEMPORARY MANAGEMENT PROGRAM">Office supervisor</option>
+            <option value="/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT ACCOUNTING OPTION">Payroll clerk</option>
+            <option value="/keyword.asp?keyword=CONTEMPORARY MANAGEMENT PROGRAM">Small business owner/manager</option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Criminal Justice Jobs</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Corrections officer</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Court employee</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Deputy sheriff</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Highway patrol officer</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Law enforcement officer</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Loss prevention agent</option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Public safety professional </option>
+            <option value="/keyword.asp?keyword=CRIMINAL JUSTICE PROGRAM">Security officer </option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Education Jobs</option>
+            <option value="/keyword.asp?keyword=2PLUS2">Elementary school teacher</option>
+            <option value="/keyword.asp?keyword=EDUCATION&keywordSub=EARLY CHILDHOOD EDUCATION PROGRAM">Preschool teacher</option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Emergency Response Jobs</option>
+            <option value="/keyword.asp?keyword=EMS">Emergency medical technician</option>
+            <option value="/keyword.asp?keyword=EMS">Paramedic</option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Healthcare Jobs</option>
+            <option value="/keyword.asp?keyword=DENTAL HYGIENE">Dental hygienist</option>
+            <option value="/keyword.asp?keyword=OPTICIANRY">Eyecare professional</option>
+            <option value="/keyword.asp?keyword=HIT">Health information technician</option>
+            <option value="/keyword.asp?keyword=MSG">Massage therapist</option>
+            <option value="/keyword.asp?keyword=CODING">Medical coder</option>
+            <option value="/keyword.asp?keyword=MDT">Medical transcriptionist</option>
+            <option value="/keyword.asp?keyword=OTA">Occupational therapy assistant</option>
+            <option value="/keyword.asp?keyword=OPTICIANRY">Ophthalmic dispenser</option>
+            <option value="/keyword.asp?keyword=OPTICIANRY">Optician</option>
+            <option value="/keyword.asp?keyword=PHARMACY TECHNICIAN PROGRAM">Pharmacy technician</option>
+            <option value="/keyword.asp?keyword=PTA">Physical therapist assistant</option>
+            <option value="/keyword.asp?keyword=RDT">Radiologic technologist</option>
+            <option value="/keyword.asp?keyword=NURSING PROGRAM">Registered nurse</option>
+            <option value="/keyword.asp?keyword=RTT">Registered respiratory therapist</option>
+            <option value="/keyword.asp?keyword=PSG">Sleep therapist</option>
+            <option value="/keyword.asp?keyword=OPTICIANRY">Vision care technician</option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Legal Jobs</option>
+            <option value="/keyword.asp?keyword=PARALEGAL STUDIES PROGRAM">Paralegal/legal assistant</option>
+            <option value="-"></option>
+            
+            <option value="-" class="wantToBeHeading">Science & Technology Jobs</option>
+            <option value="/keyword.asp?keyword=SOCIAL SCIENCE BUSINESS AND EDUCATION DIVISION&keywordSub=BMT COMPUTER SCIENCE OPTION">Database administrator</option>
+            <option value="/keyword.asp?keyword=ENVIRONMENTAL HEALTH TECHNOLOGY PROGRAM">Environmental compliance officer</option>
+            <option value="/keyword.asp?keyword=GEOGRAPHIC INFORMATION SYSTEM PROGRAM">GIS analyst</option>
+            <option value="/keyword.asp?keyword=ENVIRONMENTAL HEALTH TECHNOLOGY PROGRAM">Radcon technician</option>
+            <option value="/keyword.asp?keyword=ENVIRONMENTAL HEALTH TECHNOLOGY PROGRAM">Industrial hygiene technician</option>
+            <option value="/keyword.asp?keyword=ENVIRONMENTAL HEALTH TECHNOLOGY PROGRAM">Safety and health officer</option>
+            <option value="/keyword.asp?keyword=ENVIRONMENTAL HEALTH TECHNOLOGY PROGRAM">Waste management technician</option>
+            <option value="-"></option>
+            
+            <option value="/keyword.asp?keyword=IWANTTOBETRANSFERPROGRAMS">More careers (transfer programs)</option>
+        </select>
+        <div style="position:relative">
+		<div name="wantToBePopup" id="wantToBePopup" style="visibility:hidden; position:absolute; left:-55px; width:300px;height:120px;  top:10px; padding:10px;  border-style:solid; border-color:white; border-width:1px; color:white; font-size:10px; z-index:30;">
+			<div style="float:right;position:relative; top:-5px; right:-5px; "><a href="javascript:wantToBePopupHide()" style="color:red; font-weight:bold; text-decoration:none;"><img src="/_images/layout_topRSCC_ghgt_iwant.gif" border=0></a></div>
+			<div id="wantToBePopupText" align=left></div>
+		</div>
+		<div name="wantToBePopupBackground" id="wantToBePopupBackground" style="visibility:hidden; position:absolute; left:-55px; opacity:0.8; filter:alpha(opacity=80); padding:10px; width:301px;height:122px;  top:10px; z-index:2; background-color:black;"></div>
+		</div>
+    </div>
+    
+    
+    <div style=''>
+		<table cellspacing=0 cellpadding=0><tr><td><a href="/?7276-40-Years-of-Class"><img src="/40yearsofclass/images/_home.gif" title="40 Years of Class" style="padding-right:15px;" border=0 /></a></td><td><a href="/?7276-40-Years-of-Class" style="color:black; text-decoration:none; ">Join us in celebrating Roane State's 40th Anniversary</a></td></tr></table>
+    </div>
+    
+    </td></tr></table>
+
+</div>
+<div id="layoutMainArea03"></div>
+
+<!-- Footer -->
+
+<div id="layoutFooter">
+	<div class="layoutFooterCol">
+		<h3>Help / Contact Us</h3>
+		<a href="/?6999-Contact-the-CollegeHelp-Center">Visit the Online Help Center</a><br />
+		<a href="/?6924-Roane-State-Campuses">Campus Maps</a><br />
+		<a href="/?6826-Campus-Police">Campus Police</a><br />
+		<a href="/?406-Presidents-Office">President's Welcome</a>
+	</div>
+	
+	<div class="layoutFooterCol">
+        <h3>About RSCC</h3>
+        <a href="/?7000-Accreditation">Accreditation</a><br />
+        <a href="/?5631-College-History">College History</a><br />
+		<a href="/?337-Public-Relations">College News</a><br />
+		<a href="/?6116-Reports-and-Surveys">Fact Book</a>
+    </div>
+    
+    <div class="layoutFooterCol">
+		<h3>&nbsp;</h3>
+		<a href="/?6418-Reporting-Fraud-Waste-and-Abuse">Report Fraud, Waste and Abuse</a><br>
+		<a href="/?136-Digital-Millennium-Copyright-Act-of-1998">Digital Millennium Copyright Act of 1998</a>
+    </div>
+	<div style="float:right; margin-right:20px; padding-top:20px;">
+
+		<img src="/_images/homelogos/_imageMap.png" usemap="#SocialMap">
+		<map name="SocialMap">
+			<area shape="rect" coords="49,0,79,30" href="/?7439-Channel-15" title="Channel 15">
+			<area shape="rect" coords="81,0,112,31" href="http://www.facebook.com/roanestate" title="Roane State on Facebook">
+			<area shape="rect" coords="112,0,145,31" href="http://twitter.com/roanestate" title="Roane State on Twitter">
+			<area shape="rect" coords="145,0,178,31" href="http://www.youtube.com/roanestatecc" title="Roane State on YouTube">
+			<area shape="rect" coords="80,33,177,48" href="http://www.roanestate.edu/?6216-RaiderAlert" title="Raider Alert">
+		</map>
+
+</div>
+    <div style='clear:both'></div>
+</div>
+<!-- Page Content End -->
+</div>
+
+
+
+
+
+
+<!-- Copyright -->
+
+<div id="layoutCopyright"><a href='/help/' style='color:#B9B9B9;'>Contact Us!</a>&nbsp;&nbsp;<a href='/m/mobile.asp?toggle=1' style='color:#B9B9B9;'>Mobile Site</a>&nbsp;&nbsp;&copy; Roane State Community College
+	
+			<a href='http://www.tntransferpathway.org/'><img src='/_images/pathway.gif' border=0 title='Tennessee Board of Regents / Tennessee Transfer Pathways' style='vertical-align:middle;padding-bottom:8px;padding-left:15px;'/></a>
+    	<a href='http://www.rodp.org'><img src='/_images/rodp.gif' border=0 title='Tennessee Board of Regents / Regents Online Campus Collaborative (ROCC)' style='vertical-align:middle;padding-bottom:10px;padding-left:5px;'/></a>
+	
+</div>
+
+<!-- layoutNonDiscrimination -->
+
+<div id="layoutNonDiscrimination">
+	Roane State Community College is a TBR and AA/EEO employer and does not discriminate<br />
+	on the basis of race, color, national origin, sex, disability or age in its<br />
+	programs and activities. <a href="/?7876-Non-discrimination-Employment-Policy">View full non-discrimination policy</a>.
+</div>
+
+
+</div>
+
+
+<script>
+document.getElementById("layoutSearchBox").value = "Search";
+
+function layoutSearchClick(elem) {
+	if(elem.value == "Search") { elem.value = ""; elem.style.color = "black"; }
+}
+
+function layoutSearchBlur(elem) {
+	if(elem.value == "") { elem.value = "Search"; elem.style.color = "gray"; }
+}
+
+//change background color here to eliminate IE flicker
+//setTimeout("document.body.style.backgroundColor = '#000'", 1000);
+
+// TEST
+//layoutMenuItemOver("layoutMenuBarStudentResources");
+
+if(document.getElementById("layoutSidebarLinkAnchor") != null && document.getElementById("wwLinks") != null) {
+	document.getElementById("layoutSidebarLinkAnchorHeader").style.display = "block";
+	document.getElementById("layoutSidebarLinkAnchor").style.display = "block";		
+	
+	document.getElementById("layoutSidebarLinkAnchor").innerHTML = "<ul>" + document.getElementById("wwLinks").innerHTML + "</ul>";
+	
+	document.getElementById("wwLinks").innerHTML = "";
+	document.getElementById("wwLinks").style.display = "none";
+	document.getElementById("wwLinks").parentNode.removeChild(document.getElementById("wwLinks"));  // Destroy object so that first-child is seen correctly
+}
+
+//preload popups
+var pl_img1 = new Image(); 
+pl_img1.src = "/_images/menuPopup.png";
+var pl_img2 = new Image(); 
+pl_img2.src = "/_images/menuPopup_wide.png";
+var pl_img3 = new Image(); 
+pl_img3.src = "/_images/menuPopup_widest.png";
+
+</script>
+
+
+
+<!--  GOOGLE -->
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12099813-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!-- --------- -->
+
+
+
+</body>
+</html>
+
+

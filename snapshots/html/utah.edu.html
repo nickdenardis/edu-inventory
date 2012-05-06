@@ -1,0 +1,1244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <title>The University of Utah</title>
+		<!-- com.omniupdate.properties -->
+		<meta name="keywords"
+         content="future students, students, faculty, staff, visitors, alumni, about the U, academics, research, arts, outreach, healthcare, athletics, give to the U"/>
+		<meta name="description"
+         content="Founded in 1850, The University of Utah is the flagship institution of higher learning in Utah, and offers over 100 undergraduate and more than 90 graduate degree programs to over 30,000 students. As a preeminent research and teaching institution, the University cultivates an academic environment in which the highest standards of intellectual integrity and scholarship are practiced.  "/>
+		<!-- /com.omniupdate.properties -->
+		<meta name="robots" content="index,follow"/>
+	  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+   <link href="/style/reset.css" rel="stylesheet" type="text/css" media="all"/>
+   <link href="/style/ez.css" rel="stylesheet" type="text/css" media="all"/>
+   <link href="/style/main.css" rel="stylesheet" type="text/css" media="all"/>
+   <link href="/style/banner.css" rel="stylesheet" type="text/css" media="all"/>
+   <link href="/style/home.css" rel="stylesheet" type="text/css" media="all"/>
+   <link href="/scripts/fancybox/jquery.fancybox-1.3.4.css" rel="stylesheet"
+         type="text/css"
+         media="screen"/>
+   <script type="text/javascript"
+           src="http://javascript.utah.edu/jquery/jquery-1.6.2.min.js">//</script>
+   <script type="text/javascript" src="/scripts/fancybox/jquery.fancybox-1.3.4.js">//</script>
+   <script type="text/javascript" src="/scripts/fancybox/jquery.easing-1.3.pack.js">//</script>
+   <script type="text/javascript"
+           src="http://javascript.utah.edu/jquery/watermark/3.1.1/jquery.watermark.min.js">//</script>
+   <script type="text/javascript" src="/scripts/jquery.cycle.js">//</script>
+   <script type="text/javascript" src="/scripts/megamenu.js">//</script>
+   <script type="text/javascript" src="/scripts/curvycorners.js">//</script>
+   <script type="text/javascript" src="/scripts/calpopup.js">//</script>
+   <script type="text/javascript" src="/scripts/webtrends.js">//</script>
+   <script type="text/javascript">
+	  $(document).ready(function() { 
+	    $('div.ss').removeClass('nojs'); //test for javascript
+	    //initialise slideshow plugin
+	    $('.ss').cycle({
+	      fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	      pager:  '#ss_pages',
+	      timeout: 12000,  // milliseconds between slide transitions (0 to disable auto advance)
+	      slideExpr: 'img'
+	    });
+	  });
+		
+		//slide controls
+	  var strAniPlay="play";
+	  var strAniPause="pause";
+	  var strAniText=strAniPause;
+	
+	  function ssToggle() {
+	    $('.ss').cycle('toggle');
+	    if (strAniText==strAniPlay){
+	      strAniText = strAniPause;
+	    }else{
+	      strAniText = strAniPlay;
+	    }
+	    document.getElementById('ssToggle_text').innerHTML = strAniText;
+	  }
+	</script>
+   <script type="text/javascript">
+	  $(document).ready(function() {
+	    $(".opener").each(function() {
+	      var dWidth  = parseInt($(this).attr('href').match(/width=[0-9]+/i)[0].replace('width=',''));   
+	      var dHeight     =  parseInt($(this).attr('href').match(/height=[0-9]+/i)[0].replace('height=',''));   
+	  
+	      //alert("width is "+dWidth+" and height is "+dHeight);
+	      $(this).fancybox({   
+	        'width'			: dWidth,
+	        'height'		: dHeight,
+	        'autoScale'		: false,
+	        'transitionIn'		: 'elastic',
+	        'transitionOut'		: 'none',
+	        'type'			: 'iframe',
+	        'scrolling'		: 'no',
+	        'titlePosition'		: 'outside',
+	        'overlayColor'		: '#000',
+	        'overlayOpacity'	: 0.7
+	      });
+	    });
+	  });
+		
+	</script>
+   <script type="text/javascript">
+	
+	<!--
+	function MM_swapImgRestore() { //v3.0
+	  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+	}
+	function MM_preloadImages() { //v3.0
+	  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+	    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+	    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+	}
+	
+	function MM_findObj(n, d) { //v4.01
+	  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+	    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+	  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+	  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+	  if(!x && d.getElementById) x=d.getElementById(n); return x;
+	}
+	
+	function MM_swapImage() { //v3.0
+	  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+	   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+	}
+	//-->
+	
+	</script>
+<!--[if IE 7]><link href="/style/ie7.css" rel="stylesheet" type="text/css"/><![endif]-->
+<!--[if IE 8]><link href="/style/ie8.css" rel="stylesheet" type="text/css"/><![endif]-->
+<script type="text/javascript" src="/scripts/directedit.js">//</script>
+  </head>
+<body class="home"
+      onload="directedit();MM_preloadImages('/images/buttons/btn_apply_over.png','/images/buttons/btn_info_over.png','/images/buttons/btn_visit_over.png','/images/buttons/btn_dates_over.png','/images/buttons/btn_pup_over.png','/images/buttons/btn_umail_over.png','/images/buttons/btn_cis_over.png','/images/buttons/btn_courseInfo_over.png','/images/buttons/btn_kronos_over.png','/images/buttons/btn_far_over.png','/images/buttons/btn_ucard_over.png','/images/buttons/btn_recreation_over.png','/images/buttons/btn_facts_over.png','/images/buttons/btn_awards_over.png','/images/buttons/btn_photos_over.png','/images/buttons/btn_researcher_over.png','/images/buttons/btn_join_over.png','/images/buttons/btn_ulink_over.png','/images/buttons/btn_muss_over.png','/images/buttons/btn_directory_over.png','/images/buttons/btn_update_over.png','/images/buttons/facebook-btn-24px-over.png','/images/buttons/twitter-btn-24px-over.png','/images/buttons/RT-blog-24px-over.png','/images/buttons/RSS-btn-24px-over.png','/images/buttons/flickr-btn-24px-over.png')">
+   <div class="shadowWrapper">
+      <div class="ez-mw wrapper"><!-- com.omniupdate.div label="header" path="/includes/header.php"--><!-- This is the skip link itself, ideally placed right at the start of the page -->
+<div id="skiplinkholder">
+<p><a href="#skiptarget" id="stickyMenuFix"></a><a id="skiplink" href="#skiptarget">Skip to main content.</a></p>
+</div>
+<!-- End of the skip link -->
+<div class="ez-wr header">
+<div class="ez-fl ez-negmr ez-33">
+<div class="ez-box headerLeft">
+          <a href="/"><img src="/images/header/Ulogo.png" alt="The University of Utah" width="200" height="65" /></a>
+        </div>
+<!-- end headerLeft -->
+      </div>
+<div class="ez-last ez-oh">
+<div class="ez-box headerRight">
+<div>
+            
+<ul>
+<li><a href="/a-z/">A-Z Index</a></li>
+<li><a href="http://people.utah.edu/uWho/basic.hml">Directory</a></li>
+<li><a href="http://www.map.utah.edu/?WT.svl=map_topnav">Map</a></li>
+<li><a href="http://www.events.utah.edu/?WT.svl=events_topnav">Events</a></li>
+<li><a href="http://www.employment.utah.edu/">Employment</a></li>
+</ul>
+</div>
+<form action="http://www.utah.edu/scripts/searchpage.php" method="get" name="search">
+	<div id="searchwrapper">
+              <label for="s">Search</label>
+              <input id="s" class="searchbox" name="s" type="text" />
+<div id="searchChoice">|
+                <label for="searchSelect">Choose</label>
+                <select name="searchSelect" id="searchSelect">
+                  <option selected="selected" value="web">Choose</option>
+                  <option value="website">Website</option>
+                  <option value="employee">Faculty/Staff</option>
+                  <option value="students">Students</option>
+                  <option value="department">Departments</option>
+               </select>
+              </div>
+             <div class="searchbox_submit">
+<input alt="search" src="/images/header/searchBtn.gif" type="image" />
+             </div>
+        </div>
+          </form>
+<!-- end #searchwrapper -->
+        </div>
+<!-- end headerRight -->
+      </div>
+</div>
+<!-- end header -->
+<!-- /com.omniupdate.div --><div id="banner">
+            <div id="bannerTop">
+               <ul id="navTop">
+                  <li>
+                     <a href="/futurestudents/">Future Students</a>
+                     <!-- com.omniupdate.div label="futurenav" path="/includes/megamenu/future.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="/futurestudents/academics/">Academics</a></li>
+<li><a href="http://www.sa.utah.edu/Advise/home/major-exploration/majors.aspx">Majors &amp; Programs</a></li>
+<li><a href="/academics/colleges.php">Colleges &amp; Departments</a></li>
+<li><a href="http://www.sa.utah.edu/Advise/home.aspx">Advising</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="/futurestudents/cost/">Costs &amp; Finances</a></li>
+<li><a href="http://fbs.admin.utah.edu/income/">Tuition &amp; Fees</a></li>
+<li><a href="http://financialaid.utah.edu/">Financial Aid &amp; Scholarships</a></li>
+<li><a href="http://www.studentjobs.utah.edu/">Jobs</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="/futurestudents/studentlife/">Student Life</a></li>
+<li><a href="http://www.housing.utah.edu/">Housing</a></li>
+<li><a href="http://www.asuu.utah.edu/get-involved/">Get Involved</a></li>
+<li><a href="http://www.asuu.utah.edu/student-groups/">Clubs &amp; Organizations</a></li>
+<li><a href="http://campusrec.utah.edu/">Recreation</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://admissions.utah.edu/">Admissions</a></li>
+<li><a href="http://admissions.utah.edu/undergraduate/">Undergraduate</a></li>
+<li><a href="http://admissions.utah.edu/graduate/">Graduate</a></li>
+<li><a href="http://admissions.utah.edu/international/">International</a></li>
+<li><a href="http://admissions.utah.edu/undergraduate/transfer/">Transfer</a></li>
+<li><a href="http://admissions.utah.edu/residency/">Residency</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="/futurestudents/roadmap/">Your Roadmap to the U</a></li>
+<li class="listHeading"><a href="http://www.sa.utah.edu/orientation/">New Student Orientation</a></li>
+<li class="listHeading"><a href="http://parents.utah.edu/">Parents &amp; Family</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="/about/">About the U</a></li>
+<li><a href="http://experience.utah.edu/">Experience the U</a></li>
+<li><a href="http://unews.utah.edu/rankings">Rankings</a></li>
+<li><a href="http://infact.utah.edu/">Facts &amp; History</a></li>
+<li><a href="http://www.utah.com/saltlake/">About Salt Lake City &amp; Utah</a></li>
+<li><a href="http://www.diversity.utah.edu/">Diversity</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="http://www.research.utah.edu/">Research Opportunities</a></li>
+<li><a href="http://www.research.utah.edu/undergraduate/index.html">Undergraduate</a></li>
+<li><a href="http://www.research.utah.edu/graduate/index.html">Graduate</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Get Started</li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_future_info','','/images/buttons/btn_info_over.png',1)" onmouseout="MM_swapImgRestore()" href="/futurestudents/requestinfo/"><img id="meta_future_info" src="/images/buttons/btn_info.png" border="0" alt="Request Information" width="40" height="40" /><span>Request Information</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_future_visit','','/images/buttons/btn_visit_over.png',1)" onmouseout="MM_swapImgRestore()" href="/futurestudents/visit/"><img id="meta_future_visit" src="/images/buttons/btn_visit.png" alt="Schedule a Visit" width="40" height="40" /><span>Schedule a Visit</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_future_apply','','/images/buttons/btn_apply_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://admissions.utah.edu/apply/"><img id="meta_future_apply" src="/images/buttons/btn_apply.png" border="0" alt="Apply" width="40" height="40" /><span>Apply for Admission</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_future_dates','','../images/buttons/btn-track-app-40px_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://admissions.utah.edu/track/"><img id="meta_future_dates" style="border: 0px;" src="/images/buttons/btn-track-app-40px.png" alt="Track Your Application" width="40" height="40" /><span>Track Your Application</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('meta_future_pup','','/images/buttons/u-vip-40-over.png',1)" onmouseout="MM_swapImgRestore()" href="http://utah.askadmissions.net/Vip/"><img id="meta_future_pup" src="/images/buttons/u-vip-40.png" alt="Login to My U-VIP Page" width="40" height="40" /><span>Login to My U-VIP Page</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/futurestudents/">More Future Students Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/students/">Students</a>
+                     <!-- com.omniupdate.div label="studentsnav" path="/includes/megamenu/students.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Advising &amp; Majors</li>
+<li><a href="http://www.sa.utah.edu/Advise/home/major-exploration/majors/majorsa-z.aspx">Majors A-Z</a></li>
+<li><a href="http://www.sa.utah.edu/Advise/home/major-exploration/majors.aspx">Majors Listed by College</a></li>
+<li><a href="http://www.sa.utah.edu/Advise/home.aspx">Undergraduate Advising</a></li>
+<li><a href="http://www.gradschool.utah.edu/">Graduate School</a></li>
+<li><a href="http://careers.utah.edu/">Career Services</a></li>
+</ul>
+<ul>
+<li class="listHeading">Classes &amp; Registration</li>
+<li><a href="/students/catalog.php">Class Schedules</a></li>
+<li><a href="/students/catalog.php">General Catalog</a></li>
+<li><a href="http://registrar.utah.edu/">Registrar's Office</a></li>
+<li><a href="http://registrar.utah.edu/handbook/index.php">Student Handbook</a></li>
+<li><a href="http://registrar.utah.edu/privacy.php">Student Privacy Rights (FERPA)</a></li>
+<li><a href="http://registrar.utah.edu/transcripts/index.php">Transcripts</a></li>
+<li><a href="http://www.bookstore.utah.edu/utah/home.aspx">Campus Bookstore</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="/academics/colleges.php">Colleges &amp; Departments</a></li>
+<li class="listHeading">Costs &amp; Finances</li>
+<li><a href="http://fbs.admin.utah.edu/income/">Tuition &amp; Fees</a></li>
+<li><a href="http://financialaid.utah.edu/">Financial Aid &amp; Scholarships</a></li>
+<li><a href="http://www.employment.utah.edu/students/">Jobs</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="/students/services.php">Student Services</a></li>
+<li class="listHeading"><a href="http://parents.utah.edu/">Parents &amp; Family</a></li>
+</ul>
+<ul>
+<li class="listHeading">Libraries</li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Campus Life</li>
+<li><a href="http://getinvolved.asuu.utah.edu/">Get Involved!</a></li>
+<li><a href="http://www.asuu.utah.edu/">ASUU</a></li>
+<li><a href="http://web.utah.edu/campusrec/">Campus Recreation</a></li>
+<li><a href="http://www.alumni.utah.edu/muss/membership/">The MUSS</a></li>
+<li><a href="http://www.dailyutahchronicle.com/">Daily Utah Chronicle</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="http://www.map.utah.edu/index.html">Getting To Campus</a></li>
+<li><a href="http://www.commuterservices.utah.edu/parking/index.html">Parking</a></li>
+<li><a href="http://www.commuterservices.utah.edu/info/guide.html">Trax, Bike, Bus</a></li>
+<li><a href="http://www.commuterservices.utah.edu/transportation/URideshare.html">U Rideshare</a></li>
+<li><a href="http://www.commuterservices.utah.edu/transportation/shuttles/index.html">Campus Shuttles</a></li>
+<li><a href="http://www.commuterservices.utah.edu/info/videos.html">Getting to Campus Videos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_students_u_mail','','/images/buttons/btn_umail_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.umail.utah.edu/"><img id="meta_students_u_mail" src="/images/buttons/btn_umail.png" border="0" alt="U Mail" /><span>U Mail</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('meta_students_cis','','/images/buttons/btn_cis_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://gate.acs.utah.edu/"><img id="meta_students_cis" src="/images/buttons/btn_cis.png" border="0" alt="Campus Information System" width="40" height="40" /><span>Campus Information<br />Services</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_students_courses','','/images/buttons/btn_courseInfo_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://webct.utah.edu/"><img id="meta_students_courses" src="/images/buttons/btn_courseInfo.png" border="0" alt="WebCT" width="40" height="40" /><span>My Classes / WebCT</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_students_dates','','/images/buttons/btn_dates_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://registrar.utah.edu/academic-calendars/index.php"><img id="meta_students_dates" src="/images/buttons/btn_dates.png" border="0" alt="Calendar" width="40" height="40" /><span>Academic Calendar</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_students_ucard','','/images/buttons/btn_ucard_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://www.ucard.utah.edu/"><img id="meta_students_ucard" src="/images/buttons/btn_ucard.png" border="0" alt="WebCT" width="40" height="40" /><span>UCard</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/students/">More Students Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/faculty/">Faculty</a>
+                     <!-- com.omniupdate.div label="facultynav" path="/includes/megamenu/faculty.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="/faculty/">Faculty Resources</a></li>
+<li><a href="http://admin.utah.edu/academic-senate">Academic Senate</a></li>
+<li><a href="http://admin.utah.edu/">University Administration</a></li>
+<li><a href="http://admin.utah.edu/academic-affairs">V.P. for Academic Affairs</a></li>
+<li><a href="http://admin.utah.edu/faculty-handbook">Faculty Handbook</a></li>
+<li><a href="http://www.ctle.utah.edu/">Center for Teaching &amp;<br />Learning Excellence</a></li>
+<li><a href="http://www.tacc.utah.edu/">Technology Assisted Curriculum<br />Center (TACC)</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading"><a href="/research/">Research</a></li>
+<li><a href="http://www.research.utah.edu/">VP for Research</a></li>
+<li><a href="http://www.research.utah.edu/funding/">Funding Opportunities</a></li>
+<li><a href="http://www.research.utah.edu/funding/grantWriting.html">Applying for Grants</a></li>
+<li><a href="http://www.unite.utah.edu/">Unite Collaboration System</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.employment.utah.edu/">Employment Opportunities</a></li>
+<li><a href="http://www.employment.utah.edu/faculty/index.html">Faculty Employment</a></li>
+<li><a href="http://healthcare.utah.edu/careers/">University Health Care Employment</a></li>
+<li><a title="Faculty Diversity" href="http://www.diversity.utah.edu/faculty/">Faculty Diversity, Hiring &amp; Recruitment </a></li>
+<li><a href="http://www.hr.utah.edu/ben/">Employee Benefits</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading"><a href="/faculty/services.php">Employee Services</a></li>
+<li><a href="http://www.hr.utah.edu/">Human Resources</a></li>
+<li><a href="http://healthcare.utah.edu/careers/">University Health Care<br />Human Resources</a></li>
+<li><a href="http://www.oeo.utah.edu/">Office of Equal Opportunity &amp;<br />Affirmative Action</a></li>
+<li><a href="http://www.diversity.utah.edu/faculty/">Office for Equity and Diversity</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Academics</li>
+<li><a href="http://www.sa.utah.edu/Advise/home/major-exploration/majors.aspx">Majors &amp; Programs</a></li>
+<li><a href="/academics/colleges.php">Colleges &amp; Departments</a></li>
+<li><a href="http://www.sa.utah.edu/Advise/home.aspx">Advising</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.it.utah.edu/index.html">IT Services</a></li>
+<li><a href="http://www.it.utah.edu/services/helpDesk/index.html">Campus Help Desk</a></li>
+<li><a href="https://software.utah.edu/">Software Licensing</a></li>
+<li><a href="http://www.it.utah.edu/index.html">University Information Technology</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading">Libraries</li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_faculty_umail','','/images/buttons/btn_umail_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.umail.utah.edu/"><img id="meta_faculty_umail" src="/images/buttons/btn_umail.png" border="0" alt="U Mail" width="40" height="40" /><span>U Mail</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('meta_faculty_cis','','/images/buttons/btn_cis_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://gate.acs.utah.edu/"><img id="meta_faculty_cis" src="/images/buttons/btn_cis.png" border="0" alt="Campus Information System" width="40" height="40" /><span>Campus Information<br />Services</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_faculty_courses','','/images/buttons/btn_courseInfo_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://webct.utah.edu/"><img id="meta_faculty_courses" src="/images/buttons/btn_courseInfo.png" border="0" alt="WebCT" width="40" height="40" /><span>My Classes / WebCT</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_faculty_far','','/images/buttons/btn_far_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://faculty.utah.edu/activityreport/"><img id="meta_faculty_far" src="/images/buttons/btn_far.png" border="0" alt="Faculty Activity Report" width="40" height="40" /><span>Faculty Activity Report</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_research_find','','/images/buttons/btn_researcher_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://faculty.utah.edu/findaresearcher/"><img id="meta_research_find" src="/images/buttons/btn_researcher.png" border="0" alt="Find a Researcher" width="40" height="40" /><span>Find a Researcher</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/faculty/">More Faculty Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/staff/">Staff</a>
+                     <!-- com.omniupdate.div label="staffnav" path="/includes/megamenu/staff.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="/faculty/services.php">Employee Services</a></li>
+<li><a href="http://www.commuterservices.utah.edu/">Commuter Services</a></li>
+<li><a href="http://www.oeo.utah.edu/">Office of Equal Opportunity &amp;<br />Affirmative Action</a></li>
+<li><a href="http://www.diversity.utah.edu/">Office for Equity and Diversity</a></li>
+<li><a href="http://www.regulations.utah.edu/">Regulations Library</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.hr.utah.edu">Human Resources</a></li>
+<li><a href="http://www.hr.utah.edu/ben/">Employee Benefits</a></li>
+<li><a href="http://www.hr.utah.edu/comp/jobdescriptions/">Compensation Job Descriptions</a></li>
+<li><a href="http://www.hr.utah.edu/ben/summ/standard">Benefit Program Overviews</a></li>
+<li><a href="http://www.hr.utah.edu/forms">HR Forms</a></li>
+<li><a href="http://healthcare.utah.edu/careers/">University Healthcare HR</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.employment.utah.edu/">Employment Opportunities</a></li>
+<li><a href="http://www.employment.utah.edu/staff/index.html">Staff Employment</a></li>
+<li><a href="http://healthcare.utah.edu/careers/">U Health Care Employment</a></li>
+<li><a href="http://www.employment.utah.edu/">Careers at the U</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading"><a href="/faculty/services.php">Business Services</a></li>
+<li><a href="http://fbs.admin.utah.edu/administrators-resources/">Administrators Resources</a></li>
+<li><a href="http://fbs.admin.utah.edu/purchasing/">Purchasing</a></li>
+<li><a href="http://www.stores.utah.edu/">General Stores</a></li>
+<li><a href="http://facilities.utah.edu/">Facilities Management</a></li>
+<li><a href="http://fbs.admin.utah.edu/travel/">Travel</a></li>
+<li><a href="http://fbs.admin.utah.edu/">Financial &amp; Business Services</a></li>
+<li><a href="http://www.printing.utah.edu/">Print &amp; Mail Services</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.it.utah.edu/index.html">IT Services</a></li>
+<li><a href="http://www.it.utah.edu/services/helpDesk/index.html">Campus Help Desk</a></li>
+<li><a href="https://software.utah.edu/">Software Licensing</a></li>
+<li><a href="http://www.it.utah.edu/services/phones/index.html">Telephone &amp; Voice Services</a></li>
+<li><a href="http://www.it.utah.edu/index.html">University Information Technology</a></li>
+</ul>
+<ul class="headingTop">
+<li class="listHeading">Libraries</li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_staff_umail','','/images/buttons/btn_umail_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.umail.utah.edu/"><img id="meta_staff_umail" src="/images/buttons/btn_umail.png" border="0" alt="U Mail" width="40" height="40" /><span>U Mail</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('meta_staff_cis','','/images/buttons/btn_cis_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://gate.acs.utah.edu/"><img id="meta_staff_cis" src="/images/buttons/btn_cis.png" border="0" alt="Campus Information System" width="40" height="40" /><span>Campus Information<br />Services</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_staff_courses','','/images/buttons/btn_courseInfo_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://webct.utah.edu/"><img id="meta_staff_courses" src="/images/buttons/btn_courseInfo.png" border="0" alt="WebCT" width="40" height="40" /><span>My Classes / WebCT</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_staff_kronos','','/images/buttons/btn_kronos_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.kronos.utah.edu/"><img id="meta_staff_kronos" src="/images/buttons/btn_kronos.png" border="0" alt="Kronos" width="40" height="40" /><span>Kronos</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/staff/">More Staff Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/visitors/">Visitors</a>
+                     <!-- com.omniupdate.div label="visitorsnav" path="/includes/megamenu/visitors.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column visitors">
+<li>
+<ul>
+<li><strong>Our educational habitat is breathtakingly beautiful.</strong></li>
+<li>We are only minutes from rugged mountain bike trails or downtown amenities; the Utah State Capitol, the rich cultural history of the Western pioneers, and the allure of a modern metropolis await.</li>
+<li><img src="/images/banner/visitors/kingsbury.jpg" alt="Kingsbury Hall" width="200" height="110" /></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-50 column visitors_mid">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://web.utah.edu/newstudents/visit.htm">Parents &amp; Students</a></li>
+<li class="listHeading"><a href="/arts/">Arts &amp; Culture</a></li>
+<li class="listHeading"><a href="http://utahutes.cstv.com/">Athletics</a></li>
+<li class="listHeading"><a href="http://www.events.utah.edu/">Calendar of Events</a></li>
+</ul>
+<ul>
+<li class="listHeading">Getting to the U</li>
+<li><a href="/directions/">Directions to Campus</a></li>
+<li><a href="http://www.commuterservices.utah.edu/parking/index.html">Parking</a></li>
+<li><a href="http://www.map.utah.edu/">Campus Map</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh  last column">
+<li><br />
+<ul class="headingTop">
+<li class="megaButton"><a onmouseover="MM_swapImage('mega_visitors_facts','','/images/buttons/btn_facts_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://infact.utah.edu/"><img id="mega_visitors_facts" src="/images/buttons/btn_facts.png" border="0" alt="Facts and History" width="40" height="40" /><span>Facts &amp; History</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('mega_visitors_awards','','/images/buttons/btn_awards_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://unews.utah.edu/rankings"><img id="mega_visitors_awards" src="/images/buttons/btn_awards.png" border="0" alt="Rankings and Awards" width="40" height="40" /><span>Rankings &amp; Awards</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('mega_visitors_photos','','/images/buttons/btn_photos_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://photos.utah.edu/"><img id="mega_visitors_photos" src="/images/buttons/btn_photos.png" border="0" alt="Campus Photo Tour" width="40" height="40" /><span>Campus Photo <br />Tour</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/visitors/">More Visitors Info</a></li>
+</ul>
+</div>
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="http://www.alumni.utah.edu/">Alumni</a>
+                     <!-- com.omniupdate.div label="almuninav" path="/includes/megamenu/alumni.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li><img style="margin: 0 0 10px 20px; display: block;" src="/images/banner/alumni/alumni-stacked-logo-sml.png" alt="Alumni Association - The University of Utah" width="130" height="90" /></li>
+<li>Forging and preserving lifelong relationships with alumni, students and the community</li>
+<li><img style="margin: 5px auto;" src="/images/banner/alumni/alumni-students.jpg" alt="college students" width="190" height="105" /></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Engage</li>
+<li><a href="https://secure.imodules.com/s/1077/membership.aspx?sid=1077&amp;gid=1&amp;pgid=201&amp;type=2&amp;cid=666">Become a Member!</a></li>
+<li><a href="http://www.alumni.utah.edu/muss/membership/">The MUSS</a></li>
+<li><a href="https://secure.imodules.com/s/1077/subgroup-start.aspx?sid=1077&amp;gid=1&amp;pgid=365">Chapter and Regional Events</a></li>
+<li><a href="http://www.alumni.utah.edu/travel/">Travel</a></li>
+<li><a href="http://continuum.utah.edu/">Continuum</a></li>
+<li><a href="http://www.alumni.utah.edu/u-news">Alumni Connection</a></li>
+</ul>
+<ul>
+<li class="listHeading">Advance Your Career</li>
+<li><a href="http://www.alumni.utah.edu/career/">Alumni Career Services</a></li>
+<li class="listHeading">Volunteer</li>
+<li><a href="http://www.alumni.utah.edu/boards/">Boards</a></li>
+<li><a href="http://www.alumni.utah.edu/advocacy/">Advocacy</a></li>
+<li><a href="http://www.alumni.utah.edu/awards/">Alumni Recognition</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Connect</li>
+<li><a href="http://ulink.utah.edu/">ULink Alumni Community</a></li>
+<li class="listHeading">Services</li>
+<li><a href="http://www.alumni.utah.edu/rent/">Alumni House Facility Rental</a></li>
+<li><a href="https://www.alumni.utah.edu/services/">Alumni Credit Card</a></li>
+<li><a href="http://www.alumni.utah.edu/services/?display=insurance-program.html">Alumni Health &amp; Auto Insurance</a></li>
+<li class="listHeading">Association Scholarships</li>
+<li><a href="http://www.alumni.utah.edu/scholarships/">Apply Now!</a></li>
+<li class="listHeading">Give</li>
+<li><a href="http://www.alumni.utah.edu/services/?display=license-plate.html">U of U License Plates</a></li>
+<li><a href="http://www.alumni.utah.edu/contact-us/?display=sponsorship.php">Sponsorship Opportunities</a></li>
+<li><a href="https://umarket.utah.edu/development/form.tpl?ckd=17&amp;id=91853&amp;addinfo=Appeal%2002294%20-%20Department%20Web%20Donation">Make a Gift</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_alumni_join','','/images/buttons/btn_join_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.alumni.utah.edu/membership-forms/?display=MembershipForm.php"><img id="meta_alumni_join" style="border: 0pt none;" src="/images/buttons/btn_join.png" alt="Join Now" width="40" height="40" /><span>Join/Renew Now</span></a></li>
+<li class="megaButton lineWrap"><a onmouseover="MM_swapImage('meta_alumni_link','','/images/buttons/btn_ulink_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://ulink.utah.edu"><img id="meta_alumni_link" style="border: 0pt none;" src="/images/buttons/btn_ulink.png" alt="ULink Alumni" width="40" height="40" /><span>ULink Alumni <br /> Community</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_alumni_muss','','/images/buttons/btn_muss_over.png',1)" onmouseout="MM_swapImgRestore()" href="http://www.alumni.utah.edu/muss"><img id="meta_alumni_muss" style="border: 0pt none;" src="/images/buttons/btn_muss.png" alt="The MUSS" width="40" height="40" /><span>The MUSS</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_alumni_directory','','/images/buttons/btn_directory_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://secure.imodules.com/s/1077/index.aspx?sid=1077&amp;gid=1&amp;pgid=3&amp;cid=40&amp;returnurl=http%3a%2f%2fulink.utah.edu%2fs%2f1077%2findex.aspx%3fsid%3d1077%26gid%3d1%26pgid%3d6%26cid%3d41"><img id="meta_alumni_directory" style="border: 0pt none;" src="/images/buttons/btn_directory.png" alt="Alumni Directory" width="40" height="40" /><span>Alumni Directory</span></a></li>
+<li class="megaButton"><a onmouseover="MM_swapImage('meta_alumni_update','','/images/buttons/btn_update_over.png',1)" onmouseout="MM_swapImgRestore()" href="https://www.alumni.utah.edu/contact-us/?display=../membership/forms/Alumni_Update_Form.php"><img id="meta_alumni_update" style="border: 0pt none;" src="/images/buttons/btn_update.png" alt="Update Alumni Info" width="40" height="40" /><span>Update Alumni Info</span></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a title="Alumni Association" href="http://www.alumni.utah.edu">More Alumni Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li class="navIcons">
+                     <a href="https://gate.acs.utah.edu">
+                        <img height="30" width="30" alt="Campus Information System"
+                             src="/images/buttons/btn_cis.png"/>
+                     </a>
+                  </li>
+                  <li class="navIcons">
+                     <a href="https://www.umail.utah.edu">
+                        <img height="30" width="30" alt="U Mail" src="/images/buttons/btn_umail.png"/>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+            <div class="ss nojs"><!-- com.omniupdate.div label="slideshow" path="/includes/hp_slideshow.php" --><a href="http://unews.utah.edu/news_releases/university-of-utah-to-graduate-7659-students-on-may/" name="Banner"><img src="http://bannerserve.utah.edu/image.php?b=175" border="0" class="bannerID" alt="Pixar Co-Founder and Utah AlumEd Catmull Highlights Graduation Ceremonies" width="960" height="330" /></a><br/><a href="http://outdoor.utah.edu/" name="Banner"><img src="http://bannerserve.utah.edu/image.php?b=172" border="0" class="bannerID" alt="The Outdoors Online: Find current conditions, trail map information and upcoming trips at the University of Utah&#039;s outdoor rec report  " width="960" height="330" /></a><br/><a href="http://unews.utah.edu/news_releases/how-black-holes-grow/" name="Banner"><img src="http://bannerserve.utah.edu/image.php?b=174" border="0" class="bannerID" alt="Supermassive Black Holes Swallow Stars from Binary Pairs" width="960" height="330" /></a><br/><a href="http://unews.utah.edu/news_releases/university-of-utah-green-power-purchases-propels-pac-12-to-epa-top-ranking/" name="Banner"><img src="http://bannerserve.utah.edu/image.php?b=176" border="0" class="bannerID" alt="The University of Utah Propels the PAC-12 to Top of Green Power Challenge" width="960" height="330" /></a><br/><!-- /com.omniupdate.div --><div id="ss_nav">
+                  <div id="ss_controls">
+                     <a href="javascript:void(0);" onclick="javascript:ssToggle();" id="ssToggle_text"
+                        title="pause/play animation">pause</a>
+                  </div>
+                  <div id="ss_pages"> </div>
+               </div>
+            </div>
+            <div id="bannerBottom">
+               <ul class="Ugive">
+                  <li>
+                     <a href="http://togetherwereach.net/" target="_blank">
+                        <img src="/images/banner/U_give.png" width="120" height="20" alt="Give to the U"/>
+                     </a>
+                  </li>
+               </ul>
+               <ul id="navBottom">
+                  <li>
+                     <a href="/academics/">Academics</a>
+                     <!-- com.omniupdate.div label="academicsnav" path="/includes/megamenu/academics.php" --><div class="ez-wr subnav">
+  
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+    
+<ul class="headingTop">
+<li class="listHeading"><a href="/academics/colleges.php">Colleges &amp; Schools</a></li>
+<li><a href="http://www.arch.utah.edu/">Architecture + Planning, College of</a></li>
+<li><a href="http://www.business.utah.edu/">Business, David Eccles School of</a></li>
+<li><a href="http://continue.utah.edu/">Continuing Education</a></li>
+<li><a href="http://www.ed.utah.edu/">Education,College of</a></li>
+<li><a href="http://www.coe.utah.edu/">Engineering, College of</a></li>
+<li><a href="http://www.finearts.utah.edu/">Fine Arts, College of</a></li>
+<li><a href="http://www.gradschool.utah.edu/">Graduate School</a></li>
+<li><a href="http://www.health.utah.edu/">Health, College of</a></li>
+<li><a href="http://www.honors.utah.edu/">Honors College</a></li>
+<li><a href="http://www.hum.utah.edu/">Humanities, College of</a></li>
+<li><a href="http://www.law.utah.edu/">Law, S.J. Quinney College of</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+    
+<ul class="noHeadingTop">
+<li><a href="http://medicine.utah.edu/">Medicine, School of</a></li>
+<li><a href="http://www.mines.utah.edu/">Mines &amp; Earth Sciences, College of</a></li>
+<li><a href="http://nursing.utah.edu/">Nursing, College of</a></li>
+<li><a href="http://www.pharmacy.utah.edu/">Pharmacy, College of</a></li>
+<li><a href="http://www.science.utah.edu/">Science, College of</a></li>
+<li><a href="http://www.csbs.utah.edu/">Social &amp; Behavioral Science, <br />College of </a></li>
+<li><a href="http://www.socwk.utah.edu/">Social Work, College of</a></li>
+<li><a href="http://www.ugs.utah.edu/">Undergraduate Studies, Office of </a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 last column">
+<li>
+    
+<ul class="headingTop">
+<li class="listHeading"><a href="/academics/colleges.php">Departments &amp; Programs</a></li>
+<li class="listHeading"><a href="http://www.sa.utah.edu/Advise/home/major-exploration/majors.aspx">Majors</a></li>
+<li class="listHeading"><a href="http://continue.utah.edu/">Continuing Education</a></li>
+<li class="listHeading"><a href="/academics/">Professional Education</a></li>
+</ul>
+<ul>
+<li class="listHeading">Libraries</li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column" style="padding-top: 0.5em;">
+<li>
+    
+<ul>
+<li class="listHeading"><a href="/academics/colleges.php">Academic Facts</a></li>
+<li><a href="/academics/colleges.php"><img class="pixLeft" src="/images/secondarypages/academics/infact_academic.jpg" alt="Academic Facts" width="70" height="70" /></a>
+        The U offers 72 undergraduate majors, over 70 minors and certificates, more than 40 teaching majors and minors, and 95 major fields of study at the graduate level. 
+        U of U students can participate in several interdisciplinary programs, including gender studies, neuroscience, environmental studies, and molecular biology.</li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/academics/">More Academics Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/research/">Research</a>
+                     <!-- com.omniupdate.div label="researchnav" path="/includes/megamenu/research.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-33 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Research</li>
+<li><a href="http://www.research.utah.edu/">VP for Research</a></li>
+<li><a href="http://www.research.utah.edu/subnav/researchAdmin.html">Research Administration</a></li>
+<li><a href="http://www.osp.utah.edu/">Office of Spnsored Projects</a></li>
+<li><a href="https://education.research.utah.edu/">Research Education (RATS)</a></li>
+<li><a href="http://www.research.utah.edu/funding/">Funding Opportunities</a></li>
+<li><a href="http://www.research.utah.edu/integrity/index.html">Research Integrity &amp; Compliance</a></li>
+</ul>
+<ul>
+<li class="listHeading">Student Research</li>
+<li><a href="http://www.research.utah.edu/undergraduate/index.html">Undergraduate</a></li>
+<li><a href="http://www.research.utah.edu/graduate/index.html">Graduate</a></li>
+</ul>
+<ul>
+<li class="listHeading">Libraries</li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-40 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">U of U Economic Impact</li>
+<li><a href="http://www.research.utah.edu/econ/">Economic Development</a></li>
+<li><a href="http://umc.utah.edu/ucomm/economic/main.html">Economic Impact of the U</a></li>
+<li><a href="http://www.tco.utah.edu/">Technology Commercialization</a></li>
+<li><a href="http://www.techventures.utah.edu/">Technology Venture Development</a></li>
+<li><a href="http://www.ustar.utah.edu/">Utah Science Technology &amp; Research Initiative (USTAR)</a></li>
+</ul>
+<ul>
+<li class="listHeading"><a href="http://www.research.utah.edu/centersinstitutes.html">Centers &amp; Institutes</a></li>
+<li>The U has over 80 centers and institutes focusing on research, education and community.</li>
+</ul>
+<ul>
+<li class="listHeading">Faculty Resources</li>
+<li><a href="http://www.research.utah.edu/funding/index.html">Funding Opportunities</a></li>
+<li><a href="http://www.research.utah.edu/subnav/findingCollaborators.html">Finding Collaboration &amp; Equipment</a></li>
+<li><a href="http://www.research.utah.edu/funding/grantWriting.html">Applying for Grants</a></li>
+<li><a href="http://www.osp.utah.edu/">Managing Grants</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://faculty.utah.edu/findaresearcher/">Find a Researcher</a></li>
+<li><a href="http://faculty.utah.edu/findaresearcher/"><img class="pixLeft" src="/images/secondarypages/research/microscope.jpg" alt="Find a Researcher" width="70" height="70" /></a> Search our database of faculty and graduate students who are research experts and potential collaborators.</li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/research/">More Research Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/diversity/">Diversity</a>
+                     <!-- com.omniupdate.div label="diversitynav" path="/includes/megamenu/diversity.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-33 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading"><a href="http://www.diversity.utah.edu/">Office for Equity and Diversity</a></li>
+<li><a href="http://www.diversity.utah.edu/students/index.php">Student Equity and Diversity </a></li>
+<li><a href="http://www.diversity.utah.edu/faculty/">Faculty Diversity, Hiring and Recruitment </a></li>
+<li><a href="http://www.diversity.utah.edu/scholarships/index.php">Scholarships and Grants</a></li>
+<li><a href="http://www.diversity.utah.edu/events/index.php">Sponsored Events</a></li>
+<li><a href="http://www.ethnic.utah.edu/">Ethnic Studies</a></li>
+<li><a href="http://www.genderstudies.utah.edu/index.cfm">Gender Studies</a></li>
+<li><a href="http://www.diversity.utah.edu/community/index.php">Communication and Community Outreach</a></li>
+<li><a href="http://www.diversity.utah.edu/directory/index.php">Diversity Directory</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-40 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Diversity Resources</li>
+<li><a href="http://disability.utah.edu/">Center for Disability Services</a></li>
+<li><a href="http://www.diversity.utah.edu/students/cesa/">Center for Ethnic Student Affairs</a></li>
+<li><a href="http://ic.utah.edu/">International Center</a></li>
+<li><a href="http://lgbt.utah.edu/">LGBT Resource Center</a></li>
+<li><a href="http://www.oeo.utah.edu/">Office of Equal Opportunity &amp; Affirmative Action</a></li>
+<li><a href="http://www.pcsw.utah.edu/">Presidential Commission on the Status of Women</a></li>
+<li><a href="http://medicine.utah.edu/outreach/">School of Medicine – Inclusion and Outreach</a></li>
+<li><a href="http://staffdiversity.utah.edu/">Staff Diversity</a></li>
+<li><a href="/futurestudents/">Student Recruitment and High School Services</a></li>
+<li><a href="http://www.partners.utah.edu/">University Neighborhood Partners</a></li>
+<li><a href="http://www.sa.utah.edu/women/">Woman's Resource Center </a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh last column">
+<li>
+<ul class="headingTop">
+<li><a href="http://www.kued.org/?area=outreach&amp;action=diverseVoices&amp;do=main"><img style="margin-top: 10px; margin-bottom: 10px; margin-left: 30px; margin-right: 30px;" src="/images/banner/diversity/diversevoices.gif" alt="Diverse Voices" width="136" height="102" /></a></li>
+<li><a href="http://www.vmetv.com/"><img style="margin-top: 10px; margin-bottom: 10px; margin-left: 40px; margin-right: 40px;" src="/images/banner/diversity/v-me.gif" alt="V-me TV" width="115" height="80" /></a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/diversity/">More Diversity Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/arts/">The Arts</a>
+                     <!-- com.omniupdate.div label="artsnav" path="/includes/megamenu/arts.php" --><div class="ez-wr subnav">
+<ul class="ez-fl ez-negmx ez-30 column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Arts &amp; Culture</li>
+<li><a href="http://umfa.utah.edu/" target="_blank">Museum of Fine Arts</a></li>
+<li><a href="http://umnh.utah.edu/home" target="_blank">Museum of Natural History</a></li>
+<li><a href="http://www.kingsburyhall.org/" target="_blank">Kingsbury Hall</a></li>
+<li><a href="http://www.pioneertheatre.org/" target="_blank">Pioneer Theatre Company</a></li>
+<li><a href="http://www.redbuttegarden.org/" target="_blank">Red Butte Garden &amp; Arboretum</a></li>
+<li><a href="/portal/site/uuhome/menuitem.2c41a2321a17f69f095eb7c8d1e916b9/?vgnextoid=97f892d315bb3110VgnVCM1000001c9e619bRCRD">Radio &amp; Television</a></li>
+<li><a href="/portal/site/uuhome/menuitem.2c41a2321a17f69f095eb7c8d1e916b9/?vgnextoid=97f892d315bb3110VgnVCM1000001c9e619bRCRD">Performance Groups</a></li>
+<li><a href="/portal/site/uuhome/menuitem.2c41a2321a17f69f095eb7c8d1e916b9/?vgnextoid=97f892d315bb3110VgnVCM1000001c9e619bRCRD">Youth Programs</a></li>
+<li><a href="http://www.finearts.utah.edu/" target="_blank">College of Fine Arts</a></li>
+<li><a href="http://www.hum.utah.edu/" target="_blank">College of Humanities</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-40 column arts_mid">
+<li>
+<ul class="noHeadingTop">
+<li>&nbsp;</li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh column">
+<li>
+<ul class="headingTop">
+<li class="listHeading">Performance Venues</li>
+<li><a href="http://www.events.utah.edu/">Events Calendar</a></li>
+<li><a href="http://www.theatre.utah.edu/?page_id=26">Babcock Theatre</a></li>
+<li><a href="http://www.music.utah.edu/facilities/dumke_recital_hall">Dumke Recital Hall</a></li>
+<li><a href="http://www.dance.utah.edu/index.php/facilities/detail/C69/">Hayes Christensen Theatre</a></li>
+<li><a href="http://www.music.utah.edu/facilities/libby_gardner_concert_hall">Libby Gardner Concert Hall</a></li>
+<li><a href="http://www.kingsburyhall.org/">Kingsbury Hall</a></li>
+<li><a href="http://www.redbuttegarden.org/">Red Butte Garden &amp; Arboretum</a></li>
+<li><a href="http://www.pioneertheatre.org/">Simmons Pioneer Memorial Theatre</a></li>
+<li><a href="http://www.theatre.utah.edu/?page_id=28">Studio 115 Theater</a></li>
+<li><a href="http://www.music.utah.edu/facilities/thompson_chamber_music_hall">Thompson Chamber Music Hall</a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/arts/">More Arts Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="/outreach/">Outreach</a>
+                     <!-- com.omniupdate.div label="outreachnav" path="/includes/megamenu/outreach.php" --><div class="ez-wr subnav">
+  
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+      
+<ul class="headingTop">
+<li class="listHeading">Community</li>
+<li><a href="http://www.sa.utah.edu/bennion/">Bennion Community Service Center</a></li>
+<li><a href="http://continue.utah.edu/">Continuing Education</a></li>
+<li><a href="http://www.hci.utah.edu/">Huntsman Cancer Institute</a></li>
+<li><a href="http://www.kued.org/">KUED Public Television</a></li>
+<li><a href="http://www.kuer.org/">KUER Public Radio</a></li>
+<li><a href="http://www.sa.utah.edu/lgbt/">LGBT Resource Center</a></li>
+<li><a href="http://www.nac.utah.edu/">Neighborhood Action Coalition</a></li>
+<li><a href="http://www.diversity.utah.edu/">Office for Equity &amp; Diversity</a></li>
+<li><a href="http://healthcare.utah.edu/">University Health Care</a></li>
+<li><a href="http://www.partners.utah.edu/">University Neighborhood Partners</a></li>
+<li><a href="http://www.sa.utah.edu/women/">Women's Resource Center</a></li>
+<li><a href="http://lib.utah.edu">Marriott Library</a></li>
+<li><a href="http://library.med.utah.edu/">Eccles Health Sciences Library</a></li>
+<li><a href="http://www.law.utah.edu/library/">Quinney Law Library</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmx ez-25 column">
+<li>
+      
+<ul class="headingTop">
+<li class="listHeading">Business</li>
+<li><a href="http://www.bebr.utah.edu/">Bureau of Economic &amp; Business<br />Research (BEBR)</a></li>
+<li><a href="http://ucomm.utah.edu/economic/main.html">Impact of Research at the U</a></li>
+<li><a href="http://www.lassonde.utah.edu/">Lassonde New Venture<br />Development Center</a></li>
+<li><a href="http://www.tco.utah.edu/">Technology Commercialization<br />Office</a></li>
+<li><a href="http://www.ustar.utah.edu/">Utah Science Technology and<br />Research initiative (USTAR)</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-25 column">
+<li>
+      
+<ul class="headingTop">
+<li class="listHeading">Research</li>
+<li><a href="http://www.research.utah.edu/centersinstitutes.html">Centers &amp; Institutes</a></li>
+<li><a href="http://faculty.utah.edu/findaresearcher/">Find a Researcher</a></li>
+<li><a href="http://www.hci.utah.edu/">Huntsman Cancer Institute</a></li>
+<li><a href="http://www.research.utah.edu/econ/">Research Park</a></li>
+<li><a href="http://www.techventures.utah.edu/">Technology Venture Development</a></li>
+<li><a href="http://www.tco.utah.edu/">Technology Commercialization</a></li>
+<li><a href="http://www.ustar.utah.edu/">Utah Science Technology &amp;<br />Research Initiative (USTAR)</a></li>
+<li><a href="http://www.research.utah.edu/index.html">Vice President for Research</a></li>
+<li><a href="http://healthcare.utah.edu/">University Health Care</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh column">
+<li>
+      
+<ul class="headingTop">
+<li class="listHeading">Global</li>
+<li><a href="http://www.international.utah.edu/?&amp;pageId=3723">Centers, Institutes &amp; Programs</a></li>
+<li><a href="http://www.globalhealth.utah.edu/">Global Health Initiative</a></li>
+<li><a href="http://www.ic.utah.edu/">International Center</a></li>
+<li><a href="http://www.international.utah.edu/?&amp;pageId=3721">International Education Opportunities</a></li>
+<li><a href="http://www.international.utah.edu/">International Gateway</a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="/outreach/">More Outreach Info</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="http://healthcare.utah.edu/">Health Care</a>
+                     <!-- com.omniupdate.div label="healthcarenav" path="/includes/megamenu/healthcare.php" --><div class="ez-wr subnav healthcare">
+<ul class="ez-fl ez-negmx ez-30 column">
+<li>
+<ul>
+<li class="bannerBtn"><a href="http://healthcare.utah.edu/" target="_blank"><img src="/images/banner/health/UofU_Health-Care_white.png" alt="University of Utah Health Care" width="230" height="70" /></a></li>
+</ul>
+<ul>
+<li class="listHeading">Hospitals &amp; Specialty Centers</li>
+<li><a href="http://healthcare.utah.edu/hospital/">University Hospital</a></li>
+<li><a href="http://www.huntsmancancer.org/">Huntsman Cancer Hospital</a></li>
+<li><a href="http://uuhsc.utah.edu/moraneyecenter/">Moran Eye Center</a></li>
+<li><a href="http://healthcare.utah.edu/orthopaedics/">University Orthopaedic Center</a></li>
+<li><a href="http://healthcare.utah.edu/uni/">University Neuropsychiatric Institute</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-30 column" style="margin-top: 2em;">
+<li>
+<ul>
+<li class="listHeading">Neighborhood Health Centers</li>
+<li><a href="http://healthcare.utah.edu/primarycare/centerville/" target="_blank">Centerville Health Center</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/greenwood/" target="_blank">Greenwood Health Center - Midvale</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/madsen/" target="_blank">Madsen Health Center - SLC</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/parkway/" target="_blank">Parkway Health Center - Orem</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/redstone/" target="_blank">Redstone Health Center - Park City</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/redwood/" target="_blank">Redwood Health Center - South Salt Lake</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/southjordan/" target="_blank">South Jordan Health Center</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/stansbury/" target="_blank">Stansbury Health Center - Tooele</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/sugarhouse/" target="_blank">Sugar House Health Center</a></li>
+<li><a href="http://healthcare.utah.edu/primarycare/westridge" target="_blank">Westridge Health Center - West Valley</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-fl ez-negmr ez-20 column" style="margin-top: 2em;">
+<li>
+<ul>
+<li class="listHeading">Resources</li>
+<li><a href="http://healthcare.utah.edu/fad/">Find a Physician</a></li>
+<li><a href="http://healthcare.utah.edu/atoz/" target="_blank">Medical Services</a></li>
+<li><a href="http://healthcare.utah.edu/maps/index.htm" target="_blank">Maps &amp; Directions</a></li>
+<li><a href="http://healthcare.utah.edu/healthlibrary/" target="_blank">Health Information</a></li>
+<li><a href="http://healthcare.utah.edu/publicaffairs/" target="_blank">News &amp; Announcements</a></li>
+<li><a href="http://healthcare.utah.edu/careers/" target="_blank">Health Care Careers</a></li>
+</ul>
+</li>
+</ul>
+<ul class="ez-last ez-oh column" style="margin-top: 2em;">
+<li>
+<ul>
+<li class="listHeading"><a href="http://medicine.utah.edu/" target="_blank">School of Medicine</a></li>
+<li><a href="http://medicine.utah.edu/departments.htm" target="_blank">Academic Departments</a></li>
+<li><a href="http://medicine.utah.edu/residency.htm" target="_blank">Residency Programs</a></li>
+<li><a href="http://medicine.utah.edu/admissions/" target="_blank">Admissions</a></li>
+<li class="listHeading"><a href="http://www.health.utah.edu/" target="_blank">College of Health</a></li>
+<li class="listHeading"><a href="http://nursing.utah.edu/" target="_blank">College of Nursing</a></li>
+<li class="listHeading"><a href="http://pharmacy.utah.edu/" target="_blank">College of Pharmacy</a></li>
+</ul>
+</li>
+</ul>
+<ul class="pageLinks">
+<li><a href="http://healthcare.utah.edu/">Health Care Website</a></li>
+</ul>
+</div>
+<!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+                  <li>
+                     <a href="http://utahutes.cstv.com/">Athletics</a>
+                     <!-- com.omniupdate.div label="athleticsnav" path="/includes/megamenu/athletics.php" --><div class="ez-wr subnav athletics">
+  <ul class="ez-box column">
+    <li><a href="http://utahutes.cstv.com/" target="_blank"><img src="/images/background/shim.gif" width="900" height="270" alt="University of Utah Health Care" /></a></li>
+  </ul>
+  <ul class="pageLinks">
+    <li><a href="http://utahutes.cstv.com/">Athletics Website</a></li>
+  </ul>
+</div><!-- end .subnav -->
+<!-- /com.omniupdate.div --></li>
+               </ul>
+            </div>
+         </div>
+         <div class="ez-wr">
+            <p id="skiptargetholder">
+               <a id="skiptarget" name="skiptarget" class="skip" tabindex="-1"> </a>
+            </p>
+            <div class="ez-fl ez-negmx ez-33 columnLeft roundedCorners">
+               <div class="ez-box spacer"><!-- com.omniupdate.div label="newsrss" path="/magpierss/scripts/magpie_news.php" --><div class="homeNews"> 
+<h2><a href="http://unews.utah.edu/?WT.svl=news_main">News</a></h2> 
+<h3><a href="http://unews.utah.edu/news_releases/kathleen-digre-michael-varner-receive-2012-rosenblatt-prize/"><img src="/feeds/newsimage.jpg" alt="" width="100" height="100" class="pixLeft" /> 
+Kathleen Digre, Michael Varner Receive 2012 Rosenblatt Prize</a></h3> 
+ <span class="newsList2">Two professors at the U were honored at today’s commencement ceremonies with the Rosenblatt Prize for Excellence, the U’s most prestigious award. <a href="http://unews.utah.edu/news_releases/kathleen-digre-michael-varner-receive-2012-rosenblatt-prize/">Read more...</a></span></div> 
+<div class="newsList"> 
+<ul> 
+<li><a href="http://unews.utah.edu/news_releases/u-students-community-service-projects-have-wide-reach/">U Students’ Community Service Projects Have Wide Reach</a></li> 
+<li><a href="http://unews.utah.edu/news_releases/u-grows-to-satisfy-growing-market-in-digital-media/">U Grows to Satisfy Growing Market in Digital Media</a></li> 
+<li><a href="http://unews.utah.edu/news_releases/a-middle-ear-microphone/">A Middle-Ear Microphone</a></li> 
+<li> 
+<a href="http://unews.utah.edu/?WT.svl=news_more">More news...</a></li></ul></div>
+<!-- /com.omniupdate.div --></div>
+            </div>
+            <div class="ez-fl ez-negmr ez-32 columnMid roundedCorners">
+               <div class="ez-box spacer"><!-- com.omniupdate.div label="eventsrss" path="/magpierss/scripts/magpie_calfeed.php" --><div class="homeEvents"> 
+<h2><a href="http://www.events.utah.edu/?WT.svl=events_main">Events</a></h2>
+<h3><a href="http://www.events.utah.edu/webevent.cgi?cmd=showevent&amp;ncmd=listmonth&amp;id=189730&amp;cal=cal251&amp;ncals=&amp;cat=&amp;sib=1&amp;sort=e,m,t&amp;ws=0&amp;cf=list&amp;set=1&amp;swe=1&amp;sa=0&amp;de=1&amp;tf=0&amp;sb=0&amp;stz=Default&amp;d=18&amp;m=05&amp;y=2012" onclick="popUp(this.href,'500','350'); return false;"><img src="http://www.events.utah.edu/thumbnails/larson_rhonda.jpg" alt="" width="100" height="100" class="pixLeft" /> 
+An Evening with Rhonda Larson</a></h3>
+ <span class="eventTime2"> 
+May 18, 7:30 p.m.-8:30 p.m.</span></div>
+<div class="eventsList"> 
+<ul>
+<li class="eventItem"><a href="http://www.events.utah.edu/webevent.cgi?cmd=showevent&amp;ncmd=listmonth&amp;id=189732&amp;cal=cal252&amp;ncals=&amp;cat=&amp;sib=1&amp;sort=e,m,t&amp;ws=0&amp;cf=list&amp;set=1&amp;swe=1&amp;sa=0&amp;de=1&amp;tf=0&amp;sb=0&amp;stz=Default&amp;d=19&amp;m=05&amp;y=2012"  onclick="popUp(this.href,'500','350'); return false;">The Spirit of John Muir</a> 
+<ul class="eventTime">
+<li>May 19, 7:30 p.m.-8:30 p.m.</li>
+</ul></li>
+<li class="eventItem"> 
+<a href='http://www.events.utah.edu/?WT.svl=events_more'>More events...</a></li></ul></div><!-- /com.omniupdate.div --></div>
+            </div>
+            <div class="ez-last ez-oh columnRight roundedCorners">
+               <div class="ez-box spacer">
+                  <div class="homeMedia">
+			<!-- com.omniupdate.div  label="videocontent"  group="Everyone"  button="731"  break="break" --><h2>Featured Video</h2>
+                     <p>
+                        <a href="http://webapps5.utah.edu/digvid/?id=2012-05-04~88">
+                           <img class="pixBorder" src="/images/home/graduation.jpg"
+                                alt="Encore Webcast of 2012 Commencement"
+                                width="270"
+                                height="150"/>
+                        </a>
+                     </p>
+                     <p class="otherlink">
+                        <a href="http://webapps5.utah.edu/digvid/?id=2012-05-04~88">Encore Webcast of Commencement</a>
+                     </p>
+                     <p class="video">
+                        <a href="/videos.php">More videos...</a>
+                     </p>
+                     <div class="buttonRow icon-links">
+                        <ul>
+                           <li>
+                              <a onmouseover="MM_swapImage('media_facebook','','/images/buttons/facebook-btn-24px-over.png',1)"
+                                 onmouseout="MM_swapImgRestore()"
+                                 href="http://www.facebook.com/universityofutah"
+                                 target="_blank">
+                                 <img id="media_facebook" src="/images/buttons/facebook-btn-24px.png" border="0"
+                                      alt="Facebook"
+                                      width="24"
+                                      height="24"/>
+                              </a>
+                           </li>
+                           <li>
+                              <a onmouseover="MM_swapImage('media_twitter','','/images/buttons/twitter-btn-24px-over.png',1)"
+                                 onmouseout="MM_swapImgRestore()"
+                                 href="http://twitter.com/uutah"
+                                 target="_blank">
+                                 <img id="media_twitter" src="/images/buttons/twitter-btn-24px.png" border="0"
+                                      alt="The U on Twitter"
+                                      width="24"
+                                      height="24"/>
+                              </a>
+                           </li>
+                           <li>
+                              <a onmouseover="MM_swapImage('media_redthread','','/images/buttons/RT-blog-24px-over.png',1)"
+                                 onmouseout="MM_swapImgRestore()"
+                                 href="http://redthread.utah.edu/">
+                                 <img id="media_redthread" src="/images/buttons/RT-blog-24px.png" border="0"
+                                      alt="The University's Blog - Red Thread"
+                                      width="24"
+                                      height="24"/>
+                              </a>
+                           </li>
+                           <li>
+                              <a onmouseover="MM_swapImage('media_rss','','/images/buttons/RSS-btn-24px-over.png',1)"
+                                 onmouseout="MM_swapImgRestore()"
+                                 href="http://unews.utah.edu/rss/unews.xml">
+                                 <img id="media_rss" src="/images/buttons/RSS-btn-24px.png" border="0"
+                                      alt="U News RSS Feed"
+                                      width="24"
+                                      height="24"/>
+                              </a>
+                           </li>
+                           <li>
+                              <a onmouseover="MM_swapImage('media_flickr','','/images/buttons/flickr-btn-24px-over.png',1)"
+                                 onmouseout="MM_swapImgRestore()"
+                                 href="http://www.flickr.com/photos/universityofutah"
+                                 target="_blank">
+                                 <img id="media_flickr" src="/images/buttons/flickr-btn-24px.png" border="0"
+                                      alt="U Flickr"
+                                      width="24"
+                                      height="24"/>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <p class="otherlink">
+                        <a href="http://outdoor.utah.edu/">Outdoor Recreation Report<img style="vertical-align: middle;" src="/images/home/outdoor-report-icon.png"
+                                alt=""/>
+                        </a>
+                     </p>
+                     <!-- /com.omniupdate.div -->
+			<div class="buttonRow">
+				                    <ul>
+					                      <li>
+                              <a href="http://forecast.utah.edu/">Campus Weather: </a>
+                           </li>  
+					                      <li class="weather">
+					54.6  F
+					   </li>
+					                      <!--<li style="padding-top: 25px;"><a href="http://ski.utah.edu/skiblog/index.php/snowreport"><img src="/images/home/ski_1.png" width="100" height="50" alt="Local Ski Report" /></a></li>-->
+				</ul>
+			                  </div>
+		                </div>
+               </div>
+            </div>
+         </div>
+         <!-- com.omniupdate.div label="footer" path="/includes/footer.php"--><div class="ez-wr footer roundedCorners">
+<div class="ez-fl ez-negmr ez-85">
+<div class="ez-box footerLeft">
+<ul>
+<li>201 Presidents Circle Room 201 SLC UT 84112</li>
+<li>801-581-7200</li>
+<li><a href="/copyright/">©2012 The University of Utah</a></li>
+<li><a href="/about/">About the U</a></li>
+</ul>
+</div>
+</div>
+<!-- end footerLeft -->
+<div class="ez-last ez-oh">
+<div class="ez-box footerRight">
+<ul>
+<li style="padding: 2px 7px 0 0;">Share</li>
+<li><a href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Futah.edu&amp;t=The+University+of+Utah" target="_blank"><img src="/images/socialmedia/social_facebook.png" alt="facebook" width="16" height="16" /></a></li>
+<li><a href="http://twitter.com/?status=The+University+of+Utah+http%3A%2F%2Futah.edu" target="_blank"><img src="/images/socialmedia/social_twitter.png" alt="twitter" width="16" height="16" /></a></li>
+</ul>
+</div>
+</div>
+<!-- end footerRight --></div>
+<!-- end footer --> <!-- Plain box -->
+<div class="ez-wr footerBelow">
+<div class="ez-box">
+<ul>
+<li><a href="/nondiscrimination/">Nondiscrimination Statement</a></li>
+<li><a href="/disclaimer/">Disclaimer</a></li>
+<li><a href="/privacy/">Privacy</a></li>
+<li><a href="http://unews.utah.edu/">Media Contacts</a></li>
+<li><a href="/contact/">U Webmaster</a></li>
+<li><span id="directedit">&nbsp;</span></li>
+</ul>
+</div>
+</div>
+<!-- end footerBelow -->
+<!-- /com.omniupdate.div --></div>
+   </div>
+   <!-- com.omniupdate.div label="endofpage_scripts" path="/includes/endofpage_scripts.php"--><!-- This is the skiplink javascript. This makes the skip link work for WebKit browsers (e.g. Safari andf Chrome. It must appear after both the skip link and skip target, so the bottom of the page is best --> 
+<script type="text/javascript">
+   //<![CDATA[
+  var is_webkit = navigator.userAgent.toLowerCase().indexOf('webkit') > -1;
+  var is_opera = navigator.userAgent.toLowerCase().indexOf('opera') > -1;
+  if(is_webkit || is_opera) 
+  {
+   var target = document.getElementById('skiptarget');
+   target.href="#skiptarget";
+   target.innerText="Start of main content";
+   target.setAttribute("tabindex" , "0");
+   document.getElementById('skiplink').setAttribute("onclick" , "document.getElementById('skiptarget').focus();");
+  }
+  //]]>
+</script> 
+<!-- End of skiplink javascript --> 
+
+<!-- script for search box watermark--> 
+<script type="text/javascript">
+  $(function () {
+    $("#s").watermark("Enter Keyword(s)");
+    $("#s").click(
+      function () {
+        $("#s")[0].focus();
+      }
+    );
+  });
+</script>
+
+<!-- START OF SmartSource Data Collector TAG -->
+<!-- Copyright (c) 1996-2011 Webtrends Inc.  All rights reserved. -->
+<!-- Version: 9.4.0 -->
+<!-- Tag Builder Version: 3.2  -->
+<!-- Created: 7/21/2011 3:32:41 PM -->
+
+<!-- =================================================================================== -->
+<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+<!-- JavaScript include file can cause serious problems with cross-domain tracking.      -->
+<!-- =================================================================================== -->
+<script type="text/javascript">
+//<![CDATA[
+var _tag=new WebTrends();
+_tag.dcsGetId();
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+_tag.dcsCustom=function(){
+// Add custom parameters here.
+//_tag.DCSext.param_name=param_value;
+}
+_tag.dcsCollect();
+//]]>
+</script>
+<noscript>
+<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="http://sdc.utah.edu/dcsv2flwbsac9x85o4ep6y5es_6y5y/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.utah.edu"/></div>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG -->
+
+<!-- /com.omniupdate.div --><div id="hidden"><!-- com.omniupdate.ob --><a id="de" href="http://www.omniupdate.com/oucampus-uofutah/de.jsp?user=utah_home&amp;site=utah_home&amp;path=%2Findex.pcf">Last Updated: 5/4/12</a><!-- /com.omniupdate.ob --></div>
+</body></html>

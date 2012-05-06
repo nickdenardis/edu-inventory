@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<meta name="dcterms.identifier" content="0" />
+	
+	<!-- if javascsript, remove the 'no-js' class -->
+	<script>var html = document.getElementsByTagName('html');html[0].className = '';</script>
+		
+		
+
+			
+			<script type="text/javascript">
+				// cookie functions
+				function setCookie(c_name,value,exdays){var exdate=new Date();exdate.setDate(exdate.getDate()+exdays);var c_value=escape(value)+((exdays==null)?"":"; expires="+exdate.toUTCString());document.cookie=c_name+"="+c_value}function getCookie(c_name){var i,x,y,ARRcookies=document.cookie.split(";");for(i=0;i<ARRcookies.length;i++){x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);x=x.replace(/^\s+|\s+$/g,"");if(x==c_name){return unescape(y)}}}
+
+				// The concept here is to send some data to PHP via Ajax for a session, and then set a cookie 
+				// This will accomodate people with cookies turned off
+				// If javascript is turnd off ... too bad. You get the basic version and have to manually
+				// change it if you want a different version.
+				device = 'basic';
+	
+				// now we're going to check the device width and determine where to go from there
+				var break_point = "768";
+				
+				if (document.body && document.body.offsetWidth) {
+					var width = document.body.offsetWidth;
+				}
+				
+				if (document.compatMode=='CSS1Compat' &&
+					document.documentElement &&
+					document.documentElement.offsetWidth ) {
+					var width = document.documentElement.offsetWidth;
+				}
+				
+				if (window.innerWidth) {
+					var width = window.innerWidth;
+				}
+
+				
+				if(width > break_point) {
+					device = 'full';
+				} else {
+					device = 'mobile';
+				}
+
+								
+				// Check for cookies
+				setCookie('cookie_check', "yes", 365);
+
+				var check = getCookie('cookie_check');
+				
+				if(check) {
+					setCookie('device', device, 365);
+
+					var tested = getCookie('tested');
+					
+					if(!tested) {
+						setCookie('tested', "yes", 365);
+						window.location = window.location; 
+					}
+
+				} 	
+							
+			</script>		
+		
+	<title>Highland Community College | My HCC | </title>
+	
+	<meta name="description" content="Highland Community College Description" />
+	<meta name="keywords" content="Highland Community College, Community College, College, Two Year School, Technical School, Nursing School, Degree" />
+	<meta name="author" content="PDG+creative" />
+	<link rel="icon" type="image/png" href="/images/favicon.ico">
+<!--
+	<meta name="google-site-verification" content="mw853xwYbTZvVkT4D6uRLR00NO4nmzhWIzqMS6Zh2N4" />
+	<script src="http://maps.google.com/maps?file=api&amp;v=2.52&amp;key=ABQIAAAAPz-F5jSPzn9Cy5Zsz4q3jBTeV4V7KMTTb286sjT4IFc0C1hmqBTjLOJ8N4OemXC9Z1tCohvTy6Gm-Q" type="text/javascript"></script>
+-->
+	
+	<link rel="stylesheet" type="text/css" href="/caffeine/min/?g=full_css" />
+	<link rel="stylesheet" type="text/css" href="/css/ddsmoothmenu.css" />
+	<!-- Place CSS bug fixes for IE 6 in this comment -->
+	<!--[if IE 6]>
+	
+	<![endif]-->
+	
+	<!-- Place CSS bug fixes for IE 7 in this comment -->
+	<!--[if IE 7]>
+	
+	<![endif]-->
+	
+	
+	<!--[if lte IE 9]>
+		<style type="text/css">
+			input[type="checkbox"], .checkbox , input[type="radio"], .radio {
+				margin-top: 0px;
+			}
+						
+		</style>
+
+		<script type="text/javascript" src="/js/CreateHTML5Elements.js"></script>
+	<![endif]-->
+	
+<script type="text/javascript" src="/caffeine/_js/jquery/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="/caffeine/_js/jquery/jquery-ui-1.8.9.custom.min.js"></script>	
+	
+</head>
+
+<body id="home">
+<header>
+	<div class="wrapper">
+		
+		<h1><a href="/"><img src="/images/highland_logo.png" alt="Highland Community College" /></a></h1>
+		<div id="util">
+			<div id="loginbox">       
+	         	<form name="login" method="POST" action="https://highlandcc.edu/login">       
+	            	<input type="text"  name="user" id="user" value="" placeholder="username"  maxlength="200"  />
+	            	<input type="password" name="pass" id="password" value="" placeholder="password"  maxlength="200"  />  
+	             	<input type="submit" id="login_util_submit" name="login_submit" value="Submit" />
+	             	<div class="clear"></div>
+	             	<a href="#" onclick="document.getElementById('loginbox').style.display='none';">Cancel</a>  
+	 				<a href="http://198.248.79.217/Forgot_My_Password.php">Forgot password?</a>
+	 				<div class="clear"></div>
+	        	</form>
+	   		</div><!-- closes #loginbox -->			
+			<a id="loginButton" href="https://highlandcc.edu/login">Login</a>
+			<p>785-442-6000</p>
+		</div>
+		<div id="right-container">
+			<form action="/pages/search" method="get">
+				<input id="search" name="keyword" type="text">
+				<input class="button" type="submit" value="Search">
+			</form>
+		</div>
+		<div class="clear"></div>
+		<nav>
+			<a id="home-icon" href="/"><img src="/images/go-home.png" alt="Home"/></a>
+			<div class="ddsmoothmenu" id="smoothmenu1">
+			<ul><li class="level-1 first"><a href="/pages/programs">Academics</a><ul><li class="level-2 dropdown first"><a href="/pages/degree-programs">Degree Programs</a><ul><li class="level-3 first"><a href="/pages/agriculture">Agriculture</a></li><li class="level-3"><a href="/pages/art">Art</a></li><li class="level-3"><a href="/pages/biology">Biology</a></li><li class="level-3"><a href="/pages/business">Business</a></li><li class="level-3"><a href="/pages/chemistry">Chemistry</a></li><li class="level-3"><a href="/pages/criminal-justice">Criminal Justice</a></li><li class="level-3"><a href="/pages/education">Education</a></li><li class="level-3"><a href="/pages/early-childhood">Early Childhood</a></li><li class="level-3"><a href="/pages/english_0">English</a></li><li class="level-3"><a href="/pages/enology_0">Enology</a></li><li class="level-3"><a href="/pages/health-sciences_0">Health Sciences</a></li><li class="level-3"><a href="/pages/history">History</a></li><li class="level-3"><a href="/pages/mathematics">Mathematics</a></li><li class="level-3"><a href="/pages/music">Music</a></li><li class="level-3"><a href="/pages/personal-fitness-training_0">Personal Fitness Training</a></li><li class="level-3"><a href="/pages/photography">Photography</a></li><li class="level-3"><a href="/pages/physical-education">Physical Education</a></li><li class="level-3"><a href="/pages/pre-professional-programs">Pre-Professional Programs</a></li><li class="level-3"><a href="/pages/psychology">Psychology</a></li><li class="level-3"><a href="/pages/risk-management">Risk Management</a></li><li class="level-3"><a href="/pages/sociology">Sociology</a></li><li class="level-3"><a href="/pages/spanish-language">Spanish Language</a></li><li class="level-3"><a href="/pages/speech-communications">Speech Communications</a></li><li class="level-3"><a href="/pages/theatre">Theatre</a></li><li class="level-3 last"><a href="/pages/viticulture_0">Viticulture</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/aas-degree-and-certificate-programs">AAS Degree and Certificate Programs</a><ul><li class="level-3 first"><a href="/pages/wamego-center-aas-degrees">Wamego Center AAS Degrees</a></li><li class="level-3"><a href="/pages/tech-center-certificates-and-or-aas-degrees">Tech Center Certificates and/or AAS Degrees</a></li><li class="level-3 last"><a href="/pages/highland-campus-aas-degrees">Highland Campus AAS Degrees</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/allied-health">Health Science Programs and Certifications</a><ul><li class="level-3 first"><a href="/pages/activity-director">Activity Director</a></li><li class="level-3"><a href="/pages/cma">Certified Medication Aide</a></li><li class="level-3"><a href="/pages/certified-medication-aide-update">Certified Medication Aide Update</a></li><li class="level-3"><a href="/pages/cna">Certified Nurse Assistant</a></li><li class="level-3"><a href="/pages/cpr_0">CPR</a></li><li class="level-3"><a href="/pages/emt">Emergency Medical Technician</a></li><li class="level-3"><a href="/pages/home-health-aide">Home Health Aide</a></li><li class="level-3"><a href="/pages/lpn-to-rn">LPN to RN</a></li><li class="level-3"><a href="/pages/practical-nursing_2">Practical Nursing</a></li><li class="level-3"><a href="/pages/serv-safe">Serv-Safe</a></li><li class="level-3 last"><a href="/pages/social-service-designee">Social Service Designee</a></li></ul></li><li class="level-2"><a href="/pages/course-descriptions_0">Course Descriptions </a></li><li class="level-2"><a href="/pages/degree-planning-sheets_0">Degree Planning Sheets</a></li><li class="level-2"><a href="/pages/library_4">Library</a></li><li class="level-2"><a href="/pages/assessment_1">Assessment</a></li><li class="level-2"><a href="/pages/transfer-guides_3">Transfer Guides</a></li><li class="level-2"><a href="/pages/finals-schedule_1">Finals Schedule</a></li><li class="level-2"><a href="/pages/hcc-online_2">HCC Online</a></li><li class="level-2 last"><a href="https://myhcc.highlandcc.edu/SelfService/Search/SectionSearch.aspx">Find A Class</a></li></ul></li><li class="level-1"><a href="/pages/why-hcc">About HCC</a><ul><li class="level-2 first"><a href="/pages/accreditation_0">Accreditation</a></li><li class="level-2"><a href="/pages/employee-directory_0">Employee Directory</a></li><li class="level-2"><a href="/pages/affordability">Affordability</a></li><li class="level-2 dropdown"><a href="/pages/general-information">General Information</a><ul><li class="level-3 first"><a href="/pages/presidents-office">President's Office </a></li><li class="level-3"><a href="/pages/vice-presidents">Vice Presidents</a></li><li class="level-3 last"><a href="/pages/board-of-trustees">Board of Trustees</a></li></ul></li><li class="level-2 last"><a href="/pages/hcc-videos">HCC Videos</a></li></ul></li><li class="level-1"><a href="/pages/locations">Locations</a><ul><li class="level-2 first"><a href="/pages/highland">Highland</a></li><li class="level-2"><a href="/pages/technical-center_0">Technical Center</a></li><li class="level-2"><a href="/pages/wamego">Wamego</a></li><li class="level-2"><a href="/pages/perry">Perry</a></li><li class="level-2"><a href="/pages/holton">Holton</a></li><li class="level-2"><a href="/pages/atchison">Atchison</a></li><li class="level-2"><a href="/pages/marysville">Marysville</a></li><li class="level-2"><a href="/pages/sabetha">Sabetha</a></li><li class="level-2 last"><a href="/pages/hcc-online">HCC Online</a></li></ul></li><li class="level-1"><a href="/pages/admissions">Admissions</a><ul><li class="level-2 first"><a href="/pages/campus-map_0">Campus Map</a></li><li class="level-2 dropdown"><a href="/pages/admission-requirements">Admission Requirements</a><ul><li class="level-3 first"><a href="/pages/out-of-state-students">Out of State Students</a></li><li class="level-3"><a href="/pages/kansas-students">Kansas Students</a></li><li class="level-3 last"><a href="/pages/international-students">International Students</a></li></ul></li><li class="level-2"><a href="/pages/request-information_0">Request Information</a></li><li class="level-2 dropdown"><a href="/pages/apply">Apply</a><ul><li class="level-3 first"><a href="/pages/online-application">Online Application</a></li><li class="level-3 last"><a href="/pages/placement-testing">Placement Testing</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/enrollment">Enrollment</a><ul><li class="level-3 first"><a href="/pages/registration-info">Registration Info</a></li><li class="level-3"><a href="/pages/highland-campus">Highland Campus </a></li><li class="level-3"><a href="/pages/regional-centers">Regional Centers</a></li><li class="level-3"><a href="/pages/technical-centers">Technical Center</a></li><li class="level-3 last"><a href="/pages/online">Online</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/financial-aid">Financial Aid</a><ul><li class="level-3 first"><a href="/pages/student-jobs_0">Student Jobs</a></li><li class="level-3"><a href="/pages/policies-and-forms">Forms</a></li><li class="level-3"><a href="https://highlandcc.edu/caffeine/uploads/files/Documents/Admissions/disbpolicy1112.pdf">Disbursement Policy</a></li><li class="level-3"><a href="/pages/how-to-apply">How to Apply</a></li><li class="level-3"><a href="/pages/tuition-costs">Tuition Costs</a></li><li class="level-3"><a href="/pages/housing-costs">Housing Costs</a></li><li class="level-3"><a href="/pages/scholarships-awards">Scholarships </a></li><li class="level-3"><a href="/pages/financial-aid-programs">Financial Aid Programs</a></li><li class="level-3 last"><a href="/pages/net-price-calculator">Net Price Calculator</a></li></ul></li><li class="level-2"><a href="/pages/statements-and-payments">Statements and Payments</a></li><li class="level-2 dropdown"><a href="/pages/visit-our-campus">Visit Our Campus</a><ul><li class="level-3 first last"><a href="/pages/visit-request">Visit Request</a></li></ul></li><li class="level-2 last"><a href="/pages/contact-admissions_0">Contact Admissions</a></li></ul></li><li class="level-1"><a href="/pages/students">Student Services</a><ul><li class="level-2 first"><a href="https://myhcc.highlandcc.edu/selfservice/Search/SectionSearch.aspx?sort=CourseId&year=2012&term=SPRING&advanced=true&num=10&loadcriteria=true">Find a Class</a></li><li class="level-2 dropdown"><a href="/pages/student-resources_0">Resources</a><ul><li class="level-3 first"><a href="/pages/transcript-request_0">Transcript request</a></li><li class="level-3"><a href="/pages/student-resources_1">Student Resources</a></li><li class="level-3 last"><a href="/pages/surveys">Surveys</a></li></ul></li><li class="level-2"><a href="/pages/reinstatement-form_0">Reinstatement Form</a></li><li class="level-2"><a href="/pages/counseling">Counseling</a></li><li class="level-2"><a href="/pages/dining">Dining</a></li><li class="level-2"><a href="/pages/faqs">FAQs</a></li><li class="level-2 dropdown"><a href="/pages/graduation">Graduation</a><ul><li class="level-3 first last"><a href="/pages/application-for-degree_0">Application for Degree</a></li></ul></li><li class="level-2"><a href="/pages/handbook">Handbook</a></li><li class="level-2 dropdown"><a href="/pages/housing">Housing</a><ul><li class="level-3 first"><a href="/pages/fees">Fees</a></li><li class="level-3"><a href="/pages/campus-housing">Campus Housing</a></li><li class="level-3"><a href="/pages/housing-resources">Housing Resources</a></li><li class="level-3 last"><a href="http://198.248.79.217/Site/Student_Life/Housing_Find_Your_Roommate.php">Find Your Roommate</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/student-activities">Student Activities</a><ul><li class="level-3 first"><a href="/pages/clubs">Clubs</a></li><li class="level-3"><a href="/pages/intramurals">Intramurals</a></li><li class="level-3 last"><a href="/pages/events_1">Events</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/safety-and-security">Safety and Security</a><ul><li class="level-3 first"><a href="/pages/silent-witness">Silent Witness</a></li><li class="level-3"><a href="/pages/parking-registration">Parking Registration</a></li><li class="level-3 last"><a href="/pages/emergency-info">Emergency Info</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/student-support-services">Student Support Services</a><ul><li class="level-3 first"><a href="/pages/services">Services</a></li><li class="level-3"><a href="/pages/events">Events</a></li><li class="level-3"><a href="/pages/membership">Membership</a></li><li class="level-3"><a href="/pages/meet-the-staff">Meet the Staff</a></li><li class="level-3 last"><a href="/pages/academic-tutoring">Tutoring</a></li></ul></li><li class="level-2 last"><a href="/pages/vp-of-student-services">VP of Student Services</a></li></ul></li><li class="level-1"><a href="/pages/athletics">Athletics</a><ul><li class="level-2 dropdown first"><a href="/pages/teams">Teams</a><ul><li class="level-3 first"><a href="/pages/baseball">Baseball</a></li><li class="level-3"><a href="/pages/basketball-mens">Basketball Men's</a></li><li class="level-3"><a href="/pages/basketball-womens">Basketball Women's</a></li><li class="level-3"><a href="/pages/cross-country-mens">Cross Country Men's</a></li><li class="level-3"><a href="/pages/cross-country-womens">Cross Country Women's</a></li><li class="level-3"><a href="/pages/football">Football</a></li><li class="level-3"><a href="/pages/softball">Softball</a></li><li class="level-3"><a href="/pages/spirit">Spirit</a></li><li class="level-3"><a href="/pages/trackfield-mens">Track & Field Men's</a></li><li class="level-3"><a href="/pages/trackfield-womens">Track & Field Women's</a></li><li class="level-3 last"><a href="/pages/volleyball">Volleyball</a></li></ul></li><li class="level-2"><a href="/pages/athletic-directory">Athletic Directory</a></li><li class="level-2"><a href="/pages/sports-live-stream">Sports Live Stream</a></li><li class="level-2"><a href="/pages/conferenc-links">Conference Links</a></li><li class="level-2"><a href="/pages/athletic-director">Athletic Director</a></li><li class="level-2 dropdown"><a href="/pages/athletic-trainer">Athletic Trainer</a><ul><li class="level-3 first"><a href="/pages/student-trainers">Student Trainers</a></li><li class="level-3 last"><a href="/pages/staff_10">Staff</a></li></ul></li><li class="level-2"><a href="/pages/scottie-booster-club">Scottie Booster Club</a></li><li class="level-2"><a href="/pages/tickets">Tickets</a></li><li class="level-2 dropdown"><a href="/pages/camps_1">Camps</a><ul><li class="level-3 first last"><a href="/pages/online-summer-camp-form">Online Summer Camp Form</a></li></ul></li><li class="level-2 dropdown last"><a href="/pages/hall-of-fame">Hall of Fame</a><ul><li class="level-3 first last"><a href="/pages/hall-of-fame-members">Hall of Fame Members</a></li></ul></li></ul></li><li class="level-1"><a href="/pages/community">Community</a><ul><li class="level-2 first"><a href="/pages/scottie-pause">Scottie Pause</a></li><li class="level-2"><a href="/pages/bookstore">Bookstore</a></li><li class="level-2"><a href="/pages/whats-new">What's New</a></li><li class="level-2"><a href="/pages/campus-map">Campus Map</a></li><li class="level-2 dropdown"><a href="/pages/culbertson-auditorium">Culbertson Auditorium</a><ul><li class="level-3 first"><a href="/pages/hcc-theatre-performances">HCC Theatre Performances</a></li><li class="level-3"><a href="/pages/hcc-music-performances">HCC Music Performances</a></li><li class="level-3 last"><a href="/pages/fusion-performing-arts-series">Fusion Performing Arts Series</a></li></ul></li><li class="level-2 dropdown"><a href="/pages/library">Library</a><ul><li class="level-3 first"><a href="/pages/library-policies_0">Library Policies</a></li><li class="level-3"><a href="/pages/library-mission_0">Library Mission</a></li><li class="level-3 last"><a href="/pages/library-services_0">Library Services</a></li></ul></li><li class="level-2"><a href="/pages/wellness-center">Wellness Center</a></li><li class="level-2 dropdown last"><a href="/pages/yost-art-gallery">Yost Art Gallery</a><ul><li class="level-3 first"><a href="/pages/walter-yost">Walter Yost</a></li><li class="level-3"><a href="/pages/permanent-collection">Permanent Collection</a></li><li class="level-3 last"><a href="/pages/exhibit-schedule">Exhibit Schedule</a></li></ul></li></ul></li><li class="level-1"><a href="/pages/alumni">Alumni</a><ul><li class="level-2 first"><a href="http://www.gftpln.org/Home.do?orgId=455">Planned Giving Guide</a></li><li class="level-2"><a href="/pages/alumnifriends">Alumni & Friends</a></li><li class="level-2"><a href="/pages/alumni-update-form">Alumni Update Form</a></li><li class="level-2"><a href="/pages/hcc-foundation">HCC Foundation</a></li><li class="level-2 last"><a href="/pages/the-hcc-connection-newsletters">The HCC Connection Newsletters</a></li></ul></li><li class="level-1 last"><a href="/pages/calendar">Calendar</a></li></ul>        	
+			</div>
+		</nav>
+	
+		<div class="clear"></div>
+	</div>
+</header>
+
+
+
+				
+	<div id="content" class="wrapper">
+			
+		<div id="main" class="nivoSlider">			
+				<a href="http://fromhereyoucansee.com/"><img src="/caffeine/uploads/rotator/highland-homepage-header1.jpg" alt="" /></a><a href="https://highlandcc.edu/pages/early-enrollment"><img src="/caffeine/uploads/rotator/early-enrollment-reservation_0.jpg" alt="" /></a><img src="/caffeine/uploads/rotator/highland-homepage-header3.jpg" alt="" />		</div><!-- closes #main -->
+		
+		<div id="sidebar">
+			
+			
+			<div id="whatis"><h2>What's Happening</h2><a href="/pages/whats-new" class="news-link" title="Read More from What's New">News<span>&rsaquo;&rsaquo;</span></a></div>
+			<div id="news_container"><div class="news"><div class="news_image"><a href="/pages/whats-new/scottie-baseball-clinches-playoff-spot-with-doubleheader-sweep"><img src="/caffeine/uploads/news/baseball-12_th.jpg" alt="Scottie Baseball Clinches Playoff Spot " /></a></div><div class="news_title"><a href="/pages/whats-new/scottie-baseball-clinches-playoff-spot-with-doubleheader-sweep" title="Scottie Baseball Clinches Playoff Spot ">Scottie Baseball</a></div><div class="news_summary">
+	Scottie Baseball Clinches Playoff Spot
+
+	After suffering two tough losses on Saturday, the…</div></div><div class="clear"></div><div class="news"><div class="news_image"><a href="/pages/whats-new/scottie-softball-advances-in-district-play"><img src="/caffeine/uploads/news/softball-2012_0_th.jpg" alt="Scottie Softball Advances in District Play" /></a></div><div class="news_title"><a href="/pages/whats-new/scottie-softball-advances-in-district-play" title="Scottie Softball Advances in District Play">Scottie Softball</a></div><div class="news_summary">
+	Scottie Softball Advances in District Play
+
+	The Highland softball team defeated Coffeyville…</div></div><div class="clear"></div><div class="news"><div class="news_image"><a href="/pages/whats-new/kudernatschova-tosses-perfect-game"><img src="/caffeine/uploads/news/zuzanne_1_th.jpg" alt="Kudernatschova Tosses Perfect Game" /></a></div><div class="news_title"><a href="/pages/whats-new/kudernatschova-tosses-perfect-game" title="Kudernatschova Tosses Perfect Game">Kudernatschova Tosses</a></div><div class="news_summary">
+	Kudernatschova Tosses Perfect Game
+
+	Highland&rsquo;s pitching standout Zuzana Kudernatschova…</div></div><div class="clear"></div></div>			
+		</div><!-- closes #sidebar -->
+			<div class="clear"></div>
+			<div id="buckets">
+				<div class="midbuckets">
+					<h3>Associate Degrees</h3>
+					<ul><li class="level-1 first"><a href="/pages/catalog_1">Catalog</a></li><li class="level-1"><a href="/pages/course-descriptions_2">Courses</a></li><li class="level-1"><a href="/pages/contact_1">Contact</a></li><li class="level-1"><a href="/pages/degree-planning-sheets">Degree Sheets</a></li><li class="level-1"><a href="/pages/course-descriptions_0">Programs</a></li><li class="level-1 last"><a href="/pages/degrees">Degrees</a></li></ul>				</div>
+				<div class="midbuckets">
+					<h3>Technical Programs</h3>
+					<ul><li class="level-1 first"><a href="/pages/degrees_0">Degrees</a></li><li class="level-1"><a href="/pages/certificates">Certificates </a></li><li class="level-1 last"><a href="/pages/contact">Contact</a></li></ul>				
+				</div>
+				<div class="midbuckets">
+					<h3>Health Science</h3>
+					<ul><li class="level-1 first"><a href="/pages/health-sciences">Health Sciences</a></li><li class="level-1"><a href="/pages/lpn-to-rn">RN</a></li><li class="level-1"><a href="/pages/contact_0">Contact</a></li><li class="level-1"><a href="/pages/lpn">LPN</a></li><li class="level-1 last"><a href="/pages/programscertifications">Programs & Certifications</a></li></ul>				</div>
+				<div class="midbuckets-last">
+					<h3>Online/Regional Centers</h3>
+					<ul><li class="level-1 first"><a href="/pages/hcc-online_0">HCC Online</a></li><li class="level-1"><a href="/pages/resources_1">Resources</a></li><li class="level-1 last"><a href="/pages/contactsregional">Contact</a></li></ul>				
+				</div>
+			</div>
+			<div id="bottom-buckets">
+				<div id="academic-bucket">
+					<h3>Future <br />Students</h3>
+					<ul><li class="level-1 first"><a href="/pages/scholarships_1">Scholarships</a></li><li class="level-1"><a href="/pages/enrollment_1">Enrollment</a></li><li class="level-1"><a href="/pages/apply_0">Apply</a></li><li class="level-1"><a href="/pages/financial-aid_4">Financial Aid</a></li><li class="level-1 last"><a href="/pages/housing_1">Housing</a></li></ul>				</div>
+				<div id="student-bucket">
+					<h3>Current <br />Students</h3>
+					<ul><li class="level-1 first"><a href="https://myhcc.highlandcc.edu/SelfService/Search/SectionSearch.aspx">Find A Class</a></li><li class="level-1"><a href="/pages/academic-resources_0">Resources</a></li><li class="level-1"><a href="/pages/enrollment_0">Enrollment</a></li><li class="level-1"><a href="/pages/statements-and-payments_0">Make a Payment</a></li><li class="level-1 last"><a href="/pages/safetysecurity">Safety & Security</a></li></ul>				</div>
+				<div id="ath-bucket">
+					<h3>Athletics</h3>
+					<ul><li class="level-1 first"><a href="/pages/facilities_0">Facilities</a></li><li class="level-1"><a href="/pages/sports-teams">Sports Teams</a></li><li class="level-1"><a href="/pages/scottie-booster-club_0">Scottie Booster Club</a></li><li class="level-1"><a href="/pages/hall-of-fame_0">Hall of Fame</a></li><li class="level-1 last"><a href="/pages/tickets_0">Tickets</a></li></ul>				</div>
+			</div>
+
+
+		
+		<div class="clear"></div>			
+	</div><!-- closes #content -->
+
+	<div class="clear"></div>			
+
+	<footer>
+		<div class="wrapper">
+			
+			<div class="torn">
+				<a href="http://www.facebook.com/highlandscotties" target="_blank"><img src="/images/facebook.png" alt="Facebook" class="fb" /></a>
+				<a href="http://twitter.com/highlandcc" target="_blank"><img src="/images/twitter.png" alt="Twitter" class="tw"  /></a>
+				<a href="http://www.youtube.com/user/YouHCCTube?feature=fupldc&email=first_upload#p/a" target="_blank"><img src="/images/youtube.png" alt="Youtube" class="yt"  /></a>
+			</div><!-- closes .torn -->
+			
+			<div class="footer_content">
+				
+				<div class="container_left">
+					<img src="/images/from_here_line.png" alt="From Here You Can See Anywhere!" class="from_here" border="0" />
+					<a href="http://my.textcaster.com/ServePopup.aspx?id=1387" id="scottie-alerts">
+						<img src="/images/Scottie-Text-Alerts.png" alt="Scottie Text Alerts" />
+					</a>
+					<div class="footer_addr">606 West Main <br />Highland, KS 66035<br /><span style="font-size:18px;">785-442-6000</span></div>
+					<div class="footer_left"></div>
+
+				</div>
+				
+				<div class="container_right">
+					<h3>Contact Numbers</h3><table border="0" cellpadding="5" cellspacing="5">
+	<tbody>
+		<tr>
+			<td>
+				Highland Campus<br />
+				(785)442-6000<br />
+				<a href="mailto:highland@highlandcc.edu">highland@highlandcc.edu</a></td>
+			<td>
+				HCC Technical Center<br />
+				(913)367-6204<br />
+				<a href="mailto:adulac@highlandcc.edu">adulac@highlandcc.edu</a></td>
+			<td>
+				Atchison Center<br />
+				(913)367-6204<br />
+				<a href="mailto:atchison@highlandcc.edu">atchison@highlandcc.edu</a></td>
+		</tr>
+		<tr>
+			<td>
+				Holton Center<br />
+				(785)362-6000<br />
+				<a href="mailto:holton@highlandcc.edu">holton@highlandcc.edu</a></td>
+			<td>
+				Marysville Center<br />
+				(785)562-5399<br />
+				<a href="mailto:marysville@highlandcc.edu">marysville@highlandcc.edu</a></td>
+			<td>
+				Perry Center<br />
+				(785)597-0127<br />
+				<a href="mailto:perry@highlandcc.edu">perry@highlandcc.edu</a></td>
+		</tr>
+		<tr>
+			<td>
+				Sabetha Center<br />
+				(785)284-3777<br />
+				<a href="mailto:sabetha@highlandcc.edu">sabetha@highlandcc.edu</a></td>
+			<td>
+				Wamego Center<br />
+				(785)456-6006<br />
+				<a href="mailto:wamego@highlandcc.edu">wamego@highlandcc.edu</a></td>
+			<td>
+				HCC Online<br />
+				(785)442-6129<br />
+				<a href="mailto:hcconline@highlandcc.edu">hcconline@highlandcc.edu</a></td>
+		</tr>
+	</tbody>
+</table>
+<p>
+	&nbsp;</p>
+					<div class="clear"></div>
+				</div>
+				
+				<div class="clear"></div>
+				
+					<div class="footerMed">
+					<div class="footerMessage">Highland Community College does not discriminate on the basis of race, color, national origin, sex, age, or handicap in admission or access to or treatment of employment in its programs and activities. For assistance or additional clarification please contact the Title IV Coordinator at 785-442-6000.</div>
+					<div id="footer_nav">
+<ul><li class="level-1 first"><a href="/login">MyHCC/Email Login</a></li><li class="level-1"><a href="/pages/contact-us_0">Contact Us</a></li><li class="level-1"><a href="/pages/employee-directory">Employee Directory</a></li><li class="level-1"><a href="/pages/support">Support</a></li><li class="level-1 last"><a href="/pages/employment">Employment</a></li></ul>        	
+</div>				</div>
+				
+				<div class="clear"></div>
+				
+				<ul class="footer_links">
+			      <li><span><strong>Academics</strong></span></li>
+				<li class="level-1 first"><a href="/pages/programs">Programs</a></li><li class="level-1"><a href="/pages/degree-planning-sheets">Catalog</a></li><li class="level-1 last"><a href="/pages/degree-programs">Degrees</a></li>			    </ul>
+			<ul class="footer_links">      <li><span><strong>Admissions</strong></span></li>
+				<li class="level-1 first"><a href="/pages/online-application">Apply Online</a></li><li class="level-1"><a href="/pages/contact-admissions_0">Contact</a></li><li class="level-1 last"><a href="/pages/tuition-costs">Tutition Costs</a></li>			
+			    </ul>
+			  <ul class="footer_links"><li><strong><span>Financial</span></strong></li>
+				<li class="level-1 first"><a href="/pages/scholarships">Scholarships</a></li><li class="level-1"><a href="/pages/policies-and-forms">Forms</a></li><li class="level-1 last"><a href="/pages/financial-aid">Financial Aid</a></li>			    </ul>
+
+			  <ul class="footer_links">      <li><span><strong>Online</strong></span></li>
+				<li class="level-1 first"><a href="/pages/hcc-online">HCC Online</a></li><li class="level-1"><a href="/pages/course-schedules">Course Schedules</a></li><li class="level-1 last"><a href="http://hcc.learninghouse.com">Course Access</a></li>			    </ul>
+			  <ul class="footer_links">      <li><span><strong>Athletics</strong></span></li>
+				<li class="level-1 first"><a href="/pages/facilities">Facilities</a></li><li class="level-1"><a href="/pages/athletic-directory">Directory</a></li><li class="level-1 last"><a href="/pages/sports-live-stream">Listen Live!</a></li>			    </ul>
+			  <ul class="footer_links">
+			      <li><span><strong>Support</strong></span></li>
+				<li class="level-1 first"><a href="/pages/e-mail">Student Network Info</a></li><li class="level-1"><a href="http://trackit.highlandcc.edu/">IT Work Order</a></li><li class="level-1 last"><a href="/pages/help-desk">Help Desk</a></li>			    </ul>
+	<div class="clear"></div>
+
+				
+			</div><!-- closes footer_content -->
+			
+		</div><!-- closes .wrapper-->		
+
+		<div class="clear"></div>
+
+		 
+	</footer>
+	<!-- begin javascripting, best practice is to include all javascript in the footer -->
+
+
+	<script type="text/javascript" src="/caffeine/min/?g=home_js"></script>
+	
+	   <script type="text/javascript">
+    //<![CDATA[
+/*
+
+    var map;
+    var bounds;
+    function load() {
+      if (GBrowserIsCompatible()) {
+        map = new GMap2(document.getElementById("map"));
+        map.setCenter(new GLatLng(39.5601494428571,-95.7551551571429), 0);
+        var bounds = new GLatLngBounds( 
+                        new GLatLng(39.9033123, -96.6530274), new GLatLng(39.0749882, -95.1383));
+        plotPoints();
+        map.setZoom(map.getBoundsZoomLevel(bounds));
+		click(0);
+      }
+    }
+
+    var gmarkers = [];
+    var htmls = [];
+
+    // handle clicks from the listing:
+    function click(i){
+        gmarkers[i].openInfoWindowHtml(htmls[i]);
+    }
+
+    // set up a new marker
+    function addMarker(lat, lon, html){
+        var marker = new GMarker(new GLatLng(lat, lon));
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        gmarkers.push(marker);
+        htmls.push(html);
+        return marker;
+    }
+
+    function plotPoints(){
+            var marker;
+            // add the points
+            var html = formatHtml("<span class=\"page_title_small\">Atchison Campus</span>", "1501 Riley St<br>Atchison, KS 66002<br><form action=\"http://maps.google.com/maps\" method=\"get\" target=\"_blank\"><input type=\"text\" SIZE=20 MAXLENGTH=60 name=\"saddr\" id=\"saddr\" value=\"Your Address\" /><INPUT value=\"Map\" TYPE=\"SUBMIT\"><input type=\"hidden\" name=\"daddr\" value=\"1501 W. Riley St Atchison, KS 66002\"/>");
+            marker = addMarker(39.5693, -95.1383, html);
+            map.addOverlay(marker);
+    }
+    
+    function formatHtml(blurb, address) {
+        return '<div class="blurb">' + blurb + '</div>\n<div class="address">' + address + '</div>';
+    }
+*/
+
+    //]]>
+        </script>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://" : "http://");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5572720-1");
+pageTracker._setDomainName(".highlandcc.edu");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

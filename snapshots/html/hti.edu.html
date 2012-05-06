@@ -1,0 +1,668 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+<html>
+  <head>
+    <title>Hawaii Technology Institute: Home</title>
+    
+    
+    <script type="text/javascript">
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i=0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        
+        function loggedIn() {
+            return readCookie('user_auth_status') == 'authenticated';
+        }
+        
+        if (loggedIn()) {
+            document.writeln('<scr' + 'ipt src="/javascripts/dojo/dojo.js" type="text/javascript"></scr' + 'ipt>');
+        }
+    </script>
+    
+    <script src="/javascripts/prototype.js?1187641309" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1187641309" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1187641309" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1187641309" type="text/javascript"></script>
+<script src="/javascripts/imagine.js?1248772593" type="text/javascript"></script>
+<script src="/javascripts/application.js?1187641309" type="text/javascript"></script>
+    
+    
+    
+      <link href="/stylesheets/management.css?1187641309" media="screen" rel="Stylesheet" type="text/css" />
+    
+      <link href="/stylesheets/default.css?1205377852" media="screen" rel="Stylesheet" type="text/css" />
+    
+    <link href="/stylesheets/print.css?1187641309" media="print" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript">
+        if (loggedIn()) {
+            document.writeln('<scr' + 'ipt src="/javascripts/builder.js" type="text/javascript"></scr' + 'ipt>');
+            document.writeln('<scr' + 'ipt src="/javascripts/cropper.js" type="text/javascript"></scr' + 'ipt>');
+            
+            dojo.require("dojo.widget.Editor2");
+            dojo.require("dojo.widget.Editor2Plugin.TableOperation");
+        }
+    </script>
+    
+    
+    
+
+      <link href="http://www.hti.edu/rss/1/Latest+News" rel="alternate" title="Latest News" type="application/rss+xml" />
+
+  </head>
+  
+  <body onload="setTimeout('nextSlide(4000, &quot;Appear&quot;);', 4000);">
+
+      <table id="mainCCSToolbar" cellpadding="0" cellspacing="0" border="0" width="100%" style="display: none">
+
+          <tr>
+            <td>
+
+            <div dojoType="Editor2" widgetId="main_toolbar" useActiveX="false" htmlEditing="false" focusOnLoad="false"
+              toolbarTemplatePath="/manage/cms/toolbar_preview/1"
+              toolbarTemplateCssPath="/javascripts/dojo/src/widget/templates/EditorToolbarFullFeature.css"
+              toolbarAlwaysVisible="true" style="height: 25px; vertical-align: middle">
+            </div>
+
+            </td>
+          </tr>
+
+          </td>
+        </tr>
+      </table>
+      <script type="text/javascript">
+//<![CDATA[
+if (loggedIn()) $('mainCCSToolbar').show();
+//]]>
+</script>
+
+    
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-image: url('/images/interface/background_top.gif'); background-repeat: repeat-x;">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" width="850">
+            <col width="120" /><col width="723" /><col width="7" />
+            <tr valign="top">
+              <td rowspan="2"><a href="/"><img src="/images/interface/logo.jpg" width="120" height="135" style="float:left;" /></a></td>
+              <td style="background-image:url('/images/interface/header_background.jpg'); background-repeat: no-repeat;">
+                <a href="/"><img src="/images/interface/masthead.jpg" width="723" height="87" style="float:left;" /></a><br/>
+                <div style="float:right; padding-right: 10px;">
+                  
+
+<table cellpadding="0" cellspacing="0" border="0" width="411" style="background-image:url('/images/navigation/background_global_nav.gif'); background-repeat: no-repeat;">
+  <tr>
+    <td>
+
+  <a href="/about_HTI/history"><img src="/images/navigation/btn_about_HTI.gif" id="globalnav_about_HTI" style="float:left;" onmouseover="getElementById('globalnav_about_HTI').src='/images/navigation/btn_about_HTI_hover.gif'" onmouseout="getElementById('globalnav_about_HTI').src='/images/navigation/btn_about_HTI.gif'" style="float:left;" /></a>
+
+  <a href="/how_to_apply"><img src="/images/navigation/btn_how_to_apply.gif" id="globalnav_how_to_apply" style="float:left;" onmouseover="getElementById('globalnav_how_to_apply').src='/images/navigation/btn_how_to_apply_hover.gif'" onmouseout="getElementById('globalnav_how_to_apply').src='/images/navigation/btn_how_to_apply.gif'" style="float:left;" /></a>
+
+  <a href="/giving"><img src="/images/navigation/btn_giving.gif" id="globalnav_giving" style="float:left;" onmouseover="getElementById('globalnav_giving').src='/images/navigation/btn_giving_hover.gif'" onmouseout="getElementById('globalnav_giving').src='/images/navigation/btn_giving.gif'" style="float:left;" /></a>
+
+  <a href="/FAQ"><img src="/images/navigation/btn_FAQ.gif" id="globalnav_FAQ" style="float:left;" onmouseover="getElementById('globalnav_FAQ').src='/images/navigation/btn_FAQ_hover.gif'" onmouseout="getElementById('globalnav_FAQ').src='/images/navigation/btn_FAQ.gif'" style="float:left;" /></a>
+
+
+<form action="/search" method="get">
+  <input src="/images/interface/btn_go.gif?1187641307" style="margin: 3px 9px 0 0; float:right;" type="image" />
+  <input id="q" name="q" style="width: 95px; height:12px; color:#218CE8; line-height:11px; font-size:11px; background-color: #ffffff; float:right; margin: 3px 5px 0px 0px; padding: 0px;" type="text" value="" />
+</form>
+    </td>
+  </tr>
+</table>
+
+
+                </div>&nbsp;
+              </td>
+              <td><img src="/images/interface/shadow_top.gif" width="7" height="110" style="float:left;" /></td>
+            </tr>
+            <tr>
+              <td bgcolor="#0e276f">
+                    
+            <img src="/images/navigation/start.gif" width="112" height="25" style="float:left;" />
+
+                <div id="btn_home" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/">
+                <img id="btn_home_std" src="/images/navigation/btn_home_hover.gif" height="25" border="0" class="nav" alt="home" />
+                <img id="btn_home_hover" src="/images/navigation/btn_home_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="home" />
+                </a>
+
+
+                </div>
+
+                <div id="btn_programs" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/programs/medical_assistant">
+                <img id="btn_programs_std" src="/images/navigation/btn_programs.gif" height="25" border="0" class="nav" alt="programs" />
+                <img id="btn_programs_hover" src="/images/navigation/btn_programs_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="programs" />
+                </a>
+
+
+                <div id="btn_programs_menu" class="nav_menu_container" style="display: none;">
+
+
+                <div id="btn_programs_admission_requirements" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/admission_requirements'">
+                <div id="btn_programs_admission_requirements_std" style="display: none"></div>
+                Admission Requirements
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_academic_calendar" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/academic_calendar'">
+                <div id="btn_programs_academic_calendar_std" style="display: none"></div>
+                Academic Calendar
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_accreditation" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/accreditation'">
+                <div id="btn_programs_accreditation_std" style="display: none"></div>
+                Accreditation
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_net_price_calculator" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/net_price_calculator'">
+                <div id="btn_programs_net_price_calculator_std" style="display: none"></div>
+                Net Price Calculator
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_student_activities" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/student_activities'">
+                <div id="btn_programs_student_activities_std" style="display: none"></div>
+                Student Activities
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_business_basics" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/business_basics'">
+                <div id="btn_programs_business_basics_std" style="display: none"></div>
+                Business Basics
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_medical_assistant" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/medical_assistant'">
+                <div id="btn_programs_medical_assistant_std" style="display: none"></div>
+                Medical Assistant
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_pharmacy_technician" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/pharmacy_technician'">
+                <div id="btn_programs_pharmacy_technician_std" style="display: none"></div>
+                Pharmacy Technician
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_office_technology" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/office_technology'">
+                <div id="btn_programs_office_technology_std" style="display: none"></div>
+                Office Technology Management
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_career_transition" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/career_transition'">
+                <div id="btn_programs_career_transition_std" style="display: none"></div>
+                Career Transition
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_moscert" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/moscert'">
+                <div id="btn_programs_moscert_std" style="display: none"></div>
+                MOS Certification
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_mcas" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/mcas'">
+                <div id="btn_programs_mcas_std" style="display: none"></div>
+                MCAS Certification
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_complife" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/complife'">
+                <div id="btn_programs_complife_std" style="display: none"></div>
+                Computer & Life Skills
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_programs_health_info_tech" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/programs/health_info_tech'">
+                <div id="btn_programs_health_info_tech_std" style="display: none"></div>
+                Health Information Technology (Medical Billing & Coding)
+                
+                </div>
+
+                </div>
+
+                </div>
+
+                </div>
+
+                <div id="btn_careers" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/careers/alumni_success_stories">
+                <img id="btn_careers_std" src="/images/navigation/btn_careers.gif" height="25" border="0" class="nav" alt="careers" />
+                <img id="btn_careers_hover" src="/images/navigation/btn_careers_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="careers" />
+                </a>
+
+
+                <div id="btn_careers_menu" class="nav_menu_container" style="display: none;">
+
+
+                <div id="btn_careers_alumni_success_stories" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/careers/alumni_success_stories'">
+                <div id="btn_careers_alumni_success_stories_std" style="display: none"></div>
+                Alumni Success Stories
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_careers_prison_testimonials" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/careers/prison_testimonials'">
+                <div id="btn_careers_prison_testimonials_std" style="display: none"></div>
+                Prison Testimonials
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_careers_summer_tech" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/careers/summer_tech'">
+                <div id="btn_careers_summer_tech_std" style="display: none"></div>
+                Summer Tech Testimonials
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_careers_career_services" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/careers/career_services'">
+                <div id="btn_careers_career_services_std" style="display: none"></div>
+                Career Services
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_careers_student_services" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/careers/student_services'">
+                <div id="btn_careers_student_services_std" style="display: none"></div>
+                Student Services
+                
+                </div>
+
+                </div>
+
+                </div>
+
+                </div>
+
+                <div id="btn_faculty_staff" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/faculty_staff/who_we_are">
+                <img id="btn_faculty_staff_std" src="/images/navigation/btn_faculty_staff.gif" height="25" border="0" class="nav" alt="faculty staff" />
+                <img id="btn_faculty_staff_hover" src="/images/navigation/btn_faculty_staff_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="faculty staff" />
+                </a>
+
+
+                <div id="btn_faculty_staff_menu" class="nav_menu_container" style="display: none;">
+
+
+                <div id="btn_faculty_staff_who_we_are" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/faculty_staff/who_we_are'">
+                <div id="btn_faculty_staff_who_we_are_std" style="display: none"></div>
+                Who We Are
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_faculty_staff_board_of_directors" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/faculty_staff/board_of_directors'">
+                <div id="btn_faculty_staff_board_of_directors_std" style="display: none"></div>
+                Board of Directors
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_faculty_staff_pacs" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/faculty_staff/pacs'">
+                <div id="btn_faculty_staff_pacs_std" style="display: none"></div>
+                Program Advisory Committees
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_faculty_staff_partners_in_training" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/faculty_staff/partners_in_training'">
+                <div id="btn_faculty_staff_partners_in_training_std" style="display: none"></div>
+                Partners in Training
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_faculty_staff_employment" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/faculty_staff/employment'">
+                <div id="btn_faculty_staff_employment_std" style="display: none"></div>
+                Employment
+                
+                </div>
+
+                </div>
+
+                </div>
+
+                </div>
+
+                <div id="btn_financial_aid" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/financial_aid/financial_aid_assistance">
+                <img id="btn_financial_aid_std" src="/images/navigation/btn_financial_aid.gif" height="25" border="0" class="nav" alt="financial aid" />
+                <img id="btn_financial_aid_hover" src="/images/navigation/btn_financial_aid_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="financial aid" />
+                </a>
+
+
+                <div id="btn_financial_aid_menu" class="nav_menu_container" style="display: none;">
+
+
+                <div id="btn_financial_aid_financial_aid_assistance" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/financial_aid/financial_aid_assistance'">
+                <div id="btn_financial_aid_financial_aid_assistance_std" style="display: none"></div>
+                Financial Aid Assistance
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_financial_aid_tuition_fees" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/financial_aid/tuition_fees'">
+                <div id="btn_financial_aid_tuition_fees_std" style="display: none"></div>
+                Tuition &amp; Fees
+                
+                </div>
+
+                </div>
+
+
+                <div id="btn_financial_aid_helpful_resources" class="nav_menu" onmouseover="className = 'nav_menu nav_menu_hover'; showSimpleRolloverMenu(this.id, 150, 120, true);"
+                onmouseout="className = 'nav_menu'; hideSimpleRolloverMenu(this.id);">
+                <div style="width: 100%;" onclick="location.href = '/financial_aid/helpful_resources'">
+                <div id="btn_financial_aid_helpful_resources_std" style="display: none"></div>
+                Helpful Resources
+                
+                </div>
+
+                </div>
+
+                </div>
+
+                </div>
+
+                <div id="btn_contact_us" onmouseover="showSimpleRollover(this.id, 0, 26);" onmouseout="hideSimpleRollover(this.id);">
+                <a href="/contact_us">
+                <img id="btn_contact_us_std" src="/images/navigation/btn_contact_us.gif" height="25" border="0" class="nav" alt="contact us" />
+                <img id="btn_contact_us_hover" src="/images/navigation/btn_contact_us_hover.gif" height="25" border="0" class="nav" style="display: none;" alt="contact us" />
+                </a>
+
+
+                </div>
+
+              </td>
+              <td bgcolor="#0e276f"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-image: url('/images/interface/background_gray.gif'); background-repeat: repeat-x repeat-y;">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" width="850" bgcolor="#ffffff">
+            <tr valign="top">
+              <col width="843" /><col width="7" />
+              <td>
+                <div style="padding: 15px 20px 15px 20px; background-image:url('/images/interface/contact_box.jpg'); background-repeat: no-repeat; background-position: 20px 15px;">
+<table cellpadding="0" cellspacing="0" border="0" width="802" height="56">
+<col width="192" /><col width="180" /><col width="235" /><col width="196" />
+  <tr valign="top">
+    <td><img src="/images/interface/spacer.gif" width="120" height="10" /></td>
+    <td class="heading" style="padding-top: 27px;">(808) 522-2700</td>
+    <td class="heading" style="padding-top: 27px;"><a href="mailto:%69n%66o%40h%74i%2ee%64u"><span>i</span>nfo<span>@</span>hti<span>.</span>edu</a></td>
+    <td class="heading" style="padding-top: 7px; font-size: 12px; line-height: 14px;">
+      Monday - Friday, 8 am - 8 pm<br/>
+      629 Pohukaina Street<br/>
+      Honolulu, Hawaii 96813
+    </td>
+  </tr>
+</table>
+</div>
+
+              </td>
+              <td><img src="/images/interface/shadow_gray.gif" width="7" height="87" style="float:left;" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    
+    <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background-image: url('/images/interface/background_sand.gif'); background-repeat: repeat-x repeat-y;">
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" border="0" width="850" bgcolor="#dcca90">
+            <tr valign="top">
+              <col width="843" /><col width="7" />
+              <td style="background-image: url('/images/interface/shadow_content.gif'); background-repeat: repeat-x; background-position: top left;">
+                
+
+<table cellpadding="0" cellspacing="0" border="0" width="842">
+  <tr valign="top">
+    <td width="191" style="padding: 20px 0 30px 20px;">
+      <!-- Sidebar -->
+      <table cellpadding="0" cellspacing="0" border="0" width="191">
+        <tr>
+          <td><img src="/images/interface/sidebar_top.gif" width="191" height="15" style="float:left;" /></td>
+        </tr>
+        <tr>
+          <td bgcolor="#F5EFDE">
+             <div style="padding: 0 15px 10px 15px;">
+  <h2>What&rsquo;s New</h2>
+  <p class="divider" style="margin-bottom: 10px;">&nbsp;</p>
+<div id="obj-page_list-Latest_News"><ul class="sidebar"><li><a href="/news/2011/20120503_act_resilient"><strong>Act Resilient Partners with Hawaii Technology Institute</strong> &raquo;</a></li><li><a href="/news/2011/20120208_drbragg"><strong>Dr. Patricia Bragg Visits HTI</strong> &raquo;</a></li><li><a href="/news/2011/20120203_wha_collab"><strong>Waianae Health Academy Collaboration</strong> &raquo;</a></li></ul></div>
+</div>
+
+
+
+
+
+
+
+                <div class="sidenav" onmouseover="className = 'sidenav sidenav_hover';" onmouseout="className = 'sidenav';">
+
+                  <a href="/about_HTI/whats_new">Read All News</a>                  
+                </div>
+
+
+<p>
+<a href="http://www.hti.edu/programs/student_activities"><img src="http://www.hti.edu/images/content/programs/student_activities/studentsonthemove-1.jpg"></a>
+
+          </td>
+        </tr>
+        <tr>
+          <td><img src="/images/interface/sidebar_bottom.gif" width="191" height="15" style="float:left;" /></td>
+        </tr>
+      </table>
+    </td>
+    
+    <td width="595" style="padding: 20px 20px 30px 16px;">
+      <div id="img_slideshow">
+        <a href="/news/2011/20111128_25for25"><img src="/images/content/news/2011/20111128_25for25/anniversary.jpg" width="595" height="271" border="0" style="z-index: 1; float: left; margin-bottom: 10px;" /></a>
+      </div>
+      <div id="img_slideshow0" style="display: none;">
+        <a href="/news/2011/20111128_25for25"><img src="/images/content/news/2011/20111128_25for25/anniversary.jpg" width="595" height="271" border="0" style="z-index: 1; float: left; margin-bottom: 10px;" /></a>
+      </div>
+      
+      <a href="/programs/medical_assistant"><img src="/images/interface/promotions/medical_assisting.gif" width="191" height="92" alt="HTI now offers diploma in Medical Assisting" style="float:left; margin-right: 10px;" /></a>
+      <a href="/programs/pharmacy_technician"><img src="/images/interface/promotions/pharmacy_technician.gif" width="191" height="92" alt="Start a new career as a Pharmacy Technician in 6 months" style="float:left; margin-right: 10px;" /></a>
+      <a href="/programs/office_technology"><img src="/images/interface/promotions/office_technology.gif" width="191" height="92" alt="Get your diploma in Office Technology Management" style="float:left;" /></a>
+    </td>
+  </tr>
+</table>
+
+              </td>
+              <td style="background-image: url('/images/interface/shadow_sand.gif'); background-repeat: repeat-y;"><img src="/images/interface/spacer.gif" width="7" height="1" style="float:left;" /></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    
+    <!-- Footer -->
+    <div style="padding: 10px 20px 20px 20px; width: 810px;">
+      <div class="footer" style="float:right; text-align:right;">Web site created by <a href="http://www.biggerbird.com" target="_blank">Bigger Bird</a>. Powered by Imagine.</div>
+      <div class="footer" style="text-align:left;">Copyright &copy;2012 Hawaii Technology Institute. All rights reserved.</div>
+    </div>
+    
+    
+    <div style="display: none">
+  <div dojoType="ModalFloatingPane" id="properties_dialog" title="Page Properties"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 560px; height: 580px; display: none">
+    <div id="properties_dialog_content" style=""></div>
+  </div>
+  
+  <div dojoType="ModalFloatingPane" id="page_browser_dialog" title="Select Page"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 520px; height: 326px;">
+    <div>
+      <div id="page_browser" style="height: 220px; padding-top: 10px; margin-bottom: 8px;">Loading...</div>
+      
+      <input id="page_browser_selection" type="text" class="form" style="width: 420px" />
+      <button onclick="closePageBrowser(); return false;" class="form" style="width: 70px">Select</button>
+    </div>
+  </div>
+  
+  <div dojoType="ModalFloatingPane" id="insert_image_dialog" title="Insert Image"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 650px; height: 580px;">
+    <div id="insert_image_dialog_content"></div>
+  </div>
+  
+  <div dojoType="ModalFloatingPane" id="insert_file_dialog" title="Create Download Link"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 650px; height: 580px;">
+    <div id="insert_file_dialog_content"></div>
+  </div>
+  
+  <div dojoType="ModalFloatingPane" id="select_thumbnail_dialog" title="Select Thumbnail"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 650px; height: 580px;">
+    <div id="select_thumbnail_dialog_content"></div>
+  </div>
+  
+  
+  <div dojoType="ModalFloatingPane" id="gallery_dialog" title="Gallery"
+       hasShadow="true" resizable="true" followScroll="false" displayCloseAction="true" style="width: 650px; height: 580px;">
+    <div id="gallery_dialog_content"></div>
+  </div>
+  
+  
+</div>
+    <div id="preview_cover" onclick="return false;" style="display: none;"></div>
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4271839-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+  </body>
+</html>

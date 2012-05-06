@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" lang="en" dir="ltr">
+<head>
+<title>Home :: Memphis Theological Seminary</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="Memphis Theological Seminary" />
+<meta name="copyright" content="&copy; Memphis Theological Seminary 2012" />
+<meta name="date" content="05.06.12" />
+<meta name="Sitemap" content="/sitemap.xml.php" />
+<meta name="robots" content="index, follow" />
+<link rel="icon" href="/content/site/images/favicon.png" type="image/png" />
+<link rel="shortcut icon" href="/content/site/images/favicon.png" type="image/png" />
+<link rel="stylesheet" href="/content/site/css/core.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/custom_content/site/css/site.css?cache=1335852202" type="text/css" media="all" />
+<link rel="stylesheet" href="/content/site/css/site.modules.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/thirdparty/slimbox_1_5_7/css/slimbox.css" type="text/css" media="all" />
+<script type="text/javascript" src="/content/common/jscript/mootools-1.3-core.js"></script>
+<script type="text/javascript" src="/content/common/jscript/mootools-1.3-more.js"></script>
+<script type="text/javascript" src="/content/site/js/site.js?cache=1335852202"></script>
+<script type="text/javascript" src="/content/site/js/site.module.rotator.js"></script>
+<script type="text/javascript" src="/thirdparty/slimbox_1_5_7/js/slimbox.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+var my_code_1 = {
+
+	
+	make_accordions: function(){
+			
+			////////////////
+			// LEVEL 1
+			//////////////// 		menu_select_1('nomenuselected', '', 1);
+			
+			var toggles = $$('.toggler_1_1');
+			var expands = $$('.expander_1_1');
+			
+			
+			// CREATE ACCORDION
+			// keep global for access later, make unique if there are multiple navigations
+			accordion_1_1 = new Fx.Accordion(toggles, expands, {
+				alwaysHide: false,
+				show: -1,
+				transition: Fx.Transitions.Quint.easeInOut,
+				duration: 900,
+				display: false,
+				opacity: false,
+				onActive: function(toggle, expand) {
+					// REMOVE GENERIC ACTIVE CLASS FROM ALL
+					$$('.links_toggle_1').removeClass('links_main_active_1');
+					// ADD GENERIC ACTIVE CLASS
+					toggle.addClass('links_main_active_1');
+					// GET ID NAME AND USE THAT AS UNIQUE ACTIVE CLASS
+					var unique_class=toggle.id+'_active';
+					toggle.addClass(unique_class);
+					if (toggle.hasClass('sublink_marker')) {
+						toggle.addClass('sublink_marker_active');
+					}
+					// make expand visible if selected
+					expand.setStyle('display', 'block');
+				},
+				onBackground: function(toggle, expand) {
+					toggle.removeClass('links_main_active_1');
+					var unique_class=toggle.id+'_active';
+					toggle.removeClass(unique_class);
+					if (toggle.hasClass('sublink_marker')) {
+						toggle.removeClass('sublink_marker_active');
+					}
+				},
+				onComplete: function(toggle, expand) {
+					var el = $(this.elements[this.previous]);
+					if (el != null && el.offsetHeight > 0) {
+						el.setStyle('height', '');
+					}
+				}
+			});
+			// CHECK IF THIS LEVEL WAS LAST SELECTED
+			var found = this.check_selected(1);
+			
+	},
+	
+	// ONLY EXECUTES WHEN FIRST LOADED
+	check_selected: function(level) {
+		var found = false;
+		var mv = Cookie.read('menu_current_1_'+level);
+		
+		// ACCORDION TOGGLERS
+		var toggle = $$('.toggler_1_'+level);
+		
+		if(toggle != null && toggle != undefined) {
+			toggle.each(function(element, i){
+				var unique_class=element.id+'_active';
+				if (mv == element.id) {
+					found = true;
+					// display the accordion element
+					eval('accordion_1_'+level).display(i);
+					// if active, add class
+					element.addClass('links_main_active_'+level);
+					// add unique active class
+					element.addClass(unique_class);
+				} else {
+					found = false;
+					// if inactive, remove class
+					element.removeClass('links_main_active_'+level);
+					// remove unique active class
+					element.removeClass(unique_class);
+					// manually set expander to dissappear if it isn't selected
+					var expand = element.getNext();
+					expand.setStyles({
+						display: 'none'
+						});
+				}
+			});
+		}
+		
+		// SUB NON-ACCORDION ELEMENTS
+		var sub_elements = $$('.links_main_toggle_'+level);
+		if(sub_elements == null || sub_elements == undefined) {
+			return found;
+		}
+		
+		// NOTE WHICH LINKS ARE ACTIVE
+		sub_elements.each(function(element, i){
+			var unique_class=element.id+'_active';
+			if (mv == element.id) {
+				element.addClass('links_main_active_'+level);
+				// add unique active class
+				element.addClass(unique_class);
+			} else {
+				element.removeClass('links_main_active_'+level);
+				// remove unique active class
+				element.removeClass(unique_class);
+			}
+		});
+
+		
+		return found;
+	},
+	
+	init: function(){
+		this.make_accordions();
+	}
+}
+function menu_select_1(nav_id, mid, level) {
+	Cookie.write('menu_current_1_'+level, nav_id, {path: '/'});
+	if(mid != '') {
+		Cookie.write('mid_1', mid, {path: '/'});
+	}
+}
+
+
+///------>
+window.addEvent('domready', function() {
+my_code_1.init();
+
+});
+/// END DOMREADY ------>
+
+
+///------>
+window.addEvent('load', function() {
+
+	var pi_home = new content_rotator({
+		id:				'image_rotator_home',
+		cur_item:		0,
+		transition:		1,
+		speed:			8,
+		duration:		800,
+		title_text:		0,
+		link_text:		0,
+		type:			'image',
+		scaling:		0,
+		tracker:		'0',
+		tracker_digits:		'1',
+		tracker_template:	'&nbsp;',
+		item_titles:	[''],
+		item_title:		1,
+		item_links:	[''],
+		item_targets:	[''],
+		item_link:		1,
+		thumbs:			0,
+		static:			1,
+		// deprecated
+		item_width:		0,
+		item_height:	0
+	});
+
+
+
+	var pi_home_2 = new content_rotator({
+		id:				'image_rotator_home_2',
+		cur_item:		0,
+		transition:		1,
+		speed:			8,
+		duration:		400,
+		title_text:		0,
+		link_text:		0,
+		type:			'image',
+		scaling:		0,
+		tracker:		'4',
+		tracker_digits:		'1',
+		tracker_template:	'&nbsp;',
+		item_titles:	[''],
+		item_title:		1,
+		item_links:	[''],
+		item_targets:	[''],
+		item_link:		1,
+		thumbs:			0,
+		static:			0,
+		// deprecated
+		item_width:		0,
+		item_height:	0
+	});
+
+
+
+	var pi_1532 = new content_rotator({
+		id:				'image_rotator_1532',
+		cur_item:		0,
+		transition:		1,
+		speed:			6,
+		duration:		400,
+		title_text:		0,
+		link_text:		0,
+		type:			'image',
+		scaling:		0,
+		tracker:		'0',
+		tracker_digits:		'1',
+		tracker_template:	'&nbsp;',
+		item_titles:	[''],
+		item_title:		1,
+		item_links:	[''],
+		item_targets:	[''],
+		item_link:		1,
+		thumbs:			0,
+		static:			1,
+		// deprecated
+		item_width:		0,
+		item_height:	0
+	});
+
+
+});
+/// END LOAD ------>
+
+//]]>
+</script>
+
+
+	
+		 
+		
+				<!--GOOGLE ANALYTICS STATS CURRENT ga.js CODE //-->
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-13277359-1'],
+					['_setDomainName', '.memphisseminary.edu'],
+							['_trackPageview']
+		);
+		
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+				
+	 </head>
+<body>
+
+<div id="home_bg">
+	<div id="home_main">
+	
+		<div id="links_area">
+			<div id="sign_in">
+					<div style="padding-left: 433px;">
+						<a href="http://insidemts.memphisseminary.edu/" class="rollover" style="text-align: right; background-image: url('/custom_content/site/images/buttons/b_sign_in_on.gif'); width: 102px; height: 21px;"><img src="/templates/fillmore_general/site/images/buttons/b_sign_in.gif" width="102" height="21" alt="My Account" /></a>
+					</div>
+			</div>
+			<div id="main_links">
+								<table align="center" style="border-left: 1px solid #C6C3B5; margin-top: 5px; margin-bottom: 5px;" cellpadding="0" cellspacing="0">
+					<tr>
+												<td>
+								<div id="Starks_Dinner_nav1"  class="links_main_toggle_1 Starks_Dinner_nav1_link"><a href="http://starks.memphisseminary.edu" onclick="menu_select_1('Starks_Dinner_nav1', 27750, 1);" >Starks Dinner</a></div>
+						</td>
+												<td>
+								<div id="About_MTS_nav1"  class="links_main_toggle_1 About_MTS_nav1_link"><a href="/Mission-Statement" onclick="menu_select_1('About_MTS_nav1', 22905, 1);" >About MTS</a></div>
+						</td>
+												<td>
+								<div id="Become_A_Student_nav1"  class="links_main_toggle_1 Become_A_Student_nav1_link"><a href="/Become-A-Student" onclick="menu_select_1('Become_A_Student_nav1', 22904, 1);" >Become A Student</a></div>
+						</td>
+												<td>
+								<div id="Student_Resources_nav1"  class="links_main_toggle_1 Student_Resources_nav1_link"><a href="/Student-Resources" onclick="menu_select_1('Student_Resources_nav1', 22906, 1);" >Student Resources</a></div>
+						</td>
+												<td>
+								<div id="MTS_People_nav1"  class="links_main_toggle_1 MTS_People_nav1_link"><a href="/Staff-Directory" onclick="menu_select_1('MTS_People_nav1', 22991, 1);" >MTS People</a></div>
+						</td>
+												<td>
+								<div id="Supporters_nav1"  class="links_main_toggle_1 Supporters_nav1_link"><a href="/Supporters" onclick="menu_select_1('Supporters_nav1', 22909, 1);" >Supporters</a></div>
+						</td>
+											</tr>
+				</table>
+							</div>
+		</div>
+		<div style="padding: 0 0 30px; background: #666666 url('/custom_content/site/images/slideshow_bg.jpg') bottom no-repeat; display: block;">
+			<div style="padding: 5px 37px 0;">
+															<div class="home_slideshow">
+							<img src="/files/images/57897-custom.png" alt="" />
+						</div>
+												</div>
+			<div id="home_phone">901-458-8232
+			</div>
+		</div>
+		
+		<div id="content_container">
+			<div id="main_content">
+				
+							<div style="text-align: center; overflow: hidden; margin: 0 auto;"><!-- xxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- PROMO IMAGES MODULE -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxx -->
+
+<div class="module_container promo_images_container slideshow_container">
+	<div id="image_rotator_home_2" class="slideshow_images_container module_image fade-8" style="position: relative;">
+																							<a href="http://www.memphisseminary.edu/content/common/common.download_file.php?action_special=download_file&amp;sid=71b7e7ba40316a68782928caf005e75c&amp;download_file_path=files/documents/149026.pdf&amp;download_file_title=summerfall2012.pdf" ><img src="/files/images/149028-custom.jpg" class="rotator_item" alt="SummerIntensivesFall2012Web" /></a>								<a href="http://www.memphisseminary.edu/content/common/common.download_file.php?action_special=download_file&amp;sid=c475148bee86af7cd91a71f14abd5721&amp;download_file_path=files/documents/147456.pdf&amp;download_file_title=Boesak+classes+and+bio.pdf" ><img src="/files/images/147462-custom.jpg" class="rotator_item" alt="BoesakWeb" /></a>								<a href="/Rhetoric-Race-And-Religion-Institute" ><img src="/files/images/146392-custom.jpg" class="rotator_item" alt="RhetoricRaceReligionWEB" /></a>					</div>
+	<div>
+	
+				<div class="slideshow_tracker_numbers">
+		<div class="content_rotator_position" id="image_rotator_home_2_position">	<div id="image_rotator_home_2_position_0" class="content_rotator_position_handle" style="overflow: hidden;">&nbsp;</div>	<div id="image_rotator_home_2_position_1" class="content_rotator_position_handle" style="overflow: hidden;">&nbsp;</div>	<div id="image_rotator_home_2_position_2" class="content_rotator_position_handle" style="overflow: hidden;">&nbsp;</div><br style="width: 0px; height: 0px; clear: both;" /></div>
+		</div>
+						
+			</div>
+</div>
+</div>
+			
+				
+				<div style="margin-top: 20px; padding-top: 20px; min-height: 150px;">
+															
+<!-- xxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- FEATURED CONTENT MODULE -->
+<!-- xxxxxxxxxxxxxxxxxxxxxxx -->
+
+
+<div class="module_container module_location_home">
+	<div class="module_space_3 module_type_featured_content">
+
+		
+		
+		<div class="module_body"><h2 style="text-align: center;"><a href="http://www.memphisseminary.edu/Dr-Mitzi-Minor-The-Mary-Magdalene-Professor-Of-New-Testament">Click here to watch Dr. Mitzi Minor's sermon "I Do Not Believe!"</a></h2>
+<p> </p>
+<table style="width: 830px; height: 212px;" border="0" width="830" height="212">
+<tbody>
+<tr>
+<td><img title="admissionsheading" src="/files/images/146342-custom.png" alt="admissionsheading" /></td>
+<td><img title="mtsheading giving" src="/files/images/146386-custom.png" alt="mtsheading giving" /></td>
+<td><img style="float: left;" title="sturesources" src="/files/images/146344-custom.png" alt="sturesources" /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>
+<ul>
+<li style="text-align: left;"><dt><a href="http://www.memphisseminary.edu/Degree-Programs">Degree Programs</a></dt></li>
+<li style="text-align: left;"><dt><a href="/Admission-Requirements/">How to Apply</a></dt></li>
+<li style="text-align: left;"><dt><a href="/Financial-Aid/">Financial Aid and Scholarships</a></dt></li>
+<li style="text-align: left;"><a href="/Request-Info/">Request More Information</a></li>
+</ul>
+</td>
+<td>
+<ul>
+<li> <a href="/How-To-Give/">How to Support The MTS Ministry</a></li>
+<li><a href="/MTS-Travel/">Support MTS When You Travel</a></li>
+<li><a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=626012228">Online Giving</a></li>
+</ul>
+</td>
+<td>
+<ul>
+<li> <a href="http://insidemts.memphisseminary.edu">Email, CAMS, InsideMTS</a></li>
+<li><a href="/About-Library/" target="_blank">MTS Library</a></li>
+<li><a href="http://www.memphisseminary.edu/Academic-Calendar">Registrar's Office</a></li>
+<li><a href="/Business-Office/">Business Office</a></li>
+<li><a href="http://chapel.memphisseminary.edu/">MTS Chapel </a></li>
+<li><a href="http://www.memphisseminary.edu/Public-Safety">Facilities and Campus Safety</a></li>
+</ul>
+</td>
+<td><br /></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table border="0" width="822" height="190">
+<tbody>
+<tr>
+<td><img title="blogsdiv" src="/files/images/146387-custom.png" alt="blogsdiv" /></td>
+<td><img title="divspacer" src="/files/images/101329-custom.png" alt="divspacer" /> <br /></td>
+<td><img title="newsdiv" src="/files/images/146388-custom.png" alt="newsdiv" /></td>
+</tr>
+<tr>
+<td>
+<p><a href="http://mirtam.memphisseminary.edu">Miriam's Tambourine</a> - Lectionary Based Commentary by our very own chaplain.</p>
+<p><a href="http://pap.memphisseminary.edu">Preachin' and Plowin' </a>- Rural Ministry and Connection to the Land.</p>
+<p><a href="http://scroll.memphisseminary.edu">Hilkaiah's Scroll</a> - Review of Resources for Biblical Studies</p>
+<p> </p>
+</td>
+<td><br /></td>
+<td>
+<p><a href="/Employ-Opportunity/">Employment Opportunities</a>-Job opportunities at MTS</p>
+<p>The Lamp - the official Online news source for MTS. Coming soon.</p>
+<p><a href="http://starks.memphisseminary.edu">Dr. Henry Logan Starks Scholarship Dinner</a> -</p>
+</td>
+</tr>
+<tr>
+<td>
+<p> </p>
+<p> </p>
+</td>
+<td><br /></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<hr />
+<p> </p>
+<table border="0" width="830" height="248">
+<tbody>
+<tr>
+<td>
+<h1><a href="/Alumni/" target="_blank"><img style="float: left;" title="Alumni button" src="/files/images/59654-custom.gif" alt="Alumni button" /></a></h1>
+</td>
+<td>
+<h1><a href="http://www.memphisseminary.edu/content/common/common.download_file.php?action_special=download_file&amp;sid=f74fabfd6c3d405cb285b402ae1de0c1&amp;download_file_path=files/documents/122656.pdf&amp;download_file_title=DAAC+Certificate.pdf&amp;related_shttp://www.memphisseminary.edu/content/common/common.download_file.php?action_special=download_file&amp;sid=d85ac910f1eef6ccef0c1535fc69a5ed&amp;download_file_path=files/documents/122962.pdf&amp;download_file_title=addiction+counseling.pdfs=independent" target="_blank"><img style="display: block; margin-left: auto; margin-right: auto;" title="NAADACMTS" src="/files/images/64378-custom.gif" alt="NAADACMTS" /></a></h1>
+</td>
+<td>
+<h1><a href="/Videos/"><img style="float: right;" title="lecandserm" src="/files/images/59653-custom.gif" alt="lecandserm" /></a></h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table style="cursor: default; border: 0px initial #ffffff;" border="0" align="center">
+<tbody>
+<tr>
+<td style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; vertical-align: top; margin: 8px; border: 0px dashed #bbbbbb;"><br /></td>
+<td style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; vertical-align: top; margin: 8px; border: 0px dashed #bbbbbb;"><br /></td>
+<td style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; vertical-align: top; margin: 8px; border: 0px dashed #bbbbbb;"><br /></td>
+<td style="color: #000000; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; cursor: text; vertical-align: top; margin: 8px; border: 0px dashed #bbbbbb;"><br /></td>
+</tr>
+</tbody>
+</table>
+		</div>
+		
+	</div>
+</div>
+														</div>
+
+		</div>
+		
+		
+	</div>
+</div>
+
+<br clear="all" />
+
+
+<div id="footer_container">
+		<div id="footer_info" class="footer">
+	<div class="footer_links"><a href="http://starks.memphisseminary.edu" >Starks Dinner</a> <span class="delimiter">|</span> <a href="/Mission-Statement" >About MTS</a> <span class="delimiter">|</span> <a href="/Become-A-Student" >Become A Student</a> <span class="delimiter">|</span> <a href="/Student-Resources" >Student Resources</a> <span class="delimiter">|</span> <a href="/Staff-Directory" >MTS People</a> <span class="delimiter">|</span> <a href="/Supporters" >Supporters</a>  </div>
+	<div class="footer_contact">
+	168 East Parkway S		 <span class="delimiter">|</span> Memphis	 <span class="delimiter">|</span> TN	 <span class="delimiter">|</span> 38104	 <span class="delimiter">|</span> United States	 <span class="delimiter">|</span> 901-458-8232	 <span class="delimiter">|</span> <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%6e%65%77%77%65%62%6d%61%73%74%65%72@%6d%65%6d%70%68%69%73%73%65%6d%69%6e%61%72%79.%65%64%75" >&#x6e;&#x65;&#x77;&#x77;&#x65;&#x62;&#x6d;&#x61;&#x73;&#x74;&#x65;&#x72;&#x40;&#x6d;&#x65;&#x6d;&#x70;&#x68;&#x69;&#x73;&#x73;&#x65;&#x6d;&#x69;&#x6e;&#x61;&#x72;&#x79;&#x2e;&#x65;&#x64;&#x75;</a>		</div>
+	
+	<div class="footer_legal">&copy;2012 Memphis Theological Seminary. Information deemed reliable but not guaranteed.	</div>
+	<div class="footer_credit"><a href="http://www.gutensite.com">NPO Website Design by Gutensite</a></div>
+	</div>
+	
+		<div id="footer_logo" style="margin-top: 10px;"><a href="http://www.gutensite.com" target="_blank"><img src="/content/site/images/gutensite_footer_333333.png" border="0" alt="NPO Website Design by Gutensite: Powerful and Elegant Websites with Brains Beauty and a Great Personality."/></a></div>
+</div><br clear="all" />
+
+
+
+</body>
+</html>

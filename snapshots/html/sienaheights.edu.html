@@ -1,0 +1,1253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en-US" lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head">
+<!--**********************************************************************************-->
+<!-- DotNetNuke� - http://www.dotnetnuke.com                                          -->
+<!-- Copyright (c) 2002-2010                                                          -->
+<!-- by DotNetNuke Corporation                                                        -->
+<!--**********************************************************************************-->
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><meta content="text/javascript" http-equiv="Content-Script-Type" /><meta content="text/css" http-equiv="Content-Style-Type" /><meta id="MetaKeywords" name="KEYWORDS" content=",DotNetNuke,DNN" /><meta id="MetaCopyright" name="COPYRIGHT" content="Copyright 2011 by Siena Heights University" /><meta id="MetaGenerator" name="GENERATOR" content="DotNetNuke " /><meta id="MetaAuthor" name="AUTHOR" content="Siena Heights University" /><meta name="RESOURCE-TYPE" content="DOCUMENT" /><meta name="DISTRIBUTION" content="GLOBAL" /><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" /><meta name="REVISIT-AFTER" content="1 DAYS" /><meta name="RATING" content="GENERAL" /><meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" /><style id="StylePlaceholder" type="text/css"></style><link id="ADesktopModules_CodingStaff_ContentRotator" rel="stylesheet" type="text/css" href="/DesktopModules/CodingStaff.ContentRotator/module.css" /><link id="ADesktopModules_AdvancedArticles" rel="stylesheet" type="text/css" href="/DesktopModules/AdvancedArticles/module.css" /><link id="APortals__default_" rel="stylesheet" type="text/css" href="/Portals/_default/default.css" /><link id="APortals__default_Skins_siena_nohead_" rel="stylesheet" type="text/css" href="/Portals/_default/Skins/siena_nohead/skin.css" /><link id="APortals__default_Containers_PageBody_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/container.css" /><link id="APortals__default_Containers_PageBody_PageBody1_noTitle_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/PageBody1_noTitle.css" /><link id="APortals__default_Containers_PageBody_BoxImageWithOverlayText_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/BoxImageWithOverlayText.css" /><link id="APortals__default_Containers_Footer1_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/Footer1/container.css" /><link id="APortals__default_Containers_Footer1_Footer1_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/Footer1/Footer1.css" /><link id="APortals__default_Containers_PageBody_HomeCopyCol1_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/HomeCopyCol1.css" /><link id="APortals__default_Containers_HeaderLinks_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/HeaderLinks/container.css" /><link id="APortals__default_Containers_HeaderLinks_HeaderLinks_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/HeaderLinks/HeaderLinks.css" /><link id="APortals__default_Containers_PageBody_FooterIcons_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/FooterIcons.css" /><link id="APortals__default_Containers_Custom_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/Custom/container.css" /><link id="APortals__default_Containers_Custom_Banner_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/Custom/Banner.css" /><link id="APortals__default_Containers_PageBody_PageBody1_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/PageBody/PageBody1.css" /><link id="APortals_0_" rel="stylesheet" type="text/css" href="/Portals/0/portal.css" /><script type="text/javascript" src="/Resources/Shared/Scripts/jquery/jquery.min.js" ></script><script language="javascript" type="text/javascript" src="Portals/_default/Scripts/setRotatorBtnValues.js"></script>
+<meta name="google-site-verification" content="He89CjeBN4hHQJt9xi93qAmNl4xw2PGPrFNc7ev0uWE" />
+
+<link href="/Portals/_default/Skins/_default/WebControlSkin/Default/TabStrip.Default.css" rel="stylesheet" type="text/css" /><link href="/Portals/_default/Skins/_default/WebControlSkin/Default/RibbonBar/RibbonBar.Default.css" rel="stylesheet" type="text/css" /><link rel="SHORTCUT ICON" href="/Portals/0/favicon.ico" /><link href="/Portals/_default/Skins/_default/WebControlSkin/Default/RibbonBar/TabStrip.Default.css" rel="stylesheet" type="text/css" /><title>
+	Siena Heights University > Home
+</title></head>
+<body id="Body">
+    <form name="Form" method="post" action="/default.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="Form" enctype="multipart/form-data">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2NDIyOTEzMjkPZBYGZg8WAh4EVGV4dAV5PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPmQCAQ9kFg4CBA8WAh4HVmlzaWJsZWhkAgUPFgQeB2NvbnRlbnRkHwFoZAIGDxYCHwIFDyxEb3ROZXROdWtlLEROTmQCBw8WAh8CBSpDb3B5cmlnaHQgMjAxMSBieSBTaWVuYSBIZWlnaHRzIFVuaXZlcnNpdHlkAggPFgIfAgULRG90TmV0TnVrZSBkAgkPFgIfAgUYU2llbmEgSGVpZ2h0cyBVbml2ZXJzaXR5ZAIMDxYCHwIFDUlOREVYLCBGT0xMT1dkAgIPZBYCAgEPZBYEAgQPZBYCZg9kFkwCAQ9kFgJmD2QWAmYPFgIfAWgWBAIBD2QWCAIDDxBkZBYAZAIHDxYCHwFoZAIJDxYCHwFoZAILD2QWAmYPDxYGHghJbWFnZVVybAUUL2ltYWdlcy9jb2xsYXBzZS5naWYeDUFsdGVybmF0ZVRleHQFCE1pbmltaXplHgdUb29sVGlwBQhNaW5pbWl6ZRYKHgd1c2VyY3RyBQlVc2FiaWxpdHkeB3VzZXJrZXkFFENvbnRyb2xQYW5lbFZpc2libGUwHgdvbmNsaWNrBVBpZiAoX19kbm5fU2VjdGlvbk1heE1pbih0aGlzLCAgJ2Rubl9SaWJib25CYXIuYXNjeF9SQl9SaWJib25CYXInKSkgcmV0dXJuIGZhbHNlOx4IbWF4X2ljb24FEi9pbWFnZXMvZXhwYW5kLmdpZh4IbWluX2ljb24FFC9pbWFnZXMvY29sbGFwc2UuZ2lmZAIDD2QWBAIBDxQrAAIUKwACDxYEHgRTa2luBQdEZWZhdWx0HhNFbmFibGVFbWJlZGRlZFNraW5zaGQQFgRmAgECAgIDFgQUKwACZGQUKwACZGQUKwACDxYCHwFoZGQUKwACDxYCHwFoZGQPFgRmZmZmFgEFblRlbGVyaWsuV2ViLlVJLlJhZFRhYiwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMC4yLjcxMy4zNSwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0ZBYEAgIPDxYCHwFoZGQCAw8PFgIfAWhkZAIDDxQrAAJkFQQIUGFnZUhvbWULUGFnZUN1cnJlbnQIUGFnZVNpdGUOUGFnZUhvc3RTeXN0ZW0WBAICDw8WAh8BaGRkAgMPDxYCHwFoZGQCAg9kFgJmDw8WBB8FBRhTaWVuYSBIZWlnaHRzIFVuaXZlcnNpdHkeC05hdmlnYXRlVXJsBSFodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9Ib21lLmFzcHhkZAIDD2QWAgIBD2QWDgIBDw8WAh8BaGRkAgMPZBYCZg8PFgIfAWhkZAIFD2QWAmYPDxYCHwFoZGQCBw8PFgIfAWhkZAIJD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCCw9kFgICAQ8PZBYCHgVjbGFzcwULTW9kRE5OSFRNTENkAg0PZBYCZg8PFgIfAWhkZAIED2QWCGYPFgIfAAUePGRpdiBjbGFzcz0ibGFuZ3VhZ2Utb2JqZWN0IiA+ZAICDxAPFgIfAWhkZBYAZAIEDxYCHwFoZAIGDxYCHwAFBjwvZGl2PmQCBQ9kFgRmD2QWBgIBDxAPFgoeCENzc0NsYXNzBRhTZWFyY2hCdXR0b24gU2tpbkJnQ29sb3IfAAUDV2ViHwUFEUdvb2dsZSBXZWIgU2VhcmNoHgRfIVNCAgIfAWhkZGRkAgMPEA8WCh8PBRhTZWFyY2hCdXR0b24gU2tpbkJnQ29sb3IfAAUEU2l0ZR8FBQtTaXRlIFNlYXJjaB8QAgIfAWhkZGRkAgcPDxYGHw8FGFNlYXJjaEJ1dHRvbiBTa2luQmdDb2xvch8ABQLCoB8QAgJkZAICD2QWBGYPDxYEHwQFFlNlbGVjdCB0aGUgc2VhcmNoIHR5cGUfBQUWU2VsZWN0IHRoZSBzZWFyY2ggdHlwZWRkAgIPDxYGHw8FGFNlYXJjaEJ1dHRvbiBTa2luQmdDb2xvch8ABQLCoB8QAgJkZAIGD2QWBGYPDxYEHgVXaWR0aBsAAAAAAOBmQAEAAAAfEAKAAmRkAgIPDxYCHwBlZGQCBw8WAh8OBRhIZWFkZXJQYW5lMSBETk5FbXB0eVBhbmVkAgoPFgIfDgUYSGVhZGVyUGFuZTIgRE5ORW1wdHlQYW5lZAINDxYCHwFnFgICAQ9kFgxmDw8WAh8BaGRkAgEPZBYCAgIPFgIfAWgWBmYPFgIfBQUERWRpdGQCAQ8WAh8FBQZVcGRhdGVkAgIPFgIfBQUGQ2FuY2VsZAICD2QWAgIBDw9kFgIfDgUdTW9kQ29kaW5nU3RhZmZDb250ZW50Um90YXRvckMWAgIBD2QWBGYPFgIfAWhkAgEPZBYEZg8WAh4LXyFJdGVtQ291bnQCBRYKZg9kFgJmDxUB6Ag8YSBocmVmPSIvQWRtaXNzaW9ucy5hc3B4Ij48L2E+PGEgaHJlZj0iaHR0cDovL3d3dy5zaHVzYWludHMuY29tL3dvbWVuc3Nwb3J0cy90cmFja2FuZGZpZWxkL3RhYmlkLzg0L2N0bC9kZXRhaWwvbWlkLzU0OS9pdGVtaWQvODkzL2R1bmNhbi1mYWxscy1pbi1qdW1wLW9mZiUyYy1wbGFjZXMtc2Vjb25kLWluLXdvbWVucy1oaWdoLWp1bXAtYXQtbmFpYS1pbmRvb3JzLmFzcHgiIHRhcmdldD0iX2JsYW5rIj48L2E+PGEgaHJlZj0iaHR0cDovL3d3dy5zaWVuYWhlaWdodHMuZWR1L1NpZW5hSGVpZ2h0c05ld3MvdGFiaWQvMjU4L2N0bC9EZXRhaWwvbWlkLzkwMi9pdGVtaWQvNjk0L0RlZmF1bHQuYXNweCI+PC9hPjxhIGhyZWY9IlN0dWRlbnRzIGF0IE1vbnJvZSBDb3VudHkgQ29tbXVuaXR5IENvbGxlZ2UgY2FuIG5vdyBlYXJuIGEgYmFjaGVsb3Igb2YgYXJ0cyBpbiBwcm9mZXNzaW9uYWwgY29tbXVuaWNhdGlvbiBmcm9tIFNpZW5hIEhlaWdodHMgVW5pdmVyc2l0eSByaWdodCBvbiB0aGUgTUNDQyBjYW1wdXMuIj48L2E+PGEgaHJlZj0iaHR0cDovL3d3dy5zaWVuYWhlaWdodHMuZWR1L1NpZW5hSGVpZ2h0c05ld3MvdGFiaWQvMjU4L2N0bC9EZXRhaWwvbWlkLzkwMi9pdGVtaWQvNzIzL0RlZmF1bHQuYXNweCI+PC9hPjxhIGhyZWY9Imh0dHA6Ly93d3cuc2h1c2FpbnRzLmNvbSIgdGFyZ2V0PSJfYmxhbmsiPjxpbWcgYWx0PSIiIHNyYz0iL1BvcnRhbHMvMC9XSEFDYmFubmVyLmpwZyIgLz48L2E+Jm5ic3A7DQo8ZGl2IGNsYXNzPSJ0ZXh0Ij4NCjxoMT5DaGFtcGlvbnNoaXAgV2VlayBhdCBTSFU8L2gxPg0KPHA+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiB2ZXJkYW5hOyI+U2llbmEgSGVpZ2h0cyBVbml2ZXJzaXR5IGlzIGhvc3RpbmcgYm90aCB0aGUgYmFzZWJhbGwgdG91cm5hbWVudCBhbmQgdGhlIG91dGRvb3IgdHJhY2sgYW5kIGZpZWxkIGNoYW1waW9uc2hpcHMgb24gY2FtcHVzIHRoaXMgd2VlayBmb3IgdGhlIFdvbHZlcmluZS1Ib29zaWVyIEF0aGxldGljIENvbmZlcmVuY2UuIEZvciBtb3JlIGluZm9ybWF0aW9uLCB2aXNpdCA8YSBocmVmPSJodHRwOi8vd3d3LnNodXNhaW50cy5jb20iPnd3dy5zaHVzYWludHMuY29tPC9hPi48YnIgLz4NCjwvc3Bhbj48L3A+DQo8L2Rpdj5kAgEPZBYCZg8VAa0EPGEgaHJlZj0iL1N0dWRlbnRMaWZlLmFzcHgiPjwvYT48YSBocmVmPSJodHRwOi8vd3d3LnNpZW5haGVpZ2h0cy5lZHUvU2llbmFIZWlnaHRzTmV3cy90YWJpZC8yNTgvY3RsL0RldGFpbC9taWQvOTAyL2l0ZW1pZC81OTUvRGVmYXVsdC5hc3B4IiB0YXJnZXQ9Il9ibGFuayI+PGltZyBhbHQ9IiIgc3JjPSIvUG9ydGFscy8wL3NodWFkbWlzc2lvbnNiYW5uZXIuanBnIiAvPjwvYT4mbmJzcDsNCjxkaXYgY2xhc3M9InRleHQiPg0KPGgxPk5ldyBTdHVkZW50IFJlZ2lzdHJhdGlvbiBEYXlzPC9oMT4NCjxwPjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogdmVyZGFuYTsiPkFjY2VwdGVkIHRvIFNpZW5hIEhlaWdodHM/IENvbmdyYXR1bGF0aW9ucyEgWW91ciBuZXh0IHN0ZXAgaXMgdG8gc2lnbiB1cCBmb3IgYSBOZXcgU3R1ZGVudCBSZWdpc3RyYXRpb24gRGF5IChOU1JEKS4gQWxsIG5ldyBzdHVkZW50cyBhcmUgcmVxdWlyZWQgdG8gYXR0ZW5kIGEgTlNSRC4gU3BvdHMgYXJlIGxpbWl0ZWQsIHNvIHNpZ24gdXAgdG9kYXkhPGJyIC8+DQo8YnIgLz4NCjwvc3Bhbj48L3A+DQo8L2Rpdj5kAgIPZBYCZg8VAcQEPGEgaHJlZj0iL0Fib3V0L0Zhc3RGYWN0cy5hc3B4Ij48L2E+PGEgaHJlZj0iaHR0cDovL3d3dy5zaWVuYWhlaWdodHMuZWR1L0Fib3V0L0RlcGFydG1lbnRzT2ZmaWNlcy9SZWdpc3RyYXJzT2ZmaWNlL0dyYWR1YXRpb25Db21tZW5jZW1lbnQuYXNweCIgdGFyZ2V0PSJfYmxhbmsiPjxpbWcgYWx0PSIiIHNyYz0iL1BvcnRhbHMvMC9zaHVjb21tZW5jZWJhbm5lci5qcGciIC8+PC9hPiZuYnNwOw0KPGRpdiBjbGFzcz0idGV4dCI+DQo8aDE+Q29tbWVuY2VtZW50IDIwMTI8L2gxPg0KPHA+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiB2ZXJkYW5hOyI+V2UgbG9vayBmb3J3YXJkIHRvIGNlbGVicmF0aW5nIENvbW1lbmNlbWVudCAyMDEyLiBDb21tZW5jZW1lbnQgaXMgYXQgMyBwLm0uIFNhdHVyZGF5LCBNYXkmbmJzcDs1IGluIHRoZSBGaWVsZGhvdXNlIG9uIHRoZSBTSFUgbWFpbiBjYW1wdXMgaW4gQWRyaWFuLiBUaGlzIGNlcmVtb255IHdpbGwgcmVjb2duaXplIGFsbCBkZWdyZWUgY2FuZGlkYXRlcyBmcm9tIGFsbCBTaWVuYSBIZWlnaHRzIGxvY2F0aW9ucy48YnIgLz4NCjxiciAvPg0KPC9zcGFuPjwvcD4NCjwvZGl2PmQCAw9kFgJmDxUB9AI8YSBocmVmPSIvQWx1bW5pLmFzcHgiPjxpbWcgYWx0PSIiIHNyYz0iL1BvcnRhbHMvMC9pbWFnZXMvbWFpbl9iYW5uZXJfMy5qcGciIC8+PC9hPg0KPGRpdiBjbGFzcz0idGV4dCI+DQo8aDE+QWx1bW5pICZhbXA7IEZyaWVuZHM8L2gxPg0KPHA+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiB2ZXJkYW5hOyI+U3RheSBjb25uZWN0ZWQgd2l0aCBTaWVuYSBIZWlnaHRzISBXaGV0aGVyIHlvdSBhcmUgYSBncmFkdWF0ZSBvciBmb3JtZXIgc3R1ZGVudCwgYSB2b2x1bnRlZXIsIHN1cHBvcnRlciwgbmVpZ2hib3Igb3IgZnJpZW5kLCB3ZSBpbnZpdGUgeW91IHRvIGVuZ2FnZSB3aXRoIHdoYXQncyBoYXBwZW5pbmcgYXQgU0hVITwvc3Bhbj48L3A+DQo8L2Rpdj5kAgQPZBYCZg8VAbEEPGEgaHJlZj0iL0ZhY3VsdHlTdGFmZi5hc3B4Ij48L2E+PGEgaHJlZj0iaHR0cDovL3d3dy5zaWVuYWhlaWdodHMuZWR1L1NpZW5hSGVpZ2h0c05ld3MvdGFiaWQvMjU4L2N0bC9EZXRhaWwvbWlkLzkwMi9pdGVtaWQvNjQ1L0RlZmF1bHQuYXNweCIgdGFyZ2V0PSJfYmxhbmsiPjxpbWcgYWx0PSIiIHNyYz0iL1BvcnRhbHMvMC9zaHVjaGVlcmJhbm5lci5qcGciIC8+PC9hPiZuYnNwOw0KPGRpdiBjbGFzcz0idGV4dCI+DQo8aDE+TmV3IGF0IHRoZSBTSFUuLi48L2gxPg0KPHA+PHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiB2ZXJkYW5hOyI+U2llbmEgSGVpZ2h0cyBVbml2ZXJzaXR5IGFubm91bmNlZCB0aGUgYWRkaXRpb24gb2YgYSBjb21wZXRpdGl2ZSBjaGVlciBhbmQgZGFuY2UgdGVhbSB0byBpdHMgYXRobGV0aWMgZGVwYXJ0bWVudC4gVGhlIG5ldyBzcXVhZHMgd2lsbCBzdGFydCBpbiB0aGUgMjAxMi0xMyBhY2FkZW1pYyB5ZWFyLiBUaGUgU2FpbnRzIG5hbWVkIEFuZ2llIFN3b3JkIGFzIHRoZWlyIGZpcnN0IGNoZWVyIGFuZCBkYW5jZSBjb2FjaC48L3NwYW4+PC9wPg0KPC9kaXY+ZAICDxYCHwFoZAIDD2QWAmYPDxYCHwFoZGQCBA9kFgJmDw8WAh8BaGRkAgUPZBYCZg8PFgIfAWhkZAIODxYCHw4FFkxlZnRQYW5lMSBETk5FbXB0eVBhbmVkAhAPFgIfAWcWAgIBDw8WAh8BaGQWDgIBDw8WAh8BaGRkAgIPZBYCAgIPFgIfAWgWBmYPFgIfBQUERWRpdGQCAQ8WAh8FBQZVcGRhdGVkAgIPFgIfBQUGQ2FuY2VsZAIDD2QWAmYPDxYCHwFoZGQCBQ9kFgICAQ9kFgICAQ9kFgICAg8WAh8BaGQCBg9kFgJmDw8WAh8BaGRkAgcPZBYCZg8PFgIfAWhkZAIID2QWAmYPDxYCHwFoZGQCEQ8WAh8OBRhDb250ZW50UGFuZSBETk5FbXB0eVBhbmVkAhIPFgIfDgUXU2lkZVBhbmU1MCBETk5FbXB0eVBhbmVkAhMPFgIfDgUXU2lkZVBhbmU1MCBETk5FbXB0eVBhbmVkAhQPFgIfDgUYQ29udGVudFBhbmUgRE5ORW1wdHlQYW5lZAIVDxYCHwFnFgICAQ9kFhBmDw8WAh8BaGRkAgEPDxYCHwFoZGQCAg9kFgICAg8WAh8BaBYGZg8WAh8FBQRFZGl0ZAIBDxYCHwUFBlVwZGF0ZWQCAg8WAh8FBQZDYW5jZWxkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVNpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHIxNjg5X01vZHVsZUNvbnRlbnQnKSkgcmV0dXJuIGZhbHNlOxYCZg8PFgYfAwU6L1BvcnRhbHMvX2RlZmF1bHQvQ29udGFpbmVycy9QYWdlQm9keS9pbWFnZXMvRE5OLW1pbnVzLmdpZh8EBQhNaW5pbWl6ZR8FBQhNaW5pbWl6ZWRkAgUPZBYCAgEPD2QWAh8OBQtNb2RETk5IVE1MQ2QCBg9kFgJmDw8WAh8BaGRkAgcPZBYCZg8PFgIfAWhkZAIID2QWAmYPDxYCHwFoZGQCFg8WAh8BZxYCAgEPZBYSZg8PFgIfAWhkZAIBDw8WAh8BaGRkAgIPZBYCAgIPFgIfAWgWBmYPFgIfBQUERWRpdGQCAQ8WAh8FBQZVcGRhdGVkAgIPFgIfBQUGQ2FuY2VsZAIDD2QWAmYPDxYCHwFoZGQCBA9kFgJmDw8WAh8FBQhNaW5pbWl6ZRYCHwgFUmlmIChfX2Rubl9Db250YWluZXJNYXhNaW5fT25DbGljayh0aGlzLCAnZG5uX2N0cjQyNV9Nb2R1bGVDb250ZW50JykpIHJldHVybiBmYWxzZTsWAmYPDxYGHwMFOi9Qb3J0YWxzL19kZWZhdWx0L0NvbnRhaW5lcnMvUGFnZUJvZHkvaW1hZ2VzL0ROTi1taW51cy5naWYfBAUITWluaW1pemUfBQUITWluaW1pemVkZAIFD2QWAgIBDw9kFgIfDgULTW9kRE5OSFRNTENkAgYPZBYCZg8PFgIfAWhkZAIHD2QWAmYPDxYCHwFoZGQCCA9kFgJmDw8WAh8BaGRkAhcPFgIfAWcWAgIBD2QWEmYPDxYCHwFoZGQCAQ8PFgIfAWhkZAICD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCAw9kFgJmDw8WAh8BaGRkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVJpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHI0MjZfTW9kdWxlQ29udGVudCcpKSByZXR1cm4gZmFsc2U7FgJmDw8WBh8DBTovUG9ydGFscy9fZGVmYXVsdC9Db250YWluZXJzL1BhZ2VCb2R5L2ltYWdlcy9ETk4tbWludXMuZ2lmHwQFCE1pbmltaXplHwUFCE1pbmltaXplZGQCBQ9kFgICAQ8PZBYCHw4FC01vZEROTkhUTUxDZAIGD2QWAmYPDxYCHwFoZGQCBw9kFgJmDw8WAh8BaGRkAggPZBYCZg8PFgIfAWhkZAIYDxYCHw4FGENvbnRlbnRQYW5lIEROTkVtcHR5UGFuZWQCGQ8WAh8OBRhDb250ZW50UGFuZSBETk5FbXB0eVBhbmVkAhoPFgIfDgUXU2lkZVBhbmUzMyBETk5FbXB0eVBhbmVkAhsPFgIfDgUYQ29udGVudFBhbmUgRE5ORW1wdHlQYW5lZAIcDxYCHw4FF1NpZGVQYW5lMzMgRE5ORW1wdHlQYW5lZAIdDxYCHw4FGENvbnRlbnRQYW5lIEROTkVtcHR5UGFuZWQCHg8WAh8OBRhDb250ZW50UGFuZSBETk5FbXB0eVBhbmVkAh8PFgIfAWcWAgIBD2QWEmYPDxYCHwFoZGQCAQ8PFgIfAWhkZAICD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCAw9kFgJmDw8WAh8BaGRkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVNpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHIxNTYyX01vZHVsZUNvbnRlbnQnKSkgcmV0dXJuIGZhbHNlOxYCZg8PFgYfAwU6L1BvcnRhbHMvX2RlZmF1bHQvQ29udGFpbmVycy9QYWdlQm9keS9pbWFnZXMvRE5OLW1pbnVzLmdpZh8EBQhNaW5pbWl6ZR8FBQhNaW5pbWl6ZWRkAgUPZBYCAgEPD2QWAh8OBRhNb2RTaWVuYU1vZHVsZU1lZXRTaWVuYUMWAgIBD2QWBmYPFgIfAWhkAgIPFgIfAWhkAgQPFgIfAAWzBzxoMj5TdHVkZW50czwvaDI+PGEgaHJlZj0iL01lZXRTaWVuYURldGFpbHMuYXNweD9OZXdzQXJ0aWNsZUlEPTYyOTAmTmV3c0NhdGVnb3J5SUQ9MyZDYW1wdXNJRD0xIj48aW1nIHNyYz0iL05ld3NJbWFnZS8yMDEyMDIwODExMzkzMS5KUEciPjwvYT48cD48c3Ryb25nPlRpZ2lzdGUgSGFidGVtYXJpYW08L3N0cm9uZz48YnIgLz48YSBocmVmPSIvTWVldFNpZW5hRGV0YWlscy5hc3B4P05ld3NBcnRpY2xlSUQ9NjI5MCZOZXdzQ2F0ZWdvcnlJRD0zJkNhbXB1c0lEPTEiPk1ham9yOiBQcm9mZXNzaW9uYWwgQ29tbXVuaWNhdGlvbnMsIA0KQ2FtcHVzOiBMYW5zaW5nPC9hPjxiciAvPjwvcD48aDI+RmFjdWx0eSAmYW1wOyBTdGFmZjwvaDI+PGEgaHJlZj0iL01lZXRTaWVuYURldGFpbHMuYXNweD9OZXdzQXJ0aWNsZUlEPTYyOTcmTmV3c0NhdGVnb3J5SUQ9NCZDYW1wdXNJRD0xIj48aW1nIHNyYz0iL05ld3NJbWFnZS8yMDEyMDIxNTExMjcyNS5HSUYiPjwvYT48cD48c3Ryb25nPkVyaWMgS29zPC9zdHJvbmc+PGJyIC8+PGEgaHJlZj0iL01lZXRTaWVuYURldGFpbHMuYXNweD9OZXdzQXJ0aWNsZUlEPTYyOTcmTmV3c0NhdGVnb3J5SUQ9NCZDYW1wdXNJRD0xIj5Bc3Npc3RhbnQgUHJvZmVzc29yIG9mIFBvbGl0aWNhbCBTY2llbmNlPC9hPjxiciAvPjwvcD48aDI+QWx1bW5pPC9oMj48YSBocmVmPSIvTWVldFNpZW5hRGV0YWlscy5hc3B4P05ld3NBcnRpY2xlSUQ9NDc5OSZOZXdzQ2F0ZWdvcnlJRD01JkNhbXB1c0lEPTEiPjxpbWcgc3JjPSIvTmV3c0ltYWdlLzIwMTAwMzIzMTEyNDEwLkpQRyI+PC9hPjxwPjxzdHJvbmc+VGltIEZldGhlciAnMDk8L3N0cm9uZz48YnIgLz48YSBocmVmPSIvTWVldFNpZW5hRGV0YWlscy5hc3B4P05ld3NBcnRpY2xlSUQ9NDc5OSZOZXdzQ2F0ZWdvcnlJRD01JkNhbXB1c0lEPTEiPk1ham9yOiBNYXRoZW1hdGljczwvYT48YnIgLz48L3A+ZAIGD2QWAmYPDxYCHwFoZGQCBw9kFgJmDw8WAh8BaGRkAggPZBYCZg8PFgIfAWhkZAIgDxYCHwFnFgICAQ9kFhBmDw8WAh8BaGRkAgEPDxYCHwFoZGQCAg9kFgICAg8WAh8BaBYGZg8WAh8FBQRFZGl0ZAIBDxYCHwUFBlVwZGF0ZWQCAg8WAh8FBQZDYW5jZWxkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVNpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHIxNzY2X01vZHVsZUNvbnRlbnQnKSkgcmV0dXJuIGZhbHNlOxYCZg8PFgYfAwU6L1BvcnRhbHMvX2RlZmF1bHQvQ29udGFpbmVycy9QYWdlQm9keS9pbWFnZXMvRE5OLW1pbnVzLmdpZh8EBQhNaW5pbWl6ZR8FBQhNaW5pbWl6ZWRkAgUPZBYCAgEPD2QWAh8OBR1Nb2RBZHZhbmNlZEFydGljbGVzU2F0ZWxsaXRlQxYCAgEPZBYCAgQPFgIfAWhkAgYPZBYCZg8PFgIfAWhkZAIHD2QWAmYPDxYCHwFoZGQCCA9kFgJmDw8WAh8BaGRkAiEPFgIfAWcWAgIBD2QWEmYPDxYCHwFoZGQCAQ8PFgIfAWhkZAICD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCAw9kFgJmDw8WAh8BaGRkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVJpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHI5MTJfTW9kdWxlQ29udGVudCcpKSByZXR1cm4gZmFsc2U7FgJmDw8WBh8DBTovUG9ydGFscy9fZGVmYXVsdC9Db250YWluZXJzL1BhZ2VCb2R5L2ltYWdlcy9ETk4tbWludXMuZ2lmHwQFCE1pbmltaXplHwUFCE1pbmltaXplZGQCBQ9kFgICAQ8PZBYCHw4FHU1vZEFkdmFuY2VkQXJ0aWNsZXNTYXRlbGxpdGVDFgICAQ9kFgQCAg8WAh8ABZgiPGRpdiBjbGFzcz0idG9wX2J1ZmZlciI+Jm5ic3A7PC9kaXY+DQoNCjxUQUJMRSBCT1JERVI9IjAiIFdJRFRIPSIxMDAlIiBjbGFzcz0nSG9tZU5ld3MnIGNlbGxwYWRkaW5nPSIyIiBjZWxsc3BhY2luZz0iMCIgPg0KPFRSID4NCgk8VEQgdmFsaWduPSJ0b3AiIHJvd3NwYW49IjIiPjwvVEQ+DQoNCjxURCBoZWlnaHQ9IjIwcHgiPjxhY3JvbnltIGNsYXNzPSdjYWxQdWJTcGFuJyB0aXRsZT0iV2VkbmVzZGF5LCBBcHJpbCAyNSwgMjAxMiI+PHNwYW4gY2xhc3M9J2NhbFB1Yk1vbnRoJz48c3Bhbj5BcHI8L3NwYW4+PC9zcGFuPjxzcGFuIGNsYXNzPSdjYWxQdWJEYXRlJz48c3Bhbj4yNTwvc3Bhbj48L3NwYW4+PC9hY3JvbnltPjwvVEQ+DQo8VEQgdmFsaWduPSJ0b3AiIHdpZHRoPSIxMDAlIj4NCjxkaXY+PGI+PGEgaHJlZj0naHR0cDovL3NpZW5haGVpZ2h0cy5lZHUvU2llbmFIZWlnaHRzTmV3cy90YWJpZC8yNTgvY3RsL0RldGFpbC9taWQvOTAyL2l0ZW1pZC83NTMvRGVmYXVsdC5hc3B4Jz5TSFUgT2ZmZXJzICdDbGF5IEFmdGVyIERpbm5lcicgV29ya3Nob3AgTWF5IDgtSnVuZSAxOTwvYT48L2I+PC9kaXY+DQo8c3Bhbj48c3Bhbj48L1REPjwvdHI+DQo8dHI+DQoJPFREIHdpZHRoPSIxMDAlIiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMiIgaGVpZ2h0PSI4MHB4Ij4NCjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogYXJpYWw7Ij5Xb3Jrc2hvcCBmb3IgYWR1bHQgc3R1ZGVudHMgaW5jbHVkZXMgdHdvIHNpeC13ZWVrLCBub24tY3JlZGl0IGNvdXJzZXMgaW4gd2hlZWwgdGhyb3dpbmcgYW5kIHNjdWxwdHVyYWwgY2VyYW1pY3M8L3NwYW4+IDxhIGhyZWY9Imh0dHA6Ly9zaWVuYWhlaWdodHMuZWR1L1NpZW5hSGVpZ2h0c05ld3MvdGFiaWQvMjU4L2N0bC9EZXRhaWwvbWlkLzkwMi9pdGVtaWQvNzUzL0RlZmF1bHQuYXNweCI+cmVhZCBtb3JlLi4uPC9hPg0KPC9URD4JDQo8L1RSPg0KDQo8dHI+DQoJPFREIGhlaWdodD0iMTBweCIgc3R5bGU9ImJvcmRlci10b3A6MXB4IGRvdHRlZDsiIGNvbHNwYW49IjMiPiA8L1REPg0KPC9UUj48VFIgPg0KCTxURCB2YWxpZ249InRvcCIgcm93c3Bhbj0iMiI+PC9URD4NCg0KPFREIGhlaWdodD0iMjBweCI+PGFjcm9ueW0gY2xhc3M9J2NhbFB1YlNwYW4nIHRpdGxlPSJUdWVzZGF5LCBGZWJydWFyeSAyMSwgMjAxMiI+PHNwYW4gY2xhc3M9J2NhbFB1Yk1vbnRoJz48c3Bhbj5GZWI8L3NwYW4+PC9zcGFuPjxzcGFuIGNsYXNzPSdjYWxQdWJEYXRlJz48c3Bhbj4yMTwvc3Bhbj48L3NwYW4+PC9hY3JvbnltPjwvVEQ+DQo8VEQgdmFsaWduPSJ0b3AiIHdpZHRoPSIxMDAlIj4NCjxkaXY+PGI+PGEgaHJlZj0naHR0cDovL3NpZW5haGVpZ2h0cy5lZHUvU2llbmFIZWlnaHRzTmV3cy90YWJpZC8yNTgvY3RsL0RldGFpbC9taWQvOTAyL2l0ZW1pZC82MjgvRGVmYXVsdC5hc3B4Jz5BdHRlbmQgdGhlIDIwMTIgU2llbmEgU3VtbWVyIFNwZWN0YWN1bGFyITwvYT48L2I+PC9kaXY+DQo8c3Bhbj48c3Bhbj48L1REPjwvdHI+DQo8dHI+DQoJPFREIHdpZHRoPSIxMDAlIiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMiIgaGVpZ2h0PSI4MHB4Ij4NCjxzcGFuIHN0eWxlPSJmb250LWZhbWlseTogYXJpYWw7IGNvbG9yOiAjMDAwMDAwOyI+U2Vjb25kIGFubnVhbCBzY2hvbGFyc2hpcCBmdW5kcmFpc2VyIEp1bmUgMjIgYXQgU0hVPC9zcGFuPiA8YSBocmVmPSJodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9TaWVuYUhlaWdodHNOZXdzL3RhYmlkLzI1OC9jdGwvRGV0YWlsL21pZC85MDIvaXRlbWlkLzYyOC9EZWZhdWx0LmFzcHgiPnJlYWQgbW9yZS4uLjwvYT4NCjwvVEQ+CQ0KPC9UUj4NCg0KPHRyPg0KCTxURCBoZWlnaHQ9IjEwcHgiIHN0eWxlPSJib3JkZXItdG9wOjFweCBkb3R0ZWQ7IiBjb2xzcGFuPSIzIj4gPC9URD4NCjwvVFI+PFRSID4NCgk8VEQgdmFsaWduPSJ0b3AiIHJvd3NwYW49IjIiPjwvVEQ+DQoNCjxURCBoZWlnaHQ9IjIwcHgiPjxhY3JvbnltIGNsYXNzPSdjYWxQdWJTcGFuJyB0aXRsZT0iV2VkbmVzZGF5LCBGZWJydWFyeSAwOCwgMjAxMiI+PHNwYW4gY2xhc3M9J2NhbFB1Yk1vbnRoJz48c3Bhbj5GZWI8L3NwYW4+PC9zcGFuPjxzcGFuIGNsYXNzPSdjYWxQdWJEYXRlJz48c3Bhbj44PC9zcGFuPjwvc3Bhbj48L2Fjcm9ueW0+PC9URD4NCjxURCB2YWxpZ249InRvcCIgd2lkdGg9IjEwMCUiPg0KPGRpdj48Yj48YSBocmVmPSdodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9TaWVuYUhlaWdodHNOZXdzL3RhYmlkLzI1OC9jdGwvRGV0YWlsL21pZC85MDIvaXRlbWlkLzU5NS9EZWZhdWx0LmFzcHgnPk5ldyBTdHVkZW50IFJlZ2lzdHJhdGlvbiBEYXlzIDIwMTI8L2E+PC9iPjwvZGl2Pg0KPHNwYW4+PHNwYW4+PC9URD48L3RyPg0KPHRyPg0KCTxURCB3aWR0aD0iMTAwJSIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjIiIGhlaWdodD0iODBweCI+DQpBbGwgbmV3IHN0dWRlbnRzIGFyZSByZXF1aXJlZCB0byBhdHRlbmQgPGEgaHJlZj0iaHR0cDovL3NpZW5haGVpZ2h0cy5lZHUvU2llbmFIZWlnaHRzTmV3cy90YWJpZC8yNTgvY3RsL0RldGFpbC9taWQvOTAyL2l0ZW1pZC81OTUvRGVmYXVsdC5hc3B4Ij5yZWFkIG1vcmUuLi48L2E+DQo8L1REPgkNCjwvVFI+DQoNCjx0cj4NCgk8VEQgaGVpZ2h0PSIxMHB4IiBzdHlsZT0iYm9yZGVyLXRvcDoxcHggZG90dGVkOyIgY29sc3Bhbj0iMyI+IDwvVEQ+DQo8L1RSPjxUUiA+DQoJPFREIHZhbGlnbj0idG9wIiByb3dzcGFuPSIyIj48L1REPg0KDQo8VEQgaGVpZ2h0PSIyMHB4Ij48YWNyb255bSBjbGFzcz0nY2FsUHViU3BhbicgdGl0bGU9IlR1ZXNkYXksIEFwcmlsIDE3LCAyMDEyIj48c3BhbiBjbGFzcz0nY2FsUHViTW9udGgnPjxzcGFuPkFwcjwvc3Bhbj48L3NwYW4+PHNwYW4gY2xhc3M9J2NhbFB1YkRhdGUnPjxzcGFuPjE3PC9zcGFuPjwvc3Bhbj48L2Fjcm9ueW0+PC9URD4NCjxURCB2YWxpZ249InRvcCIgd2lkdGg9IjEwMCUiPg0KPGRpdj48Yj48YSBocmVmPSdodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9TaWVuYUhlaWdodHNOZXdzL3RhYmlkLzI1OC9jdGwvRGV0YWlsL21pZC85MDIvaXRlbWlkLzc0MC9EZWZhdWx0LmFzcHgnPkNyZWF0aXZlIFN0YWdlcyBTdW1tZXIgRmluZSBBcnRzIENhbXAgSnVuZSAxOC0yOTwvYT48L2I+PC9kaXY+DQo8c3Bhbj48c3Bhbj48L1REPjwvdHI+DQo8dHI+DQoJPFREIHdpZHRoPSIxMDAlIiB2YWxpZ249InRvcCIgY29sc3Bhbj0iMiIgaGVpZ2h0PSI4MHB4Ij4NCjxiPg0KPHAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7Ij5TaWVuYSBIZWlnaHRzIFVuaXZlcnNpdHkgaXMgb2ZmZXJpbmcgYSB1bmlxdWUgYXJ0IGltbWVyc2lvbiBwcm9ncmFtIGZvciBjaGlsZHJlbiwgdGVlbnM8L3A+DQo8L2I+IDxhIGhyZWY9Imh0dHA6Ly9zaWVuYWhlaWdodHMuZWR1L1NpZW5hSGVpZ2h0c05ld3MvdGFiaWQvMjU4L2N0bC9EZXRhaWwvbWlkLzkwMi9pdGVtaWQvNzQwL0RlZmF1bHQuYXNweCI+cmVhZCBtb3JlLi4uPC9hPg0KPC9URD4JDQo8L1RSPg0KDQo8dHI+DQoJPFREIGhlaWdodD0iMTBweCIgc3R5bGU9ImJvcmRlci10b3A6MXB4IGRvdHRlZDsiIGNvbHNwYW49IjMiPiA8L1REPg0KPC9UUj48VFIgPg0KCTxURCB2YWxpZ249InRvcCIgcm93c3Bhbj0iMiI+PC9URD4NCg0KPFREIGhlaWdodD0iMjBweCI+PGFjcm9ueW0gY2xhc3M9J2NhbFB1YlNwYW4nIHRpdGxlPSJXZWRuZXNkYXksIEFwcmlsIDExLCAyMDEyIj48c3BhbiBjbGFzcz0nY2FsUHViTW9udGgnPjxzcGFuPkFwcjwvc3Bhbj48L3NwYW4+PHNwYW4gY2xhc3M9J2NhbFB1YkRhdGUnPjxzcGFuPjExPC9zcGFuPjwvc3Bhbj48L2Fjcm9ueW0+PC9URD4NCjxURCB2YWxpZ249InRvcCIgd2lkdGg9IjEwMCUiPg0KPGRpdj48Yj48YSBocmVmPSdodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9TaWVuYUhlaWdodHNOZXdzL3RhYmlkLzI1OC9jdGwvRGV0YWlsL21pZC85MDIvaXRlbWlkLzcyMy9EZWZhdWx0LmFzcHgnPlNpZW5hIEhlaWdodHMsIE1vbnJvZSBDb3VudHkgQ29tbXVuaXR5IENvbGxlZ2UgUGFydG5lciBmb3IgTmV3IFByb2dyYW08L2E+PC9iPjwvZGl2Pg0KPHNwYW4+PHNwYW4+PC9URD48L3RyPg0KPHRyPg0KCTxURCB3aWR0aD0iMTAwJSIgdmFsaWduPSJ0b3AiIGNvbHNwYW49IjIiIGhlaWdodD0iODBweCI+DQo8c3BhbiBzdHlsZT0iZm9udC1mYW1pbHk6IGFyaWFsOyI+Rm91ci1ZZWFyIFByb2Zlc3Npb25hbCBDb21tdW5pY2F0aW9uIERlZ3JlZSBOb3cgT2ZmZXJlZCBhdCBNQ0NDPC9zcGFuPiA8YSBocmVmPSJodHRwOi8vc2llbmFoZWlnaHRzLmVkdS9TaWVuYUhlaWdodHNOZXdzL3RhYmlkLzI1OC9jdGwvRGV0YWlsL21pZC85MDIvaXRlbWlkLzcyMy9EZWZhdWx0LmFzcHgiPnJlYWQgbW9yZS4uLjwvYT4NCjwvVEQ+CQ0KPC9UUj4NCg0KPC9UQUJMRT5kAgQPFgIfAWhkAgYPZBYCZg8PFgIfAWhkZAIHD2QWAmYPDxYCHwFoZGQCCA9kFgJmDw8WAh8BaGRkAiIPFgIfDgUWUmlnaHRQYW5lIEROTkVtcHR5UGFuZWQCIw8WAh8OBRdCb3R0b21QYW5lIEROTkVtcHR5UGFuZWQCJA8WAh8OBRdCb3R0b21QYW5lIEROTkVtcHR5UGFuZWQCJQ8WAh8OBRdCb3R0b21QYW5lIEROTkVtcHR5UGFuZWQCJg8WAh8OBRdCb3R0b21QYW5lIEROTkVtcHR5UGFuZWQCJw9kFgICAg9kFhBmDw8WAh8BaGRkAgEPDxYCHwFoZGQCAg9kFgICAg8WAh8BaBYGZg8WAh8FBQRFZGl0ZAIBDxYCHwUFBlVwZGF0ZWQCAg8WAh8FBQZDYW5jZWxkAgQPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVNpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHIyMDE3X01vZHVsZUNvbnRlbnQnKSkgcmV0dXJuIGZhbHNlOxYCZg8PFgYfAwU6L1BvcnRhbHMvX2RlZmF1bHQvQ29udGFpbmVycy9QYWdlQm9keS9pbWFnZXMvRE5OLW1pbnVzLmdpZh8EBQhNaW5pbWl6ZR8FBQhNaW5pbWl6ZWRkAgUPZBYCAgEPD2QWAh8OBQtNb2RETk5IVE1MQ2QCBg9kFgJmDw8WAh8BaGRkAgcPZBYCZg8PFgIfAWhkZAIID2QWAmYPDxYCHwFoZGQCKA8WAh8BZxYCAgEPZBYSAgEPDxYCHwFoZGQCAw8PFgIfAWhkZAIFD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCBw9kFgJmDw8WAh8BaGRkAgkPZBYCZg8PFgIfBQUITWluaW1pemUWAh8IBVJpZiAoX19kbm5fQ29udGFpbmVyTWF4TWluX09uQ2xpY2sodGhpcywgJ2Rubl9jdHI0NTFfTW9kdWxlQ29udGVudCcpKSByZXR1cm4gZmFsc2U7FgJmDw8WBh8DBTkvUG9ydGFscy9fZGVmYXVsdC9Db250YWluZXJzL0Zvb3RlcjEvaW1hZ2VzL0ROTi1taW51cy5naWYfBAUITWluaW1pemUfBQUITWluaW1pemVkZAILD2QWAgIBDw9kFgIfDgULTW9kRE5OSFRNTENkAg0PZBYCZg8PFgIfAWhkZAIPD2QWAmYPDxYCHwFoZGQCEQ9kFgJmDw8WAh8BaGRkAikPFgIfDgUXRm9vdGVyUGFuZSBETk5FbXB0eVBhbmVkAisPZBYCZg8PFgYfDwUSbG9naW5fZm9vdGVyX2xpbmtzHwAFBUxvZ2luHxACAmRkAiwPZBYCZg8PFgYfDwUSbG9naW5fZm9vdGVyX2xpbmtzHxACAh8BaGRkAgoPFCsAAhQrAANkZGRkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WBQUWZG5uJGRubk5BVjEkY3RsZG5uTkFWMQUWZG5uJGRubk5BVjIkY3RsZG5uTkFWMgUuZG5uJGN0cjE2ODkkZG5uQUNUSU9OQlVUVE9OMyRjdGwwMCRjdGwwMCRjdGwwMAUuZG5uJGN0cjE3NjYkZG5uQUNUSU9OQlVUVE9OMyRjdGwwMCRjdGwwMCRjdGwwMAUuZG5uJGN0cjIwMTckZG5uQUNUSU9OQlVUVE9OMyRjdGwwMCRjdGwwMCRjdGwwMOaXPtJ+Ye32AvBT2uC8i9GZnDE1" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=mFfypMiUQqO1_YtNM7kow93xWtq9SIHHivMMsohrcyoNclPaxn3nqnO_K5Km8NKeslaZg4PZ4-ZHKZIU0&amp;t=634208634757546466" type="text/javascript"></script>
+
+
+<script src="/js/dnncore.js" type="text/javascript"></script><script type="text/javascript" language="javascript" src="/DesktopModules/CodingStaff.ContentRotator/scripts/jquery-1.3.2.min.cs.js"></script><script type="text/javascript" language="javascript" src="/DesktopModules/CodingStaff.ContentRotator/scripts/jquery.cycle.all.min.js"></script><script type="text/javascript" language="javascript" src="/DesktopModules/CodingStaff.ContentRotator/scripts/ContentRotator.js"></script>
+<script src="/ScriptResource.axd?d=66qFCvm0oCagWl3v1WWTDhwgliJmHj-Ldc2W2hL50wZ0JkSkCvEFq-Fr_3JekSYcFdgZh7kA3gtZJu-BncAwBJ8tHLPoaGxyDrojDsS2QvE4DkBB_02nHS5hOo8_IqBa-XgDwx-NFdVylomWKJAHMcQC-v69BoLFLaQbRw2&amp;t=5c2f384e" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=f2dqGn_CPhprJsNmAWmr9-MMtw9BnVTUhMURBi4X8ZKX9q41SpXdhCOlPbg5ORAZDYBQs4WsauLtocl0feNMq8c8nRPyKWXINipAl-WI_iTwCYZy0ZZlEUquLFUqSjJG7H1r2qKvc3FTjKJ5iVS5UiaimN2I_XXSEohvHN8k55unsl8E0&amp;t=5c2f384e" type="text/javascript"></script>
+<script src="/js/dnn.js" type="text/javascript"></script>
+<script src="/js/dnn.xml.js" type="text/javascript"></script>
+<script src="/js/dnn.xmlhttp.js" type="text/javascript"></script>
+<script src="/js/dnn.dom.positioning.js" type="text/javascript"></script>
+<script src="/js/dnn.controls.js" type="text/javascript"></script>
+<script src="/js/dnn.controls.dnnmenu.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+dnn.controls.submitComp.onsubmit();
+return true;
+}
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', document.getElementById('Form'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        
+        
+
+  <!--START CUSTOM SKIN OBJECT-->
+    
+  <!--END CUSTOM SKIN OBJECT-->
+
+<script language="javascript" type="text/javascript" >
+	var script1 = document.createElement("link");
+	script1.href = "/Portals/_default/Skins/siena_nohead/dnnmodules.css";
+	script1.type = "text/css";
+	script1.rel = "stylesheet";	
+	document.getElementsByTagName("head").item(0).appendChild(script1);
+
+	var script2 = document.createElement("link");
+	script2.href = "/Portals/_default/Skins/siena_nohead/css/variations/stylesheetwidget.css";
+	script2.type = "text/css";
+	script2.rel = "stylesheet";	
+	document.getElementsByTagName("head").item(0).appendChild(script2);
+</script>
+
+<!--[if IE]>
+ <link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/siena_nohead/ie.css" >
+<![endif]-->
+
+<!--[if lte IE 6]>
+	<link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/siena_nohead/ie6.css" >
+	<script language="javascript" type="text/javascript" >
+		var script = document.createElement("script");
+		script.type="text/javascript";
+		script.src="/Portals/_default/Skins/siena_nohead/iepngfix_tilebg.js";	
+		document.getElementsByTagName("head").item(0).appendChild(script);
+	</script>
+<![endif]-->
+
+<!--
+	<script language="javascript" type="text/javascript" >	
+	     if (/MSIE (\d+\.\d+);/.test(navigator.userAgent)){ //test for MSIE x.x;
+         var ieversion=new Number(RegExp.$1) // capture x.x portion and store as a number
+         if (ieversion>=6)
+         {
+		    sfHover = function() {     var sfEls = document.getElementById("nav").getElementsByTagName("LI"); 
+		    for (var i=0; i<sfEls.length; i++) {  
+		            sfEls[i].onmouseover=function() {             this.className+=" sfhover";         } 
+		            sfEls[i].onmouseout=function() {             this.className=this.className.replace(new RegExp(" sfhover\\b"), "");         }
+		             }
+		    }
+	        if (window.attachEvent) window.attachEvent("onload", sfHover); 
+	    }
+	</script>
+//-->
+
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/siena_nohead/ie7.css" >
+<![endif]-->
+
+
+<!--<script type="text/javascript" language="javascript">
+
+    function addLoadEvent(func) {
+    
+        var oldonload = window.onload;
+
+        if (typeof window.onload != 'function') {
+        
+            window.onload = func;
+        }
+        else {
+
+            window.onload = function() { if (oldonload) { oldonload(); } func(); }
+        }
+    }
+
+</script>-->
+
+<div id="dnn_ControlPanel">
+
+</div>
+
+<div id="Wrapper" class="SkinBgColor">
+
+	<div id="TopBarB"></div>
+	<div id="TopBarT"></div>
+
+	<div id="Outer">
+		<table cellpadding="0" cellspacing="0" border="0" class="SkinWidth" id="OuterTable"><tr><td>
+			<div id="TL">
+				<div id="TR">
+					<div id="TM">
+						<div id="Header">
+							<div id="Logo"><a id="dnn_dnnLOGO_hypLogo" title="Siena Heights University" href="http://sienaheights.edu/Home.aspx"><img id="dnn_dnnLOGO_imgLogo" src="/Portals/0/logo_trans.png" alt="Siena Heights University" style="border-width:0px;" /></a></div>
+							<div id="NavAux">
+								<div id="FontWidget">
+						            <span class="Widgets">
+						                <!--<object id="TextSizeWidget" codetype="dotnetnuke/client" codebase="StyleSheetWidget" declare="declare">
+						                    <param name="baseUrl" value="/Portals/_default/Skins/siena_nohead/css/variations/" />
+						                    <param name="template" value="&lt;div title='{TEXT}' {ID} {CLASS}&gt;&lt;/div&gt;" />
+						                    <param name="default" value="SmallText" />
+						                    <param name="Small Text" value="SmallText" />
+						                    <param name="Medium Text" value="MediumText" />
+						                    <param name="Large Text" value="LargeText" />
+						                </object>-->
+						            </span>
+								</div>
+								
+								<div id="dnn_HeadLinksPane" class="HeadLinksPane"><a name="913"></a>
+<div>
+<table>
+    <tr>
+        <td valign="top">
+        <div class="hl_c_actions">
+			
+        </div>
+        </td>
+        <td>
+            
+        </td>
+        <td>
+            
+        </td>
+        
+        <td>
+        
+        <!--<div class="headerStyle1">	-->		
+			<!---->
+			<!--<h1>
+				<span id="dnn_ctr913_dnnTITLE_lblTitle" class="TitleHead">Global Header Links</span>
+
+
+
+			</h1>	
+        </div>-->
+
+    <!--<div class="hl_c_content">-->
+    
+    
+        <div id="dnn_ctr913_ContentPane" class="top_header_links_container"><!-- Start_Module_913 --><div id="dnn_ctr913_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr913_HtmlModule_lblContent" class="Normal">
+	<ul>
+    <li><a href="https://mysiena.sienaheights.edu/ics/" target="_blank">MySiena</a></li>
+    <li><a href="http://www.shusaints.com/sports/Ath_Main.aspx" target="_blank">shusaints.com</a></li>
+    <!--<li><a href="/Library.aspx">Library</a></li>
+    <li><a href="/CampusSafety.aspx">Campus Safety</a></li>-->
+</ul>
+</div>
+
+</div><!-- End_Module_913 --></div>
+        </td>
+        
+     </tr>
+        
+</table>
+        
+        
+    <!--</div>
+    <div class="hl_c_footer">
+        
+        
+        
+    </div>-->
+</div>
+
+
+
+
+
+</div>								
+								
+								<div id="Language"><div class="language-object" >
+
+
+</div></div>
+							</div>
+							
+							<!--<div id="Search"><div id="SearchPos"><span id="dnn_dnnSEARCH_ClassicSearch">
+  
+  
+  <input name="dnn$dnnSEARCH$txtSearch" type="text" maxlength="255" size="20" id="dnn_dnnSEARCH_txtSearch" class="NormalTextBox" onkeydown="return __dnn_KeyDown('13', 'javascript:__doPostBack(%27dnn$dnnSEARCH$cmdSearch%27,%27%27)', event);" />&nbsp;
+  <a id="dnn_dnnSEARCH_cmdSearch" class="SearchButton SkinBgColor" href="javascript:__doPostBack('dnn$dnnSEARCH$cmdSearch','')"> </a>
+</span>
+
+
+</div></div>-->
+							<div id="Search"><div id="SearchPos"> <input name="dnn$dnnGCSEARCH$q" type="text" maxlength="512" id="dnn_dnnGCSEARCH_q" class="GCSearchBox" style="width:183px;" />&nbsp;
+<input type="submit" name="dnn$dnnGCSEARCH$bSearch" value="" id="dnn_dnnGCSEARCH_bSearch" class="GCSearchButton" />
+<input name="dnn$dnnGCSEARCH$cx" type="hidden" id="dnn_dnnGCSEARCH_cx" value="008133425097888484130:tbpqlsosiho" />
+<input name="dnn$dnnGCSEARCH$cof" type="hidden" id="dnn_dnnGCSEARCH_cof" value="FORID:9" />
+
+<INPUT style="DISPLAY: none; VISIBILITY: hidden" name="dummyHidden"> <input name="dnn$dnnGCSEARCH$safe" type="hidden" id="dnn_dnnGCSEARCH_safe" value="active" />
+ </div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="ML">
+				<div id="MR">
+					<div id="MM">
+						<div id="BannerRow1"><div id="dnn_HeaderPane1" class="HeaderPane1 DNNEmptyPane"></div></div>
+						<div id="NavBar" class="NavBar1_3">
+							<span><span class="main_dnnmenu_bar" id="dnn_dnnNAV1_ctldnnNAV1"></span></span>
+							
+						</div>
+						
+						<div class="DDRMenuMega1"></div>
+					
+						
+						<div id="NavBarCorners">
+							<div class="CL"><img src="/Portals/_default/Skins/siena_nohead/images/NavBar.CL.png" alt="corner"/></div>
+							<div class="CR"><img src="/Portals/_default/Skins/siena_nohead/images/NavBar.CR.png" alt="corner"/></div>
+						</div>
+
+						<div id="BannerRow2"><div id="dnn_HeaderPane2" class="HeaderPane2 DNNEmptyPane"></div></div>
+						<div id="BreadcrumbRow">
+							<div class="CL"><img src="/Portals/_default/Skins/siena_nohead/images/breadcrumb.CL.png" alt="corner"/></div>
+							<div id="Breadcrumb"><span id="BreadcrumbArrow" class="SkinColor">&raquo;</span><span id="dnn_dnnBREADCRUMB_lblBreadCrumb"><a href="http://sienaheights.edu/Home.aspx" class="BREADCRUMBS_object">Home</a></span>
+</div>
+							<div class="CR"><img src="/Portals/_default/Skins/siena_nohead/images/breadcrumb.CR.png" alt="corner"/></div>
+							<div id="Date"><span id="dnn_dnnCURRENTDATE_lblDate" class="DATE_object">Sunday, May 06, 2012</span>
+</div>
+						</div>
+						<div id="Panes">
+									<!-- Start Content Panes Area-->
+								    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+									    <tr>
+										    <td id="dnn_TopPane" class="TopPane" colspan="3"><a name="2089"></a>
+
+    <div class="banner_outer_wrapper">
+        <div class="bph_c_actions">
+			
+        </div>
+        
+        <div class="banner_wrapper">
+            <div id="dnn_ctr2089_ContentPane" class="banner_content"><!-- Start_Module_2089 --><div id="dnn_ctr2089_ModuleContent" class="ModCodingStaffContentRotatorC">
+	
+<div class="contentRotator">
+    
+    
+        <div style="position:relative;width:960px;">
+            <div id="rotate2089" class="container" style="z-index:1;width:960px;height:300px">
+                
+                                <div class="item" style="width:960px;height:300px;">
+                                    <a href="/Admissions.aspx"></a><a href="http://www.shusaints.com/womenssports/trackandfield/tabid/84/ctl/detail/mid/549/itemid/893/duncan-falls-in-jump-off%2c-places-second-in-womens-high-jump-at-naia-indoors.aspx" target="_blank"></a><a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/694/Default.aspx"></a><a href="Students at Monroe County Community College can now earn a bachelor of arts in professional communication from Siena Heights University right on the MCCC campus."></a><a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/723/Default.aspx"></a><a href="http://www.shusaints.com" target="_blank"><img alt="" src="/Portals/0/WHACbanner.jpg" /></a>&nbsp;
+<div class="text">
+<h1>Championship Week at SHU</h1>
+<p><span style="font-family: verdana;">Siena Heights University is hosting both the baseball tournament and the outdoor track and field championships on campus this week for the Wolverine-Hoosier Athletic Conference. For more information, visit <a href="http://www.shusaints.com">www.shusaints.com</a>.<br />
+</span></p>
+</div>   
+                                </div>  
+                            
+                                <div class="item" style="width:960px;height:300px;">
+                                    <a href="/StudentLife.aspx"></a><a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/595/Default.aspx" target="_blank"><img alt="" src="/Portals/0/shuadmissionsbanner.jpg" /></a>&nbsp;
+<div class="text">
+<h1>New Student Registration Days</h1>
+<p><span style="font-family: verdana;">Accepted to Siena Heights? Congratulations! Your next step is to sign up for a New Student Registration Day (NSRD). All new students are required to attend a NSRD. Spots are limited, so sign up today!<br />
+<br />
+</span></p>
+</div>   
+                                </div>  
+                            
+                                <div class="item" style="width:960px;height:300px;">
+                                    <a href="/About/FastFacts.aspx"></a><a href="http://www.sienaheights.edu/About/DepartmentsOffices/RegistrarsOffice/GraduationCommencement.aspx" target="_blank"><img alt="" src="/Portals/0/shucommencebanner.jpg" /></a>&nbsp;
+<div class="text">
+<h1>Commencement 2012</h1>
+<p><span style="font-family: verdana;">We look forward to celebrating Commencement 2012. Commencement is at 3 p.m. Saturday, May&nbsp;5 in the Fieldhouse on the SHU main campus in Adrian. This ceremony will recognize all degree candidates from all Siena Heights locations.<br />
+<br />
+</span></p>
+</div>   
+                                </div>  
+                            
+                                <div class="item" style="width:960px;height:300px;">
+                                    <a href="/Alumni.aspx"><img alt="" src="/Portals/0/images/main_banner_3.jpg" /></a>
+<div class="text">
+<h1>Alumni &amp; Friends</h1>
+<p><span style="font-family: verdana;">Stay connected with Siena Heights! Whether you are a graduate or former student, a volunteer, supporter, neighbor or friend, we invite you to engage with what's happening at SHU!</span></p>
+</div>   
+                                </div>  
+                            
+                                <div class="item" style="width:960px;height:300px;">
+                                    <a href="/FacultyStaff.aspx"></a><a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/645/Default.aspx" target="_blank"><img alt="" src="/Portals/0/shucheerbanner.jpg" /></a>&nbsp;
+<div class="text">
+<h1>New at the SHU...</h1>
+<p><span style="font-family: verdana;">Siena Heights University announced the addition of a competitive cheer and dance team to its athletic department. The new squads will start in the 2012-13 academic year. The Saints named Angie Sword as their first cheer and dance coach.</span></p>
+</div>   
+                                </div>  
+                               
+            </div>           
+                      
+            <div style="z-index:2;position:relative;top:-24px;width:960px;">
+                
+                <table cellpadding="0" cellspacing="0" style="position:absolute;top:0px;left:383px;text-align:center;">
+                    <tr align="center">
+                        <td style="width:43px;"><div class="prevButton prev prev2089"></div></td>
+                        <td style="text-align:center;">
+                            <div class="nav cs_cr_nav2089" style="margin-top:0px;"></div>
+                        </td>
+                        <td style="width:41px;"><div class="nextButton next next2089"></div></td>
+                    </tr>
+                </table>
+                </div>
+                 
+        </div>
+    
+    <script type="text/javascript">
+        (function() {        
+            jQueryCS(document).ready(function() { 
+                var options2089 = {
+                    moduleId: 2089,
+                    effect: 'fade',
+                    speed:1000, 
+                    timeout:  9000,
+                    items: [{'Id':32,'ModuleId':2089,'OrderIndex':0,'Content':'&lt;a href=&quot;/Admissions.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.shusaints.com/womenssports/trackandfield/tabid/84/ctl/detail/mid/549/itemid/893/duncan-falls-in-jump-off%2c-places-second-in-womens-high-jump-at-naia-indoors.aspx&quot; target=&quot;_blank&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/694/Default.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;Students at Monroe County Community College can now earn a bachelor of arts in professional communication from Siena Heights University right on the MCCC campus.&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/723/Default.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.shusaints.com&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;/Portals/0/WHACbanner.jpg&quot; /&gt;&lt;/a&gt;&amp;nbsp;\r\n&lt;div class=&quot;text&quot;&gt;\r\n&lt;h1&gt;Championship Week at SHU&lt;/h1&gt;\r\n&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Siena Heights University is hosting both the baseball tournament and the outdoor track and field championships on campus this week for the Wolverine-Hoosier Athletic Conference. For more information, visit &lt;a href=&quot;http://www.shusaints.com&quot;&gt;www.shusaints.com&lt;/a&gt;.&lt;br /&gt;\r\n&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;','Title':'','Mode':0},{'Id':33,'ModuleId':2089,'OrderIndex':1,'Content':'&lt;a href=&quot;/StudentLife.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/595/Default.aspx&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;/Portals/0/shuadmissionsbanner.jpg&quot; /&gt;&lt;/a&gt;&amp;nbsp;\r\n&lt;div class=&quot;text&quot;&gt;\r\n&lt;h1&gt;New Student Registration Days&lt;/h1&gt;\r\n&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Accepted to Siena Heights? Congratulations! Your next step is to sign up for a New Student Registration Day (NSRD). All new students are required to attend a NSRD. Spots are limited, so sign up today!&lt;br /&gt;\r\n&lt;br /&gt;\r\n&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;','Title':'','Mode':0},{'Id':34,'ModuleId':2089,'OrderIndex':2,'Content':'&lt;a href=&quot;/About/FastFacts.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.sienaheights.edu/About/DepartmentsOffices/RegistrarsOffice/GraduationCommencement.aspx&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;/Portals/0/shucommencebanner.jpg&quot; /&gt;&lt;/a&gt;&amp;nbsp;\r\n&lt;div class=&quot;text&quot;&gt;\r\n&lt;h1&gt;Commencement 2012&lt;/h1&gt;\r\n&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;We look forward to celebrating Commencement 2012. Commencement is at 3 p.m. Saturday, May&amp;nbsp;5 in the Fieldhouse on the SHU main campus in Adrian. This ceremony will recognize all degree candidates from all Siena Heights locations.&lt;br /&gt;\r\n&lt;br /&gt;\r\n&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;','Title':'','Mode':0},{'Id':35,'ModuleId':2089,'OrderIndex':3,'Content':'&lt;a href=&quot;/Alumni.aspx&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;/Portals/0/images/main_banner_3.jpg&quot; /&gt;&lt;/a&gt;\r\n&lt;div class=&quot;text&quot;&gt;\r\n&lt;h1&gt;Alumni &amp;amp; Friends&lt;/h1&gt;\r\n&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Stay connected with Siena Heights! Whether you are a graduate or former student, a volunteer, supporter, neighbor or friend, we invite you to engage with what\u0027s happening at SHU!&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;','Title':'','Mode':0},{'Id':36,'ModuleId':2089,'OrderIndex':4,'Content':'&lt;a href=&quot;/FacultyStaff.aspx&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/645/Default.aspx&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;/Portals/0/shucheerbanner.jpg&quot; /&gt;&lt;/a&gt;&amp;nbsp;\r\n&lt;div class=&quot;text&quot;&gt;\r\n&lt;h1&gt;New at the SHU...&lt;/h1&gt;\r\n&lt;p&gt;&lt;span style=&quot;font-family: verdana;&quot;&gt;Siena Heights University announced the addition of a competitive cheer and dance team to its athletic department. The new squads will start in the 2012-13 academic year. The Saints named Angie Sword as their first cheer and dance coach.&lt;/span&gt;&lt;/p&gt;\r\n&lt;/div&gt;','Title':'','Mode':0}],
+                    startRotating: 0,
+                    isClick : false
+                };
+                rotateContent(2, options2089);
+            });     
+        })();
+    </script>
+</div>
+    
+</div><!-- End_Module_2089 --></div>
+        
+        </div>    
+        
+        <div class="bph_c_footer">
+            
+            
+            
+        </div>
+    
+    </div>
+
+
+
+
+
+</td>
+
+										    <td></td>
+									    </tr>
+									    <tr>
+									    	<!--Start Left Pane without left navigation -->
+										    <td id="dnn_LeftPane1" class="LeftPane1 DNNEmptyPane">
+										      
+										    </td>
+
+									    	<!--End   Left Pane without left navigation -->
+
+									    	<!--Start Left Pane with left navigation -->
+									    	<td class="LeftPane2" id="NavBarVWidth">
+									    		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+									    			<tr id="NavBarV_Outer"> <!--To Hide when Horizontal Nav-->
+														<td valign="top" colspan="2">
+															<!--Start V Nav-->
+															<div id="NavBarV" class="NavBar1_3">
+																<div id="NavBarV_TL">
+																	<div id="NavBarV_TR">
+																		<div id="NavBarV_TM"></div>
+																	</div>
+																</div>
+																<div id="NavBarV_ML">
+																	<div id="NavBarV_MR">
+																		<div id="NavBarV_MM">
+																			<span><span class="main_dnnmenu_bar" id="dnn_dnnNAV2_ctldnnNAV2"></span></span>
+																		</div>
+																	</div>
+																</div>
+																<div id="NavBarV_BL">
+																	<div id="NavBarV_BR">
+																		<div id="NavBarV_BM"></div>
+																	</div>
+																</div>
+															</div>
+															<!--End V Nav-->
+														</td>
+									    			</tr>
+									    		</table>
+									    		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+									    			<tr>
+									    				<td id="dnn_LeftPane2"><a name="421"></a></td>
+
+									    				<td></td>
+									    			</tr>
+									    		</table>
+									    	</td>
+									    	<!--End   Left Pane with left navigation -->
+
+										    <td valign="top">
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    <td></td>
+												    </tr>
+												    <tr>
+													    
+													    
+													    <td></td>
+												    </tr>
+											    </table>
+
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    <td></td>
+												    </tr>
+												    <tr>
+													    <td id="dnn_SidePaneL2" class="SidePane33"><a name="1689"></a>
+<div>
+    <div>
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        
+        <!--<div class="headerStyle1">-->		
+			<!---->
+			<!--<h1>
+				<span id="dnn_ctr1689_dnnTITLE_lblTitle" class="TitleHead">Apply Online</span>
+
+
+
+			</h1>	
+        </div>-->
+        
+        <!--<div class="pb_title_vis">
+        <span><span><input type="image" name="dnn$ctr1689$dnnACTIONBUTTON3$ctl00$ctl00$ctl00" title="Print" src="/images/action_print.gif" alt="Print" style="border-width:0px;" /></span>&nbsp;&nbsp;</span>
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr1689_ModuleContent')) return false;" id="dnn_ctr1689_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr1689$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr1689_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr1689_ContentPane" class="pagebody"><!-- Start_Module_1689 --><div id="dnn_ctr1689_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr1689_HtmlModule_lblContent" class="Normal">
+	<a href="https://mysiena.sienaheights.edu/ics/Application/PrivateArea/Default_Page.jnz" target="_blank" title="Apply Online"><img alt="" src="/Portals/0/images/homebanner_applyonline.jpg" /></a>
+</div>
+
+</div><!-- End_Module_1689 --></div>
+        
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+</td>
+
+													    <td id="dnn_SidePaneM2" class="ContentPane"><a name="425"></a>
+<div>
+
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        <div class="box_img_overlay_container">
+        
+        
+        <div class="overlay_txt_header">			
+			<!---->
+			<h1>
+				<span id="dnn_ctr425_dnnTITLE_lblTitle" class="TitleHead"><A href="/About/FastFacts.aspx">Fast Facts</A></span>
+
+
+
+			</h1>	
+        </div>
+        
+        <!--<div class="pb_title_vis">
+        
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr425_ModuleContent')) return false;" id="dnn_ctr425_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr425$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr425_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr425_ContentPane" class="box_img_overlay_content"><!-- Start_Module_425 --><div id="dnn_ctr425_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr425_HtmlModule_lblContent" class="Normal">
+	<a href="/About/FastFacts.aspx" title="Fast Facts"><img alt="" src="/Portals/0/images/factsAndFigures_home.jpg" /></a>
+</div>
+
+</div><!-- End_Module_425 --></div>
+        
+        </div>
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+</td>
+
+													    <td id="dnn_SidePaneR2" class="SidePane33"><a name="426"></a>
+<div>
+
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        <div class="box_img_overlay_container">
+        
+        
+        <div class="overlay_txt_header">			
+			<!---->
+			<h1>
+				<span id="dnn_ctr426_dnnTITLE_lblTitle" class="TitleHead"><a href="/Admissions/CampusVisit.aspx">Campus Visit</a></span>
+
+
+
+			</h1>	
+        </div>
+        
+        <!--<div class="pb_title_vis">
+        
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr426_ModuleContent')) return false;" id="dnn_ctr426_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr426$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr426_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr426_ContentPane" class="box_img_overlay_content"><!-- Start_Module_426 --><div id="dnn_ctr426_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr426_HtmlModule_lblContent" class="Normal">
+	<a href="/Admissions/CampusVisit.aspx" title="Campus Visit"><img alt="" src="/Portals/0/images/campusTour_home.jpg" /></a>
+</div>
+
+</div><!-- End_Module_426 --></div>
+        
+        </div>
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+</td>
+
+													    <td></td>
+												    </tr>
+											    </table>
+
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    <td></td>
+												    </tr>
+												    <tr>
+													    
+													    
+													    <td></td>
+												    </tr>
+											    </table>
+
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    <td></td>
+												    </tr>
+												    <tr>
+													    
+													    
+													    <td></td>
+												    </tr>
+											    </table>
+
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    <td></td>
+												    </tr>
+												    <tr>
+													    <td id="dnn_SidePaneL5" class="SidePane33"><a name="1562"></a>
+<div>
+    <div>
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        
+        <div class="headerStyle7">			
+			<!---->
+			<h1>
+				<span id="dnn_ctr1562_dnnTITLE_lblTitle" class="TitleHead"><span title="Meet Siena">Meet Siena</span></span>
+
+
+
+			</h1>	
+        </div>
+        
+        <!--<div class="pb_title_vis">
+        
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr1562_ModuleContent')) return false;" id="dnn_ctr1562_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr1562$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr1562_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr1562_ContentPane" class="home_copy_col"><!-- Start_Module_1562 --><div id="dnn_ctr1562_ModuleContent" class="ModSienaModuleMeetSienaC">
+	
+    
+    
+    
+    <!--What shows up on the page-->
+        <h2>Students</h2><a href="/MeetSienaDetails.aspx?NewsArticleID=6290&NewsCategoryID=3&CampusID=1"><img src="/NewsImage/20120208113931.JPG"></a><p><strong>Tigiste Habtemariam</strong><br /><a href="/MeetSienaDetails.aspx?NewsArticleID=6290&NewsCategoryID=3&CampusID=1">Major: Professional Communications, 
+Campus: Lansing</a><br /></p><h2>Faculty &amp; Staff</h2><a href="/MeetSienaDetails.aspx?NewsArticleID=6297&NewsCategoryID=4&CampusID=1"><img src="/NewsImage/20120215112725.GIF"></a><p><strong>Eric Kos</strong><br /><a href="/MeetSienaDetails.aspx?NewsArticleID=6297&NewsCategoryID=4&CampusID=1">Assistant Professor of Political Science</a><br /></p><h2>Alumni</h2><a href="/MeetSienaDetails.aspx?NewsArticleID=4799&NewsCategoryID=5&CampusID=1"><img src="/NewsImage/20100323112410.JPG"></a><p><strong>Tim Fether '09</strong><br /><a href="/MeetSienaDetails.aspx?NewsArticleID=4799&NewsCategoryID=5&CampusID=1">Major: Mathematics</a><br /></p>
+    <!--End what shows up on the page-->
+  
+</div><!-- End_Module_1562 --></div>
+        
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+</td>
+
+													    <td id="dnn_SidePaneM5" class="ContentPane"><a name="1766"></a>
+<div>
+    <div>
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        
+        <div class="headerStyle7">			
+			<!---->
+			<h1>
+				<span id="dnn_ctr1766_dnnTITLE_lblTitle" class="TitleHead"><a href="/UpcomingEvents.aspx">Upcoming Events</a></span>
+
+
+
+			</h1>	
+        </div>
+        
+        <!--<div class="pb_title_vis">
+        <span><span><input type="image" name="dnn$ctr1766$dnnACTIONBUTTON3$ctl00$ctl00$ctl00" title="Print" src="/images/action_print.gif" alt="Print" style="border-width:0px;" /></span>&nbsp;&nbsp;</span>
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr1766_ModuleContent')) return false;" id="dnn_ctr1766_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr1766$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr1766_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr1766_ContentPane" class="pagebody"><!-- Start_Module_1766 --><div id="dnn_ctr1766_ModuleContent" class="ModAdvancedArticlesSatelliteC">
+	
+
+
+
+</div><!-- End_Module_1766 --></div>
+        
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+</td>
+
+													    <td id="dnn_SidePaneR5" class="SidePane33"><a name="912"></a>
+<div>
+    <div>
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        
+        <div class="headerStyle7">			
+			<!---->
+			<h1>
+				<span id="dnn_ctr912_dnnTITLE_lblTitle" class="TitleHead"><a href="/SienaHeightsNews.aspx">Siena Heights News</a></span>
+
+
+
+			</h1>	
+        </div>
+        
+        <!--<div class="pb_title_vis">
+        
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr912_ModuleContent')) return false;" id="dnn_ctr912_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr912$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr912_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr912_ContentPane" class="home_copy_col"><!-- Start_Module_912 --><div id="dnn_ctr912_ModuleContent" class="ModAdvancedArticlesSatelliteC">
+	
+<div class="top_buffer">&nbsp;</div>
+
+<TABLE BORDER="0" WIDTH="100%" class='HomeNews' cellpadding="2" cellspacing="0" >
+<TR >
+	<TD valign="top" rowspan="2"></TD>
+
+<TD height="20px"><acronym class='calPubSpan' title="Wednesday, April 25, 2012"><span class='calPubMonth'><span>Apr</span></span><span class='calPubDate'><span>25</span></span></acronym></TD>
+<TD valign="top" width="100%">
+<div><b><a href='http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/753/Default.aspx'>SHU Offers 'Clay After Dinner' Workshop May 8-June 19</a></b></div>
+<span><span></TD></tr>
+<tr>
+	<TD width="100%" valign="top" colspan="2" height="80px">
+<span style="font-family: arial;">Workshop for adult students includes two six-week, non-credit courses in wheel throwing and sculptural ceramics</span> <a href="http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/753/Default.aspx">read more...</a>
+</TD>	
+</TR>
+
+<tr>
+	<TD height="10px" style="border-top:1px dotted;" colspan="3"> </TD>
+</TR><TR >
+	<TD valign="top" rowspan="2"></TD>
+
+<TD height="20px"><acronym class='calPubSpan' title="Tuesday, February 21, 2012"><span class='calPubMonth'><span>Feb</span></span><span class='calPubDate'><span>21</span></span></acronym></TD>
+<TD valign="top" width="100%">
+<div><b><a href='http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/628/Default.aspx'>Attend the 2012 Siena Summer Spectacular!</a></b></div>
+<span><span></TD></tr>
+<tr>
+	<TD width="100%" valign="top" colspan="2" height="80px">
+<span style="font-family: arial; color: #000000;">Second annual scholarship fundraiser June 22 at SHU</span> <a href="http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/628/Default.aspx">read more...</a>
+</TD>	
+</TR>
+
+<tr>
+	<TD height="10px" style="border-top:1px dotted;" colspan="3"> </TD>
+</TR><TR >
+	<TD valign="top" rowspan="2"></TD>
+
+<TD height="20px"><acronym class='calPubSpan' title="Wednesday, February 08, 2012"><span class='calPubMonth'><span>Feb</span></span><span class='calPubDate'><span>8</span></span></acronym></TD>
+<TD valign="top" width="100%">
+<div><b><a href='http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/595/Default.aspx'>New Student Registration Days 2012</a></b></div>
+<span><span></TD></tr>
+<tr>
+	<TD width="100%" valign="top" colspan="2" height="80px">
+All new students are required to attend <a href="http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/595/Default.aspx">read more...</a>
+</TD>	
+</TR>
+
+<tr>
+	<TD height="10px" style="border-top:1px dotted;" colspan="3"> </TD>
+</TR><TR >
+	<TD valign="top" rowspan="2"></TD>
+
+<TD height="20px"><acronym class='calPubSpan' title="Tuesday, April 17, 2012"><span class='calPubMonth'><span>Apr</span></span><span class='calPubDate'><span>17</span></span></acronym></TD>
+<TD valign="top" width="100%">
+<div><b><a href='http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/740/Default.aspx'>Creative Stages Summer Fine Arts Camp June 18-29</a></b></div>
+<span><span></TD></tr>
+<tr>
+	<TD width="100%" valign="top" colspan="2" height="80px">
+<b>
+<p style="text-align: left;">Siena Heights University is offering a unique art immersion program for children, teens</p>
+</b> <a href="http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/740/Default.aspx">read more...</a>
+</TD>	
+</TR>
+
+<tr>
+	<TD height="10px" style="border-top:1px dotted;" colspan="3"> </TD>
+</TR><TR >
+	<TD valign="top" rowspan="2"></TD>
+
+<TD height="20px"><acronym class='calPubSpan' title="Wednesday, April 11, 2012"><span class='calPubMonth'><span>Apr</span></span><span class='calPubDate'><span>11</span></span></acronym></TD>
+<TD valign="top" width="100%">
+<div><b><a href='http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/723/Default.aspx'>Siena Heights, Monroe County Community College Partner for New Program</a></b></div>
+<span><span></TD></tr>
+<tr>
+	<TD width="100%" valign="top" colspan="2" height="80px">
+<span style="font-family: arial;">Four-Year Professional Communication Degree Now Offered at MCCC</span> <a href="http://sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/723/Default.aspx">read more...</a>
+</TD>	
+</TR>
+
+</TABLE>
+
+
+</div><!-- End_Module_912 --></div>
+        
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+</td>
+
+													    <td></td>
+												    </tr>
+											    </table>
+										    </td>
+										    
+										    <td></td>
+									    </tr>
+									    <tr>
+										    <td colspan="3">
+											    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+												    <tr>
+													    
+													    
+													    
+													    
+													    <td></td>
+												    </tr>
+											    </table>
+										    </td>
+										    <td></td>
+									    </tr>
+									    <tr>
+									    	<td id="dnn_FooterIcons" align="center" class="FooterIcons" colspan="3">
+									    	
+									    	<a name="2017"></a>
+    
+<div class="foot_icons_outer_wrapper">
+    <div>
+        <div class="pb_c_actions">
+			
+        </div>
+        
+        
+        <!--<div class="headerStyle7">			
+			
+			<h1>
+				<span id="dnn_ctr2017_dnnTITLE_lblTitle" class="TitleHead">Footer Icons</span>
+
+
+
+			</h1>	
+        </div>-->
+        
+        <!--<div class="pb_title_vis">
+        <span><span><input type="image" name="dnn$ctr2017$dnnACTIONBUTTON3$ctl00$ctl00$ctl00" title="Print" src="/images/action_print.gif" alt="Print" style="border-width:0px;" /></span>&nbsp;&nbsp;</span>
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr2017_ModuleContent')) return false;" id="dnn_ctr2017_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr2017$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr2017_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/PageBody/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="pb_c_content">-->
+    
+    
+        <div id="dnn_ctr2017_ContentPane" class="foot_icons_content"><!-- Start_Module_2017 --><div id="dnn_ctr2017_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr2017_HtmlModule_lblContent" class="Normal">
+	<table align="center">
+    <tbody>
+        <tr>
+            <td>
+            <a href="http://www.militaryfriendlyschools.com/" target="_blank" title="G.I. Jobs - Military Friendly Schools 2012">
+            <img src="/Portals/0/images/MFS_200x200_2012.jpg" alt="G.I. Jobs - Military Friendly Schools 2012" />
+            </a>
+            </td>
+            <td>
+            <a href="http://www.collegesofdistinction.com/college-profiles/MI-michigan.html" target="_blank" title="Colleges of Distinction 2012">
+            <img src="/Portals/0/images/COD_2011_Icon.jpg" alt="Colleges of Distinction 2012" />
+            </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+</div><!-- End_Module_2017 --></div>
+        
+        
+    <!--</div>-->
+    <div class="pb_c_footer">
+        
+        
+        
+    </div>
+</div>
+
+
+
+</td>
+
+						                    <td></td>
+									    </tr>
+									    <tr>
+
+										    <td id="dnn_BottomPane" class="BottomPane" colspan="3"><a name="451"></a>
+<div class="c_container c_head_blue">
+    <div class="head_title">
+        <div class="c_actions">
+			
+        </div>
+        <!--<div class="c_icon">			
+			
+			<h2 class="c_title">
+				<span id="dnn_ctr451_dnnTITLE_lblTitle" class="TitleHead">Footer 1</span>
+
+
+			
+			</h2>	
+        </div>
+        <div class="title_vis">
+        
+            <a onclick="if (__dnn_ContainerMaxMin_OnClick(this, 'dnn_ctr451_ModuleContent')) return false;" id="dnn_ctr451_dnnVISIBILITY_cmdVisibility" title="Minimize" href="javascript:__doPostBack('dnn$ctr451$dnnVISIBILITY$cmdVisibility','')"><img id="dnn_ctr451_dnnVISIBILITY_imgVisibility" title="Minimize" src="/Portals/_default/Containers/Footer1/images/DNN-minus.gif" alt="Minimize" style="border-width:0px;" /></a>
+        </div>
+        <div class="clear_float">
+        </div>-->
+    </div>
+    <!--<div class="c_content">-->
+    
+    
+        <div id="dnn_ctr451_ContentPane" class="footer_container"><!-- Start_Module_451 --><div id="dnn_ctr451_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr451_HtmlModule_lblContent" class="Normal">
+	<!--COLUMN 1-->
+<div class="footer_col">
+<h3><a href="/About.aspx">About</a> </h3>
+<ul title="About Siena Heights University">
+    <li><a href="/About/MissionHistory.aspx">Mission and History</a> </li>
+    <li><a href="/About/FastFacts.aspx">Fast Facts</a> </li>
+    <li><a href="/About/OfficeOfThePresident.aspx">Office of the President</a> </li>
+    <li><a href="/About/DepartmentsOffices.aspx">Departments &amp; Offices</a> </li>
+    <li><a href="/About/Employment.aspx">Employment at SHU</a> </li>
+    <li><a href="/About/CampusMap.aspx">Campus Map</a> </li>
+    <li><a href="/CampusSafety.aspx">Campus Safety</a> </li>
+    <li><a href="/About/PrivacyPolicy.aspx">Privacy Policies</a> </li>
+    <li><a href="/About/ContactUs.aspx">Contact Us</a> </li>
+</ul>
+<h3><a href="/StudentLife.aspx">Student Life</a> </h3>
+<ul title="Student Life at Siena Heights University">
+    <li><a href="/StudentLife/ResidenceLife.aspx">Residence Life</a> </li>
+    <li><a href="/StudentLife/CampusMinistry.aspx">Campus Ministry</a> </li>
+    <li><a href="/StudentLife/HealthServices.aspx">Health Services</a> </li>
+    <li><a href="/StudentLife/CounselingCenter.aspx">Counseling Center</a> </li>
+    <li><a href="/StudentLife/StudentActivities.aspx">Student Activities</a> </li>
+    <li><a href="/About/ClubOrganizations.aspx">Clubs &amp; Organizations</a> </li>
+    <li><a href="/StudentLife/StudyAbroad.aspx">Study Abroad</a> </li>
+    <li><a href="/About/FastFacts.aspx">Parents</a> </li>
+</ul>
+</div>
+<!--COLUMN 2-->
+<div class="footer_col">
+<h3><a href="/Admissions.aspx">Admissions</a></h3>
+<ul title="Admission to Siena Heights University">
+    <li><a href="https://mysiena.sienaheights.edu/ics/Application/PrivateArea/Default_Page.jnz" target="_blank">Apply Online</a> <a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/595/Default.aspx" target="_blank">
+    <li><span style="color: #1f497d;">New Student Registration Days</span> </li>
+    </a></li>
+    <li><a href="/Admissions/ContactAdmissions.aspx">Meet the Staff</a> </li>
+    <li><a href="/Admissions/CampusVisit.aspx">Schedule a Campus Visit</a> <a href="http://www.sienaheights.edu/Admissions/CampusVisit/RegisterSienaSpotlightDays.aspx" target="_blank">
+    <li><span style="color: #1f497d;">Siena Spotlight Days</span> </li>
+    </a></li>
+    <li><a href="/Admissions/TransferStudents/TransferAdmissionsFAQ.aspx">Transfer Student FAQ</a> </li>
+    <li><a href="/Admissions/RequestInformation.aspx">Request More Info</a> </li>
+    <li><a href="/Admissions/MilitaryVeterans.aspx">Military/Veterans</a> </li>
+    <li><a href="/Admissions/InternationalStudents.aspx">International Students</a> </li>
+    <li><a href="/Admissions/CollegeOpportunityforStudentsCOPS.aspx">Dual&nbsp;Enrollment&nbsp;</a> </li>
+</ul>
+<h3><a href="/Athletics.aspx">Athletics</a></h3>
+<ul title="Athletics at Siena Heights University">
+    <li><a href="http://www.shusaints.com/sports/Ath_GuestMenSports.aspx" target="_blank">Men&rsquo;s Sports</a> </li>
+    <li><a href="http://www.shusaints.com/sports/Ath_GuestWomenSports.aspx" target="_blank">Women&rsquo;s Sports</a> </li>
+</ul>
+</div>
+<!--COLUMN 3-->
+<div class="footer_col">
+<h3><a href="/Academics.aspx">Academics</a></h3>
+<ul title="Academics at Siena Heights University">
+    <li><a href="/Academics/MajorsPrograms.aspx">Majors and Programs</a> </li>
+    <li><a href="/Academics/AcademicDivisions.aspx">Academic Divisions</a> </li>
+    <li><a href="/Admissions/GraduateCollege.aspx">Graduate College</a> </li>
+    <li><a href="/About/AcademicCalendar.aspx">Academic Calendar</a> </li>
+    <li><a href="/Locations.aspx">Locations</a> </li>
+    <li><a href="/Locations/DistanceLearningPrograms.aspx">Online Program</a> </li>
+    <li><a href="/Academics/TheologicalStudies.aspx">Theological Studies</a> </li>
+    <li><a href="/About/DepartmentsOffices/RegistrarsOffice.aspx">Registrar</a> </li>
+    <li><a href="/About/DepartmentsOffices/RegistrarsOffice/AcademicCatalogs.aspx">Academic Catalogs</a> </li>
+    <li><a href="/StudentLife/StudentAchievementAcademicSuccess.aspx" style="color: #003366;"><span style="font-family: arial;">Student Achievement and Academic Success</span></a> <a href="http://www.sienaheights.edu/PreviewNewsAcademics/tabid/74/NewsArticleID/4841/MajorID/UND/Default.aspx">
+    <li><span style="color: #1f497d;">Writing Center</span> </li>
+    </a></li>
+</ul>
+<h3><a href="/Alumni.aspx">Alumni</a></h3>
+<ul title="Alumni of Siena Heights University">
+    <li><a href="/Alumni/AlumniAssociation.aspx">Alumni Association</a> </li>
+    <li><a href="/Alumni/AlumniTools.aspx">Alumni Tools</a> </li>
+    <li><a href="/Alumni/AlumniTools/ReflectionsMagazine.aspx">Reflections Magazine</a> </li>
+    <li><a href="/Alumni/AlumniAwards.aspx">Alumni Awards</a> </li>
+    <li><a href="/Giving/Homecoming.aspx">Homecoming Weekend</a> </li>
+</ul>
+</div>
+<!--COLUMN 4-->
+<div class="footer_col">
+<h3><a href="/FinancialAid.aspx">Financial Aid</a></h3>
+<ul title="Financial Aid at Siena Heights University">
+    <li><a href="/FinancialAid/GettingStarted.aspx">Getting Started</a> </li>
+    <li><a href="/Admissions/TuitionFees.aspx">Tuition and Fees</a> </li>
+    <li target="_blank" href="http://www.sienaheights.edu/FinancialAid/Scholarships.aspx"><a href="http://www.sienaheights.edu/Admissions/Scholarships.aspx"></a><a href="http://www.fafsa.ed.gov/" target="_blank">FAFSA</a> </li>
+    <li><a href="/FinancialAid/StudentLoanInformation.aspx">Student Loan Information</a> </li>
+    <li><a href="http://www.finaid.org/fafsa/video.phtml" target="_blank">The Five-Minute FAFSA Video</a> </li>
+    <li><a href="https://mysiena.sienaheights.edu/ics/ePayments.jnz" target="_blank">Make a Payment</a> </li>
+</ul>
+<h3><a href="/Giving.aspx">Giving</a></h3>
+<ul title="Giving to Siena Heights University"><a href="http://www.sienaheights.edu/CapitalCampaign.aspx">
+    <li><span style="color: #1f497d;">On Higher Ground Campaign</span> <a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/628/Default.aspx" target="_blank">
+    <li><span style="color: #1f497d;">Siena Summer Spectacular 2012</span> </li>
+    </a></li>
+    </a>
+    <li><a href="https://commerce.cashnet.com/shdonations" target="_blank">Make a Gift Online</a> </li>
+    <li><a href="/Giving/WaystoGive/AnnualFund.aspx">Annual Fund</a> </li>
+    <li><a href="/Giving/WaystoGive/GiftSocieties.aspx">Giving Societies</a> </li>
+    <li><a href="http://www.rrnew.com/sienaheights/" target="_blank">Planned Giving Options </a></li>
+    <li><a href="/Giving/SchoolPriorities.aspx">School Priorities</a> </li>
+</ul>
+</div>
+<!--COLUMN 4-->
+<div class="footer_col">
+<h3>Quick Links</h3>
+<ul title="Quick Links for Siena Heights University">
+    <li><a href="https://mysiena.sienaheights.edu/ics/Application/PrivateArea/Default_Page.jnz" title="Apply Online" target="_blank">Apply Online</a> </li>
+    <li><a href="/Library.aspx">Library</a> </li>
+    <li><a href="/About/DepartmentsOffices/RegistrarsOffice/GraduationCommencement.aspx">Commencement</a> </li>
+    <li><a href="/StudentLife/StudentAchievementAcademicSuccess/CareerServices.aspx">Career Services</a> </li>
+    <li><a href="https://mysiena.sienaheights.edu/ics/Departments_and_Offices/SSS/" target="_blank">Student Support Services</a> </li>
+    <li><a href="/StudentLife/StudentAchievementAcademicSuccess/FirstYearExperience.aspx">First Year Experience</a> </li>
+    <li><a href="/About/OfficeforStudentswithDisabilities.aspx">Office for Students with Disabilities</a> </li>
+    <li><a href="/About/NondiscriminationPolicy.aspx">Nondiscrimination Policy</a> </li>
+    <li><a href="http://sienahts.bncollege.com/" target="_blank">Bookstore </a></li>
+    <li><a href="http://www.dineoncampus.com/sienaheights/" target="_blank">Chartwells Food Service </a></li>
+    <li><a href="https://mysiena.sienaheights.edu/ics/Departments_and_Offices/Computer_Services_and_Systems/" target="_blank">Computer Services &amp; Systems</a> </li>
+    <li><a href="/StudentLife/McNairScholarsProgram.aspx">McNair Scholars Program</a> <a href="http://www.sienaheights.edu/SienaHeightsNews/tabid/258/ctl/Detail/mid/902/itemid/549/Default.aspx" target="_blank">
+    <li><span style="color: #1f497d;">Adrian Campus Parking Map</span> </li>
+    </a></li>
+    <li><a href="/StudentLife/Theater.aspx">Theatre Siena</a> </li>
+    <li><a href="http://www.studioangelico.com/events.html" target="_blank">Klemm Gallery </a></li>
+    <li><a href="http://shuems.sienaheights.edu/VirtualEMS/BrowseEvents.aspx" target="_blank">Event Management</a> </li>
+    <li><a href="http://www.adriandominicans.org/" target="_blank">Adrian Dominican Sisters</a> <a href="http://www.sienaheights.edu/About/DepartmentsOffices/RegistrarsOffice/TranscriptsDiplomas.aspx">
+    <li><span style="color: #1f497d;">Request a Transcript</span> </li>
+    </a></li>
+</ul>
+<h3><a href="/Home.aspx">Who Are You?</a></h3>
+<ul title="Who are You">
+    <li><a href="/Admissions.aspx">Future Students</a> </li>
+    <li><a href="/StudentLife.aspx">Current Students</a> </li>
+    <li><a href="/About/FastFacts.aspx">Parents</a> </li>
+    <li><a href="/Admissions/MilitaryVeterans.aspx">Military/Veterans</a> </li>
+    <li><a href="/Admissions/InternationalStudents.aspx">International Students</a> </li>
+    <li><a href="/Alumni.aspx">Alumni &amp; Friends</a> </li>
+    <li><a href="/FacultyStaff.aspx">Faculty &amp; Staff</a> </li>
+</ul>
+</div>
+<div style="text-align: center;" class="mysiena_btn"><a href="https://mysiena.sienaheights.edu/ics" title="Go to MySiena" target="_blank"><img alt="" src="/Portals/0/images/button_mysiena.png" /></a> <a href="https://commerce.cashnet.com/shdonations" target="_blank">&nbsp;<img alt="Make A Gift" src="/Portals/0/images/button_gift.png" /> </a><a href="http://www.sienaheights.edu/LandingPages/ReferAStudent.aspx" target="_blank"><img alt="" src="/Portals/0/refer-a-student.jpg" /></a>&nbsp;<br />
+<a href="/About/ContactUs.aspx">Contact Us (800)-521-0009</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.facebook.com/Siena.Heights" title="Siena Heights Facebook" target="_blank"><img alt="" src="/Portals/0/images/facebook.jpg" /></a> <a href="http://twitter.com/sienaheights" title="Siena Heights Twitter" target="_blank"><img alt="" src="/Portals/0/images/twitter.jpg" /></a> <a href="http://www.youtube.com/user/sienaheights19" title="Siena Heights Youtube" target="_blank"><img alt="" src="/Portals/0/images/youtube.jpg" /></a> <a href="http://pinterest.com/sienaheights/" target="_blank"><img alt="" style="width: 32px; height: 32px;" src="/Portals/0/Pinterest%20Icon.jpg" /></a> </div>
+<div style="clear: both;"></div>
+</div>
+
+</div><!-- End_Module_451 --></div>
+        
+        
+    <!--</div>-->
+    <div class="c_footer">
+        
+        
+        
+    </div>
+</div>
+
+</td>
+
+										    <td></td>
+									    </tr>
+								    </table>
+									<!-- End Content Panes Area-->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Begin Footer Area -->
+			<div id="FooterArea" class="FooterArea1">
+			<div id="FooterL">
+				<div id="FooterR">
+					<div id="FooterM">
+					    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+						    <tr>
+							    
+							    <td></td>
+						    </tr>
+					    </table>
+						<div id="Footer">
+							<div id="FooterPadding">
+								<span id="dnn_dnnCOPYRIGHT_lblCopyright" class="FOOTER_objects">Copyright 2011 by Siena Heights University</span>
+ 
+			<br />					  
+			<div id="Login" style="display:inline;">
+				<a id="dnn_dnnLOGIN_cmdLogin" class="login_footer_links" href="javascript:__doPostBack('dnn$dnnLOGIN$cmdLogin','')">Login</a>
+			</div>
+			<!--<div id="Register" style="display:inline;">
+			    <span class="login_footer_links">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+			    
+			</div>-->								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="BL">
+				<div id="BR">
+					<div id="BM"></div>
+				</div>
+			</div>
+			</div>
+								
+			
+			<!-- End Footer Area -->
+
+		</td></tr></table>	
+	</div>
+</div>
+
+<!-- powered by Puure Skin Pack ** BIND 2009 ** www.bind.pt -->
+<img src="/Portals/_default/Skins/siena_nohead/images/dummy.bind.test.gif" alt="dummy"/>
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" value="`{`__scdoff`:`1`,`dnn_dnnNAV1_ctldnnNAV1_json`:`{nodes:[{id:\`275\`,key:\`275\`,txt:\`Locations\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`534\`,key:\`534\`,txt:\`Adrian (main campus)\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`263\`,key:\`263\`,txt:\`Battle Creek Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/BattleCreekCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`265\`,key:\`265\`,txt:\`Benton Harbor Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/BentonHarborCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`268\`,key:\`268\`,txt:\`Diocese of Lansing\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DioceseofLansing.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`267\`,key:\`267\`,txt:\`Jackson Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/JacksonCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`270\`,key:\`270\`,txt:\`Lansing Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/LansingCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`423\`,key:\`423\`,txt:\`Distance Learning Programs\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`462\`,key:\`462\`,txt:\`Expectations\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/Expectations.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`271\`,key:\`271\`,txt:\`Metro Detroit Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/MetroDetroitCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`266\`,key:\`266\`,txt:\`Online Program\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/OnlineProgram.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`262\`,key:\`262\`,txt:\`Monroe Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/MonroeCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`424\`,key:\`424\`,txt:\`Metro Detroit Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/MetroDetroitCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`272\`,key:\`272\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`64\`,key:\`64\`,txt:\`Academics\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`141\`,key:\`141\`,txt:\`Academic Divisions\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/AcademicDivisions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`148\`,key:\`148\`,txt:\`Graduate College\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`149\`,key:\`149\`,txt:\`Graduate News\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/GraduateNews.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`467\`,key:\`467\`,txt:\`Admissions Criteria and Requirements\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/AdmissionsCriteriaandRequirements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`150\`,key:\`150\`,txt:\`Locations\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/Locations.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`147\`,key:\`147\`,txt:\`Majors &amp; Programs\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/MajorsPrograms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`152\`,key:\`152\`,txt:\`Theological Studies\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/TheologicalStudies.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`66\`,key:\`66\`,txt:\`Student Life\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`156\`,key:\`156\`,txt:\`Campus Ministry\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`157\`,key:\`157\`,txt:\`Calendar\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/Calendar.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`160\`,key:\`160\`,txt:\`Going to Church\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/GoingtoChurch.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`159\`,key:\`159\`,txt:\`Volunteer\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/Volunteer.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`158\`,key:\`158\`,txt:\`Athletics Ministry\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/AthleticsMinistry.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`154\`,key:\`154\`,txt:\`Residence Life\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/ResidenceLife.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`168\`,key:\`168\`,txt:\`Counseling Center\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CounselingCenter.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`169\`,key:\`169\`,txt:\`Substance Abuse Prevention\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CounselingCenter/SubstanceAbusePrevention.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`170\`,key:\`170\`,txt:\`Student Activities\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentActivities.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`276\`,key:\`276\`,txt:\`Health Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/HealthServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`175\`,key:\`175\`,txt:\`Theater\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Theater.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`161\`,key:\`161\`,txt:\`McNair Scholars Program\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`162\`,key:\`162\`,txt:\`Eligibility &amp; Selection\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/EligibilitySelection.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`166\`,key:\`166\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`165\`,key:\`165\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`163\`,key:\`163\`,txt:\`Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/Services.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`171\`,key:\`171\`,txt:\`Student Achievement &amp; Academic Success\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`172\`,key:\`172\`,txt:\`Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`245\`,key:\`245\`,txt:\`Student Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/StudentCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`247\`,key:\`247\`,txt:\`Employer\\\u0027s Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/EmployersCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`246\`,key:\`246\`,txt:\`Alumni Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/AlumniCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`463\`,key:\`463\`,txt:\`Student Support Services\`,ca:\`3\`,url:\`https://mysiena.sienaheights.edu/ics/Departments_and_Offices/SSS/\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`173\`,key:\`173\`,txt:\`First Year Experience\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/FirstYearExperience.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`294\`,key:\`294\`,txt:\`Advising Information\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/AdvisingInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`177\`,key:\`177\`,txt:\`Art\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Art.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`259\`,key:\`259\`,txt:\`Study Abroad\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudyAbroad.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`176\`,key:\`176\`,txt:\`Music\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Music.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`67\`,key:\`67\`,txt:\`Athletics\`,ca:\`3\`,url:\`http://sienaheights.edu/Athletics.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[]},{id:\`68\`,key:\`68\`,txt:\`Alumni\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`179\`,key:\`179\`,txt:\`Alumni Association\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAssociation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`180\`,key:\`180\`,txt:\`Board of Directors\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAssociation/BoardofDirectors.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`188\`,key:\`188\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`182\`,key:\`182\`,txt:\`Alumni Tools\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`183\`,key:\`183\`,txt:\`Transcript Request\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAdmissionsFAQ.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`186\`,key:\`186\`,txt:\`Reflections Magazine\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools/ReflectionsMagazine.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`184\`,key:\`184\`,txt:\`Update Your Contact Information\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools/UpdateYourContactInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`455\`,key:\`455\`,txt:\`Alumni Awards\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAwards.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`458\`,key:\`458\`,txt:\`Photo Albums\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/PhotoAlbums.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`69\`,key:\`69\`,txt:\`Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`189\`,key:\`189\`,txt:\`Ways to Give\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`412\`,key:\`412\`,txt:\`Annual Fund\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive/AnnualFund.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`413\`,key:\`413\`,txt:\`Gift Societies\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive/GiftSocieties.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`193\`,key:\`193\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`192\`,key:\`192\`,txt:\`School Priorities\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/SchoolPriorities.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`191\`,key:\`191\`,txt:\`Impact of Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/ImpactofGiving.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`190\`,key:\`190\`,txt:\`Planned Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`414\`,key:\`414\`,txt:\`Important Terms\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/ImportantTerms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`417\`,key:\`417\`,txt:\`Gift Calculator\`,ca:\`3\`,url:\`https://www.pgcalc.com/giftcalcs?ref=hWCSjofRkkM%3d\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`416\`,key:\`416\`,txt:\`Gifts From Estate Plans\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/GiftsFromEstatePlans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`415\`,key:\`415\`,txt:\`Gifts That Pay You\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/GiftsThatPayYou.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]}]},{id:\`327\`,key:\`327\`,txt:\`Admissions\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`420\`,key:\`420\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/DirectFromHighSchool.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`407\`,key:\`407\`,txt:\`Direct From High School\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/DirectFromHighSchool.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`419\`,key:\`419\`,txt:\`Transfer Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/TransferStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`421\`,key:\`421\`,txt:\`Adult Degree Completion\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/AdultDegreeCompletion.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`422\`,key:\`422\`,txt:\`Online\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/AdultDegreeCompletion.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`333\`,key:\`333\`,txt:\`Contact Admissions\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/ContactAdmissions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`495\`,key:\`495\`,txt:\`Net Price Calculator\`,ca:\`3\`,url:\`http://www.sienaheights.edu/net_price_calculator/npcalc.htm\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`519\`,key:\`519\`,txt:\`New Student Scholarships\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Scholarships.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`332\`,key:\`332\`,txt:\`Request Information\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/RequestInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`329\`,key:\`329\`,txt:\`Admissions Criteria &amp; Requirements\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/AdmissionsCriteriaRequirements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`328\`,key:\`328\`,txt:\`Transfer Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`339\`,key:\`339\`,txt:\`Transfer Equivalency Guide\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferEquivalencyGuide.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`340\`,key:\`340\`,txt:\`Transfer Admissions FAQ\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAdmissionsFAQ.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`295\`,key:\`295\`,txt:\`Transfer Agreements\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAgreements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`373\`,key:\`373\`,txt:\`Military/Veterans\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`408\`,key:\`408\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/GettingStarted.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`389\`,key:\`389\`,txt:\`Veteran Benefits\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/VeteranBenefits.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`396\`,key:\`396\`,txt:\`Applying to Veterans Administration\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/VeteranBenefits/ApplyingtoVeteransAdministration.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`374\`,key:\`374\`,txt:\`Family / Dependent Benefits\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/FamilyDependentBenefits.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`399\`,key:\`399\`,txt:\`Active Duty Military\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/ActiveDutyMilitary.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`398\`,key:\`398\`,txt:\`Guard/Reserves\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/GuardReserves.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`377\`,key:\`377\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`466\`,key:\`466\`,txt:\`International Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/InternationalStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`336\`,key:\`336\`,txt:\`Campus Visit\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/CampusVisit.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`468\`,key:\`468\`,txt:\`Register Siena Spotlight Days\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/CampusVisit/RegisterSienaSpotlightDays.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`335\`,key:\`335\`,txt:\`Tuition &amp; Fees\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TuitionFees.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`338\`,key:\`338\`,txt:\`Dual Enrollment\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/DualEnrollment.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`303\`,key:\`303\`,txt:\`Financial Aid\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`301\`,key:\`301\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/GettingStarted.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`305\`,key:\`305\`,txt:\`Video Fast Facts\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/VideoFastFacts.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`459\`,key:\`459\`,txt:\`HigherOne\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/VideoFastFacts/HigherOne.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`306\`,key:\`306\`,txt:\`Scholarships &amp; Grants\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`318\`,key:\`318\`,txt:\`Federal\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/Federal.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`319\`,key:\`319\`,txt:\`State\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/State.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`320\`,key:\`320\`,txt:\`SHU Scholarships\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Scholarships.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`304\`,key:\`304\`,txt:\`Private\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/Private.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`307\`,key:\`307\`,txt:\`Forms\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Forms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`139\`,key:\`139\`,txt:\`Student Loan Information\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`308\`,key:\`308\`,txt:\`Federal Direct Stafford Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/FederalDirectStaffordLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`309\`,key:\`309\`,txt:\`Federal Direct Plus Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/FederalDirectPlusLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`310\`,key:\`310\`,txt:\`Alternative Student Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/AlternativeStudentLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`311\`,key:\`311\`,txt:\`Exit Counseling\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/ExitCounseling.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`138\`,key:\`138\`,txt:\`Work Study\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/WorkStudy.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`314\`,key:\`314\`,txt:\`Student Accounts\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`401\`,key:\`401\`,txt:\`Important Information\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/ImportantInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`316\`,key:\`316\`,txt:\`Student Payment Plans\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/StudentPaymentPlans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`317\`,key:\`317\`,txt:\`Higher One (Student Refund)\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/HigherOneStudentRefund.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]}]}]}`,`dnn_dnnNAV2_ctldnnNAV2_json`:`{nodes:[{id:\`275\`,key:\`275\`,txt:\`Locations\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`534\`,key:\`534\`,txt:\`Adrian (main campus)\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`263\`,key:\`263\`,txt:\`Battle Creek Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/BattleCreekCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`265\`,key:\`265\`,txt:\`Benton Harbor Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/BentonHarborCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`268\`,key:\`268\`,txt:\`Diocese of Lansing\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DioceseofLansing.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`267\`,key:\`267\`,txt:\`Jackson Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/JacksonCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`270\`,key:\`270\`,txt:\`Lansing Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/LansingCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`423\`,key:\`423\`,txt:\`Distance Learning Programs\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`462\`,key:\`462\`,txt:\`Expectations\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/Expectations.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`271\`,key:\`271\`,txt:\`Metro Detroit Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/MetroDetroitCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`266\`,key:\`266\`,txt:\`Online Program\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/OnlineProgram.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`262\`,key:\`262\`,txt:\`Monroe Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/MonroeCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`424\`,key:\`424\`,txt:\`Metro Detroit Campus\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/DistanceLearningPrograms/MetroDetroitCampus.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`272\`,key:\`272\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/Locations/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`64\`,key:\`64\`,txt:\`Academics\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`141\`,key:\`141\`,txt:\`Academic Divisions\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/AcademicDivisions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`148\`,key:\`148\`,txt:\`Graduate College\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`149\`,key:\`149\`,txt:\`Graduate News\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/GraduateNews.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`467\`,key:\`467\`,txt:\`Admissions Criteria and Requirements\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/AdmissionsCriteriaandRequirements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`150\`,key:\`150\`,txt:\`Locations\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/GraduateCollege/Locations.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`147\`,key:\`147\`,txt:\`Majors &amp; Programs\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/MajorsPrograms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`152\`,key:\`152\`,txt:\`Theological Studies\`,ca:\`3\`,url:\`http://sienaheights.edu/Academics/TheologicalStudies.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`66\`,key:\`66\`,txt:\`Student Life\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`156\`,key:\`156\`,txt:\`Campus Ministry\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`157\`,key:\`157\`,txt:\`Calendar\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/Calendar.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`160\`,key:\`160\`,txt:\`Going to Church\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/GoingtoChurch.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`159\`,key:\`159\`,txt:\`Volunteer\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/Volunteer.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`158\`,key:\`158\`,txt:\`Athletics Ministry\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CampusMinistry/AthleticsMinistry.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`154\`,key:\`154\`,txt:\`Residence Life\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/ResidenceLife.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`168\`,key:\`168\`,txt:\`Counseling Center\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CounselingCenter.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`169\`,key:\`169\`,txt:\`Substance Abuse Prevention\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/CounselingCenter/SubstanceAbusePrevention.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`170\`,key:\`170\`,txt:\`Student Activities\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentActivities.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`276\`,key:\`276\`,txt:\`Health Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/HealthServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`175\`,key:\`175\`,txt:\`Theater\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Theater.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`161\`,key:\`161\`,txt:\`McNair Scholars Program\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`162\`,key:\`162\`,txt:\`Eligibility &amp; Selection\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/EligibilitySelection.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`166\`,key:\`166\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`165\`,key:\`165\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`163\`,key:\`163\`,txt:\`Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/McNairScholarsProgram/Services.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`171\`,key:\`171\`,txt:\`Student Achievement &amp; Academic Success\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`172\`,key:\`172\`,txt:\`Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`245\`,key:\`245\`,txt:\`Student Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/StudentCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`247\`,key:\`247\`,txt:\`Employer\\\u0027s Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/EmployersCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`246\`,key:\`246\`,txt:\`Alumni Career Services\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/CareerServices/AlumniCareerServices.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`463\`,key:\`463\`,txt:\`Student Support Services\`,ca:\`3\`,url:\`https://mysiena.sienaheights.edu/ics/Departments_and_Offices/SSS/\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`173\`,key:\`173\`,txt:\`First Year Experience\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/FirstYearExperience.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`294\`,key:\`294\`,txt:\`Advising Information\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudentAchievementAcademicSuccess/AdvisingInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`177\`,key:\`177\`,txt:\`Art\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Art.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`259\`,key:\`259\`,txt:\`Study Abroad\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/StudyAbroad.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`176\`,key:\`176\`,txt:\`Music\`,ca:\`3\`,url:\`http://sienaheights.edu/StudentLife/Music.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`67\`,key:\`67\`,txt:\`Athletics\`,ca:\`3\`,url:\`http://sienaheights.edu/Athletics.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[]},{id:\`68\`,key:\`68\`,txt:\`Alumni\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`179\`,key:\`179\`,txt:\`Alumni Association\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAssociation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`180\`,key:\`180\`,txt:\`Board of Directors\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAssociation/BoardofDirectors.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`188\`,key:\`188\`,txt:\`News &amp; Events\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/NewsEvents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`182\`,key:\`182\`,txt:\`Alumni Tools\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`183\`,key:\`183\`,txt:\`Transcript Request\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAdmissionsFAQ.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`186\`,key:\`186\`,txt:\`Reflections Magazine\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools/ReflectionsMagazine.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`184\`,key:\`184\`,txt:\`Update Your Contact Information\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniTools/UpdateYourContactInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`455\`,key:\`455\`,txt:\`Alumni Awards\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/AlumniAwards.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`458\`,key:\`458\`,txt:\`Photo Albums\`,ca:\`3\`,url:\`http://sienaheights.edu/Alumni/PhotoAlbums.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`69\`,key:\`69\`,txt:\`Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`189\`,key:\`189\`,txt:\`Ways to Give\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`412\`,key:\`412\`,txt:\`Annual Fund\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive/AnnualFund.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`413\`,key:\`413\`,txt:\`Gift Societies\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/WaystoGive/GiftSocieties.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`193\`,key:\`193\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`192\`,key:\`192\`,txt:\`School Priorities\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/SchoolPriorities.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`191\`,key:\`191\`,txt:\`Impact of Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/ImpactofGiving.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`190\`,key:\`190\`,txt:\`Planned Giving\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`414\`,key:\`414\`,txt:\`Important Terms\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/ImportantTerms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`417\`,key:\`417\`,txt:\`Gift Calculator\`,ca:\`3\`,url:\`https://www.pgcalc.com/giftcalcs?ref=hWCSjofRkkM%3d\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`416\`,key:\`416\`,txt:\`Gifts From Estate Plans\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/GiftsFromEstatePlans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`415\`,key:\`415\`,txt:\`Gifts That Pay You\`,ca:\`3\`,url:\`http://sienaheights.edu/Giving/PlannedGiving/GiftsThatPayYou.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]}]},{id:\`327\`,key:\`327\`,txt:\`Admissions\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`420\`,key:\`420\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/DirectFromHighSchool.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`407\`,key:\`407\`,txt:\`Direct From High School\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/DirectFromHighSchool.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`419\`,key:\`419\`,txt:\`Transfer Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/TransferStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`421\`,key:\`421\`,txt:\`Adult Degree Completion\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/AdultDegreeCompletion.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`422\`,key:\`422\`,txt:\`Online\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/GettingStarted/AdultDegreeCompletion.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`333\`,key:\`333\`,txt:\`Contact Admissions\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/ContactAdmissions.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`495\`,key:\`495\`,txt:\`Net Price Calculator\`,ca:\`3\`,url:\`http://www.sienaheights.edu/net_price_calculator/npcalc.htm\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`519\`,key:\`519\`,txt:\`New Student Scholarships\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Scholarships.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`332\`,key:\`332\`,txt:\`Request Information\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/RequestInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`329\`,key:\`329\`,txt:\`Admissions Criteria &amp; Requirements\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/AdmissionsCriteriaRequirements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`328\`,key:\`328\`,txt:\`Transfer Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`339\`,key:\`339\`,txt:\`Transfer Equivalency Guide\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferEquivalencyGuide.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`340\`,key:\`340\`,txt:\`Transfer Admissions FAQ\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAdmissionsFAQ.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`295\`,key:\`295\`,txt:\`Transfer Agreements\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TransferStudents/TransferAgreements.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`373\`,key:\`373\`,txt:\`Military/Veterans\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`408\`,key:\`408\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/GettingStarted.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`389\`,key:\`389\`,txt:\`Veteran Benefits\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/VeteranBenefits.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`396\`,key:\`396\`,txt:\`Applying to Veterans Administration\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/VeteranBenefits/ApplyingtoVeteransAdministration.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`374\`,key:\`374\`,txt:\`Family / Dependent Benefits\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/FamilyDependentBenefits.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`399\`,key:\`399\`,txt:\`Active Duty Military\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/ActiveDutyMilitary.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`398\`,key:\`398\`,txt:\`Guard/Reserves\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/GuardReserves.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`377\`,key:\`377\`,txt:\`Staff\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/MilitaryVeterans/Staff.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`466\`,key:\`466\`,txt:\`International Students\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/InternationalStudents.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`336\`,key:\`336\`,txt:\`Campus Visit\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/CampusVisit.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`468\`,key:\`468\`,txt:\`Register Siena Spotlight Days\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/CampusVisit/RegisterSienaSpotlightDays.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`335\`,key:\`335\`,txt:\`Tuition &amp; Fees\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/TuitionFees.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`338\`,key:\`338\`,txt:\`Dual Enrollment\`,ca:\`3\`,url:\`http://sienaheights.edu/Admissions/DualEnrollment.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`303\`,key:\`303\`,txt:\`Financial Aid\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid.aspx\`,img:\`\`,css:\`main_dnnmenu_rootitem\`,cssHover:\`main_dnnmenu_rootitem_hover\`,cssIcon:\` \`,nodes:[{id:\`301\`,key:\`301\`,txt:\`Getting Started\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/GettingStarted.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`305\`,key:\`305\`,txt:\`Video Fast Facts\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/VideoFastFacts.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`459\`,key:\`459\`,txt:\`HigherOne\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/VideoFastFacts/HigherOne.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`306\`,key:\`306\`,txt:\`Scholarships &amp; Grants\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`318\`,key:\`318\`,txt:\`Federal\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/Federal.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`319\`,key:\`319\`,txt:\`State\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/State.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`320\`,key:\`320\`,txt:\`SHU Scholarships\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Scholarships.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`304\`,key:\`304\`,txt:\`Private\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/ScholarshipsGrants/Private.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`307\`,key:\`307\`,txt:\`Forms\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/Forms.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`139\`,key:\`139\`,txt:\`Student Loan Information\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`308\`,key:\`308\`,txt:\`Federal Direct Stafford Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/FederalDirectStaffordLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`309\`,key:\`309\`,txt:\`Federal Direct Plus Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/FederalDirectPlusLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`310\`,key:\`310\`,txt:\`Alternative Student Loan\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/AlternativeStudentLoan.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`311\`,key:\`311\`,txt:\`Exit Counseling\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentLoanInformation/ExitCounseling.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]},{id:\`138\`,key:\`138\`,txt:\`Work Study\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/WorkStudy.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`314\`,key:\`314\`,txt:\`Student Accounts\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[{id:\`401\`,key:\`401\`,txt:\`Important Information\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/ImportantInformation.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`316\`,key:\`316\`,txt:\`Student Payment Plans\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/StudentPaymentPlans.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]},{id:\`317\`,key:\`317\`,txt:\`Higher One (Student Refund)\`,ca:\`3\`,url:\`http://sienaheights.edu/FinancialAid/StudentAccounts/HigherOneStudentRefund.aspx\`,img:\`\`,cssHover:\`main_dnnmenu_itemhover\`,nodes:[]}]}]}]}`,`containerid_dnn_ctr1689_ModuleContent`:`1689`,`cookieid_dnn_ctr1689_ModuleContent`:`_Module1689_Visible`,`min_icon_1689`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_1689`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`max_text`:`Maximize`,`min_text`:`Minimize`,`containerid_dnn_ctr425_ModuleContent`:`425`,`cookieid_dnn_ctr425_ModuleContent`:`_Module425_Visible`,`min_icon_425`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_425`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr426_ModuleContent`:`426`,`cookieid_dnn_ctr426_ModuleContent`:`_Module426_Visible`,`min_icon_426`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_426`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr1562_ModuleContent`:`1562`,`cookieid_dnn_ctr1562_ModuleContent`:`_Module1562_Visible`,`min_icon_1562`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_1562`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr1766_ModuleContent`:`1766`,`cookieid_dnn_ctr1766_ModuleContent`:`_Module1766_Visible`,`min_icon_1766`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_1766`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr912_ModuleContent`:`912`,`cookieid_dnn_ctr912_ModuleContent`:`_Module912_Visible`,`min_icon_912`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_912`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr2017_ModuleContent`:`2017`,`cookieid_dnn_ctr2017_ModuleContent`:`_Module2017_Visible`,`min_icon_2017`:`/Portals/_default/Containers/PageBody/images/DNN-minus.gif`,`max_icon_2017`:`/Portals/_default/Containers/PageBody/images/DNN-plus.gif`,`containerid_dnn_ctr451_ModuleContent`:`451`,`cookieid_dnn_ctr451_ModuleContent`:`_Module451_Visible`,`min_icon_451`:`/Portals/_default/Containers/Footer1/images/DNN-minus.gif`,`max_icon_451`:`/Portals/_default/Containers/Footer1/images/DNN-plus.gif`}" />
+        
+    
+<script type="text/javascript" src="/Resources/Shared/scripts/initWidgets.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+<script type="text/javascript">dnn.setVar('dnn_dnnNAV1_ctldnnNAV1_p', '{carrowimg:\'/images/breadcrumb.gif\',mcss:\'main_dnnmenu_submenu\',anim:\'0\',suborient:\'1\',postback:\'__doPostBack(\\\'dnn$dnnNAV1$ctldnnNAV1\\\',\\\'[NODEID]~|~Click\\\')\',sysimgpath:\'/images/\',easeDir:\'0\',rarrowimg:\'/images/menu_down.gif\',mbcss:\'main_dnnmenu_bar\',rmode:\'0\',css:\'main_dnnmenu_bar\',easeType:\'3\',orient:\'0\',callback:\'dnn.xmlhttp.doCallBack(\\\'ctldnnNAV1 dnn_dnnNAV1_ctldnnNAV1\\\',\\\'[NODEXML]\\\',this.callBackSuccess,mNode,this.callBackFail,this.callBackStatus,null,null,0);\'}');dnn.controls.initMenu($get('dnn_dnnNAV1_ctldnnNAV1'));</script><script type="text/javascript">dnn.setVar('dnn_dnnNAV2_ctldnnNAV2_p', '{mcss:\'main_dnnmenu_submenu\',anim:\'0\',suborient:\'1\',postback:\'__doPostBack(\\\'dnn$dnnNAV2$ctldnnNAV2\\\',\\\'[NODEID]~|~Click\\\')\',sysimgpath:\'/images/\',easeDir:\'0\',mbcss:\'main_dnnmenu_bar\',rmode:\'0\',css:\'main_dnnmenu_bar\',easeType:\'3\',orient:\'1\',callback:\'dnn.xmlhttp.doCallBack(\\\'ctldnnNAV2 dnn_dnnNAV2_ctldnnNAV2\\\',\\\'[NODEXML]\\\',this.callBackSuccess,mNode,this.callBackFail,this.callBackStatus,null,null,0);\'}');dnn.controls.initMenu($get('dnn_dnnNAV2_ctldnnNAV2'));</script></form>
+
+            
+                <script type="text/javascript">
+                var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+
+                <script type="text/javascript">
+                var pageTracker = _gat._getTracker("UA-275986-1");
+                pageTracker._trackPageview();
+                </script>
+
+            
+            </body>
+</html>

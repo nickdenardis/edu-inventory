@@ -1,0 +1,1066 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Bloomfield College - Welcome
+</title><meta name="keywords" /><meta name="description" /><meta name="robots" content="noarchive,index" /><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><link href="/include/style_newstyle.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="/include/jsFunctions.js" ></script>
+    <script src="/include/scrSiteBrowserCheck.js" type="text/javascript"></script>
+
+
+
+<!-- DROP DOWN SCRIPT #1 -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<link rel="stylesheet" type="text/css" href="ddsmoothmenu.css" />
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="ddsmoothmenu.js">
+
+/***********************************************
+* Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+
+
+<script type="text/javascript">
+
+ddsmoothmenu.init({
+	mainmenuid: "smoothmenu1", //menu DIV id
+	orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu', //class added to menu's outer DIV
+	//customtheme: ["#1c5a80", "#18374a"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+ddsmoothmenu.init({
+	mainmenuid: "smoothmenu2", //Menu DIV id
+	orientation: 'v', //Horizontal or vertical menu: Set to "h" or "v"
+	classname: 'ddsmoothmenu-v', //class added to menu's outer DIV
+	//customtheme: ["#804000", "#482400"],
+	contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+})
+
+</script>
+
+<!-- END DROP DOWN SCRIPT #1 -->
+
+
+
+<script src="/include/scrSiteOSCheck.js" type="text/javascript"></script>
+
+
+<script language="javascript" type="text/javascript">
+if (is_mac){
+
+		if (is_safari) {
+		        //alert('safari on mac');
+			    document.write('<link href="/include/Styles_Safari.css" rel="stylesheet" type="text/css" />');
+	            }
+        else {
+            //alert('other');
+            document.write('<link href="/include/style_newstyle.css" rel="stylesheet" type="text/css" />');
+			// document.write('<link href="/include/style_new11.css" rel="stylesheet" type="text/css" />');
+    
+            }
+    }
+
+	else {
+					//alert('other');
+					// document.write('<link href="/include/styles.css" rel="stylesheet" type="text/css" />');
+	}
+	
+</script>
+
+<!-- START BLOOMFIELD BEAT -->
+
+    <script src="http://www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+    <script type="text/javascript">
+    /*
+    *  How to load a feed via the Feeds API.
+    */
+    
+    /*
+*  How to load a feed via the Feeds API.
+*/
+
+google.load("feeds", "1");
+
+// Our callback function, for when a feed is loaded.
+function feedLoaded(result) {
+  if (!result.error) {
+    // Grab the container we will put the results into
+	var container = document.getElementById("beat_content");
+    container.innerHTML = '';
+
+    // Loop through the feeds, putting the titles onto the page.
+    // Check out the result object for a list of properties returned in each entry.
+    // http://code.google.com/apis/ajaxfeeds/documentation/reference.html#JSON
+    for (var i = 0; i < result.feed.entries.length; i++) {
+      var entry = result.feed.entries[i];
+      var div = document.createElement("div");
+	  
+	  // var txt = entry.title;
+	  // var lnk = entry.link;
+      
+	  // var q = 'hello' + 'there';
+	  
+	  // var q = '<a href="' + lnk + '">' + txt + '</a>';
+	  // var q = "\<a href=\"" + lnk + "\"\>" + txt + "\</a\>";
+	  
+	  div.appendChild(document.createTextNode(entry.link));
+	  
+	   
+	  // div.appendChild(document.createTextNode(.text(q));
+	  // div.appendChild(document.createTextNode(entry.title));
+
+      container.appendChild(div);
+    }
+  }
+}
+
+
+
+
+/*
+*  How to use the Feed Control to grab, parse and display feeds.
+*/
+
+google.load("feeds", "1");
+
+function OnLoad() {
+  // Create a feed control
+  var feedControl = new google.feeds.FeedControl();
+
+  // Add feed.
+  feedControl.addFeed("http://www.bloomfield.edu/wordpress/?feed=rss2", "&nbsp;");
+
+  // Draw it.
+  feedControl.draw(document.getElementById("beat_content"));
+}
+
+google.setOnLoadCallback(OnLoad);
+
+</script>
+
+
+
+<!-- END BLOOMFIELD BEAT SCRIPT -->
+
+
+
+
+
+<script "text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js">
+</script>
+<script type="text/javascript" src="http://www.bloomfield.edu/jquery-tooltip/jquery.tooltip.min.js">
+</script>
+<script type="text/javascript">
+$(function() {
+$("#foottip a").tooltip({ 
+    bodyHandler: function() { 
+        return $($(this).attr("href")).html(); 
+    }, 
+    showURL: false 
+});
+});
+
+</script>
+
+
+
+
+
+<!-- TRACK -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3201015-1']);
+  _gaq.push(['_setDomainName', 'bloomfield.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad="MM_preloadImages('/images/btn_prospective1_ro.gif','/images/btn_parents_ro.gif','/images/btn_guidance_ro.gif'); doPopup();" >
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<table class="tophead_borders" width="756" border="0" align="center" cellpadding="0" cellspacing="0" style=" border-right:1px solid #999988; border-left:1px solid #999988; background-color: #ffffff;"> <!-- 98101C padding-right:50px; padding-left:50px; background-color: #ffffff;--> 
+
+
+  <tr>
+    <td background="/images/homepage_logo756.png" style="height:112px;">  
+    
+	 <!-- NEW SEARCH CODE DIV | BEGIN -->
+	   
+	 <div align="left">
+	<table width="430" align="right" cellpadding="2" border=0>
+		<form action="http://www.google.com/u/Bloomfield" method="get">		
+		<tr>
+		<td align="right" class="footerText2">
+				<div class="resources">
+				<a href="http://www.bloomfield.edu/about/google/default.aspx" target="_blank">Webmail</a> | 
+				<a href="http://webadvisor.bloomfield.edu" target="_blank">Webadvisor</a> |
+				<a href="http://blackboard.bloomfield.edu/" target="_blank">BB 8.0</a> | 
+				<a href="http://bb.bloomfield.edu" target="_blank">BB 9.1</a> | 
+				<a href="/sitemap/">Site Map</a> | 
+				<a href="/contact/">Contact</a>
+				</div>
+              
+			
+		<div id="cse-search-form" style="width: 75%;">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.V2_DEFAULT});
+  google.setOnLoadCallback(function() {
+    var customSearchOptions = {};
+    customSearchOptions['adoptions'] = {'layout': 'noTop'};
+    var customSearchControl = new google.search.CustomSearchControl(
+      '004290721848108286509:huhigwsqh6c', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+	options.setAutoComplete(true); 
+    options.enableSearchboxOnly("http://www.google.com/cse?cx=004290721848108286509:huhigwsqh6c", null, true);
+    customSearchControl.draw('cse-search-form', options);
+  }, true);
+</script>
+
+<style type="text/css">
+  input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+    border-color: #D9D9D9;
+  }
+  input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+    border-color: #98101C;
+    background-color: #98101C;
+    background-image: none;
+	margin-right:5px; 
+  }
+   .gsc-search-box-tools .gsc-search-box .gsc-input {
+    padding-right: 8px;
+}
+</style>
+
+                </td>	
+						</tr>
+		</form>
+
+
+
+
+
+
+
+
+	</table>
+	<!-- keeps links at the top of the page -->
+	<img src="/images/spacer.gif" width="1" height="100" alt="" /><a href="/"><img border="0" alt="Bloomfield College" src="/images/spacer.gif" height="105" width="95" /></a>
+    
+	</div>
+	   
+	   <!-- NEW SEARCH CODE DIV | END -->
+	     
+	  
+     </td>
+  </tr>
+  
+
+  
+  <tr>
+  <td class="header_background" width="756">
+    <div id="smoothmenu1">
+     		<ul>
+			<!-- 1-ABOUT --> 
+                <li><a href="/about/">ABOUT</a>
+					<ul>
+						<li><a href="/about/">ABOUT HOME</a></li>
+						<li><a href="http://bloomfield.edu/about/message.aspx">PRESIDENT'S MESSAGE</a></li>
+						<li><a href="http://bloomfield.edu/about/mission.aspx">MISSION STATEMENT</a></li>
+						<li><a href="http://bloomfield.edu/about/history.aspx">HISTORY</a></li>
+						<li><a href="http://bloomfield.edu/about/accred.aspx">ACCREDITATION</a></li>
+  						<li><a href="http://bloomfield.edu/about/ataglance.aspx">BC AT A GLANCE</a></li>
+						<li><a href="http://bloomfield.edu/officers.aspx">COLLEGE OFFICERS</a></li>
+						<li><a href="http://bloomfield.edu/trustees.aspx">BOARD OF TRUSTEES</a></li>
+						<li><a href="http://bloomfield.edu/academics/mediacenter/default.aspx">MEDIA CENTER</a></li>
+						<li><a href="#">GENERAL INFORMATION</a>
+							<ul>
+								<li><a href="http://bloomfield.edu/about/hours.aspx">COLLEGE OFFICE HOURS</a></li>
+								<li><a href="/images/PHONE_DIRECTORY.pdf">CAMPUS PHONE DIRECTORY (PDF)</a></li>
+								<li><a href="http://bloomfield.edu/about/location.aspx">LOCATION/MAPS</a></li>
+								<li><a href="http://www.ecampustours.com/VirtualTours/default.aspx?FafsaCode=002597&login=false">VIRTUAL TOUR</a></li>
+								<li><a href="http://bloomfield.edu/about/wired.aspx">WIRED CAMPUS</a></li>
+								<li><a href="http://bloomfield.edu/about/bloomfieldarea.aspx">BLOOMFIELD AREA</a></li>
+							</ul>
+						</li>
+  						<li><a href="http://www.bloomfield.edu/about/hr/default.aspx">HUMAN RESOURCES</a></li> 
+						<li><a href="http://www.bloomfield.edu/student_life/campussecurity/default.aspx">EMERGENCY INFORMATION</a></li> 
+											
+  					</ul>
+				</li>
+				
+				<!-- 2-ACADEMICS --> 
+                <li><a href="/academics/academic_affairs/default.aspx">ACADEMICS</a>
+					<ul>
+						<li><a href="/academics/academic_affairs/default.aspx">ACADEMICS HOME</a></li>
+						<li><a href="http://bloomfield.edu/academics/academic_affairs/docs/Traditional_Calendar_11-12.pdf">ACADEMIC CALENDAR (PDF)</a></li>
+  						<li><a href="http://bloomfield.edu/academics/default.aspx">AREAS OF STUDY</a></li>
+						<li><a href="#">CENTERS & PROGRAMS</a>
+							<ul>
+  								<li><a href="http://users.bloomfield.edu/department/tutorial/">
+									CENTER FOR ACADEMIC DEVELOPMENT (CAD)</a></li>
+  								<li><a href="http://bloomfield.edu/academics/centerforglobalstudies/default.aspx">
+									CENTER FOR GLOBAL STUDIES</a></li>
+  								<li><a href="http://bloomfield.edu/academics/cal/default.aspx">
+									CENTER FOR ADULT LEARNING (CAL)</a></li>
+								<li><a href="http://bloomfield.edu/academics/ctlt/default.aspx">
+									CENTER FOR TEACHING AND LEARNING WITH TECHNOLOGY</a></li>
+								<li><a href="http://bloomfield.edu/academics/honors/default.aspx">
+									HONORS PROGRAM</a></li>
+								<li><a href="http://bloomfield.edu/academics/mcnair/default.aspx">MCNAIR PROGRAM</a></li>
+  								<li><a href="http://www.bloomfield.edu/academics/star/default.aspx">
+									THE STAR PROGRAM</a></li>
+  								<li><a href="http://bloomfield.edu/academics/lsamp/default.aspx">
+									LOUIS STOKES ALLIANCE FOR MINORITY PARTICIPATION</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.bloomfield.edu/commencement">COMMENCEMENT</a></li>
+						<li><a href="http://bloomfield.edu/academics/catalog.aspx">COURSE CATALOG</a></li>
+						<li><a href="http://bloomfield.edu/academics/deanslist/default.aspx">DEAN'S LIST</a></li>
+						<li><a href="http://www.bloomfield.edu/academics/faculty_pages/default.aspx">
+						FACULTY PAGES AND BLOGS</a></li>
+						<li><a href="http://bloomfield.edu/academics/library/default.aspx">LIBRARY</a></li>
+  						<li><a href="http://bloomfield.edu/academics/registrar/default.aspx">
+						REGISTRAR/ACADEMIC ADVISING OFFICE</a></li>
+						
+						
+						<li><a href="http://www.bloomfield.edu/academics/sswd/default.aspx">
+						SERVICES FOR STUDENTS WITH DISABILITIES</a></li>
+						
+						
+						
+						
+  					</ul>
+				</li>
+				
+				<!-- 3-ADMISSION --> 
+                <li><a href="/admissions/">ADMISSION</a>
+					<ul>
+						<li><a href="/admissions/">ADMISSION HOME</a></li>
+  						<li><a href="http://bloomfield.edu/admissions/apply.aspx">APPLY NOW</a></li>
+  						<li><a href="http://bloomfield.edu/admissions/spanish">ADMISIONES EN ESPANOL</a></li>
+  						<li><a href="http://bloomfield.edu/admissions/whatsnew.aspx">WHAT'S NEW</a></li>
+  						<li><a href="http://bloomfield.edu/admissions/tuition.aspx">TUITION & REQUIREMENTS</a></li>
+						<li><a href="http://bloomfield.edu/admissions/makingithappen.aspx">FINANCING YOUR EDUCATION</a>
+							<ul>
+								<li><a href="http://bloomfield.edu/admissions/scholarships.aspx">SCHOLARSHIPS</a></li>
+  								<li><a href="http://bloomfield.edu/admissions/financial.aspx">
+									FINANCIAL AID</a></li>
+								<li><a href="http://www.bloomfield.edu/support_services/bursars/default.aspx">
+									PAYING YOUR TUITION: THE BURSAR'S OFFICE</a></li>
+							</ul>
+						</li>
+						<li><a href="/student_life/">STUDENT INFORMATION</a>
+						  	<ul>
+								<li><a href="http://www.bloomfield.edu/prospects/default.aspx">NEW STUDENTS</a></li>
+								<li><a href="http://bloomfield.edu/admissions/transfer.aspx">TRANSFER STUDENTS</a></li>
+  								<li><a href="http://bloomfield.edu/admissions/adult.aspx">
+									ADULT STUDENTS</a></li>
+  								<li><a href="http://bloomfield.edu/admissions/formerstudents.aspx">
+									FORMER STUDENTS</a></li>
+								<li><a href="http://bloomfield.edu/admissions/support.aspx">
+									ACADEMIC & PERSONAL SUPPORT</a></li>		
+							</ul>
+						</li>
+						<li><a href="http://www.bloomfield.edu/news/events.aspx">
+						ADMISSION EVENTS</a></li>
+						<!-- <li><a href="http://bloomfield.edu/admissions/counselor_res_center.aspx">GUIDANCE TRANSFER COUNSELORS</a></li> -->
+						<li><a href="http://bloomfield.edu/admissions/nondescrim.aspx">NON-DISCRIMINATION POLICY</a></li>
+  					</ul>
+				</li>
+
+
+				<!-- 4-STUDENTLIFE --> 
+				<li><a href="http://www.bloomfield.edu/student_life/" target="_blank">STUDENT LIFE</a>
+					<ul>
+						<li><a href="http://www.bloomfield.edu/student_life/" target="_blank">STUDENT AFFAIRS HOME</a></li>
+						<li><a href="http://www.bloomfield.edu/student_life/" target="_blank">STUDENT AFFAIRS INFORMATION</a>
+							<ul>
+  								<li><a href="http://www.bloomfield.edu/student_life/statement.aspx">CIVILITY & HUMAN DIGNITY</a></li>
+  								<li><a href="http://www.bloomfield.edu/BCFiles/bc-policies_2010-11.pdf">POLICIES 2010-11 (PDF)</a></li>
+  								<li><a href="http://www.bloomfield.edu/student_life/docs/StandardsOfConduct.pdf">STANDARDS OF CONDUCT (PDF)</a></li>
+  								<li><a href="http://www.bloomfield.edu/BCFiles/AOD_Students_11-06-08.pdf">ALCOHOL & DRUG POLICY</a></li>
+								<li><a href="http://www.bloomfield.edu/student_life/docs/Parking_Traffic_Regulations_08-02-11.pdf">PARKING & TRAFFIC (PDF)</a></li>
+							</ul>
+						</li>
+						
+						<li><a href="http://www.bloomfield.edu/student_life/wellness/default.aspx" target="_blank">SERVICES</a>
+							<ul>
+  								<li><a href="http://www.bloomfield.edu/student_life/csle/default.aspx">CENTER FOR STUDENT LEADERSHIP & ENGAGEMENT (CSLE)</a></li>
+  								<li><a href="http://www.bloomfield.edu/student_life/reh/default.aspx">RESIDENTIAL HOUSING</a></li>
+  								<li><a href="http://www.bloomfield.edu/student_life/wellness/default.aspx">WELLNESS</a></li>
+  								<li><a href="http://www.bloomfield.edu/student_life/campussecurity/default.aspx">CAMPUS SECURITY</a></li>
+								<li><a href="http://www.bloomfield.edu/student_life/careerservices/default.aspx">CAREER DEVELOPMENT</a></li>
+								<li><a href="http://www.bloomfield.edu/student_life/eof/default.aspx">EDUCATIONAL OPPORTUNITY FUND</a></li>
+  								<li><a href="http://www.bloomfield.edu/student_life/food/default.aspx">FOOD SERVICES</a></li>
+								<li><a href="http://www.bloomfield.edu/student_life/sswd/default.aspx">STUDENTS WITH DISABILITIES</a></li>
+							</ul>
+						</li>	
+						<li><a href="http://www.bloomfield.edu/student_life/njtransit.aspx">NJ TRANSIT PASSES</a></li>
+  						<li><a href="http://www.njtransit.com/mybus">NJ TRANSIT BUS SCHEDULE</a></li>
+						
+					</ul>
+				</li>
+				<!-- 5-ATHLETICS --> 	
+                <li><a href="http://www.bcdeacons.com" target="_blank">ATHLETICS</a></li>
+				
+				<!-- 6-NEWS & EVENTS --> 
+				<li><a href="/news/">NEWS & EVENTS</a></li>
+				
+				<!-- 7-ALUMNI --> 
+				<li><a href="http://www.bccommunity.org" target="_blank">ALUMNI</a></li>    
+				
+				<!-- 8-GIVING --> 
+				<li><a href="http://www.bccommunity.org/s/177/index.aspx?sid=177&gid=1&pgid=497" target="_blank">GIVING</a></li>    
+            
+			</ul>
+    </div>
+  </td>
+  </tr>
+  
+
+  <tr>
+ 
+  
+  
+  
+    <td>
+    
+        
+ 
+  <script type="text/JavaScript">
+//<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>  
+
+ 
+ 
+  <script type="text/javascript" onLoad="MM_preloadImages('images/btn_parents_ro.gif','images/btn_guidance_ro.gif','images/btn_prospective1_ro.gif')">var nullVar = null;</script>
+
+
+<div id="flashsplash">
+    <div id="header_left"><img src="images/splash-left-circle2.png" />
+    </div>
+    <div id="header_center"> <a href="http://bloomfield.edu/prospects/" id="nav_choice1"> <img src="/images/splash-mid-01.png" 
+
+/> </a> <br/>
+      <a href="http://bloomfield.edu/student_life/" id="nav_choice2"> <img src="/images/splash-mid-02.png" /> </a> <br/>
+      <a href="http://bloomfield.edu/academics/" id="nav_choice3"> <img src="/images/splash-mid-03.png" /> </a> <br/>
+      <a href="http://www.bloomfield.edu/admissions/apply.aspx" id="nav_choice4"> <img src="/images/splash-mid-04.png" /> </a> 
+
+<br/>
+    </div>
+    
+    <div id="header_right">
+      <iframe width="260" height="160" src="http://www.youtube.com/embed/kyrrIPiTwS0?wmode=transparent" wmode="Opaque" 
+
+frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+  </div>
+  
+  <!-- END OF FLASHSPLASH -->
+  
+  <div id="new_left">
+    <div id="admission_events">
+      <ul class="all_head">
+        <li><img src="/buttons/admission_events2.png" alt="admission_events" />
+        </li>
+      </ul>
+      
+      <ul class="admission_buttons">
+        <li></li>
+         
+         <!--
+        <li><a href="http://bloomfield.edu/instantdecision/default.aspx"><img class="border" src="buttons/instant_decision-small-nov11.png" alt="Instant Decision Nov 11" /></a></li> -->
+        <!-- <li><a href="http://bloomfield.edu/openhouse/default.aspx"><img class="border" src="buttons/fall_openhouse-small2.png" alt="Fall Open House" /></a></li> -->
+        
+        <!--
+        <li><a href="http://bloomfield.edu/openhouse/default.aspx"><img class="border" src="buttons/openhouse-small-dec4.png" alt="Open House Dec 4" /></a></li>
+        -->
+        
+        
+       <!-- <li><a href="http://bloomfield.edu/newyear/default.aspx"><img class="border" src="buttons/instant_decision-small-sat.png" alt="Instant Decision Days" /></a></li>-->
+        <!--
+        <li><a href="/accepted"><img class="border" src="buttons/accepted_students_day-all.png" alt="Accepted Student Day" /></a></li>
+        -->
+        <li><a href="now/default.aspx"><img class="border" src="buttons/fresh_registration.png" alt="Freshman Registration" /></a></li>
+        <li><a href="campustours/default.aspx"><img class="border" src="buttons/campus_tours-small.png" alt="Campus Tours" /></a></li>
+        <li><a href="new/default.aspx"><img class="border" src="buttons/transfer_new_registration.png" alt="Transfer & Adult" /></a></li>
+        <li><a href="http://bloomfield.edu/instantdecision/default.aspx"><img class="border" src="buttons/instant_decision-small.png" alt="Instant Decision Days" /></a></li>
+        <!--
+        <li><a href="/infosession"><img class="border" src="buttons/infosession-adult_mar13.png" alt="Adult Info Session" /></a></li> -->
+        <!--<li><a href="http://bloomfield.edu/prechiro/default.aspx"><img class="border" src="buttons/prechiro-small.png" alt="Pre-Chiro" /></a></li>-->
+        <!--
+        <li><a href="/infosession/default.aspx"><img class="border" src="buttons/openhouse-adult_dec8_dec15.png" alt="Campus Tours" /></a></li> 
+       -->
+        
+        
+       <!--
+    <li><a href="http://www.bccommunity.org/s/177/index.aspx?sid=177&gid=1&pgid=497" target="_blank"><img class="border" src="buttons/giving_to_bloomfield.png" alt="Support Bloomfield College" /></a></li>
+    <li><a href="http://bloomfield.edu/news/news.aspx?id=620"><img class="border" src="images/militaryfriendlyschools.png" width="172" height="74"  /></a></li>
+    -->
+      </ul>
+    </div>
+    
+    <div id="admission_events">
+    <ul class="all_head">
+    <li><img src="buttons/itps-office.png" alt="admission_events" /></li>
+    </ul>
+    <div class="itps">
+    <a href="http://itps.bloomfield.edu"><img src="images/itps_homepage.png" /></a>
+    <p class="h5"><a href="http://itps.bloomfield.edu">The Office of International Training and Professional Studies (ITPS)</a> offers programs for life-long learning and professional development. Contact the ITPS office at: 973-748-9000 Ext. 117 or web site at <a href="http://itps.bloomfield.edu">ITPS</a> for more information. <!-- ITPS programs include the following: --></p>
+    <!--
+    <p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=319&tabid=358">The Advanced Technology Institute (ATI)</a></p>
+<p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=320&tabid=358">The Center for Professional Studies (CPS)</a></p>
+<p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=http%3a%2f%2falc.bloomfield.edu&tabid=358">The American Language Center (ALC)</a></p>
+<p class="h6"><a href="http://online.bloomfield.edu/Home/tabid/226/Default.aspx">Teaching English as a Foreign Language (TEFL)</a></p>
+<p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=322&tabid=358">Global Initiatives (GI)</a><p>
+<p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=356&tabid=358">Global Training Center (GTC)</a></p>
+<p class="h6"><a href="http://itps.bloomfield.edu/LinkClick.aspx?link=327&tabid=358">Corporate Training Program (CTP)</a></p>
+<p class="h6"><a href="http://alc.bloomfield.edu/Home/TICKET/tabid/290/Default.aspx">Total Immersion Course for Korean English Teachers Program (TICKET)</a></p> -->
+   </div>
+    </div>
+    
+    
+    <!-- MORE BLOOMFIELD EVENTS - SEE TEMP -->
+
+
+   <div id="admission_events">
+      <ul class="all_head">
+        <li><img src="/buttons/more_events2.png" alt="admission_events" /></li>
+      </ul>
+      <ul class="admission_buttons">
+        <!-- <li><a href="/student_life/csle/orientation.aspx"><img class="border" src="buttons/orientation_spring.png" alt="Spring Orientation" /></a></li>-->
+        <!--<li><a href="http://www.bloomfield.edu/student_life/reh/default.aspx"><img class="border" src="buttons/resident_student_check-in.png" alt="Resident Student Check-In" /></a></li>-->
+        <!-- <li><a href="/student_life/careerservices/default.aspx"><img class="border" src="buttons/career_fair_winter.png" alt="Winter Career Fair" /></a></li>
+        <li>
+          <p class="more_events">Full time Positions, Internships, Part-time Jobs and Volunteer Positions. Deacon’s Den, Student Center
+Bloomfield College
+198 Liberty Street
+Bloomfield, NJ 07003</p>
+</li> -->
+<!--
+ <li><a href="/student_life/careerservices/default.aspx"><img class="border" src="buttons/career_fair_spring2.png" alt="Spring Career/Graduate School Fair" /></a></li>
+  <li><p class="more_events"> Deacon’s Den, Student Center
+Bloomfield College
+198 Liberty Street
+Bloomfield, NJ 07003
+Attention Employers: <a href="http://www.surveymonkey.com/s/VPCMMCM">Register now!</a></p>
+</li>
+-->
+<li><a href="commencement/"><img class="border" src="buttons/commencement.png" alt="Commencement" /></a></li>
+  <li>
+    <p class="more_events">College Quadrangle. Guest seating starts at 8:00 a.m. Admission tickets required. <a href="http://bloomfield.edu/commencement/nurses.aspx">Nurses Pinning</a> at 2p and <a href="http://bloomfield.edu/commencement/bac_service.aspx">Baccalaureate</a> at 4:30p on Wednesday, May 23, 2012 at Robert V. Van Fossan    Theatre, 63 Fremont Street, Bloomfield, NJ. </p>
+  </li>
+  
+  <li><a href="/infosession"><img class="border" src="images/infosession_may15.png" alt="Info Session" /></a></li>
+  <li>
+    <p class="more_events">Click on the button above to register. The Info Session will be held at Shelby Art Room, 80 Oakland Street, Bloomfield, NJ 07003 (Parking at 225 Liberty Street)</p>
+  </li>
+  <!--
+<li><img class="border" src="buttons/robin_holder.png" alt="Robin Holder Art Opening" /></li>
+  <li>
+    <p class="more_events">Join us
+
+at the Westminster Teaching Gallery for the opening of Robin Holder's <strong>OUTSOURCED! </strong>Runs: Feb 2 - Apr 19.</p>
+  </li>
+  -->
+  <!--
+  
+  -->
+  
+<!--
+  <a href="http://www.hoffmanmagic.com/hoffman/"><li><img class="border" src="buttons/illusionist_event.png" alt="Wayne Hoffman's Mind Candy" /></li></a>
+  <li>
+    <p class="more_events">Gen&rsquo; Adm-$20 / Seniors &amp; Students (w/ID)-$15. BC Student ticket rate is $4. Wayne Hoffman&rsquo;s show &ldquo;Mind Candy&rdquo; is a highly interactive presentation that combines mind-reading and visual illusions.</p>
+  </li>
+  
+  -->
+  <!--
+  
+  <li><a href="http://www.foremostproductions.com/foremostproductions/home.html"><img class="border" src="buttons/film_screening.png" alt="Hafiz Farid's The Presumption of Guilt" /></a></li>
+  <li>
+    <p class="more_events">Bloomfield College Library and Media Center are pleased to host the screening of Farid's documentary which won Best Social Documentary in the NY International Film Festival. More info: (973)748-9000 x370</p>
+</li>-->
+      </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ABOVE IS ADDED EVENTS -->
+
+
+   <div id="admission_events">
+<!--
+    <ul class="all_head">
+    <li><img src="buttons/more_bloomfield_events.png" alt="more_bloomfield_events" /></li>
+    </ul>
+-->
+    
+    <!-- HEALTHCARE INFORMATICS -->
+<!--
+    <div class="itps">
+    <a href="http://www.bloomfield.edu/healthcareinformatics/default.aspx"><img src="buttons/health_rsvp_dec.png" /></a> 
+     <p class="h5">Bloomfield College<br/> 
+<a href="http://maps.google.com/maps?q=80+oakland+ave,+bloomfield,+nj&hl=en&sll=40.794908,-74.19403&sspn=0.012281,0.01929&vpsrc=0&hnear=80+Oakland+Ave,+Bloomfield,+Essex,+New+Jersey+07003&t=m&z=16&iwloc=A">The Learning Center at the Library</a><br/>
+80 Oakland Ave<br/>
+Bloomfield, NJ  07003<br/><br/>
+For more information, email Health Informatics: <a href="mailto:cal@bloomfield.edu">cal@bloomfield.edu.</a></p>
+   </div>
+-->
+    
+    
+    
+    
+    <!-- VETERANS AWARENESS 
+   <div class="itps">
+    <a href="http://www.bloomfield.edu/academics/registrar/veterans.aspx"><img src="buttons/veterans_awareness.png" /></a> 
+     <p class="h5">Bloomfield College joins the State of New Jersey in celebrating “Veteran Education Awareness Week” beginning on November 13, 2011. A participant in the <a href="http://bloomfield.edu/news/news.aspx?id=620">Yellow Ribbon Program</a>, Bloomfield is committed to providing important veteran student services and information to those men and women who have given service to the country and your family members. Our veteran-friendly campus helps students to excel in the classroom, access support services and resources as needed, and connect with one another. The college can also assist you in identifying federal and state education benefits for veterans and your families.</p>
+   </div>
+   
+   -->
+   
+   <!-- END MORE BLOOMFIELD EVENTS -->
+   
+   <!-- DEAN'S LIST 
+    <div class="itps">
+     <a href="http://bloomfield.edu/academics/deanslist/docs/Deans_List_Ceremony_Announcement_2010-2011.pdf"><img src="buttons/deanslist_ceremony.png" /></a> 
+     <p class="h5">Bloomfield College would like to congratulate the students who have achieved <a href="http://bloomfield.edu/academics/deanslist/default.aspx">Deans&rsquo; List</a>  for the 2010-2011 academic year. They are going to be honored at a Ceremony on Sunday, October 16, 2011 at 1:30 pm in the Van Fossan Theatre. </p>
+   </div>
+   -->
+</div>
+    
+    
+</div>
+  
+  
+  
+  <div id="new_right">
+  <div id="bloomfield_news">
+  <!--
+  <div id="alert">
+    <p><strong>Bloomfield College Online Alert:
+    <br/>Wednesday, April 18, 2012 12:30p </strong></p>
+    <p>The college is participating in a campus-wide emergency exercise with local authorities. <br/>
+      <strong>**THIS IS A DRILL**</strong><br/>
+    In the case of a real emergency, information would be posted on this page.<br/>
+      <strong></strong><br/>
+    </p>
+  </div>
+  -->
+  
+  <ul class="all_head-right">
+      <!-- <li><a href="http://action.studentaidalliance.org/5371/save-student-aid-statement-support/?src=NAICU"><img src="buttons/news/save-original.png" style="border:1px solid #996666; text-align:left;"/></a></li> --> <!--  height="81.1" width="440" align="absmiddle" -->
+  
+      <li><img src="buttons/bloomfield_news.png" alt="bloomfield_news"  /></li>
+    </ul>
+        <div class="news_items">
+     
+    
+   <!-- NEWS ITEM 0-0 -->
+   <!--
+   <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=932"><img class="border" src="images/bhm_image.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=932">Black History Month Celebration Brings Community Together</a></p>     
+        </div>
+      </div>
+   
+   -->
+   
+      
+   
+   <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=938"><img class="border" src="images/honorary.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=938">2012 Honorary Degree Recipients Announced</a></p>
+          
+        </div>
+      </div>
+      
+      <div id="news_wrap">
+        <div class="news_image"> <a href="http://youtu.be/xdCWMRTtPxM"><img class="border" src="images/nursing_video_thumb.jpg" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://youtu.be/xdCWMRTtPxM">Nurses Leading the Change of Healthcare in the US</a> (video)</p>
+          
+        </div>
+      </div>
+      
+        <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=950"><img class="border" src="images/41st_awards_thumbnail.jpg" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=950">41st Annual Student Awards Ceremony</a></p>
+          
+        </div>
+      </div>
+   <!--
+   <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=942"><img class="border" src="images/BEST.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=942">Student Employees Prove to be the BEST</a></p>
+         
+          
+        </div>
+      </div>
+      -->
+   <!-- news div -->
+   
+    
+   
+    
+   
+   <!-- NEWS ITEM 0 -->
+  
+     <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=940"><img class="border" src="images/nhs.png" /></a></div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=940">Four Honor Societies Induct Scores of Students</a><br/></p>
+          
+        </div>
+      </div>
+   
+    <!-- NEWS ITEM 0 -->
+  
+    
+      <!-- NEWS ITEM 1 
+     <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=902"><img class="border" src="images/mocap.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=902">New Motion Capture Class is a Hit Among Animation Students</a></p>
+          
+          
+        </div>
+      </div>
+      -->
+      <!-- NPC 
+        <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=898"><img class="border" src="images/npc_for_homepage.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=898">Bloomfield College Announces a Net Price Calculator for College Financial Planning</a></p>     
+        </div>
+      </div>
+      -->
+      
+    <!-- NEWS ITEM 2 -->
+    <!--
+     <div id="news_wrap">
+        <div class="news_image"> <a href="http://bloomfield.edu/news/news.aspx?id=898"><img class="border" src="images/npc_for_homepage.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=898">Bloomfield College Announces a Net Price Calculator for College Financial Planning</a></p>     
+        </div>
+      </div>
+    -->
+    
+  
+    <!--
+
+     <div id="news_wrap">
+        <div class="news_image"><a href="http://bloomfield.edu/news/news.aspx?id=878"><img class="border" src="images/US-DeptOfEducation-Seal_svg.png" /></a></div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=878"><span id="ctl00_cphMain_ContentBlock2">Bloomfield College Receives $2.4 Million Federal Grant for Undergraduates</span></a></p>
+         
+        </div>
+      </div> -->
+    
+    
+    
+    <!-- NEWS ITEM 2
+      <div id="news_wrap">
+        <div class="news_image"> <a href="http://www.bloomfield.edu/news/news.aspx?id=858"><img class="border" src="images/9-11_firemans_flag_full.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=874">College Community Honors Those Who Lost Their Lives On 9/11</a></p>
+          <p class="h5_strong">Tuesday, September 13, 2011</p>
+          <!--
+          <p class="h5"><span id="ctl00_cphMain_ContentBlock1">At noon on Monday, September 12, 2011, the college community gathered on the Quad for a time
+of reflection, remembrance and prayer to honor all those whose lives were lost a decade ago in the 9/11
+tragedies.</span><a href="http://www.bloomfield.edu/news/news.aspx?id=874"> Read More</a></p>
+		
+        </div>
+      </div>
+    -->
+      <!-- NEWS ITEM 3 -->
+     <!--
+     <div id="news_wrap">
+        <div class="news_image"> <a href="http://www.bloomfield.edu/news/news.aspx?id=850"><img class="border" src="images/haiti_frontpage-new.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://bloomfield.edu/news/news.aspx?id=850"><span id="ctl00_cphMain_ContentBlock5">Bloomfield College in Haiti: Reports from the Ground</span></a></p>
+          <p class="h5_strong"><span id="ctl00_cphMain_ContentBlock8"> Monday, June 6, 2011</span></p>
+        </div>
+      </div>
+      -->
+      
+      
+ 
+       
+      <!--
+      <div id="news_wrap">
+        <div class="news_image"> <a href="http://www.bloomfield.edu/news/news.aspx?id=842"><img class="border" src="images/Commencement2011cropped-new.png" /></a> </div>
+        <div class="news_copy">
+          <p class="h6"><a href="http://www.bloomfield.edu/news/news.aspx?id=842"><span id="ctl00_cphMain_ContentBlock5">Commencement 2011 &ndash; The New Beginning</span></a></p>
+          <p class="h5_strong"><span id="ctl00_cphMain_ContentBlock8"> Thursday, May 26, 2011</span></p>
+          <p class="h5"><span id="ctl00_cphMain_ContentBlock6">The Bloomfield College 138th Commencement exercises were held on a spectacular morning beneath the tent on the quad on Thursday, May 26, 2011.</span> <a href="http://www.bloomfield.edu/news/news.aspx?id=842">Read More</a></p>
+        </div>
+      </div>
+      -->
+      
+      <div class="news_image"><a href="http://www.bloomfield.edu/news/"> 
+      <img src="images/more_news.png" border="0" /></a> 
+      </div>
+    </div>
+    <!-- end news_items -->
+    <!-- DIV SITE_TOOLS WAS HERE -->
+    
+    <!-- START BLOOMFIELD BEAT -->
+    <div id="bloomfield_places">
+      <ul class="all_head-right">
+        <li><img src="buttons/bloomfield_beat_tag.png" alt="bloomfield_beat" /></li>
+      </ul>
+     </div>
+    <div id="beat_content">Loading...</div>
+    <!--
+    <div>&lt;a href="http://www.bloomfield.edu/wordpress/?p=11"&gt;Bloomfield College Featured in Star Ledger&lt;/a&gt;</div>
+    <div><a href="http://www.bloomfield.edu/wordpress/?p=11">Bloomfield College Featured in Star Ledger</a></div>
+    -->
+    <!-- END BLOOMFIELD BEAT -->
+    
+    
+    
+    <!-- BLOOMFIELD PLACES -->
+    <div id="bloomfield_places">
+      <ul class="all_head-right">
+        <li><img src="buttons/bloomfield_places2.png" alt="bloomfield_places" /></li>
+      </ul>
+      
+      <div id="sites_wrap">
+      	<div class="sites">
+      	<p class="h5">Our campus is active and filled with opportunities. When you go to Bloomfield College you know you're in a community where students are interested in learning, and professors and staff will help you reach your goals. Check out our various centers and resources:</p>
+      	<p class="h6"><a href="http://www.bccommunity.org/s/177/index.aspx?sid=177&gid=1&pgid=421">Westminster Arts Center</a> | <a href="http://www.bloomfield.edu/student_life/csle/default.aspx">Center for Student Leadership & Engagement</a> | <a href="http://users.bloomfield.edu/department/tutorial/">Center for Academic Development</a> | <a href="http://www.bloomfield.edu/student_life/careerservices/default.aspx">Center for Career Development</a> | <a href="/images/BC_Beacon.pdf">Bloomfield College's Student Newspaper, <em>The BC Beacon</em> (pdf)</a> | <a href="http://www.youtube.com/user/Bloomb0xTV">Bloombox TV: Bloomfield College's Student Video Club</a></p>       
+      <!-- <a href="http://www.bloomfield.edu/student_life/csle/default.aspx"><img src="images/center-csle.jpg" /></a> -->
+      
+      	</div> <!-- END OF SITES -->
+      </div> <!-- END OF SITES_WRAP --> 
+    </div> <!-- END OF DIV BLOOMFIELD_PLACES -->
+  	</div> <!-- END DIV BLOOMFIELD_NEWS -->
+
+    
+    
+  </div> <!-- END OF DIV NEW_RIGHT -->
+  
+  
+  
+  
+  <!-- NEED RIGHT_SIDEBAR -->
+  <!-- SOCIAL MEDIA / CALENDAR -->
+    <div class="news_tools">
+      <div class="address">
+        <p class="h5_left_title"> <img src="images/seal_home_page2.png" /> </p>
+        <p class="h5_left_title"> Bloomfield College </p>
+        <p class="h5_left"> 467 Franklin St.<br />
+          Bloomfield, NJ 07003<br />
+          ph: 973.748.9000<br />
+        </p>
+      </div>
+      <div class="social_media_wrap"> <a href="http://www.facebook.com/bloomfieldcollegenj"><img src="buttons/SOCIAL_MEDIA/facebook.png" /></a><a href="http://twitter.com/BlmfldCollegeNJ"><img src="buttons/SOCIAL_MEDIA/twitter.png" /></a><a href="http://flic.kr/ps/XmfrP"><img src="buttons/SOCIAL_MEDIA/flickr.png" /></a><a href="http://www.youtube.com/bloomfieldcollege"><img src="buttons/SOCIAL_MEDIA/youtube.png" /></a>
+      	<br/><br/>
+      	<div>
+      		<a href=""><img class="border" src="images/BestColleges-web-news2.png" /></a>
+      		<a href=""><img class="border" src="images/yellow_ribbon-stroke2.jpg" /></a>
+      	</div>
+      </div> <!-- END OF DIV SOCIAL_MEDIA_WRAP -->
+      
+      <div class="important_links"> <a id="important_one" href="http://www.bloomfield.edu/calendardata/CalendarNOW.aspx"><img src="images/events_calendar-roll.png" alt="Events Calendar" /></a> <a id="important_two" href="http://bloomfield.edu/about/location.aspx"><img src="/images/maps_directions-roll.png" alt="Maps | Directions" /></a> <a id="important_three" href="http://bloomfield.edu/about/hours.aspx"><img src="/images/college_hours-roll.png" alt="Hours" /></a> <a id="important_four" href="http://bloomfield.edu/academics/library/default.aspx"><img src="/images/library-roll.png" alt="Library" /></a> <a id="important_five" href="http://bloomfield.bncollege.com/webapp/wcs/stores/servlet/BNCBHomePage?storeId=65119&catalogId=10001&langId=-1"><img src="/images/bookstore-roll.png" alt="Bookstore" /></a> 
+      <a id="important_six" href="https://bc.askadmissions.net/emtinterestpage.aspx?ip=request"><img src="/images/request-roll.png" alt="Bookstore" /></a>
+      </div> <!-- END OF DIV IMPORTANT_LINKS -->
+      
+      	<div id="featured">
+      		<ul class="profiles_head">
+      			<li><img src="buttons/profiles.png" /></li>
+      		</ul>
+      	
+      		<div class="profile">
+        	<p class="featured">After four years in the Marine Corps, Jefferson Matos returns to Bloomfield College to inspire others.</p> 
+        	<a href="images/OTG_Winter_2012_for_web-profile.pdf"><img src="images/profile_marine.jpg" /></a></div>
+        
+        	<div class="on_the_green">
+        	<p class="featured">Read  more about Bloomfield students, alumni and faculty in the latest  issue of <em>On the Green.</em></p>
+        	<a href="http://www.bccommunity.org/s/177/index.aspx?sid=177&gid=1&pgid=242"><img src="images/OTG_Winter_2012_for_web_cover.png" /></a></div>
+        
+      	</div> <!-- END DIV FEATURED -->
+    </div> <!-- END DIV NEW_TOOLS -->
+  
+  <script type="text/javascript">//alert(document.getElementByID("tblName").Width);</script>
+  <!-- DO NOT REMOVE -->
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3201015-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  <!-- DO NOT REMOVE -->
+
+		
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <table width="100%" cellpadding="0" cellspacing="0" align="center">
+           <tr>
+            <td colspan="7" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td bgcolor="#999999" class="footerText"><img src="/images/spacer.gif" width="1" height="1" /></td>
+  </tr>
+  <tr>
+    <td class="footerText"><img src="/images/spacer.gif" width="10" height="10" /></td>
+  </tr>
+  <tr>
+    <td class="footerText" align="center"> 
+    <a href="/about/">About</a> | 
+    <a href="/academics/academic_affairs/default.aspx">Academics</a> |
+    <a href="/admissions/">Admission</a> |
+    <a href="http://www.bloomfield.edu/student_life/" target="_blank">Student Life</a> |
+    <a href="http://www.bcdeacons.com" target="_blank">Athletics</a> |
+    <a href="/news/">News & Events</a> |
+    <a href="http://www.bccommunity.org" target="_blank">Alumni</a> |
+    <a href="http://www.bccommunity.org/s/177/index.aspx?sid=177&gid=1&pgid=497" target="_blank">Giving</a> |
+    <a href="http://www.bloomfield.edu/student_life/campussecurity/docs/Emergency_Guidelines_Bloomfield_College_03-26-12.pdf" target="_blank">Emergency Response Guidelines</a> 
+    
+    
+    </td>
+  </tr>
+  <tr>
+    <td class="footerText" align="center">Copyright &copy;  Bloomfield College 2010 | 467 Franklin St. | Bloomfield, NJ 07003 | ph: 973.748.9000 </td>
+  </tr>
+
+</table>
+
+
+</td>
+          </tr>
+          
+          <tr>
+            <td>&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td valign="top" class="pageText">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td valign="top">&nbsp;</td>
+          </tr> 
+        </table>
+    </td>
+  </tr>
+    
+		 
+<!-- DO NOT REMOVE -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3201015-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- DO NOT REMOVE --> 
+
+
+<!-- TRACK -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3201015-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
+
+

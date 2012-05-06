@@ -1,0 +1,503 @@
+
+
+<html>
+	<head>
+		<title>Orange Coast College</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		
+   
+	<script language="javascript" type="text/javascript">
+	<!--
+	var splts = new Array();
+	var spltsImg = new Array();
+	var spltIndex = 0;
+	var timerId = new Array(0,0,0);
+	//Declare client images array - import from XML file and run from server
+	splts[0] = new Array("http://www.youtube.com/watch?v=zwAUbCGZFYk ","http://www.orangecoastcollege.edu/Media/web/spotlight/1336172780347.jpg","Chronicles Cultural Fair","_blank","5/22/2012 12:00:00 AM");
+splts[1] = new Array("http://goo.gl/88QUx","http://www.orangecoastcollege.edu/Media/web/spotlight/1334943411973.jpg","Mobile App Release","_blank","5/31/2012 12:00:00 AM");
+splts[2] = new Array("http://www.orangecoastcollege.edu/enrollment/registration/Course+Prerequisites+and+Corequisites.htm","http://www.orangecoastcollege.edu/Media/web/spotlight/1334269614317.jpg","Check Your Pre-Reqs","_blank","5/17/2012 12:00:00 AM");
+splts[3] = new Array("http://www.orangecoastcollege.edu/about_occ/news/Coast+To+Coast.htm","http://www.orangecoastcollege.edu/Media/web/spotlight/1314402814589.jpg","News from OCC","_blank","5/31/2012 12:00:00 AM");
+splts[4] = new Array("http://www.orangecoastcollege.edu/virtualtour/","http://www.orangecoastcollege.edu/Media/web/spotlight/1298662559678.jpg","Virtual Tour","_blank","6/30/2012 12:00:00 AM");
+
+		
+	var url = document.location.href;	
+	 
+	if ((url.search('/home') != -1) && (url.search('/home/') == -1))
+	    redirect(url + '/');
+	    
+	function keyPress(objId) {
+		if (window.event.keyCode == 13) {
+			document.getElementById(objId).click();
+			}
+	}
+	function redirect(url) {
+	    document.location.href = url;
+	}
+	
+	// Entry of blending spotlight. Initial idx = 0;
+    function loadSpotlight(idx) {
+	    window.clearInterval(timerId[0]);
+	    window.clearTimeout(timerId[0]);
+	    window.clearInterval(timerId[1]);
+	    window.clearTimeout(timerId[1]);
+	    window.clearInterval(timerId[2]);
+	    window.clearTimeout(timerId[2]);
+	    var sDiv = document.getElementById("divSplt");
+	    var sLnk = document.getElementById("spltLnk");
+	    var sImg = document.getElementById("imgSpltHtml");
+	    
+	    if (splts.length == 0) {
+	        sImg.src = "/CmsOccWeb/images/home/spotlight_banner1.gif";
+	    } else {
+    		idx = Math.abs(idx % splts.length);
+    		
+	        sDiv.style.backgroundImage = "url(" + splts[idx][1] + ")";
+            sLnk.href = splts[idx][0];
+            sLnk.target = splts[idx][3];
+            sImg.src = splts[idx][1];
+            sImg.alt = splts[idx][2];
+            idx >= splts.length ? spltIndex = idx : spltIndex = idx + splts.length;
+            timerId[0] = window.setTimeout("rotateImage(" + (++idx) + ")", 8000);
+	    }
+	}
+
+	function rotateImage(idx) {
+	    var sLnk = document.getElementById("spltLnk");
+	    
+        idx = Math.abs(idx % splts.length);
+        
+		sLnk.href = splts[idx][0];
+        sLnk.target = splts[idx][3];
+        
+        var sImg = document.getElementById("imgSpltHtml");
+        sImg.alt = splts[idx][2];
+        
+        idx >= splts.length ? spltIndex = idx : spltIndex = idx + splts.length;
+        blendimage("divSplt", "imgSpltHtml", splts[idx][1], 2000);
+        
+        timerId[1] = window.setTimeout("rotateImage(" + (++idx) + ")", 6500);
+	}
+		
+	
+	function opacity(id, opacStart, opacEnd, millisec) { 
+        //speed for each frame 
+        var speed = Math.round(millisec / 100); 
+        var timer = 0; 
+
+        //determine the direction for the blending, if start and end are the same nothing happens 
+        if(opacStart > opacEnd) { 
+            for(i = opacStart; i >= opacEnd; i--) { 
+                timerId[2] = setTimeout("changeOpac(" + i + ",'" + id + "')",(timer * speed)); 
+                timer++; 
+            } 
+        } else if(opacStart < opacEnd) { 
+            for(i = opacStart; i <= opacEnd; i++) 
+                { 
+                timerId[2] = setTimeout("changeOpac(" + i + ",'" + id + "')",(timer * speed)); 
+                timer++; 
+            } 
+        } 
+    } 
+
+    //change the opacity for different browsers 
+    function changeOpac(opacity, id) {     
+        var object = document.getElementById(id).style; 
+        object.opacity = (opacity / 100); 
+        object.MozOpacity = (opacity / 100); 
+        object.KhtmlOpacity = (opacity / 100); 
+        object.filter = "alpha(opacity=" + opacity + ")"; 
+    } 
+
+    function blendimage(divid, imageid, imagefile, millisec) { 
+        var speed = Math.round(millisec / 100); 
+        var timer = 0; 
+         
+        //set the current image as background 
+        document.getElementById(divid).style.backgroundImage = "url(" + document.getElementById(imageid).src + ")"; 
+         
+        //make image transparent 
+        changeOpac(0, imageid); 
+         
+        //make new image 
+        document.getElementById(imageid).src = imagefile; 
+
+        //fade in image 
+        for(i = 0; i <= 100; i++) { 
+            setTimeout("changeOpac(" + i + ",'" + imageid + "')",(timer * speed)); 
+            timer++; 
+        } 
+    } 
+
+
+	-->
+	</script>
+		
+		
+	<style type="text/css">
+	
+	.copyright_notice {
+		font-size: 8pt; font-weight: bold; color: #ffffff; position: relative; top:-65px; text-align:center; 
+	}
+	
+	</style>
+	</head>
+	<body bgcolor="#ffffff" leftmargin="0" topmargin="0" background="/CmsOccWeb/images/home/bg.gif" style="font-size: 10px; font-family: Tahoma;">
+	
+	<table width="804" border="0" cellpadding="0" cellspacing="0" align="center">
+	
+	<!-- HEADER -->
+	<tr>
+		<td colspan="3" style="font:3pt; background:url(/CmsOccWeb/images/home/top_frame.gif) bottom no-repeat;">
+			<!--<img src="/CmsOccWeb/images/home/spacer.gif" width="1" height="5" />-->
+			<div style="background: url(/CmsOccWeb/images/home/top_frame.gif) ; width:804; height:15;" >
+			&nbsp;
+			</div>
+		</td>
+	</tr>
+	
+	<!-- BODY -->
+	<tr>
+		<!-- LEFT FRAME BORDER -->
+		<td background="/CmsOccWeb/images/home/left_frame.gif" ><img src="/CmsOccWeb/images/home/spacer.gif" width="13px" /></td>
+		<!-- MAIN BOXED CONTAINER -->
+		<td width="779" bgcolor="white">
+		
+			<!-- LOGO and SEARCH BOX SITEMAP IFRAME -->
+			<iframe frameborder="0" height="67" width="757" src="/CmsOccWeb/Templates/search_box.aspx" scrolling="no" style=" margin: 0 0 4 5;"></iframe>		
+							
+			<!-- NAVIGATION MENU -->
+            
+
+<table id="Table4" width="100%" height="18" border="0" cellpadding="0" cellspacing="0" style="BACKGROUND-IMAGE: url(/CmsOccWeb/images/home/top_nav_bar.gif)">
+	<tr>
+		<td><a href="http://www.orangecoastcollege.edu/about_occ"><img src="/CmsOccWeb/images/home/spacer.gif" width="93" height="18" title="About Orange Coast College"
+					border="0"></a></td>
+		<td><a href="http://www.orangecoastcollege.edu/academics"><img src="/CmsOccWeb/images/home/spacer.gif" width="94" height="18" title="Academics" border="0"></a></td>
+		<td><a href="http://www.orangecoastcollege.edu/enrollment"><img src="/CmsOccWeb/images/home/spacer.gif" width="151" height="18" title="Enrollment Center" border="0"></a></td>
+		<td><a href="http://www.orangecoastcollege.edu/student_services"><img src="/CmsOccWeb/images/home/spacer.gif" width="135" height="18" title="Student Services" border="0"></a></td>
+		<td><a href="http://www.orangecoastcollege.edu/student_life"><img src="/CmsOccWeb/images/home/spacer.gif" width="109" height="18" title="Student Life" border="0"></a></td>
+		<td><img src="/CmsOccWeb/images/home/spacer.gif" width="197" height="18" alt=""></td>
+	</tr>
+</table>					
+<!-- top-menu -->
+<table cellpadding="0" cellspacing="0" width="100%" class="top-menu-l03-05-blank-2" style="display: none;">
+    <tr>
+        <td style="height: 20px"><a href="http://www.orangecoastcollege.edu/about_occ"><img alt="About Orange Coast College" src="/CmsOccWeb/images/level01/top-menu-about-occ.gif" width="82" height="20" class="no-border" /></a></td>
+        <td style="height: 20px"><a href="http://www.orangecoastcollege.edu/academics"><img alt="Academics" src="/CmsOccWeb/images/level01/top-menu-academics.gif" width="82" height="20" class="no-border" /></a></td>
+        <td style="height: 20px"><a href="http://www.orangecoastcollege.edu/enrollment"><img alt="Enrollment Center" src="/CmsOccWeb/images/level01/top-menu-ad-rec.gif" width="117" height="20" class="no-border" /></a></td>
+        <td style="height: 20px"><a href="http://www.orangecoastcollege.edu/student_services"><img alt="Student Services" src="/CmsOccWeb/images/level01/top-menu-stud-serv.gif" width="113" height="20" class="no-border" /></a></td>
+        <td style="height: 20px"><img alt="My OCC" src="/CmsOccWeb/images/level01/top-menu-my-occ.gif" width="60" height="20" class="no-border" /></td>
+        <td width="70%" class="top-menu-l03-05-blank-2" style="height: 20px"><img src="/CmsOccWeb/images/level01/top-menu-blank.gif" width="324" height="20" class="no-border" /></td>
+    </tr>
+</table>
+<!-- end of top-menu -->
+
+									
+			<!-- LOGO IMAGE PANEL -->
+			<table border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr>
+					<!-- MAIN PANEL : LEFT SIDE -->
+					<td width="189" align="left" valign="top" height="176">					
+<!-- * MYOCC * -->
+<table style="display: none; width=189; height=170;" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td colspan="3">
+			<!-- LINK TO MYOCC LOGIN --><a href="https://mycoast.cccd.edu" target="_parent"><img src="/CmsOccWeb/images/home/myocc_01.jpg"  border="0" width="189" height="98" alt="MyOCC Login"></a></td>
+	</tr>
+	<tr>
+		<td>
+			<!-- LINK TO BLACKBOARD LEARN LOGIN --><a href="http://occ.blackboard.com" target="_parent"><img src="/CmsOccWeb/images/home/myocc_02.jpg" border="0" width="67"  height="75" alt="Blackboard Login"></a></td>
+		<td>
+			<!-- LINK TO MYOCC LOGIN HELP--><a href='http://www.orangecoastcollege.edu/myocc/Technical+Support.htm' style="padding:0 0 0 0;margin:0 0 0 0;"><img src="/CmsOccWeb/images/home/myocc_03.jpg" border="0" width="64"  height="75" alt="Support / Help"></a></td>
+		<td>
+			<!-- LINK TO MORE MYOCC INFO--><a href='http://www.orangecoastcollege.edu/myocc'><img src="/CmsOccWeb/images/home/myocc_04.jpg"  border="0" width="58" height="75" alt="More MyOCC Info"></a> </td></tr></table>
+<!-- * LOGIN DIRECT * -->
+						<div style="width: 189px; height: 176px; display: none;">
+							<form name='sb' id='Form2' method='post' action='https://mycoast.cccd.edu/cp/home/login' style="BACKGROUND-IMAGE: url(/CmsOccWeb/images/home/myocc_login2.gif);">
+					        <table width="148" height="100" border="0" cellpadding="0" cellspacing="1" style="LEFT: 20px; POSITION: relative; TOP: 50px;">
+							    <tr>
+								    <td style="height: 9px"><img src="/CmsOccWeb/images/home/username.gif"></td>
+							    </tr>
+							    <tr>
+								    <td><input id="Text1" type="text" name="user" style="WIDTH: 142px; HEIGHT: 20px" maxLength="50"></td>
+							    </tr>
+							    <tr>
+								    <td style="PADDING-TOP: 3px"><img src="/CmsOccWeb/images/home/password.gif"></td>
+							    </tr>
+							    <tr>
+								    <td><input id="Password1" name="pass" type="password" style="WIDTH: 142px; HEIGHT: 20px" maxLength="50"
+										    onkeypress="keyPress('btnLogin')"></td>
+							    </tr>
+							    <tr>
+								    <td style="PADDING-TOP: 10px"><a id="A1" href="javascript:sb.submit()"><img src="/CmsOccWeb/images/home/login.gif" border="0"></a><a href="javascript:sb.reset()"><img src="/CmsOccWeb/images/home/reset.gif" border="0"></a>
+								    </td>
+							    </tr>
+							    <tr>
+								    <td><a href='http://www.orangecoastcollege.edu/myocc/About+MyOCC.htm'><img src="/CmsOccWeb/images/home/login_info.gif" border="0" title="MyOCC information"></a></td>
+							    </tr>
+								</table>
+							</form>
+						</div>
+					
+						<!-- * UNAVAILABLE * -->
+						<table width="189" height="176" border="0" cellpadding="0" cellspacing="0" style="LEFT: 0px; BACKGROUND-IMAGE: url(/CmsOccWeb/images/home/my_occ_unavailable.gif); width: 189px; height:177px; display: ">
+							<tr>
+								<td style="font-weight: bold; font-size: 12px; padding-top: 5px; font-family: tahoma; color: #6699ff; width: 187px;" align="center" valign="top">
+								<img src="/CmsOccWeb/images/home/spacer.gif" style="width: 1px; height: 50px">
+								<a href="https://occ.blackboard.com/" 
+								    target="_parent"><img src="/CmsOccWeb/images/home/spacer.gif" border="0" title="Login to online classes" style="width: 150px; height:160px;"></a></td>
+							</tr>
+						</table>	
+								
+					</td>
+					
+					<!-- MAIN PANEL : RIGHT SIDE --><!--<td width='593' height='177' style='background:url(http://www.orangecoastcollege.edu/Media/web/top_banner/mainimage13.jpg)'>&nbsp;</td>-->
+					<td width="590" align="right" valign="top" height="176" bgcolor="#cccccc" >
+					<div style="background:url(http://www.orangecoastcollege.edu/Media/web/top_banner/mainimage13.jpg); width:589; height:176;" >&nbsp;</div>
+						
+					</td>
+									
+				</tr>
+				
+				
+				
+				<tr>
+					
+					<!-- LEFT SIDE -->
+					<td>
+						<div style="background-image: url(/CmsOccWeb/images/home/quick_links_bar.gif); width: 189px; height: 19px;" title="Quick Links" >&nbsp;</div>	
+					</td>
+					
+					<!-- RIGHT SIDE -->
+					<td background="/CmsOccWeb/images/home/blue_grad_bar.gif" align="right">
+						<table width="390" border="0" cellpadding="0" cellspacing="0">
+							<tr>						
+								<td><img src="/CmsOccWeb/images/home/occ_spotlight.gif" alt="" title="OCC Sportlight" /></td>
+								<td width="30"><img src="/CmsOccWeb/images/home/quick_left_arrow.jpg" alt="" style="cursor: hand; cursor: pointer;" onclick="loadSpotlight(--spltIndex);" title="Previous Slice" /></td>
+								<td width="30"><img src="/CmsOccWeb/images/home/quick_right_arrow.jpg" alt="" style="cursor: hand; cursor: pointer;" onclick="loadSpotlight(++spltIndex);" title="Next Slice" /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+
+				<tr>
+					<!-- MAIN PANEL : LEFT SIDE -->
+					<td width="189" align="left" valign="top">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td width="189">
+																
+								<!-- * QUICK LINKS SIDE NAV * -->
+							
+								<map id="map_quickies" name="quickies" >
+									<area coords="0,0,189,23" shape="rect" href="http://www.orangecoastcollege.edu/athletics/" title="Athletics" alt="Athletics" />
+									<area coords="0,24,189,45" shape="rect" href="http://www.orangecoastcollege.edu/about_occ/communityEd" title="Community Interest" alt="Community Interest" />
+									<area coords="0,46,189,65" shape="rect" href="http://www.orangecoastcollege.edu/academics/divisions" title="Division Department" alt="Division Department" />
+									<area coords="0,66,189,87" shape="rect" href="http://www.orangecoastcollege.edu/about_occ/Events" title="Events" alt="Events" />
+									<area coords="0,88,189,109" shape="rect" href="http://www.orangecoastcollege.edu/academics/library" title="Library Services" alt="Library Services" />
+									<area coords="0,110,189,130" shape="rect" href="http://www.orangecoastcollege.edu/academics/online_classes" title="Online Classes" alt="Online Classes" />
+									<area coords="0,131,189,153" shape="rect" href="http://www.orangecoastcollege.edu/prospective_student" title="Prospective Students" alt="Prospective Students" />
+								</map>	
+																												
+								<table width="189" border="0" cellpadding="0" cellspacing="0" style="BACKGROUND-IMAGE: url(/CmsOccWeb/images/home/quick_links.gif);">
+									<tr><td align="center">
+								
+										<img src="/CmsOccWeb/images/home/spacer.gif" usemap="#quickies" border="0" width="189" height="161"/>
+								
+										<!-- * FLASH ALERT OBJECT * -->										
+										<object enableJSURL="false" enableHREF="false" saveEmbedTags="true" allowScriptAccess="always" type="application/x-shockwave-flash" height="116" width="186" id="alertu_widget" align="middle" data="https://www.alertu.org/flash/alertu_widget.swf" VIEWASTEXT title="Emergency Alerts">
+											<param name="allowScriptAccess" value="always" />
+											<param name="movie" value="https://www.alertu.org/flash/alertu_widget.swf" />
+											<param name="quality" value="high" />
+											<param name="bgcolor" value="none" />
+											<param name="flashvars" value="autostart=no&keyword_id=13830&fill_color=0xEC9640&user_text=Emergency%20Alerts&info_text=Sign%20up%20for%20mobile%20alerts%20from%20OCC.%20Enter%20your%20mobile%20#:&btn_color=0x000000&text_color=0x232323&btntext_color=0xFFFFFF&foottext_color=0x3045A2" />
+										</object>
+										
+										<!-- * OUR MISSION VOTER REGISTRATION* -->
+										<a href="http://www.orangecoastcollege.edu/about_occ/office_of_the_president/" title="Our Mission"><img src="/CmsOccWeb/images/home/ourmission.gif" style="margin-top:4px; margin-bottom:7px; margin-left:10px;" vspace="0" border="0" /></a>
+											<a href="https://www.sos.ca.gov/nvrc/fedform/?t=s" title="CA Voter Registration" target=_blank><img src="/CmsOccWeb/images/home/voterreg.gif" style="margin-top:4px; margin-bottom:7px; margin-left:4px;" vspace="0" border="0" /></a>						
+									</td></tr>
+								</table>																
+																		
+								</td>					
+							</tr>				
+						</table>					
+					</td>
+					
+					<!-- MAIN PANEL : RIGHT SIDE -->
+					<td align="right" valign="top" >
+						
+						<!-- HIGHLIGHTS and OCC SPOTLIGHT -->
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tr>						
+								<td width="200" style="background:url(/CmsOccWeb/images/home/highlight_links.gif) no-repeat;" title="OCC Sportlight">
+								
+								<map id="3_highlites" name="3links" >
+									<area coords="35,3,160,48" shape="rect" href="http://www.orangecoastcollege.edu/academics/class_schedule/Class+Schedule.htm" title="Class Schedule" alt="Class Schedule" />
+									<area coords="35,52,160,97" shape="rect" href="http://www.cccapply.org/applications/CCCApply/apply/Orange_Coast_College.html" title="Apply Now" alt="Apply Now" />
+									<area coords="35,100,160,147" shape="rect" href="http://www.orangecoastcollege.edu/student_services/financial_aid/" title="Financial Aid" alt="Financial Aid" />
+								</map>	
+									
+									<img src="/CmsOccWeb/images/home/spacer.gif" width="189" height="155" usemap="#3links" style="position: relative; left:0px; border:0px;">
+								</td>
+								<td width="1"  style="background:url(/CmsOccWeb/images/home/highlight_links.gif) no-repeat;">
+									<img src="/CmsOccWeb/images/home/spotlight_curve.gif" style="LEFT: 8px; POSITION: relative;">									
+								</td>
+								<td valign="top">									
+									<div id="divSplt" style="width: 389px; height:155px; overflow: hidden;">
+									<a id="spltLnk" target="_self">
+									<img id="imgSpltHtml" border="0" style="width: 389px; border-bottom: #cccccc 1px solid; height: 154px" /></a>									
+									</div>
+									<script type="text/javascript">loadSpotlight(0);</script>									
+								</td>
+							</tr>							
+						</table>
+
+
+
+						<!-- NEWS AND ANNOUNCEMENTS -->
+						<table border="0" cellpadding="0" cellspacing="0" style="margin-top:7px; BACKGROUND-IMAGE: url(/CmsOccWeb/images/home/news_announcements.gif);">
+							<tr>													
+								<td align="left" colspan="2" width="589" height="19"  valign="top" style="font:3pt; padding-left:235px;padding-top:3px;">
+									<a href="http://www.orangecoastcollege.edu/cmsoccweb/templates/news/rss.aspx" border="0" >
+									<img src="/CmsOccWeb/images/news/rss.gif" border="0px" /></a>&nbsp;
+								</td>
+							</tr>
+							<tr>								
+								<td width="385">
+									<div style="overflow: hidden; width: 375px; height: 135px; padding-left: 20px; padding-top: 5px;">
+									<form name="form1" method="post" action="default.aspx?NRMODE=Published&amp;NRNODEGUID=%7bD2F742B9-768B-46B0-9F24-1C047A4DF29A%7d&amp;NRORIGINALURL=%2f&amp;NRCACHEHINT=ModifyGuest" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTI0NDY4Mjc0MQ9kFgICAQ9kFgICAQ9kFgJmDzwrAAkBAA8WBB4IRGF0YUtleXMWAB4LXyFJdGVtQ291bnQCA2QWBmYPZBYCAgEPDxYKHgRUZXh0BTBTdHVkZW50IEFydGlzdHMgdG8gRGlzcGxheSBXb3JrIGluICdNYXNzIEFwcGVhbCceC05hdmlnYXRlVXJsBUhodHRwOi8vd3d3Lm9yYW5nZWNvYXN0Y29sbGVnZS5lZHUvYWJvdXRfb2NjL25ld3MvZnVsbCtzdG9yeS5odG0/aWQ9MTk1MDIeDkZvbnRfVW5kZXJsaW5laB4HVG9vbFRpcAUwU3R1ZGVudCBBcnRpc3RzIHRvIERpc3BsYXkgV29yayBpbiAnTWFzcyBBcHBlYWwnHgRfIVNCAoBAZGQCAQ9kFgICAQ8PFgofAgUsVGhlYXRyZSBEZXBhcnRtZW50IFN0YWdlcyAnQXdlc29tZSA4MHMgUHJvbScfAwVIaHR0cDovL3d3dy5vcmFuZ2Vjb2FzdGNvbGxlZ2UuZWR1L2Fib3V0X29jYy9uZXdzL2Z1bGwrc3RvcnkuaHRtP2lkPTE5NTAxHwRoHwUFLFRoZWF0cmUgRGVwYXJ0bWVudCBTdGFnZXMgJ0F3ZXNvbWUgODBzIFByb20nHwYCgEBkZAICD2QWAgIBDw8WCh8CBTZIb3J0aWN1bHR1cmUgQ2x1YiBUaGVyYXBldXRpYyBHYXJkZW4gVGFrZXMgRmlyc3QgUGxhY2UfAwVIaHR0cDovL3d3dy5vcmFuZ2Vjb2FzdGNvbGxlZ2UuZWR1L2Fib3V0X29jYy9uZXdzL2Z1bGwrc3RvcnkuaHRtP2lkPTE5NTAwHwRoHwUFNkhvcnRpY3VsdHVyZSBDbHViIFRoZXJhcGV1dGljIEdhcmRlbiBUYWtlcyBGaXJzdCBQbGFjZR8GAoBAZGRkBYthBri9hQ8QdvbwYhT4JmaDjXQ=" />
+
+										
+<table cellpadding="0" cellspacing="0">
+    <tr>
+       <td valign="top" style="padding-left: 10px;">
+            <table id="FrontPageNews1_dlFrontPage" cellspacing="0" border="0" style="width:328px;border-collapse:collapse;">
+	<tr>
+		<td>
+                    <table style="width: 328px" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 9px; height: 18px;" valign="top">
+                                <img src="/CmsOccWeb/images/level01/bullet.gif" id="IMG1" align="top" /></td>
+                            <td style="padding-left: 10px; height: 18px; padding-bottom: 3px;">
+                                <a id="FrontPageNews1_dlFrontPage__ctl0_hypTitle" title="Student Artists to Display Work in 'Mass Appeal'" href="http://www.orangecoastcollege.edu/about_occ/news/full+story.htm?id=19502" style="text-decoration:none;font-size: 11px; color: #333366; font-family: Tahoma; text-decoration: none;">Student Artists to Display Work in 'Mass Appeal'</a></td>
+                        </tr>
+                    </table>
+                </td>
+	</tr><tr>
+		<td>
+                    <table style="width: 328px" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 9px; height: 18px;" valign="top">
+                                <img src="/CmsOccWeb/images/level01/bullet.gif" id="IMG1" align="top" /></td>
+                            <td style="padding-left: 10px; height: 18px; padding-bottom: 3px;">
+                                <a id="FrontPageNews1_dlFrontPage__ctl1_hypTitle" title="Theatre Department Stages 'Awesome 80s Prom'" href="http://www.orangecoastcollege.edu/about_occ/news/full+story.htm?id=19501" style="text-decoration:none;font-size: 11px; color: #333366; font-family: Tahoma; text-decoration: none;">Theatre Department Stages 'Awesome 80s Prom'</a></td>
+                        </tr>
+                    </table>
+                </td>
+	</tr><tr>
+		<td>
+                    <table style="width: 328px" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 9px; height: 18px;" valign="top">
+                                <img src="/CmsOccWeb/images/level01/bullet.gif" id="IMG1" align="top" /></td>
+                            <td style="padding-left: 10px; height: 18px; padding-bottom: 3px;">
+                                <a id="FrontPageNews1_dlFrontPage__ctl2_hypTitle" title="Horticulture Club Therapeutic Garden Takes First Place" href="http://www.orangecoastcollege.edu/about_occ/news/full+story.htm?id=19500" style="text-decoration:none;font-size: 11px; color: #333366; font-family: Tahoma; text-decoration: none;">Horticulture Club Therapeutic Garden Takes First Place</a></td>
+                        </tr>
+                    </table>
+                </td>
+	</tr>
+</table>
+        </td>        
+    </tr>    
+    <tr>
+        <td align="right">
+            <a href="http://www.orangecoastcollege.edu/about_occ/news/In+The+News.htm" 
+                title="Click here for more information" style="text-decoration: none;font-size: 11px; color: #333366; font-family: Tahoma;">More ></a></td>
+    </tr>
+</table>
+			    
+									</form>
+									</div>
+								</td>
+								
+								<td valign="top" style="background:url(http://www.orangecoastcollege.edu/Media/web/bot_banner/lower-right-images9.jpg) top right no-repeat; width:204; height:138; margin-top:1px; " >
+									&nbsp;
+								</td>
+							</tr>
+							
+						</table>
+						
+						
+					</td>
+			
+				</tr>	
+				
+							
+			</table>
+			
+			
+		
+			
+			
+
+		</td>
+		<!-- RIGHT FRAME BORDER -->
+		<td background="/CmsOccWeb/images/home/right_frame.gif"><img src="/CmsOccWeb/images/home/spacer.gif" width="13px" /></td>		
+	</tr>
+	
+	<!-- FOOTER -->
+	<tr>
+		<td colspan="3" >
+
+			<div style="position: relative; top: -11px; z-index: 100; "><img src="/CmsOccWeb/images/home/bottom_frame.gif" height="43" alt=""></div>
+			<div class="copyright_notice" style="font-size: 8pt; font-weight: bold; color: #ffffff; position: relative; top: -40px; z-index:101; text-align:center;" >
+				&#169; 2012 Orange Coast College &#8226; 2701 Fairview Road &#8226; Costa Mesa, California 92626 &#8226; (714) 432-5072<a href='http://ohyeahweb.com'><img src='/CmsOccWeb/images/home/spacer.gif' width='1' height='1' alt='' border='0' /></a></div>
+
+		</td>	
+	</tr>		
+	
+	</table>
+	
+
+	
+	
+	
+	
+	
+	
+		<!-- ImageReady Slices (home-page-redesign-5.1.psd) -->
+		<!-- End ImageReady Slices -->
+		<script language="javascript" type="text/javascript">
+		<!--		
+		function keyPress(objId) {
+			if (window.event.keyCode == 13) {
+				document.getElementById(objId).click();
+				}
+		}
+		function redirect(url) {
+		    document.location.href = url;
+		}
+		function fixRelativeHyperLink() {
+		    var pUrl = 'http://www.orangecoastcollege.edu/'
+		    var len = document.anchors.length - 1;
+		    for (i = 0; i < len; i++) {
+		        document.anchors[i].href = document.anchors[i].href.replace('./', pUrl);
+		    }	    
+		}		
+		-->
+		</script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5641832-3");
+pageTracker._setDomainName(".orangecoastcollege.edu");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+	</body>
+</html>

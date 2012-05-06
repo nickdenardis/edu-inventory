@@ -1,0 +1,862 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- PageID 1 - published by RedDot 7.5 - 7.5.1.103 - 33332 --><!--Last published on Friday, May 04, 2012 11:11-->
+<meta charset="utf-8">
+<meta name="verify-v1" content="sCpu2doISDw2ITD9IEE41ZbM6SGZxyu4MdgTRHI6AF0=" /> 
+<meta name="msvalidate.01" content="725890EA92396465A29C474C4C70C52C" /><title>Southern New Hampshire University (SNHU)</title>
+<meta name="keywords" content="SNHU,snhu.edu,Southern New Hampshire University,Southern nh university,University of southern new hampshire,NHC,New Hampshire College,Universities in NH,Universities in New Hampshire,Universities,University,Higher Education,south new hampshire university," />
+<meta name="description" content="At Southern New Hampshire University, we believe there are no limits on what you can do, what you can be, or what you can achieve. This is a University that goes the extra mile - so you can too" />
+<link type="text/css" href="/core.css" rel="StyleSheet" media="screen" />
+<link type="text/css" href="/home.css" rel="StyleSheet" media="screen" />
+<link type="text/css" href="/scripts/modal.css" rel="StyleSheet" media="screen" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.1.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.12/jquery-ui.min.js"></script>  
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.cycle/2.99/jquery.cycle.lite.min.js"></script>
+<script type="text/javascript" src="scripts/snhuCookie.js"></script>  
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+         // Settings for who are you banner slide
+            way_transitionIn = 1000;
+            way_duration = 8000;
+        $(document).ready(function(){
+            // jQuery to hide the FixBar on mobile browsers
+            if (navigator.userAgent.indexOf('Mobile', 1) != -1) {
+                $("#fixbarContainer").css('display', 'none');
+            }
+            // heck if the portalUser cookie exists. If so, set the custom analytics variable  
+            if (document.cookie.indexOf('WebServicesSNHU') != -1)
+            {
+                _gaq.push(['_setCustomVar', 1, 'User Type', 'Portal', 2 ]);
+            }
+            
+            // Adjusts the size of he soial icon divs to keep tem from bouncing on the hover effect.
+            $('#fixbarGooglePlus').css('height', '70px');
+            $('#fixbarFacebook').css('height', '70px');
+            $('#fixbarTwitter').css('height', '70px');
+            $('#fixbarLinkedIn').css('height', '70px');
+            $('#fixbarFlickr').css('height', '70px');
+            $('#fixbarYoutube').css('height', '70px');
+            // Code to make the social icons in the fixbar slide up on hover.
+            $("#fixbar div").hover(function () {
+                var e = this;
+                $(e).find("a").stop().animate({ marginTop: "-14px" }, 250, function () {
+                    $(e).find("a").animate({ marginTop: "-10px" }, 250);
+                });
+            }, function () {
+                var e = this;
+                $(e).find("a").stop().animate({ marginTop: "6px" }, 250, function () {
+                    $(e).find("a").animate({ marginTop: "0px" }, 250);
+                });
+            });            
+                        
+            //JS code to make modal popup window appear for Apply Now buttons
+            $("a.modalPopup").click(function () {
+                var section = this.rel;
+                var url = this.href;  
+                var popupLoad = url + ' #' + section;
+                $('<div>').dialog({         
+                    modal: true,         
+                    open: function () {             
+                        $(this).load(popupLoad);         
+                    },                  
+                    //height: 340,
+                    height: 217,         
+                    //width: 717,
+                    width: 525,         
+                    title: 'Apply Now',
+                    resizable: false,
+                    draggable: false,
+                    dialogClass: 'DIALOG'  
+                }); 
+                
+                return false;
+            });
+            //to make jQuery cycle light slideshow work
+            $(".slideshowSmall div").show();
+            if ($(".slideshowSmall")[0]){
+                    $('.slideshowSmall').cycle({ 
+                    width:     '230px', 
+                    height:    '170px'});            
+            }
+             //to make jQuery cycle light slideshow work
+            $(".slideshowLarge div").show();
+            if ($(".slideshowLarge")[0]){
+                    $('.slideshowLarge').cycle({ 
+                    width:     '230px', 
+                    height:    '170px'});            
+            }  
+            // Main Audience Slideshow: 
+            if ($(".audienceBannerContainer")) {
+                resetPanel();
+                animatePanel();
+            }
+            
+            //Audience landing page representatives callout
+            var tabHref = $("#locationsListLink").attr("class");
+            $("#locationsListLink").click(function(){
+                document.location.href = tabHref;
+            })
+            
+            /* Who Are You landing page: Needed to adjust height of rows to largest content */
+            $(".studentSelectorThirdWidthContent .thirdContent").css('max-height','100%');
+            var newHeight = $(".whoAreYou #secondColumn").height();
+            $(".whoAreYou #secondColumn").css('height', newHeight);
+            $(".studentSelectorContainer .topContent").css('max-height','100%');
+            var newHeight = $("#studentSelectorFullWidthBottom").height();
+            $("#studentSelectorFullWidthBottom").css('height', newHeight);
+         });
+        function positionProgramTooltip() {
+             // JS code to set the position of the program tooltip
+             $('TD.programName').each(function (index) {
+                 $(this).find(".programTooltip").css("left", ($(this).find("a").width()) + "px");
+             });
+          }
+        function submitQuery() {
+            window.location = 'search.asp?q='+ encodeURIComponent(document.getElementById('searchTerm').value);
+            return false;
+        }
+    // Main Audience Slideshow:  Slideshow Animations
+        function resetPanel( ){
+            // Set starting positions  
+            $('div.audienceBannerBg').css('top', '-60px').css('opacity', '1');
+            $('div.audienceBannerSilhouette').css('top', '-1325px');
+            $('h1.audienceBannerIntro').css('left', '-440px');
+            $('div.audienceBannerTagline').css('left', '-400px');
+            $('div.audienceBannerDescription').css('left', '-400px');
+            $('div.audienceBannerButtonContainer').css('left', '-400px');    
+        }
+        function animatePanel( ){
+            var frame = $("#contentContainer .audienceBannerContainer");
+            frame.find('div.audienceBannerSilhouette').animate({top: '-1225px'}, way_transitionIn);
+            frame.find('div.audienceBannerBg').animate({top: '0px'}, 
+            {
+                duration: (way_transitionIn*0.9), 
+                queue: false,
+                complete: function(){
+                    // Once the background is in place, whip in the text
+                    frame.find('h1.audienceBannerIntro').animate({left: '18px'}, (way_transitionIn*0.35));
+                    frame.find('div.audienceBannerTagline').animate({left: '29px'}, (way_transitionIn*0.20));
+                    frame.find('div.audienceBannerDescription').animate({left: '29px'}, (way_transitionIn*0.20));
+                    frame.find('div.audienceBannerButtonContainer').animate({left: '29px'}, (way_transitionIn*0.20));
+                }
+            });
+        }
+//]]>
+</script> 
+<script src="/scripts/home.js" type="text/javascript"></script> 
+<script type="text/javascript">
+    // Settings for homepage features
+    // Main Audience Slideshow
+        way_transitionIn = 1000;
+        way_transitionOut = 1000;
+        way_duration = 8000;
+</script></head>
+<body>
+<!-- Start Analytics Code --> 
+ 
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-9112939-1']);
+  _gaq.push(['_setDomainName', 'snhu.edu']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<!-- End Analytics Code  -->
+<!--BeginNoIndex-->
+<div id="container">
+        <header>
+
+ 
+ <div id="logo">
+    <a href="/index.aspx"><img src="/images/display/logoSNHU.png" alt="Southern New Hampshire University"/></a>
+</div>
+<!-- The call to action links in the header. These will use the Call to Action Link content class and therefore there will 
+be a container element inside the "calltoActions" div -->
+<div id="callToActions">
+    <a href="/9543.asp" onclick="_gaq.push(['_trackEvent', 'Apply', 'Header', 'Apply Now Header']);"rel="content"  class="modalPopup" id="headerApplyNow"><span>Apply Now</span></a><a href="/8061.asp" onclick="_gaq.push(['_trackEvent', 'Inquiry', 'Header', 'Request Info Header']);"  id="headerRequestInfo"><span>Request Info</span></a><a href="/195.asp"   id="headerVisitSNHU"><span>Visit SNHU</span></a>
+</div>
+            <!-- BEGIN SEARCH FORM -->
+            <div id="searchContainer">
+                <form action="search.asp" id="searchForm" class="search" method="get">
+                    <label for="searchTerm" id="searchLabel" >Search Our Site</label>
+                    <input id="searchTerm" name="q" type="search" placeholder="Search Our Site" />
+                    <a id="searchButton" href="#" onclick="submitQuery();"></a>
+                    <!--<a href="/search.asp">Search</a>-->
+                </form>
+            </div>
+            <!-- END SEARCH FORM -->
+                <!-- BEGIN PRIMARY NAV -->
+<div id="navPrimaryContainer">
+<ul id="navPrimary">
+    <li class="navButton"><a href="/13462.asp">Information For...</a>
+            <div class="navDD1col">
+    <ul><li><a href="/Continuing-Education.aspx">Adult Learner</a></li><li><a href="/Campus-College-Student.aspx">High School Student</a></li><li><a href="/International-University-Student.aspx">International Student</a></li><li><a href="/Military-College-Student.aspx">Military Student</a></li><li><a href="/University-Transfer-Student.aspx">Transfer Student</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/18.asp">Admission</a>
+            <div class="navDD1col">
+    <ul><li><a href="/9543.asp">Apply Now</a></li><li><a href="/13382.asp">Application Process</a></li><li><a href="/8061.asp">Request Information</a></li><li><a href="/277.asp">Costs &amp; Affordability</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/279.asp">Financial Aid</a>
+            <div class="navDD1col">
+    <ul><li><a href="/13386.asp">Financial Aid Options</a></li><li><a href="/1511.asp">Financial Aid for International Students</a></li><li><a href="/1453.asp">Available Scholarships </a></li><li><a href="/1450.asp">Grants</a></li><li><a href="/1212.asp">Student Loans</a></li><li><a href="/7212.asp">SNHU Advantage Program</a></li><li><a href="/CAEL.asp">CAEL Partnership Program</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/508.asp">Academics & Programs</a>
+            <div class="navDD1col">
+    <ul><li><a href="/University-Undergraduate-Degrees.aspx">Undergraduate Programs</a></li><li><a href="/University-Graduate-Programs.aspx">Graduate Programs</a></li><li><a href="/University-Certificate-Programs.aspx">Certificate Programs</a></li><li><a href="/296.asp">Continuing Education</a></li><li><a href="/13384.asp">Course Descriptions and Schedules</a></li><li><a href="/377.asp">Academic Catalogs</a></li><li><a href="/227.asp">Faculty</a></li><li><a href="/8941.asp">Academic Calendars</a></li><li><a href="/226.asp">Schools at SNHU</a></li><li><a href="/624.asp">Graduation Information</a></li><li><a href="/13393.asp">Partnerships</a></li><li><a href="/library.asp">Shapiro Library</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/online.aspx">Online Education</a>
+            <div class="navDD1col">
+    <ul><li><a href="/Online-Undergraduate-Degree-Programs.aspx">Online Undergraduate Programs</a></li><li><a href="/Online-Graduate-Degree-Programs.aspx">Online Graduate Programs</a></li><li><a href="/Online-Certificate-Programs.aspx">Online Certificate Programs</a></li><li><a href="/242.asp">Getting Started with SNHU Online</a></li><li><a href="/248.asp">Online Services</a></li><li><a href="/822.asp">Adjunct Faculty Positions for Online Education</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/225.asp">Student Success</a>
+            <div class="navDD1col">
+    <ul><li><a href="/485.asp">Success Stories</a></li><li><a href="/614.asp">Learning Center</a></li><li><a href="/620.asp">Academic Advising Office (Undergraduate Day)</a></li><li><a href="/597.asp">Career Development Center</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/17.asp">Campus Life</a>
+            <div class="navDD1col">
+    <ul><li><a href="/301.asp">Dining Services</a></li><li><a href="/595.asp">Campus Ministry</a></li><li><a href="/603.asp">Disability Services</a></li><li><a href="/11580.asp">Cultural Outreach &amp; Involvement</a></li><li><a href="/605.asp">Public Safety</a></li><li><a href="/1594.asp">Student Organizations &amp; Leadership</a></li><li><a href="/609.asp">Wellness Center</a></li><li><a href="/223.asp">On Campus Housing</a></li><li><a href="/7348.asp">Commuting to SNHU</a></li><li><a href="/220.asp">International Student Services</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/78.asp">Athletics & Recreation</a>
+            <div class="navDD1col">
+    <ul><li><a href="/78.asp">Athletics &amp; Recreation</a></li><li><a href="/75.asp">Athletic Facilities</a></li><li><a href="/1262.asp">Penmen Club</a></li><li><a href="/66.asp">What's a Penmen?</a></li><li><a href="/436.asp">Join the Penmen- Become an SNHU Athlete</a></li></ul>
+</div> 
+    </li><li class="navButton"><a href="/about.asp">About SNHU</a>
+            <div class="navDD1col">
+    <ul><li><a href="/200.asp">Why SNHU?</a></li><li><a href="/9894.asp">Awards &amp; Distinctions</a></li><li><a href="/13391.asp">Main Campus</a></li><li><a href="/195.asp">Visit SNHU</a></li><li><a href="/97.asp">News &amp; Events</a></li><li><a href="/13347.asp">SNHU Blogs</a></li><li><a href="/13392.asp">Locations</a></li><li><a href="/341.asp">Accreditation</a></li><li><a href="/alumni.asp">Alumni &amp; Giving</a></li><li><a href="/12.asp">Contact Us</a></li></ul>
+</div> 
+    </li>
+</ul>
+</div>
+<!-- END PRIMARY NAV -->
+</header>    
+<div id="mainWell">
+            <!-- Row 1: Contains main audience component and program finder -->
+            <div class="layoutCol_3 homeMarginRight">
+                
+<div id="way-tabs" class="tabs-bottom ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        <li class="ui-state-default ui-corner-top"><a href="#way-tabs-1" class="way-nav-1" rel="/Continuing-Education.aspx">Adult Learner</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#way-tabs-2" class="way-nav-2" rel="/Campus-College-Student.aspx">High School Student</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#way-tabs-3" class="way-nav-3" rel="/University-Transfer-Student.aspx">Transfer Student</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#way-tabs-4" class="way-nav-4" rel="/Military-College-Student.aspx">Military Student</a></li>
+        <li class="ui-state-default ui-corner-top"><a href="#way-tabs-5" class="way-nav-5" rel="/International-University-Student.aspx">International Student</a></li>
+    </ul>
+    <div id="way-tabs-1" class="way-panel way-tabs-1 ui-tabs-panel ui-widget-content ui-corner-bottom">
+        <div class="bgImage" style="background: transparent url('/images/Home/FastCo-Background.png') no-repeat top left;"></div>
+        <div class="gradImage"></div>
+        <div class="fgImage" style="background: transparent  url('') no-repeat bottom right;"></div>
+        <div class="frameHeader" style="background: transparent url('/images/Home/standout.png') no-repeat left top;"></div>
+        <div class="frameCopy">
+            <p></p>
+        </div>
+    </div>
+    <div id="way-tabs-2" class="way-panel way-tabs-2 ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+        <div class="bgImage" style="background: transparent url('/images/Home/Freshmen_Background.jpg') no-repeat top left;"></div>
+        <div class="gradImage"></div>
+        <div class="fgImage" style="background: transparent  url('/images/Home/Freshmen_Foreground.png') no-repeat bottom right;"></div>
+        <div class="frameHeader" style="background: transparent url('/images/Home/Where_do_you_see_yourself_this_fall_text.png') no-repeat left top;"></div>
+        <div class="frameCopy">
+            <p>At SNHU, the focus is on students.&nbsp;Whether you're just starting to research or are ready to apply, we have the resources to help you make the right decisions and succeed. Take the next step&nbsp;and become a part of the SNHU Community.</p>
+        </div>
+    </div>
+    <div id="way-tabs-3" class="way-panel way-tabs-3 ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+        <div class="bgImage" style="background: transparent url('/images/Home/Transfer_Background.jpg') no-repeat top left;"></div>
+        <div class="gradImage"></div>
+        <div class="fgImage" style="background: transparent  url('/images/Home/Transfer_Foreground.png') no-repeat bottom right;"></div>
+        <div class="frameHeader" style="background: transparent url('/images/Home/Where_do_you_see_yourself_this_fall_text.png') no-repeat left top;"></div>
+        <div class="frameCopy">
+            <p>Online, on campus or on location, the focus at SNHU is on you. By making it easy to transfer credits into our programs (up to 90 credits for undergraduate students), SNHU includes you in our community and gives you the support and resources for your success.</p>
+        </div>
+    </div>
+    <div id="way-tabs-4" class="way-panel way-tabs-4 ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+        <div class="bgImage" style="background: transparent url('/images/Home/Military_Background.jpg') no-repeat top left;"></div>
+        <div class="gradImage"></div>
+        <div class="fgImage" style="background: transparent  url('/images/Home/Military_Foreground.png') no-repeat bottom right;"></div>
+        <div class="frameHeader" style="background: transparent url('/images/Home/where_do_you_see_yourself_in_the_future_text.png') no-repeat left top;"></div>
+        <div class="frameCopy">
+            <p>You have the drive to succeed and SNHU has the programs and support for you to do it here. Online&nbsp;degrees&nbsp;give you&nbsp;the convenience and flexibility to take classes anywhere you're stationed. SNHU is a top military-friendly school, and has served the military for over sixty years.</p>
+        </div>
+    </div>
+    <div id="way-tabs-5" class="way-panel way-tabs-5 ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide">
+        <div class="bgImage" style="background: transparent url('/images/Home/International_Background.jpg') no-repeat top left;"></div>
+        <div class="gradImage"></div>
+        <div class="fgImage" style="background: transparent  url('/images/Home/INTL_foreground.png') no-repeat bottom right;"></div>
+        <div class="frameHeader" style="background: transparent url('/images/Home/Where_do_you_see_yourself_this_fall_text.png') no-repeat left top;"></div>
+        <div class="frameCopy">
+            <p>No matter where you're from, SNHU can help you go places. Our on campus student body includes more than 600 students from 60 countries and many of our faculty members have worked or studied overseas. Come experience SNHU and everything we have to offer.</p>
+        </div>
+    </div>
+    <div id="way-tabs-prev"></div>
+    <div id="way-tabs-next"></div>
+</div><!-- End way-tabs -->            
+            </div>
+            <!-- This is the container for the Program Finder Code. Note, the values in the page component need to match valued used in the register tag above-->
+            <div class="layoutCol_1">
+    <form method="post" action="" onsubmit="javascript:return WebForm_OnSubmit();" id="programFinderForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNzg0ODA5NTEwD2QWAgIBD2QWAgIBD2QWCAIBDw8WAh4EVGV4dAWNAVdpdGggbW9yZSB0aGFuIDE4MCBhY2NyZWRpdGVkICB1bmRlcmdyYWR1YXRlIGFuZCBncmFkdWF0ZSBkZWdyZWUgYW5kIGNlcnRpZmljYXRlIHByb2dyYW1zLCBpdCdzIGVhc3kgdG8gZmluZCBhIHByb2dyYW0gdGhhdCBpcyByaWdodCBmb3IgeW91LmRkAgMPDxYCHgxFcnJvck1lc3NhZ2UFHVBsZWFzZSBzZWxlY3QgYSBQcm9ncmFtIEdyb3VwZGQCBw8QZA8WGQIBAgICAwIEAgUCBgIHAggCCQIKAgsCDAINAg4CDwIQAhECEgITAhQCFQIWAhcCGAIZFhkQBQpBY2NvdW50aW5nBQpBY2NvdW50aW5nZxAFE0J1c2luZXNzL0xlYWRlcnNoaXAFE0J1c2luZXNzL0xlYWRlcnNoaXBnEAUOQ29tbXVuaWNhdGlvbnMFDkNvbW11bmljYXRpb25zZxAFHkNvbW11bml0eSBFY29ub21pYyBEZXZlbG9wbWVudAUeQ29tbXVuaXR5IEVjb25vbWljIERldmVsb3BtZW50ZxAFCEN1bGluYXJ5BQhDdWxpbmFyeWcQBQZEZXNpZ24FBkRlc2lnbmcQBQlFZHVjYXRpb24FCUVkdWNhdGlvbmcQBRhFbmdsaXNoL0NyZWF0aXZlIFdyaXRpbmcFGEVuZ2xpc2gvQ3JlYXRpdmUgV3JpdGluZ2cQBR5FbnRyZXByZW5ldXJzaGlwL1NtYWxsIEJ1cyBNZ3QFHkVudHJlcHJlbmV1cnNoaXAvU21hbGwgQnVzIE1ndGcQBRFGaW5hbmNlL0Vjb25vbWljcwURRmluYW5jZS9FY29ub21pY3NnEAULSGVhbHRoIENhcmUFC0hlYWx0aCBDYXJlZxAFB0hpc3RvcnkFB0hpc3RvcnlnEAUPSHVtYW4gUmVzb3VyY2VzBQ9IdW1hbiBSZXNvdXJjZXNnEAUWSW5mb3JtYXRpb24gVGVjaG5vbG9neQUWSW5mb3JtYXRpb24gVGVjaG5vbG9neWcQBRZJbnRlcm5hdGlvbmFsIEJ1c2luZXNzBRZJbnRlcm5hdGlvbmFsIEJ1c2luZXNzZxAFD0p1c3RpY2UgU3R1ZGllcwUPSnVzdGljZSBTdHVkaWVzZxAFHExpYmVyYWwgQXJ0cy9HZW5lcmFsIFN0dWRpZXMFHExpYmVyYWwgQXJ0cy9HZW5lcmFsIFN0dWRpZXNnEAUWTWFya2V0aW5nL1NvY2lhbCBNZWRpYQUWTWFya2V0aW5nL1NvY2lhbCBNZWRpYWcQBQNNQkEFA01CQWcQBSJPcGVyYXRpb25zL1N1cHBseSBDaGFpbiBNYW5hZ2VtZW50BSJPcGVyYXRpb25zL1N1cHBseSBDaGFpbiBNYW5hZ2VtZW50ZxAFHFByb2plY3QgTWFuYWdlbWVudC9TaXggU2lnbWEFHFByb2plY3QgTWFuYWdlbWVudC9TaXggU2lnbWFnEAUKUHN5Y2hvbG9neQUKUHN5Y2hvbG9neWcQBSNTb2NpYWwgUmVzcG9uc2liaWxpdHkvRW52aXJvbm1lbnRhbAUjU29jaWFsIFJlc3BvbnNpYmlsaXR5L0Vudmlyb25tZW50YWxnEAUJU29jaW9sb2d5BQlTb2Npb2xvZ3lnEAUQU3BvcnQgTWFuYWdlbWVudAUQU3BvcnQgTWFuYWdlbWVudGdkZAILDw8WAh4ISW1hZ2VVcmwFJS9pbWFnZXMvZGlzcGxheS9idG5fZmluZF9wcm9ncmFtcy5wbmdkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAgUdcHJvZ3JhbUZpbmRlclNlYXJjaCRjaGtPbmxpbmUFHXByb2dyYW1GaW5kZXJTZWFyY2gkYnRuU3VibWl0LsEPig0dUXKl0FwSDz6nBJAXnUxbuJubAQKnEnDDBLk=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['programFinderForm'];
+if (!theForm) {
+    theForm = document.programFinderForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=eE8_HYDgBmeMWv1v1FWJZRkjScj-iWcwSi_cWtR13mtqgDl_n672SuCTJH0svQFbYD3FnnlJcVQ5SUoy4ARAT6A8BCokAAw8c51c4Nkvp8g1&amp;t=634685925400298142" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=0BBVGxBTtz1c9NJacfyaC-jPYpUmT7uOKCCWZVy8h7rkEXebs50MGNL2do2QOfZ2rNv6wwi50qT78FJ2sE91ggSgvJs1AAg-ImhiKUEAbk81&amp;t=634685925400298142" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWIQLvra6zCgLPg9KQBAKH9Y2ODQKE5prQDALliqWlCQLH5qmuCAL5uOOnCwKJwauyBAKhvfaPBQLj9ILHAgK0u8DfAgLF8NT6BgLK4I7/CAKV/OWYCQKMtoSMDgK+oY6wBAK8pZO5BAKOt4yrDALc4I++CQLA7umbCQLLq6v9BQKAkKP+CQKaur7KCwKLmpWhCQLv0bgBAsbCz6gPAuvW45sHAsu22/sCAryB/fgCApOg98kDArzE56MOArndyogHAu+bqeoLv7rnSq/5W1cVF332GcfiDzmaxACg0EkzJC0tODFW/8U=" />
+</div>
+    
+<div class="col3">
+    <div id="programFinder">
+        <div id="programTitle">Find Your Program.</div>
+        <p><span id="programFinderSearch_lblIntro">With more than 180 accredited  undergraduate and graduate degree and certificate programs, it's easy to find a program that is right for you.</span></p>
+        <span id="programFinderSearch_vldGroupAndSubject" class="ErrorMessage" style="display:none;">Please select a Program Group</span>
+        <select name="programFinderSearch$ddlGroup" id="programFinderSearch_ddlGroup" class="filter_option">
+	<option value="">Select a Program Group</option>
+	<option value="Undergraduate">Undergraduate Programs</option>
+	<option value="Graduate">Graduate Programs</option>
+	<option value="Certificate">Certificate Programs</option>
+
+</select>
+        <select name="programFinderSearch$ddlSubject" id="programFinderSearch_ddlSubject" class="filter_option">
+	<option value="">All Subjects/Fields</option>
+	<option value="Accounting">Accounting</option>
+	<option value="Business/Leadership">Business/Leadership</option>
+	<option value="Communications">Communications</option>
+	<option value="Community Economic Development">Community Economic Development</option>
+	<option value="Culinary">Culinary</option>
+	<option value="Design">Design</option>
+	<option value="Education">Education</option>
+	<option value="English/Creative Writing">English/Creative Writing</option>
+	<option value="Entrepreneurship/Small Bus Mgt">Entrepreneurship/Small Bus Mgt</option>
+	<option value="Finance/Economics">Finance/Economics</option>
+	<option value="Health Care">Health Care</option>
+	<option value="History">History</option>
+	<option value="Human Resources">Human Resources</option>
+	<option value="Information Technology">Information Technology</option>
+	<option value="International Business">International Business</option>
+	<option value="Justice Studies">Justice Studies</option>
+	<option value="Liberal Arts/General Studies">Liberal Arts/General Studies</option>
+	<option value="Marketing/Social Media">Marketing/Social Media</option>
+	<option value="MBA">MBA</option>
+	<option value="Operations/Supply Chain Management">Operations/Supply Chain Management</option>
+	<option value="Project Management/Six Sigma">Project Management/Six Sigma</option>
+	<option value="Psychology">Psychology</option>
+	<option value="Social Responsibility/Environmental">Social Responsibility/Environmental</option>
+	<option value="Sociology">Sociology</option>
+	<option value="Sport Management">Sport Management</option>
+
+</select>
+        <p><input id="programFinderSearch_chkOnline" type="checkbox" name="programFinderSearch$chkOnline" /><label for="programFinderSearch_chkOnline">Show online programs only</label></p>
+        
+        <input type="image" name="programFinderSearch$btnSubmit" id="programFinderSearch_btnSubmit" src="/images/display/btn_find_programs.png" alt="Find Programs Now" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;programFinderSearch$btnSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" />
+    </div>
+</div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("programFinderSearch_vldGroupAndSubject"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var programFinderSearch_vldGroupAndSubject = document.all ? document.all["programFinderSearch_vldGroupAndSubject"] : document.getElementById("programFinderSearch_vldGroupAndSubject");
+programFinderSearch_vldGroupAndSubject.errormessage = "Please select a Program Group";
+programFinderSearch_vldGroupAndSubject.display = "Dynamic";
+programFinderSearch_vldGroupAndSubject.evaluationfunction = "CustomValidatorEvaluateIsValid";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+</div>
+            
+            <!-- Row 2: Contains availability component and felxible callout -->
+            <div class="layoutCol_3 homeMarginRight">
+                <div class="intruderContainer availability boxShadow trimPadding">
+                    <div class="availabilityContent">
+                        <div class="availabilitySection">
+                            <div class="title online">Online</div>
+                                <p>Go to class in the middle of the night - or 4,000 miles away.</p>
+                                <div class="ctaButton"><a href="/online.aspx">Get Started</a></div>
+                            </div>
+                            <div class="availabilitySection">
+                                <div class="title campus">On Campus</div>
+                                <p>Enjoy a robust campus life and state of the art facilities.</p>
+                                <div class="ctaButton"><a href="/257.asp">Get Started</a></div>
+                            </div>
+                            <div class="availabilitySection">
+                                <div class="title both">or Both</div>
+                                <p>Enroll on campus and online for convenience and flexibility.</p>
+                                <div class="ctaButton"><a href="/online.aspx">Get Started</a></div>
+                            </div>
+                            <div class="availabilitySection last">
+                                <div class="title locations">Plus Regional Locations</div>
+                                <p>SNHU offers over 40 programs throughout NH and Maine.</p>
+                                <div class="ctaButton"><a href="/13392.asp">Get Started</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layoutCol_1">
+
+<!-- slidenew -->
+
+
+<div class="bannerContainerSlide " style="width: 228px; height: 120px;"><div class="slideshowSmall">
+
+<div><a href="http://www.snhustories.com" target="http://www.snhustories.com"><img src="/images/intruders/SNHUStories.jpg" alt="It's On" /></a></div>
+
+<div><a href="/online.aspx" target="/online.aspx"><img src="/images/intruders/Its_On_Homepage_Callout2.png" alt="It's On" /></a></div></div></div>
+</div>
+                
+                <!-- Row 3: Contains three columns of content -->
+                <div class="layoutCol_1 homeMarginRight">
+
+<!-- slidenew -->
+
+
+<div class="bannerContainerSlide " style="width: 230px; height: 170px;"><div class="slideshowSmall">
+
+<div><a href="/9894.asp" target="/9894.asp"><img src="/images/intruders/Awards_Intruder_USNWR.png" alt="Awards" /></a></div>
+
+<div><a href="/10093.asp" target="/10093.asp"><img src="/images/intruders/Awards_Intruder_BestBuy.png" alt="Best Buy Awards" /></a></div></div></div>
+
+<script type="text/javascript">
+        this.randomCallout = function(){ 
+            var listLength = $('#randCallouts .intruderContainer').length;
+            var listLength2 = $('#randCallouts .bannerContainerSlide').length;
+            listLength = listLength + listLength2;
+            var rand = Math.floor(Math.random()*listLength) + 1;
+            $("#randCallouts .intruderContainer:nth-child(" + rand + ")").show();
+            $("#randCallouts .bannerContainerSlide:nth-child(" + rand + ")").show();         
+        };
+        $(document).ready(function(){
+            $("#randCallouts .intruderContainer").hide();
+            $("#randCallouts .bannerContainerSlide").hide();
+            randomCallout();
+        });
+    </script>
+
+
+<div id="randCallouts">
+
+<div class="intruderContainer trimPadding ">
+ <div class="intruderContent">
+    <a href="http://www.snhu.edu/Master-Business-Administration-MBA.asp"><img src="/images/intruders/MBA_Callout.jpg" alt="MBA Degree" class="intruder"/></a>
+ </div>
+</div>
+</div><!--RDExecute=asp-->
+
+
+<!-- Success Stories -->
+<div class="intruderContainer hexCE8E00 linkMatch boxShadow">
+    <!-- Add class to intruder content to change header color. Values located in style sheet-->
+    
+     <script type="text/javascript">
+        this.randomProfile = function(){
+            var listLength = $('.successItem').length;
+            var ran = Math.floor(Math.random()*listLength) + 3;
+            var ran2 = Math.floor(Math.random()*listLength) + 3;
+            while (ran2 == ran) {
+                ran2 = Math.floor(Math.random()*listLength) + 3;
+            }
+            if (ran2 > ran) {
+                $(".successItem:nth-child(" + ran + ")").show();
+                $(".successItem:nth-child(" + ran2 + ")").show().addClass("last");
+            }
+            else {
+                $(".successItem:nth-child(" + ran + ")").show().addClass("last");
+                $(".successItem:nth-child(" + ran2 + ")").show();
+            }
+        };
+        $(document).ready(function(){
+            $(".successItem").hide();
+            randomProfile();
+        });
+    </script>
+    <div class="intruderContent" >
+        <!-- The header in the callouts should be optional. If it is not used, then the html for intruderHeader and intruderHeaderBase should not be displayed -->
+        
+        <div class="intruderHeader" >Success Stories</div>
+        <div class="intruderHeaderBase">&nbsp;</div>
+        
+        
+        <div class="successItem">
+            <div class="successImage"><img src="/images/profiles/thumbnails/Shultz_DMeza.jpg" alt="Success Story Headshot" width="50" height="50" /></div>
+            <div class="successContent">
+                <div class="successTitle"><a href="/15185.asp">Shultz D'Meza</a></div>
+                <div class="successTeaser"><p><P>Shultz D'Meza lost his job, his house and his school in the 2010 Haiti earthquake. Now he's starting over at SNHU. </P></p></div>
+                <div class="successType">Student; On Campus</div>
+            </div>
+        </div>
+        <div class="successItem">
+            <div class="successImage"><img src="/images/profiles/thumbnails/Quint_Tiffany.jpg" alt="Success Story Headshot" width="50" height="50" /></div>
+            <div class="successContent">
+                <div class="successTitle"><a href="/9257.asp">Tiffany Quint</a></div>
+                <div class="successTeaser"><p>Army Staff Sgt. Tiffany Quint is working on her social science degree from Iraq.</p></div>
+                <div class="successType">Student; Online</div>
+            </div>
+        </div>
+        
+        <div class="moreLinkBar">
+            <p><a href="/485.asp">More Success Stories</a></p>
+        </div>
+    </div><!-- End Intruder Content-->
+</div><!-- End Intruder Container--></div>
+                <div class="layoutCol_2 homeMarginRight"><!-- Tabs -->
+
+
+<div id="tabsOne" class="intruderContainer homeTabs boxShadow ui-tabs">
+    <ul class="ui-tabs-nav ui-helper-clearfix">
+        <li class="firstTab ui-tabs-selected ui-state-active"><a href="#tabsOne-1">Featured Programs</a></li>
+        <li class="ui-state-default"><a href="#tabsOne-2" class="noScript">Why SNHU?</a></li>
+    </ul>
+    <div id="tabsOne-1" class="ui-tabs-panel">
+        
+        <div class="itemContainer">
+            <div class="itemImage" style="background-image: url(/images/thumbnails/UG_Computer_Info_Tech_BS_Teaser.JPG);"></div>
+            <div class="itemContent">
+                <div class="itemTitle"><a href="/Computer-Information-Technology-Bachelors-Online.asp">Computer Information Technology Bachelors Online</a></div>
+                <div class="itemTeaser"><p>Computer Information Technology degree online program focuses on developing students to be both a business professional and a technologist.</p></div>
+            </div>
+        </div>
+        
+        <div class="itemContainer">
+            <div class="itemImage" style="background-image: url(/images/thumbnails/3yr_CreativeWriting_Teaser.jpg);"></div>
+            <div class="itemContent">
+                <div class="itemTitle"><a href="/Creative-Writing-Fiction-BA-online.asp">Creative Writing Fiction (BA) Online</a></div>
+                <div class="itemTeaser"><p>Gain insights into publishing, broadcasting and professional production, all while developing your understanding of plot building, narrative voice and character.</p></div>
+            </div>
+        </div>
+        
+        <div class="itemContainer">
+            <div class="itemImage" style="background-image: url(/images/thumbnails/UG_Creative_Writing_BA_Teaser.JPG);"></div>
+            <div class="itemContent">
+                <div class="itemTitle"><a href="/English-and-Creative-Writing-MA.asp">English and Creative Writing (MA)</a></div>
+                <div class="itemTeaser"><p>Earn a top-tier Master&rsquo;s in English &amp; Creative Writing online at Southern New Hampshire University. Traditional, nonprofit and fully accredited</p></div>
+            </div>
+        </div>
+        
+        <div class="itemContainer">
+            <div class="itemImage" style="background-image: url(/images/thumbnails/HealthcareAdministrationMSM.jpg);"></div>
+            <div class="itemContent">
+                <div class="itemTitle"><a href="/healthcare-administration-msm.asp">Healthcare Administration (MSM)</a></div>
+                <div class="itemTeaser"><p>Earn a Master of Science Management online degree in Healthcare Administration and gain healthcare specialty knowledge and critical management skills.</p></div>
+            </div>
+        </div>
+        
+        
+                
+        <div class="moreLinkBar clearfix">
+            <p>Over 100 <A href="/University-Undergraduate-Degrees.aspx">Undergraduate</A> and <A href="/University-Graduate-Programs.aspx">Graduate</A> Programs</p>
+        </div>
+    </div>
+    <div id="tabsOne-2" class="ui-tabs-panel ui-tabs-hide">
+        
+        <P><B>Speed</B></P>
+<P>Earn an MBA in as little as 18 months! Plus, put your prior education and experience to work toward your SNHU education.</P>
+<UL>
+<LI><A href="10220.asp">Transferring Your Credits</A></LI></UL>
+<P class=strong><B>Affordability</B></P>
+<P>Pursuing a degree is a smart investment in your future and at SNHU, it's an affordable one, too. We keep our costs reasonable, and we offer a variety of low cost options and financial aid packages. </P>
+<UL>
+<LI><A href="286.asp">Costs for Continuing Education (including Online)</A> </LI>
+<LI><A href="279.asp">Paying for College: Financial Aid, Scholarships, Tuition Assistance</A></LI></UL>
+<P class=strong><B>Flexibility</B></P>
+<P>Go to class on evenings or weekends at our convenient locations in New Hampshire and/or Maine. You might do some of the course work online. And you'll choose from more than 40 undergraduate and graduate programs in business, education, and liberal arts. </P>
+<UL>
+<LI><A href="13392.asp">On Campus or Online: Your Choice</A></LI></UL>
+        
+    </div>
+</div><!-- Tabs -->
+
+
+<div id="tabsTwo" class="intruderContainer homeTabs boxShadow ui-tabs">
+    <ul class="ui-tabs-nav ui-helper-clearfix">
+        <li class="firstTab ui-tabs-selected ui-state-active"><a href="#tabsTwo-1">SNHU Campus</a></li>
+        <li class="ui-state-default"><a href="#tabsTwo-2" class="noScript">Off Campus</a></li>
+    </ul>
+    <div id="tabsTwo-1" class="ui-tabs-panel">
+        
+        <P><IMG class=floatLeft alt="" src="/images/HomePage_OnCampus.jpg" width=283 height=210></P>
+<P><B>Our Manchester campus</B></P>
+<P>At SNHU, we have many outstanding on-campus dining options, and the Penmen compete on 16 varsity sports teams.</P>
+<UL class=relatedLinksList>
+<LI><A href="/17.asp">Campus Life at SNHU</A> </LI>
+<LI><A href="/194.asp">SNHU Facilities</A> </LI>
+<LI><A href="/2978.asp">Virtual Tour</A> </LI>
+<LI><A href="/212.asp">Campus Map</A></LI></UL>
+        
+    </div>
+    <div id="tabsTwo-2" class="ui-tabs-panel ui-tabs-hide">
+        
+        <P><IMG class=floatLeft alt="" src="/images/HomePage_OffCampus.jpg" width=283 height=210></P>
+<P><B>Location is Everything</B></P>
+<P>SNHU is just minutes from downtown Manchester, and an hour from the Seacoast, Lakes Region, Boston, and Ski Resorts!</P>
+<UL class=relatedLinksList>
+<LI><A href="/207.asp">Manchester, NH </A></LI>
+<LI><A href="/206.asp">Lakes Region</A> </LI>
+<LI><A href="/206.asp">White Mountains </A></LI>
+<LI><A href="/206.asp">Boston</A></LI></UL>
+        
+    </div>
+</div></div>
+                <div class="layoutCol_1"><!-- News/Events Accordion -->
+
+
+<div id="newsEventsWrapper" class="intruderContainer newsEvents hexC75B12 boxShadow trimPadding linkMatch noScript">
+<div id="accordion"> 
+
+    
+    <div class="intruderHeader">News<span class="rssIcon"><a href="/rss_news.xml">RSS</a></span></div>
+    <div> 
+        <div class="intruderHeaderBase">&nbsp;</div>
+        <div class="panel">
+            
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix">
+                <div class="newsEventsTitle"><a href="/15251.asp">SNHU to Host First-Ever Social Media Boot Camp</a></div>
+                <div class="newsEventsDate">Thursday, April 19, 2012</div>
+            </div>
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix">
+                <div class="newsEventsTitle"><a href="/15246.asp">Prominent Writer Jacob Weisberg to Serve as SNHU's 2012 Commencement Speaker</a></div>
+                <div class="newsEventsDate">Friday, April 13, 2012</div>
+            </div>
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix last">
+                <div class="newsEventsTitle"><a href="/15237.asp">SNHU, Community Colleges Partner for Nursing Programs</a></div>
+                <div class="newsEventsDate">Tuesday, April 10, 2012</div>
+            </div>
+            
+            
+            
+            <div class="moreLinkBar">
+                <p><a href="/97.asp">See More News Stories...</a></p>
+            </div>
+        </div>
+    </div>     
+    
+    <div class="intruderHeader">Writers Network</div>
+    <div> 
+        <div class="intruderHeaderBase">&nbsp;</div>
+        <div class="panel">
+            
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix">
+                <div class="newsEventsTitle"><a href="/14843.asp">Adventures in Teaching</a></div>
+                <div class="newsEventsDate">Tuesday, November 01, 2011</div>
+            </div>
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix">
+                <div class="newsEventsTitle"><a href="/14840.asp">Civic Engagement in the Classroom</a></div>
+                <div class="newsEventsDate">Wednesday, October 26, 2011</div>
+            </div>
+            
+            
+            <!-- News Item -->
+            <div class="newsEventsContainer clearfix last">
+                <div class="newsEventsTitle"><a href="/14839.asp">Online Teaching Strategies</a></div>
+                <div class="newsEventsDate">Tuesday, October 25, 2011</div>
+            </div>
+            
+            
+            
+            <div class="moreLinkBar">
+                <p><a href="/235.asp">See More Articles...</a></p>
+            </div>
+        </div>
+    </div> 
+    
+ 
+</div>
+</div>
+  
+
+<div class="intruderContainer hex004953  boxShadow linkMatch">
+ <div class="intruderContent">
+   
+        <div class="intruderHeader">The Extra Mile</div>
+        <div class="intruderHeaderBase">&nbsp;</div>
+    
+    <div class="breakoutImageContainer">
+    
+            <a href="/14112.asp"></a><!-- /14112.asp-->
+    </div>
+    <P class=floatLeft><IMG src="/images/Fall11_ExtraMileHPGraphic.jpg"></P>
+<P><A href="/14912.asp">The Greening<BR>of SNHU</A></P>
+<P><A href="/14912.asp">A Decade of Development</A></P>
+<P><A href="/14912.asp">Field Expeditions</A></P>
+<P><A href="/14912.asp">Tennis Anyone?</A></P>
+ </div>
+</div>
+
+<div class="intruderContainer boxShadow trimPadding">
+    <div class="alumniContent">
+        <div class="title">SNHU Alumni</div>
+        <p>Visit the SNHU&nbsp;<A href="/alumni.asp" target=_blank>Alumni Site</A> for information about donations, reunions, and more.</p>
+    </div>
+</div></div>
+                <div class="clearBoth">&nbsp;</div>
+        </div><!-- End Mainwell-->
+       <footer>
+            <span class="footerText">Copyright &copy; 2011 Southern New Hampshire University | 2500 North River Road, Manchester, NH, 03106 | 800.668.1249
+                <!-- <a href="/10403.htm">mySNHU</a> -->
+                 | <a href="/alumni.asp">Alumni &amp; Giving</a>
+                 | <a href="/602.asp">Employment</a>
+                 | <a href="/12.asp">Feedback</a>
+            </span>
+            <div id="footerBand"></div>
+</footer>
+<SCRIPT type=text/javascript src="/scripts/eastereggHome.js"></SCRIPT>
+<!-- Plattform Retargeting Tracking Pixel --><IFRAME height=1 marginHeight=0 src="http://pixel.fetchback.com/serve/fb/pdj?cat=&amp;name=landing&amp;sid=4261" frameBorder=0 width=1 marginWidth=0 scrolling=no></IFRAME>
+<!-- CrazEgg -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/0466.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+</div> <!-- End Container -->
+    <div id="bodyBG">&nbsp;</div>
+<!-- This is the fixed position tool-bar at the bottom of the screen -->
+    <!-- BEGIN FIXBAR-->
+    <div id="fixbarContainer"> 
+<div id="fixbar">
+        <div id="fixbarGooglePlus" class="fixbarSocialMedia">
+            <a href="#" id="googlePlusFrame">
+                <div class="g-plusone" data-size="standard" data-annotation="none"></div>
+            </a>
+        </div>
+        <div id="fixbarFacebook" class="fixbarSocialMedia">
+            <a href="http://bit.ly/3nXGPL" target="_blank"></a>
+        </div>
+        <div id="fixbarTwitter" class="fixbarSocialMedia">
+            <a href="http://bit.ly/1xrSJ" target="_blank"></a>
+        </div>
+        <div id="fixbarLinkedIn" class="fixbarSocialMedia">
+            <a href="http://linkd.in/SNHUCommunity" target="_blank"></a>
+        </div>
+        <div id="fixbarFlickr" class="fixbarSocialMedia">
+            <a href="http://bit.ly/cf5zu0" target="_blank"></a>
+        </div>
+        <div id="fixbarYoutube" class="fixbarSocialMedia">
+            <a href="http://bit.ly/SNHUyouTube" target="_blank"></a>
+        </div>
+        <div class="fixbarDivider">&nbsp;</div>
+        <div id="fixbarApply">
+            <a href="/9543.asp" onclick="_gaq.push(['_trackEvent', 'Apply', 'Fixbar', 'Apply Now Fixbar']);"rel="content"  class="modalPopup" ><span>Apply Now</span></a> 
+        </div>
+        <div class="fixbarDivider">&nbsp;</div>
+        <div id="fixbarRequestInfo">
+            <a href="/8061.asp" onclick="_gaq.push(['_trackEvent', 'Inquiry', 'Header', 'Request Info Header']);"  ><span>Request Information</span></a>
+        </div>
+        <div class="fixbarDivider">&nbsp;</div>
+        <div id="fixbarVisit">
+            <a href="/195.asp"   ><span>Visit SNHU</span></a> 
+        </div>
+        <div id="fixbarPhone">
+            <a href="tel:+1.800.668.1249">1.800.668.1249</a>
+        </div>
+    </div>
+</div>
+<!-- END FIXBAR -->
+<!--/5537.asp--><!--/9657.asp--><!--/14949.asp--><!--/14911.asp--><!--/2727.asp--><!--/9459.asp--><!--/10632.asp--><!--/2643.asp--><!--/15022.asp--><!--/Sport-Management-Degrees-Online.aspx--><!--/5670.asp--><!--/online1.aspx--><!--/3055.asp--><!--/1372.asp--><!--/13389.asp--><!--/moved.asp--><!--/missing.asp--><!--/15268.asp--><!--/7179.asp--><!--/Global-MBA-online.asp--><!--/Marketing-Degrees-Online.aspx--><!--/Leadership-Degrees-Online.aspx--><!--/Justice-Degrees-Online.aspx--><!--/IT-Degrees-Online.aspx--><!--/2404.asp--><!--/International-Business-Degrees-Online.aspx--><!--/Accounting2.aspx--><!--/Human-Resource-Degrees-Online.aspx--><!--/15206.asp--><!--/google1a34bd89799681cb.html --><!--/Finance-Degrees-Online.aspx--><!--/2203.asp--><!--/15222.asp--><!--/Business-Degrees-Online.aspx--><!--/Accounting-Degrees-online.aspx-->
+<!--EndNoIndex-->
+<!-- Start Quantcast Tag -->
+<script type="text/javascript"> 
+_qoptions={qacct:"p-a7Rw9iwH3rmOA",labels:"_fp.event.Homepage"};
+</script>
+<script type="text/javascript" src="//secure.quantserve.com/quant.js"></script>
+<noscript>
+<img src="//secure.quantserve.com/pixel/p-a7Rw9iwH3rmOA.gif?labels=_fp.event.Homepage" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/>
+</noscript>
+<!-- End Quantcast tag -->
+<!--Start AliveChat Live Site Monitor Code-->
+<script type="text/javascript">
+function wsa_include_js(){
+ var wsa_host = (("https:" == document.location.protocol) ? "https://" : "http://");
+ var js = document.createElement('script');
+ js.setAttribute('language', 'javascript');
+ js.setAttribute('type', 'text/javascript');
+ js.setAttribute('src',wsa_host + 'www.websitealive5.com/6771/Visitor/vTracker_v2.asp?websiteid=0&groupid=6771');
+ document.getElementsByTagName('head').item(0).appendChild(js);
+}
+if (window.attachEvent) {window.attachEvent('onload', wsa_include_js);}
+else if (window.addEventListener) {window.addEventListener('load', wsa_include_js, false);}
+else {document.addEventListener('load', wsa_include_js, false);}
+</script>
+<!--End AliveChat Live Site Monitor Code-->
+</body>
+</html>

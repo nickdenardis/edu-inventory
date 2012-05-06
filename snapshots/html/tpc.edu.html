@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>The Philadelphia Center</title>
+	<meta name="description" content="The Philadelphia Center is a semester-long off-campus study program in which students work four days a week in an internship, take two seminars, live independently in the city, and earn a full semester of credit for their participation in the program. The Philadelphia Center was founded by the Great Lakes Colleges Association and is managed by Hope College." />
+
+	<link rel='stylesheet' type='text/css' media='all' href='http://www.tpc.edu/stylesheets/master/' />
+	<link rel='stylesheet' type='text/css' media='all' href='http://www.tpc.edu/stylesheets/galleria/' />
+	<!--[if gte IE 6]>
+	<link rel='stylesheet' type='text/css' href='http://www.tpc.edu/stylesheets/ie/' />
+	<![endif]-->
+	<!--[if IE 6]>
+	<link rel='stylesheet' type='text/css' href='http://www.tpc.edu/stylesheets/ie6/' />
+	<![endif]-->
+	
+	<link rel="alternate" type="application/rss+xml" title="The Philadelphia Center News" href="http://www.tpc.edu/news/feed/" />
+	
+	<link rel="shortcut icon" type="image/ico" href="http://www.tpc.edu/favicon.ico" />
+	
+	<script type="text/javascript" src="http://www.tpc.edu/scripts/global/"></script>
+	<script type="text/javascript" src="http://www.tpc.edu/scripts/jquery-1.2.6.min/"></script> 
+	<script type="text/javascript" src="http://www.tpc.edu/scripts/jquery.galleria/"></script>
+	<script type="text/javascript"> 
+	jQuery(function($) {$('ul.gallery').galleria();}); 
+	</script>
+	
+	<script type="text/javascript">
+	jQuery(function($) {
+
+		$('.gallery_demo_unstyled').addClass('gallery_demo'); // adds new class name to maintain degradability
+		$('.nav').css('display','none'); // hides the nav initially
+
+		$('ul.gallery_demo').galleria({
+			history   : false, // deactivates the history object for bookmarking, back-button etc.
+			clickNext : false, // helper for making the image clickable. Let's not have that in this example.
+			insert    : undefined, // the containing selector for our main image. 
+								   // If not found or undefined (like here), galleria will create a container 
+								   // before the ul with the class .galleria_container (see CSS)
+								onImage   : function(image,caption,thumb) { // let's add some image effects for demonstration purposes
+
+												// fade in the image & caption
+												if(! ($.browser.mozilla && navigator.appVersion.indexOf("Win")!=-1) ) { // FF/Win fades large images terribly slow
+													image.css('display','none').fadeIn(1000);
+												}
+												// caption.css('display','none').fadeIn(1000);
+
+												// fetch the thumbnail container
+												var _li = thumb.parents('li');
+
+												// fade out inactive thumbnail
+												_li.siblings().children('img.selected').fadeTo(500,1);
+
+												// fade in active thumbnail
+												thumb.fadeTo('fast',0.3).addClass('selected');
+
+												// add a title for the clickable image
+												image.attr('title','Next image >>');
+											},
+											onThumb : function(thumb) { // thumbnail effects goes here
+
+												// fetch the thumbnail container
+												var _li = thumb.parents('li');
+
+												// if thumbnail is active, fade all the way.
+												var _fadeTo = _li.is('.active') ? '1' : '0.3';
+
+												// fade in the thumbnail when finished loading
+										//		thumb.css({display:'none',opacity:_fadeTo}).fadeIn(1500);
+
+												// hover effects
+												thumb.hover(
+													function() {thumb.fadeTo('fast',0.3);},
+													function() {_li.not('.active').children('img').fadeTo('fast',1);} // don't fade out if the parent is active
+												)
+											}
+
+		});
+	});
+		
+		
+		
+		
+		
+
+		</script>
+
+</head>
+
+<body id="home" class="test">
+	
+<div id="branding">
+	<div id="forms-bar">
+	<form id='searchbox' method="post" action="http://www.tpc.edu/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="19" />
+<input type="hidden" name="XID" value="775ebd6642fdcc5a9aa8043730551630f9ac223c" />
+<input type="hidden" name="RP" value="search/results" />
+<input type="hidden" name="NRP" value="search&amp;#47;no_results" />
+<input type="hidden" name="RES" value="6" />
+<input type="hidden" name="status" value="" />
+<input type="hidden" name="weblog" value="about|alumni|apply|city_living|contact|courses|donate|experience|internships|news|seminars" />
+<input type="hidden" name="search_in" value="everywhere" />
+<input type="hidden" name="where" value="word" />
+<input type="hidden" name="site_id" value="1" />
+</div>
+
+
+	<label for="search" id="search-label">Search</label> <input type="text" name="keywords" value="enter search terms" id="search"> <button type="submit" value="search">Search</button>
+	</form>
+	
+	<form id='mailinglist_form' method="post" action="http://www.tpc.edu/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="XID" value="02983b5c977a4cf9daa82fa0233d5bdeffc12677" />
+<input type="hidden" name="ACT" value="3" />
+<input type="hidden" name="RET" value="http://www.tpc.edu/" />
+<input type="hidden" name="list" value="default" />
+<input type="hidden" name="site_id" value="1" />
+</div>
+
+
+	<label for="search" id="search-label">E-Mail Signup</label>
+	<input type="text" name="email" value="join our mailing list" id="subscribe">
+	<button type="submit">Submit</button>
+	</form>
+	</div>
+	
+	<h1><a href="http://www.tpc.edu/">The Philadelphia Center</a></h1>
+	
+	<p class="tagline" style="font-size: 1em;"><strong>Discover Your Direction in Life</strong></p>
+	
+	<div id="connect-links">
+	<h5>Connect with us:</h5>
+	<ul id="connect">
+		<li><a class="facebook" href="http://www.facebook.com/pages/Philadelphia-PA/The-Philadelphia-Center/35971339674?ref=ts">Facebook</a></li>
+		<li><a class="facebook" href="http://www.facebook.com/group.php?gid=165337710790&ref=ts">Alumni</a></li>
+		<li><a class="tumblr" href="http://discovertpc.tumblr.com/">Tumblr</a></li>
+		<li><a class="youtube" href="http://www.youtube.com/user/discovertpc">YouTube</a></li>
+		<li><a class="linkedin" href="http://www.linkedin.com/groups?gid=2553936&trk=myg_ugrp_ovr">LinkedIn</a></li>
+		<li><a class="wordpress" href="http://discovertpc.wordpress.com/">Blog</a></li>
+		<li><a class="email" href="http://www.tpc.edu/contact">Email</a></li>
+	</ul>
+	</div>
+	
+	<ul id="navigation">
+		<li id="t-about"><a href="/about">About Us</a></li>
+		<li id="t-internships"><a href="/internships">Internships</a></li>
+		<li id="t-programs"><a href="/programs">Programs</a></li>
+		<li id="t-city-living"><a href="/city_living">City Living</a></li>
+		<li id="t-academics"><a href="/academics">Academics</a></li>
+		<li id="t-apply"><a href="/apply">Apply</a></li>
+	</ul>
+</div>
+	
+	<div id="content" class="group">
+		
+		<div id="new-sidebar" style="float: left;">
+		<div id="new-about-statement">
+			
+			<p class="new-home-about" style="margin-top: 20px">As one of the nation’s oldest experiential education programs, The Philadelphia Center (TPC) offers a dynamic and valuable off-campus experience. Since 1967, TPC has helped more than 6,700 students from over 80 colleges and 50 countries discover their personal and professional direction in life through our <a href="http://www.tpc.edu/programs/semester_calendar" title="16 week semester program">16 week semester program</a> and <a href="http://www.tpc.edu/programs/summer_program" title="8 week summer program">8 week summer program</a>. Students earn academic credit while interning 32 hours/week, taking seminars, and living independently in a diverse and vibrant urban setting. With more than 800 placements, we offer substantial internship options for almost any major.</p>
+			
+		
+		</div>
+		
+		<ul id="home-boxes" class="group">
+	<li id="t-housing"><a href="http://www.tpc.edu/alumni">Alumni</a></li>
+	<li id="t-faqs"><a href="http://www.tpc.edu/apply/frequently_asked_questions">Frequently Asked Questions</a></li>
+	<li id="t-why"><a href="http://www.tpc.edu/why_tpc">Why TPC?</a></li>
+	<li id="t-accepted"><a href="http://www.tpc.edu/experience">The TPC<br />Experience</a></li>
+	<li id="t-supervisors"><a href="http://www.tpc.edu/internship_supervisors">Placement Supervisors</a></li>
+</ul>
+		
+		
+		<p class="sidequote">“Both courses directly related to my internship as well as to my experience in the city. They allowed me to better understand what was going on around me.”<br />
+			<strong>Sara Goldstein, Kalamazoo College</strong><br />
+			Fall 2005<br />
+			Women Organized Against Rape, Court Advocate</p>
+		
+		</div>
+		
+		<div id="main-content" style="position: relative; float: right; left: 0;">
+			<ul class="gallery_demo_unstyled">
+			
+						<li><a href='http://www.tpc.edu/images/uploads/abbylarge.jpeg' title='&#8220;Living with seven people from all different backgrounds and beliefs taught me a lot about myself — and I came away with lifelong friends I never would have expected to make.&#8221;  Abigail Hawkins, Oberlin College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/abbysmall.jpeg' alt='Abigail Hawkins, Oberlin'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/cameralarge.jpg' title='&#8220;TPC was where I became alive and learned to thrive; life has never been the same since!&#8221;  Camera Lightbourn, Hope College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/camerasmall.jpg' alt='Camera Lightbourn, Hope'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/clarklarge.jpg' title='&#8220;TPC offers invaluable learning experiences to help you grow and discover yourself.  I am confident that I will be able to achieve anything I set my heart to.&#8221; Elizabeth Clark, Hope College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/clarksmall.jpg' alt='Elizabeth Clark'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/marisalarge2.jpg' title='“The parks and peaceful outdoor settings of Philadelphia provided a calming effect as I discovered not just how to survive in a big city but how to thrive.” Marissa L. Disbrow, Hanover College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/marisasmall.jpg' alt='Marissa L. Disbrow'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/sarahschmidtlarge2.jpg' title='&#8220;If I could give every student one opportunity to grow and discover their passion, it would be The Philadelphia Center.”  Sarah Schmidt, Hope College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/sarahschmidtSMALL2.jpg' alt='Sarah Schmidt'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/shivanlarge.jpg' title='&#8220;I was always scared to graduate but thanks to TPC I discovered how to survive in the real world.&#8221; Shvan Hammeed Al-Hussein, Earlham College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/shivansmall2.jpg' alt='Shvan Hammeed Al-Hussein'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/aiyalarge.jpg' title='&#8220;Philadelphia is a city of art and will make you feel as if you are walking in the museum everyday!   This beautiful city has amazing people and warm smiles even during the cold winter.&#8221; Aiya Sanat, Earlham College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/aiyasmall.jpg' alt='Aiya Sanat'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/cuonglg.jpg' title='&#8220;TPC gave me experience in working, learning, independent living and meeting people from around the world like my new magician friend from Scotland!  Come to Philly and discover yourself!&#8221;  Cuong D. Pham, Earlham College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/cuongsm.jpg' alt='Cuong D. Pham'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/elizabethmlarge.jpg' title='&#8220;TPC is an adventure I wish would never end, an experience I will never forget, and a place I will always remember.&#8221;  Elizabeth Moreno, Allegheny College, Spring 2012'><img src='http://www.tpc.edu/images/uploads/elizabethmsmall.jpg' alt='Elizabeth Moreno'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/becca2lg.jpg' title='&#8220;My semester in Philadelphia taught me how to become comfortable with the uncomfortable.&#8221;  Rebecca Devore, Otterbein University, Fall 2011'><img src='http://www.tpc.edu/images/uploads/beccasm.jpg' alt='Rebecca Devore'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/clairelg.jpg' title='&#8220;Deciding to spend a semester in Philadelphia was one of the best decisions I&#8217;ve made in college thus far. It has been an invaluable experience for me.&#8221; Claire Roembach-Clark, Hope College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/clairesm.jpg' alt='Claire Roembach-Clark'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/uroslg.jpg' title='&#8220;There is simply no better college experience like spending a semester in Philadelphia.&#8221;  Uros Predic, Allegheny College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/urossm.jpg' alt='Uros Predic'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/amberlg.jpg' title='&#8220;Experiencing the city encouraged me to explore my passions, ideas, and independence.  The Philadelphia Center is an unforgettable semester everyone will love!&#8221;  Amber Myers, Albion College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/ambersm.jpg' alt='Amber Myers'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/elenalg.jpg' title='&#8220;The semester I spent in Philadelphia helped me discover what I wanted to do with the rest of my life and gave me the confidence to enter the professional world.&#8221;  Elena Rivera, Hope College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/elenasm.jpg' alt='Elena Rivera'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/jessicalg.jpg' title='&#8220;TPC gave me the space and guidance to grow and learn about my future as a veterinarian student.&#8221;  Jessica Pringle, College of Wooster, Fall 2011'><img src='http://www.tpc.edu/images/uploads/jessicasm.jpg' alt='Jessica Pringle'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/kritikalg.jpg' title='&#8220;The Philadelphia Center experience is an eye-opener to anyone interested in exploring career opportunities, and in meeting new people from all over the world!&#8221;  Kritika Kuppuswami, Ohio Wesleyan University, Fall 2011'><img src='http://www.tpc.edu/images/uploads/kritikasm.jpg' alt='Kritika Kuppuswami'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/raelynlg.jpg' title='&#8220;I thrived in Philadelphia&#8217;s vibrant creative environment and found a placement that helped me decide what I want to do after graduation.&#8221;  Raelyn Thompson, Hanover College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/raelynsm.jpg' alt='Raelyn Thompson'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/ashleylg.jpg' title='&#8220;My semester in Philadelphia was an experience that I will always continue to learn and benefit from.&#8221;  Ashley Miller, Alma College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/ashleysm.jpg' alt='Ashley Miller'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/hannahszabolg.jpg' title='&#8220;My internships at two different publishing houses helped me discover a new found love and appreciation for the printed word.&#8221;  Hannah Szabo, Dennison University, Fall 2011'><img src='http://www.tpc.edu/images/uploads/hannahszabosm.jpg' alt='Hannah Szabo'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/jonathanlg.JPG' title='&#8220;Philadelphia helped me discover to live lively and to always look up.&#8221;  Jonathan Romero, Kalamazoo College, Fall 2011, Legislative Policy Intern, Philadelphia City Council'><img src='http://www.tpc.edu/images/uploads/jonathansm.JPG' alt='Jonathan M. Romero'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/aidenlg.jpg' title='&#8220;The friends I have made while spending a semester in Philadelphia will last a lifetime.&#8221;  Peter Senner, Ohio Wesleyan University, Fall 2011'><img src='http://www.tpc.edu/images/uploads/aidensm.jpg' alt='Peter Senner'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/ailielg.jpg' title='TPC provided me with a wonderful internship at the Jefferson Hospital Emergency Department working with a great supervisor - and even Santa!&#8221;  Alilie Kerr, Whitman College, Fall 2011'><img src='http://www.tpc.edu/images/uploads/ailiesm.jpg' alt='Ailie Kerr'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/Maybury_lg.JPG' title='&#8220;The Philadelphia Center allowed me to meet awesome people, see amazing places and gave me confidence for transitioning into the real world!&#8221; Kyle Maybury, Hope College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/Maybury_sm.JPG' alt='Kyle Maybury'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/anh_large.JPG' title='&#8220;My semester in Philadelphia helped me discover that public transportation is easier than I thought; plus it is cheaper than driving!&#8221;  Anh N. Tran, Lebanon Valley College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/anh_small.JPG' alt='Anh N. Tran'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/nikki_large.JPG' title='&#8220;I took the semester away from basketball to participate in The Philadelphia Center&#8217;s Program&#8230;AND IT WAS WORTH IT!!  So glad I went to Philly!!&#8221;  Maria Nicole Darrett, Earlham College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/nikki_small.JPG' alt='Maria Nicole Darrett'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/sarah_large.JPG' title='&#8220;Deciding to do the Philadelphia semester has turned out to be one of the best decisions of my life!&#8221; Sarah Van Hamersveld, Hope College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/sarah_small.JPG' alt='Sarah Van Hamersveld'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/michelle_large.jpg' title='&#8220;The knowledge I have acquired in my field-placement, city-seminar,and independent city living has captured the fundamental nature of what it means to be an experiential leaner.&#8221;  Michelle Waller, Denison University, Spring 2011'><img src='http://www.tpc.edu/images/uploads/michelle_small.jpg' alt='Michelle Waller'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/shanoz_gallery_large.JPG' title='&#8220;The Philadelphia Center has been a great voyage towards discovering my direction in life and taught me how to find meaning out of my experiences.&#8221;  Shanoz Aqnazarbekova, Earlham College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/shanoz_gallery_small.JPG' alt='Shanoz Aqnazarbekova'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/Leah_large.jpg' title='&#8220;My time in Philadelphia was amazing. TPC helped me learn a lot about myself and what my next steps in life should be.&#8221;  Leah Tworek, Hope College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/Leah_small.jpg' alt='Leah Tworek'></a></li>
+						
+						<li><a href='http://www.tpc.edu/images/uploads/aaron_large.jpg' title='&#8220;The Philadelphia Center’s semester program opened my eyes to a whole new world and helped me discover the world of human resources.&#8221;  Aaron Barth, Earlham College, Spring 2011'><img src='http://www.tpc.edu/images/uploads/aaron_small.jpg' alt='Aaron Barth'></a></li>
+						
+			</ul>
+			
+			<div id="news">
+				
+				<h3 class="tophead">News</h3>
+				<ul>
+					
+					<li><strong><a href="http://www.tpc.edu/news/view/donate_to_tpc/">Donate to TPC</a>:</strong> The Philadelphia Center has established the Stevens E. Brooks Memorial Fund to honor the life and legacy of its former executive director.</li>
+					
+					<li><strong><a href="http://www.tpc.edu/news/view/discover_tpc_blog/">Discover TPC Blog</a>:</strong> Read the DiscoverTPC blog and follow current TPC students as they intern, live, and learn in Philadelphia.</li>
+					
+					<li><strong><a href="http://www.tpc.edu/news">More news &raquo;</a></strong></li>
+				</ul>
+				
+				<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+				<script>
+				new TWTR.Widget({
+				  version: 2,
+				  type: 'profile',
+				  rpp: 3,
+				  interval: 6000,
+				  width: 'auto',
+				  height: 300,
+				  theme: {
+				    shell: {
+				      background: '#6699cc',
+				      color: '#ffffff'
+				    },
+				    tweets: {
+				      background: '#6699cc',
+				      color: '#ffffff',
+				      links: '#ccff99'
+				    }
+				  },
+				  features: {
+				    scrollbar: false,
+				    loop: false,
+				    live: false,
+				    hashtags: true,
+				    timestamp: true,
+				    avatars: false,
+				    behavior: 'all'
+				  }
+				}).render().setUser('discovertpc').start();
+				</script>
+				
+			</div>
+			
+		</div>
+
+		
+	</div>
+	
+	<div id="footer">
+<p>The Philadelphia Center | 121 S. Broad Street, 7th Floor | Philadelphia, PA 19107 | 215 735 7300</p>
+	<p class="credits">Copyright &copy; 2008 - 2012 | Founded in 1967 by the <a href="http://www.glca.org/">Great Lakes Colleges Association</a><br />Managed by <a href="http://www.hope.edu/">Hope College</a>, which is accredited by the Higher Learning Commission of the North Central Association.</p>
+</div>
+	<script type="text/javascript" src="http://www.tpc.edu/scripts/si-clear-children/"></script>
+	
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-5743784-1");
+	pageTracker._trackPageview();
+	</script>
+	
+</body>
+</html>

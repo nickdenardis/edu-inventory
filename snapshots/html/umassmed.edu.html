@@ -1,0 +1,565 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><Title>Welcome to the University of Massachusetts Medical School - Worcester</Title>
+<meta name="Keywords" content="Research at UMMS" />
+<meta name="Description" content="Research at UMMS" />
+<meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Cache-Control" content="no-cache" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="resource-type" content="document" /><meta name="robots" content="index, follow" /><meta name="revisit-after" content="30 days" /><meta id="ctl00_metaCopyWrite" name="copyright" content="2012 University of Massachusetts Medical School" /><meta id="ctl00_metaPublishedDate" name="PublishedDate" content="5/3/2012" /><link rel="stylesheet" href="/uploadedfiles/styles/modules/homepage_print.css" type="text/css" media="print" />
+
+     <script type="text/javascript">
+        var isNav, isIE
+        if (parseInt(navigator.appVersion) >= 4) {
+            if (navigator.appName == "Netscape") {
+                isNav = true
+            } else {
+                isIE = true
+            }
+        }
+        function checkEnter(e,theAction){ //e is event object passed from function invocation
+            var qText = document.getElementById('q_text');
+            
+            var characterCode; //literal character code will be stored in this variable
+
+                if(e && e.which){ //if which property of event object is supported (NN4)
+                    e = e;
+                    characterCode = e.which; //character code is contained in NN4's which property
+                    }
+                    else{
+                    e = event;
+                    characterCode = e.keyCode; //character code is contained in IE's keyCode property
+                    }
+                    
+                    if(characterCode == 13 ){ //if generated character code is equal to ascii 13 (if enter key)
+                    //alert(qText.value.length);
+                        if (qText.value.length==0){
+                            alert('Please enter some text to search');
+                            qText.focus();
+                            return false;
+                        }
+                      else{
+                        doSearchSubmit(theAction);
+                      }                   
+                    //document.forms[0].action=urltosubmit;	        
+	                //document.forms[0].method='post';
+	                //document.forms[0].target='_blank';	        	        
+	                //document.forms[0].submit();//submit the form
+                    return false;
+                    }
+                    else{
+                return true;
+            }
+
+        }
+        //var enterKeyPressed = false;
+	    function doSearchSubmit(theAction){
+	        try{
+	            //alert(theAction);
+	            var qText = document.getElementById('q_text');
+	            var qURL = document.getElementById('ctl00_q_path');
+	            var q = document.getElementsByName('q');
+	            if(!qURL.checked){
+	                qURL.value = '';
+	            }else{
+	               qURL.value = ',' + qURL.value;
+	            }
+	            var qString = qText.value + qURL.value;
+	            q(0).value = qString;
+	        }catch(e){
+	            //do nothing
+	        }
+//	        document.forms[0].action='http://www.umassmed.edu/searchpage/index.cfm';
+//	        document.forms[0].method='post';
+//	        document.forms[0].submit();
+            var id = document.getElementById('ctl00_myrawurl');
+            var qpathurl = document.getElementById('ctl00_hiddenq_Path');                        
+            var urltosubmit = theAction + '?SearchFor=' + q[0].value +'&id=' + id.value + '&qpath=' + qpathurl.value;
+            //+'?SearchFor='+document.forms[0].searchphrase.value;
+	        document.forms[0].action=urltosubmit;
+	        document.forms[0].method='post';
+	        //document.forms[0].target='_blank';
+	        document.forms[0].submit();
+	    }
+/*
+	Function:  handleEnterKey()
+	Author: Michael Regan
+	Created On: 08/11/2004
+	Altered On: 01/24/2008 (Michael Regan)
+	Purpose: Initiates a button click when the enter key is pressed
+	Parameters:
+	    evt -- the event used when not IE
+	    buttonToClick -- the button that will be clicked on when the enter key is used.
+	Flow:
+		Set the key code
+		if the key code is 13 (the enter key) and we have not already done this
+		set the page variable 'enterKeyPressed' to true (prevents futher enter key key strokes)
+		get the button by ID
+		set the focus
+		initiate the click event.
+*/
+//function handleEnterKey(evt,buttonToClick){
+//    var theKeyCode;
+//    if (isIE) { 
+//      theKeyCode = window.event.keyCode;
+//    } else { 
+//      theKeyCode = evt.which;
+//    }
+//	if (theKeyCode == 13 && enterKeyPressed == false){
+//		enterKeyPressed=true;
+//		var submitButton = document.getElementById(buttonToClick);
+//		try{
+//		    var qText = document.getElementById('q_text');
+//            if(qTest.length==0) return false;
+//			submitButton.focus();
+//			submitButton.click();
+//		}
+//		catch(e){
+//			/*
+//			 *	At this point if your getting an error then the button could not be found
+//			 *	We are going to ignor the error at this point.
+//			 *	One instance when this error is acceptable is when
+//			 *	the button has already been disabled...you can not set focus to a button in that state.
+//			 *	
+//			 *	In this case the button has alread been press with the enter key and all is ok.
+//			 *	
+//			 *	Use the next commented line for trouble shooting.
+//			*/
+//			//alert('Could not find button ' + buttonToClick + ' '  + e);
+//			return false;
+//		}
+//	}
+//}
+
+	</script>
+<script language="JavaScript" type="text/javascript">
+var AC_FL_RunContent = 0;
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<script language="JavaScript" src="/js_scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/js_scripts/swfobject.js"></script>
+
+
+<script id="EktronJQueryJS" type="text/javascript" src="/WorkArea/java/EktronJQuery.js"></script>
+
+<script id="EktronThickBoxJS" type="text/javascript" src="/WorkArea/java/thickbox.js"></script>
+
+<link id="EktronThickBoxCSS" href="/WorkArea/csslib/box.css" type="text/css" rel="stylesheet" />
+
+<script id="EktronDmsMenuJS" type="text/javascript" src="/WorkArea/DmsMenu/DmsMenu.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="/uploadedFiles/Styles/homepage_styles/homepage.css" /></head>
+<body class="bodyBG" >
+    <form name="aspnetForm" method="post" action="homepage.aspx?id=44914&amp;LangType=1033" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjEyNTM5NzIwNg9kFgJmD2QWBAIBD2QWBAIIDxYCHgdjb250ZW50BS8yMDEyIFVuaXZlcnNpdHkgb2YgTWFzc2FjaHVzZXR0cyBNZWRpY2FsIFNjaG9vbGQCCQ8WAh8ABQg1LzMvMjAxMmQCAw9kFhYCAQ9kFgICAQ8PFgIeBFRleHQFcTxhIGhyZWY9aHR0cDovL3czLnVtYXNzbWVkLmVkdS9lbS9CdWlsZGluZ1N0YXR1c0xpc3QuYXNweD9DYW1wdXNJRD0wPjxpbWcgc3JjPS91cGxvYWRlZGltYWdlcy9FTVAtTGV2ZWw1LmdpZj48L2E+ZGQCAw9kFgQCAQ8PFgYeBVRpdGxlBRRVTWFzc01lZCBOb3cgLSBJbnRybx4TQ2F0YWxvZ0ljb25JbWFnZVVybAUuL1dvcmtBcmVhL2ltYWdlcy9hcHBsaWNhdGlvbi9pY29uX2RvY3VtZW50LmdpZh4RVGl0bGVJY29uSW1hZ2VVcmxlZGQCBw8PFgIeB1Zpc2libGVoZGQCBQ8PFgYfAgUQSG9tZXBhZ2UgTGVmdG5hdh8DBS4vV29ya0FyZWEvaW1hZ2VzL2FwcGxpY2F0aW9uL2ljb25fZG9jdW1lbnQuZ2lmHwRlZGQCDQ8WAh4FdmFsdWUFFmludXJsOnd3dy51bWFzc21lZC5lZHVkAg8PDxYEHwIFASAfBWhkZAIRDw8WBB8CBQEgHwVoZGQCEw8PFgQfAgUBIB8FaGRkAhUPFgIfAQWuATx1bD48bGkgY2xhc3M9J2ltZzEnPjxpbWcgc3JjPScvdXBsb2FkZWRJbWFnZXMvVU1hc3NfSG9tZXBhZ2UvTGlzdF9TdW1tYXJ5X0ltYWdlcy9FZHVjYXRpb25fSW1hZ2VzLzdJTVBBQUNULmpwZycgYWx0PSdpbWFnZXMgb2YgRWR1Y2F0aW9uJyB0aXRsZT0naW1hZ2VzIG9mIEVkdWNhdGlvbicgLz48L2xpPmQCFw8WAh8BBbUBPGxpIGNsYXNzPSdpbWcyJz48aW1nIHNyYz0nL3VwbG9hZGVkSW1hZ2VzL1VNYXNzX0hvbWVwYWdlL0xpc3RfU3VtbWFyeV9JbWFnZXMvcmVzZWFyY2hfSW1hZ2VzL1BhbmNyZWFzSXNsZXROZXdzTm90ZXMuanBnJyBhbHQ9J2ltYWdlcyBvZiBSZXNlYXJjaCcgdGl0bGU9J2ltYWdlcyBvZiBSZXNlYXJjaCcgLz48L2xpPmQCGQ8WAh8BBbMBPGxpIGNsYXNzPSdpbWczJz48aW1nIHNyYz0nL3VwbG9hZGVkSW1hZ2VzL1VNYXNzX0hvbWVwYWdlL0xpc3RfU3VtbWFyeV9JbWFnZXMvU2VydmljZV9JbWFnZXMvaGVhbHRoeS1hdGhsZXRlcy5qcGcnIGFsdD0naW1hZ2VzIG9mIFNlcnZpY2VzJyB0aXRsZT0naW1hZ2VzIG9mIFNlcnZpY2VzJyAvPjwvbGk+PC91bD5kAhsPDxYCHwVoZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFDGN0bDAwJHFfcGF0aHmSthXSCjEpxLxRG6N+caM0QTkB" />
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+ektb_pathToImage = '/WorkArea/images/application/loading_small.gif';//]]>
+</script>
+
+    
+		
+        <div id="outerContainer">
+            <div id="extraDivouterContainer"><span></span></div>
+            <div id="Container">
+                
+                <div id="topTextNav">
+                <div id="extraDivtopNav"><span></span></div>
+                    <ul>
+                        <li><a href="#mainContent" rel="nofollow">Skip to content</a></li>
+                        <li><a href="#topMenuNav" rel="nofollow">Skip to main navigation</a></li>
+                        <li><a href="#Search" rel="nofollow">Skip to search</a></li>
+                    </ul>
+                </div>
+                
+                <div id="MainContainer">
+                    <div id="extraDivMainContainer"><span></span></div>
+                    <div id="centerCol">
+                    
+                    
+                        <div id="mainContent">
+                                <!-- research content -->
+                                
+                                
+    <div id="introContent">
+        <div id="ctl00_mainContentPlaceHolder_introCB">
+	<style type="text/css">
+#umassNow A IMG {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}</style><div id="umassNow" align="center"><a title="Convocation 2011" href="/WorkArea/linkit.aspx?LinkIdentifier=id&amp;ItemID=134032"></a><a href="http://www.umassmed.edu/news"><img border="0" alt="24/7 news coverage of UMMS" src="/uploadedImages/UMass_Homepage/Included_Content/umassmednow_banner_aug.png" /></a> </div>
+</div>
+    </div>
+	<div id="newsarea">
+	    <div id="researchBlock">
+	        <!-- research content -->
+	        
+	        <h1><span class="ResearchHead">Research @ UMMS</span></h1><p>Inhibition of Heat Shock Protein (Molecular Weight 90 KDa) Attenuates Proinflammatory Cytokines and Prevents Lipopolysaccharide-Induced Liver Injury in Mice</p><ul><li class="researchPaper"><b><a href="http://onlinelibrary.wiley.com/doi/10.1002/hep.24802/pdf" target="_blank">Paper</a></b></li><li><b> <a href="http://profiles.umassmed.edu/profiles/ProfileDetails.aspx?From=SE&amp;Person=212">Research Program</a></b></li></ul><p>Professional Language Interpretation and Inpatient Length of Stay and Readmission Rates</p><ul><li class="researchPaper"><b><a href="http://www.springerlink.com/content/n5213716n42plp31/fulltext.pdf" target="_blank">Paper</a></b></li><li><b> <a href="http://profiles.umassmed.edu/profiles/ProfileDetails.aspx?From=SE&amp;Person=470">Research Program</a></b></li></ul><p>Long-term, efficient inhibition of microRNA function using rAAV vectors</p><ul><li class="researchPaper"><b><a href="http://www.nature.com/nmeth/journal/v9/n4/full/nmeth.1903.html" target="_blank">Paper</a></b></li><li><b> <a href="http://profiles.umassmed.edu/profiles/ProfileDetails.aspx?From=SE&amp;Person=1177">Research Program</a></b></li></ul><p>Type 1 ryanodine receptor knock-in mutation causing central core disease of skeletal muscle also displays a neuronal phenotype</p><ul><li class="researchPaper"><b><a href="http://www.pnas.org/content/109/2/610.long" target="_blank">Paper</a></b></li><li><b> <a href="http://profiles.umassmed.edu/profiles/ProfileDetails.aspx?From=SE&amp;Person=351">Research Program</a></b></li></ul><p>Evaluating the therapeutic potential of mTOR inhibitors using mouse genetics</p><ul><li class="researchPaper"><b><a href="http://www.springerlink.com/content/g844q6487187xxxj/#section=994902&amp;page=1" target="_blank">Paper</a></b></li><li><b> <a href="http://profiles.umassmed.edu/profiles/ProfileDetails.aspx?From=SE&amp;Person=99">Research Program</a></b></li></ul><p><a class="moreinfo" title="Click here to learn more about UMMS research" href="/research">More Research</a></p>
+	    </div>
+	    <div id="newBlock">
+	        <!-- News Healine content -->
+	        
+	        
+	<span style="display:none"> </span>
+	<script language="JavaScript" type="text/javascript" defer="defer">
+	<!--
+	function ektLocalizeDate(date, id) {
+		if (document.getElementById && 10 == date.length) {
+			var oTempDate = new Date(date.substr(0,4), parseInt(date.substr(5,2),10)-1, date.substr(8,2));
+			document.getElementById(id).innerHTML=(oTempDate.toLocaleDateString ? oTempDate.toLocaleDateString() : oTempDate.toLocaleString());
+		}
+	}
+	// --></script>
+    
+    <style type="text/css">
+    .hotspotContainer { position: relative; width: 99%; background: #E5E5E5; z-index: 400; height: auto; }
+    table#hotspot { border-bottom: 1px solid #ccc; }
+    table#hotspot td a img {border: none; }
+    table#hotspot td img.hotspotLeft  { display: block; float: left; margin-bottom: 10px; margin-right: 10px; }
+    p.headline { font-family: "Frutiger", Verdana, Tahoma, Arial, sans-serif !important; margin: 0; padding: 0; }
+	
+	 
+    </style>
+    <h1><span class="newsHeadline">News @ UMassMed Now</span></h1>
+    <div class="hotspotContainer">
+    	  <table border="0" id="hotspot" width="100%">
+          <tr>
+            
+     			
+            <td style="vertical-align: middle; clear: both;">
+     			
+             
+                
+                  <a href="/news/2012/research/Globe-story-touts-UMMS-star-quality.aspx" style="margin-bottom: 8px;" title="click to read more" target="_self">
+                  
+                            <img src="/uploadedImages/News/Images/2012/BG-Logo.gif" alt="Relief and celebration at Match Day 2012" title="Relief and celebration at Match Day 2012" class="hotspotLeft" style="width: 70px; border: 0px solid #666666" />
+                        
+                  </a>
+                </td>
+             <td>
+              
+              
+                <p class="headline" style="font-size: 12px; font-style: normal; font-weight: bold; text-align: left;">
+                  <a href="/news/2012/research/Globe-story-touts-UMMS-star-quality.aspx" style="margin-bottom: 8px;" title="click to read more" target="_self">
+                      Newsmaker: Globe story touts UMMS ‘star quality’<br />
+                      
+                  </a>
+                </p>
+            </td>
+            </tr>
+        </table> 
+        <div align="center" style="margin: 10px 0 0 0;">
+     			
+              <a href="/commencement/index.aspx" style="margin-bottom: 8px;" alt="Commencement 2012" title="Commencement 2012" target="_self">
+                <img src="/uploadedImages/UMass_Homepage/Included_Content/commencement_2012.png" alt="Commencement 2012" title="Commencement 2012" style="width: 256px; border: none;" />
+              </a>
+            </div>
+          
+    </div> 
+  
+<p> </p>
+      
+     
+    <a href="/news/index.aspx" style="margin-bottom: 8px;" title="News and Events - UMassmedNow" class="moreNewsLink" target="_self">
+    
+  	<p> </p>
+  	</a>
+    
+
+	<div id="Weather" title="Weather">
+		
+			
+			
+			
+			
+            
+            
+					<p><br /></p>
+				
+		
+	</div>
+
+
+	
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/news/video/2011/umass-medical-school-building-a-brighter-future.aspx" title="click to view more" target="_self">
+              		Video: UMassMed – Building a Bright Future
+                </a>
+        	</p>
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/shermancenter/index.aspx" title="click to view more" target="_self">
+              		The Albert Sherman Center
+                </a>
+        	</p>
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/GrowingGreen/index.aspx" title="click to view more" target="_self">
+              		Growing Green: sustainability news at UMMS
+                </a>
+        	</p>
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/WorkArea/linkit.aspx?LinkIdentifier=id&amp;ItemID=70832" title="click to view more" target="_self">
+              		Campus slideshows
+                </a>
+        	</p>
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/neasc/index.aspx" title="LCME_HOME" target="_self">
+              		2012 NEASC Accreditation
+                </a>
+        	</p>
+		
+        	
+      		
+    	 	
+			<p style="font-weight: bold;">
+        		<a href="/weather/index.aspx" title="click to view more" target="_self">
+              		Campus status
+                </a>
+        	</p>
+		 
+	
+
+	    </div>
+		<div class="clrBoth"></div> 
+    </div>
+    
+  
+    
+    
+
+
+                        </div>
+                    </div>
+                    <div id="leftMenuCol">
+                        
+                        <div id="ctl00_leftNavCB" class="leftNavContent">
+	<style type="text/css">
+/* added for better visibilty of links if Flash isn't installed */
+#MainContainer #leftMenuCol .leftNavContent ul {
+	background: #E5E5E5;
+	font-size: 12px;
+}
+</style>
+
+<div>
+    <object width="230" height="363" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="menuFlash">
+        <param name="movie" value="/uploadedFiles/UMass_Homepage/Flash_Leftnav/Home-Nav.swf" />
+        <!--[if !IE]>-->
+        <object width="230" height="363" type="application/x-shockwave-flash" data="/uploadedFiles/UMass_Homepage/Flash_Leftnav/Home-Nav.swf">
+
+        <!--<![endif]-->
+            <ul>
+                  <li><a href="http://www.umassmed.edu/education/index.aspx">Education</a>
+                    <ul>
+                      <li><a href="http://www.umassmed.edu/som/index.aspx">School of Medicine</a></li>
+                      <li><a href="http://www.umassmed.edu/gsbs/index.aspx">Graduate School of Biomedical Sciences</a></li>
+                      <li><a href="http://www.umassmed.edu/gsn/index.aspx">Graduate School of Nursing</a></li>
+
+                      <li><a href="http://www.umassmed.edu/gme/index.aspx">Graduate Medical Education</a></li>
+
+                      <li><a href="http://www.umassmed.edu/cme/index.aspx">Continuing Medical Education</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="http://www.umassmed.edu/Research/index.aspx">Research</a></li>
+                  <li><a href="http://www.umassmed.edu/community_outreach/index.aspx">UMass Medicine Cares</a></li>
+
+                  <li><a href="http://www.umassmed.edu/dept_centers.aspx">Departments &amp; Centers</a></li>
+
+                  <li><a href="http://www.umassmed.edu/hr/index.aspx">Human Resources</a></li>
+                  <li><a href="http://www.umassmed.edu/commed/index.aspx">Commonwealth Medicine</a>
+                    <ul>
+                      <li><a href="http://www.umassmed.edu/commed_health_law_policy.aspx">Health Law &amp; Policy</a></li>
+
+                      <li><a href="http://www.umassmed.edu/commed_financing.aspx">Financing</a></li>
+                      <li><a href="http://www.umassmed.edu/commed_pharmacy.aspx">Pharmacy Solutions</a></li>
+
+                    </ul>
+                  </li>
+                  <li><a href="http://library.umassmed.edu/index.cfm">Library</a></li>
+                  <li><a href="http://www.umassmed.edu/development/index.aspx">Alumni and Friends</a></li>
+
+                  <ul>
+                    <li><a href="http://www.alumniconnections.com/olc/pub/UMCW/cpages/homepage/home.jsp">Alumni</a></li>
+                    <li><a href="http://www.umassmed.edu/development/ways.aspx">Giving</a></li>
+
+                  </ul>
+                  <li><a href="http://www.umassmed.edu/chancellor/index.aspx">Chancellor</a></li>
+                  <li><a href="http://www.umassmed.edu/content.aspx?id=44686">Dean / Provost
+                      / Executive Deputy Chancellor</a></li>
+
+                </ul>
+            <a href="http://www.adobe.com/go/getflashplayer">
+                <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+            </a>
+        <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+</object></div>
+</div>
+                    </div>
+                           
+                </div>
+				<div class="clrBoth"></div> 
+	</div>
+	<!-- //END Container -->
+                
+                <div id="Footer">
+        
+                      
+
+
+
+<div class="partnerLogo" style="position: absolute; top:0; left: 0;z-index:999;">
+	<p style="margin:0;font-weight:bold;font-family:arial;color:#333;">Our Clinical Partner</p>
+  <a href="http://www.umassmemorial.org/" target="_blank"><img src="../uploadedimages/graphics/logos/ummhclogo_partner.jpg" alt="click to visit UMassMemorial web site" width="121" height="31" border="0" style="border:1px solid #afafaf" title="click to visit UMassMemorial web site" /></a>
+</div>
+<p class="genInfo">
+ General Information: 508-856-8989
+</p>
+<div id="directoryMenu">
+            <div id="indexLinks">
+            <ul>
+                <li><a class="firstchild" title="Click here to go to the about UMMS section" href="/about/index.aspx">about UMMS</a></li>
+                <li><a title="Click here to go to the departments and centers section" href="/communications/index.aspx">office of communications</a></li>
+                <li><a title="Click here to go to the administration section" href="/administration/index.aspx">administration</a></li>
+                <li><a title="Click here to get directions to the University" href="/about/directions/index.aspx">directions</a></li>
+
+                <li><a class="lastchild" title="Click here to go to the UMass system" href="http://www.massachusetts.edu/">UMass system</a></li>
+            </ul>
+            </div>
+            <div id="directoryLinks">
+            <ul>
+                <li><a class="firstchild" title="Click here to go to the home page of UMass Medical School" href="/index/index.aspx">index</a></li>
+                <li><a title="Click here to go to the the intranet" href="http://i.umassmed.edu/inside/default.aspx">intranet</a></li>
+
+                <li><a title="Click here to go to the directory section" href="/directory/index.cfm">directory</a></li>
+                <li><a class="lastchild" title="Click here to go to the contact us section" href="/contactus/index.aspx">contact us</a></li>
+            </ul>
+            </div>
+        </div>
+
+<p class="footertext">This is an <a class="FooterText2" title="Click here to Go to the UMass Medical School Official Designation" href="/about/official.aspx">official</a> page/publication of the University of Massachusetts Worcester Campus<br />Office of Communications 55 Lake Avenue North, Worcester, Massachusetts 01655<br />
+Questions or comments? email: <a href="mailto:UMMScommunications@umassmed.edu">UMMScommunications@umassmed.edu</a> phone: 508-856-2000 </p>
+
+                </div>
+                
+
+                <!-- Header Graphic, Header Logo and Search -->
+                <div id="TopGraphic_Search">
+                    <div id="logo" onclick="window.location.href='http://www.umassmed.edu/'">
+                    </div>
+                    <div id="headerlinks">
+                        <div id="patientLink">
+                            <a href="http://www.umassmemorial.org/" target="_blank"><img src="/uploadedImages/UMass_Homepage/btn_patients.gif" alt="Patients click here" /></a>
+                        </div>
+                        <div id="giftLink">
+                            <a href=" http://w3.umassmed.edu/OnlineDonation/OnlineDonation.aspx" target="_blank"><img src="/uploadedImages/UMass_Homepage/btn_makeagift.png" alt="Make a Gift Now" /></a>
+                        </div>
+                        <div id="Search">
+                            <div id="SearchBox">
+                               <label for="q_text" style="display:none;">Search the UMass Site</label>
+								<input type="text" id="q_text" name="q" maxlength="255" value="" tabindex="1" onKeyPress="return checkEnter(event,'/searchresultshomepage.aspx');" class="SearchTextInput" alt="type in search words">
+								<input id="ButtonToClick" class="cmdbSearch" type="Button" name="GO" value="GO" alt="search" tabindex="2" onClick="javascript:doSearchSubmit('/searchresultshomepage.aspx');" /></div> 
+                                <input name="ctl00$myrawurl" type="hidden" id="ctl00_myrawurl" value="44914" />
+                                <input type="hidden" name="ctl00$hiddenq_Path" id="ctl00_hiddenq_Path" value="inurl:www.umassmed.edu/index.aspx" />
+                            <div id="SearchChk">
+				<input name="ctl00$q_path" type="checkbox" id="ctl00_q_path" value="inurl:www.umassmed.edu" checked="checked" alt="check if you wish to search this section only" title="check if you wish to search this section only" />
+                         
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- List Summary Images across the top -->
+                <div id="listsummaryimages">
+					
+                    
+					
+                    
+					
+                    
+                   <ul><li class='img1'><img src='/uploadedImages/UMass_Homepage/List_Summary_Images/Education_Images/7IMPAACT.jpg' alt='images of Education' title='images of Education' /></li>
+                   <li class='img2'><img src='/uploadedImages/UMass_Homepage/List_Summary_Images/research_Images/PancreasIsletNewsNotes.jpg' alt='images of Research' title='images of Research' /></li>
+                   <li class='img3'><img src='/uploadedImages/UMass_Homepage/List_Summary_Images/Service_Images/healthy-athletes.jpg' alt='images of Services' title='images of Services' /></li></ul>
+                </div>
+                <!-- These extra divs/spans may be used as catch-alls to add extra imagery. -->
+                <div id="extraDiv1">
+                    <span></span>
+                </div>
+                <div id="extraDiv2">
+                    <span></span>
+                </div>
+                <div id="extraDiv3">
+                    <span></span>
+                </div>
+                <div id="extraDiv4">
+                    <span></span>
+                </div>
+                <div id="extraDiv5">
+                    <span></span>
+                </div>
+                <div id="extraDiv6">
+                    <span></span>
+                </div>
+                <!-- Add a background image to each and use width and height to control sizing, place with absolute positioning -->
+            </div>
+        
+</div>
+<!-- //END outerContainer -->
+
+<!-- These extra divs/spans may be used as catch-alls to add extra imagery outside of the outerContainer. -->
+<div id="Div7">
+    <span></span>
+</div>
+<div id="Div8">
+    <span></span>
+</div>
+<div id="Div9">
+    <span></span>
+</div>
+        
+        
+        
+        
+        
+        
+    
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBALz/cO+BgKxleLCDQKW69DnDQLVvtLkCxpuVxtkyP5ivpPlYMNMBoSjLjr+" />
+</div></form>
+</body>
+</html>

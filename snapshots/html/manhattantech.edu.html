@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="" />
+<meta name="keywords" content=""/>
+<title>Manhattan Area Technical College : Home</title>
+<link href="http://www.manhattantech.edu/css/styles_large.css" rel="stylesheet" type="text/css" />
+<link href="http://www.manhattantech.edu/css/search.css" rel="stylesheet" type="text/css" />
+<link href="http://www.manhattantech.edu/css/message.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="http://www.manhattantech.edu/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="http://www.manhattantech.edu/js/jquery.placeholder.js"></script>
+<script src="http://www.manhattantech.edu/js/main.js"></script>
+
+
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="http://www.manhattantech.edu/css/stylesie8.css"/>
+<![endif]-->
+
+<script type="text/javascript">
+$(document).ready(function() { 
+		
+	$('.message .close').click(function() {
+		$(this).parent().fadeOut('slow', function() { $(this).remove(); });
+	});
+
+	$('#searchtext').click(function(event)
+	{
+		event.stopPropagation();
+		$('#headerSearchResultsDiv').show();
+		
+	});
+	
+	$('body').click(function() {
+ 		$('#headerSearchResultsDiv').hide();
+ 	 });
+	 
+ 	 $('#headerSearchResultsDiv').click(function(event){
+     	event.stopPropagation();
+ 	});
+		
+	$('#email-submit-ft').click(function()
+	{
+		$.post('http://www.manhattantech.edu/contact/subscribe',{'email':$('#email-subscribe-ft').val()},function(data)
+		{
+			if(data.result)
+				$('#signup').html(data.message);
+			else
+				$('#subscribe-results-ft').html(data.error);
+			messageBox();
+		},"json");
+	});
+	
+		
+});
+
+//search 
+var runningRequest = false;
+var request; 
+function doSearch()
+{
+	if(runningRequest)request.abort();
+	runningRequest=true;
+	request = $.get('http://www.manhattantech.edu/main/search/'+jQuery('#searchtext').val(),function(data)
+	{
+		$('#headerSearchResultsDiv').html(data);
+		$('#headerSearchResultsDiv').show();
+		runningRequest=false;
+	});
+}	
+</script>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.manhattantech.edu/favicon.ico">
+<link rel="apple-touch-icon" href="http://www.manhattantech.edu/images/webclip.png"/>
+</head>
+
+<body>
+<div id="header">
+  <div class="subcontainer">
+    <div id="topsection">
+      <div id="topleft"> <span class="linkbtn" id="quicklink">Quick Links</span>
+        <ul>
+          <li><a href="http://www.manhattantech.edu/prospective-students/admissions">ADMISSIONS</a></li>
+          <li><a href="http://www.manhattantech.edu/calendar">CALENDAR</a></li>
+          <li><a href="http://webmail.matc.net" target="_blank">WEBMAIL</a></li>
+          <li><a href="http://www.matconline.net" target="_blank">MATC ONLINE</a></li>
+          <li class="last"><a href="http://www.manhattantech.edu/document_center">DOCUMENT CENTER</a></li>
+        </ul>
+      </div>
+      <!--topleft-->
+      
+      <div id="topright">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><div id="follow">
+                <div class="lefttube">Follow Us:</div>
+                <div id="social">
+                  <ul>
+                    
+                    <!--<li><a href="#" id="like" title="Like" target="_blank"></a></li>-->
+                    <div id="fb-root"><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                      <fb:like href="http://www.facebook.com/manhattantech" send="false" layout="button_count" width="90" show_faces="false" font=""></fb:like>
+                    </div>
+                    <li><a href="http://www.facebook.com/manhattantech" target="_blank" id="facebook" title="Facebook"></a></li>
+                    <li><a href="http://twitter.com/#!/ManhattanTech" target="_blank" id="twitter" title="Twitter"></a></li>
+                    <li><a href="http://www.manhattantech.edu/news/rss" id="rss" title="RSS" target="_blank"></a></li>
+                    <li><a href="http://www.youtube.com/user/ManhattanTech" id="youtube" title="Youtube" target="_blank"></a></li>
+                  </ul>
+                </div>
+                <!--social--> 
+              </div>
+              
+              <!--follow--></td>
+            <td><a href="http://www.manhattantech.edu/contact" class="linkbtn" id="contactlink">Contact Us:</a></td>
+          </tr>
+        </table>
+      </div>
+      <!--topright--> 
+      
+    </div>
+    <!--topsection-->
+    
+    <div id="header-content">
+      <h1 id="logo"><a href="http://www.manhattantech.edu/home"></a></h1>
+      <div id="headerright">
+        <div id="header_icons">        	
+        	<a id="apply" href="http://www.manhattantech.edu/prospective-students/apply"></a>
+			<a id="visit" href="http://www.manhattantech.edu/location-directions"></a>
+			<a id="request" href="http://www.manhattantech.edu/contact/request-info"></a>
+            <a id="jobs" href="http://www.manhattantech.edu/about-matc/human-resources/matc-jobs"></a>
+        </div>
+      </div>
+      <!--headerright--> 
+      
+    </div>
+    <!--header-content--> 
+    
+  </div>
+</div>
+<!--header-->
+
+
+<div id="mainnav">
+  <div class="subcontainer">
+    <ul id="main-nav">
+      <li class="first"><a href="http://www.manhattantech.edu/about-matc">About<br />
+        MATC</a></li>
+      <li><a href="http://www.manhattantech.edu/programs">Programs</a></li>
+      <li><a href="http://www.manhattantech.edu/prospective-students">Prospective<br />
+        Students</a></li>
+      <li><a href="http://www.manhattantech.edu/student-services">Student <br />
+        Services</a></li>
+      <li><a href="http://www.manhattantech.edu/financial-aid">Financial<br />
+        Aid</a></li>
+      <li><a href="http://www.manhattantech.edu/alumni-friends">Alumni<br />
+        &amp; Friends</a></li>
+      <li><a href="http://www.manhattantech.edu/customized-business-training">Customized<br />
+        Business Training</a></li>
+      <li><a href="http://www.manhattantech.edu/continuing-education">Continuing<br />
+        Education</a></li>
+      <li class="last"><a href="http://www.manhattantech.edu/location-directions">Location<br />
+        &amp; Directions</a></li>
+    </ul>
+    <div id="search">
+    	<img src="http://www.manhattantech.edu/images/Search_Arrow.png" id="search-image" />
+      <form method="get" id="searchForm" onsubmit="return false;">
+        <div class="enter">
+          <input name="" type="text" id="searchtext" class="placeholder" placeholder="Enter search text" onkeyup="doSearch();" AUTOCOMPLETE=OFF />
+          <input name="" type="submit" id="searchbtn" class="linkbtn" />
+        </div>
+        <!--enter-->
+      </form>
+      <div id="headerSearchResultsDiv"></div>
+    </div>
+  </div>
+</div>
+<!--mainnav-->
+
+<div id="midblock">
+<div class="subcontainer clearfix">
+<div id="breadcrumb">
+  <ul>
+    <li>YOU ARE HERE:</li>
+                <li><a href="http://www.manhattantech.edu/home"> MATC</a> </li>
+                                                                                                 
+                                                  
+                     
+                  
+                    
+                 
+                 
+                                                                                                                                                
+                  </ul>
+</div>
+<script type="text/javascript" src="http://www.manhattantech.edu/js/roundabout/jquery.roundabout-2.3.0.js"></script>
+<!--[if IE 8]>
+	<script type="text/javascript" src="http://www.manhattantech.edu/js/roundabout/jquery.roundabout-ie-2.3.0.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+   window.onload = startroundabout;
+   
+   function startroundabout(){
+		  $('#holder').roundabout({
+					btnNext: '#next',
+					btnPrev: '#prev',
+					childSelector: '.moveable',
+					autoplay: true,
+					autoplayDuration: 4000,
+					autoplayPauseOnHover: true,
+					triggerFocusEvents: false,
+					responsive: true
+			})
+	}
+</script>
+
+<div id="midblock-content">
+  <div id="banner">
+    <div id="holder">
+    	<div class="moveable">
+					<a href="" target="_blank"><img src="http://www.manhattantech.edu/images/banner/MATC_linemen.jpg"/></a>
+				  </div><div class="moveable">
+					<a href="" target="_blank"><img src="http://www.manhattantech.edu/images/banner/SpringOpenHouse_2010_Tour.jpg"/></a>
+				  </div><div class="moveable">
+					<a href="" target="_blank"><img src="http://www.manhattantech.edu/images/banner/MATC_MonumentSign2.jpg"/></a>
+				  </div>    </div>
+    <!--holder-->
+    
+    <div class="controls"> <a href="#" id="next">Next</a> <a href="#" id="prev">Previous</a> </div>
+    <!--controls--> 
+    
+  </div>
+  <div id="rightmenu">
+    <div id="box">
+      <div class="boxbend" id="boxtop"></div>
+      <div id="boxcontenthome" class="roundify">
+        <h2>Recent News</h2>
+        <a href="http://www.manhattantech.edu/news/69" class="roundify rightp" id="news0">CNA Summer Enrollment May 8th</a><a href="http://www.manhattantech.edu/news/68" class="roundify rightp" id="news1">TechLife</a><a href="http://www.manhattantech.edu/news/66" class="roundify rightp" id="news2">Follow MATC's Campus Master Planning Process</a><a href="http://www.manhattantech.edu/news/64" class="roundify rightp" id="news3">Student Satisfaction Survey</a>   
+            
+        </div><!--box-->
+            <a id="view_more" href="http://www.manhattantech.edu/news"><h4>View More...</h4></a>
+            <div class="boxbend" id="boxbottom"></div>
+    </div>
+    <!--box--> 
+  </div>
+  <!--recentnews--> 
+</div>
+<!--midblock-content-->
+
+</div>
+</div>
+<!--midblock-->
+
+<div id="contentblock" class="clearfix">
+<div class="subcontainer">
+<div id="pagecontent">
+<div id="homecontent">
+<p><span class="big">Founded in 1965, Manhattan Area Technical College</span> is a two year HLC accredited public institution of higher education. MATC has a long and vibrant history of providing quality technical and continuing education for individuals who are making lifelong career decisions.</p>
+<p><span class="big">We offer 15 programs of study,</span> each granting an Associate of Applied Science degree or Technical Certificate. These programs are:</p>
+</div>
+<!--homecontent--><table border="0" cellspacing="2" cellpadding="2" style="width:100%;">
+<tbody>
+<tr>
+<td valign="top" width="44%"><br />
+<ul class="list1">
+<li><a href="http://www.manhattantech.edu/programs/advanced-biotechnology-certificate">Advanced Biotechnology Certificate</a></li>
+<li><a href="http://www.manhattantech.edu/programs/air-conditioning-refrigeration">Air Conditioning & Refrigeration</a></li>
+<li><a href="http://www.manhattantech.edu/programs/associate-degree-nursing">Associate Degree Nursing</a></li>
+<li><a href="http://www.manhattantech.edu/programs/automotive-collision-repair">Automotive Collision Repair</a></li>
+<li><a href="http://www.manhattantech.edu/programs/automotive-technology">Automotive Technology</a></li>
+<li><a href="http://www.manhattantech.edu/programs/building-trades">Building Trades</a></li>
+<li><a href="http://www.manhattantech.edu/programs/business-administration">Business Administration</a></li>
+</ul>
+</td>
+<td valign="top" width="56%"><br />
+<ul class="list1">
+<li><a href="http://www.manhattantech.edu/programs/computer-aided-drafting">Computer Aided Drafting</a></li>
+<li><a href="http://www.manhattantech.edu/programs/dental-hygiene">Dental Hygiene</a></li>
+<li><a href="http://www.manhattantech.edu/programs/electric-power-distribution">Electric Power & Distribution</a></li>
+<li><a href="http://www.manhattantech.edu/programs/information-network-technology">Information & Network Technology</a></li>
+<li><a href="http://www.manhattantech.edu/programs/medical-laboratory-technician">Medical Laboratory Technician</a></li>
+<li><a href="http://www.manhattantech.edu/programs/practical-nursing">Practical Nursing</a></li>
+<li><a href="http://www.manhattantech.edu/programs/surgical-technology">Surgical Technology</a></li>
+<li><a href="http://www.manhattantech.edu/programs/welding-technology">Welding Technology</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+<!--pagecontent--> 
+
+<div id="rightbuttons"> <a href="http://www.manhattantech.edu/student-services/registrar/transcript-request" id="transcript-request"></a> <a href="http://www.manhattantech.edu/contact/campus-visit" id="campus-visit"></a> <a href="http://www.manhattantech.edu/contact/request-info" id="request-info"></a> <a href="http://www.manhattantech.edu/prospective-students/apply" id="apply-now"></a> <a href="http://www.manhattantech.edu/continuing-education/cna-cma" id="cna"></a> <a href="http://www.manhattantech.edu/continuing-education/cna-cma" id="cma"></a> <a href="http://www.manhattantech.edu/document_center/nursing/" id="nursing-packet"></a> <a href="http://www.manhattantech.edu/document_center/dental_hygiene" id="dental-hygiene-packet"></a> </div>
+<!--rightbuttons-->
+
+</div>
+</div>
+<!--contentblock-->
+
+<div id="footertop">
+  <div class="subcontainer"> <a href="http://www.manhattantech.edu/pathways">
+    <div id="career-pathway"></div>
+    </a>
+    <div id="signup">
+      <div id="subscribe-box-ft"> Sign Up for Newsletters, Important Date<br />
+          Reminders &amp; Events at the College </div>
+        <span id="subscribe-results-ft"></span>
+        <div class="enter">
+          <input name="email" type="email" class="entertext" id="email-subscribe-ft" placeholder="Enter Email Address" />
+          <input class="enterbtn linkbtn" id="email-submit-ft" />
+        </div>
+        <!--enter--> 
+    </div>
+    <!--signup--> 
+    
+  </div>
+</div>
+<!--footertop-->
+
+<div id="footer" >
+  <div class="subcontainer">
+    <div id="footerblock">
+      <div class="box">
+        <ul>
+          <li><strong>&copy; 2012 Manhattan Area<br />
+            Technical College</strong><br />
+            All Rights Reserved </li>
+        </ul>
+        <br />
+        <ul>
+          <li> 3136 Dickens Avenue<br />
+            Manhattan, Kansas 66503<br />
+            800<em style="display:none;">_</em>-352-7575 &bull; 785<em style="display:none;">_</em>-587-2800<br />
+            <a href="http://www.manhattantech.edu/contact">Send Us an Email</a> </li>
+        </ul>
+        <br />
+        <strong>Powered By:</strong><br />
+        <a href="http://www.jntcompany.com" target="_blank">JNT COMPANY, LLC</a> </div>
+      <div class="box" id="box1">
+        <ul>
+          <li><a href="http://www.manhattantech.edu/about-matc">About MATC</a></li>
+          <li><a href="http://www.manhattantech.edu/programs">Programs</a></li>
+          <li><a href="http://www.manhattantech.edu/prospective-students">Prospective Students</a></li>
+          <li><a href="http://www.manhattantech.edu/student-services">Student Services</a></li>
+          <li><a href="http://www.manhattantech.edu/financial-aid">Financial Aid</a></li>
+          <li><a href="http://www.manhattantech.edu/alumni-friends">Alumni &amp; Friends</a></li>
+          <li><a href="http://www.manhattantech.edu/customized-business-training">Customized Business Training</a></li>
+          <li><a href="http://www.manhattantech.edu/continuing-education">Continuing Education</a></li>
+          <li><a href="http://www.manhattantech.edu/location-directions">Location &amp; Directions</a></li>
+        </ul>
+      </div>
+      <div class="box" id="box2">
+        <ul>
+          <li><a href="http://www.manhattantech.edu/student-services/registrar/transcript-request">Transcript Request</a></li>
+          <li><a href="http://www.manhattantech.edu/contact/campus-visit">Campus Visit</a></li>
+          <li><a href="http://www.manhattantech.edu/contact/request-info">Request Info</a></li>
+          <li><a href="http://www.manhattantech.edu/prospective-students/apply">Apply Now</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://www.manhattantech.edu/continuing-education/cna-cma">CNA</a></li>
+          <li><a href="http://www.manhattantech.edu/continuing-education/cna-cma">CMA</a></li>
+          <li><a href="http://www.manhattantech.edu/document_center/nursing/">Nursing Packet</a></li>
+          <li><a href="http://www.manhattantech.edu/document_center/dental_hygiene">Dental Hygiene Packet</a></li>
+        </ul>
+      </div>
+      <div class="box" id="box3">
+        <ul>
+          <li><a href="http://www.manhattantech.edu/prospective-students/admissions">Admissions</a></li>
+          <li><a href="http://www.manhattantech.edu/calendar" target="_blank">Calendar</a></li>
+          <li><a  href="http://webmail.matc.net" target="_blank">Webmail</a></li>
+          <li><a href="http://www.matconline.net" target="_blank">MATC Online</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://www.manhattantech.edu/terms-of-use">Terms of Use</a></li>
+          <li><a href="http://www.manhattantech.edu/privacy-policy">Privacy Policy</a></li>
+        </ul>
+        <ul class="section" id="section2">
+          <li><a href="http://www.manhattantech.edu/contact">Contact Us</a></li>
+        </ul>
+      </div>
+      <!--box-->
+      
+      <div class="box" id="box4"> <strong>FOLLOW US:</strong>
+        <ul>
+          <li><a href="http://www.facebook.com/manhattantech" target="_blank">Facebook</a></li>
+          <li><a href="http://twitter.com/#!/ManhattanTech" target="_blank">Twitter</a></li>
+          <li><a href="http://www.youtube.com/user/ManhattanTech" target="_blank">YouTube</a></li>
+          <li><a href="http://www.manhattantech.edu/news/rss" target="_blank">RSS Feed</a></li>
+          <li><a href="http://www.manhattantech.edu/news">Recent News</a></li>
+        </ul>
+      </div>
+      <!--box4-->
+      
+      <div id="footercaption"> Manhattan Area Technical College is a state-supported, locally controlled, technical college accredited by<br />
+        The Higher Learning Commission and is a member of the North Central Association of Colleges and Schools. </div>
+    </div>
+    <!--footerblock--> 
+  </div>
+</div>
+<!--footer-->
+<script type="text/javascript">
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.jntcompany.com/" : "http://stats.jntcompany.com/");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+        </script><script type="text/javascript">
+        try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 21);
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+        </script><noscript><p><img src="http://stats.jntcompany.com//piwik.php?idsite=21" style="border:0" alt="" /></p></noscript>
+</body></html>

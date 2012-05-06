@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Career Training | Missouri Career Training & Continuing Education | Metro Business College</title>
+<meta http-equiv="description" content="OFFICIAL WEB SITE FOR METRO BUSINESS COLLEGE - Jefferson City, Rolla, Cape Girardeau and Arnold Missouri Campuses. If you're looking for career training in Missouri from an accredited College, Metro Business College can help you get on the fast track." />
+<link href="css/fpstyles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jkmegamenu.css" />
+<script type="text/javascript" src="js/jkmegamenu.js"></script>
+<script type="text/javascript">
+
+//jkmegamenu.definemenu("anchorid", "menuid", "mouseover|click")
+jkmegamenu.definemenu("megaanchor", "megamenu1", "mouseover")
+
+</script>
+<script language="javascript">
+function mailpage()
+{
+mail_str = "mailto:?subject=Check out " + document.title;
+mail_str += "&body=I thought you might be interested in the " + document.title;
+mail_str += ". You can view it at, " + location.href; 
+location.href = mail_str;
+}
+</script>
+
+<meta name="google-site-verification" content="SLDRENbbG6o3Kg-9qQaVOE7iJ3UQBiTtrHDEaGOZ1l4" />
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+	var version;
+	var axo;
+	var e;
+	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+	try {
+		// version will be set for 7.X or greater players
+		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+		version = axo.GetVariable("$version");
+	} catch (e) {
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 6.X players only
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+			
+			// installed player is some revision of 6.0
+			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+			// so we have to be careful. 
+			
+			// default to the first public version
+			version = "WIN 6,0,21,0";
+			// throws if AllowScripAccess does not exist (introduced in 6.0r47)		
+			axo.AllowScriptAccess = "always";
+			// safe to call for 6.0r47 or greater
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 4.X or 5.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 3.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = "WIN 3,0,18,0";
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 2.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+			version = "WIN 2,0,0,11";
+		} catch (e) {
+			version = -1;
+		}
+	}
+	
+	return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	var flashVer = -1;
+	
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			var descArray = flashDescription.split(" ");
+			var tempArrayMajor = descArray[2].split(".");			
+			var versionMajor = tempArrayMajor[0];
+			var versionMinor = tempArrayMajor[1];
+			var versionRevision = descArray[3];
+			if (versionRevision == "") {
+				versionRevision = descArray[4];
+			}
+			if (versionRevision[0] == "d") {
+				versionRevision = versionRevision.substring(1);
+			} else if (versionRevision[0] == "r") {
+				versionRevision = versionRevision.substring(1);
+				if (versionRevision.indexOf("d") > 0) {
+					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+				}
+			}
+			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	else if ( isIE && isWin && !isOpera ) {
+		flashVer = ControlVersion();
+	}	
+	return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+	versionStr = GetSwfVer();
+	if (versionStr == -1 ) {
+		return false;
+	} else if (versionStr != 0) {
+		if(isIE && isWin && !isOpera) {
+			// Given "WIN 2,0,0,11"
+			tempArray         = versionStr.split(" "); 	// ["WIN", "2,0,0,11"]
+			tempString        = tempArray[1];			// "2,0,0,11"
+			versionArray      = tempString.split(",");	// ['2', '0', '0', '11']
+		} else {
+			versionArray      = versionStr.split(".");
+		}
+		var versionMajor      = versionArray[0];
+		var versionMinor      = versionArray[1];
+		var versionRevision   = versionArray[2];
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+		if (versionMajor > parseFloat(reqMajorVer)) {
+			return true;
+		} else if (versionMajor == parseFloat(reqMajorVer)) {
+			if (versionMinor > parseFloat(reqMinorVer))
+				return true;
+			else if (versionMinor == parseFloat(reqMinorVer)) {
+				if (versionRevision >= parseFloat(reqRevision))
+					return true;
+			}
+		}
+		return false;
+	}
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){	
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":	
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+</head>
+
+<body>
+<div id="mainBox">
+  <div class="mainbkgTop">
+    <div class="hdr">
+    <div class="mainCont">
+      <div class="right">
+      
+      <div class="topInfo">
+<!--        <div align="center"><img src="/images/call_metro_now.gif" width="163" height="37" alt="Toll Free #" /><br>
+          <img src="/images/social-media.gif" width="75" height="20" vspace="8" border="0" usemap="#Map2" />
+<map name="Map2" id="Map2"><area shape="rect" coords="1,1,25,18" href="http://www.facebook.com/metrobusinesscollege" target="_blank" />
+<area shape="rect" coords="28,2,51,18" href="http://www.youtube.com/metrobusinesscollege" target="_blank" />
+<area shape="rect" coords="53,1,83,20" href="http://financialaidcorner.blogspot.com/" target="_blank" />
+</map>-->
+        <div align="center"><img src="/images/call_metro_now.gif" width="163" height="37" alt="Toll Free #" /><br><div class="socialicons"><img src="/images/social-media.gif" width="75" height="20" vspace="8" border="0" usemap="#Map2" />
+<map name="Map2" id="Map2"><area shape="rect" coords="1,1,25,18" href="http://www.facebook.com/metrobusinesscollege" target="_blank" />
+<area shape="rect" coords="28,2,51,18" href="http://www.youtube.com/metrobusinesscollege" target="_blank" />
+<area shape="rect" coords="53,1,83,20" href="http://financialaidcorner.blogspot.com/" target="_blank" />
+</map></div>
+			<img src="/images/email_icon.gif" width="18" height="10" alt="Email" /> <a href="javascript:mailpage()">EMAIL THIS PAGE
+        </div>
+      </div>
+      
+       </div>
+    <div class="left">
+    <div class="mnLogo"><a href="/index.aspx"><img src="images/metro_logo_new.png" alt="Metro Business College" width="365" height="109" border="0" /></a></div>
+    
+    </div>
+    
+    </div>
+    </div>
+    <div id="navs">
+    <ul>
+    <li class="selected"><a href="/index.aspx">Home</a></li>
+    <li><a href="/AboutUs.aspx">About Us</a></li>
+    <li><a href="/MBCmain/Programs/Index.aspx"id="megaanchor">Programs</a>
+    <div id="megamenu1" class="megamenu">
+
+<div class="column">
+	<h3>AAS Degree Programs</h3>
+	<ul>
+	<li><a href="MBCmain/Programs/AccountingParaprofessional.aspx">Accounting Paraprofessional</a></li>
+	<li><a href="MBCmain/Programs/BusCompSpecialist.aspx">Business &amp; Computer Specialist</a></li>
+	<li><a href="MBCmain/Programs/MedicalBillingAndCodingSpecialist.aspx">Medical Billing &amp; Coding Specialist</a></li>
+	<li><a href="MBCmain/Programs/MedicalSpecialist.aspx">Medical Specialist</a></li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3>Diplomas</h3>
+	<ul>
+	<li><a href="MBCmain/Programs/AccountingAssistant.aspx">Accounting Assistant</a></li>
+	<li><a href="MBCmain/Programs/BusCompOperator.aspx">Business &amp; Computer Assistant</a></li>
+	<li><a href="MBCmain/Programs/MedicalSecretary.aspx">Medical Office Assistant</a></li>
+	</ul>
+</div>
+
+<div class="column">
+	<h3>Certificates</h3>
+	<ul>
+	<li><a href="MBCmain/Programs/AdminAssistant.aspx">Administrative Assistant</a></li>
+	<li><a href="MBCmain/Programs/MassageTherapy.aspx">Massage Therapy</a></li>
+    <li><a href="MBCmain/Programs/MedicalAdminAssistant.aspx">Medical Assistant</a></li>
+	</ul>
+</div>
+
+<br style="clear: left" />
+
+
+
+</div>
+    </li>    <li><a href="/Admissions.aspx">Admissions</a></li>
+    <li><a href="/FinancialAid.aspx">Financial Aid</a></li>
+    <li><a href="/GainfulEmploymentDisclosure/">Gainful Employment Disclosure</a></li>
+    <li><a href="/Locations.aspx">Locations</a></li>
+    <li><a href="/Alumni.aspx">Placement</a></li>
+    <li><a href="/Employment.aspx">Metro Jobs</a></li>
+    <li><a href="/ContactUs.aspx">Contact Us</a></li>
+    <li class="end">&nbsp;</li>
+    </ul>
+    </div>
+    </div>
+    <div class="bkg">
+    <div class="outerCont">
+<div class="container">
+
+  
+  <div class="sidebar1">
+<div class="topbar">
+  <div align="center"><img src="images/sidebar.png" width="191" height="425" border="0" usemap="#Map" />
+<map name="Map" id="Map">
+  <area shape="rect" coords="6,64,91,133" href="MBCCape/index.aspx" />
+<area shape="rect" coords="101,66,184,137" href="MBCRolla/index.aspx" />
+<area shape="rect" coords="4,150,89,222" href="MBCJeffCity/index.aspx" />
+<area shape="rect" coords="102,155,186,224" href="MBCArnold/index.aspx" />
+<area shape="rect" coords="5,244,186,304" href="Documents/MBCCatalog20122013.pdf" target="_blank" />
+<area shape="rect" coords="8,326,187,405" href="Success_Stories.aspx" />
+</map></div>
+</div>
+  </div>
+  <div class="content" style="z-index: -100;"><span class="content" style="z-index: -100;">
+      <div class="video_container">
+
+
+    <table width="530" border="0" style="margin:0; padding:0; float:left; margin-bottom: 5px;">
+  <tr>
+    <td colspan="5"><iframe src ="videos/mbc_video3.html" width ="530px" height ="336px" name ="video-frame" frameborder="0" align="left" style="float:left;"></iframe></td>
+    </tr>
+    <tr>
+    <td><a href ="videos/mbc_video3.html" title ="MBC Video One" target ="video-frame"><img src ="images/thumbnail1.png" alt ="MBC Video One" border ="0"/></a></td>
+    <td><a href ="videos/mbc_video2.html" title ="MBC Video Two" target ="video-frame"><img src ="images/thumbnail2.png" alt ="MBC Video Two" border ="0"/></a></td>
+    <td><a href ="videos/mbc_video1.html" title ="MBC Video Three" target ="video-frame"><img src ="images/thumbnail4.png" alt ="MBC Video Three" border ="0"/></a></td>
+    <td><a href ="videos/mbc_video4.html" title ="MBC Video Four" target ="video-frame"><img src ="images/thumbnail4.png" alt ="MBC Video Four" border ="0"/></a></td>
+    <td><a href ="videos/mbc_video5.html" title ="MBC Video Five" target ="video-frame"><img src ="images/thumbnail5.png" alt ="MBC Video Five" border ="0"/></a></td>
+  </tr>
+</table>
+<!--<div id="aweber_form" class="video_aweber_form">
+  <a href="Success_Stories.aspx"><img src="/images/placeholder.jpg" width="527" height="90" border="0" /></a></div>-->
+</div>
+    <!--<div class="video_container">
+<div id="flash_movie">
+
+<script language="JavaScript" type="text/javascript">
+	AC_FL_RunContent(
+		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0',
+		'width', '527',
+		'height', '296',
+		'src', 'mbcvid2',
+		'quality', 'high',
+		'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+		'align', 'middle',
+		'play', 'true',
+		'loop', 'true',
+		'scale', 'showall',
+		'wmode', 'transparent',
+		'devicefont', 'false',
+		'id', 'mbcvid2',
+		'bgcolor', '#ffffff',
+		'name', 'mbcvid2',
+		'menu', 'true',
+		'allowFullScreen', 'false',
+		'allowScriptAccess','sameDomain',
+		'movie', 'mbcvid2',
+		'salign', ''
+		); 
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="objID" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="527" height="296" id="mbcvid2" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="mbcvid2.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />	<embed src="mbcvid2.swf" quality="high" bgcolor="#ffffff" width="527" height="296" name="mbcvid2" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	</object>
+</noscript>
+</div>
+<div id="aweber_form" class="video_aweber_form">
+  <a href="Success_Stories.aspx"><img src="/images/placeholder.jpg" width="527" height="90" border="0" /></a></div>
+</div>-->
+  </span></div>
+    <div id="coursecolumns" style="margin-top: 60px;"><img src="images/coursecolumns.gif" width="752" height="49" />    </div>
+    <div id="coursecolumn1" style="margin-top: 55px;">
+      <p><span class="style1"><a href="MBCmain/programs/AccountingParaprofessional.aspx">Accounting Paraprofessional</a></span><br />
+        <span class="style3">Enter the high-paced economic industry
+        as an Accounting Paraprofessional</span></p>
+      <p><span class="style1"><a href="MBCmain/programs/BusCompSpecialist.aspx">Business &amp; Computer Specialist</a></span><br />
+        <span class="style3">Use your computer skills to get ahead
+        as a Business &amp; Computer Specialist</span></p>
+      <p><span class="style1"><a href="MBCmain/programs/MedicalBillingAndCodingSpecialist.aspx">Medical Billing &amp; Coding Specialist</a></span><br />
+        <span class="style3">Enjoy a career in healthcare as a<br />
+        Medical Billing &amp; Coding Specialist</span></p>
+      <p><span class="style1"><a href="MBCmain/programs/MedicalSpecialist.aspx">Medical Specialist</a></span><br />
+        <span class="style3">Get a career in healthcare as a Medical Specialist</span> </p>
+    </div>
+    <div id="vr1" style="margin-top: 55px;"><img src="images/vr.gif" width="6" height="210" /></div>
+    <div id="coursecolumn2" style="margin-top: 55px;">
+      <p><span class="style1"><a href="MBCmain/programs/AccountingAssistant.aspx">Accounting Assistant</a></span><br />
+        <span class="style3">Put your organizational and mathematical
+        skills to work as an Accounting Assistant</span> </p>
+      <p> <span class="style1"><a href="MBCmain/programs/BusCompOperator.aspx">Business &amp; Computer Assistant</a></span> <br />
+        <span class="style3">Take charge of a busy office as a
+        Business &amp; Computer Assistant</span></p>
+      <p> <span class="style1"><a href="MBCmain/programs/MedicalSecretary.aspx">Medical Office Assistant </a></span><br />
+        <span class="style3">Use your business skills to work in the
+        medical field as a Medical Office Assistant</span></p>
+    </div>
+    <div id="vr2" style="margin-top: 55px;"><img src="images/vr.gif" width="6" height="210" /></div>
+    <div id="coursecolumn3" style="margin-top: 55px;">
+      <p><span class="style1"><a href="MBCmain/programs/AdminAssistant.aspx">Administrative Assistant</a></span><br />
+          <span class="style3">Help an office run efficiently as an
+        Administrative Assistant</span></span></p>
+      <p><span class="style1"><a href="MBCmain/programs/MassageTherapy.aspx">Massage Therapy </a></span><br />
+        <span class="style3">Be your own boss with a career in
+          Massage Therapy</span></p>
+      <p><span class="style1"><a href="MBCmain/programs/MedicalAdminAssistant.aspx">Medical Assistant</a></span><br />
+        <span class="style3">Achieve your dream of working in a
+        doctor's office  as a Medical Assistant</span></p>
+    </div>
+    <div id="fplike" style="margin-top: 70px;">
+      <p><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://www.metrobusinesscollege.edu" layout="button_count" show_faces="false" width="250" font="tahoma"></fb:like></p></div>
+    <div id="welcome" style="margin-top: 70px;">
+      
+  <p>
+    <strong>FOR INFORMATION REGARDING GRADUATION AND PLACEMENT RATES, PROGRAM COSTS AND OTHER INFORMATION, PLEASE CLICK THE GAINFUL EMPLOYMENT DISCLOSURE TAB AT THE TOP OF THIS WEBPAGE.</strong>
+  </p>
+  <p>Small classes and hands-on training are what make Metro Business College unique.&#160; Whether just out of high school or re-entering the job market, you'll need specialized skills to succeed in today's highly competitive job market.&#160; Metro Business College is the place to acquire those skills quickly.</p>
+  <p>For over 30 years Metro has prepared students for exciting careers in the business, computer, massage therapy and medical fields.</p>
+  <p>The key to your future is at Metro Business College.&#160; Take the first step and call 1-888-206-4545 now!</p>
+  <p>
+    <br />
+  </p>
+
+    </div>
+	
+    <div class="sidebar2"><a href="/Video.aspx"><img src="images/videolinkhere.gif" alt="Video Link Here" width="192" height="70" border="0" /></a><br /><img class="sidebarImg2"src="images/newForm_ph.jpg" width="193" height="130" alt="Request More Information" />
+      <p class="requestinfo">REQUEST  INFORMATION</p>
+
+<!-- AWeber Web Form Generator 3.0 -->
+<style type="text/css">
+#af-form-1912622168 .af-body .af-textWrap, #af-form-1912622168 .af-body .af-selectWrap{width:98%;display:block;float:none;}
+#af-form-1912622168 .af-body input.text, #af-form-1912622168 .af-body textarea{background-color:#FFFFFF;border-color:#919191;border-width:1px;border-style:solid;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:12px;font-family:Verdana, sans-serif;}
+#af-form-1912622168 .af-body input.text:focus, #af-form-1912622168 .af-body textarea:focus{background-color:#FFFAD6;border-color:#030303;border-width:1px;border-style:solid;}
+#af-form-1912622168 .af-body label.previewLabel{display:block;float:none;text-align:left;width:auto;color:#000000;text-decoration:none;font-style:normal;font-weight:normal;font-size:12px;font-family:Verdana, sans-serif;}
+#af-form-1912622168 .af-body{padding-bottom:15px;padding-top:15px;background-repeat:no-repeat;background-position:inherit;background-image:none;color:#000000;font-size:11px;font-family:Verdana, sans-serif;}
+#af-form-1912622168 .af-quirksMode{padding-right:15px;padding-left:15px;}
+#af-form-1912622168 .af-standards .af-element{padding-right:15px;padding-left:15px;}
+#af-form-1912622168 .buttonContainer input.submit{background-image:url("http://forms.aweber.com/images/auto/gradient/button/611.png");background-position:top left;background-repeat:repeat-x;background-color:#460000;border:1px solid #460000;color:#FFFFFF;text-decoration:none;font-style:normal;font-weight:normal;font-size:14px;font-family:Verdana, sans-serif;}
+#af-form-1912622168 .buttonContainer input.submit{width:auto;}
+#af-form-1912622168 .buttonContainer{text-align:right;}
+#af-form-1912622168 button,#af-form-1912622168 input,#af-form-1912622168 submit,#af-form-1912622168 textarea,#af-form-1912622168 select,#af-form-1912622168 label,#af-form-1912622168 optgroup,#af-form-1912622168 option{float:none;position:static;margin:0;}
+#af-form-1912622168 div{margin:0;}
+#af-form-1912622168 form,#af-form-1912622168 textarea,.af-form-wrapper,.af-form-close-button,#af-form-1912622168 img{float:none;color:inherit;position:static;background-color:none;border:none;margin:0;padding:0;}
+#af-form-1912622168 input,#af-form-1912622168 button,#af-form-1912622168 textarea,#af-form-1912622168 select{font-size:100%;}
+#af-form-1912622168 select,#af-form-1912622168 label,#af-form-1912622168 optgroup,#af-form-1912622168 option{padding:0;}
+#af-form-1912622168,#af-form-1912622168 .quirksMode{width:166px;}
+#af-form-1912622168.af-quirksMode{overflow-x:hidden;}
+#af-form-1912622168{background-color:#F5F5F5;border-color:#FFFFFF;border-width:1px;border-style:none;}
+#af-form-1912622168{overflow:hidden;}
+.af-body .af-textWrap{text-align:left;}
+.af-body input.image{border:none!important;}
+.af-body input.submit,.af-body input.image,.af-form .af-element input.button{float:none!important;}
+.af-body input.text{width:100%;float:none;padding:2px!important;}
+.af-body.af-standards input.submit{padding:4px 12px;}
+.af-clear{clear:both;}
+.af-element label{text-align:left;display:block;float:left;}
+.af-element{padding:5px 0;}
+.af-form-wrapper{text-indent:0;}
+.af-form{text-align:left;margin:auto;}
+.af-quirksMode .af-element{padding-left:0!important;padding-right:0!important;}
+.af-usaddress input{margin-bottom:5px;}
+.af-usaddress{padding:6px 0;}
+.lastNameContainer{margin-top:10px;}
+.lbl-right .af-element label{text-align:right;}
+body {
+}
+</style>
+<form method="post" class="af-form-wrapper" action="http://www.aweber.com/scripts/addlead.pl"  >
+<div style="display: none;">
+<input type="hidden" name="meta_web_form_id" value="1912622168" />
+<input type="hidden" name="meta_split_id" value="" />
+<input type="hidden" name="redirect" value="http://www.metrobusinesscollege.edu/thanks.aspx" id="redirect_126ee4853b886f2b1fdd7aa1ab372df9" />
+
+<input type="hidden" name="meta_adtracking" value="WebSite_Forms" />
+<input type="hidden" name="meta_message" value="1" />
+<input type="hidden" name="meta_required" value="name (awf_first),name (awf_last),email" />
+
+<input type="hidden" name="meta_tooltip" value="custom Select Campus||Make A Selection" />
+</div>
+<div id="af-form-1912622168" class="af-form"><div id="af-body-1912622168" class="af-body af-standards">
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308539">Select Campus:</label>
+<div class="af-selectWrap"><select id="awf_field-24607356" name="listname" tabindex="504" > 
+<option class="multiChoice" value="arnoldcampus">Arnold</option>
+<option class="multiChoice" value="capecampus">Cape Girardeau</option>
+<option class="multiChoice" value="jeff-citycampus">Jefferson City</option>
+<option class="multiChoice" value="rollacampus">Rolla</option>
+</select>
+</div><input type="hidden" name="meta_preselected_awf_field-27308539" value=" "/><div class="af-clear"></div></div><div class="af-element">
+<label class="previewLabel" for="awf_field-27308536-first">First Name:</label>
+<div class="af-textWrap">
+<input id="awf_field-27308536-first" type="text" class="text" name="name (awf_first)" value=""  tabindex="501" />
+</div>
+<div class="af-clear"></div>
+</div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308536-last">Last Name:</label>
+<div class="af-textWrap">
+<input id="awf_field-27308536-last" class="text" type="text" name="name (awf_last)" value=""  tabindex="502" />
+</div>
+<div class="af-clear"></div></div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308537">Email: </label>
+<div class="af-textWrap"><input class="text" id="awf_field-27308537" type="text" name="email" tabindex="503"  />
+</div><div class="af-clear"></div>
+</div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308540street1">Street (Optional)</label>
+<div class="af-textWrap"><input id="awf_field-27308540street1" type="text" class="text" name="custom US Address (Street 1)" tabindex="504" /></div> 
+<div class="af-clear"></div></div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308540city">City (Optional)</label>
+<div class="af-textWrap"><input id="awf_field-27308540city" type="text" class="text" name="custom US Address (City)" tabindex="505" /></div> 
+<div class="af-clear"></div></div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308540state">State (Optional)</label>
+<div class="af-selectWrap"><select id="awf_field-27308540state" name="custom US Address (State)" tabindex="506" > 
+<option value=""></option>
+<option value="AL">AL</option>
+<option value="AK">AK</option>
+<option value="AZ">AZ</option>
+<option value="AR">AR</option>
+<option value="CA">CA</option>
+<option value="CO">CO</option>
+<option value="CT">CT</option>
+<option value="DC">DC</option>
+<option value="DE">DE</option>
+<option value="FL">FL</option>
+<option value="GA">GA</option>
+<option value="HI">HI</option>
+<option value="ID">ID</option>
+<option value="IL">IL</option>
+<option value="IN">IN</option>
+<option value="IA">IA</option>
+<option value="KS">KS</option>
+<option value="KY">KY</option>
+<option value="LA">LA</option>
+<option value="ME">ME</option>
+<option value="MD">MD</option>
+<option value="MA">MA</option>
+<option value="MI">MI</option>
+<option value="MN">MN</option>
+<option value="MS">MS</option>
+<option value="MO">MO</option>
+<option value="MT">MT</option>
+<option value="NE">NE</option>
+<option value="NV">NV</option>
+<option value="NH">NH</option>
+<option value="NJ">NJ</option>
+<option value="NM">NM</option>
+<option value="NY">NY</option>
+<option value="NC">NC</option>
+<option value="ND">ND</option>
+<option value="OH">OH</option>
+<option value="OK">OK</option>
+<option value="OR">OR</option>
+<option value="PA">PA</option>
+<option value="PR">PR</option>
+<option value="RI">RI</option>
+<option value="SC">SC</option>
+<option value="SD">SD</option>
+<option value="TN">TN</option>
+<option value="TX">TX</option>
+<option value="UT">UT</option>
+<option value="VT">VT</option>
+<option value="VA">VA</option>
+<option value="WA">WA</option>
+<option value="WV">WV</option>
+<option value="WI">WI</option>
+<option value="WY">WY</option>
+</select></div>
+<div class="af-clear"></div></div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308540zip">ZIP Code (Optional)</label>
+<div class="af-textWrap"><input id="awf_field-27308540zip" type="text" class="text" name="custom US Address (ZIP Code)" tabindex="507" /></div> 
+<div class="af-clear"></div></div>
+<div class="af-element">
+<label class="previewLabel" for="awf_field-27308538">Phone (Optional)</label>
+<div class="af-textWrap"><input type="text" id="awf_field-27308538" class="text" name="custom Phone - Optional" value=''  tabindex="508" /></div>
+<div class="af-clear"></div></div><div class="af-element buttonContainer">
+<input name="submit" class="submit" type="submit" value="Submit" tabindex="509" />
+<div class="af-clear"></div>
+</div>
+</div>
+</div>
+<div style="display: none;"><img src="http://forms.aweber.com/form/displays.htm?id=jJyMTGxMTIxsHA==" alt="" /></div>
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script type="text/javascript">
+    <!--
+    (function() {
+        var IE = /*@cc_on!@*/false;
+        if (!IE) { return; }
+        if (document.compatMode && document.compatMode == 'BackCompat') {
+            if (document.getElementById("af-form-1912622168")) {
+                document.getElementById("af-form-1912622168").className = 'af-form af-quirksMode';
+            }
+            if (document.getElementById("af-body-1912622168")) {
+                document.getElementById("af-body-1912622168").className = "af-body inline af-quirksMode";
+            }
+            if (document.getElementById("af-header-1912622168")) {
+                document.getElementById("af-header-1912622168").className = "af-header af-quirksMode";
+            }
+            if (document.getElementById("af-footer-1912622168")) {
+                document.getElementById("af-footer-1912622168").className = "af-footer af-quirksMode";
+            }
+        }
+    })();
+    -->
+</script>
+
+<!-- /AWeber Web Form Generator 3.0 --><div class="sidebar2Bttm">
+
+  </div>
+    <!-- end .sidebar2 --></div>
+    
+    
+  <!-- end .footer -->
+
+  <!-- end .container --></div></div>
+  
+  <div class="footer">
+  <div class="footer1">
+  
+  </div>
+    </div>
+ <div style="background:url(images/ltFooterBkg.jpg) top left repeat-x; height: 15px; width: 100%;"></div>   
+    
+    
+    
+    
+  </div>
+<div class="footerMain">
+  <div class="lnks"><ul>
+  <li><a href="/index.aspx">Home</a> |</li>
+  <li><a href="/AboutUs.aspx">About Us</a> |</li>
+  <li><a href="/MBCmain/Programs/Index.aspx">Programs</a> |</li>
+  <li><a href="/Admissions.aspx">Admissions</a> |</li>
+  <li><a href="/FinancialAid.aspx">Financial Aid</a> |</li>
+  <li><a href="/GainfulEmploymentDisclosure/">Gainful Employment Disclosure</a> |</li>
+  <li><a href="/Locations.aspx">Locations</a> |</li>
+  <li><a href="/Alumni.aspx">Placement</a> |</li>
+  <li><a href="/Employment.aspx">Metro Jobs</a> |</li>
+  <li><a href="/ContactUs.aspx">Contact Us</a> |</li>
+  <li><a href="/SiteMap.aspx">Site Map</a></li>
+  </ul>
+  <div class="copyright">&copy;2011 Metro Business College. All Rights Reserved.</div>
+  </div>
+  </div>
+  </div>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-2753439-3";
+urchinTracker();
+</script>
+<!-- Google Code for Home Page Visitors Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 997683883;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "bBQ1CI23lAIQq-Xd2wM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/997683883/?label=bBQ1CI23lAIQq-Xd2wM&guid=ON&script=0"/>
+</div>
+</noscript><script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-2753439-3";
+urchinTracker();
+</script>
+<!-- Google Code for Home Page Visitors Remarketing List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 997683883;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "bBQ1CI23lAIQq-Xd2wM";
+var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/997683883/?label=bBQ1CI23lAIQq-Xd2wM&guid=ON&script=0"/>
+</div>
+</noscript>
+</body>
+</html>

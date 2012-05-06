@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Hesston College</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/style.css" />
+<link rel="stylesheet" href="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/print.css" type="text/css" media="print" />
+<link rel="stylesheet" href="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/ipad.css"  type="text/css" media="only screen and (max-device-width: 1024px)" />
+
+<link rel="pingback" href="http://www.hesston.edu/xmlrpc.php" />
+<link rel="icon" type="image/png" href="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/favicon.ico" />
+
+<link rel="alternate" type="application/rss+xml" title="Hesston College &raquo; Feed" href="http://www.hesston.edu/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Hesston College &raquo; Comments Feed" href="http://www.hesston.edu/comments/feed/" />
+<link rel='stylesheet' id='thickbox-css'  href='http://www.hesston.edu/wp-includes/js/thickbox/thickbox.css?ver=20111117' type='text/css' media='all' />
+<link rel='stylesheet' id='colorbox-theme1-css'  href='http://www.hesston.edu/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/theme1/colorbox.css?ver=1.3.14' type='text/css' media='screen' />
+<link rel='stylesheet' id='hesston-styles-css'  href='http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/hesston-styles.css?ver=3.3.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.hesston.edu/wp-includes/js/jquery/jquery.js?ver=1.7.1'></script>
+<script type='text/javascript' src='http://www.hesston.edu/wp-content/plugins/jquery-lightbox-for-native-galleries/colorbox/jquery.colorbox-min.js?ver=1.3.14'></script>
+<script type='text/javascript' src='http://www.hesston.edu/wp-includes/js/swfobject.js?ver=2.2'></script>
+<script type='text/javascript' src='http://www.hesston.edu/wp-content/plugins/my-calendar/js/jquery.easydrag.js?ver=3.3.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.hesston.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.hesston.edu/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.3.1" />
+
+<script type='text/javascript'>
+jQuery('html').addClass('mcjs');
+jQuery(document).ready(function($) { $('html').removeClass('mcjs') });
+jQuery.noConflict();
+</script>
+<style type="text/css" media="all">
+/* <![CDATA[ */
+@import url("http://www.hesston.edu/wp-content/plugins/wp-table-reloaded/css/plugin.css?ver=1.9.1");
+@import url("http://www.hesston.edu/wp-content/plugins/wp-table-reloaded/css/datatables.css?ver=1.9.1");
+/* ]]> */
+</style><!-- jQuery Lightbox For Native Galleries v3.2.2 | http://www.viper007bond.com/wordpress-plugins/jquery-lightbox-for-native-galleries/ -->
+<script type="text/javascript">
+// <![CDATA[
+	jQuery(document).ready(function($){
+		$(".gallery").each(function(index, obj){
+			var galleryid = Math.floor(Math.random()*10000);
+			$(obj).find("a").colorbox({rel:galleryid, maxWidth:"95%", maxHeight:"95%"});
+		});
+		$("a.lightbox").colorbox({maxWidth:"95%", maxHeight:"95%"});
+	});
+// ]]>
+</script>
+
+<!-- include jquery tools for admission side scroller -->
+
+<!-- Include the Nivo Slider JS file -->
+<script src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/scripts/nivoslider/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+<!-- Set up the Nivo Slider -->
+<script type="text/javascript">
+jQuery(document).ready(function($){
+
+    jQuery('#slider').nivoSlider({
+    effect:'fade',
+    animspeed:500,
+    slices:1,
+    pauseTime:5000,
+    controlNav:true,
+    controlNavThumbs:true,
+    controlNavThumbsFromRel:false,
+    controlNavThumbsSearch:'640x320.jpg',
+    controlNavThumbsReplace:'59x32.jpg',
+    captionOpacity:1.0,
+    directionNav:false
+    });
+
+ /*
+    jQuery('.simple-slider').nivoSlider({
+    effect:'random',
+    animspeed:250,
+    slices:1,
+    pauseTime:5000,
+    controlNav:false,
+    directionNav:false,
+    captionOpacity:0
+    });
+*/
+
+    // Attach the slider function to each of the Profile Nav links.
+    $("#ProfileNav > li > a").click(function(){
+        slideContent($(this).parent().attr("id"));
+    });
+
+    function slideContent(obj){
+        $("#ProfileNav > li > a").removeClass("ProfileNavActive");
+        $("#"+obj+" > a").addClass("ProfileNavActive");
+        $(".ProfileNavSlider").slideUp();
+        if ($("#"+obj+"SlideContent").is(":hidden")){
+            $("#"+obj+"SlideContent").slideDown();
+        }
+        else {
+            $("#"+obj+"SlideContent").slideUp();
+            $("#"+obj+" > a").removeClass("ProfileNavActive");
+        }
+    }
+
+    // Add a simple rollover to the main HC logo on the page
+    $("#HC-Logo").hover(function(){
+        $(this).attr('src', 'http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/Logo-385x68-over.png');
+    },function(){
+        $(this).attr('src', 'http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/Logo-385x68.png');
+    });
+
+    // Provide some fancier interaction with the search link
+    $('#s').bind('focus', function() {
+        if (this.value == this.defaultValue){
+            this.value = '';
+        }
+        if(this.value != this.defaultValue){
+            this.select();
+        }
+    });
+    $('#s').bind('blur', function() {
+        if (this.value == '') {
+            this.value = this.defaultValue;
+        }
+    });
+});
+
+</script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2123825-1']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</head>
+
+<body class="home blog">
+
+<div id="StudentsSlideContent" class="ProfileNavSlider">
+    <ul id="menu-header-students" class="menu"><li id="menu-item-8990" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8990"><a href="http://my.hesston.edu">myHesston</a></li>
+<li id="menu-item-7643" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7643"><a href="https://notes.hesston.edu/wmailr62.nsf?Open">Email</a></li>
+<li id="menu-item-8025" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8025"><a href="http://moodle.hesston.edu">Moodle</a></li>
+<li id="menu-item-7728" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7728"><a href="http://www.hesston.edu/academics/registrar/academic-calendar/">Academic Calendar</a></li>
+<li id="menu-item-7646" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7646"><a href="http://www.hesston.edu/catalog/">Catalog</a></li>
+<li id="menu-item-7642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7642"><a href="http://www.hesston.edu/academics/library/">Library</a></li>
+<li id="menu-item-13028" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13028"><a href="http://horizon.hesston.edu/">Horizon</a></li>
+<li id="menu-item-8117" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8117"><a href="http://calendar.hesston.edu/cgi-bin/webevent/webevent.cgi">Campus Calendar</a></li>
+<li id="menu-item-7645" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7645"><a href="http://books.hesston.edu">Bookstore</a></li>
+<li id="menu-item-8908" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8908"><a href="http://www.hesston.edu/food-service/">Menu</a></li>
+</ul></div>
+
+<div id="AlumniSlideContent" class="ProfileNavSlider">
+    <ul id="menu-header-alumni" class="menu"><li id="menu-item-7663" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7663"><a href="http://www.hesston.edu/hesstoncollegetoday/">Hesston College Today</a></li>
+<li id="menu-item-7665" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7665"><a href="http://www.hesston.edu/alumni-development/alumni/homecoming/">Homecoming</a></li>
+<li id="menu-item-7667" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7667"><a href="http://www.hesston.edu/alumni-development/giving/">Give</a></li>
+<li id="menu-item-7668" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7668"><a href="http://books.hesston.edu">Bookstore</a></li>
+<li id="menu-item-7670" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7670"><a href="http://www.hesston.edu/academics/registrar/request-a-transcript/">Transcript Requests</a></li>
+<li id="menu-item-8118" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8118"><a href="http://calendar.hesston.edu/cgi-bin/webevent/webevent.cgi">Campus Calendar</a></li>
+<li id="menu-item-8288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8288"><a href="http://www.hesston.edu/alumni-development/alumni/address-update/">Address Update</a></li>
+</ul></div>
+
+<div id="ParentsSlideContent" class="ProfileNavSlider">
+    <ul id="menu-header-parents" class="menu"><li id="menu-item-7693" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7693"><a href="http://www.hesston.edu/admissions/financial-aid/">Financial Aid</a></li>
+<li id="menu-item-7694" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7694"><a href="http://www.hesston.edu/admissions/apply/how-to-apply/">Application Process</a></li>
+<li id="menu-item-7727" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7727"><a href="http://www.hesston.edu/academics/registrar/academic-calendar/">Academic Calendar</a></li>
+<li id="menu-item-7696" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7696"><a href="http://www.hesston.edu/category/news-releases/">News</a></li>
+<li id="menu-item-13033" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13033"><a href="http://horizon.hesston.edu/">Student Newspaper</a></li>
+<li id="menu-item-7699" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7699"><a href="http://www.hesston.edu/student-life/resources-for-parents/">Resources &#038; Tips</a></li>
+<li id="menu-item-8116" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8116"><a href="http://calendar.hesston.edu/cgi-bin/webevent/webevent.cgi">Campus Calendar</a></li>
+<li id="menu-item-11177" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11177"><a href="http://books.hesston.edu">Bookstore</a></li>
+</ul></div>
+
+<div id="EmployeesSlideContent" class="ProfileNavSlider">
+    <ul id="menu-header-fac-staff" class="menu"><li id="menu-item-8034" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8034"><a href="http://my.hesston.edu">myHesston</a></li>
+<li id="menu-item-7701" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7701"><a href="https://notes.hesston.edu/wmailr62.nsf?Open">Email</a></li>
+<li id="menu-item-8024" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8024"><a href="http://moodle.hesston.edu">Moodle</a></li>
+<li id="menu-item-7706" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7706"><a href="http://www.hesston.edu/about/mission-vision-and-values/">Mission, Vision, Values</a></li>
+<li id="menu-item-7703" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7703"><a href="http://scheduler.hesston.edu/">Scheduler</a></li>
+<li id="menu-item-7707" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7707"><a href="http://www.hesston.edu/academics/library/">Library</a></li>
+<li id="menu-item-7704" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-7704"><a href="http://www.hesston.edu/category/news-releases/">News</a></li>
+<li id="menu-item-13031" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13031"><a href="http://horizon.hesston.edu/">Horizon</a></li>
+<li id="menu-item-8038" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8038"><a href="http://calendar.hesston.edu/cgi-bin/webevent/webevent.cgi">Campus Calendar</a></li>
+<li id="menu-item-8909" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8909"><a href="http://www.hesston.edu/food-service/">Menu</a></li>
+</ul></div>
+
+<div id="header-wrapper" class="hfeed">
+    <div id="header">
+		<div id="search-bar-container">
+			<form id="search-bar" method="get" action="http://www.hesston.edu"> <label class="screen-reader-text" for="s">Search for:</label><input id="s" type="text" name="s" title="Search" value="Search hesston.edu" /></form>
+		</div>
+
+                        <h1 id="site-title">
+                <span>
+                    <a href="http://www.hesston.edu/" title="Hesston College" ><img id="HC-Logo" src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/Logo-385x68.png" width="385" height="68" alt="Hesston College" /></a>
+                </span>
+            </h1>
+
+            
+                <ul id="ProfileNav">
+                    <li id="Students"><a href="#">Students</a></li>
+                    <li id="Alumni"><a href="#">Alumni</a></li>
+                    <li id="Parents"><a href="#">Parents</a></li>
+                    <li id="Employees"><a href="#">Faculty &amp; Staff</a></li>
+                </ul>
+                <ul id="ProfileSubNav">
+                    <li><a href="http://www.hesston.edu/admissions/request-information">Request Information</a></li>
+                    <li><a href="http://www.hesston.edu/admissions/apply/">Apply Now</a></li>
+                    <li><a href="http://www.hesston.edu/alumni-development/giving/">Give to Hesston</a></li>
+                </ul>
+           
+           
+           
+
+        <div id="access">
+            <img src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/Main-Nav-Notch.png" style="float: left; margin-left: -13px;" alt=">" />
+            <img src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/Main-Nav-Arrow.png" style="float: right; margin-right: -17px;" alt=">" />
+                      <div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
+                        <div class="menu-header"><ul id="menu-main" class="menu"><li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="http://www.hesston.edu/admissions/">Admissions &#038; Financial Aid</a>
+<ul class="sub-menu">
+	<li id="menu-item-9156" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9156"><a href="http://www.hesston.edu/admissions/">Admissions &#038; Financial Aid</a></li>
+	<li id="menu-item-8056" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8056"><a href="http://www.hesston.edu/admissions/find-your-counselor/">Find your counselor</a></li>
+	<li id="menu-item-1609" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1609"><a href="http://www.hesston.edu/admissions/apply/">Apply for Admission</a></li>
+	<li id="menu-item-8073" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8073"><a href="http://www.hesston.edu/admissions/request-information/">Request information</a></li>
+	<li id="menu-item-1608" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1608"><a href="http://www.hesston.edu/admissions/visit/">Visit the campus</a></li>
+	<li id="menu-item-1607" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1607"><a href="http://www.hesston.edu/admissions/financial-aid/">Cost and Financial Aid</a></li>
+	<li id="menu-item-1605" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1605"><a href="http://www.hesston.edu/admissions/international/">International Students</a></li>
+	<li id="menu-item-1604" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1604"><a href="http://www.hesston.edu/admissions/accepted-students/">Accepted Students</a></li>
+</ul>
+</li>
+<li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-40"><a href="http://www.hesston.edu/academics/">Academics</a>
+<ul class="sub-menu">
+	<li id="menu-item-9157" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9157"><a href="http://www.hesston.edu/academics/">Academics</a></li>
+	<li id="menu-item-111" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-111"><a href="http://www.hesston.edu/academics/faculty/">Faculty</a></li>
+	<li id="menu-item-8035" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8035"><a href="http://www.hesston.edu/academics/registrar/academic-calendar/">Academic Calendar</a></li>
+	<li id="menu-item-110" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-110"><a href="http://www.hesston.edu/academics/majors/">Majors</a></li>
+	<li id="menu-item-109" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-109"><a href="http://www.hesston.edu/academics/departments/">Departments</a></li>
+	<li id="menu-item-8270" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8270"><a href="http://www.hesston.edu/catalog/">Course Catalog</a></li>
+	<li id="menu-item-720" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-720"><a href="http://www.hesston.edu/academics/registrar/">Registrar&#8217;s Office</a></li>
+	<li id="menu-item-719" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-719"><a href="http://www.hesston.edu/academics/dean/">Dean&#8217;s Office</a></li>
+	<li id="menu-item-583" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-583"><a href="http://www.hesston.edu/academics/library/">Mary Miller Library</a></li>
+</ul>
+</li>
+<li id="menu-item-54" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-54"><a href="http://www.hesston.edu/alumni-development/">Alumni &#038; Development</a>
+<ul class="sub-menu">
+	<li id="menu-item-9158" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9158"><a href="http://www.hesston.edu/alumni-development/">Alumni &#038; Development</a></li>
+	<li id="menu-item-9153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9153"><a href="http://www.hesston.edu/alumni-development/development/partner-program/">Partner Program</a></li>
+	<li id="menu-item-8287" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8287"><a href="http://www.hesston.edu/alumni-development/alumni/address-update/">Update your Address</a></li>
+	<li id="menu-item-9790" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9790"><a href="http://www.hesston.edu/alumni-development/development/erb-hall/">Erb Hall Campaign</a></li>
+	<li id="menu-item-1437" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1437"><a href="http://www.hesston.edu/alumni-development/development/giving/">Give to Hesston</a></li>
+	<li id="menu-item-9791" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9791"><a href="http://www.hesston.edu/alumni-development/development/estate-planning/">Estate Planning</a></li>
+	<li id="menu-item-1436" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1436"><a href="http://www.hesston.edu/alumni-development/church-relations/">Church Relations</a></li>
+	<li id="menu-item-1413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1413"><a href="http://www.hesston.edu/hesstoncollegetoday/">Hesston College Today</a></li>
+</ul>
+</li>
+<li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a href="http://www.hesston.edu/student-life/">Student Life</a>
+<ul class="sub-menu">
+	<li id="menu-item-9159" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9159"><a href="http://www.hesston.edu/student-life/">Student Life</a></li>
+	<li id="menu-item-2938" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2938"><a href="http://www.hesston.edu/student-life/campus-activities/">Campus Activities</a></li>
+	<li id="menu-item-2939" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2939"><a href="http://www.hesston.edu/student-life/campus-ministries/">Campus Ministries</a></li>
+	<li id="menu-item-2937" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2937"><a href="http://www.hesston.edu/student-life/frequently-asked-questions/">Frequently Asked Questions</a></li>
+</ul>
+</li>
+<li id="menu-item-52" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-52"><a href="http://www.hesston.edu/larks/">Athletics</a>
+<ul class="sub-menu">
+	<li id="menu-item-9160" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9160"><a href="http://www.hesston.edu/larks/">Athletics</a></li>
+	<li id="menu-item-183" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-183"><a href="http://www.hesston.edu/larks/baseball/">Baseball</a></li>
+	<li id="menu-item-180" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-180"><a href="http://www.hesston.edu/larks/mens-basketball/">Basketball (m)</a></li>
+	<li id="menu-item-179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-179"><a href="http://www.hesston.edu/larks/womens-basketball/">Basketball (w)</a></li>
+	<li id="menu-item-181" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="http://www.hesston.edu/larks/mens-cross-country/">Cross Country (m)</a></li>
+	<li id="menu-item-9683" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9683"><a href="http://www.hesston.edu/larks/womens-cross-country/">Cross Country (w)</a></li>
+	<li id="menu-item-184" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-184"><a href="http://www.hesston.edu/larks/mens-soccer/">Soccer (m)</a></li>
+	<li id="menu-item-187" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-187"><a href="http://www.hesston.edu/larks/womens-soccer/">Soccer (w)</a></li>
+	<li id="menu-item-178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-178"><a href="http://www.hesston.edu/larks/softball/">Softball</a></li>
+	<li id="menu-item-190" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-190"><a href="http://www.hesston.edu/larks/mens-tennis/">Tennis (m)</a></li>
+	<li id="menu-item-1049" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1049"><a href="http://www.hesston.edu/larks/womens-tennis/">Tennis (w)</a></li>
+	<li id="menu-item-182" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-182"><a href="http://www.hesston.edu/larks/volleyball/">Volleyball</a></li>
+	<li id="menu-item-13010" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13010"><a href="http://www.hesston.edu/larks/athletic-training-services/">Athletic Training Services</a></li>
+</ul>
+</li>
+<li id="menu-item-371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-371"><a href="http://www.hesston.edu/about/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-9154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9154"><a href="http://www.hesston.edu/about/">About</a></li>
+	<li id="menu-item-10185" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10185"><a href="http://www.hesston.edu/category/news-releases/">News</a></li>
+	<li id="menu-item-3057" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3057"><a href="http://www.hesston.edu/about/mission-vision-and-values/">Mission, Vision and Values</a></li>
+	<li id="menu-item-3055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3055"><a href="http://www.hesston.edu/profiles/">Profiles</a></li>
+	<li id="menu-item-3065" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3065"><a href="http://www.hesston.edu/about/accreditation/">Accreditation</a></li>
+	<li id="menu-item-3071" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3071"><a href="http://www.hesston.edu/about/governance/">Governance</a></li>
+</ul>
+</li>
+<li id="menu-item-51" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-51"><a href="http://www.hesston.edu/contact/">Contact</a>
+<ul class="sub-menu">
+	<li id="menu-item-9155" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9155"><a href="http://www.hesston.edu/contact/">Contact</a></li>
+	<li id="menu-item-813" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-813"><a href="http://www.hesston.edu/contact/directions/">Directions to Campus</a></li>
+	<li id="menu-item-792" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-792"><a href="http://www.hesston.edu/contact/employment/">Employment Opportunities</a></li>
+	<li id="menu-item-826" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-826"><a href="http://www.hesston.edu/contact/volunteer-opportunities/">Volunteer Opportunities</a></li>
+	<li id="menu-item-11178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11178"><a href="http://books.hesston.edu">Bookstore</a></li>
+	<li id="menu-item-1040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1040"><a href="http://www.hesston.edu/employees/">Employee Directory</a></li>
+</ul>
+</li>
+</ul></div>        </div><!-- #access -->
+    </div><!-- #header -->
+</div><!-- #header-wrapper -->
+
+<div id="slider-wrapper"><div id="slider-thumbs"></div><div id="slider"><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/06/DSC_9821b-640x320.jpg" class="attachment-slider wp-post-image" alt="Hesston College students with the college&#039;s VW Super Beetle" title="#htmlcaption0" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/rollercoaster_7749-640x320.jpg" class="attachment-slider wp-post-image" alt="rollercoaster_7749" title="#htmlcaption1" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/Kush-DSC_4141-640x320.jpg" class="attachment-slider wp-post-image" alt="Kush-DSC_4141" title="#htmlcaption2" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/BibLit110401-097-640x320.jpg" class="attachment-slider wp-post-image" alt="Students in Biblical Literature, one of Hesston College&#039;s distinctive courses." title="#htmlcaption3" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/Kendra-and-Reshet-640x320.jpg" class="attachment-slider wp-post-image" alt="Kendra and Reshet" title="#htmlcaption4" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/spandmh_7484-640x320.jpg" class="attachment-slider wp-post-image" alt="spandmh_7484" title="#htmlcaption5" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/PierreZook_1852-640x320.jpg" class="attachment-slider wp-post-image" alt="Hesston College freshman Pierre Zook leads a campus tour." title="#htmlcaption6" /><img width="640" height="320" src="http://www.hesston.edu/wp-content/uploads/2011/11/alyssa_bug_9939a2-640x320.jpg" class="attachment-slider wp-post-image" alt="alyssa_bug_9939a2" title="#htmlcaption7" /></div><div id='htmlcaption0' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/start-here-go-everywhere/' title='Start Here, Go Everywhere' >Start Here, Go Everywhere</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>Hesston College will give you the start you need for a successful career in more than 50 fields of study.&hellip;<br /><a class="nivo-caption-more" href="http://www.hesston.edu/2011/11/start-here-go-everywhere/"> read more&hellip;</a></span>
+</div>
+<div id='htmlcaption1' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/second-place-is-great/' title='Second place is great' >Second place is great</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>Hesston College is the #2 two-year college in the U.S. according to Washington Monthly.</span>
+</div>
+<div id='htmlcaption2' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/what-is-your-major/' title='What is your major?' >What is your major?</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>We have more than 50. And if answering “What is your major?” frightens you, we have the expertise to help&hellip;<br /><a class="nivo-caption-more" href="http://www.hesston.edu/2011/11/what-is-your-major/"> read more&hellip;</a></span>
+</div>
+<div id='htmlcaption3' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/98-percent-financial-aid/' title='98 percent of our students receive financial aid' >98 percent of our students receive financial aid</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>With generous scholarships and a broad variety of financial aid sources, we help make Hesston College affordable.</span>
+</div>
+<div id='htmlcaption4' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/a-warm-and-welcoming-campus/' title='A warm and welcoming campus' >A warm and welcoming campus</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>From the moment you arrive on campus, our goal is to help you feel connected.</span>
+</div>
+<div id='htmlcaption5' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/a-whole-new-challenge/' title='A whole new challenge' >A whole new challenge</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>No matter your field of study, Hesston’s faculty will stretch you in ways you haven’t imagined and will walk alongside&hellip;<br /><a class="nivo-caption-more" href="http://www.hesston.edu/2011/11/a-whole-new-challenge/"> read more&hellip;</a></span>
+</div>
+<div id='htmlcaption6' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/start-with-a-visit/' title='Start with a visit' >Start with a visit</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>What is the best way to see if Hesston College is right for you? Visit campus and meet our students.</span>
+</div>
+<div id='htmlcaption7' class='nivo-html-caption'>
+  <span class='nivo-caption-title' >
+    <a href='http://www.hesston.edu/2011/11/start-now/' title='Start now.' >Start now.</a></span>
+  <span class='spacer'><br /></span><span class='nivo-caption-lead'>Apply online today.</span>
+</div>
+<img id="slider-shadow" src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/ImageShadow.png" alt="Shadow" /></div><!-- #slider-wrapper -->
+<div id="main-wrapper">
+    <div id="main">
+
+		<div id="container">
+			<div id="content">
+                <!--<h3 class="home-news" >News Headlines <a href="#" title="Subscribe to the RSS feed for news items"><img alt='RSS icon' src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/RSS-Icon-Small-Reflection.png" /></a>
+                    <div class="see-more"><a href="#" title="The news archives" >See more news&hellip;</a></div></h3>-->
+
+                                        <div id="post-13275" class="post-13275 post type-post status-publish format-standard hentry category-feature category-news-releases home-post">
+                                                <div class="entry-thumbnail"><a href="http://www.hesston.edu/2012/04/remembering-al/" title="Remembering Al"><span class='shadowed-image'><img width="200" height="100" src="http://www.hesston.edu/wp-content/uploads/2005/04/AlYoder37mod-200x100.jpg" class="attachment-feature-thumb wp-post-image" alt="Hesston College professor Al Yoder explains a point during an ESL (English as a Second Language) course during the spring semester. Yoder is retiring from the college at the end of the present school year in early May." title="AlYoder37mod" /><img class="feature-thumb-shadow shadow" src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/ImageShadow.png" alt='Shadow' /></span></a></div>
+
+                                                <h3 class="entry-title home"><a href="http://www.hesston.edu/2012/04/remembering-al/" title="Permalink to Remembering Al" rel="bookmark">Remembering Al</a></h3>
+
+                        <!--<div class="entry-meta">
+                            April 27, 2012                        </div>--><!-- .entry-meta -->
+
+                        <div class="entry-summary">
+                            <p>“Here is the particular case of Mr. Al Yoder, who gave me great support when I was struggling in my classes because of my poor English.” Victor Carrasco’s words echoed [...]</p>
+                        </div><!-- .entry-summary -->
+
+                     </div><!-- post -->
+                      <!-- post's contents -->
+                                             <div id="post-13237" class="post-13237 post type-post status-publish format-standard hentry category-academic-department category-feature category-music category-news-releases home-post">
+                                                <div class="entry-thumbnail"><a href="http://www.hesston.edu/2012/04/european-chorale-prepares-for-european-tour/" title="European Chorale prepares for tour"><span class='shadowed-image'><img width="200" height="100" src="http://www.hesston.edu/wp-content/uploads/2012/04/european_chorale_2482web-200x100.jpg" class="attachment-feature-thumb wp-post-image" alt="The 2012 Hesston College European Chorale will tour and perform in five European countries May 8 to 29." title="european_chorale_2482web" /><img class="feature-thumb-shadow shadow" src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/ImageShadow.png" alt='Shadow' /></span></a></div>
+
+                                                <h3 class="entry-title home"><a href="http://www.hesston.edu/2012/04/european-chorale-prepares-for-european-tour/" title="Permalink to European Chorale prepares for tour" rel="bookmark">European Chorale prepares for tour</a></h3>
+
+                        <!--<div class="entry-meta">
+                            April 24, 2012                        </div>--><!-- .entry-meta -->
+
+                        <div class="entry-summary">
+                            <p>The Hesston College European Chorale will kick off its biennial European tour with a concert during Hesston College Commencement Weekend at 4 p.m. Saturday, May 5, in the Hesston Mennonite [...]</p>
+                        </div><!-- .entry-summary -->
+
+                     </div><!-- post -->
+                      <!-- post's contents -->
+                                             <div id="post-13123" class="post-13123 post type-post status-publish format-standard hentry category-feature category-news-releases home-post">
+                                                <div class="entry-thumbnail"><a href="http://www.hesston.edu/2012/04/hesston-bethel-performing-arts-to-host-the-rose-ensemble-for-concert-and-residency/" title="Hesston-Bethel Performing Arts to host The Rose Ensemble for concert and residency"><span class='shadowed-image'><img width="200" height="100" src="http://www.hesston.edu/wp-content/uploads/2012/04/Rose_Ensemble_2011_indoor-200x100.jpg" class="attachment-feature-thumb wp-post-image" alt="The Rose Ensemble will perform the final concert of the 2011-12 Hesston-Bethel Performing Arts series at 7:30 p.m. Friday, April 27, on the Hesston College campus. Photo courtesy of The Rose Ensemble." title="Rose_Ensemble_2011_indoor" /><img class="feature-thumb-shadow shadow" src="http://www.hesston.edu/wp-content/themes/hesston-twentyeleven/images/ImageShadow.png" alt='Shadow' /></span></a></div>
+
+                                                <h3 class="entry-title home"><a href="http://www.hesston.edu/2012/04/hesston-bethel-performing-arts-to-host-the-rose-ensemble-for-concert-and-residency/" title="Permalink to Hesston-Bethel Performing Arts to host The Rose Ensemble for concert and residency" rel="bookmark">Hesston-Bethel Performing Arts to host The Rose Ensemble for concert and residency</a></h3>
+
+                        <!--<div class="entry-meta">
+                            April 11, 2012                        </div>--><!-- .entry-meta -->
+
+                        <div class="entry-summary">
+                            <p>The culminating event of the 2011-12 Hesston-Bethel Performing Arts series will feature The Rose Ensemble, one of America’s premiere choral groups, for a three-day residency and program entitled “Land of [...]</p>
+                        </div><!-- .entry-summary -->
+
+                     </div><!-- post -->
+                      <!-- post's contents -->
+                                     			</div><!-- #content -->
+		</div><!-- #container -->
+
+    <div id="primary" class="widget-area">
+        <div id="upcoming-events-container" class="widget_my_calendar_upcoming_widget"><h3><a href='http://www.hesston.edu/calendar'>Featured Events</a></h3><ul id='upcoming-events'><li class="past-event"><span class="cal-date">Jun, 1</span><span class="cal-title"><a href='http://www.hesston.edu/events/explore-kansas-2012/'>Explore Kansas! 2012 day trip</a></span><span class="cal-time">N/A at </span></li>
+<li class="past-event"><span class="cal-date">Aug, 17</span><span class="cal-title">Opening Weekend</span><span class="cal-time">N/A at </span></li>
+<li class="past-event"><span class="cal-date">Oct, 28</span><span class="cal-title"><a href='http://www.hesston.edu/events/avds/'>Anabaptist Vision  and Discipleship Series (begins Oct. 26)</a></span><span class="cal-time">5:00 pm at Hesston Mennonite Church</span></li>
+</ul></div>    </div><!-- #primary .widget-area -->
+
+            
+     <div id="social-media">
+        <fb:like href="http://www.facebook.com/hesston" layout="button_count" send="true" width="140" show_faces="false" colorscheme="dark" font="trebuchet ms"></fb:like>    </div>
+   
+
+
+        <br style="clear:both;" /><!-- clear the floats rather than using overflow:auto because we want items to extend out of main -->
+	</div><!-- #main -->
+</div><!-- #main-wrapper -->
+
+<div id="footer-wrapper">
+    <div id="footer">
+		<div id="colophon">
+
+        
+
+			<div id="site-info">
+                <div class="adr">
+                	<span><strong><a href="http://www.hesston.edu/">Hesston College</a></strong></span>
+                    <div><span class="street-address">325 S. College Dr.</span>,
+                    <span class="extended-address">Box 3000</span></div>
+                    <span class="locality">Hesston</span>,
+                    <span class="region">KS</span>
+                    <span class="postal-code">67062</span>
+                    <!-- <div class="country-name">U.S.A.</div> -->
+                </div>
+			</div><!-- #site-info -->
+
+			<div id="digital-contacts">
+                <div class="emailus"><a href="mailto:info@hesston.edu" >Email us</a></div>
+                <div class="tel">800-995-2757</div>
+            </div><!-- .#digital-contacts -->
+
+            <div id='colophon-col1'>
+                <ul id="menu-footer-contacts" class="menu"><li id="menu-item-4172" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4172"><a href="http://www.hesston.edu/contact/directions/">Directions to Campus</a></li>
+<li id="menu-item-7321" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7321"><a href="http://www.hesston.edu/contact/directions/">Campus Map</a></li>
+</ul>            </div>
+
+            <div id='colophon-col2'>
+                <ul id="menu-footer-resources" class="menu"><li id="menu-item-1357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1357"><a href="http://www.hesston.edu/contact/">Contact</a></li>
+<li id="menu-item-1358" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1358"><a href="http://www.hesston.edu/contact/employment/">Employment Opportunities</a></li>
+<li id="menu-item-8588" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8588"><a href="https://notes.hesston.edu/wmailr62.nsf?Open">Email Server</a></li>
+</ul>            </div>
+
+		</div><!-- #colophon -->
+
+        <div id="footer-phrase">
+            <p>The two-year college of Mennonite Church USA in Hesston, Kansas. Start Here.</p>
+        </div>
+
+        <div class="copyright">Copyright &copy; 2011 Hesston College &middot; <a href="http://www.hesston.edu//contact/contact-web-team/">Contact the Web Team</a> &middot; <a href="http://www.hesston.edu/wp-admin/" title="Site Administration" >Log In</a></div>
+        
+	</div><!-- #footer -->
+</div><!-- #footer-wrapper -->
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+//]]>
+</script><script type='text/javascript'>
+
+jQuery(document).ready(function($) {
+  $(".calendar-event").children().not(".event-title").hide();
+  $(".event-title > img").hide();
+  $("body").click(function() {
+      $(".calendar-event").children().not(".event-title").hide();
+  });
+  $(".calendar-event .event-title").live("click",
+     function(e) {
+         e.preventDefault(); // remove this line if you are using a link in the event title
+	 $(this).parent().children().not(".event-title").toggle();
+	 });
+  $(".calendar-event .close").live("click",
+     function(e) {
+         e.preventDefault();
+	 $(this).parent().toggle();
+	 });
+});
+jQuery(document).ready(function($) {
+  $("#calendar-list li").children().not(".event-date").hide();
+  $("#calendar-list li.current-day").children().show();
+  $(".event-date").live("click",
+     function(e) {
+	 e.preventDefault();
+	 $(this).parent().children().not(".event-date").toggle();
+     });
+});
+jQuery(document).ready(function($) {
+  $(".mini .has-events").children().not(".trigger").hide();
+  $(".mini .has-events .trigger").live("click",
+     function(e) {
+	 e.preventDefault();	 
+	 $(this).parent().children().not(".trigger").toggle(); 
+	 });
+});</script><script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/www.hesston.edu\/wp-includes\/js\/thickbox\/loadingAnimation.gif","closeImage":"http:\/\/www.hesston.edu\/wp-includes\/js\/thickbox\/tb-close.png"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://www.hesston.edu/wp-includes/js/thickbox/thickbox.js?ver=3.1-20111117'></script>
+<script type='text/javascript' src='http://connect.facebook.net/en_US/all.js?ver=3.3.1#xfbml=1'></script>
+</body>
+</html>

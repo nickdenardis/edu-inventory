@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>New England Complex Systems Institute</title>
+<link href="http://www.necsi.edu/new-style.css" rel="stylesheet" type="text/css" />
+<meta property="og:title" content="New England Complex Systems Institute"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="http://necsi.edu/images/necsilogo.jpg"/>
+<meta property="og:url" content="http://necsi.edu"/>
+<meta property="og:site_name" content="NECSI"/>
+<meta property="fb:admins" content="17300377"/>
+<!--
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="http://malsup.github.com/jquery.easing.1.3.js"></script>
+-->
+<!--<script type="text/javascript" src="http://malsup.github.com/chili-1.7.pack.js"></script>-->
+<script type="text/javascript" src="http://necsi.edu/includes/jquery.min.js"></script>
+<script type="text/javascript" src="http://necsi.edu/includes/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="http://necsi.edu/includes/jquery.easing.1.3.js"></script>
+<script type="text/javascript">
+$(function() {
+	$.fn.cycle.updateActivePagerLink = function(pager, currSlideIndex) { 
+		$(pager).find('li').removeClass('activeSlide') 
+			.filter('li:eq('+currSlideIndex+')').addClass('activeSlide'); 
+	};
+
+    $('#slideshow').cycle({
+        speed:  300,
+        timeout: 0,
+        pager:  '#pager',       
+		pagerEvent: 'click',
+        pagerAnchorBuilder: function(idx, slide) {
+            // return sel string for existing anchor
+            //return '#pager li:eq(' + (idx) + ') a';
+            return '#pager li:eq(' + (idx) + ')';
+        }
+    });
+    $('#pager').cycle({
+        speed:  800,
+        timeout: 0,
+        fx: 'scrollVert',
+        next: '#prev',
+        prev: '#next'
+    });
+});
+</script>
+<style type="text/css">
+#body-container {height:585px;}
+#body-left {height:584px;}
+
+#body-featured {
+	background-color:#ffffff;
+	background-repeat:no-repeat;
+	background-image:none;
+	width:701px;
+	height:310px;
+	padding:4px;
+	position:relative;
+	-moz-border-radius:5px;
+	border-radius:5px;
+}
+
+#slideshow {position:relative;float:left;}
+#slideshow .panel {border-radius:5px;-moz-border-radius:5px;position:relative;overflow:none;}
+#slideshow a {text-decoration:none;display:block;height:310px;border-radius:5px;-moz-border-radius:5px;}
+#slideshow a:hover {opacity:0.9;}
+#slideshow img {border-radius:5px;-moz-border-radius:5px;}
+#slideshow .panel .bar {color:#ffffff;background-image:url('http://www.necsi.edu/images/darker-trans75.png');border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;position:absolute;bottom:0;/*height:49px;*/padding:8px 7px 5px 7px;width:496px;}
+#slideshow .panel .title {font-size:20px;font-weight:bold;margin:0 0 4px 0;}
+#slideshow .panel .subtitle {font-size:12px;font-weight:normal;line-height:15px;}
+#slideshow .panel .credit {position:absolute;bottom:5px;right:5px;font-size:0.7em;color:#CFD9E5;}
+
+#pager-box {width:204px;position:absolute;right:1px;height:310px;z-index:2000;}
+#pager .panel {background-image:url('http://necsi.edu/images/panelbg.png');margin:0;padding:0;}
+#pager {margin:0;padding:0;float:left;position:relative;z-index:1000;display:block;}
+#pager .pager-item {float:left;margin:1px 3px 2px 14px;list-style:none;width:187px;padding:0;display:block;position:relative;text-decoration:none;}
+#pager .pager-item:hover {opacity:0.9;cursor:pointer;}
+#pager .pager-item.activeSlide {background-image:url('http://necsi.edu/images/activebg.png');position:relative;padding:3px 3px 3px 14px;margin:-1px 0 0 0;}
+#pager .pager-item:focus {outline:none;}
+#pager .pager-item img {border: none; display: block}
+#pager .pager-item .bar {color:#ffffff;background-image:url('http://www.necsi.edu/images/darker-trans75.png');position:absolute;bottom:0;font-size:11px;font-weight:bold;padding:4px 2px 3px 4px;width:181px;}
+#pager .pager-item.activeSlide .bar {bottom:2px;}
+#pager .panel {height:280px;}
+/*
+#prev, #next {display:block;width:187px;height:15px;margin:0 3px;}
+#prev {background-image:url('http://necsi.edu/images/pagerprev.png');}
+#next {background-image:url('http://necsi.edu/images/pagernext.png');position:absolute;bottom:0;}*/
+.pager-button {display:block;position:relative;width:185px;height:15px;margin:0 3px 0 14px;background-color:#DFE5F0;border:1px solid #C7CEDE;background-image:url('http://necsi.edu/images/pagerbuttonbg.png');}
+.pager-button:hover {border-color:#91A0BE;}
+.pager-button:active {background-color:#CAD2E1;}
+.pager-button img {position:absolute;left:85px;top:4px;}
+.pager-button:hover img {opacity:0.7;}
+.pager-button:active img {opacity:0.5}
+#prev {border-top-color:#CED6EA;border-bottom:none;border-top-left-radius:5px;-moz-border-radius-topleft:5px;border-top-right-radius:5px;-moz-border-radius-topright:5px;margin-bottom:-1px;}
+#next {border-bottom-color:#7D85A2;border-top:none;position:absolute;bottom:0;border-bottom-left-radius:5px;-moz-border-radius-bottomleft:5px;border-bottom-right-radius:5px;-moz-border-radius-bottomright:5px;}
+#prev:hover {border-top-color:#B7C1D8;}
+#next:hover {border-bottom-color:#5C6585;}
+
+#slideshow .panel {display:none;}
+#slideshow .panel.first {display:block;}
+
+#pager .panel {display:none;}
+#pager .panel.first {display:block;}
+
+/*
+div#body-featured a span.title {position:absolute;bottom:0;padding:7px 5px 5px 5px;}
+div#featured-links a span.title {width:338px;}
+div#highlights-links a span.title {width:167px;padding:7px 2px 5px 3px;}
+*/
+
+div#header-left {width:620px;}
+div#header-right {position:relative;width:340px;}
+div#searchbox {width:310px;}
+div#searchbox div.area form input, div#header-right a.social-link {float:left;display:inline;}
+div#header-right a.social-link {margin:1px 0 0 6px;}
+div#header-right a.social-link img {border:none;}
+
+</style>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+    	<div id="header-left">
+        	<div class="area">
+                <div id="slogan"><span>solving problems of science and society</span></div>
+                <img src="http://necsi.edu/images1/necsi.png" alt="necsi" id="logo" />
+            </div>
+        </div>
+        <div id="header-right">
+           	<div id="searchbox">
+                <div class="area">
+					<form method="GET" action="http://www.google.com/search">
+						<input type="text" name="q" size="15" maxlength="255" value="" class="search"> 
+						<input type="submit" name="btnG" value="Search" class="submit" style="margin-right:0;">
+						<input type="hidden" name="domains" value="necsi.edu;interjournal.org">
+						<input type="hidden" name="sitesearch" value="necsi.edu">
+					</form>
+					<a class="social-link" href="http://twitter.com/necsi" target="_blank"><img src="http://necsi.edu/images/twitter-button.png" alt="Twitter" /></a>
+					<a class="social-link" href="http://www.facebook.com/pages/New-England-Complex-Systems-Institute/112297818808432" target="_blank"><img src="http://necsi.edu/images/facebook-button-2.png" alt="Facebook" /></a>
+					<a class="social-link" href="http://www.linkedin.com/groups?mostPopular=&gid=146719" target="_blank"><img src="http://necsi.edu/images/linkedin-button-2.png" alt="LinkedIn" /></a>
+            	</div>
+            </div>
+            <div id="submenu">
+            	<ul style="padding-left:31px;">
+                	<li style="float:left;"><a href="http://www.necsi.edu/community/donate">donate</a></li>
+                	<li style="float:left;"><a href="http://www.necsi.edu/community/membership.html">membership</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   	<div id="body-container">
+   			<div id="body-left">
+			<div class="area">
+				<h3><a href="http://www.necsi.edu/research/">RESEARCH / PUBLICATIONS</a></h3>
+				<h3><a href="http://www.necsi.edu/education/index.html">EDUCATION</a></h3>
+				<ul>
+                    <li><a href="http://www.necsi.edu/education/school.html">summer & winter school</a></li>
+                    <li><a href="http://www.necsi.edu/education/executive.html">executive education</a></li>
+                    <li><a href="http://www.necsi.edu/education/professional.html">professional programs</a></li>
+                    <li><a href="http://www.necsi.edu/education/advanced.html">advanced training</a></li>
+				</ul>
+				<h3><a href="http://www.necsi.edu/events/">EVENTS AND CONFERENCES</a></h3>
+				<ul>
+					<li><a href="http://www.necsi.edu/events/upcomingevents.html">upcoming events</a></li>
+					<li><a href="http://www.necsi.edu/events/iccs/">iccs</a></li>
+<!--   	         		<li><a href="http://www.necsi.edu/events/localseminars.html">local seminar series</a></li>-->
+				</ul>
+				<h3><a href="http://www.necsi.edu/education/collaboration.html">COLLABORATION OPPORTUNITIES</a></h3>
+				<ul>
+					<li><a href="http://www.necsi.edu/education/eff.html">faculty fellows program</a></li>
+					<li><a href="http://www.necsi.edu/education/epsf.html">student fellows program</a></li>
+       	   		  	<li><a href="http://www.necsi.edu/education/postdocstudent.html">postdoc and student researchers program</a></li>
+       		     	<li><a href="http://www.necsi.edu/education/guestlecturers.html">guest lecturers</a></li>
+				</ul>
+				<h3><a href="http://www.necsi.edu/about/">ABOUT</a></h3>
+				<ul>
+					<li><a href="http://www.necsi.edu/about/">about necsi</a></li>
+					<li><a href="http://www.necsi.edu/guide/study.html">about complex systems</a></li>
+					<li><a href="http://www.necsi.edu/about/faculty.html">faculty</a></li>
+					<li><a href="http://www.necsi.edu/affiliates/">affiliates</a></li>
+					<li><a href="http://www.necsi.edu/about/researchersandstaff.html">researchers and staff</a></li>
+					<li><a href="http://www.necsi.edu/about/booksandjournals.html">books and journals</a></li>
+					<li><a href="http://www.necsi.edu/education/onlineproj.html">online resources</a></li>
+				</ul>
+			</div><!-- end div.area -->
+        </div><!-- end div#body-left -->        <div id="body-right">        	<div id="body-featured">				<noscript>					<style type="text/css">						#slideshow {display:none;}						#pager-box {left:42px;top:20px;width:700px;}						#pager {width:700px;}						.pager-button {display:none;}						#pager .panel {display:block;float:left;position:relative;height:280px;width:204px;}					</style>				</noscript>				<div id="slideshow" class="pics">					<div class="panel first">						<a href="http://necsi.edu/publications/food/">							<img src="http://necsi.edu/images/slideshow/foodbook.jpg" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">NECSI Book on Food Prices Research</h3>								<span class="subtitle">This book includes two papers on the role of high food prices in riots and the causes of high food prices.</span>							</div>							<span class="credit">Cover photo &copy; Meena Kadri</span>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/social/foodcrises.html">							<img src="http://necsi.edu/images/slideshow/foodcrises.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Food Crises and Political Instability in North Africa and the Middle East</h3>								<span class="subtitle">A new study from NECSI shows that the timing of outbreaks of violence rocking North Africa and the Middle East is linked to global food prices.</span>							</div>							<span class="credit">Photo &copy; Nasser Nouri</span>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/social/foodprices.html">							<img src="http://necsi.edu/images/slideshow/foodprices.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">Causes of High Food Prices:<br/>Speculators and Ethanol Production</h3>								<span class="subtitle">NECSI releases a new paper on the surge in world food prices, calling on private and public policy makers to recognize the serious impact that price spikes in food bring to the world′s most vulnerable populations.</span>							</div>							<span class="credit">Photo &copy; Ed Yourdon</span>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/social/scienceofpeace.html">							<img src="http://necsi.edu/images/slideshow/scienceofpeace.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Science of Peace</h3>								<span class="subtitle">Switzerland and Yugoslavia both have separated cultural, linguistic and religious groups; they are not integrated well-mixed societies. Surprisingly, the main difference between them seems to be whether the boundaries are in the right place or not.</span>							</div>							<span class="credit"></span>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/economics/highlight/">							<img src="http://necsi.edu/images/slideshow/marketcrash.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">Stopping the Market Crash</h3>								<span class="subtitle">NECSI research played a key role in stopping the market collapse in March 2009, as Congressman Barney Frank, Chairman of the Financial Services Committee, took action to stop the collapse using NECSI recommendations.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/ethnicviolence/highlight/">							<img src="http://necsi.edu/images/slideshow/ethnicviolence.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Science of Ethnic Violence</h3>								<span class="subtitle">NECSI has developed a model to predict the locations of violence from the spatial distribution of ethnic groups.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/overview/highlight/">							<img src="http://necsi.edu/images/slideshow/globalcrises.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Science of Global Crises</h3>								<span class="subtitle">NECSI responds to increasing global vulnerabilities and cascading worldwide crises</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/community/signup.php">							<img src="http://necsi.edu/images/slideshow/healthcare.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">Healthcare Costs: the Road Map</h3>								<span class="subtitle">Decision makers in all sectors see a mounting crisis in delivering affordable healthcare. The health-care system is clearly not working: How can we fix it? In this series, we provide eight scientifically-based steps toward reducing costs and improving quality.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://me.necsi.edu/neworleans/">							<img src="http://necsi.edu/images/slideshow/neworleans.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Future of New Orleans</h3>								<span class="subtitle">NECSI President, Professor Yaneer Bar-Yam, tours the Army Corps of Engineers’ efforts to protect New Orleans from hurricanes.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://me.necsi.edu/cooperation/">							<img src="http://necsi.edu/images/slideshow/cooperation.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">The Evolution of Cooperation</h3>								<span class="subtitle">Evolution through natural selection is intensely competitive, yet, altruistic cooperation is remarkably common. It is found in social insects, human society, and even cells of multicellular organisms. Why individuals cooperate is one of the central puzzles of evolutionary theory. Here we describe advances in understanding the evolution of cooperation.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/news/2011/starmoviesmobile.html">							<img src="http://necsi.edu/images/slideshow/starmoviesmobile.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">* Movies Mobile App Released</h3>								<span class="subtitle">Researchers at the New England Complex Systems Institute have used network theory to put together a network of the top 500 movies.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/projects/redsox/">							<img src="http://necsi.edu/images/slideshow/redsox.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">History: NECSI and the 2004 Red Sox Parade</h3>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/publications/mtw/">							<img src="http://necsi.edu/images/slideshow/mtw.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">Making Things Work</h3>								<span class="subtitle">Making Things Work describes how science can help solve the problems facing us today in healthcare, education, military conflict, ethnic violence and terrorism, and third world development.</span>							</div>						</a>					</div>					<div class="panel">						<a href="http://necsi.edu/research/networks/searchtosocial.html">							<img src="http://necsi.edu/images/slideshow/searchtosocial.png" width="510" height="310" />							<span class="more">Read More</span>							<div class="bar">								<h3 class="title">Twitter Rising</h3>								<span class="subtitle">The Transition from Search to Social Media</span>							</div>						</a>					</div>				</div>				<div id="pager-box">					<a id="prev" class="pager-button" href="#"><img src="http://necsi.edu/images/pagerarrowup.png" alt="Previous"></a>					<div id="pager">						<ul class="panel first">							<li class="pager-item"><a name="1" href="http://necsi.edu/publications/food/index.html"><img src="http://necsi.edu/images/slideshow/foodbook-t.jpg" width="187" height="67" /><div class="bar">NECSI Book on Food Prices Research</div></a></li>							<li class="pager-item"><a name="2" href="http://necsi.edu/research/social/foodcrises.html"><img src="http://necsi.edu/images/slideshow/foodcrises-t.png" width="187" height="67" /><div class="bar">Link Between High Food<br/>Prices and Unrest</div></a></li>							<li class="pager-item"><a name="3" href="http://necsi.edu/research/social/foodprices.html"><img src="http://necsi.edu/images/slideshow/foodprices-t.png" width="187" height="67" /><div class="bar">Food Prices due to<br/>Speculators and Ethanol</div></a></li>							<li class="pager-item"><a name="4" href="http://necsi.edu/research/social/scienceofpeace.html"><img src="http://necsi.edu/images/slideshow/scienceofpeace-t.png" width="187" height="67" /><div class="bar">The Science of Peace</div></a></li>						</ul>						<ul class="panel">							<li class="pager-item"><a name="5" href="http://necsi.edu/research/economics/highlight/"><img src="http://necsi.edu/images/slideshow/marketcrash-t.png" width="187" height="67" /><div class="bar">Stopping the Market Crash</div></a></li>							<li class="pager-item"><a name="6" href="http://necsi.edu/research/ethnicviolence/highlight/"><img src="http://necsi.edu/images/slideshow/ethnicviolence-t.png" width="187" height="67" /><div class="bar">The Science of Ethnic Violence</div></a></li>							<li class="pager-item"><a name="7" href="http://necsi.edu/research/overview/highlight/"><img src="http://necsi.edu/images/slideshow/globalcrises-t.png" width="187" height="67" /><div class="bar">The Science of Global Crises</div></a></li>							<li class="pager-item"><a name="8" href="http://necsi.edu/community/signup.php"><img src="http://necsi.edu/images/slideshow/healthcare-t.png" width="187" height="67" /><div class="bar">Healthcare Costs: the Road Map</div></a></li>						</ul>						<ul class="panel">							<li class="pager-item"><a name="9" href="http://me.necsi.edu/neworleans/"><img src="http://necsi.edu/images/slideshow/neworleans-t.png" width="187" height="67" /><div class="bar">The Future of New Orleans</div></a></li>							<li class="pager-item"><a name="10" href="http://me.necsi.edu/cooperation/"><img src="http://necsi.edu/images/slideshow/cooperation-t.png" width="187" height="67" /><div class="bar">The Evolution of Cooperation</div></a></li>							<li class="pager-item"><a name="11" href="http://necsi.edu/news/2011/starmoviesmobile.html"><img src="http://necsi.edu/images/slideshow/starmoviesmobile-t.png" width="187" height="67" /><div class="bar">* Movies Mobile App Released</div></a></li>							<li class="pager-item"><a name="12" href="http://necsi.edu/projects/redsox/"><img src="http://necsi.edu/images/slideshow/redsox-t.png" width="187" height="67" /><div class="bar">History: NECSI and the<br/>2004 Red Sox Parade</div></a></li>							<!--<li class="pager-item"><a name="12" href="http://necsi.edu/publications/mtw/"><img src="http://necsi.edu/images/slideshow/mtw-t.png" width="187" height="67" /><div class="bar">Making Things Work</div></a></li>-->							<!--<li class="pager-item"><a href="http://necsi.edu/research/networks/searchtosocial.html"><img src="http://necsi.edu/images/slideshow/searchtosocial-t.png" width="187" height="67" /><div class="bar">Twitter Rising</div></a></li>-->						</ul>					</div>					<a id="next" class="pager-button" href="#"><img src="http://necsi.edu/images/pagerarrowdown.png" alt="Next"></a>				</div>			</div>				<div id="body-bottom">
+            	<div id="applications">
+            		<div class="area">
+            			<h2>Scientific Research and Applications</h2>
+	                    <ul>
+	                       	<li><a href="http://necsi.edu/research/overview.php">overview</a></li>
+	                      	<li><a href="http://necsi.edu/research/economics/">economics</a></li>
+	                       	<li><a href="http://necsi.edu/research/multiscale/">multiscale method</a></li>
+	                       	<li><a href="http://necsi.edu/research/ethnicviolence/">ethnic violence</a></li>                            
+	                       	<li><a href="http://necsi.edu/research/networks/">networks</a></li>
+	                       	<li><a href="http://necsi.edu/research/management/health/">healthcare</a></li>
+	                       	<li><a href="http://necsi.edu/research/evoeco/">evolution&ecology</a></li>
+	                       	<li><a href="http://necsi.edu/research/management/corporate/">management</a></li>
+	                       	<li><a href="http://necsi.edu/research/sysbio/">systems biology</a></li>
+	                       	<li><a href="http://necsi.edu/research/management/education/">education</a></li>
+	                       	<li><a href="http://necsi.edu/research/engineering/">engineering</a></li>
+	                       	<li><a href="http://necsi.edu/research/management/military/">military conflict</a></li>
+	                        <li><a href="http://necsi.edu/research/international/">development</a></li>
+	                    	<li><a href="http://necsi.edu/research/negotiation/">negotiation</a></li>
+	                    </ul>
+                    </div><!-- end div.area -->
+                </div><!-- end div#applications -->
+                <div id="news">
+                	<div class="area">
+	                    <h2>News</h2>
+	                    <style type="text/css">
+	                    	#news a.more {font-size:14px;padding-left:5px;padding-right:5px;}
+	                    </style>
+						<!--<a href="/news/2012/review2011.html" class="more" style="position:absolute;right:120px;">Year in Review</a>-->
+						<a href="http://necsi.edu/news/" class="more">News Archive</a>
+						<ul style="position:relative;top:-7px;">
+							<li><a href="http://www.societyforchaostheory.org/conf/2012/about.cgi" target="_blank">Yaneer Bar-Yam to speak at 22nd Society for Chaos Theory in Psychology and Life Sciences Conference</a></li>
+							<li><a href="http://necsi.edu/research/social/foodprices/update/">NECSI food price update warns of crisis by 2013</a></li>
+							<li><a href="http://necsi.edu/research/management/education/kaput.html">Bar-Yam seminar on education & individual differences</a></li>
+							<li><a href="http://necsi.edu/research/social/nyttwitter/">NECSI maps Twitter news-sharing network</a></li>
+							<!--<li><a href="http://necsi.edu/education/executive.html">NECSI Executive Education Program April 19-20</a></li>-->
+							<li><a href="http://necsi.edu/research/social/foodprices.html">NECSI food prices research</a> among <a href="http://www.wired.com/wiredscience/2011/12/top-discoveries-2011/?pid=2729">top ten scientific discoveries in 2011</a></li>
+							<!--<li><a href="http://www.newscientist.com/article/mg21328462.100-boom-and-doom-revisiting-prophecies-of-collapse.html" target="_blank">NECSI President Yaneer Bar-Yam quoted in New Scientist article on Limits to Growth</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/economics/bearraid.html">NECSI reports evidence of market manipulation</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/2011/bailouts.html">Boston Fed Report on Bailout of 99%</a></li>-->
+							<li><a href="http://necsi.edu/projects/yaneer/owsdesc.html">Statement on Complex Systems and OWS</a></li>
+							<!--<li><a href="http://www.weforum.org/">NECSI President Yaneer Bar-Yam invited to Davos</a></li>-->
+							<li>NECSI shows: <a href="http://necsi.edu/research/social/foodprices.html">(1) high food prices due to speculators and ethanol</a>, <a href="http://necsi.edu/research/social/foodcrises.html">(2) link between food prices and riots</a></li>
+							<!--<li><a href="http://www.brandeis.edu/now/2011/august/mathgrant.html">NSF awards grant to Brandeis in partnership with NECSI</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/social/debtlimit.html">Debt limit: the Future of Democracy</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/2011/middleeastanalysis.html">NECSI analyzes unrest in the Middle East</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/overview/freewill.html">Prediction and the science of free will</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/overview/prediction.html">Prediction seminar by Yaneer Bar-Yam online</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/2011/speciation.html">Network theory of speciation</a></li>-->
+							<!--<li>NECSI President Yaneer Bar-Yam interviewed on BBC World Service about crisis in the Middle East</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/2011/middleeastcoverage.html">NECSI President Yaneer Bar-Yam interviewed by New Scientist on crisis in the Middle East x2</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/2011/fcicreport.html">FCIC Reports Financial Crisis Was Avoidable</a></li>-->
+							<!--<li><a href="http://www.slate.com/id/2279858/" target="_blank">NECSI President Yaneer Bar-Yam featured in Slate article on U.N. response in Haiti</a></li>-->
+							<!--<li><a href="http://business.in.com/interview/rotman/baryam-balancing-scale-with-complexity/17362/2" target="_blank">NECSI President Yaneer Bar-Yam interviewed by Forbes India on balancing scale with complexity</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/economics/bearraid.html">NECSI reports evidence for a bear raid</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/mandelbrot.html">Benoit Mandelbrot 1924-2010</a></li>-->
+							<!--<li><a href="http://mbe.oxfordjournals.org/cgi/content/abstract/msq331?ijkey=JasGhakIBJxkaGS&keytype=ref" target="_blank">Paper published on population genealogy and dynamics</a></li>-->
+							<!--<li><a href="http://necsi.edu/news/starmovies.html">* Movies App for iPad released</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/economics/interdependence.html">NECSI Report on Economic Market Interdependence Featured in Wired Magazine</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/engineering/USACEActiveResponseSoftFailure.pdf">NECSI Report on Complex Systems Engineering Active Response and Soft Failure</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/management/health/infectioncontrol.pdf">NECSI Report on System-Level Strategies for Infection Control</a></li>-->
+							<!--<li><a href="http://necsi.edu/events/iccs2011/">Call for Papers ICCS 2011</a></li>-->
+							<!--<li><a href="http://necsi.edu/research/economics/flashcrash.html">Flash Crash: NECSI responds to the SEC market circuit breaker rules</a></li>-->
+							<!--<li><a href="http://necsi.edu/admin/NECSISECreportFeb2010.pdf">NECSI Presents Report at the SEC to the Division of Trading and Markets </a></li>-->
+							<!--<li><a href="http://necsi.edu/research/evoeco/kinvsgrouppr.html">Article in Nature Clears Up Kin and Group Selection</a></li>-->
+                		</ul>
+                	</div><!-- end div.area -->
+                </div><!-- end div#news -->
+            </div><!-- end div#body-bottom -->	</div><!-- end div#body-right -->
+    <div id="footer">
+    	<div id="research-buttons">
+			<ul>
+				<li><a href="http://necsi.edu/research/overview.php"><img src="../images/researchicons/overview-131.jpg" /><span>Overview</span></a></li>
+				<li><a href="http://necsi.edu/research/economics/"><img src="../images/researchicons/economics-131.jpg" /><span>Economics</span></a></li>
+				<li><a href="http://necsi.edu/research/multiscale/"><img src="../images/researchicons/multiscale-131.jpg" /><span>Multiscale Method</span></a></li>
+				<li><a href="http://necsi.edu/research/ethnicviolence/"><img src="../images/researchicons/ethnicviolence-131.jpg" /><span>Ethnic Violence</span></a></li>                            
+				<li><a href="http://necsi.edu/research/networks/"><img src="../images/researchicons/networks-131.jpg" /><span>Networks</span></a></li>
+				<li><a href="http://necsi.edu/research/management/health/"><img src="../images/researchicons/healthcare-131.jpg" /><span>Healthcare</span></a></li>
+				<li><a href="http://necsi.edu/research/evoeco/"><img src="../images/researchicons/evoeco-131.jpg" /><span style="padding-right:1px;">Evolution & Ecology</span></a></li>
+				<li><a href="http://necsi.edu/research/management/corporate/"><img src="../images/researchicons/management-131.jpg" /><span>Management</span></a></li>
+				<li><a href="http://necsi.edu/research/sysbio/"><img src="../images/researchicons/sysbio-131.jpg" /><span>Systems Biology</span></a></li>
+				<li><a href="http://necsi.edu/research/management/education/"><img src="../images/researchicons/education-131.jpg" /><span>Education</span></a></li>
+				<li><a href="http://necsi.edu/research/engineering/"><img src="../images/researchicons/engineering-131.jpg" /><span>Engineering</span></a></li>
+				<li><a href="http://necsi.edu/research/management/military/"><img src="../images/researchicons/military-131.jpg" /><span>Military Conflict</span></a></li>
+				<li><a href="http://necsi.edu/research/international/"><img src="../images/researchicons/development-131.jpg" /><span>Development</span></a></li>
+				<li><a href="http://necsi.edu/research/negotiation/"><img src="../images/researchicons/negotiation-131.jpg" /><span>Negotiation</span></a></li>
+			</ul>
+		</div><!-- end div#reseach-buttons -->
+    	<div class="area">
+         <p>New England Complex Systems Institute 238 Main Street Suite 319 Cambridge, MA 02142 <strong>Phone:</strong> 617-547-4100 <strong>Fax:</strong> 617-661-7711
+			<span class="copyright">Copyright © 2000-2010 New England Complex Systems Institute. All rights reserved.</span></p>
+        </div><!-- end div.area -->
+    </div><!-- end div#footer -->
+</div><!-- end div#container -->
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=1386455; 
+var sc_invisible=1; 
+var sc_security="1ad57ac5"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="free hit counter"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/1386455/0/1ad57ac5/1/"
+alt="free hit counter" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=2118009; 
+var sc_invisible=1; 
+var sc_security="d35b6c56"; 
+</script>
+
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script><noscript><div
+class="statcounter"><a title="free hit counter"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/2118009/0/a3a7d4eb/1/"
+alt="free hit counter" ></a></div></noscript>
+<!-- End of StatCounter Code --></body>
+</html>
+

@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="http://www.jessup.edu/files/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="alternate" type="application/rss+xml" title="William Jessup University RSS" href="http://www.jessup.edu/rss.xml" />
+  <title>William Jessup University</title>  
+  <style type="text/css" media="all">@import url("http://www.jessup.edu/modules/system/system.base.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/system/system.menus.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/system/system.messages.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/system/system.theme.css?m3bdt7");</style>
+<style type="text/css" media="all">@import url("http://www.jessup.edu/modules/aggregator/aggregator.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/comment/comment.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/field/theme/field.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/node/node.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/modules/om_maximenu/css/om_maximenu.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/search/search.css?m3bdt7");
+@import url("http://www.jessup.edu/modules/user/user.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/modules/views/css/views.css?m3bdt7");</style>
+<style type="text/css" media="all">@import url("http://www.jessup.edu/sites/all/modules/ctools/css/ctools.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/modules/dhtml_menu/dhtml_menu.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/modules/om_maximenu/skin/simple/simple.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/modules/views_ticker/views.ticker.scroller.css?m3bdt7");</style>
+<style type="text/css" media="all">@import url("http://www.jessup.edu/sites/all/themes/omega/alpha/css/alpha-reset.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/alpha/css/alpha-mobile.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/alpha/css/alpha-alpha.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/formalize.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/omega-text.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/omega-branding.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/omega-menu.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/omega-forms.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/omega/omega/css/omega-visuals.css?m3bdt7");
+@import url("http://www.jessup.edu/sites/all/themes/jessup_four/css/global.css?m3bdt7");</style>
+<style type="text/css" media="all">@import url("http://www.jessup.edu/sites/all/themes/omega/alpha/css/grid/alpha_default/normal/alpha-default-normal-12.css?m3bdt7");</style>
+  <script type="text/javascript" src="http://www.jessup.edu/files/js/js_cO1sGQBcB3epC1VVVhb_hjbP76T3iez3t9f80otYZYc.js"></script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_SMHSuZrqf_OvWCP9C36WHhwAoAUTs7fVfRsz56LdO6U.js"></script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_1LWtyBYqc4CbEtnz_wpZjRA93Z1gLtC01XgdfZTScFw.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+    jQuery(document).ready(function($){
+      $('#om-maximenu-mega-menu ul.om-menu li.om-leaf').removeClass('active');          
+      //$('#om-maximenu-mega-menu ul.om-menu li.om-leaf:first-child').addClass('active');          
+      //$('#om-maximenu-mega-menu .om-maximenu-tabbed-content div:first-child').removeClass('om-tabbed-content-hide'); 
+		
+		var currentLeafId = null;
+		
+		var closedHeight = 0 + 'px';
+		var openHeight = 250 + 'px';		
+		   
+      $('#om-maximenu-mega-menu .om-leaf .om-link').click(function () {
+        var leafId = $(this).parent().attr('id');
+        var tabbedContentId = leafId.replace('leaf', 'tabbed-content');
+		
+		if (currentLeafId == leafId)
+		{			
+			$('.om-maximenu-tabbed-content').animate({'height': closedHeight}, {duration: 500});
+			$('#om-maximenu-mega-menu ul.om-menu li.om-leaf').removeClass('active');          
+			$(this).parent().removeClass('active');
+			$('#om-maximenu-mega-menu .om-maximenu-tabbed-content div').addClass('om-tabbed-content-hide'); 
+			currentLeafId = null;
+		} 
+		else if (currentLeafId != leafId)
+		{ 
+			currentLeafId = leafId; 
+			$('.om-maximenu-tabbed-content').animate({'height': openHeight}, {duration: 500});	
+		    $('#om-maximenu-mega-menu ul.om-menu li.om-leaf').removeClass('active'); 
+			$('#om-maximenu-mega-menu .om-maximenu-tabbed-content div:first-child').removeClass('om-tabbed-content-hide');				
+			$(this).parent().addClass('active');          
+                      
+			
+        $('#om-maximenu-mega-menu .om-maximenu-tabbed-content .om-tabbed-content').addClass('om-tabbed-content-hide').hide();              
+        $('#om-maximenu-mega-menu #' + tabbedContentId).fadeIn('slow').removeClass('om-tabbed-content-hide'); 
+		}; 
+	
+      });
+    });  
+  
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_X1zNYmI3aq2ZdC_m_dGiTd0iDxsnUR9qyhEWI90JyB8.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function($) { Drupal.behaviors.views_ticker_fade = { attach: function (context) { $("#views-ticker-fade-news_and_events").newsTickerFade(); } };})(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_IDBX5SzkJ9gGNq7x-qOE_2DZsexqguTJQGMKvi4w-Uw.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-19363042-1"]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_TMVke7bRobMYQDKKOfeHNzpw_lgjMttTcC1wrIi-l9I.js"></script>
+<script type="text/javascript" src="http://www.jessup.edu/files/js/js_0nlshe5RVtmEErmTuoJKMuEAh1idWkWDsrRXYfqpGtw.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"jessup_four","theme_token":"LuPNU_MLlFU8tr9-KMN5znHm0-6txpLNT5F3qC9w0xs","js":{"sites\/all\/modules\/jquery_update\/replace\/jquery\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/admin_menu\/admin_devel\/admin_devel.js":1,"sites\/all\/modules\/om_maximenu\/js\/om_maximenu.js":1,"sites\/all\/modules\/dhtml_menu\/dhtml_menu.js":1,"0":1,"sites\/all\/modules\/views_ticker\/js\/views.ticker.fade.js":1,"1":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"2":1,"sites\/all\/modules\/jessupScripts\/jessupScripts.js":1,"sites\/all\/modules\/jessupScripts\/jquery.mousewheel.js":1,"sites\/all\/modules\/jessupScripts\/jquery.easing.1.3.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/comment\/comment.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/om_maximenu\/css\/om_maximenu.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/dhtml_menu\/dhtml_menu.css":1,"sites\/all\/modules\/om_maximenu\/skin\/simple\/simple.css":1,"sites\/all\/modules\/views_ticker\/views.ticker.scroller.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/all\/themes\/jessup_four\/css\/global.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1}},"dhtmlMenu":{"nav":"clone","animation":{"effects":{"height":"height","opacity":"opacity","width":0},"speed":"500"},"effects":{"siblings":"none","children":"none","remember":""},"filter":{"type":"blacklist","list":{"main-menu":0,"management":0,"menu-about":0,"menu-academic-suppor":0,"menu-academics-bible":0,"menu-academics-busin":0,"menu-academics-engli":0,"menu-academics-famil":0,"menu-academics-gener":0,"menu-academics-histo":0,"menu-academics-inter":0,"menu-academics-music":0,"menu-academics-pasto":0,"menu-academics-pract":0,"menu-academics-psych":0,"menu-academics-publi":0,"menu-academics-teach":0,"menu-academics-youth":0,"menu-alumni":0,"menu-bookstore":0,"menu-business-office":0,"menu-campus-security":0,"menu-departments-and":0,"menu-employment":0,"menu-financial-aid":0,"menu-giving":0,"menu-graduation":0,"menu-information-tec":0,"menu-library":0,"menu-math":0,"menu-outdoor-adventu":0,"menu-pfi":0,"menu-publicpolicyinstitute":0,"menu-registrar":0,"menu-student-life":0,"menu-undergrad":0,"menu-writing-lab":0,"navigation":0,"user-menu":0}}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"omega":{"layouts":{"primary":"normal","order":["normal"],"queries":{"normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html front not-logged-in page-node">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-5 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="branding-data clearfix">
+            <div class="logo-img">
+        <a href="/" rel="home" title="" class="active"><img src="http://www.jessup.edu/sites/all/themes/jessup_four/logo.png" alt="" id="logo" /></a>      </div>
+                </div>
+          </div>
+</div><div class="grid-7 region region-search" id="region-search">
+  <div class="region-inner region-search-inner">
+    <div class="block block-search block-form block-search-form odd block-without-title" id="block-search-form">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <form action="/" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." onblur="if (this.value == &#039;&#039;) {this.value = &#039;Search People / Places&#039;;}" onfocus="if (this.value == &#039;Search People / Places&#039;) {this.value= &#039;&#039;;}" type="text" id="edit-search-block-form--2" name="search_block_form" value="Search People / Places" size="25" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="image" id="edit-submit" name="submit" src="/sites/all/themes/jessup_four/images/search_icon.png" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-XRfrventmWiuvgAl9r-aESB4-JGgtlarVkx87RbYYC4" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-7 region region-quick-links" id="region-quick-links">
+  <div class="region-inner region-quick-links-inner">
+    <div class="block block-block block-138 block-block-138 odd block-without-title" id="block-block-138">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="buttons">
+<a class="quicklinks" href="/about/contact-us">Contact WJU</a>
+		<a href="/giving" class="giveButton">Give Online</a>
+</div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-header-wrapper" class="zone-wrapper zone-header-wrapper clearfix">  
+  <div id="zone-header" class="zone zone-header clearfix container-12">
+    <div class="grid-12 region region-header-featured" id="region-header-featured">
+  <div class="region-inner region-header-featured-inner">
+    <div class="block block-block block-125 block-block-125 odd block-without-title" id="block-block-125">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="va-accordion" class="va-container">
+				<div class="va-wrapper">
+					<div class="va-slice va-slice-1">
+						<h3 class="va-title">Transforming.</h3>
+						<div class="va-content">
+							<p>The mission of William Jessup University, in partnership with the church, is to equip students to help transform their world for the glory of God.</p>
+						</div>
+					</div>
+					<div class="va-slice va-slice-2">
+						<h3 class="va-title">Tomorrow.</h3>
+						<div class="va-content">
+							<p>William Jessup University is investing in students today because we believe in their great promise for our tomorrow.</p>
+						</div>	
+					</div>
+					<div class="va-slice va-slice-3">
+						<h3 class="va-title">Today.</h3>
+						<div class="va-content">
+							<p>The time to change your future is today.  Equip yourself at William Jessup University today for your dreams of the future.</p>
+						</div>	
+					</div>
+				</div>
+			</div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-4 prefix-8 region region-header-apply" id="region-header-apply">
+  <div class="region-inner region-header-apply-inner">
+    <div class="block block-block block-126 block-block-126 odd block-without-title" id="block-block-126">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="buttons">
+		<a href="https://www.jessup.edu/undergrad/user/register" target="_blank" class="button">Apply Now</a><a href="http://www.jessup.edu/forms/view.php?id=1" target="_blank" class="button">Request Information</a>
+</div>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <div class="block block-om-maximenu block-om-maximenu-1 block-om-maximenu-om-maximenu-1 odd block-without-title" id="block-om-maximenu-om-maximenu-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+       
+
+  <div id="om-maximenu-mega-menu" class="om-maximenu om-maximenu-simple om-maximenu-style-normal om-maximenu-block om-maximenu-row om-maximenu-block-down code-om-u1-1916234218">     
+            
+
+<div id="om-menu-mega-menu-ul-wrapper" class="om-menu-ul-wrapper">
+  <ul id="om-menu-mega-menu" class="om-menu">
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-1" class="om-leaf first leaf-about active">   
+    <span class="om-link  link-about active active" >About</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-2" class="om-leaf leaf-academics active">   
+    <span class="om-link  link-academics active active" >Academics</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-3" class="om-leaf leaf-admissions active">   
+    <span class="om-link  link-admissions active active" >Admissions</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-4" class="om-leaf leaf-alumni active">   
+    <span class="om-link  link-alumni active active" >Alumni</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-5" class="om-leaf leaf-athletics active">   
+    <span class="om-link  link-athletics active active" >Athletics</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-6" class="om-leaf leaf-resources active">   
+    <span class="om-link  link-resources active active" >Resources</span>  </li>
+  
+          
+                  
+
+   
+  <li id="om-leaf-om-u1-1916234218-7" class="om-leaf last leaf-student-life active">   
+    <span class="om-link  link-student-life active active" >Student Life</span>  </li>
+  
+          
+      </ul><!-- /.om-menu -->    
+</div><!-- /.om-menu-ul-wrapper -->   
+ 
+
+<div class="om-maximenu-tabbed-content">
+  <div class="om-maximenu-tabbed-content-inner">
+                        <div id="om-tabbed-content-om-u1-1916234218-1" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-131 first last">           
+      <div class="content"><div class="menuContainer_12">
+<div class="menuGrid_4"><h3><a href="/about">About</a></h3>
+<ul>
+ <li><a href="/about/mission-vision">Mission & Vision</a></li>
+ <li>   <a href="/about/doctrinal-statement">Doctrinal Statement</a></li>
+   <li><a href="/about/history-wju">History of WJU</a></li>
+   <li><a href="/about/enrollment-profile"> Enrollment Profile</a></li>
+   <li><a href="/about/accreditation-and-membership"> Accreditation and Membership</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+<ul>
+<li><a href="/about/board-trustees">Board of Trustees</a></li>
+<li><a href="/about/administration">Administration</a></li>
+<li><a href="/about/personnel">Personnel</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+
+<ul>
+
+<li><a href="/about/contact-us">Contact Us</a></li>
+<li><a href="/about/campus-map-and-directions">Campus Map and Directions</a></li>
+<li><a href="/about/about-rocklin">About Rocklin</a></li>
+<li><a href="/about/why-choose-wju">Why Choose WJU</a></li>
+</ul>
+</div>
+<div class="menuGrid_4"></div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-2" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-132 first last">           
+      <div class="content"><div class="menuContainer_12">
+<div class="menuGrid_4"><h3><a href="/academics">Traditional Department &amp; Programs</a></h3>
+<ul>
+<li><a href="/academics/bible-theology">Bible &amp; Theology</a></li>
+<li><a href="/academics/business">Business Administration</a></li>
+<li><a href="/academics/english">English</a></li>
+<li><a href="/academics/fcm">Family &amp; Children’s Ministry</a></li>
+<li><a href="/academics/general-education">General Education</a></li>
+<li><a href="/academics/history">History</a></li>
+<li><a href="/academics/ics">Intercultural Studies</a></li>
+<li><a href="/academics/liberal-studies-credentialing">Liberal Studies&nbsp;&amp; Credentialing</a><a></a></li>
+<li><a href="/academics/math">Math</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+<ul><li><a href="/academics/music">Music</a></li>
+<li><a href="/academics/pastoral-ministry">Pastoral Ministry</a></li>
+<li><a href="/academics/psychology">Psychology</a></li>
+<li><a href="/academics/public-policy">Public Policy</a></li>
+<li><a href="/academics/public-policy/public-policy-institute">- Public Policy Institute</a></li>
+<li><a href="/academics/youth-ministry">Youth Ministry</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+<h3><a href="/sps">School of Professional Studies</a></h3>
+<ul> <li><a href="http://www.jessup.edu/sps/bachelor-degrees/christian-leadership">Christian Leadership</a></li> 
+<li><a href="http://www.jessup.edu/sps/bachelor-degrees/business-administration">Business Administration</a></li>
+ <li><a href="http://www.jessup.edu/sps/bachelor-degrees/counseling-psychology">Counseling Psychology</a></li> 
+<li><a href="http://www.jessup.edu/sps/teacher-credential-program-post-bacc">Post-Baccalaureate Teacher Credential Program</a></li> </ul>
+<h3><a href="/academic-support">Academic Support</a></h3>
+<ul> <li><a href="/academic-support/career-services">Career Services</a></li> <li><a href="/academic-support/disability-services">Disability Services</a></li> </ul>
+</div>
+<div class="menuGrid_4">
+<h3><A href="/registrar">Registrar/Registration</A></h3>
+<UL>
+<LI><A href="/files/academics/Academic%20Calendar%20basic%202012-2014.pdf">Academic Calendar (PDF)</A></LI>
+<LI><A href="/registrar/catalog">Academic Catalog</A></LI>
+<LI><A href="/registrar/registration">Registration Materials</A></LI>
+<LI><A href="/registrar/articulation-agreements">Articulation Agreements</A></LI>
+<LI><A href="/registrar/course-schedules">Course Schedules</A></LI>
+<LI><A href="/registrar/registration/dropping-or-withdrawing-course">Dropping a Course</A></LI>
+<LI><A href="/registrar/academics-policies-and-procedures/grading-information">Grading Information</A></LI>
+<LI><A href="/registrar/registration/summer-school">Summer School</A></LI></UL>
+<h3><A href="/graduation">Graduation</A></h3>
+<UL>
+<LI><A href="/graduation/graduation-information">Graduation Information</A></LI>
+<LI><A href="/graduation/application-graduation">Application for Graduation</A></LI></UL>
+
+</div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-3" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-133 first last">           
+      <div class="content"><div class="menuContainer_12">
+<div class="menuGrid_4">
+<h3><a href="/undergrad">Traditional Undergraduate</a></h3>
+<ul><li><a href="/undergrad/first-year-students">First Year Students</a></li>
+<li><a href="/undergrad/transfer-students">Transfer Students</a></li>
+<li><a href="/financial-aid/institutional-aid">Scholarships &amp; Grants</a></li>
+<li><a href="/undergrad/visiting-campus">Visit the Campus</a></li>
+</ul>
+<ul>
+<li><a href="/forms/view.php?id=1" target="_blank">Request Information</a></li>
+<li><a href="/undergrad/application-procedures-priority-dates">Apply Online</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+<h3><a href="/sps">School of Professional Studies</a></h3>
+<ul> 
+<li><a href="http://www.jessup.edu/sps/about-sps">About SPS</a></li> 
+<li><a href="http://www.jessup.edu/sps/bachelor-degrees">SPS Bachelor Degrees</a></li> 
+<li><a href="http://www.jessup.edu/sps/financial-aid">Financial Aid</a></li>
+</ul> 
+<ul> 
+<li><a href="http://www.jessup.edu/sps/request-information">Request Information</a></li> 
+<li><a href="http://www.jessup.edu/sps/admission">Apply Online</a></li> 
+</ul>
+</div>
+<div class="menuGrid_4">
+</div>
+<div class="menuGrid_4"></div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-4" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-135 first last">           
+      <div class="content"><div class="menuContainer_12">
+
+<div class="menuGrid_4">
+	<img src="/sites/all/themes/jessup_four/images/menuAlumni.jpg" />
+</div>
+
+<div class="menuGrid_8">
+<div class="block-header">
+<h2><a href="/alumni">Alumni</a></h2>
+</div>
+<table>
+<tr>
+<td>
+	<ul> 
+		<li><a href="/alumni/directory">Alumni Directory</a></li> 
+		<li><a href="/alumni/content/1/events">Events</a></li>
+		<li><a href="/alumni/broadcaster-magazine">Broadcaster Magazine</a></li> 
+	</ul>
+</td>
+<td>
+	<ul> 
+		<li><a href="/employment">Working at WJU</a></li> 
+		<li><a href="/employment/jobs-wju">Employment Opportunities</a></li> 
+		<li><a href="/employment/job-board">Job Board</a></li> 
+	</ul>
+</td>
+<td>
+	<ul><li><a href="/giving">Give to WJU</a></li></ul>
+</td>
+</tr>
+</table>
+
+</div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-5" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-137 first last">           
+      <div class="content"><div class="menuContainer_12">
+
+<div class="menuGrid_4">
+	<img src="/sites/all/themes/jessup_four/images/menuAthletics.jpg" />
+</div>
+
+<div class="menuGrid_8">
+<div class="block-header">
+<h2><a href="http://www.jessupathletics.com">Warrior Athletics</a></h2>
+</div>
+<table>
+<tr>
+<td>
+	<ul> 
+		<li><a href="http://www.jessupathletics.com/f/About_Athletics.php">About Athletics</a></li> 
+		<li><a href="/event-calendar">Calendar</a></li>
+		<li><a href="http://www.jessupathletics.com/f/Warrior_Golf_Classic.php">Warrior Golf Classic</a></li> 
+		<li><a href="http://www.jessupathletics.com/staff.php">Contact Athletics</a></li> 
+	</ul>
+</td>
+<td>
+	<h3>Men's Sports</h3>
+	<ul>
+		<li><a href="http://www.jessupathletics.com/sport/0/1.php"> Basketball</a></li>
+		<li><a href="http://www.jessupathletics.com/sport/0/3.php"> Cross Country</a></li>
+		<li><a href="http://www.jessupathletics.com/sport/0/4.php"> Golf</a></li>
+		<li><a href="http://www.jessupathletics.com/sport/0/5.php"> Soccer</a></li>
+		<li><a href="http://www.jessupathletics.com/sport/0/6.php"> Track</a></li>
+	 </ul>
+</td>
+<td>
+	<h3>Women's Sports</h3>
+	<ul><li>
+<a href="http://www.jessupathletics.com/sport/0/2.php"> Basketball</a>
+</li>
+<li>
+<a href="http://www.jessupathletics.com/sport/0/8.php"> Cross Country</a>
+</li>
+<li>
+<a href="http://www.jessupathletics.com/sport/0/9.php"> Soccer</a>
+</li>
+<li>
+<a href="http://www.jessupathletics.com/sport/0/7.php">Softball</a>
+</li>
+<li>
+<a href="http://www.jessupathletics.com/sport/0/10.php"> Track</a>
+</li>
+<li>
+<a href="http://www.jessupathletics.com/sport/0/11.php">Volleyball</a>
+</li>
+</td>
+</tr>
+</table>
+
+</div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-6" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-134 first last">           
+      <div class="content"><div class="menuContainer_12">
+<div class="menuGrid_4"><h3><a href="/giving">Development Office</a></h3>
+<ul>
+<li><a href="/giving/ways-give">Giving to WJU</a></li>
+<li><a href="/giving/university-fund">University Fund</a></li>
+<li><a href="/giving/partner-churches">Church Partnership</a></li>
+</ul>
+<h3><a href="/shop">Bookstore</a></h3>
+<ul>
+<li><a href="/shop/catalog/5/apparel">Apparel</a></li>
+<li><a href="/shop/textbooks">Textbooks</a></li>
+</ul>
+</div>
+<div class="menuGrid_4">
+<h3><a href="/business-office">Business Office</a></h3>
+<ul>
+<li><a href="/business-office">Payment Due Dates</a></li>
+<li><a href="/business-office/faqs">Frequently Asked Questions</a></li>
+<li><a href="http://www.ecsi.net/gateway/jessup.html" target="_blank">Make a Payment</a></li>
+</ul>
+<h3><a href="/campus-security">Campus Security</a></h3> <ul><li><a href="/campus-security/vehicle-code">Vehicle Code</a></li><li><a href="/student-life/student-life-resources/parking-permits">Parking Permits</a></li></ul> 
+</div>
+<div class="menuGrid_4">
+<h3><a href="/financial-aid">Financial Aid</a></h3> <ul><li><a href="/financial-aid">Traditional Program</a></li> <li><a href="/sps/financial-aid">School of Professional Studies</a></li> </ul> 
+<h3><a href="/employment">Human Resources</a></h3> <ul> <li><a href="/employment">Working at WJU</a></li> <li><a href="/employment/jobs-wju">Employment Opportunities</a></li> <li><a href="/employment/job-board">Job Board</a></li> </ul>
+</div>
+<div class="menuGrid_4">
+<h3><a href="/it">Information Technology</a></h3>
+<ul><li><a href="/it/campus-network">Campus Network</a></li>
+<li><a href="/it/contact-it">Contact IT</a></li></ul>
+<h3><a href="/library">Library</a></h3>
+<ul>
+<li><a href="/library/about/hours">Library Hours</a></li>
+<li><a href="/library/find-books">Find Books</a></li>
+<li><a href="/library/find-articles">Find Articles</a></li>
+<li><a href="/library/find-commentaries">Find Commentaries</a></li>
+</ul></div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+                        <div id="om-tabbed-content-om-u1-1916234218-7" class="om-tabbed-content om-tabbed-content-hide">
+          <div class="om-tabbed-content-inner">
+             
+
+<div class="block block-block block-block-id-136 first last">           
+      <div class="content"><div class="menuContainer_12">
+
+	<div class="menuGrid_4">
+		<img src="/sites/all/themes/jessup_four/images/menuStudentLife.jpg" />
+	</div>
+
+	<div class="menuGrid_8">
+		<div class="block-header">
+			<h2><a href="http://www.jessup.edu/student-life">Student Life</a></h2>
+		</div>
+		<table>
+			<tr>
+				<td>
+					<h3><a href="/student-life/residence-life">Residence Life</a></h3>
+					<ul> 
+						<li><a href="/student-life/residence-life/residence-halls">Residence Halls</a></li> 
+						<li><a href="/student-life/residence-life/resident-directors">Resident Directors</a></li>
+					</ul>
+					<h3><a href="/student-life/campus-ministries">Campus Ministries</a></h3>
+					<ul> 
+						<li><a href="/student-life/campus-ministries/chapel-worship">Chapel and Worship</a></li> 
+						<li><a href="/student-life/campus-ministries/missions/outreach">Outreach</a></li>
+						<li><a href="/student-life/campus-ministries/discipleship">Discipleship</a></li>
+					</ul>
+				</td>
+				<td>
+					<h3><a href="/student-life/student-life-resources">Student Life Resources</a></h3>
+					<ul> 
+						<li><a href="/student-life/student-life-resources/mail-services">Mail Services</a></li>
+						<li><a href="/student-life/student-life-resources/parking-permits">Parking Permits</a></li> 
+						<li><a href="/student-life/student-life-resources/id-cards">ID Cards</a></li>
+					</ul>					
+				</td>
+				
+				<td>
+					<h3><a href="/student-life/student-health-insurance">Student Health Insurance</a></h3>
+					<h3><a href="/student-life/new-student-orientation">New Student Orientation</a></h3>
+					<h3><a href="/student-life/off-campus-housing">Off Campus Housing Board</a></h3>
+					<h3><a href="/employment/job-board">Job Board</a></h3>
+				</td>
+					
+			</tr>
+		</table>
+
+	</div>
+</div></div>
+  </div><!-- /.block -->
+
+
+
+
+
+            <div class="om-clearfix"></div>
+          </div><!-- /.om-tabbed-content-inner -->
+        </div><!-- /.om-tabbed-content -->
+       
+        <div class="om-clearfix"></div>
+  </div><!-- /.om-maximenu-tabbed-content-inner -->
+</div><!-- /.om-maximenu-tabbed-content -->
+      
+
+      
+
+
+
+      </div><!-- /#om-maximenu-[menu name] -->   
+
+
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+  <div id="zone-media-wrapper" class="zone-wrapper zone-media-wrapper clearfix">  
+  <div id="zone-media" class="zone zone-media clearfix container-12">
+    <div class="grid-8 region region-media-first" id="region-media-first">
+  <div class="region-inner region-media-first-inner">
+    <div class="block block-views block-news-and-events-block-1 block-views-news-and-events-block-1 odd block-without-title" id="block-views-news-and-events-block-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="view view-news-and-events view-id-news_and_events view-display-id-block_1 view-dom-id-d7b67abaa749773d1161874171b2fe3f">
+            <div class="view-header">
+      <h2 class="block-title">Jessup News</h2><a href="/news-events.xml " ><img class="rssIcon" alt="subscribe" title="subscribe" src="/sites/all/themes/jessup_four/images/rssIcon.png" /></a>    </div>
+  
+  
+  
+      <div class="view-content">
+      <!-- start scroll -->
+<div class='view view-news_and_events'><div class='view-content view-content-news_and_events'><div id='views-ticker-fade-container-news_and_events'><ul id='views-ticker-fade-news_and_events'><li class='views-fade-item views-fade-item-news_and_events'><span class='views-fade-tick-field'>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/news-events/francis-chan-speaks-william-jessup-university">Francis Chan Speaks at William Jessup University</a></span>  </div></span></li><li class='views-fade-item views-fade-item-news_and_events'><span class='views-fade-tick-field'>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/news-events/wju-hosted-placer-county%E2%80%99s-second-annual-stem-expo-saturday-march-24">WJU hosted Placer County’s Second Annual STEM...</a></span>  </div></span></li><li class='views-fade-item views-fade-item-news_and_events'><span class='views-fade-tick-field'>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/news-events/walk-talk-event-earns-placer-countys-economic-development-innovation-award">Walk &amp; Talk Event Earns Placer County&#039;s...</a></span>  </div></span></li><li class='views-fade-item views-fade-item-news_and_events'><span class='views-fade-tick-field'>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/news-events/friends-and-neighbors-inspired-brings-record-breaking-attendance">Friends and Neighbors Inspired Brings Record...</a></span>  </div></span></li><li class='views-fade-item views-fade-item-news_and_events'><span class='views-fade-tick-field'>  
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/news-events/2012-worship-conference-welcomes-sell-out-crowd">2012 Worship Conference Welcomes Sell Out Crowd</a></span>  </div></span></li></ul></div></div></div>
+<!-- end scroll -->
+    </div>
+  
+  
+  
+  
+  
+  
+</div>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-4 region region-media-second" id="region-media-second">
+  <div class="region-inner region-media-second-inner">
+    <div class="block block-block block-127 block-block-127 odd block-without-title" id="block-block-127">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="social" id="css3">
+			<li class="facebook">
+				<a href="http://www.facebook.com/williamjessupuniversity" target="_blank"><strong>Facebook</strong></a>
+			</li>
+			<li class="twitter">
+				<a href="http://twitter.com/williamjessup" target="_blank"><strong>Twitter</strong></a>
+			</li>
+			<li class="vimeo">
+				<a href="http://vimeo.com/wju" target="_blank"><strong>Vimeo</strong></a>
+			</li>
+			<li class="flickr">
+				<a href="http://www.flickr.com/photos/32971039@N05" target="_blank"><strong>Flickr</strong></a>
+			</li>
+			<li class="podcast">
+				<a href="http://jessup.edu/podcasting" target="_blank"><strong>Podcast</strong></a>
+			</li>
+		</ul>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></section>    
+  
+      <footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
+  <div id="zone-footer" class="zone zone-footer clearfix container-12">
+    <div class="grid-5 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div class="block block-block block-129 block-block-129 odd block-without-title" id="block-block-129">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <img src="/sites/all/themes/jessup_four/images/wju_logo_footer.png" alt=""><br>Many good things have happened since the beginning of William Jessup University in 1939, but the best days of William Jessup University are taking place right now. God has raised up William Jessup University for the purpose of training Christians for leadership and service in church and society, through Christian higher education, spiritual formation, and directed experiences.    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-3 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <section class="block block-views block-in-the-news-block-1 block-views-in-the-news-block-1 odd" id="block-views-in-the-news-block-1">
+  <div class="block-inner clearfix">
+              <div class="block-header"><h2 class="block-title">In the News</h2></div>
+            
+    <div class="content clearfix">
+      <div class="view view-in-the-news view-id-in_the_news view-display-id-block_1 view-dom-id-1ce1f533824529bc4229ed614eb58d6a">
+        
+  
+  
+      <div class="view-content">
+      <div class="item-list">    <ul>          <li class="views-row views-row-1 views-row-odd views-row-first">  
+  <div class="views-field views-field-field-article-title-link">        <div class="field-content"><a href="http://lincolnnewsmessenger.com/detail/207113.html" target="_blank">Jack Wartlieb gives Jessup students a look into TV production</a></div>  </div>  
+  <div class="views-field views-field-field-article-date">        <div class="field-content">May 2, 2012</div>  </div>  
+  <div class="views-field views-field-field-source">        <div class="field-content">Lincoln News Messenger</div>  </div></li>
+          <li class="views-row views-row-2 views-row-even">  
+  <div class="views-field views-field-field-article-title-link">        <div class="field-content"><a href="http://www.rosevillept.com/detail.html?sub_id=205345&amp;edit_result=live&amp;msg=Item%20saved." target="_blank">William Jessup University Presents Coffee Talk with Francis Chan</a></div>  </div>  
+  <div class="views-field views-field-field-article-date">        <div class="field-content">April 13, 2012</div>  </div>  
+  <div class="views-field views-field-field-source">        <div class="field-content">Roseville Press Tribune</div>  </div></li>
+          <li class="views-row views-row-3 views-row-odd views-row-last">  
+  <div class="views-field views-field-field-article-title-link">        <div class="field-content"><a href="http://bit.ly/HoQlYW" target="_blank">William Jessup to hold annual golf fundraiser April 20</a></div>  </div>  
+  <div class="views-field views-field-field-article-date">        <div class="field-content">March 28, 2012</div>  </div>  
+  <div class="views-field views-field-field-source">        <div class="field-content">Roseville Press Tribune</div>  </div></li>
+      </ul></div>    </div>
+  
+  
+  
+      
+<div class="more-link">
+  <a href="/in-the-news">
+    more  </a>
+</div>
+  
+  
+  
+</div>    </div>
+  </div>
+</section>  </div>
+</div><div class="grid-4 region region-footer-third" id="region-footer-third">
+  <div class="region-inner region-footer-third-inner">
+    <section class="block block-block block-128 block-block-128 odd" id="block-block-128">
+  <div class="block-inner clearfix">
+              <div class="block-header"><h2 class="block-title">Contact</h2></div>
+            
+    <div class="content clearfix">
+      <table class="icons"><tbody><tr><td><img src="/sites/all/themes/jessup_four/images/locationIcon.png" /></td><td><p>William Jessup University<br />
+333 Sunset Blvd.<br />
+Rocklin CA 95765</p></td></tr>
+<tr><td><img src="/sites/all/themes/jessup_four/images/phoneIcon.png" /></td><td><p>(916) 577-2200<br />
+(800)355-7522</p></td></tr>
+<tr><td><img src="/sites/all/themes/jessup_four/images/mailIcon.png" /></td><td><p><a href="mailto:information@jessup.edu">information@jessup.edu</a></p></td></tr></tbody></table>    </div>
+  </div>
+</section>  </div>
+</div><div class="grid-12 region region-footer-credits" id="region-footer-credits">
+  <div class="region-inner region-footer-credits-inner">
+    <div class="block block-block block-130 block-block-130 odd block-without-title" id="block-block-130">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      &copy; 2012 <a href="/">William Jessup University</a> | 
+<a href="/user">Admin Login</a>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>  </div>  </body>
+</html>

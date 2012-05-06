@@ -1,0 +1,557 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<!-- #BeginTemplate "default.dwt" -->
+
+<head>
+<script type="text/javascript" src="/_includes/jquery-1.7.1.min.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-us" />
+
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/common.css" />
+
+<![if !IE]>
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/style.css" />
+<![endif]>
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/styleIE6.css" />
+<style type="text/css" media="screen">
+
+body {
+behavior: url("/csshover.htc");
+font-size: 100%;
+}
+</style>
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/styleIE7.css" />
+<![endif]-->
+
+<!--[if gte IE 8]>
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/style.css" />
+<link rel="stylesheet" type="text/css" href="/_includes/stylesheets/styleIE8.css" />
+<![endif]-->
+
+<script type="text/javascript">
+
+var Browser = {
+  Version: function() {
+    var version = 999; // we assume a sane browser
+    if (navigator.appVersion.indexOf("MSIE") != -1)
+      // bah, IE again, lets downgrade version number
+      version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+    return version;
+  }
+}
+
+//calculate height of containing cell
+function setEventCalHeight() {
+	document.getElementById('EventCalFrame').height = '';//clear height to adjust iframe on page height change
+	document.getElementById('EventCalFrame').height = document.getElementById('MenuTableContainerCell').clientHeight - document.getElementById('MenuTable').clientHeight + document.getElementById('EventCalFrame').clientHeight;
+	if ( document.getElementById('EventCalFrame').height < 200 ) {
+		document.getElementById('EventCalFrame').height = 200;
+	}
+}
+
+//switch iframe src and format tabs in css
+function switchCal(calTitle) {
+	if ( calTitle == 'events' ) {
+		document.getElementById('EventsTabCell').className  = 'CalTabsActiveCell';
+		document.getElementById('EventsTabLink').className = 'CalTabsActiveLink';
+		
+		document.getElementById('CafeTabCell').className = 'CalTabsDimCell';
+		document.getElementById('CafeTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('NewsTabCell').className = 'CalTabsDimCell';
+		document.getElementById('NewsTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('EventCalFrame').src = 'http://db.milescc.edu/schedule/WeekListing_events.aspx';
+	}
+	else if ( calTitle == 'cafe' ) {
+		document.getElementById('CafeTabCell').className = 'CalTabsActiveCell';
+		document.getElementById('CafeTabLink').className = 'CalTabsActiveLink';
+		
+		document.getElementById('EventsTabCell').className = 'CalTabsDimCell';
+		document.getElementById('EventsTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('NewsTabCell').className = 'CalTabsDimCell';
+		document.getElementById('NewsTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('EventCalFrame').src = 'http://db.milescc.edu/schedule/WeekListing_cafe.aspx';
+	}
+	else if ( calTitle == 'news' ) {
+		document.getElementById('NewsTabCell').className = 'CalTabsActiveCell';
+		document.getElementById('NewsTabLink').className = 'CalTabsActiveLink';
+		
+		document.getElementById('EventsTabCell').className = 'CalTabsDimCell';
+		document.getElementById('EventsTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('CafeTabCell').className = 'CalTabsDimCell';
+		document.getElementById('CafeTabLink').className = 'CalTabsDimLink';
+		
+		document.getElementById('EventCalFrame').src = 'http://milescc.edu/AboutUs/NewsRelease/iframeNews.aspx';
+	}
+}
+
+function setCookie(c_name,value,exdays) {
+	var exdate=new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/";
+	document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name) {
+	var i,x,y,ARRcookies=document.cookie.split(";");
+	for (i=0;i<ARRcookies.length;i++) {
+		x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+		y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+		x=x.replace(/^\s+|\s+$/g,"");
+		if (x==c_name) {
+			return unescape(y);
+		}
+	}
+}
+
+function setNewsAlertsFrame(targetFrame) {
+	if (Browser.Version() < 8) {
+		document.getElementById(targetFrame).src = '/_includes/alertsNOlights.aspx';
+	}
+}
+
+function hoverhack(){}
+
+</script>
+<noscript>
+Your browser does not support JavaScript!
+</noscript>
+				<!-- #BeginEditable "doctitle" -->
+				<title>Miles Community College</title>
+				<link href='http://fonts.googleapis.com/css?family=Fugaz+One' rel='stylesheet' type='text/css'>
+				<link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+				<style type="text/css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.style5 {
+	background-color: #005281;
+}
+.style7 {
+	border-width: 0px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+.style8 {
+	border: 0;
+	padding:0px;
+}
+.style9 {
+	border-width: 0px;
+	margin-bottom: 2px;
+}
+.style10 {
+	border-width: 0px;
+	margin-top: 1px;
+
+}
+.slide {
+	height: 401px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.slideCell {
+color: white;
+padding: 7px;
+background: #005281;
+background: #005281 url('/images/mccSealBlue.png') no-repeat right center;
+}
+
+div#newsAlertsHomeTicker { display: none; margin: 0px 0px 7px 0px; }
+
+#newsAlertsHomeTicker iframe { height:22px; width:100%; border: 0; }
+
+.PromoLink { margin: 1px 2px 3px 2px; padding: 5px; font-size: 18pt; color: #fff; cursor: pointer; font-family: 'Fugaz One', cursive;
+background: #005281; /* for non-css3 browsers */
+
+background: -o-linear-gradient(top, #005281, #1c415b);
+background: -webkit-gradient(linear, left top, left bottom, from(#005281), to(#1c415b)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #005281,  #1c415b); /* for firefox 3.6+ */ 
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#005281', endColorstr='#1c415b'); /* IE6,IE7 */
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#005281', endColorstr='#1c415b')"; /* IE8 */
+}
+.PromoLink table { border: 0px; }
+.PromoLinkImg { border: 0px; height: 50px; padding: 0px 5px 0px 0px; }
+
+.PromoLink2 { margin: 1px 2px 3px 2px; padding: 5px; font-size: 18pt; color: #fff; cursor: pointer; font-family: 'Fugaz One', cursive;
+background: #005281; /* for non-css3 browsers */
+
+background: -o-linear-gradient(top, #005281, #1c415b);
+background: -webkit-gradient(linear, left top, left bottom, from(#005281), to(#1c415b)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #005281,  #1c415b); /* for firefox 3.6+ */ 
+}
+.PromoLink2 table { border: 0px; margin-left: auto;   margin-right: auto; }
+.PromoLink2Img { border: 0px; height: 50px; padding: 0px 5px 0px 0px; }
+
+				</style>
+ <link rel="icon"
+  type="image/ico"
+  href="/favicon.ico" />
+  
+<!-- #EndEditable -->
+</head>
+
+<body onload="setEventCalHeight();">
+
+<!-- Start BODY container table -->
+<div id="bodyDiv">
+<table id="bodyCell" width="100%" cellspacing="0" cellpadding="0"><tr><td>
+<!--webbot bot="Include" U-Include="_includes/topnav.htm" TAG="BODY" startspan -->
+
+<div class="top">
+<table class="top" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="topnavLinkCell"><a target="_blank" href="https://mail.milescc.edu/owa/" onmouseover=this.className='topnavLinkMouse'; onmouseout=this.className='';><span><nobr>Employee Email</nobr></span></a></td>
+		<td class="topnavLinkCell"><a target="_blank" href="https://spo.milescc.edu/" onmouseover=this.className='topnavLinkMouse'; onmouseout=this.className='';><span><nobr>Student Email</nobr></span></a></td>
+		<td class="topnavLinkCell"><a target="_blank"  href="https://webprocess.umt.edu:7700/PRDM/twbkwbis.P_WWWLogin" onmouseover=this.className='topnavLinkMouse'; onmouseout=this.className='';><span><nobr>Banner Self-Service</nobr></span></a></td>
+		<td class="topnavLinkCell"><a target="_blank" href="http://milescconline.org/" onmouseover=this.className='topnavLinkMouse'; onmouseout=this.className='';><span><nobr>MilesCC Online</nobr></span></a></td>
+		<td class="topnavLinkCell"><a target="_blank" href="/CampusServices/Bookstore/" onmouseover=this.className='topnavLinkMouse'; onmouseout=this.className='';><span><nobr>Pioneer Mercantile</nobr></span></a></td>
+
+
+		<td class="GoogleMiniSearch">
+			<form method="get" action="http://google.milescc.edu/search">
+					<div><nobr>
+						<input class="text" type="text" name="q" size="24" maxlength="255" value=""/>
+						<input type="submit" name="btnG" value="Search"/>
+						</nobr>
+						<input type="hidden" name="site" value="default_collection"/>
+						<input type="hidden" name="client" value="default_frontend"/>
+						<input type="hidden" name="proxystylesheet" value="default_frontend"/>
+						<input type="hidden" name="output" value="xml_no_dtd"/>
+					</div>
+			</form>
+		</td>
+	</tr>
+</table>
+</div>
+
+<!--webbot bot="Include" endspan i-checksum="32966" -->
+<!--webbot bot="Include" U-Include="_includes/uppernav.htm" TAG="BODY" startspan -->
+
+<div id="wagonShadow">
+
+<div id="headLogo"><a href="/"><img alt="Miles Community College" longdesc="_includes/Miles Community College" src="/images/logo.png" width="195" height="128" border="0"></a></div>
+<div id="headNav">
+	<div id="headerText"><nobr><a href="FutureStudents/">Future Students</a>&nbsp;&nbsp;&nbsp;
+		<a href="/Parents/">Parents</a>&nbsp;&nbsp;&nbsp;
+		<a href="/MCCStudents/">MCC Students</a>&nbsp;&nbsp;&nbsp;
+		<a href="/AlumniFriends/">Alumni &amp; Friends</a>&nbsp;&nbsp;&nbsp;
+		<a href="/FacultyStaff/">Faculty &amp; Staff</a>&nbsp;&nbsp;&nbsp;
+		<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3405174">Donate</a></nobr>
+	</div>
+</div>
+<div id="headerAlpha"></div>
+<div id="headerRight"></div>
+
+</div>
+
+<!--webbot bot="Include" endspan i-checksum="17551" -->
+<div  class="style1" style="width: 100%; height: 4px; background: url('/images/bar.gif');"></div>
+
+<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td id="MenuTableContainerCell" valign="top"><div id="MenuTableContainerDiv">
+		
+		<!--webbot bot="Include" U-Include="_includes/menu.htm" TAG="BODY" startspan -->
+<table id="MenuTable" cellpadding="0" cellspacing="0"><tr><td>
+<div id="menuv">
+	<ul class="newStyle1">
+			<li><a href="/AboutUs/">About Us</a>
+				<ul>
+					<li><a href="/AboutUs/Accreditation/">Accreditation</a></li>
+					<li><a href="/AboutUs/Board/">Board of Trustees</a></li>
+					<li><a href="/AboutUs/CampusFacilitiesProjects/">Campus Projects</a></li>
+					<li><a href="/AboutUs/History/">History</a></li>
+					<li><a href="/AboutUs/JamesLucasHall/">James P Lucas Hall</a></li>
+					<li><a href="/AboutUs/Maps/">Maps</a></li>
+					<li><a href="/AboutUs/MissionStatement/">Mission Statement</a></li>
+					<li><a href="/AboutUs/NewsRelease/">News Releases</a></li>
+					<li><a href="/AboutUs/PresidentWelcome/">President's Welcome</a></li>
+					<li><a href="/AboutUs/StaffDirectory/">Staff Directory</a></li>
+					<li><a href="/AboutUs/StudentDemographics/">Student Demographics</a></li>
+				</ul>
+			</li>
+			<li><a target="_blank" href="http://mccpioneers.com/">Athletics</a>
+				<ul>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=29">Cheerleading</a></li>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=1">Baseball</a></li>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=12">Golf</a></li>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=3">Men's Basketball</a></li>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=15">Rodeo</a></li>
+					<li><a target="_blank" href="http://mccpioneers.com/sport.asp?sportID=4">Women's Basketball</a></li>
+				</ul>
+			</li>
+			<li><a href="/CampusServices/">Campus Services</a>
+				<ul>
+					<li><a href="/CampusServices/Admissions/">Admissions</a></li>
+					<li><a href="/CampusServices/BusinessServices/">Business Services</a></li>
+					<li><a href="/CampusServices/CAS/">Center for Academic Success</a></li>
+					<li><a href="/CampusServices/Centra/">Centra</a></li>
+					<li><a href="/CampusServices/CollegeCosts/">College Costs</a></li>
+					<li><a href="/CampusServices/Counseling/">Counseling Services</a></li>
+					<li><a href="/CampusServices/Dining/">Dining</a></li>
+					<li><a href="/CampusServices/EventLink/">EventLink</a></li>
+					<li><a href="/CampusServices/FinancialAid/">Financial Aid</a></li>
+					<li><a href="/CampusServices/Bookstore/">Pioneer Mercantile Books and more</a></li>
+					<li><a href="/CampusServices/ResidenceHall/">Residence Hall</a></li>
+					<li><a href="/CampusServices/StudentActivitiesClubs/">Student Activities &amp; Clubs</a></li>
+				</ul>
+			</li>
+			<li><a href="/CommunityOutreach/">Community Outreach</a>
+				<ul>
+					<li><a href="/CommunityOutreach/CPC/">Career &amp; Placement Center</a></li>
+					<li><a href="/CommunityOutreach/COCalendar/">Calendar &amp; Brochure</a></li>
+					<li><a href="/CommunityOutreach/ConferenceWorkshop/">Conferences &amp; Workshops</a></li>
+					<li><a href="/CommunityOutreach/DualEnrollment/">Dual Enrollment</a></li>
+					<li><a href="/CommunityOutreach/JumpStart/">Jump Start</a></li>
+					<li><a href="/CommunityOutreach/WIRED/">MAP-WIRED</a></li>
+					<li><a href="/CommunityOutreach/PersonalEnrichment/">Personal Enrichment</a></li>
+					<li><a target="_blank" href="http://main.acsevents.org/site/TR/RelayForLife/RelayForLifeGreatWestDivision?team_id=262511&pg=team&fr_id=5940">Relay for Life</a></li>
+					<li><a href="/CommunityOutreach/SeniorCollege/">Senior College</a></li>
+					<li><a href="/CommunityOutreach/WorkDevelopment/">Workforce Development</a></li>
+					<li><a href="/CommunityOutreach/YouthActivities/">Youth Activities</a></li>
+				</ul>
+			</li>
+			<li><a href="/DegreesPrograms/">Degrees &amp; Programs</a>
+				<!-- <ul>
+					<li><a href="/DegreesPrograms/AA/">Associate of Arts</a></li>
+					<li><a href="/DegreesPrograms/AS/">Associate of Science</a></li>
+					<li><a href="/DegreesPrograms/Agribusiness/">Agriculture/Agribusiness</a></li>
+					<li><a href="/DegreesPrograms/AlliedHealth/">Allied Health Programs</a></li>
+					<li><a href="/DegreesPrograms/Automotive/">Automotive Technology</a></li>
+					<li><a href="/DegreesPrograms/BiofuelsEnergy/">Biofuels &amp; Energy</a></li>
+					<li><a href="/DegreesPrograms/BuildingTech/">Building Technology</a></li>
+					<li><a href="/DegreesPrograms/Business/">Business Programs</a></li>
+					<li><a href="/DegreesPrograms/Education/">Education Programs</a></li>
+					<li><a href="/DegreesPrograms/Equine/">Equine Studies</a></li>
+					<li><a href="/DegreesPrograms/HeavyEquipment/">Heavy Equipment Operations</a></li>
+					<li><a href="/DegreesPrograms/IT/">Information Technology</a></li>
+					<li><a href="/DegreesPrograms/AlliedHealth/Nursing/admissionshome.htm">Nursing</a></li>
+					<li><a href="/DegreesPrograms/PreEngineering/">Pre-Engineering</a></li>
+					
+				</ul> -->
+			</li>
+			<li><a href="/DisabilityServices/">Disability Services</a>
+				<ul>
+					<li><a href="/DisabilityServices/Faculty/">Faculty Resources</a></li>
+					<li><a href="/DisabilityServices/Staff/">Staff Resources</a></li>
+					<li><a href="/DisabilityServices/Students/">Student Resources</a></li>
+				</ul>
+			</li>
+			<li><a href="/DistanceLearning/">Distance Learning</a>
+				<ul>
+					<li><a href="/courseSchedule/">Course Schedule</a></li>
+					<li><a target="_blank" href="/DownloadFiles/DistanceEducationPolicies.PDF">Distance Ed Policies</a></li>
+					<li><a href="/DistanceLearning/ITV.htm">Interactive Video (ITV)</a></li>
+					<li><a href="/DistanceLearning/OnlineCourses.htm">Online Courses</a></li>
+					<li><a target="_blank" href="http://milescconline.org/">MilesCC Online</a></li>
+					<li><a href="/DistanceLearning/ProDev.htm">Professional Development / Ed2go</a></li>
+				</ul>
+			</li>
+			<li><a href="/Employment/">Employment</a></li>
+			<li><a href="/Giving/Endowment/">Giving to MCC</a></li>
+			<li><a href="/CampusServices/Library/">Library</a></li>
+			</ul>
+</div>
+</td></tr>
+<tr><td>
+<div class="CalTabsContainer">
+	<table class="CalTabs" cellspacing="0" cellpadding="0" width="100%">
+		<tr>
+			<td class="CalTabMargins">&nbsp;</td>
+			<td id="EventsTabCell" class="CalTabsActiveCell" onclick="switchCal('events');setCookie('ActiveTab','events',30);"><a id="EventsTabLink" class="CalTabsActiveLink" href="javascript:hoverhack()" onclick="switchCal('events');setCookie('ActiveTab','events',30);" title="This Week at MCC">Events</a></td>
+			<!-- <td class="CalTabSpacers">&nbsp;</td> -->
+			<td id="CafeTabCell" class="CalTabsDimCell" onclick="switchCal('cafe');setCookie('ActiveTab','cafe',30)"><a id="CafeTabLink" class="CalTabsDimLink" href="javascript:hoverhack()" onclick="switchCal('cafe');setCookie('ActiveTab','cafe',30);" title="This Week at the Cafe">Cafe</a></td>
+			<!-- <td class="CalTabSpacers">&nbsp;</td> -->
+			<td id="NewsTabCell" class="CalTabsDimCell" onclick="switchCal('news');setCookie('ActiveTab','news',30);"><a id="NewsTabLink" class="CalTabsDimLink" href="javascript:hoverhack()" onclick="switchCal('news');setCookie('ActiveTab','news',30);" title="Recent News">News</a></td>
+			<td class="CalTabMargins">&nbsp;</td>
+		</tr>
+	</table>
+</div>
+	<iframe frameborder="0" id ="EventCalFrame" title="Calendar" src="http://db.milescc.edu/schedule/WeekListing_events.aspx" width="195" height="200">
+		<p>Your browser does not support iframes.</p>
+	</iframe>
+	<script type="text/javascript">switchCal( getCookie('ActiveTab') );</script>
+</td></tr></table>
+
+<!--webbot bot="Include" endspan i-checksum="30864" --></div></td>
+		<td id="contentCell" valign="top" colspan="2">
+		<div id="newsAlerts"><iframe id="newsAlertsFrame" scrolling="no" frameborder="0" src="/_includes/alerts.aspx"></iframe></div>
+		<script type="text/javascript">setNewsAlertsFrame('newsAlertsFrame');</script>
+		<div id="contentDiv">
+		<!-- #BeginEditable -->
+				
+		
+		<input id="isHomePage" type="hidden" value="true" />
+		
+		<script type="text/javascript">
+		//document.getElementById('bodyDiv').style.maxWidth = '944px';
+		
+		document.getElementById('contentDiv').style.padding = '1px 0px 0px 0px';
+		
+		function slideOverlayHide() {
+			if (Browser.Version() > 7) { document.getElementById('slideOverlay').style.display = 'none' }
+		}
+		function slideOverlayShow() {
+			if (Browser.Version() > 7) { document.getElementById('slideOverlay').style.display = 'block' }
+		}
+		
+		</script>		
+		
+		<table border="0" cellspacing="2" style="width: 100%; background: ">
+				<tr>
+					<td valign="top" class="slideCell">
+					<div id="newsAlertsHomeTicker"><iframe id="iframeAlertsHome" scrolling="no" frameborder="0" src="/_includes/alerts.aspx"></iframe></div>
+					<script type="text/javascript">setNewsAlertsFrame('iframeAlertsHome');</script>
+					<div class="slideBlock" onmouseout="slideOverlayHide();" onmouseover="slideOverlayShow();">
+					<div id="slideOverlay" class="slideOverlay" onmouseout="slideOverlayHide();" onmouseover="slideOverlayShow();"><a href="/" title="Load another photo."><img src="images/refresh.png" alt="Refresh" /> Refresh</a>&nbsp;&nbsp;<a href="/_HomeSlides/_upload.aspx" title="Upload your photo to the MCC home page."><img src="images/UploadCloud.png" style="padding: 5px 0px 5px 0px;" alt="Photo upload" /> Photo upload</a></div>
+					<a id="slideLink" href="/"><img id="imgRandomMethodThree" class="slide" src="_HomeSlides/id136_scaled_DSC06700.JPG" alt="Photo slide" style="border-width:0px;" /></a>
+					</div>
+					</td>
+					<td style="width: 120px" valign="top" class="style8">
+						<a href="CampusServices/Admissions/application.htm">
+						<img alt="Apply For College Now!" longdesc="Apply For College Now! Click Here" src="images/applynow.gif" width="126" height="111" class="style9" /></a><br />
+						<div style="background: #005281; width: 126px; margin-bottom: 1px; padding-bottom: 4px;">
+							<map id="FPMap0" name="FPMap0">
+								<area coords="18, 10, 56, 47" href="http://www.facebook.com/milescommunitycollege#!/pages/Miles-Community-College/201008009914997" shape="rect" target="_blank" /> <!-- http://www.facebook.com/group.php?gid=121153370039#!/group.php?gid=121153370039 -->
+								<area coords="72, 10, 109, 48" href=../CampusServices/EventLink shape="rect" />
+							</map>
+							<img alt="Be Social!" longdesc="Network with MCC and stay ahead with the latest." src="images/SOCIAL-ICON.gif" border="0" width="126" height="56" usemap="#FPMap0" />
+							<iframe src="http://www.facebook.com/plugins/like.php?app_id=115864058502365&href=www.facebook.com%2Fmilescommunitycollegepioneers&amp;send=false&layout=button_count&amp;width=450&show_faces=false&action=like&colorscheme=light&font&height=21" scrolling="no" frameborder="0" style="margin-left: 4px; border:none; overflow:hidden; width:100%; height:21px;" allowTransparency="true"></iframe>
+						</div>
+						<!-- <a href="FutureStudents/HighSchoolVisits.htm">
+						<img alt="High School Visit Schedule" longdesc="check our the date and times Brent will be in your area!" src="images/hsvisit.jpg" width="126" height="56" class="style7" style="padding-top:0px;padding-bottom:0px;background:#005281;" /></a><br /> -->
+						<!-- <a href="http://www.smartaboutcollege.org/cgm">
+						<img alt="Student Assistance Foundation" src="images/StudentAssist.png" width="126" height="71" class="style7" /></a><br /> -->
+						<!-- <a href="http://www.milescc.edu/forms/forms.aspx?form=PreviewDays">
+						<img alt="Preview Days" longdesc="Preview Days" src="/images/PioneerPreview.png" width="126" height="56" class="style7" /></a><br /> -->
+						<a href="/CampusServices/Admissions/soar.htm">
+						<img alt="SOAR" longdesc="Student, Orientation, Advising, and Registration" src="/images/soar.jpg" width="126" height="56" class="style7" /></a><br />
+						<table cellpadding="0" cellspacing="0" style="position: relative; margin: 1px 0px 1px 0px; width: 126px; height: 54px; background: url(/images/OilRig2.jpg); font-family: 'Dancing Script', cursive; color:#FFCC00; font-size: 14pt; text-align: center; vertical-align: middle; cursor: pointer;" onclick="window.location='/CommunityOutreach/WorkDevelopment/EnergySummitJobFair/';"><tr><td>Energy Summit<br/>2012</td></tr></table>
+						<!-- <a target="_blank" href="/DownloadFiles/MCCAnnualReport2010.pdf">
+						<img alt="Annual Report" longdesc="Annual Report" src="/images/annualreport.png" width="126" height="52" class="style7" /></a><br /> -->
+						<!-- <a href="CommunityOutreach/EventsCalendar/">
+						<img alt="Events Calendar" longdesc="Events Calendar" src="images/eventsbutton.png" width="126" height="51" class="style7" /></a><br /> -->
+						<a href="CommunityOutreach/EventsCalendar/AcademicCalendar.htm">
+						<img alt="Academic Calendar" longdesc="Academic Calendar" src="images/academicbutton.png" width="126" height="52" class="style7" /></a><br />
+						<a href="mailto:info@milescc.edu?subject=Website:Homepage">
+						<img alt="Ask Us A Question!" longdesc="Ask Us A Question!" src="images/askusbutton.png" width="126" height="51" class="style10" /></a>
+					</td>
+				</tr>
+		</table>
+		
+		<div class="PromoLink" onclick="window.location='/CommunityOutreach/WorkDevelopment/';">
+			<table>
+				<tr>
+					<td>
+						<img class="PromoLinkImg" src="/images/RedSemi-small.png" alt="semi" />
+					</td>
+					<td>
+						<span class="IEclearTypeWrapper">CDL &#149; Safety Training &#149; CPR &#149; Employment Screening &amp; More...</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+<!--		<div class="PromoLink2" style="background: url(images/OilRig.jpg) left bottom;" onclick="window.location='/forms/forms.aspx?form=EnergySummit';">
+			<table>
+				<tr>
+					<td>
+						<span style="font-family: 'Dancing Script', cursive; color:#FFCC00; font-size: 24pt;" class="IEclearTypeWrapper"><strong>MCC Energy Summit 2012</strong></span>
+					</td>
+				</tr>
+			</table>
+		</div> -->
+
+		
+		
+		<!-- #EndEditable -->
+		</div>
+		</td>
+	</tr>
+	</table>
+	<table width="100%" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="foot" valign="top" id="foot">&nbsp;<br />
+<!--webbot bot="Include" U-Include="_includes/foot.htm" TAG="BODY" startspan -->
+
+<p>
+		Phone: (800) 541-9281 &#149; (406) 874-6100 &#149;
+		Fax: (406) 874-6282<br />
+		2715 Dickinson Street, Miles City, MT 59301<br />	
+		Copyright&copy; Miles Community College 2012
+		</p>
+<script type="text/javascript">
+
+	if (Browser.Version() > 6) {
+		// if client is using at least IE7 or non-MS browser, switch to use PNG
+		document.write('<img src="/images/foot-slogan.png" />');
+	}
+	else {
+		document.write('<img src="/images/foot-slogan.gif" />');
+	}
+</script>
+
+<!--webbot bot="Include" endspan i-checksum="20514" --><br />&nbsp; 
+		</td>
+	</tr>
+</table>
+
+</td></tr></table></div> <!-- End BODY container table -->
+
+<!-- Start google JavaScript -->
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	var pageTracker = _gat._getTracker("UA-5132328-1");
+	pageTracker._initData();
+	pageTracker._trackPageview();
+</script>
+<!-- End google JavaScript -->
+
+<script type="text/javascript" src="/_includes/traffic.js"></script>
+</body>
+
+<!-- #EndTemplate -->
+
+</html>

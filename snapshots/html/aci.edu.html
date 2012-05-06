@@ -1,0 +1,613 @@
+   
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<!--<html lang='en' xml:lang='en' xmlns="http://www.w3.org/1999/xhtml">-->
+<head>
+ <meta name="google-site-verification" content="wl14zyJRES9LVbDWgkgqbUlr52TvFB3ybjfIG4JqHiU" />
+  <meta name="y_key" content="b736d2a231e9ab95" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+   <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+   <link href="http://www.aci.edu/css/main.css" rel="stylesheet" type="text/css" />
+   <link href="http://www.aci.edu/css/nivo-slider" rel="stylesheet" type="text/css" />
+   <link href="http://www.aci.edu/css/sliders.css" rel="stylesheet" type="text/css" />
+   <link href="http://www.aci.edu/css/nav.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+   <script type="text/javascript" src="http://www.aci.edu/js/jquery.nivo.slider.pack.js"></script>
+   <!-- Initialize each slider on the page. Each slider must have a unique id -->
+<script type="text/javascript">  
+$(window).load(function() {
+    $('#slider1').nivoSlider({ 
+        pauseTime:5000, 
+        effect: 'fade',
+        pauseOnHover:false 
+    });
+});
+</script> 
+	<script type="text/javascript" src="http://www.aci.edu/js/validator.js"></script>
+   <script type="text/javascript" src="http://www.aci.edu/js/masked_input.js"></script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            var showText='read more';
+            var hideText='hide';
+            var is_visible = false;
+            $('.toggle').prev().append(' (<a href="#" class="toggleLink">'+showText+'</a>)');
+            $('.toggle').hide();
+            $('a.toggleLink').click(function() {
+                is_visible = !is_visible;
+                $(this).html( (!is_visible) ? showText : hideText);
+                $(this).parent().next('.toggle').toggle('slow');
+                return false;
+            });
+        });
+
+        // FORM MASKING FOR PHONE NUMBERS
+        jQuery(function($){
+           $("#phone_day").mask("(999) 999-9999");
+           $("#emergency_phone").mask("(999) 999-9999");
+        });
+        // SUBMIT FORMS AFTER VALIDATION
+          $.validator.setDefaults({
+            submitHandler: function() {  
+                form.submit(); 
+            }
+        });       
+        // SHORT FORM REQS/VALIDATION
+        $(document).ready(function() {
+            $("#miniForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    email: "",
+                    fname: "",
+                    lname: ""
+                }
+            });    
+        }); 
+        // REMOVE AND RETURN VALUES FROM TEXT INPUTS
+        $(document).ready(function(){
+            $('input, textarea').focus(function() {
+                    value=$(this).val();
+                    $(this).attr("value","");
+                });
+            $('input, textarea').blur(function() {
+                if($(this).val()=="") {
+                    $(this).val(value);
+                }
+            });
+        });
+        // CONTACT FORM REQS/VALIDATION    
+        $(document).ready(function() {        
+            $("#contactform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    city: "required",
+                    program: "required",
+                    referral: "required",
+                    medium: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone_day: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    campus: "",
+                    program: "",
+                    referral: "",
+                    medium: "",
+                    city: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone_day: ""
+                }
+            });    
+        });         
+
+        // APPLICATION STEP 1 FORM REQS        
+        $(document).ready(function() {       
+            $("#applyonline").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    program: "required",
+                    referral: "required",
+                    medium: "required",
+						  gradyear: "required",                                                
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone_day: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    program: "",
+                    referral: "",
+                    medium: "",
+						  gradyear: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone_day: ""
+                }
+            });    
+        });         
+        // RAF FORM REQS
+        $(document).ready(function() {      
+            $("#rafform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone_day: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    phone_day: ""
+                }
+            });     
+        });
+        // SWAP PROGRAMS BASED ON CAMPUS
+        $(document).ready(function() {
+            $.ajax({
+                type: "POST",
+                url: "/select.php",
+                data:   "id=default",
+                success: function(html){     
+                    $("select#program").html(html);
+                }
+            });             
+            $("select#campus").change(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/select.php",
+                    data:   "id=" + document.getElementById("campus").value,
+                    success: function(html){     
+                        $("select#program").html(html);
+                    }
+                });               
+            });
+        });                                 
+    </script> 
+               
+<script src="/js/shortform_dropdown.js"></script>
+<title>Career Schools | Vocational School | American Career Institute</title>
+<meta name="description" content="American Career Institute Offers Career Training in Maryland and Massachusetts"/>
+<meta name="keywords" content="Maryland Career School, Massachusetts Career School, Vocational Schools in MA, Vocational Schools in MD, Career Training Maryland, Career Training Massachusetts"/>
+</head>
+<body id="home">
+   <div id="top">
+   <div id="logo">
+      <a href="http://www.aci.edu/"><img src="/images/logo_aci-sm.png" border="0" alt="American Career Institute" style="float:left;" /></a>
+   <!-- /logo -->
+   </div>
+   <div id="topLinks">
+         <a title="ACI Blog" href="http://www.aci.edu/blog/" class="blog">Blog</a>
+         <a title="ACI Reviews" href="http://www.aci.edu/reviews/" class="about">Reviews</a>
+         <a title="ACI Videos" href="http://www.aci.edu/about-us/aci-videos" class="about">ACI Videos</a>
+         <a title="About ACI" href="http://www.aci.edu/about-us/" class="about">About ACI</a>
+         <a title="Request Info" href="http://www.aci.edu/contact-us/" class="rfi">Contact</a>    
+         <a title="Log In" href="http://www.aci.edu/login-portal" class="login">Log In</a>
+         
+   <!-- /topLinks -->
+   </div>
+   <div id="topPhone">
+      1.866.975.4427
+   </div>
+<!-- /top -->
+</div>
+<div class="cleaner"></div>
+          
+   <div id="mainNav">
+   <ul>
+       <li class="nav-end-l"></li>
+       <li><a class="isactive" href="http://www.aci.edu/">Home</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.aci.edu/programs/">Career Programs</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.aci.edu/admissions/">Admissions</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.aci.edu/financial-aid/">Financial Aid</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.aci.edu/locations/">Locations</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.aci.edu/career-services/">Career Services</a></li>
+       <li class="nav-div"></li>
+       <li>
+         <div id="searchWrapper">
+   <form name="kwsearch" id="kwSearch" action="http://www.aci.edu/index/search-site" method="post">  
+        <input  type="text" name="kwBox" id="kwBox" onblur="if(this.value == '')this.value='Keyword Search';" onfocus="if(this.value == 'Keyword Search')this.value='';" value="Keyword Search"/>
+
+        <input type="image" src="/images/icon_search.jpg" name="submit" id="searchBtn" /> 
+   </form>
+ </div>
+          
+       </li>
+       <li class="nav-end-r"></li>
+   </ul>
+</div>
+          
+   <div id="container">
+     <div id="mainCol">
+       <div id="slideShowWrapper">
+            <div id="slider1" class="nivoSlider"> 
+                <img src="images/slide1.jpg" alt="" /> 
+                <img src="images/slide2.jpg" alt="" /> 
+                <img src="images/slide3.jpg" alt="" /> 
+                <img src="images/slide4.jpg" alt="" /> 
+                <img src="images/slide5.jpg" alt="" /> 
+                <img src="images/slide6.jpg" alt="" /> 
+                <img src="images/slide7.jpg" alt="" /> 
+            </div> 
+            <div id="stripButtons">
+                <a href="http://www.aci.edu/programs/"><img src="images/btn_learn-more.png" width="133" height="33" alt="Learn More" /></a>
+                <a href="http://www.aci.edu/admissions/apply-online"><img src="images/btn_signup.png" width="160" height="33" alt="Sign Up for FREE" /></a>
+            </div>
+       </div><!-- #sliderWrap -->
+       <div class="col" style="margin-left:5px;">
+         <h1 class="programs-hdr">ACI Career Programs</h1>
+         <h2 class="first-sub">Information Technology</h2>
+         <p><a href="http://www.aci.edu/programs/pc-network-design-security">PC &amp; Network Design with Security</a> / <a href="http://www.aci.edu/programs/pc-network-design">PC &amp; Network Design</a>
+         </p>
+         <div class="sect-div-line"></div>
+         <h2>Medical &amp; Dental</h2>
+         <p><a href="http://www.aci.edu/programs/dental-assisting">Dental Assisting</a> / <a href="http://www.aci.edu/programs/medical-assisting">Medical Assisting</a> / <a href="http://www.aci.edu/programs/medical-billing-coding">Medical Billing &amp; Coding</a>
+         </p>
+         <div class="sect-div-line"></div>
+         <h2>Digital Media</h2>
+         <p><a href="http://www.aci.edu/programs/graphic-design">Graphic Design</a> / <a href="http://www.aci.edu/programs/graphic-web-design">Graphic &amp; Web Design</a> / 
+         <a href="http://www.aci.edu/programs/digital-multimedia-design">Digital Multimedia Design</a> / <a href="http://www.aci.edu/programs/digital-gaming-design">Digital Gaming Design</a> 
+         <!-- / <a href="http://www.aci.edu/programs/special-effects-design">Special Effects Design</a>             -->
+            </p>
+         <div class="sect-div-line"></div>
+         <h2>Programming &amp; Oracle</h2>
+         <p><a href="http://www.aci.edu/programs/oracle-dba">Oracle Database Administration</a> / <a href="http://www.aci.edu/programs/enterprise-solutions-developer">Enterprise Solutions Developer</a> / <a href="http://www.aci.edu/programs/oracle-dba-enterprise-developer">Oracle Administration &amp; Enterprise Solutions Developer</a>
+			</p>
+       </div>
+       <div class="col" style="width:300px; margin-right:5px;">
+         <h1 class="trust-hdr">Why Choose ACI?</h1>
+         <h2 class="first-sub">Hands-On Training</h2>
+         <p>Many of our programs offer hands-on externships that test your abilities in real work settings. Sharpen your skills and increase your knowledge while getting real-world experience.</p>
+         <div class="sect-div-line"></div>
+         <a href="http://www.accet.org/" target="_blank"><img src="images/logo_accet.png" alt="ACCET" align="right" width="58" height="22" border="0" /></a>
+         <h2>Accreditation</h2>
+         <p>American Career Institute is accredited by the <a href="http://www.accet.org/" target="_blank">Accrediting Council for Continuing Education &amp; Training (ACCET)</a>.</p>
+         <p>ACI's Maryland locations are approved by the <a href="http://www.mhec.state.md.us/" target="_blank">Maryland Higher Education Commission (MHEC)</a>.
+          </p>
+         <p>ACI locations in Massachusetts are licensed by the <a href="http://www.doe.mass.edu/" target="_blank">Massachusetts Department of Elementary and Secondary Education</a>.</p>
+         <div class="sect-div-line"></div>
+         <h2>Business Partnerships</h2>
+         <p>CAAHEP, Microsoft, Comptia and Oracle</p>
+         
+         <p><img src="/images/caahep-home.gif" style="width:170px;" alt="Information Technology schools in Massachusetts and Maryland"></p>
+         <p><img src="/images/microsoft-home.gif" style="width:170px;" alt="Microsoft certification classes in Maryland and Massachusetts"></p>
+         <p><img src="/images/comptia-home.gif" style="width:170px;" alt="Go to school for Comptia in Maryland and Massachusetts"></p>
+         <p><img src="/images/oracle-home.gif" style="width:170px;" alt="IT schools for Oracle classes in Maryland and Massachusetts"></p>
+         
+          <div class="btns-wrapper">
+            <a href="http://www.aci.edu/locations/"><img src="images/btn_find-location.png" alt="Find a Location" width="135" height="36" align="absmiddle" /></a>
+            <a href="http://www.aci.edu/programs/"><img src="images/btn_find-program.png" alt="Find a Program" width="135" height="36" align="absmiddle" /></a>
+          </div>
+          <p class="clear">&nbsp;</p>
+       </div>
+       <div class="clear"></div>
+      <!-- /mainCol-->
+      </div>     
+      <div id="sideBar">
+   
+        <div class="cta-btn" onclick="javascript:void(0);"><span class="showhideForm"><img src="/images/btn_big-signup.png" width="258" height="44" alt="Sign Up for FREE" border="0" /></span><div id="sForm" class="shortform" style="display:none;">
+     <!--<a href="javascript:void(0);" onclick="javascript:showhideForm('sForm')" class="close">Close Window</a>-->
+<!--<div id="mForm">-->
+   <form id="miniForm" method="post" action="/index/submit-short-form">
+      <div class="sform-hdr"></div>
+      <fieldset>
+         <legend>Request Info</legend>
+         <div>  
+            <label for="fname">First Name*</label> 
+            <input name="fname" id="fname" />
+         </div>
+         <div>
+            <label for="lname">Last Name*</label> 
+            <input name="lname" id="lname" />            
+         </div>
+         <div>
+            <label for="email">Your Email*</label>
+            <input name="email" id="email" />
+         </div>
+         <div>
+            <input type="image" src="/images/mform_btn_rfi.png" name="submit" id="submit" />
+         </div>
+      </fieldset>
+      <div class="sform-btm"></div>
+   </form>
+</div>
+</div>   
+<!-- Section SubNav inc starts -->
+          
+        
+    
+<!-- Section SubNav inc ends -->
+   <div class="content-wrapper">
+      <h2 style="padding-top:5px;"><strong>ACI News &amp; Events</strong></h2>
+      
+              <h2 id="">OPEN HOUSE - Saturday, 5/12</h2> 
+        One visit could change your life!            <br>
+            <a href="/news-events/">Read More...</a>
+             <fb:like ref="news_72"></fb:like>
+             <br>
+                    <h2 id="">WAAF Event this Friday, 5/4!</h2> 
+        Meet WAAF's Gregg Hill!            <br>
+            <a href="/news-events/">Read More...</a>
+             <fb:like ref="news_71"></fb:like>
+             <br>
+                    <h2 id="">FREE Basic Computer Skills Classes in May</h2> 
+        Classes held in Braintree on 4/14 4/28            <br>
+            <a href="/news-events/">Read More...</a>
+             <fb:like ref="news_52"></fb:like>
+             <br>
+                    <h2 id="">FREE A+ and NET+ Study Classes</h2> 
+        Every Tuesday and Thursday night!            <br>
+            <a href="/news-events/">Read More...</a>
+             <fb:like ref="news_65"></fb:like>
+             <br>
+               </div>
+   <div class="content-wrapper last-sect">
+      <h2><strong>The Social Scene</strong></h2>
+      <h3 class="twitter">Recently on <a href="http://twitter.com/ACI_Train" target="_blank">Twitter</a>...</h3>
+      <div class="feed-wrapper">
+         <ul class="sm-feed">
+         	<li><a href="http://twitter.com/ACI_Train/statuses/198853391559036928" target="_blank">ACI_Train: Name Company Name Phone EmailLogo Design Web Design Graphic DesignGuess the Di...</a></li><li><a href="http://twitter.com/ACI_Train/statuses/198536334850273280" target="_blank">ACI_Train: CISPA Web-surveillance bill advances despite opposition...</a></li><li><a href="http://twitter.com/ACI_Train/statuses/198399188336250882" target="_blank">ACI_Train: How Understanding Your Fears Will Help Your Career http://t.co/wKl289L4</a></li>         </ul>
+         <p align="right" class="fine-print" style="padding-right:5px; margin-right:7px;"><a href="http://twitter.com/ACI_Train" target="_blank">View Twitter Archive</a></p>
+      </div>
+      <h3 class="facebook">Recently on <a href="http://www.facebook.com/ACI.Train" target="_blank">Facebook</a>...</h3>
+      <div class="feed-wrapper" style="background-color:#fff;">
+         <p><fb:activity width="270" height="175" header="false" font="lucida grande" border_color="#ffffff" recommendations="true"></fb:activity></p>
+        <!-- / feed-wrapper -->
+      </div>
+      <h3 class="youtube">Recently on <a href="http://www.youtube.com/americancareer" target="_blank">Youtube</a>...</h3>
+      <div class="feed-wrapper" style="background-color:#fff;"><iframe width="250" height="217" src="http://www.youtube.com/embed/gKcJrBBMbIM?rel=0" frameborder="0" allowfullscreen></iframe></div>
+
+      
+   <!-- / content-wrapper -->   
+   </div>
+   <p>&nbsp;</p>
+<!-- /SIDEBar-->
+</div>   
+      <div id="fb-root"></div>
+
+
+          
+   <!-- / CONTAINER -->  
+   </div>
+   <div id="footerWrapper" style="text-align:center;">
+    <div id="footer">
+      <div id="colAddress">
+         <p style="padding:3px 0;"><a href="http://www.aci.edu/" title="home" class="img-link"><img src="/images/footer_aci-logo.png" alt="ACI" style="margin:0;" align="texttop" border="0" /></a></p>
+         <h2>&copy; 2010 American Career Institute</h2> 
+         <p>Call Us: 1.866.975.4427</p>
+         <p><a href="http://www.aci.edu/locations/">Find a Location &raquo;</a>
+         </p> 
+      </div>
+      <div id="colNav">
+
+         <p align="right">
+            	<a href="http://www.aci.edu/programs/pc-network-design-security">PC &amp; Network Design with Security</a> / <a href="http://www.aci.edu/programs/pc-network-design">PC &amp; Network Design</a>
+         </p>
+         <p align="right">
+            	<a href="http://www.aci.edu/programs/graphic-design">Graphics Design</a> / <a href="http://www.aci.edu/programs/graphic-web-design">Graphics &amp; Web Design</a> / <a href="http://www.aci.edu/programs/digital-multimedia-design">Digital Multimedia Design</a> / <a href="http://www.aci.edu/programs/digital-gaming-design">Digital Gaming Design</a> 
+                <!--/ <a href="http://www.aci.edu/programs/special-effects-design">Special Effects Design</a>                   -->
+         </p>
+         <p align="right"><a href="http://www.aci.edu/programs/oracle-dba">Oracle Database Administration</a> / <a href="http://www.aci.edu/programs/enterprise-solutions-developer">Enterprise Solutions Developer</a> / <a href="http://www.aci.edu/programs/oracle-dba-enterprise-developer">Oracle Administration &amp; Enterprise Solutions Developer</a>
+			</p>
+         <p align="right">
+            	<a href="http://www.aci.edu/programs/dental-assisting">Dental Assisting</a> / <a href="http://www.aci.edu/programs/medical-assisting">Medical Assisting</a> / <a href="http://www.aci.edu/programs/medical-billing-coding">Medical Billing &amp; Coding</a>
+         </p>
+         <p class="top-div" style="text-align:right;">
+         	<a href="http://twitter.com/ACI_Train" target="_blank"><img src="/images/icon_twitter.png" align="absmiddle" alt="Twitter" border="0" />&nbsp; Follow Us on Twitter</a> / 
+         	<a href="http://www.facebook.com/ACI.Train" target="_blank"><img src="/images/icon_facebook.png" align="absmiddle" alt="Facebook" border="0" />&nbsp; Become a Fan on Facebook</a>
+         </p>
+         <p align="right">
+             <a href="/disclosures/">Disclosures</a> / 
+             <a href="/calculator/">Net Price Calculator</a> / 
+         	<a href="/about-us/">About Us</a> / 
+            <a href="/contact-us/">Contact Us</a> / 
+            <a href="http://www.aci.edu/about-us/privacy-policy">Privacy</a> / 
+            <a href="http://www.aci.edu/index/sitemap">Sitemap</a> / 
+            <a href="/">Home</a>
+         </p>
+         
+      <!-- /colNav -->
+      </div>
+      
+     
+    <!-- /FOOTER-->       
+   </div><br />
+<!-- /footerWRAPPER--> 
+
+        <div style="margin:0px auto;text-align:center;">
+<table align="center">
+    <tr>
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/baltimore" style="color:#FFFFFF;">Baltimore, MD</a>
+        <br>
+        190 West Ostend Street
+        <br>
+        Baltimore, MD 21230 
+        </td>
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/braintree" style="color:#FFFFFF;">Braintree, MA</a>
+        <br>
+        703 Granite Street
+        <br>
+        Braintree, MA 02184
+        </td>
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/cambridge" style="color:#FFFFFF;">Cambridge, MA</a>
+        <br>
+        186 Alewife Brook Parkway
+        <br>
+        Cambridge, MA 02138
+        </td>
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/columbia" style="color:#FFFFFF;">Columbia, MD</a>
+        <br>
+        8621 Robert Fulton Drive
+        <br>Ste 180
+        <br>
+        Columbia, MD 21046 
+        </td>
+    </tr>
+    
+    <tr>
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/framingham" style="color:#FFFFFF;">Framingham, MA</a>
+        <br>
+        125 Newbury Street
+        <br> 
+        Framingham, MA 01701 
+        </td>
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/springfield" style="color: #FFFFFF;">Springfield, MA</a>
+        <br>
+        365 Cadwell Drive 
+        <br>
+        Springfield, MA 01104
+        </td>
+
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/wheaton" style="color: #FFFFFF;">Wheaton, MD</a>
+        <br>
+           11141 Georgia Ave.
+           <br>
+           Wheaton, MD 20902 
+        </td>
+        
+        
+        <td style="color:#CCCCCC;font-size:10px;line-height:14px;text-align:left;width:190px;vertical-align:top;">
+        <a href="/locations/woburn" style="color: #FFFFFF;">Woburn, MA</a>
+        <br>
+        10 State Street 
+        <br>
+        Woburn, MA 01801 
+        </td>
+    </tr>
+</table>
+</div>
+
+
+<!-- Google Code for Visitors to the site Remarketing List --> <script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1040655557;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "tFjMCKOglgIQxcmc8AM"; var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1040655557/?label=tFjMCKOglgIQxcmc8AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+      <div>
+      
+      </div>      
+</div>
+
+<script>
+	//App Name:	ACINow
+	//App URL:	http://www.acinow.edu/
+	//App ID:	127133887340423
+	//App Secret:	892075ccce54528dc7cb896f65c80333
+   window.fbAsyncInit = function() {
+     FB.init({
+       appId  : '127133887340423',
+       status : true, // check login status
+       cookie : true, // enable cookies to allow the server to access the session
+       xfbml  : true  // parse XFBML
+     });
+   };
+   (function() {
+     var e = document.createElement('script');
+     e.type = 'text/javascript';
+     e.src = document.location.protocol +
+       '//connect.facebook.net/en_US/all.js';
+     e.async = true;
+     document.getElementById('fb-root').appendChild(e);
+   }());
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22242594-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+<!-- Google Code for Visitors to the site Remarketing List --> <script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1040655557;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "666666";
+var google_conversion_label = "tFjMCKOglgIQxcmc8AM"; var google_conversion_value = 0;
+/* ]]> */
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1040655557/?label=tFjMCKOglgIQxcmc8AM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+          
+</body>
+</html>

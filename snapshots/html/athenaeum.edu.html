@@ -1,0 +1,1205 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	The Athenaeum Of Ohio
+</title><link rel="SHORTCUT ICON" href="../Ath.ico" />
+<script language="JavaScript">
+	function breadCrumbs(delStr, defp, cStyle, tStyle, dStyle, nl) { // by Paul Davis - http://www.kaosweaver.com
+		base = location.hostname
+		loc = window.location.toString();
+		subs = loc.substr(loc.indexOf(base) + base.length + 1).split("/");
+		document.write('<a href="' + getLoc(subs.length - 1) + defp + '" class="' + cStyle + '">Home</a>  ' + '<span class="' + dStyle + '">' + delStr + '</span> ');
+		a = (loc.indexOf(defp) == -1) ? 1 : 2;
+		for (i = 0; i < (subs.length - a); i++) {
+			subs[i] = makeCaps(unescape(subs[i]));
+			document.write('<a href="' + getLoc(subs.length - i - 2) + defp + '" class="' + cStyle + '">' + subs[i] + '</a>  ' + '<span class="' + dStyle + '">' + delStr + '</span> ');
+		}
+		if (nl == 1) document.write("<br>");
+		document.write('<span class="' + tStyle + '">' + document.title + '</span>');
+	}
+   function makeCaps(a) {
+      g = a.split(' '); for (l = 0; l < g.length; l++) g[l] = g[l].toUpperCase().slice(0, 1) + g[l].slice(1);
+      return g.join(" ");
+   }
+   function getLoc(c) {
+      var d = ""; if (c > 0) for (k = 0; k < c; k++) d = d + "../"; return d;
+   }
+</script>
+
+
+<script src="/Scripts/jquery-latest.js" type="text/javascript"></script>
+<script src="/Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+<link href="/css/Main.css" rel="stylesheet" type="text/css" media="screen" /><link rel="stylesheet" href="/MegaMenu/menu.css" type="text/css" media="screen" />
+<!--[if IE 6]>
+<style>
+body {behavior: url("MegaMenu/csshover3.htc");}
+#menu li:hover {
+	border: 1px solid #cccccc;
+	border-bottom:1px solid #ffffff;
+	padding: 7px 9px 10px 11px;
+	margin:3px 20px 0px 0px;
+	z-index:1000;
+	display:block;
+	
+	/* Background color and gradients */
+	
+	background: #ffffff;
+}
+
+#menu li a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px; 
+	color: #013e7f;
+	display:block;
+	outline:0;
+	text-decoration:none;
+	font-weight: bold;
+	text-transform:uppercase;
+}
+
+#menu li:hover a {
+	color:#136e9a;
+}
+
+#menu li .drop {
+	float:left;
+	position:relative;
+	border:none;
+	z-index:1000;
+}
+
+#menu li:hover .drop {
+	z-index:1000;
+	display:inline-block;
+	
+	/* Background color and gradients */
+	
+	background-color: #ffffff;
+}
+
+</style>
+<![endif]-->
+<!--[if IE 6]>
+<style>
+body {behavior: url("../MegaMenu/csshover3.htc");}
+#menu li:hover {
+	border: 1px solid #cccccc;
+	border-bottom:1px solid #ffffff;
+	padding: 7px 9px 10px 11px;
+	margin:3px 20px 0px 0px;
+	z-index:1000;
+	display:block;
+	
+	/* Background color and gradients */
+	
+	background: #ffffff;
+}
+
+#menu li a {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px; 
+	color: #013e7f;
+	display:block;
+	outline:0;
+	text-decoration:none;
+	font-weight: bold;
+	text-transform:uppercase;
+}
+
+#menu li:hover a {
+	color:#136e9a;
+}
+
+#menu li .drop {
+	float:left;
+	position:relative;
+	border:none;
+	z-index:1000;
+}
+
+#menu li:hover .drop {
+	z-index:1000;
+	display:inline-block;
+	
+	/* Background color and gradients */
+	
+	background-color: #ffffff;
+}
+
+</style>
+<![endif]-->
+<!--[if IE 6]>
+<script src="../Scripts/DD_belatedPNG.js"></script>
+<script>
+  /* EXAMPLE */
+  DD_belatedPNG.fix('.pngFix');
+  
+  /* string argument can be any CSS selector */
+  /* .png_bg example is unnecessary */
+  /* change it to what suits you! */
+</script>
+<![endif]-->
+<!-- NIVO SLIDER -->
+<link rel="stylesheet" href="../css/nivo-slider.css" type="text/css" media="screen" />
+<script src="../Scripts/jquery-latest.js" type="text/javascript"></script>
+<script src="../Scripts/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect:'slideInLeft', //Specify sets like: 'fold,fade,sliceDown'
+		effectPrevious: 'slideInRight',
+		effectNext: 'slideInLeft',
+        slices:15,
+        animSpeed:400, //Slide transition speed
+		boxCols: 8, // For box animations
+        boxRows: 4, // For box animations
+        pauseTime:5000,
+        startSlide:0, //Set starting Slide (0 index)
+        directionNav:true, //Next & Prev
+        directionNavHide:true, //Only show on hover
+        controlNav:false, //1,2,3...
+        controlNavThumbs:false, //Use thumbnails for Control Nav
+        controlNavThumbsFromRel:false, //Use image rel for thumbs
+        controlNavThumbsSearch: '.jpg', //Replace this with...
+        controlNavThumbsReplace: '_thumb.jpg', //...this in thumb Image src
+        keyboardNav:true, //Use left & right arrows
+        pauseOnHover:true, //Stop animation while hovering
+        manualAdvance:false, //Force manual transitions
+        captionOpacity:0.8, //Universal caption opacity
+        beforeChange: function(){},
+        afterChange: function(){},
+        slideshowEnd: function(){}, //Triggers after all slides have been shown
+        lastSlide: function(){}, //Triggers when last slide is shown
+        afterLoad: function(){} //Triggers when slider has loaded
+    });
+});
+</script>
+   
+   <script type="text/javascript">
+	<!--
+      function MM_swapImgRestore() { //v3.0
+         var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+      }
+      function MM_preloadImages() { //v3.0
+         var d = document; if (d.images) {
+            if (!d.MM_p) d.MM_p = new Array();
+            var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+               if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+         }
+      }
+
+      function MM_findObj(n, d) { //v4.01
+         var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+            d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+         }
+         if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+         for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+         if (!x && d.getElementById) x = d.getElementById(n); return x;
+      }
+
+      function MM_swapImage() { //v3.0
+         var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
+            if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+      }
+//-->
+   </script>
+</head>
+<body class="oneColFixCtr" onload="MM_preloadImages('images/Block_hover.jpg','images/DiaconateBtn_hover.png','images/LayMinistryBtn_hover.png','images/OtherDegreesBtn_hover.png','images/SeminaryBtn_Hover.png')">
+   <script>
+	function togglePreaching(){
+		var preaching = document.getElementById('preaching');
+		var students = document.getElementById('students');
+		var alumni = document.getElementById('alumni');
+		var faculty = document.getElementById('faculty');
+		
+		if (preaching.style.display == 'none') {
+			preaching.style.display = 'block';
+			students.style.display = 'none';
+			faculty.style.display = 'none';
+			alumni.style.display = 'none';
+		} else {
+			preaching.style.display = 'none';
+		}
+	}
+
+	function toggleStudents(){
+		var preaching = document.getElementById('preaching');
+		var students = document.getElementById('students');
+		var alumni = document.getElementById('alumni');
+		var faculty = document.getElementById('faculty');
+		if (students.style.display == 'none') {
+			students.style.display = 'block';
+			preaching.style.display = 'none';
+			faculty.style.display = 'none';
+			alumni.style.display = 'none';
+		} 
+		else {
+			students.style.display = 'none';
+		}
+	}
+
+	function toggleFaculty(){
+		var preaching = document.getElementById('preaching');
+		var students = document.getElementById('students');
+		var alumni = document.getElementById('alumni');
+		var faculty = document.getElementById('faculty');
+		if (faculty.style.display == 'none') {
+			faculty.style.display = 'block';
+			preaching.style.display = 'none';
+			students.style.display = 'none';
+			alumni.style.display = 'none';
+		} 
+		else {
+			faculty.style.display = 'none';
+		}
+	}
+	
+	function toggleAlumni(){
+		var preaching = document.getElementById('preaching');
+		var students = document.getElementById('students');
+		var alumni = document.getElementById('alumni');
+		var faculty = document.getElementById('faculty');
+		if (alumni.style.display == 'none') {
+			alumni.style.display = 'block';
+			preaching.style.display = 'none';
+			students.style.display = 'none';
+			faculty.style.display = 'none';
+		} 
+		else {
+			alumni.style.display = 'none';
+		}
+	}
+</script>
+
+
+<div id="topNavBg">
+    <div id="topNav">
+        <a href="/">Home</a>   
+        <a href="javascript: togglePreaching()">Preaching</a>
+        <a href="javascript: toggleStudents()">Students</a>
+        <a href="javascript: toggleFaculty()">Faculty</a>
+        <a href="javascript: toggleAlumni()">Alumni</a>
+        <a href="https://dnbweb1.blackbaud.com/OPXDONATE/AddDonor.asp?cguid=69B50CE2-E84E-42B5-B030-C1DDD708F247&amp;sTarget=https%3A%2F%2Fdnbweb1.blackbaud.com%2FOPXDONATE%2Fdonate.asp%3Fcguid%3D69B50CE2-E84E-42B5-B030-C1DDD708F247%26dpid%3D14029&amp;sid=43E08081-398D-4F08-A8BA-E9927EE1FA9F" target="_blank">Make A Gift</a>
+        <a href="/Payments.aspx">Payments</a>
+        <a href="/Contact.aspx">Contact Us</a>
+        <a href="/Search.aspx">Search</a>
+        <!--<span>Search</span>
+        <input type="text" name="" id="" style="margin-left:5px;" class="searchInput" /> &nbsp;<input type="submit" class="searchBtn" value="" />-->
+    <!-- end #topNav --></div>
+    
+    <div id="preaching" style="display:none;">
+        <a href="/Homilies.aspx">Homilies</a>
+        <a href="/Exegesis.aspx">Exegesis</a>
+        <a href="/ContributorBios.aspx">Contributor Bios</a>
+    </div>
+    
+    <div id="students" style="display:none;">
+    	<a href="/Curriculum.aspx">Class Pages</a>
+    	<a href="/Registration.aspx">Registration</a>
+        <a href="/Transcripts.aspx">Transcripts</a>
+        <a href="/Tuition.aspx">Tuition/Fees</a>
+        <a href="/ClassSchedule.aspx">Class Schedule</a>
+        <a href="/pdf/6a_2010Catalog.pdf" target="_blank">Course Catalog</a>
+        <a href="/BookStore.aspx">Bookstore</a>
+        <a href="/Liturgy.aspx">Liturgy</a>
+        <a href="/FoodService.aspx">Food Service</a>
+    </div>
+    
+    <div id="faculty" style="display:none;">
+    	<a href="/Discover/Faculty.aspx">Faculty Directory</a>
+        <a href="/Discover/Office.aspx">Office Directory</a>
+        <!--<a href="/FacultyPages/Index.aspx">Faculty Pages</a>-->
+    </div>
+    
+    <div id="alumni" style="display:none;">
+    	<a href="/AlumniAssoc.aspx">Alumni Association</a>
+        <a href="/AmbassadorProgram.aspx">Parish Ambassador Program</a>
+        <a href="/AlumniEvents.aspx">Alumni Events</a>
+        <a href="../pdf/FaithInAction_Fall2011_PRESS10-18.pdf" target="_blank">Alumni Newsletter</a>
+        <a href="/pdf/ATH_SummMag2011_web.pdf" target="_blank">Athenaeum Magazine</a>
+    </div>
+    
+
+<!-- end #topNavBg --></div>
+
+
+   
+   <div id="container" class="clearfix">
+   
+      <div id="header" class="pngFix">
+	<img src="/images/Header_top.png" width="960" height="10" border="0" class="pngFix" style="display:block;" />
+	<a href="/Index.aspx"><img src="/images/Header.jpg" border="0" style="margin:0; font-size:0px; display:block;" alt="The Athenaeum of Ohio/Mount St. Mary's Seminary" /></a>
+<!-- end #header --></div>
+<script src="/Scripts/Hoverintent.js"></script>
+
+	<script type="text/javascript" charset="utf-8"> 
+	
+	$(document).ready(function(){
+	$("#menu .delayDrop").hoverIntent({
+		interval: 150, 
+		over: drops_show, 
+		timeout: 500,  
+		out: drops_hide
+	});
+	$("#menu .delayDrop").addClass('with-js');
+	});
+	
+	function drops_show(){ $(this).addClass('show'); $(this).removeClass('with-js'); }
+	function drops_hide(){ $(this).removeClass('show'); $(this).addClass('with-js'); }
+				
+	</script>
+    
+    <style type="text/css">
+	
+	#menu .delayDrop:hover .dropdown_5columns, #menu .delayDrop.show .dropdown_5columns {
+		display: block;
+	}
+
+	#menu .delayDrop.with-js .dropdown_5columns {
+		display: none !important;
+	}
+	
+    </style>
+    
+
+<div id="menuWrapper">
+
+<ul id="menu" class="clearfix">
+
+    
+
+            
+    <li id="discoverDrop" class="delayDrop"><a href="../Discover/Index.aspx" class="drop">Discover Us</a>
+    	<div class="dropdown_5columns">
+                	
+            <div id="innerMenuBox" class="clearfix">
+            
+            <div class="col_1 altMenuCol" style="height:270px;"> 
+	            <p><b>Welcome</b></p>
+                <ul>
+    	        	<li><a href="../Discover/WelcomeArchbishop.aspx">Welcome From <br>The Archbishop</a></li>
+        	    	<li><a href="../Discover/WelcomePresident.aspx">Welcome From President/Rector</a></li>
+            		<li><a href="../Discover/Seal.aspx">Athenaeum Seal and Mission</a></li>
+            		<li><a href="../Discover/History.aspx">History of The Athenaeum</a></li>
+                    <li><a href="../Discover/Accreditation.aspx">Accreditation and Membership</a></li>
+                    <li><a href="../Discover/EducationalEffectiveness.aspx">Educational Effectiveness</a></li>
+            	</ul>
+            </div>
+                
+            <div class="col_1" style="height:270px;">
+                <p><b>Athenaeum Campus</b></p> 
+                    <ul>
+                        <li><a href="../Discover/Grounds.aspx">Building and Grounds</a></li>
+                        <li><a href="../pdf/CampusMap.pdf" target="_blank">Campus Map</a></li>
+                        <!-- <li><a href="#">Virtual Tour</a></li> -->
+                        <li><a href="../Discover/Grouptours.aspx">Group Tours</a></li>
+                        <li><a href="../Discover/Artcollection.aspx">Art Collection</a></li>
+                        <li><a href="../Discover/Discoverlibrary.aspx">Eugene H. Maly Library</a></li>
+                        <!-- <li><a href="../Discover/Photos.aspx">Photo Album</a></li> -->
+                    </ul>
+                    
+                <p><b>Athenaeum Magazine</b></p>
+                	<ul>
+                    	<li><a href="../Discover/AthenaeumMagazine.aspx" target="_blank">Magazine List</a></li>
+                    </ul>
+                    
+            </div>
+                
+            <div class="col_1 altMenuCol" style="height:270px;">
+                <p><b>Community Events</b></p>
+                <ul>                          
+                    <li><a href="../Discover/Chorale.aspx">Chorale</a></li>
+                    <li><a href="../Discover/Lectures.aspx">Lecture Series</a></li>
+                    <li><a href="../Discover/Speakersbureau.aspx">Speakers Bureau</a></li>
+                </ul>
+                
+            	<p><b>Athenaeum FAQ</b></p>
+                <ul>
+                    <li><a href="../Discover/Discoverfaq.aspx">Athenaeum FAQ</a></li>
+                </ul>
+            </div>
+            
+                
+                
+            <div class="col_1" style="height:270px;">
+                <p><b>Directory</b></p>
+                <ul>
+                	<li><a href="../Discover/BoardOfTrustees.aspx">Board of Trustees</a></li>
+                    <li><a href="../Discover/AdvisoryCouncil.aspx">Advisory Council</a></li>
+                    <li><a href="../Discover/Faculty.aspx">Faculty Directory</a></li>
+                    <li><a href="../Discover/Office.aspx">Office Directory</a></li>
+                </ul>
+                <p><b>Employment</b></p>
+                <ul>
+                    <li><a href="../Discover/Employment.aspx">Employment Opportunities</a></li>
+                </ul>
+            </div>
+            
+         </div>   
+    	</div>
+    </li>
+    
+    <li id="seminaryDrop" class="delayDrop"><a href="../Seminary/Index.aspx" class="drop">Seminary</a>
+    	<div class="dropdown_5columns">
+        
+        <div id="innerMenuBox" class="clearfix">
+                    
+            <div class="col_1 altMenuCol" style="height:410px;">
+                <p><b>Mount St. Mary's Seminary</b></p>
+                <ul>
+                	<li><a href="../Seminary/Seminary.aspx">Mount St. Mary's Seminary</a></li>
+                    <li><a href="../Seminary/MessageFromRector.aspx">Message From the Rector</a></li>
+                    <li><a href="../Seminary/Admissions.aspx">Admissions</a></li>
+                    <li><a href="../Seminary/PreTheology.aspx">Pre-Theology</a></li>
+                    <li><a href="../Seminary/Theology.aspx">Theology</a></li>
+                	<li><a href="http://www.cincinnativocations.org/the-steps-and-the-seminary/faqs/" target="_blank">Seminary FAQ</a></li>
+                    <li><a href="/pdf/SKMBT_C55211121515070.pdf" target="_blank">Fee Schedule</a></li>
+                </ul>
+            </div>
+                        
+            <div class="col_1" style="height:410px;">
+            
+            	<p><b>Priestly Formation</b></p>
+                    <ul>
+                        <li><a href="../Seminary/FourPillars.aspx">The Four Pillars of Formation</a></li>
+                    </ul>
+                
+                <p><b>Human Formation &amp; Seminary Life</b></p>    
+                <ul>
+                    <li><a href="../Seminary/SeminaryLife.aspx">Seminary Life and Human Formation</a></li>
+                </ul>
+                
+                
+                
+            </div>
+            
+                            
+            <div class="col_1 altMenuCol" style="height:410px;">
+                        
+                <p><b>Pastoral Formation</b></p>
+                 <ul>
+                 	<li><a href="../Seminary/PastoralFormation.aspx">Pastoral Formation</a></li>
+                    <li><a href="../pdf/FIELD ED PROGRAM MANUAL 2011-2012.pdf" target="_blank">Field Education Handbook</a></li>
+                    <li><a href="../Seminary/Practicum.aspx">Courses with Practicum</a></li>
+                    <li><a href="../Seminary/PastoralInternship.aspx">Pastoral Internship Year</a></li>
+                </ul>
+                
+                <p><b>Spiritual Formation</b></p>
+                <ul>
+                    <li><a href="../Seminary/MessageSpiritual.aspx">Spiritual Formation</a></li>
+                    <li><a href="../Seminary/OtherSpiritualDirectors.aspx">Other Spiritual Directors</a></li>
+                    <li><a href="../Seminary/SpiritualLife.aspx">Spiritual Life</a></li>
+                    <li><a href="../Seminary/Retreat.aspx">Days of Recollection and Retreat</a></li>
+                    <li><a href="../Seminary/FormationConferences.aspx">Formation Conferences</a></li>
+                 </ul>
+                                
+            </div>
+            
+                                                       
+            <div class="col_1" style="height:410px;">
+                <p><b>Intellectual Formation</b></p>
+                <ul>
+                	<li><a href="../Seminary/IntellectualFormation.aspx">Intellectual Formation</a></li>
+                    <li><a href="../pdf/6a_2010Catalog.pdf" target="_blank">Course Catalog</a></li>
+                    <li><a href="../ClassSchedule.aspx">Class Schedule</a></li>
+                    <li><a href="../Registration.aspx">Registration</a></li>
+                    <li><a href="../Seminary/PreTheology.aspx">Pre-Theology Program</a></li>
+                    <li><a href="../Seminary/MasterOfDivinity.aspx">Master of Divinity Program</a></li>
+                    <li><a href="../Seminary/OtherDegrees.aspx">Other Degrees</a></li>
+                </ul>
+            </div>
+
+                
+            <div class="col_1 altMenuCol" style="height:410px;">
+            
+            	<p><b>Faithful Reason Project</b></p>
+                <ul>
+                	<li><a href="../Seminary/AboutFaithfulReason.aspx">About</a></li>
+                    <li><a href="../Seminary/Rationale.aspx">Rationale</a></li>
+                    <li><a href="../Seminary/Committee.aspx">Committee Membership</a></li>
+                    <li><a href="../Seminary/FaithfulReasonContact.aspx">Contact Information</a></li>
+                </ul>
+                
+                <p><b>St. James Project</b></p>
+                <ul>
+                	<li><div align="center"><a href="../Seminary/St-James-Resources.aspx"><img src="../images/St_James_logo.jpg" border="0" /></a></div></li>
+                	<!--<li><a href="../Seminary/St-James-Project.aspx">About</a></li>-->
+                    <!--<li><a href="../Seminary/St-James-Mission.aspx">Mission</a></li>-->
+                    <!--<li><a href="../Seminary/St-James-Events.aspx">Events</a></li>-->
+                    <!--<li><a href="../Seminary/St-James-Resources.aspx">Resources</a></li>-->
+                    <!--<li><a href="../Seminary/St-James-Contact.aspx">Contact</a></li>-->
+                </ul>
+                
+             </div>
+                                     
+        </div>
+        </div>
+    </li>
+                   
+    
+	<li id="diaconateDrop" class="delayDrop"><a href="../Diaconate/Index.aspx" class="drop">Diaconate</a>
+    	<div class="dropdown_5columns">
+        
+        <div id="innerMenuBox" class="clearfix">
+ 			
+            <div class="col_1 altMenuCol" style="height:270px;">         
+            	<p><b>Permanent Deacon Formation</b></p>
+            	<ul>
+                	<li><a href="../Diaconate/PermanentDeacon.aspx">What Is A Permanent Deacon?</a></li>
+                	<li><a href="../Diaconate/DiaconateHistory.aspx">History of the Diaconate</a></li>
+                    <li><a href="../Diaconate/DiaconateEligibility.aspx">Eligibility Requirements</a></li>
+                    <li><a href="../Diaconate/DiaconateVocation.aspx">Vocation and Discernment</a></li>
+                </ul>
+           	</div>
+            
+            <div class="col_1" style="height:270px;">         
+            	<p><b>Other Resources</b></p>
+            	<ul>
+                	<li><a href="../Diaconate/DiaconatePrayers.aspx">Prayers For Deacons</a></li>
+                	<li><a href="../Diaconate/VaticanDocuments.aspx">Vatican Documents/Resources</a></li>
+                </ul>
+           	</div>
+                                    
+            <div class="col_1 altMenuCol" style="height:270px;">
+            <p><b>Enrollment</b></p>
+            	<ul>
+                	<li><a href="../Registration.aspx">Registration</a></li>
+                    <li><a href="../Transcripts.aspx">Transcripts</a></li>
+                    <li><a href="../Tuition.aspx">Tuition &amp; Fees</a></li>
+                    <li><a href="../ClassSchedule.aspx">Class Schedule</a></li>
+                    <li><a href="../pdf/6a_2010Catalog.pdf" target="_blank">Course Catalog</a></li>
+				</ul>
+
+            <p><b>Student Services</b></p>
+            	<ul>
+                	<li><a href="../BookStore.aspx">Bookstore</a></li>
+                    <li><a href="../Liturgy.aspx">Liturgy</a></li>
+                    <li><a href="../FoodService.aspx">Food Service</a></li>
+                </ul>
+            </div>
+                  
+        
+        </div>
+    	</div>
+	</li>
+    
+    
+    <li id="layMinistryDrop" class="delayDrop"><a href="../LPMP/Index.aspx" class="drop">Lay Ministry</a>
+    	<div class="dropdown_5columns">
+        	
+            <div id="innerMenuBox" class="clearfix">
+            
+            <div class="col_1 altMenuCol" style="height:260px;">
+        		<p><b>Lay Pastoral Ministry Program</b></p>
+            	<ul>
+                	<li><a href="../LPMP/LpmpWelcome.aspx">About the LPMP</a></li>
+                    <li><a href="../LPMP/LpmpHistory.aspx">History of Program</a></li>
+                    <li><a href="MinisterialFormation.aspx">Ministerial Formation</a></li>
+                    <li><a href="../LPMP/SatelliteLocations.aspx">Satellite Locations</a></li>
+                    <li><a href="../LPMP/ApplicationProcess.aspx">Application Process</a></li>
+                    <li><a href="../LPMP/LpmpFaq.aspx">LPMP FAQ</a></li>
+                    <li><a href="http://www.facebook.com/AthenaeumLPMP">LPMP on Facebook</a></li>
+                </ul>
+            </div>
+           	            
+            <div class="col_1" style="height:260px;">
+            <p><b>Masters Degree Programs</b></p>
+            	<ul>
+                	<li><a href="../LPMP/MasterOfArts.aspx">Master of Arts in Pastoral Ministry</a></li>
+                </ul>
+			</div>
+           	
+           	<div class="col_1 altMenuCol" style="height:260px;">
+            	<p><b>Certificate Programs</b></p>
+            	<ul>
+                	<li><a href="../LPMP/GraduateCertificate.aspx">Graduate Certificate in Pastoral Ministry</a></li>
+                    <li><a href="../LPMP/NonDegree.aspx">Non-degreed Certificate in Lay Ministry</a></li>
+                    <li><a href="../LPMP/PastoralAdministration.aspx">Pastoral Administration Program</a></li>
+                    <li><a href="../LPMP/ContinueEducation.aspx">Continuing Ministerial Education</a></li>
+                </ul>
+            </div>
+            
+            <div class="col_1" style="height:260px;">
+            	<p><b>Enrollment</b></p>
+            	<ul>
+                	<li><a href="../Registration.aspx">Registration</a></li>
+                    <li><a href="../Transcripts.aspx">Transcripts</a></li>
+                    <li><a href="../Tuition.aspx">Tuition &amp; Fees</a></li>
+                    <li><a href="../ClassSchedule.aspx">Class Schedule</a></li>
+                    <li><a href="../pdf/6a_2010Catalog.pdf" target="_blank">Course Catalog</a></li>
+                </ul>
+
+            <p><b>Student Services</b></p>
+            	<ul>
+                	<li><a href="../BookStore.aspx">Bookstore</a></li>
+                    <li><a href="../Liturgy.aspx">Liturgy</a></li>
+                    <li><a href="../FoodService.aspx">Food Service</a></li>
+                </ul>
+            </div>
+        
+        
+        </div>
+        </div>
+    </li>
+    
+    
+
+
+	<li id="otherDegreesDrop" class="delayDrop"><a href="../OtherDegrees/Index.aspx" class="drop">Other Degrees</a>
+    	<div class="dropdown_5columns">
+        
+        <div id="innerMenuBox" class="clearfix">
+        
+        	<div class="col_1 altMenuCol" style="height:300px;">
+        		<p><b>Masters Degree Programs</b></p>
+                <ul>
+                	<li><a href="../OtherDegrees/MessageDean.aspx">Message From the Dean of Special Studies</a></li>
+                    <li><a href="../OtherDegrees/Mab.aspx">Master of Arts in Biblical Studies</a></li>
+                    <li><a href="../OtherDegrees/Mat.aspx">Master of Arts in Theology</a></li>
+                    <li><a href="../OtherDegrees/Mapc.aspx">Master of Arts in Pastoral Counseling</a></li>
+                </ul>
+           	</div>
+            
+            <div class="col_1" style="height:300px;">
+            	<p><b>Non-degree Studies</b></p>
+            	<ul>
+                	<li><a href="../OtherDegrees/NonDegree.aspx">Non-Degree Studies</a></li>
+                </ul>
+
+            	<p><b>Continuing Ministerial Education</b></p>
+            	<ul>
+                	<li><a href="../OtherDegrees/SummerInstitute.aspx">Summer Institute</a></li>
+                    <li><a href="../OtherDegrees/Retreats.aspx">Retreats</a></li>
+                    <li><a href="../OtherDegrees/Workshops.aspx">Workshops and Lectures</a></li>
+                </ul>
+            	<br>
+                <ul>
+                	<li><a href="../OtherDegrees/Sabbatical.aspx">Sabbatical Program</a></li>
+                </ul>
+            </div>           
+            
+            <div class="col_1 altMenuCol" style="height:300px;">
+            	<p><b>Enrollment</b></p>
+            	<ul>
+                	<li><a href="../Registration.aspx">Registration</a></li>
+                    <li><a href="../Transcripts.aspx">Transcripts</a></li>
+                    <li><a href="../Tuition.aspx">Tuition &amp; Fees</a></li>
+                    <li><a href="../ClassSchedule.aspx">Class Schedule</a></li>
+                    <li><a href="../pdf/6a_2010Catalog.pdf" target="_blank">Course Catalog</a></li>
+                </ul>
+
+            	<p><b>Student Services</b></p>
+            	<ul>
+                	<li><a href="../BookStore.aspx">Bookstore</a></li>
+                    <li><a href="../Liturgy.aspx">Liturgy</a></li>
+                    <li><a href="../FoodService.aspx">Food Service</a></li>
+                </ul>
+            </div>
+        
+        
+        </div>
+        </div>
+    </li>
+       
+        
+
+	<li id="supportUsDrop" class="delayDrop"><a href="../SupportUs/Index.aspx" class="drop">Support Us</a>
+    	<div class="dropdown_5columns">
+        
+        <div id="innerMenuBox" class="clearfix">
+        
+        
+        	<div class="col_1 altMenuCol" style="height:290px;">
+        		<p><b>How To Give</b></p>
+                
+                <ul>
+                	<li><a href="../SupportUs/MessageFromDirector.aspx">Message From The Director of Advancement</a></li>
+                	<li><a href="../SupportUs/ImmediateImpact.aspx">Make An Immediate Impact</a></li>
+                    <li><a href="../SupportUs/CashGifts.aspx">Cash Gifts</a></li>
+                    <li><a href="../SupportUs/Stocks.aspx">Stocks &amp; Securities</a></li>
+                    <li><a href="../SupportUs/RecurringGifts.aspx">Recurring Gifts</a></li>
+                </ul>
+                
+                <p><b>Grow Your Contribution</b></p>
+                <ul>
+                    <li><a href="../SupportUs/GiftPledges.aspx">Gift Pledges</a></li>
+                </ul>
+	        </div>
+
+            
+            <div class="col_1" style="height:290px;">    
+                
+                <p><b>Create A Legacy</b></p>
+                	<ul>
+                    	<li><a href="http://www.gftpln.org/Home.do?orgId=6243">Create a Legacy</a></li>
+                    	<li><a href="../SupportUs/StGregory.aspx">St. Gregory Legacy Society</a></li>
+                        <li><a href="../SupportUs/Resources.aspx">Estate Planning Tools</a></li>
+                    </ul>
+                
+                <p><b>Recognize a Special Time or Person</b></p>
+                <ul>
+                    <li><a href="../SupportUs/ReunionGiving.aspx">Reunion Giving</a></li>
+                    <li><a href="../SupportUs/TributeGifts.aspx">Tribute Gifts</a></li>
+                	<li><a href="../SupportUs/MatchingGifts.aspx">Matching Gifts</a></li>
+        			<li><a href="../SupportUs/EndowedGifts.aspx">Endowed Gifts</a></li>
+                </ul>
+			</div>
+            
+           
+       		<div class="col_1 altMenuCol" style="height:290px;">
+            
+                <p><b>Where to Give</b></p>
+                    <ul>
+                        <li><a href="../SupportUs/AnnualFund.aspx">Annual Fund</a></li>
+                        <li><a href="../SupportUs/Fenwick.aspx">Bishop Fenwick Society</a></li>
+                        <li><a href="../SupportUs/Campaign.aspx">Campaign</a></li>
+                        <li><a href="../SupportUs/CapitalProject.aspx">Capital / Brick &amp; Mortar</a></li>
+                        <li><a href="../SupportUs/Endowment.aspx">Endowment</a></li>
+                    </ul>
+                    <p><b>Giving Community</b></p>
+                    <ul>
+                        <li><a href="../SupportUs/GivingSocieties.aspx">Giving Societies</a></li>
+                        <li><a href="../SupportUs/GivingProfiles.aspx">Profiles In Giving</a></li>
+                        <li><a href="../SupportUs/Donor.aspx">Donor Recognition</a></li>
+                        <li><a href="../SupportUs/AdvisoryCouncil.aspx">Advisory Council</a></li>
+                    </ul>
+        	</div>                                                                
+        
+            <div class="col_1">
+                <p><b>Giving News &amp; Events</b></p>
+                <ul>
+                    <li><a href="../SupportUs/GivingNews.aspx">Giving News</a></li>
+                    <li><a href="../SupportUs/GivingEvents.aspx">Giving Events</a></li>
+                </ul>
+                
+                <ul>
+                    <li><a href="../SupportUs/StaffContact.aspx">Advancement Staff Contact Information</a></li>
+                </ul>
+            </div>
+        
+        </div>
+        </div>
+    </li>
+    
+    
+    
+    <li id="libraryDrop" class="delayDrop"><a href="../Library/Index.aspx" class="drop">Library</a>
+    	
+        <div class="dropdown_5columns">
+        
+        <div id="innerMenuBox" class="clearfix">
+        	
+            <div class="col_1 altMenuCol" style="height:270px;">
+            	<p><b>Eugene H. Maly Library </b></p>
+                <ul>
+                    <li><a href="../Library/LibraryHistory.aspx">History and Description</a></li>
+                    <li><a href="../Library/Libraryhours.aspx">Hours and Policies</a></li>
+                    <li><a href="../Library/Librarycalendar.aspx">Library Calendar</a></li>
+                </ul>
+
+            	<p><b>Getting Help</b></p>
+            	<ul>
+                    <li><a href="../Library/Libraryfaq.aspx">Library FAQ</a></li>
+                    <li><a href="../Library/Offcampus.aspx">Off-Campus Users</a></li>
+                    <li><a href="../Library/Librarycontact.aspx">Contact Us</a></li>
+        		</ul>	
+   		 	</div>
+            
+            <div class="col_1" style="height:270px;">
+            	<p><b>Finding Books/Articles</b></p>
+                <ul>
+                    <li><a href="http://cat.opal-libraries.org/search~S1/Y" target="_blank">Maly Library Catalog</a></li>
+                    <li><a href="http://olc1.ohiolink.edu/search/X" target="_blank">OhioLINK Catalog</a></li>
+                    <li><a href="../Library/ResearchDatabases.aspx">Research Databases</a></li>
+                    <li><a href="http://pc3kg2vv3n.search.serialssolutions.com/?L=PC3KG2VV3N" target="_blank">Journal Finder</a></li>
+                    <li><a href="../Library/InterlibraryLoan.aspx">Articles through Interlibrary Loan</a></li>
+                </ul>
+            </div>
+            
+            <div class="col_1 altMenuCol" style="height:270px;">
+            	<p><b>Guides and Tutorials</b></p>
+                <ul>
+                    <li><a href="http://athenaeum.libguides.com/research" target="_blank">Research Guides By Subject</a></li>
+                    <li><a href="../Library/OnlineTutorials.aspx">Online Tutorials</a></li>
+                    <li><a href="http://athenaeum.libguides.com/citation" target="_blank">Citation Style Sheets</a></li>
+                    <li><a href="http://athenaeum.libguides.com/internet" target="_blank">Research on the Internet</a></li>
+                </ul>
+            
+            	<p><b>Access Your Account</b></p>
+            	<ul>
+                	<li><a href="http://cat.opal-libraries.org/patroninfo" target="_blank">Your Library Account</a></li>
+                </ul>
+            </div>
+
+        </div>
+        </div>
+    </li>
+   
+</ul>
+
+
+</div>
+
+      
+      <div id="mainWelcomeBlue" class="pngFix clearfix">
+         <div style="width: 900px; margin: 0px auto 0px auto; text-align:center;">
+            <div id="leftSwirl" class="pngFix">
+               <!-- -->
+            </div>
+            <h1 style="color: #b69360; margin: 0px 0px 5px 0px; font-size: 25px;">
+               The Athenaeum of Ohio, the graduate school of theology sponsored by the Roman Catholic
+               <a href="http://www.catholiccincinnati.org/" style="color: #ffffff; text-decoration: none;"
+                  target="_blank">Archdiocese of Cincinnati</a>, prepares people to serve the Church</h1>
+         </div>
+         
+         <div id="blueSpacer"> <!-- --> </div>
+         
+         <div id="mainWelcomeLeft">
+            <a href="Seminary/Seminary.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('SeminaryBtn','','images/SeminaryBtn_Hover.png',1)">
+               <img src="images/SeminaryBtn.png" alt="Mount St. Mary's Seminary" name="SeminaryBtn"
+                  width="180" height="59" border="0" id="SeminaryBtn" class="blueBtn pngFix" style="margin-top: 15px;" /></a>
+            <a href="Diaconate/PermanentDeacon.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Diaconate','','images/DiaconateBtn_hover.png',1)">
+               <img src="images/DiaconateBtn.png" alt="Diaconate" name="Diaconate" width="180" height="59"
+                  border="0" id="Diaconate" class="blueBtn pngFix" /></a> 
+                  <a href="LPMP/LpmpWelcome.aspx"
+                     onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('lpmp','','images/LayMinistryBtn_hover.png',1)">
+                     <img src="images/LayMinistryBtn.png" alt="Lay Pastoral Ministry Program" name="lpmp"
+                        width="180" height="59" border="0" id="lpmp" class="blueBtn pngFix" /></a>
+            <a href="OtherDegrees/MessageDean.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Other','','images/OtherDegreesBtn_hover.png',1)">
+               <img src="images/OtherDegreesBtn.png" alt="Other Degrees" name="Other" width="180"
+                  height="59" border="0" id="Other" class="blueBtn pngFix" /></a>
+         </div>
+         <div id="mainWelcomeImages" class="pngFix">
+            <div id="slider" class="pngFix">
+               <img src="images/Ath.jpg" border="0" alt="The Athenaeum Of Ohio" />
+               <a href="Seminary/Seminary.aspx">
+                  <img src="images/Seminary_Slide.jpg" border="0" title="#seminaryCaption" alt="Mount St. Mary's Seminary" /></a>
+               <a href="Diaconate/PermanentDeacon.aspx">
+                  <img src="images/Deacon_Slide.jpg" border="0" title="#diaconateCaption" alt="Diaconate" /></a>
+               <a href="LPMP/LpmpHistory.aspx">
+                  <img src="images/LPMP_Slide.jpg" border="0" title="#layministryCaption" alt="Lay Pastoral Ministry Program" /></a>
+               <a href="OtherDegrees/Index.aspx">
+                  <img src="images/OtherDegrees_Slide.jpg" border="0" title="#otherDegreesCaption"
+                     alt="Other Degrees" /></a>
+            </div>
+            <div id="seminaryCaption" class="nivo-html-caption pngFix">
+               <h4>Mount St. Mary's Seminary</h4>&nbsp;provides spiritual guidance, theological knowledge, practical experience and a prayerful
+               home for the men who are answering the call to go forth and nurture God's people.
+            </div>
+            <div id="diaconateCaption" class="nivo-html-caption">
+               <h4>Diaconate</h4>&nbsp;- The Athenaeum is a place alive with seminarians, deacon candidates and lay pastoral
+               ministry students who strive to be open to the Spirit and God's call.
+            </div>
+            <div id="layministryCaption" class="nivo-html-caption">
+               The Athenaeum's
+               <h4>Lay Pastoral Ministry Program</h4>&nbsp;helps students realize their spiritual gifts and develop the skills they need to
+               share those gifts with their parish.
+            </div>
+            <div id="otherDegreesCaption" class="nivo-html-caption">
+               The Athenaeum's
+               <h4>Master Degree Programs</h4>&nbsp;help to form minds intellectually and spiritually to be servants of God's church.
+            </div>
+         </div>
+         <div id="mainWelcomeRight">
+            <a href="Discover/WelcomeArchbishop.aspx">
+               <img src="images/Schnurr.jpg" border="0" class="imgBorder" alt="Dennis M. Schnurr - Archbishop of Cincinnati" /></a>
+            <div style="margin: 17px 0px 0px 0px; width: 165px; text-align: center;" align="left">
+               <h2>
+                  Welcome</h2>
+               From Most Reverend
+               <br />
+               <b>Dennis M. Schnurr</b><br />
+               Archbishop of Cincinnati
+            </div>
+         </div>
+         <!-- end #mainWelcomeBlue -->
+      </div>
+      <div align="center" style="width: 960px; margin: 0 auto;" class="clearfix">
+               <img src="images/MainBlueBottom.png" border="0" class="pngFix" /></div>
+            <div align="center" style="width: 960px; margin: 0 auto;">
+               <img src="images/Transparent_Shadow.png" border="0" class="pngFix" /></div>
+      <form method="post" action="" id="Form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5MDU2MjM1NTAPZBYCAggPZBYCAgMPZBYCZg9kFgQCAQ8WAh4LXyFJdGVtQ291bnQCBBYIZg9kFggCAQ8PFgIeCEltYWdlVXJsBT5+L05ld3NJbWFnZXMvVGh1bWJuYWlsSW1hZ2VzLzQ3MzY0Mzg1NF9Nb3Jtb24gZGVwYXJ0cyAyMDEyLmpwZ2RkAgMPDxYEHg9Db21tYW5kQXJndW1lbnQFAzE0OB4EVGV4dAUgRmFyZXdlbGwgdG8gTW9uc2lnbm9yIEtlbiBNb3JtYW5kZAIFDw8WAh8DBQowNS8wMy8yMDEyZGQCBw8PFgIfAwU5UmV0dXJucyB0byBUb2xlZG8gYWZ0ZXIgRWlnaHQgWWVhcnMgYXQgTW91bnQgU3QuIE1hcnkncyAgZGQCAQ9kFggCAQ8PFgIfAQU0fi9OZXdzSW1hZ2VzL1RodW1ibmFpbEltYWdlcy8xMDg0MzE3OTU0X0lNR182OTkxLkpQR2RkAgMPDxYEHwIFAzE0Nh8DBUJBcmNoYmlzaG9wIERlbm5pcyBNLiBTY2hudXJyIHRvIE9yZGFpbiBGb3VyIE1lbiB0byB0aGUgUHJpZXN0aG9vZCBkZAIFDw8WAh8DBQowNS8wMi8yMDEyZGQCBw8PFgIfAwVTT3JkaW5hdGlvbiBDZXJlbW9teSAxMSBhLm0uIFNhdHVyZGF5LCBNYXJjaCAxOSBhdCBDYXRoZWRyYWwgb2YgU3QuIFBldGVyIGluIENoYWlucyBkZAICD2QWCAIBDw8WAh8BBT1+L05ld3NJbWFnZXMvVGh1bWJuYWlsSW1hZ2VzLzE2NjgxMTA1NjRfdG9sZWRvIHNlcmEgMjAxMnIuanBnZGQCAw8PFgQfAgUDMTQ3HwMFL1RvbGVkbyBTZXJyYSBDbHViIFBheXMgYSBWaXNpdCB0byBTZW1pbmFyaWFucyAgZGQCBQ8PFgIfAwUKMDUvMDIvMjAxMmRkAgcPDxYCHwMFGVN1cHBvcnRpbmcgdGhlIFByaWVzdGhvb2RkZAIDD2QWCAIBDw8WAh8BBTt+L05ld3NJbWFnZXMvVGh1bWJuYWlsSW1hZ2VzLzE2NjkzMzE5ODRfRmx5aW5nIHBpZyAyMDEyLmpwZ2RkAgMPDxYEHwIFAzE0NB8DBT9TZW1pbmFyaWFucyBSdW5uaW5nIGluIEZseWluZyBQaWcgTWFyYXRob24gSW50ZXJ2aWV3ZWQgYnkgVFYgNSBkZAIFDw8WAh8DBQowNC8zMC8yMDEyZGQCBw8PFgIfAwVHUmFpc2luZyBWb2NhdGlvbiBBd2FyZW5lc3M7IFR1aXRpb24gQXNzaXN0YW5jZSBmb3IgQ29sbGVnZSBTZW1pbmFyaWFucyBkZAIFDzwrAAsBAA8WCB4IRGF0YUtleXMWAB8AAgMeCVBhZ2VDb3VudAIBHhVfIURhdGFTb3VyY2VJdGVtQ291bnQCA2QWAmYPZBYGAgEPZBYCZg9kFgQCAQ8PFgQfAgUCNTAfAwUoQXRoZW5hZXVtIFNlZWtzIENvbW1lbnRzIGZyb20gdGhlIFB1YmxpY2RkAgIPFQITMDIvMTAvMjAxMiAwNDo0NSBQTT1BdGhlbmFldW0gU2Vla3MgY29tbWVudHMgZnJvbSB0aGUgUHVibGljIGZvciBSZS1BY2NyZWRpdGF0aW9uZAICD2QWAmYPZBYEAgEPDxYEHwIFAjU1HwMFL0FyY2hkaW9jZXNlIG9mIENpbmNpbm5hdGkgUHJpZXN0aG9vZCBvcmRpbmF0aW9uZGQCAg8VAhMwNS8xOS8yMDEyIDExOjAwIEFNIENpbmNpbm5hdGkgUHJpZXN0aG9vZCBPcmRpbmF0aW9uZAIDD2QWAmYPZBYEAgEPDxYEHwIFAjU2HwMFKFlvdW5nc3Rvd24gRGlvY2VzZSBQcmllc3Rob29kIE9yZGluYXRpb25kZAICDxUCEzA2LzA5LzIwMTIgMTA6MzAgQU0oWW91bmdzdG93biBEaW9jZXNlIFByaWVzdGhvb2Qgb3JkaW5hdGlvbmRkRwsIxthUqNSL+qVaLJ9/lKzA0p/9mwr4xXhAR9QQJi4=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=Ed8L2TGiCtdFgfQ-NK3tDptnULOjss5dMG-Ty9CY5RyXzsZIDBqoGM-sryRdYqKltU6giuLsdYgKW0dsgfYnPgeeB5WBLbGToyRyz8_BkXs1&amp;t=634621936977064182" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=kqKaaYga_Hg8r_83GKMFORiPw9lr4N1Cqvcl1ZOigj30XWvNj37naZbEgZwS-tq7xnU9IM7mmG0UG1hHW91LCiqYnGQt_3I5_D8bz5e2lyXC457Yq1dtAbjqkE2vSjXp0&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=dcJqhMa3OryGrxEUo3jw4BeNY1uDfYZ2oaIm5l0iIYG5Ib3CTY0duWwDTLd9KLSiV4GmMFdE21wY5QTlz3nyu8M_fq8vnc8M66si9s_Etw7fbkCYj9PneiNBNI-t13E2ydT6ExWs-MtY8aefASyBkw2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=X5bMBVSyc_OsxGN7h1zhuQVCsa-0bUOKeFZApMKxILtyauBrhVC_xV4qOMXrKW1ouACAgx8cy9b_8ihJEUBgJouwlyQnen6TCjkUEiY3amn6ipOZ2Srj1g5a8ceeSJur0&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Lkm4pM1gMZqfCscbYfxYGHZvrhY_wrh68CZhhArYe2e1sDC_29pdi5IeLFUITh2sEiBvk6yCKI0ZYeswVS2ZNelWfYTxsOFFNMkVP3AvNvG0PpcytO3P6758MN2KakNI0wPUNIgMvD1C7Td-WF9nSw2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=SInZQqqvAyuLxpC1kJ5TIaOmjfKB8DNmdf3FXigaIUraH82C05fbEa2YG8GUazGIQTObGyi25tKWfLg3VMuxVvgzacLuogCF8gO8xhpc8wdBiTxYzAOt3aIrSlZxBUTaNINFmy3255zS_v7SZsb1dQ2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=DCiJJeNiU0yh83iVwbNBRSPhrCdghuZFzsJPvWehkYx2qQE6QcoY2VmjqddQr-1j00HZY6UhWxiszvzwjWrPKls7E1xC-FSR7_T52guyu1J8cPK-jay1SNLrkP2qoMEzntP2I642dEFJFDPzAvHMoQ2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HTFpPmGwG-cJfJDT0IZj7ad8YV9QhhyKWZfSb1PitVGNxnol8hrNtwCOS73Smd_GyxKene2HUm2j3HrxVYf0nIWyI8SyROFWmPHnNPekPeuum4MpkUCiXnsFdQT66qV52Du8ruwCZ0mXMDnGixRsYA2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=YIgmSgIDEMAiniQIshTZpZ94qLf1j4PHDJfTKgpELzDgVwUo0hepvspnRnfqZFrM8AJsz5U3htJ3jv40r_fArOBgyThkEMGqYBVL39oeuEGp-Rs4HQxS9J7NEWJRgE3cMJm92NAwcjJHjE3JyXAL6OB-gCEbX4j--GxgiJcimzw1&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=3V2uz-xXLUK6bmw0EwznzWi61TAjLu8AkE2CUaBfp5nofMNpCJQ0LrD47rj8-eexnKIVPNMJNGoHcjfXndTs-1ODrsYmOMUHnddg2zZhYqjTcQoe4j9so865BaG_xuwy6ygRikRrev22Ybq3Pilgmg2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=9m525AvYSgTxOMVADksL1y3_qMluVcwYvisVzkX6u70U4U82l1V73T6ZOnI7kzcdX3N3kT5prhw5jNdOdWeLL4-nKdMdUphfTJPY8HCG-b8Ce39lPGs_vhMjHdFMNcxmJcyvV0EzzctIsht6-i8shA2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=66Pt5dA61mP6GXkuOEftprVj8O-ackT2P7PiMwCk6CmG6Ijv51UW4ogxKyZxpwFGG4iMnJcB2fvMqrPyZKOxUOYgQQNIoIWRXi85k2MvxvlMZs5UhHnhJg9o-e-fh-58SVEEXFcFqGOBY5PMTu_I6NRLwUG8Bor-y18QAC4Vq4k1&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=wzXC-IRi8Fue_uAEfqvrCxvhe-YTb2SLRVR8kRHUz_I10jlLUM-xQg4iS9wI-4Ni2SYITLBs30r6OisNlHiCz_bVNu_gTUBIq5OffhPOWHOVbCPisCQA6mLxstpTTWdrzI2DdHdqEqgsxDN5cG7jow2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=IjtDeDDAU6Pto4qtZ8wqlL8o4vxgzbRZHPmejxGJI9Xr-N-rhfoBOFo6BCWtXSemdT3dA2vbDjQvsEL78AMkhEp4C9Ik4Sx2a7VqmWgrtXV2GW6NF1cTjijWpOD-oHIxrvq5JULqQxm-xlTWIQUZaA2&amp;t=ffffffff823b7694" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWDAL017b1AQLrz8z+CALsx8z+CALpnsz+CALqlsz+CAKAkJK9DALyp+alCgLwp+rIBAL1p97jCgL/2vKWDgKwu/70CgLxq8Vy7tAz8yyWZGr7tQnNu8aaxsBE/vBX/obEY2N2M25gIzw=" />
+</div>
+      <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'Form1', ['tupdpnl1','updpnl1','tucEventDetailsPopup$updShowDetails','ucEventDetailsPopup_updShowDetails'], [], [], 90, '');
+//]]>
+</script>
+
+      <div id="updpnl1">
+	
+            
+            <div id="newsWrapper" class="clearfix">
+               <div id="news">
+                  <h2><a href="AllNews.aspx">Latest News</a></h2>
+                     <div id="spacer">
+                     <!-- -->
+                  </div>
+
+                  
+                        <div style="overflow: auto;">
+                            <img id="rptNews_imgNewsImage_0" OnError="this.src=&#39;images/DefaultNewsImg.jpg&#39;;" src="NewsImages/ThumbnailImages/473643854_Mormon%20departs%202012.jpg" align="left" style="padding-right: 5px;" />
+                            <div id="divNews" style="padding-left: 110px;">
+                                <a id="rptNews_lbOpenNews_0" class="newsTitle" href="javascript:__doPostBack(&#39;rptNews$ctl00$lbOpenNews&#39;,&#39;&#39;)" style="padding-bottom: 5px;">Farewell to Monsignor Ken Morman</a>
+                                <span id="rptNews_lblAssocDate_0" class="newsDateHome">05/03/2012</span>
+                                <br />
+                                <span id="rptNews_lblShortDescription_0" class="newsDescription">Returns to Toledo after Eight Years at Mount St. Mary's  </span>
+                            </div>
+                        </div>
+                        <br class="clearfloat" />
+                        <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                    
+                        <div style="overflow: auto;">
+                            <img id="rptNews_imgNewsImage_1" OnError="this.src=&#39;images/DefaultNewsImg.jpg&#39;;" src="NewsImages/ThumbnailImages/1084317954_IMG_6991.JPG" align="left" style="padding-right: 5px;" />
+                            <div id="divNews" style="padding-left: 110px;">
+                                <a id="rptNews_lbOpenNews_1" class="newsTitle" href="javascript:__doPostBack(&#39;rptNews$ctl01$lbOpenNews&#39;,&#39;&#39;)" style="padding-bottom: 5px;">Archbishop Dennis M. Schnurr to Ordain Four Men to the Priesthood </a>
+                                <span id="rptNews_lblAssocDate_1" class="newsDateHome">05/02/2012</span>
+                                <br />
+                                <span id="rptNews_lblShortDescription_1" class="newsDescription">Ordination Ceremomy 11 a.m. Saturday, March 19 at Cathedral of St. Peter in Chains </span>
+                            </div>
+                        </div>
+                        <br class="clearfloat" />
+                        <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                    
+                        <div style="overflow: auto;">
+                            <img id="rptNews_imgNewsImage_2" OnError="this.src=&#39;images/DefaultNewsImg.jpg&#39;;" src="NewsImages/ThumbnailImages/1668110564_toledo%20sera%202012r.jpg" align="left" style="padding-right: 5px;" />
+                            <div id="divNews" style="padding-left: 110px;">
+                                <a id="rptNews_lbOpenNews_2" class="newsTitle" href="javascript:__doPostBack(&#39;rptNews$ctl02$lbOpenNews&#39;,&#39;&#39;)" style="padding-bottom: 5px;">Toledo Serra Club Pays a Visit to Seminarians  </a>
+                                <span id="rptNews_lblAssocDate_2" class="newsDateHome">05/02/2012</span>
+                                <br />
+                                <span id="rptNews_lblShortDescription_2" class="newsDescription">Supporting the Priesthood</span>
+                            </div>
+                        </div>
+                        <br class="clearfloat" />
+                        <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                    
+                        <div style="overflow: auto;">
+                            <img id="rptNews_imgNewsImage_3" OnError="this.src=&#39;images/DefaultNewsImg.jpg&#39;;" src="NewsImages/ThumbnailImages/1669331984_Flying%20pig%202012.jpg" align="left" style="padding-right: 5px;" />
+                            <div id="divNews" style="padding-left: 110px;">
+                                <a id="rptNews_lbOpenNews_3" class="newsTitle" href="javascript:__doPostBack(&#39;rptNews$ctl03$lbOpenNews&#39;,&#39;&#39;)" style="padding-bottom: 5px;">Seminarians Running in Flying Pig Marathon Interviewed by TV 5 </a>
+                                <span id="rptNews_lblAssocDate_3" class="newsDateHome">04/30/2012</span>
+                                <br />
+                                <span id="rptNews_lblShortDescription_3" class="newsDescription">Raising Vocation Awareness; Tuition Assistance for College Seminarians </span>
+                            </div>
+                        </div>
+                        <br class="clearfloat" />
+                        <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                    
+                  <br /><br />
+                  <div align="left">
+                  <a id="lbShowAllNews" href="javascript:__doPostBack(&#39;lbShowAllNews&#39;,&#39;&#39;)"><img src="images/ViewAllNews.jpg" border="0" alt="View All News" style="margin:-20px 0px 0px -3px; border: none; background:none;"/></a>
+                  </div>
+               </div>
+            </div>
+            <div id="eventsWrapper" class="clearfix">
+               <div id="events">
+                  <h2><a href="Events.aspx" style="text-decoration:none;">Coming Events</a></h2>
+                  <div id="spacer">
+                     <!-- -->
+                  </div>
+                  <table cellspacing="0" id="dgEvents" style="border-collapse:collapse;">
+		<tr>
+			<td>
+                           <div class="eventItemHome">
+                           		<a id="dgEvents_lbOpenEvent_0" class="eventTitle" href="javascript:__doPostBack(&#39;dgEvents$ctl02$lbOpenEvent&#39;,&#39;&#39;)">Athenaeum Seeks Comments from the Public</a> - <span class="eventDateHome">02/10/2012 04:45 PM</span>
+                            </div> 
+                            <div class="eventShortDescription">
+							  	Athenaeum Seeks comments from the Public for Re-Accreditation
+                            </div>
+                            <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                           </td>
+		</tr><tr>
+			<td>
+                           <div class="eventItemHome">
+                           		<a id="dgEvents_lbOpenEvent_1" class="eventTitle" href="javascript:__doPostBack(&#39;dgEvents$ctl03$lbOpenEvent&#39;,&#39;&#39;)">Archdiocese of Cincinnati Priesthood ordination</a> - <span class="eventDateHome">05/19/2012 11:00 AM</span>
+                            </div> 
+                            <div class="eventShortDescription">
+							  	Cincinnati Priesthood Ordination
+                            </div>
+                            <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                           </td>
+		</tr><tr>
+			<td>
+                           <div class="eventItemHome">
+                           		<a id="dgEvents_lbOpenEvent_2" class="eventTitle" href="javascript:__doPostBack(&#39;dgEvents$ctl04$lbOpenEvent&#39;,&#39;&#39;)">Youngstown Diocese Priesthood Ordination</a> - <span class="eventDateHome">06/09/2012 10:30 AM</span>
+                            </div> 
+                            <div class="eventShortDescription">
+							  	Youngstown Diocese Priesthood ordination
+                            </div>
+                            <div id="spacerDotted" style="margin:5px 0px;"><!-- --></div>
+                           </td>
+		</tr>
+	</table>
+                  	<div align="left">
+                  		<a id="lbShowAllEvents" href="javascript:__doPostBack(&#39;lbShowAllEvents&#39;,&#39;&#39;)"><img src="images/ViewAllEvents.jpg" border="0" alt="View All Events" style="margin:0px 0px 0px 3px;" /></a>
+                 	</div>
+               </div>
+            </div>
+         
+</div>
+      <div id="ucEventDetailsPopup_pnlShowDetail" style="display: none;">
+	
+   <div id="ucEventDetailsPopup_updShowDetails">
+		
+         <div id="popUp">
+            
+               <table border="0" cellpadding="0" cellspacing="0" width="600px">
+                  <tr>
+                     <td colspan="2" align="left">
+                        <div class="popUpEventHeader">
+                           <span id="ucEventDetailsPopup_lblEventName" class="popupEventName"></span>
+                           <a id="ucEventDetailsPopup_lbClosePanel" class="closeBtn" href="javascript:__doPostBack(&#39;ucEventDetailsPopup$lbClosePanel&#39;,&#39;&#39;)" style="float: right; vertical-align: middle;"></a>
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left" width="20%">
+                        <b>When:</b>
+                     </td>
+                     <td align="left" width="80%">
+                        <span id="ucEventDetailsPopup_lblStartTime"></span>
+                        to
+                        <span id="ucEventDetailsPopup_lblEndTime"></span>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td align="left">
+                        <b>Location:</b>
+                     </td>
+                     <td align="left">
+                        <span id="ucEventDetailsPopup_lblLocation"></span>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td valign="top" align="left">
+                        <b>Description:</b>
+                     </td>
+                     <td align="left">
+                     <div id="ucEventDetailsPopup_pnlPopup">
+			
+                        <span id="ucEventDetailsPopup_lblDescription"></span>
+                        
+		</div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="2" align="right">
+                        <i>last updated
+                           <span id="ucEventDetailsPopup_lblLastUpdated"></span></i>
+                     </td>
+                  </tr>
+               </table>
+            
+         </div>
+      
+	</div>
+
+</div>
+<a id="ucEventDetailsPopup_lbShowDetail_mpe" href="javascript:__doPostBack(&#39;ucEventDetailsPopup$lbShowDetail_mpe&#39;,&#39;&#39;)" style="display: none;"></a>
+
+
+   
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"ucEventDetailsPopup_pnlShowDetail","dynamicServicePath":"/index.aspx","id":"ucEventDetailsPopup_mdeShowDetail"}, null, null, $get("ucEventDetailsPopup_lbShowDetail_mpe"));
+});
+//]]>
+</script>
+</form>
+   </div>
+   <div id="footer" class="pngFix">
+    <b class="footerTxt">The Athenaeum Of Ohio</b>
+    <span style="margin:0px 0px 0px 150px;">6616 Beechmont Avenue  Cincinnati, OH 45230</span>
+    <span style="margin:0px 0px 0px 25px;">|</span>
+    <b class="footerTxt">Phone</b>
+    <span style="margin:0px 0px 0px 5px;">513.231.2223</span>
+    <span style="margin:0px 0px 0px 25px;">|</span>   
+    <b class="footerTxt">Fax</b>
+    <span style="margin:0px 0px 0px 5px;">513.231.3254</span>
+</div>
+
+<div align="center" style="width:960px; margin:0 auto;"><img src="/images/Transparent_Shadow.png" class="pngFix" border="0" /></div><div id="bottomNav">
+	<a href="../Directions.aspx">Directions</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="../News.aspx">News</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="../Events.aspx">Events</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="../SiteMap.aspx">Site Map</a><span style="padding:0px 10px; color:#cccccc;">|</span>    
+    <a href="http://www.cincinnativocations.org/" target="_blank">Vocations</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="http://www.catholiccincinnati.org/" target="_blank">Archdiocese Of Cincinnati</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="../OtherDioceses.aspx">Other Dioceses</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="http://www.usccb.org" target="_blank">USCCB</a><span style="padding:0px 10px; color:#cccccc;">|</span>
+    <a href="http://www.vatican.va" target="_blank">Vatican</a>
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30589959-1']);
+  _gaq.push(['_setDomainName', 'athenaeum.edu']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+   
+   
+</body>
+</html>

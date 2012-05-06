@@ -1,0 +1,1676 @@
+<html>
+
+<head>
+
+<title>University of South Alabama Homepage</title>
+
+<meta name="description" content="Information about the University of South Alabama, Mobile, Alabama, USA" />
+
+<meta name="keywords" content="University of South Alabama, public university, university, higher education, college, school, Gulf Coast, Mobile, Alabama" />
+
+<meta http-equiv="refresh" content="300; URL=http://www.southalabama.edu/shtml/index.shtml" />
+
+
+
+<!--
+
+Page Created and Maintained by:
+
+Web Services Department, University of South Alabama, 307 University Blvd., Mobile, AL 36688
+
+www.southalabama.edu/webservices/
+
+
+
+//-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<link href="http://www.southalabama.edu/shtml/newsscroller2.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+
+
+
+/*Example message arrays for the two demo scrollers*/
+
+
+
+var pausecontent=new Array()
+
+pausecontent[0]='<a href="http://www.southalabama.edu/registrar/commencementmenu.html" target="_blank" class="pr_title_text"> Spring 2012 Commencement Ceremony </a><br /><span class="pr_reg_text">The USA Spring 2012 Commencement Ceremony is Saturday, May 12th.  For information about the ceremony, guests, or parking please click  <a href="http://www.southalabama.edu/registrar/commencementmenu.htm" target="_blank" class="pr_title_text">here</a>.</span>'
+
+pausecontent[1]='<a href="https://www.studentclearinghouse.org/secure_area/Transcript/to_home.asp?t=103931&LoginHome=to_home.asp" target="_blank" class="pr_title_text"> Electronic Transcript Delivery</a><br /><span class="pr_reg_text">Registrar’s Office is now offering the option of sending your transcripts (PDF) electronically. Click on  <a href="https://www.studentclearinghouse.org/secure_area/Transcript/to_home.asp?t=103931&LoginHome=to_home.asp" target="_blank" class="pr_title_text">National Student Clearinghouse</a> to order an electronic delivery transcript.</span>'
+
+pausecontent[2]='<a href="http://paws.usouthal.edu" target="_blank" class="pr_title_text">Spring 2012 Class Schedule Now Available</a><br /><span class="pr_reg_text">Get ready for Spring Advising! The Spring 2012 Class Schedule is now available for viewing in <a href="http://paws.usouthal.edu" target="_blank" class="pr_title_text">PAWS!</a> For more course information, contact the appropriate academic area for assistance.</span>'
+
+pausecontent[3]='<a href="http://www.southalabama.edu/onlinetranscripts.pdf" target="_blank" class="pr_title_text">Transcript Online Ordering Now Available</a><br /><span class="pr_reg_text">Ordering transcripts online is now available through PAWS and the National Student Clearinghouse.  Payment made by credit card only. For more information, click <a href="http://www.southalabama.edu/onlinetranscripts.pdf">here.</a></span>'
+
+pausecontent[4]='<a href="http://paws.usouthal.edu" target="_blank" class="pr_title_text">New Students can now apply for admission on-line.</a><br /><span class="pr_reg_text">The Office of Admissions is now accepting on-line applications at <a href="http://paws.usouthal.edu" target="_blank">http://paws.usouthal.edu</a>. (For U.S. citizens, permanent residents and international students.) Students applying for readmission still have to go to <a href="http://www.southalabama.edu/registrar/readmission.htm" target="_blank">http://www.southalabama.edu/registrar/readmission.htm</a>.</span>'
+
+pausecontent[5]='<a href="http://www.usablenet.com/usablenet_assistive.html" target="_blank" class="pr_title_text">Text Only Version of USA Website Now Available</a><br /><span class="pr_reg_text">Portions of the USA Home Pages have been updated to include a text only version for the visually impaired and others requiring this assistance. If you would like your USA department or organization website to have this feature, please e-mail webmaster@usouthal.edu. </span>'
+
+pausecontent[6]='<a href="http://www.southalabama.edu/publicrelations/midweek/" target="_self" class="pr_title_text">Midweek Memo</a><br /><span class="pr_reg_text">Midweek Memo for USA employees and Friends of the University.</span>'
+
+</script>
+
+
+<script type="text/javascript">
+
+<!--
+
+
+
+/***********************************************
+
+* Pausing up-down scroller- © Dynamic Drive (www.dynamicdrive.com)
+
+* This notice MUST stay intact for legal use
+
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+
+***********************************************/
+
+
+
+function pausescroller(content, divId, divClass, delay){
+
+this.content=content //message array content
+
+this.tickerid=divId //ID of ticker div to display information
+
+this.delay=delay //Delay between msg change, in miliseconds.
+
+this.mouseoverBol=0 //Boolean to indicate whether mouse is currently over scroller (and pause it if it is)
+
+this.hiddendivpointer=1 //index of message array for hidden div
+
+document.write('<div id="'+divId+'" class="'+divClass+'" style="position: relative; overflow: hidden"><div class="innerDiv" style="position: absolute; width: 100%" id="'+divId+'1">'+content[0]+'</div><div class="innerDiv" style="position: absolute; width: 100%; visibility: hidden" id="'+divId+'2">'+content[1]+'</div></div>')
+
+var scrollerinstance=this
+
+if (window.addEventListener) //run onload in DOM2 browsers
+
+window.addEventListener("load", function(){scrollerinstance.initialize()}, false)
+
+else if (window.attachEvent) //run onload in IE5.5+
+
+window.attachEvent("onload", function(){scrollerinstance.initialize()})
+
+else if (document.getElementById) //if legacy DOM browsers, just start scroller after 0.5 sec
+
+setTimeout(function(){scrollerinstance.initialize()}, 500)
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// initialize()- Initialize scroller method.
+
+// -Get div objects, set initial positions, start up down animation
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.initialize=function(){
+
+this.tickerdiv=document.getElementById(this.tickerid)
+
+this.visiblediv=document.getElementById(this.tickerid+"1")
+
+this.hiddendiv=document.getElementById(this.tickerid+"2")
+
+this.visibledivtop=parseInt(pausescroller.getCSSpadding(this.tickerdiv))
+
+//set width of inner DIVs to outer DIV's width minus padding (padding assumed to be top padding x 2)
+
+this.visiblediv.style.width=this.hiddendiv.style.width=this.tickerdiv.offsetWidth-(this.visibledivtop*2)+"px"
+
+this.getinline(this.visiblediv, this.hiddendiv)
+
+this.hiddendiv.style.visibility="visible"
+
+var scrollerinstance=this
+
+document.getElementById(this.tickerid).onmouseover=function(){scrollerinstance.mouseoverBol=1}
+
+document.getElementById(this.tickerid).onmouseout=function(){scrollerinstance.mouseoverBol=0}
+
+if (window.attachEvent) //Clean up loose references in IE
+
+window.attachEvent("onunload", function(){scrollerinstance.tickerdiv.onmouseover=scrollerinstance.tickerdiv.onmouseout=null})
+
+setTimeout(function(){scrollerinstance.animateup()}, this.delay)
+
+}
+
+
+
+
+
+// -------------------------------------------------------------------
+
+// animateup()- Move the two inner divs of the scroller up and in sync
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.animateup=function(){
+
+var scrollerinstance=this
+
+if (parseInt(this.hiddendiv.style.top)>(this.visibledivtop+5)){
+
+this.visiblediv.style.top=parseInt(this.visiblediv.style.top)-5+"px"
+
+this.hiddendiv.style.top=parseInt(this.hiddendiv.style.top)-5+"px"
+
+setTimeout(function(){scrollerinstance.animateup()}, 50)
+
+}
+
+else{
+
+this.getinline(this.hiddendiv, this.visiblediv)
+
+this.swapdivs()
+
+setTimeout(function(){scrollerinstance.setmessage()}, this.delay)
+
+}
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// swapdivs()- Swap between which is the visible and which is the hidden div
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.swapdivs=function(){
+
+var tempcontainer=this.visiblediv
+
+this.visiblediv=this.hiddendiv
+
+this.hiddendiv=tempcontainer
+
+}
+
+
+
+pausescroller.prototype.getinline=function(div1, div2){
+
+div1.style.top=this.visibledivtop+"px"
+
+div2.style.top=Math.max(div1.parentNode.offsetHeight, div1.offsetHeight)+"px"
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// setmessage()- Populate the hidden div with the next message before it's visible
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.setmessage=function(){
+
+var scrollerinstance=this
+
+if (this.mouseoverBol==1) //if mouse is currently over scoller, do nothing (pause it)
+
+setTimeout(function(){scrollerinstance.setmessage()}, 100)
+
+else{
+
+var i=this.hiddendivpointer
+
+var ceiling=this.content.length
+
+this.hiddendivpointer=(i+1>ceiling-1)? 0 : i+1
+
+this.hiddendiv.innerHTML=this.content[this.hiddendivpointer]
+
+this.animateup()
+
+}
+
+}
+
+
+
+pausescroller.getCSSpadding=function(tickerobj){ //get CSS padding value, if any
+
+if (tickerobj.currentStyle)
+
+return tickerobj.currentStyle["paddingTop"]
+
+else if (window.getComputedStyle) //if DOM2
+
+return window.getComputedStyle(tickerobj, "").getPropertyValue("padding-top")
+
+else
+
+return 0
+
+}
+
+
+
+function MM_preloadImages() { //v3.0
+
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+
+
+function MM_findObj(n, d) { //v4.01
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+}
+
+
+
+//-->
+
+</script>
+
+
+
+<SCRIPT Language="JavaScript">
+
+ <!--
+
+ var real_location="http://www.southalabama.edu";
+
+ function framethis () {
+
+ if (top.location) {
+
+if (self != top) top.location = self.location;
+
+} else {
+
+if (parent.location) {
+
+ if (parent.location !=real_location) parent.location =real_location;
+
+ }
+
+ }
+
+ }
+
+ //-->
+
+ </SCRIPT>
+
+
+
+<script LANGUAGE="JavaScript"><!--
+
+ function goto_URL(object) {
+
+     top.location.href = object.options[object.selectedIndex].value;
+
+ }
+
+ //-->
+
+</script>
+
+<Script Language="JavaScript">
+	x=Math.floor(Math.random()*3);
+	var image="";
+	var flash="";
+	switch(x)
+	{
+		case 0: image="http://www.southalabama.edu/shtml/images/mainimages/2010livecommencement.jpg";y=image;
+		break;
+        case 1: image="http://www.southalabama.edu/shtml/images/mainimages/2010livecommencement5.jpg";y=image;
+		break;
+		case 2: image="http://www.southalabama.edu/shtml/images/mainimages/2010livecommencement6.jpg";y=image;
+		break;
+		        
+	}
+</script>
+
+
+<script language="JavaScript">
+
+<!--
+
+<!--
+
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+
+}
+
+MM_reloadPage(true);
+
+// -->
+
+
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+
+  window.open(theURL,winName,features);
+
+}
+
+
+
+function pviiW3Cbg(obj, pviiColor) { //v1.1 by Project VII
+
+	obj.style.backgroundColor=pviiColor
+
+}
+
+
+
+function P7_autoLayers() { //v1.1 PVII
+
+ var g,b,k,f,args=P7_autoLayers.arguments;
+
+ if(!document.p7setc) {p7c=new Array();document.p7setc=true;}
+
+ for(k=0; k<p7c.length; k++) {
+
+  if((g=MM_findObj(p7c[k]))!=null) {
+
+   b=(document.layers)?g:g.style;b.visibility="hidden";}}
+
+ for(k=0; k<args.length; k++) {
+
+  if((g=MM_findObj(args[k])) != null) {
+
+   b=(document.layers)?g:g.style;b.visibility="visible";f=false;
+
+   for(j=0;j<p7c.length;j++) {
+
+    if(args[k]==p7c[j]) {f=true;}}
+
+  if(!f) {p7c[p7c.length++]=args[k];}}}
+
+}
+
+
+
+function MM_preloadImages() { //v3.0
+
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+
+
+function MM_findObj(n, d) { //v4.01
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+}
+
+
+
+function MM_swapImgRestore() { //v3.0
+
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+
+}
+
+
+
+function MM_swapImage() { //v3.0
+
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+
+}
+
+//-->
+
+</script>
+
+<!-- News Rotation Code and Insructions Stars Here //-->
+<script type="text/javascript" src="http://www.southalabama.edu/shtml/jquery-1.2.2.pack.js"></script>
+
+<link rel="stylesheet" type="text/css" href="http://www.southalabama.edu/shtml/featuredcontentglider.css" />
+
+<script type="text/javascript" src="http://www.southalabama.edu/shtml/featuredcontentglider.js">
+
+/***********************************************
+* Featured Content Glider script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* Visit http://www.dynamicDrive.com for hundreds of DHTML scripts
+* This notice must stay intact for legal use
+***********************************************/
+
+</script>
+<!-- News Rotation Code and Insructions Ends Here //-->
+
+<link href="http://www.southalabama.edu/shtml/dropdownmenu.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+
+<!-- Counters Link
+
+#Layer1 {
+
+	position:absolute;
+
+	visibility:visible;
+
+	width:34px;
+
+	height:20px;
+
+	z-index:1;
+
+	left: 729px;
+
+	top: 15px;
+
+}
+
+-->
+
+</style>
+
+<link href="http://www.southalabama.edu/shtml/homepages.css" rel="stylesheet" type="text/css" />
+
+<link href="usastyle.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+
+
+
+</style>
+<!-- Google Analytics Tracker //-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16619173-11']);
+  _gaq.push(['_setDomainName', 'www.southalabama.edu']);
+  _gaq.push(['_trackPageview']); 
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<!-- Google Analytics Tracker //-->
+
+
+</head>
+
+
+
+<body background="http://www.southalabama.edu/shtml/images/bg.gif" topmargin="0" marginheight="0" onLoad="MM_preloadImages('images/previousbutton2.gif','images/nextbutton2.gif','http://www.southalabama.edu/shtml/images/bottommenu/01campuscalendar2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/02facultystaff2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/03financialaid2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/04healthcare2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/05libraries2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/06scholarships2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/07research2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/08findausadoctor2.jpg','http://www.southalabama.edu/shtml/images/bottommenu/09makeagift2.jpg')">
+<table width="980" border="0" cellspacing="0" cellpadding="0">
+
+  <tr>
+
+    <td class="textonly"><a href="http://assistive.usablenet.com/tt/http://www.southalabama.edu/shtml/index.shtml">text only </a></td>
+
+  </tr>
+
+</table>
+
+<!-- Above table is used for Text Only Link //-->
+
+
+
+<table width="970" border="0" align="center" cellpadding="0" cellspacing="0" background="images/bg10.jpg">
+
+  <tr>
+
+    <td width="980" valign="top" background="http://www.southalabama.edu/shtml/images/bg10.jpg"><table width="970" border="0" cellpadding="0" cellspacing="0">
+
+      <tr>
+
+        <td colspan="2" height="68" style="padding-right:10px;"><div align="right">
+
+          
+
+          <table width="200" border="0" cellspacing="0" cellpadding="0">
+
+            <tr>
+
+              <td valign="top"><img src="../homeimages/transparenthomeicon.gif" width="20" height="20" border="0" /></a></td>
+
+              <td><table width="230" border="0" align="right">
+
+                <tr>
+
+                  <td width="39"><div align="center" class="arialreg"><a href="http://www.southalabama.edu/" target="_self" class="arialreg2">Home</a> </div>
+
+                    <a href="http://www.southalabama.edu/webindex.html" target="_self" class="arialreg2"></a></td>
+
+                  <td width="63"><div align="center" class="arialreg"><a href="http://www.southalabama.edu/webindex.html" target="_self" class="arialreg2">A-Z Index</a> </div></td>
+
+                  <td width="73"><div align="center" class="arialreg"><a href="http://www.southalabama.edu/directory.html" target="_self" class="arialreg2">Directories</a></div></td>
+
+                  <td width="37"><div align="center" class="arialreg"><a href="http://www.southalabama.edu/webservices/faq.html" target="_self" class="arialreg2">FAQ</a></div></td>
+                </tr>
+
+                <tr>
+
+                  <form>
+
+                    <td colspan="4"><div align="center">
+
+                        <select name="selectName" onChange="goto_URL(this.form.selectName)" size="1">
+
+
+
+                          <option selected value>Quick Links</option>
+
+
+
+                          <option value="http://www.southalabama.edu/webindex.html">A - Z Index</option>
+
+
+
+                          <option value="http://www.southalabama.edu/aboutusa.html">About USA</option>
+
+
+
+                          <option value="http://www.southalabama.edu/advising/">Academic Advising</option>
+
+
+
+                          <option value="http://www.southalabama.edu/academics.html">Academics</option>
+
+
+
+                          <option value="http://www.southalabama.edu/academicaffairs/">Academic Affairs</option>
+
+
+
+                          <option value="http://www.southalabama.edu/academiccalendar.html">Academic Calendar</option>
+                          
+                          
+                            <option value="http://www.southalabama.edu/academicsuccess">Academic Success</option>
+
+
+
+                          <option value="http://www.southalabama.edu/admissions/index.html">Admissions-Undergraduate</option>
+
+
+
+                          <option value="http://www.southalabama.edu/admissions/grad.html">Admissions-Graduate</option>
+
+                          <option value="http://www.southalabama.edu/afrotc">Air Force ROTC</option>
+
+                          <option value="http://www.southalabama.edu/alumni.html">Alumni</option>
+						   <option value="http://www.southalabama.edu/armyrotc">Army ROTC</option>
+						  
+						  <option value="http://www.southalabama.edu/librarygalleries.html">Art Gallery - Library</option>
+
+                          <option value="http://www.usajaguars.com">Athletics</option>
+
+
+
+                          <option value="http://www.southalabama.edu/usabc/">Baldwin County Campus</option>
+
+
+
+                          <option value="http://www.southalabama.edu/financialaffairs/businessopportunities/index.html">Bid Specs</option>
+
+						  <option value="http://www.southalabama.edu/bookstore">Bookstore </option>
+
+                          <option value="http://www.southalabama.edu/bulletin">Bulletin </option>
+
+
+
+                          <option value="http://www.southalabama.edu/usacal/campuscalendar/">Campus Calendar</option>
+
+							
+
+						  <option value="http://www.southalabama.edu/campusinvolvement/">Campus Involvement</option>	
+
+                          <option value="http://www.southalabama.edu/usamaps/maincampus.html">Campus Map</option>
+
+						  <option value="http://www.southalabama.edu/src/">Campus Recreation</option>
+
+
+
+						  <option value="http://www.southalabama.edu/bookstore/index.html">Campus Store</option>
+
+
+
+                          <option value="http://www.southalabama.edu/studentrecruitment/visit.html">Campus Visits</option>
+
+
+
+                          <option value="http://www.southalabama.edu/careerservices/">Career Services</option>
+
+
+
+                          <option value="http://www.southalabama.edu/bulletin">Catalog </option>
+
+
+
+                          <option value="http://www.southalabama.edu/departms.html">Colleges, Schools</option>
+
+						  <option value="http://www.southalabama.edu/registrar/commencementmenu.htm">Commencement Information</option>
+
+                          <option value="http://www.southalabama.edu/casc/">Conference Activities</option>
+
+
+
+                          <option value="http://www.southalabama.edu/questions.html">Contact Us</option>
+
+
+
+                          <option value="http://www.southalabama.edu/schedcourses.html">Course Schedule</option>
+
+
+
+                          <option value="http://www.southalabama.edu/departments.html">Departments</option>
+
+
+
+                          <option value="http://www.southalabama.edu/development">Development</option>
+
+
+
+                          <option value="http://www.southalabamadining.com">Dining Services</option>
+
+                          <option value="http://www.southalabama.edu/directions.html">Directions to USA Main Campus</option>
+
+                          <option value="http://www.southalabama.edu/directory.html">Directories</option>
+
+						  
+
+						  <option value="http://www.southalabama.edu/dss/">Disabled Student Services</option>
+
+
+
+                          <option value="http://www.southalabama.edu/ecampus">Distance Learning Campus</option>
+
+
+
+                          <option value="http://www.southalabama.edu/forms">eForms</option>
+
+
+
+                          <option value="http://www.southalabama.edu/directory.html">E-Mail Directory</option>
+
+						  
+
+						  <option value="http://www.southalabama.edu/publicrelations/ERP.pdf">Emergency Plan</option>
+
+						
+
+						  <option value="http://www.southalabama.edu/emaflyer.pdf">EMA Preparedness Guide </option>
+
+                          <option value="http://www.southalabama.edu/personnel/">Employment Opportunities</option>
+
+   						  <option value="http://www.southalabama.edu/southfit/classschedule.html">Exercise Classes </option>
+
+
+                          <option value="http://www.southalabama.edu/webservices/faq.html">FAQ</option>
+
+
+
+                          <option value="http://www.southalabama.edu/facultystaff.html">Faculty/Staff</option>
+
+
+
+                          <option value="http://www.southalabama.edu/registrar/dates.htm#final">Final Exams Schedule</option>
+
+
+
+                          <option value="http://www.southalabama.edu/financialaffairs/">Financial Affairs</option>
+
+
+
+                          <option value="http://www.southalabama.edu/finaid/">Financial Aid</option>
+						  
+						  <option value="http://www.southalabama.edu/usafiveyearreport.pdf">Five Year Progress Report</option>
+
+
+
+                          <option value="http://www.southalabama.edu/newstudents.html">Future Students</option>
+
+
+
+                          <option value="http://www.southalabama.edu/governmentalrelations">Governmental Relations</option>
+
+						  <option value="http://www.southalabama.edu/greeklife">Greek Life</option>
+
+                          <option value="http://www.southalabama.edu/healthcare.html">Healthcare</option>
+
+						  <option value="http://www.southalabama.edu/bookstore/bkhlth.html">Health Sciences Bookstore</option>
+
+                          <option value="http://www.southalabama.edu/questions.html">HELP!</option>
+
+
+
+                          <option value="http://www.southalabama.edu/honors/">Honors Program</option>
+
+
+
+                          <option value="http://www.southalabama.edu/usahealthsystem/">Hospitals</option>
+
+                          <option value="http://www.southalabama.edu/hotelsnearusa/">Hotels Near USA Main Campus</option>
+
+                          <option value="http://www.southalabama.edu/housing/">Housing</option>
+
+
+
+                          <option value="http://www.southalabama.edu/development">How to make a gift</option>
+
+  						<option value="http://www.southalabama.edu/hr">Human Resources</option>
+
+
+                          <option value="http://www.southalabama.edu/webindex.html">A - Z Index</option>
+
+
+
+                          <option value="http://www.southalabama.edu/internationalstudents.html">International Students</option>
+
+
+
+                          <option value="http://www.southalabama.edu/intramurals">Intramural Sports</option>
+
+
+
+                          <option value="http://store597.collegestoreonline.com/ePOS?this_category=55&store=597&form=shared3%2fgm%2fmain%2ehtml&design=597&__session_info__=8ivslSuo%2bHE2wriMaXD6aU4ZrkKwchnu93I32ClBsUduJTUByrf4YWz7xOkd%2fxyEf0z6QpJyKRXbRExgQQv825dYxtxYG7zf">JagGear</option>
+						  <option value="http://agency.governmentjobs.com/usouthal/default.cfm">JagJobs</option>
+
+							<option value="http://www.southalabama.edu/schedcourses.html">JagTraks</option>
+
+                          <option value="http://jaguar1.usouthal.edu">Jaguar1 Email</option>
+
+						 
+
+						  <option value="http://www.usajaguars.com">Jaguar Athletics</option>
+						  
+						  <option value="http://agency.governmentjobs.com/usouthal/default.cfm">Jobs</option>
+
+
+
+                          <option value="http://www.southalabama.edu/library.html">Library</option>
+
+
+
+                          <option value="http://southcat.southalabama.edu/">Library-Web Catalog</option>
+
+
+
+                          <option value="http://www.southalabama.edu/maps/">Maps</option>
+
+
+
+                          <option value="http://www.southalabama.edu/usahelp/index.html">Maintenance Request</option>
+
+
+
+                          <option value="http://www.southalabama.edu/admissions/honors.html#comeap">Medicine-Early Accept. Program</option>
+
+
+
+                          <option value="http://www.southalabama.edu/publicrelations/midweek/">Midweek Memo</option>
+
+							<option value="http://www.southalabama.edu/armyrotc/">Military Science</option>
+
+                          <option value="http://www.southalabama.edu/goalsandobjectives.pdf">Mission, Vision, and Goals</option>
+
+                          <option value="http://www.usamci.com">Mitchell Cancer Institute</option>
+
+
+
+                          <option value="http://www.mitchellcenter.com">Mitchell Center</option>
+
+
+
+                          <option value="http://www.southalabama.edu/news.html">News and Events</option>
+
+
+
+                          <option value="http://www.southalabama.edu/newstudents.html">New Students</option>
+
+
+
+                          <option value="http://www.southalabama.edu/admissions/ugscholar.html">New Student Scholarships</option>
+
+
+
+                          <option value="http://www.southalabama.edu/webservices/webgraphics.html">Official USA Symbols</option>
+
+
+
+                          <option value="http://www.southalabama.edu/oll/index.htm">Online Learning Lab</option>
+
+
+
+                          <option value="http://www.southalabama.edu/orientation/">Orientation</option>
+
+
+
+                          <option value="http://www.southalabama.edu/parkingservices/">Parking Services</option>
+						  
+						  <option value="http://www.southalabama.edu/financialaffairs/payrollaccounting/index.html">Payroll Accounting</option>
+
+
+					     <option value="http://www.southalabama.edu/paws/">PAWS Information</option>
+
+						<option value="http://www.southalabama.edu/petal/">PETAL</option>
+
+                          <option value="http://www.southalabama.edu/police/">Police-USA</option>
+
+
+
+                          <option value="http://www.southalabama.edu/publicrelations/pressreleases/">Press Releases</option>
+
+							<option value="http://www.southalabama.edu/usafiveyearreport.pdf">Progress Report, USA's 5 Year</option>
+							 <option value="http://www.southalabama.edu/publications/">Publication Services</option>
+
+                          <option value="http://www.southalabama.edu/questions.html">Questions</option>
+						   <option value="http://www.southalabama.edu/publicrelations/quickfacts/index.html">Quick Facts</option>
+
+
+
+                          <option value="http://www.southalabama.edu/registrar/index.htm">Registrar</option>
+
+
+
+                          <option value="http://www.southalabama.edu/research.html">Research</option>
+
+
+
+                          <option value="http://www.southalabama.edu/graduateprograms/research.html">Research Council</option>
+
+
+
+                          <option value="http://www.southalabama.edu/saric/">SARIC</option>
+
+
+
+                          <option value="http://www.southalabama.edu/schedcourses.html">Schedule of Courses</option>
+
+
+
+                          <option value="http://www.southalabama.edu/admissions/ugscholar.html">Scholarships - New Students</option>
+
+
+
+                          <option value="http://www.southalabama.edu/googlesearch.html">Search</option>
+
+
+
+                          <option value="http://www.southalabama.edu/services.html">Services</option>
+
+
+
+                          <option value="http://www.southalabama.edu/sga/">SGA</option>
+
+
+
+                          <option value="http://www.southalabama.edu/specialcourses">Special Courses</option>
+
+
+
+                          <option value="http://www.southalabama.edu/sports.html">Sports</option>
+
+						  <option value="http://www.southalabama.edu/strategicplan">Strategic Diversity Plan</option>
+
+                          <option value="http://www.southalabama.edu/studentaccounting/">Student Accounting</option>
+
+
+
+                          <option value="http://www.southalabama.edu/studentaffairs/">Student Affairs</option>
+
+
+
+                          <option value="http://www.southalabama.edu/studentcenter/index.html">Student Center</option>
+
+
+
+				          <option value="http://www.southalabama.edu/studenthealth/">Student Health Center</option>
+
+
+
+                          <option value="http://paws.southalabama.edu">Student Info. Web Access</option>
+
+
+
+                          <option value="http://www.southalabama.edu/studnorg.html">Student Organizations</option>
+
+
+
+                          <option value="http://www.southalabama.edu/currentstudents.html">Student Services</option>
+
+						  
+
+						  <option value="http://www.southalabama.edu/oie/abroad.html">Study Abroad</option>
+
+
+
+                          <option value="http://www.southalabama.edu/telephone/index.html">Telephone Directory</option>
+
+
+
+                          <option value="http://www.southalabama.edu/transfer/">Transfer Students</option>
+
+						  
+
+						  <option value="http://www.southalabama.edu/publicrelations/ERP.pdf">USA Emergency Plan</option>
+
+
+
+                          <option value="http://www.usahospitals.org/">USA Hospitals</option>
+
+
+
+                          <option value="http://www.southalabama.edu/ecampus">USA Online</option>
+
+
+
+                          <option value="http://www.southalabama.edu/usatrp/index.html">USA TechPark</option>
+
+
+						<option value="http://www.usavanguard.com/">The Vanguard - Student News</option>
+                          <option value="http://www.southalabama.edu/voterreg.html">Voter Registration</option>
+
+
+
+                          <option value="http://www.southalabama.edu/weather.html">Weather</option>
+
+
+
+                          <option value="http://paws.southalabama.edu">Web Access Student Info.</option>
+
+
+
+                          <option value="http://www.usahealthsystem/webnursery/">Web Nursery</option>
+
+
+
+                          <option value="http://www.southalabama.edu/webservices/">Web Services</option>
+                          
+                           <option value="http://www.southalabama.edu/writing/">Writing Center</option>
+                        </select>
+
+                    </div></td>
+                  </form>
+                </tr>
+
+              </table></td>
+            </tr>
+          </table>
+
+        </div></td>
+        </tr>
+
+      <tr valign="top">
+
+        <td height="20" colspan="2"><!--Menu--> 
+
+<div> 
+
+  <div> 
+
+    <div style="display:none;"> 
+
+      <ul id="imenus0"> 
+
+        <li style="width:110px; background-color:#c80000;"><a href="http://www.southalabama.edu/aboutusa.html" style="border-left-width:0px;">About USA</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/aboutusa.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">About USA Page</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/academiccalendar.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Academic Calendar</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/newstudents.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Admission Information</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/bulletin/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Bulletin</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/usacal/campuscalendar/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Campus Calendar</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/departms.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Colleges &amp; Departments</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/directory.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Directories</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/humanresources/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Employment Opportunities</a></li>
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/general-info.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">General Information</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/graduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Graduate Majors</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/housing/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Housing</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/maps/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Maps</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/goalsandobjectives.pdf" target="_blank" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Mission, Vision, and Goals</a></li> 
+
+               				<li class="graybr"><a href="http://www.southalabama.edu/questions.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Questions</a></li>
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/studnorg.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Organizations</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/undergraduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Undergraduate Majors</a></li> 
+
+                 <li class="whitebg"><a href="http://www.southalabama.edu/virtualtour/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Virtual Tour</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/studentrecruitment/visit.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Visiting the Campus</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/welcome.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Welcome</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li> 
+
+        <li style="width:115px; background-color:#c80000;"><a href="http://www.southalabama.edu/academics.html">Academics</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/academics.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Academic Page</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/academicaffairs/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Office of Academic Affairs</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/academiccalendar.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Academic Calendar</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/bulletin/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Bulletin</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/departms.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Colleges &amp; Departments</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/graduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Graduate Majors</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/graduateprograms/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Graduate Programs</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/honors/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Honors Program</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/usabc/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Baldwin County Campus</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/library.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Libraries</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/schedcourses.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Schedule of Courses</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/undergraduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Undergraduate Majors</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li> 
+
+		<li style="width:123px; background-color:#c80000;"><a href="http://www.southalabama.edu/admissions/">Admissions</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/admissions/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Office of Admissions</a></li>
+
+				<li class="graybr"><a href="http://www.southalabama.edu/moneyforcollege" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Money for College</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/newstudents.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Future Students Page</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/admissions/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Undergraduate Admission</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/admissions/grad/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Graduate Admission</a></li>
+
+				<li class="graybr"><a href="http://www.southalabama.edu/intnatsrv/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">International Services</a></li>
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/ecampus/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">USA Online</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/studentaccounting/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Accounting</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/academiccalendar.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Academic Calendar</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/bulletin/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Bulletin</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/departms.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Colleges &amp; Departments</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabamadining.com/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Dining Services</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/finaid/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Financial Aid</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/moneyforcollege/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Financing Your Education</a></li>
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/graduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Graduate Majors</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/housing/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Housing</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/registrar/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Registrar</a></li>
+
+                <li class="graybr"><a href="http://www.southalabama.edu/admissions/ugscholar.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Scholarships</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/studnorg.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Organizations</a></li>  
+
+                <li class="graybr"><a href="http://www.southalabama.edu/transfer/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Transfer Assistance</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/undergraduatemajors.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Undergraduate Majors</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/virtualtour/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Virtual Tour</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li>
+
+        <li style="width:136px; background-color:#c80000;"><a href="http://www.southalabama.edu/alumni.html">Alumni/Visitors</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/alumni.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Alumni/Visitors Page</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/alumni/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Alumni Association</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/usacal/campuscalendar/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Campus Calendar</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/bookstore/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Bookstore</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/directory.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Directories</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/development/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">How to Make a Gift</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/maps/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Maps</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/mitchellcenter/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Mitchell Center</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Sports</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/studentrecruitment/visit.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Visiting the Campus</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li> 
+
+        <li style="width:110px; background-color:#c80000;"><a href="http://www.usajaguars.com">Athletics</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Athletics Page</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=baseball&path=baseball" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Baseball</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?tab=basketball&path=mbball" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Men's Basketball</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=basketball2&path=wbball" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Women's Basketball</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?tab=crosscountry&path=xc" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Cross Country</a></li> 
+
+				<li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=football&path=football" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Football</a></li>
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?tab=golf&path=mgolf" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Men's Golf</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=golf2&path=wgolf" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Women's Golf</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?tab=soccer&path=soccr" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Soccer</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=softball&path=softball" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Softball</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?tab=tennis&path=mten" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Men's Tennis</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=tennis2&path=wten" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Women's Tennis</a></li> 
+
+                <li class="whitebg"><a href="http://www.usajaguars.com/index.aspx?path=track&tab=trackandfield" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Track</a></li> 
+
+                <li class="graybr"><a href="http://www.usajaguars.com/index.aspx?tab=volleyball&path=wvball" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Volleyball</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li> 
+
+        <li style="width:124px; background-color:#c80000;"><a href="http://www.southalabama.edu/departments.html">Departments</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/departments.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Departments Page</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/departms.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Academic Departments</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/admindepts.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Administrative Departments</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/healthsciences.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Health Sciences Division</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/research.html" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Research Centers</a></li> 
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li>  
+
+        <li style="width:148px; background-color:#c80000;"><a href="http://www.southalabama.edu/currentstudents.html">Student Services</a> 
+
+          <div> 
+
+            <div style="width:170px;top:0px;left:0px;"> 
+
+              <ul style="BORDER-TOP-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-BOTTOM-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px;"> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/admissions/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Admissions</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/moneyforcollege" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Money for College</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/careerservices/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Career Services</a></li> 
+
+				<li class="graybr"><a href="http://www.campusdish.com/en-US/CSS/usouthal" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Dining Services</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/enrollmentservices/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Enrollment Services</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/finaid/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Financial Aid</a></li> 
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/international/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Global USA</a></li>
+
+				<li class="graybr"><a href="http://www.southalabama.edu/housing/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Housing</a></li>
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/intnatsrv/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">International Services</a></li> 
+
+                <li class="graybr"><a href="http://www.southalabama.edu/registrar/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Registrar</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/studentaccounting/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Accounting</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/studentaffairs/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Affairs</a></li>
+
+				<li class="whitebg"><a href="http://www.southalabama.edu/studenthealth/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Health Center</a></li>
+
+				<li class="graybr"><a href="http://www.southalabama.edu/campusinvolvement/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Life</a></li> 
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/orientation/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Student Orientation</a></li> 
+
+				<li class="graybr"><a href="http://www.southalabama.edu/lowdown/" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">The Lowdown</a></li>
+
+                <li class="whitebg"><a href="http://www.southalabama.edu/registrar/veterans.htm" style="BORDER-RIGHT: #000080 1px solid; BORDER-TOP: #000080 0px solid; BORDER-LEFT: #000080 1px solid; BORDER-BOTTOM: #000080 1px solid">Veterans Affairs</a></li>
+
+              </ul> 
+
+            </div> 
+
+          </div> 
+
+        </li> 
+
+        <li style="width:105px; background-color:#c80000;"><a href="http://www.southalabama.edu/googlesearch.html" style="border-right-width:0px;">Search</a> 
+
+        </li> 
+
+      </ul> 
+
+      <div style="clear:left;"></div> 
+
+    </div> 
+
+  </div> 
+
+</div><script language="javascript" src="dropdownmenu.js"></script></td>
+        </tr>
+
+      <tr>
+
+        <td width="509"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/041812.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/mainimages/spring2012commencement.jpg" border="0" width="510" height="305" alt="Spring 2012 Commencement""></a></td>
+
+        <td width="461"><table width="461" height="305" border="0" cellpadding="0" cellspacing="0">
+
+          <tr>
+            <td height="1" bgcolor="#c80000"></td>
+          </tr>
+          <tr>
+            <td height="12"></td>
+          </tr>
+          <tr>
+
+            <td height="273" valign="bottom" background="http://www.southalabama.edu/shtml/images/bg11small.jpg" bgcolor="#FFFFFF"><div align="center">
+              <table width="444" height="250" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="217" valign="top"><div align="center">
+                    <table width="200" height="292" border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td><div align="center"><img src="http://www.southalabama.edu/shtml/images/news/usabuttons.jpg" width="200" height="265" border="0" usemap="#Map2" class="newsblackborder"></div></td>
+                      </tr>
+                      <tr>
+                        <td height="24" valign="middle"><div align="center">
+                        
+                        </div></td>
+                      </tr>
+                    </table>
+                  </div></td>
+                  <td width="217" valign="top"><table width="200" height="292" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td>
+					  <div align="center">
+					  <!-- News Code On the Homepage for News Images Starts Here //-->
+					  
+					  <script type="text/javascript">
+
+featuredcontentglider.init({
+	gliderid: "canadaprovinces", //ID of main glider container
+	contentclass: "glidecontent", //Shared CSS class name of each glider content
+	togglerid: "p-select", //ID of toggler container
+	remotecontent: "", //Get gliding contents from external file on server? "filename" or "" to disable
+	selected: 0, //Default selected content index (0=1st)
+	persiststate: false, //Remember last content shown within browser session (true/false)?
+	speed: 500, //Glide animation duration (in milliseconds)
+	direction: "leftright", //set direction of glide: "updown", "downup", "leftright", or "rightleft"
+	autorotate: true, //Auto rotate contents (true/false)?
+	autorotateconfig: [8000, 100] //if auto rotate enabled, set [milliseconds_btw_rotations, cycles_before_stopping]
+})
+
+</script>
+
+<div id="canadaprovinces" class="glidecontentwrapper">
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/050412.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/naturetrail.jpg" alt="USA Dedicates Nature Trail " border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/050312.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/facultyfund2012.jpg" alt="Faculty Staff Annual Fund" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usahealthsystem.com/body.cfm?id=2585&action=detail&ref=113" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/aaahc.jpg" alt="USA Student Health Center Achieves AAAHC Accreditation" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usahealthsystem.com/body.cfm?id=2585&action=detail&ref=116" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/medcafebannerad.jpg" alt="May Med School Cafe: A Mother's Heart" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/042712.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/042712.jpg" alt="USA Conference on Teaching and Learning Set for May 14-15" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/shtml/usamobileapp.pdf" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/usamobileapp2012.jpg" alt="USA Mobile App Now Available" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/041612.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/sga1213.jpg" alt="New SGA Officers" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/040412.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/stressreduction.jpg" alt="Stress Reduction Program" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usajaguars.com/sports/2011/2/23/FB_0223110352.aspx?path=football " target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/runningwjags.jpg" alt="USA Football Away Packages" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/032812b.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/fallsemester12.jpg" alt="Summer and Fall Registration" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/030812.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/030812.jpg" alt="50th Anniversary Annual Fund" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usahealthsystem.com/patientstories" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/scotthealthsystemad.jpg" alt="USA Health System Patient Stories" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2012pr/022712.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/gaillardfrye.jpg" alt="Higher Education Day, March 1, 2012" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usahealthsystem.com/right-button-bar-make-an-appointment" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/healthsystemad.jpg" alt="USA Health System" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/cce/specialcourses.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/specialcoursessummer2012.jpg" alt="Special Courses - Spring 2012" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/schedcourses.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/jagtraks.jpg" alt="2012 Spring JagTraks Registration Guide" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/pressreleases/2011pr/012011a.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/nhcweightloss.jpg" alt="Our Neighborhood Healthcare Clinic Offers New Weight Loss and Nutrition Programs" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/oie/abroad.html" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/studyabroad11.jpg" alt="2010 USA Study Abroad" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.cis.usouthal.edu" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/cisscholarships2011.jpg" alt="CIS Scholarships" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.usajaguars.com/news/2010/8/23/FB_0823104700.aspx" target="_blank"><img src="http://www.southalabama.edu/shtml/images/news/footballbook.jpg" alt="The Story of USA Inaugural Football Season" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publicrelations/quickfacts.pdf" target="_blank">
+<img src="http://www.southalabama.edu/shtml/images/news/quickfacts11.jpg" alt="Quick Facts about the University" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/publications" target="_blank">
+<img src="http://www.southalabama.edu/shtml/images/news/publicationad.jpg" alt="Publication Services" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/urgentcare" target="_blank">
+<img src="http://www.southalabama.edu/shtml/images/news/urgentcare200.jpg" alt="Urgent Care Clinic now open" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.southalabama.edu/ladusajaguarfootball.html" target="_blank">
+<img src="http://www.southalabama.edu/shtml/images/news/stadiumseatingchart.jpg" alt="USA Athletics Unveils Ladd-Peebles Stadium Seating Chart" border="0px" style="float: left; padding: 0px"/></a></div>
+
+<div class="glidecontent"><a href="http://www.youniversitytv.com/university_south_alabama.html" target="_blank">
+<img src="http://www.southalabama.edu/shtml/images/news/videotour.jpg" alt="University of South Alabama video tour" border="0px" style="float: left; padding: 0px"/></a></div>
+
+</div>
+					  
+					  <!-- News Code On the Homepage for News Images Ends Here //-->
+					  </div>					  </td>
+                    </tr>
+                    <tr>
+                      <td height="24" valign="top">
+					  <div align="center"> 
+					  <!-- News Code On the Homepage for Control Buttons Starts Here //-->
+					  
+					  <div id="p-select" class="glidecontenttoggler">
+<a href="#" class="prev" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Previous','','http://www.southalabama.edu/shtml/images/previousbutton2.gif',1)"><img src="http://www.southalabama.edu/shtml/images/previousbutton.gif" name="Previous" width="70" height="18" border="0"></a>
+<a href="#" class="toc"><img src="http://www.southalabama.edu/shtml/images/middlebutton.jpg" border="0"></a> <a href="#" class="toc"><img src="http://www.southalabama.edu/shtml/images/middlebutton.jpg" border="0"></a><a href="#" class="toc"><img src="http://www.southalabama.edu/shtml/images/middlebutton.jpg" border="0"></a>
+<a href="#" class="next" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Next','','http://www.southalabama.edu/shtml/images/nextbutton2.gif',1)"><img src="http://www.southalabama.edu/shtml/images/nextbutton.gif" name="Next" width="70" height="18" border="0"></a></div>
+					  
+					  <!-- News Code On the Homepage for Control Buttons Ends Here //-->
+					  </div></td>
+                    </tr>
+                  </table>				  </td>
+                </tr>
+              </table>
+            </div></td>
+            </tr>
+
+        </table></td>
+      </tr>
+    </table>
+    <table width="970" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="510" valign="top" bgcolor="#FFFFFF"><div align="center">
+          <table width="465" height="121" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td height="5"></td>
+            </tr>
+            <tr>
+              <td width="170" height="48" bgcolor="#FFFFFF"><div align="left">
+                  <!-- News Section Scroller Text -->
+                  <script type="text/javascript">
+
+
+
+                //new pausescroller(name_of_message_array, CSS_ID, CSS_classname, pause_in_miliseconds)
+
+
+
+                new pausescroller(pausecontent, "pscroller1", "someclass", 9000)
+
+                document.write("")
+
+
+
+                </script>
+              </div></td>
+            </tr>
+            <tr>
+              <td width="295" height="19"><table width="463" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td width="264">&nbsp;</td>
+                    <td width="199"><div align="right" class="regulartextblue">
+                        <div align="right">[ <a href="http://www.southalabama.edu/publicrelations/pressreleases/" class="regulartextblue">more News and News Archive...</a> ]</div>
+                    </div></td>
+                  </tr>
+              </table></td>
+            </tr>
+          </table>
+        </div></td>
+        <td width="460" valign="top" bgcolor="#FFFFFF"><table width="461" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><img src="http://www.southalabama.edu/shtml/images/footballcalwebcam2.jpg" width="461" height="122" border="0" usemap="#Map"></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td valign="top" bgcolor="#CCCCCC">&nbsp;</td>
+        <td valign="top" bgcolor="#CCCCCC">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="70" valign="bottom" bgcolor="#FFFFFF"><div align="center">
+      <table width="950" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="20" colspan="4"><div align="center">
+            <table width="952" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="130" height="20" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/usacal/campuscalendar/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('campuscalendar','','http://www.southalabama.edu/shtml/images/bottommenu/01campuscalendar2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/01campuscalendar1.jpg" name="campuscalendar" width="112" height="17" border="0" /></a></div></td>
+                <td width="109" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/facultystaff.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('facultystaff','','http://www.southalabama.edu/shtml/images/bottommenu/02facultystaff2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/02facultystaff1.jpg" name="facultystaff" width="94" height="17" border="0" /></a></div></td>
+                <td width="102" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/finaid/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('finanicalaid','','http://www.southalabama.edu/shtml/images/bottommenu/03financialaid2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/03financialaid1.jpg" name="finanicalaid" width="88" height="17" border="0" /></a></div></td>
+                <td width="97" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/healthcare.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('healthcare','','http://www.southalabama.edu/shtml/images/bottommenu/04healthcare2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/04healthcare1.jpg" name="healthcare" width="84" height="17" border="0" /></a></div></td>
+                <td width="82" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/library.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('library','','http://www.southalabama.edu/shtml/images/bottommenu/05libraries2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/05libraries1.jpg" name="library" width="71" height="17" border="0" /></a></div></td>
+                <td width="101" bgcolor="#FFFFFF"><div align="center"><span class="pr_title_text"><span class="pr_reg_text"><a href="http://www.southalabama.edu/admissions/ugscholar.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('scholarships','','http://www.southalabama.edu/shtml/images/bottommenu/06scholarships2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/06scholarships1.jpg" name="scholarships" width="87" height="17" border="0" /></a></span></span></div></td>
+                <td width="81" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/research.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('research','','http://www.southalabama.edu/shtml/images/bottommenu/07research2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/07research1.jpg" name="research" width="70" height="17" border="0" /></a></div></td>
+                <td width="124" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/usahealthsystem/findadoctor.html" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('findausadoctor','','http://www.southalabama.edu/shtml/images/bottommenu/08findausadoctor2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/08findausadoctor1.jpg" name="findausadoctor" width="107" height="17" border="0" /></a></div></td>
+                <td width="88" bgcolor="#FFFFFF"><div align="center"><a href="http://www.southalabama.edu/development/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('makeagift','','http://www.southalabama.edu/shtml/images/bottommenu/09makeagift2.jpg',1)"><img src="http://www.southalabama.edu/shtml/images/bottommenu/09makeagift1.jpg" name="makeagift" width="78" height="17" border="0" /></a></div></td>
+              </tr>
+            </table>
+          </div></td>
+          </tr>
+        <tr>
+          <td width="103" height="61"><div align="center"><a href="https://jagpay.southalabama.edu/" target="_blank" 
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'JagPay', 'jagpay.southalabama.edu']);"><img src="http://www.southalabama.edu/shtml/givetousa.jpg" alt="Give to USA" width="70" height="47" border="0" /></a></div></td>
+          <td width="219"><table width="211" border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="61"><div align="right"><a href="http://paws.usouthal.edu/"  
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'Paws', 'paws.usouthal.edu']);"><img src="http://www.southalabama.edu/shtml/images/logos/pawslogo50.gif" alt="PAWS" width="50" height="50" border="0" /></a></div></td>
+                <td width="80"><div align="center"><a href="http://www.southalabama.edu/usabc/"  
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'USABC', 'southalabama.edu/usabc/']);"><img src="http://www.southalabama.edu/shtml/baldwincampus.jpg" alt="USA Baldwin County Campus" width="58" height="49" border="0" /></a></div></td>
+                <td width="70"><a href="https://jagmail.southalabama.edu"  
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'GoogleApps', 'jagmail.southalabama.edu']);"><img src="http://www.southalabama.edu/shtml/images/googleapps.jpg" alt="Google Apps for Education"  border="0" /></a></td>
+              </tr>
+          </table></td>
+          <td width="347"><div align="left">
+              <table width="338" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="pr_reg_textblue">&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="338"><div align="center" class="pr_reg_textbluebold">University of South Alabama - Mobile, Alabama 36688-0002 <br>
+                    (251) 460-6101</div></td>
+                </tr>
+                <tr>
+                  <td><div align="center" class="pr_reg_textblue">For questions or comments&nbsp;<a href="http://www.southalabama.edu/questions.html" class="pr_reg_textblue">Contact Us</a></div></td>
+                </tr>
+                <tr>
+                  <td><div align="center" class="pr_reg_textblue">http://www.southalabama.edu</div></td>
+                </tr>
+                <tr>
+                  <td><div align="center"><span class="pr_reg_textblue">Copyright &copy; 2012 University of South   Alabama</span></div></td>
+                </tr>
+                <tr>
+                  <td class="pr_reg_textblue">&nbsp;&nbsp;</td>
+                </tr>
+              </table>
+          </div>
+              <center>
+            </center></td>
+          <td width="283"><div align="right">
+              <table width="275" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+				<td width="69" valign="top"><div align="left"><a href="http://www.southalabama.edu/financialaffairs/arra/" target="_blank" 
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'ARRA', 'southalabama.edu/financialaffairs/arra/']);"><img src="http://www.southalabama.edu/shtml/recoveryact.jpg" alt="American Recovery and Reinvestment Act" width="50" height="60" border="0"></a></div></td>
+                  <td width="52" valign="top"><a href="http://www.southalabama.edu/ecampus/" target="_blank" 
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'USA Online', 'southalabama.edu/ecampus/']);"><img src="http://www.southalabama.edu/shtml/usaonlinelogo.jpg" alt="USA  Online"  style="border:1px solid black"></a></td>
+                  <td width="63" valign="top"><div align="right"><a href="http://www.usagameday.com" target="_blank" 
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'South Alabama Football', 'usagameday.com']);"><img src="http://www.southalabama.edu/shtml/southalabamafootballlogo.jpg" alt="USA  Athletics Football web site"  style="border:1px solid black"></a></div></td>
+                  <td width="91" valign="top"><div align="right"><a href="http://www.southalabama.edu/emergency.html" target="_blank" 
+onclick="_gaq.push(['_trackEvent', 'Homepage Icons', 'Emergency Weather Hotline', 'southalabama.edu/emergency.html']);"><img src="http://www.southalabama.edu/shtml/usaemergencyweatherhotline.jpg" alt="USA Emergency and Weather Hotline" width="90" height="56" border="0" /></a></div></td>
+                </tr>
+              </table>
+            <a href="https://paws.usouthal.edu/"></a></div></td>
+        </tr>
+      </table>
+    </div></td>
+  </tr>
+</table>
+
+
+<map name="Map">
+  <area shape="rect" coords="4,3,154,119" href="http://www.usajaguars.com/sports/2010/12/21/GEN_1221102617.aspx?id=9981" target="_blank" alt="Jaguar Athletics Ticket Information">
+  <area shape="rect" coords="160,4,306,119" href="http://www.southalabama.edu/usacal/campuscalendar/" target="_blank" alt="Campus Calendar">
+  <area shape="rect" coords="310,4,457,118" href="http://www.southalabama.edu/webcam/" target="_blank" alt="USA Webcams Shelby Hall and Moulton Bell Tower">
+</map>
+<map name="Map2">
+  <area shape="rect" coords="5,134,96,268" href="http://www.southalabama.edu/admissions/" target="_blank" alt="Apply to USA">
+  <area shape="rect" coords="102,136,200,265" href="http://www.southalabama.edu/moneyforcollege/" target="_blank" alt="USA Money for College">
+  <area shape="rect" coords="3,3,198,127" href="http://www.usahealthsystem.com/patient-navigator " target="_blank" alt="USA Health System Patient Navigator">
+</map>
+</body>
+
+<!-- The following Div line is required for the drop-down menus to function.  Otherwise you will get an error message
+
+about Infinite menus need to be purchased.  -->
+
+<div id="legal" style="position:absolute; width:1px; height:1px; z-index:1; visibility:hidden;"><a href="http://www.dynamicdrive.com"></a></div>
+
+</html>
+

@@ -1,0 +1,1639 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+
+// JavaScript Document
+startList = function() {
+if (document.all&&document.getElementById) {
+navRoot = document.getElementById("navv");
+for (i=0; i<navRoot.childNodes.length; i++) {
+node = navRoot.childNodes[i];
+if (node.nodeName=="LI") {
+node.onmouseover=function() {
+this.className+=" over";
+  }
+  node.onmouseout=function() {
+  this.className=this.className.replace(" over", "");
+   }
+   }
+  }
+ }
+}
+window.onload=startList;
+
+
+</script>
+
+    <script type="text/javascript">
+
+        var dict = {};
+        dict.isDependent;
+        dict.financialAid = { 'active':false,  'title':'Financial aid', '0':'Yes', '1': 'No', 'intValue':0, 'textValue': '' };
+        dict.age = { 'active': false, 'title': 'Age', 'intValue': 0 };
+        dict.livingStatus = { 'active': false, 'title': 'Living arrangement', 'intValue': 0, 'textValue': '' };
+        dict.residencyStatus = { 'active': false, 'title': 'Residency', 'intValue': 0, 'textValue': '' };
+        dict.maritalStatus = { 'active': false, 'title': 'Marital Status', '0': 'No', '1': 'Yes', 'intValue': '' };
+        dict.numberOfChildren = { 'active': false, 'title': 'Children', '0': 'No', '1': 'Yes', 'intValue': '' };
+        dict.numberInFamily = { 'active': false, 'title': 'Number in Family', 'intValue': 0, 'textValue': '' };
+        dict.numberInCollege = { 'active': false, 'title': 'Number in College', 'intValue': 0, 'textValue': '' };
+        dict.householdIncome = { 'active': false, 'title': 'Household Income', 'intValue' : 0,
+            '0': 'Less than $30,000',
+            '1': 'Between $30,000 - $39,999',
+            '2': 'Between $40,000 - $49,999',
+            '3': 'Between $50,000 - $59,999',
+            '4': 'Between $60,000 - $69,999',
+            '5': 'Between $70,000 - $79,999',
+            '6': 'Between $80,000 - $89,999',
+            '7': 'Between $90,000 - $99,999',
+            '8': 'Above $99,999'
+        };
+
+        var numberoflivingstatus = 0;
+        var npc1_livingstatus = "";
+        var npc1_isdefaultlivingstatus = "0";
+        var npc1_residencystatus = "";
+        var npc1_isdefaultresidencystatus = "0";
+        var npc_step = "0";
+        var currentstepid = "0";      
+      
+        
+        
+
+var efcDependent = []; 
+efcDependent[0] = {};
+efcDependent[0].numberInCollege=1;
+efcDependent[0].numberInFamily=2;
+efcDependent[0].incomeRanges= []; 
+efcDependent[0].incomeRanges[0] = 0;  efcDependent[0].incomeRanges[1] = 1662;  efcDependent[0].incomeRanges[2] = 3838;  efcDependent[0].incomeRanges[3] = 6233;  efcDependent[0].incomeRanges[4] = 9213;  efcDependent[0].incomeRanges[5] = 12598;  efcDependent[0].incomeRanges[6] = 16073;  efcDependent[0].incomeRanges[7] = 19652;  efcDependent[0].incomeRanges[8] = 31988;  
+efcDependent[1] = {};
+efcDependent[1].numberInCollege=1;
+efcDependent[1].numberInFamily=3;
+efcDependent[1].incomeRanges= []; 
+efcDependent[1].incomeRanges[0] = 0;  efcDependent[1].incomeRanges[1] = 1148;  efcDependent[1].incomeRanges[2] = 3345;  efcDependent[1].incomeRanges[3] = 5671;  efcDependent[1].incomeRanges[4] = 8505;  efcDependent[1].incomeRanges[5] = 11903;  efcDependent[1].incomeRanges[6] = 15457;  efcDependent[1].incomeRanges[7] = 19000;  efcDependent[1].incomeRanges[8] = 33515;  
+efcDependent[2] = {};
+efcDependent[2].numberInCollege=1;
+efcDependent[2].numberInFamily=4;
+efcDependent[2].incomeRanges= []; 
+efcDependent[2].incomeRanges[0] = 0;  efcDependent[2].incomeRanges[1] = 322;  efcDependent[2].incomeRanges[2] = 2499;  efcDependent[2].incomeRanges[3] = 4632;  efcDependent[2].incomeRanges[4] = 7038;  efcDependent[2].incomeRanges[5] = 10235;  efcDependent[2].incomeRanges[6] = 13750;  efcDependent[2].incomeRanges[7] = 17322;  efcDependent[2].incomeRanges[8] = 32834;  
+efcDependent[3] = {};
+efcDependent[3].numberInCollege=1;
+efcDependent[3].numberInFamily=5;
+efcDependent[3].incomeRanges= []; 
+efcDependent[3].incomeRanges[0] = 0;  efcDependent[3].incomeRanges[1] = 0;  efcDependent[3].incomeRanges[2] = 1605;  efcDependent[3].incomeRanges[3] = 3641;  efcDependent[3].incomeRanges[4] = 5871;  efcDependent[3].incomeRanges[5] = 8764;  efcDependent[3].incomeRanges[6] = 12239;  efcDependent[3].incomeRanges[7] = 15864;  efcDependent[3].incomeRanges[8] = 31509;  
+efcDependent[4] = {};
+efcDependent[4].numberInCollege=1;
+efcDependent[4].numberInFamily=6;
+efcDependent[4].incomeRanges= []; 
+efcDependent[4].incomeRanges[0] = 0;  efcDependent[4].incomeRanges[1] = 0;  efcDependent[4].incomeRanges[2] = 100;  efcDependent[4].incomeRanges[3] = 2208;  efcDependent[4].incomeRanges[4] = 4317;  efcDependent[4].incomeRanges[5] = 6714;  efcDependent[4].incomeRanges[6] = 9983;  efcDependent[4].incomeRanges[7] = 13653;  efcDependent[4].incomeRanges[8] = 28644;  
+efcDependent[5] = {};
+efcDependent[5].numberInCollege=2;
+efcDependent[5].numberInFamily=2;
+efcDependent[5].incomeRanges= []; 
+efcDependent[5].incomeRanges[0] = 0;  efcDependent[5].incomeRanges[1] = 1233;  efcDependent[5].incomeRanges[2] = 2538;  efcDependent[5].incomeRanges[3] = 3589;  efcDependent[5].incomeRanges[4] = 5014;  efcDependent[5].incomeRanges[5] = 6773;  efcDependent[5].incomeRanges[6] = 13372;  efcDependent[5].incomeRanges[7] = 9297;  efcDependent[5].incomeRanges[8] = 27844;  
+efcDependent[6] = {};
+efcDependent[6].numberInCollege=2;
+efcDependent[6].numberInFamily=3;
+efcDependent[6].incomeRanges= []; 
+efcDependent[6].incomeRanges[0] = 0;  efcDependent[6].incomeRanges[1] = 839;  efcDependent[6].incomeRanges[2] = 2005;  efcDependent[6].incomeRanges[3] = 3374;  efcDependent[6].incomeRanges[4] = 5085;  efcDependent[6].incomeRanges[5] = 6794;  efcDependent[6].incomeRanges[6] = 8614;  efcDependent[6].incomeRanges[7] = 10326;  efcDependent[6].incomeRanges[8] = 17064;  
+efcDependent[7] = {};
+efcDependent[7].numberInCollege=2;
+efcDependent[7].numberInFamily=4;
+efcDependent[7].incomeRanges= []; 
+efcDependent[7].incomeRanges[0] = 0;  efcDependent[7].incomeRanges[1] = 549;  efcDependent[7].incomeRanges[2] = 1697;  efcDependent[7].incomeRanges[3] = 2949;  efcDependent[7].incomeRanges[4] = 4526;  efcDependent[7].incomeRanges[5] = 6192;  efcDependent[7].incomeRanges[6] = 7988;  efcDependent[7].incomeRanges[7] = 9775;  efcDependent[7].incomeRanges[8] = 18327;  
+efcDependent[8] = {};
+efcDependent[8].numberInCollege=2;
+efcDependent[8].numberInFamily=5;
+efcDependent[8].incomeRanges= []; 
+efcDependent[8].incomeRanges[0] = 0;  efcDependent[8].incomeRanges[1] = 83;  efcDependent[8].incomeRanges[2] = 1226;  efcDependent[8].incomeRanges[3] = 2357;  efcDependent[8].incomeRanges[4] = 3728;  efcDependent[8].incomeRanges[5] = 5410;  efcDependent[8].incomeRanges[6] = 7182;  efcDependent[8].incomeRanges[7] = 8974;  efcDependent[8].incomeRanges[8] = 17646;  
+efcDependent[9] = {};
+efcDependent[9].numberInCollege=2;
+efcDependent[9].numberInFamily=6;
+efcDependent[9].incomeRanges= []; 
+efcDependent[9].incomeRanges[0] = 0;  efcDependent[9].incomeRanges[1] = 0;  efcDependent[9].incomeRanges[2] = 401;  efcDependent[9].incomeRanges[3] = 1567;  efcDependent[9].incomeRanges[4] = 2764;  efcDependent[9].incomeRanges[5] = 4318;  efcDependent[9].incomeRanges[6] = 6054;  efcDependent[9].incomeRanges[7] = 7847;  efcDependent[9].incomeRanges[8] = 16192;  
+efcDependent[10] = {};
+efcDependent[10].numberInCollege=3;
+efcDependent[10].numberInFamily=3;
+efcDependent[10].incomeRanges= []; 
+efcDependent[10].incomeRanges[0] = 0;  efcDependent[10].incomeRanges[1] = 915;  efcDependent[10].incomeRanges[2] = 1706;  efcDependent[10].incomeRanges[3] = 2358;  efcDependent[10].incomeRanges[4] = 3328;  efcDependent[10].incomeRanges[5] = 5120;  efcDependent[10].incomeRanges[6] = 7358;  efcDependent[10].incomeRanges[7] = 6197;  efcDependent[10].incomeRanges[8] = 10648;  
+efcDependent[11] = {};
+efcDependent[11].numberInCollege=3;
+efcDependent[11].numberInFamily=4;
+efcDependent[11].incomeRanges= []; 
+efcDependent[11].incomeRanges[0] = 0;  efcDependent[11].incomeRanges[1] = 413;  efcDependent[11].incomeRanges[2] = 1225;  efcDependent[11].incomeRanges[3] = 2124;  efcDependent[11].incomeRanges[4] = 3382;  efcDependent[11].incomeRanges[5] = 4619;  efcDependent[11].incomeRanges[6] = 5770;  efcDependent[11].incomeRanges[7] = 6899;  efcDependent[11].incomeRanges[8] = 11664;  
+efcDependent[12] = {};
+efcDependent[12].numberInCollege=3;
+efcDependent[12].numberInFamily=5;
+efcDependent[12].incomeRanges= []; 
+efcDependent[12].incomeRanges[0] = 0;  efcDependent[12].incomeRanges[1] = 260;  efcDependent[12].incomeRanges[2] = 1048;  efcDependent[12].incomeRanges[3] = 1891;  efcDependent[12].incomeRanges[4] = 2961;  efcDependent[12].incomeRanges[5] = 4232;  efcDependent[12].incomeRanges[6] = 5416;  efcDependent[12].incomeRanges[7] = 6582;  efcDependent[12].incomeRanges[8] = 12831;  
+efcDependent[13] = {};
+efcDependent[13].numberInCollege=3;
+efcDependent[13].numberInFamily=6;
+efcDependent[13].incomeRanges= []; 
+efcDependent[13].incomeRanges[0] = 0;  efcDependent[13].incomeRanges[1] = 0;  efcDependent[13].incomeRanges[2] = 462;  efcDependent[13].incomeRanges[3] = 1236;  efcDependent[13].incomeRanges[4] = 2092;  efcDependent[13].incomeRanges[5] = 3207;  efcDependent[13].incomeRanges[6] = 4436;  efcDependent[13].incomeRanges[7] = 5634;  efcDependent[13].incomeRanges[8] = 11372;  
+
+var efcIndWithoutDep = []; 
+efcIndWithoutDep[0] = {};
+efcIndWithoutDep[0].numberInCollege=1;
+efcIndWithoutDep[0].numberInFamily=1;
+efcIndWithoutDep[0].incomeRanges= []; 
+efcIndWithoutDep[0].incomeRanges[0] = 0;  efcIndWithoutDep[0].incomeRanges[1] = 10517;  efcIndWithoutDep[0].incomeRanges[2] = 14250;  efcIndWithoutDep[0].incomeRanges[3] = 18108;  efcIndWithoutDep[0].incomeRanges[4] = 22054;  efcIndWithoutDep[0].incomeRanges[5] = 25903;  efcIndWithoutDep[0].incomeRanges[6] = 29900;  efcIndWithoutDep[0].incomeRanges[7] = 34070.5;  efcIndWithoutDep[0].incomeRanges[8] = 49733;  
+efcIndWithoutDep[1] = {};
+efcIndWithoutDep[1].numberInCollege=1;
+efcIndWithoutDep[1].numberInFamily=2;
+efcIndWithoutDep[1].incomeRanges= []; 
+efcIndWithoutDep[1].incomeRanges[0] = 672;  efcIndWithoutDep[1].incomeRanges[1] = 8286;  efcIndWithoutDep[1].incomeRanges[2] = 11986;  efcIndWithoutDep[1].incomeRanges[3] = 15852;  efcIndWithoutDep[1].incomeRanges[4] = 19648;  efcIndWithoutDep[1].incomeRanges[5] = 23491;  efcIndWithoutDep[1].incomeRanges[6] = 27325;  efcIndWithoutDep[1].incomeRanges[7] = 31081;  efcIndWithoutDep[1].incomeRanges[8] = 44262;  
+efcIndWithoutDep[2] = {};
+efcIndWithoutDep[2].numberInCollege=2;
+efcIndWithoutDep[2].numberInFamily=2;
+efcIndWithoutDep[2].incomeRanges= []; 
+efcIndWithoutDep[2].incomeRanges[0] = 1206;  efcIndWithoutDep[2].incomeRanges[1] = 5119;  efcIndWithoutDep[2].incomeRanges[2] = 7005;  efcIndWithoutDep[2].incomeRanges[3] = 8953;  efcIndWithoutDep[2].incomeRanges[4] = 10871;  efcIndWithoutDep[2].incomeRanges[5] = 12767;  efcIndWithoutDep[2].incomeRanges[6] = 14727;  efcIndWithoutDep[2].incomeRanges[7] = 16566;  efcIndWithoutDep[2].incomeRanges[8] = 22169.5;  
+
+var efcIndWithDep = []; 
+efcIndWithDep[0] = {};
+efcIndWithDep[0].numberInCollege=1;
+efcIndWithDep[0].numberInFamily=2;
+efcIndWithDep[0].incomeRanges= []; 
+efcIndWithDep[0].incomeRanges[0] = 0;  efcIndWithDep[0].incomeRanges[1] = 1637;  efcIndWithDep[0].incomeRanges[2] = 3443;  efcIndWithDep[0].incomeRanges[3] = 5690;  efcIndWithDep[0].incomeRanges[4] = 8862;  efcIndWithDep[0].incomeRanges[5] = 12472;  efcIndWithDep[0].incomeRanges[6] = 15990;  efcIndWithDep[0].incomeRanges[7] = 19521;  efcIndWithDep[0].incomeRanges[8] = 31434;  
+efcIndWithDep[1] = {};
+efcIndWithDep[1].numberInCollege=1;
+efcIndWithDep[1].numberInFamily=3;
+efcIndWithDep[1].incomeRanges= []; 
+efcIndWithDep[1].incomeRanges[0] = 0;  efcIndWithDep[1].incomeRanges[1] = 1026;  efcIndWithDep[1].incomeRanges[2] = 2879;  efcIndWithDep[1].incomeRanges[3] = 4967;  efcIndWithDep[1].incomeRanges[4] = 7722;  efcIndWithDep[1].incomeRanges[5] = 11301;  efcIndWithDep[1].incomeRanges[6] = 14865;  efcIndWithDep[1].incomeRanges[7] = 18368;  efcIndWithDep[1].incomeRanges[8] = 28063;  
+efcIndWithDep[2] = {};
+efcIndWithDep[2].numberInCollege=1;
+efcIndWithDep[2].numberInFamily=4;
+efcIndWithDep[2].incomeRanges= []; 
+efcIndWithDep[2].incomeRanges[0] = 0;  efcIndWithDep[2].incomeRanges[1] = 143;  efcIndWithDep[2].incomeRanges[2] = 2044.5;  efcIndWithDep[2].incomeRanges[3] = 3933;  efcIndWithDep[2].incomeRanges[4] = 6320;  efcIndWithDep[2].incomeRanges[5] = 9661;  efcIndWithDep[2].incomeRanges[6] = 13299;  efcIndWithDep[2].incomeRanges[7] = 16837;  efcIndWithDep[2].incomeRanges[8] = 26430;  
+efcIndWithDep[3] = {};
+efcIndWithDep[3].numberInCollege=1;
+efcIndWithDep[3].numberInFamily=5;
+efcIndWithDep[3].incomeRanges= []; 
+efcIndWithDep[3].incomeRanges[0] = 0;  efcIndWithDep[3].incomeRanges[1] = 0;  efcIndWithDep[3].incomeRanges[2] = 1072;  efcIndWithDep[3].incomeRanges[3] = 2926;  efcIndWithDep[3].incomeRanges[4] = 5074;  efcIndWithDep[3].incomeRanges[5] = 7911;  efcIndWithDep[3].incomeRanges[6] = 11611;  efcIndWithDep[3].incomeRanges[7] = 15236;  efcIndWithDep[3].incomeRanges[8] = 24769;  
+efcIndWithDep[4] = {};
+efcIndWithDep[4].numberInCollege=1;
+efcIndWithDep[4].numberInFamily=6;
+efcIndWithDep[4].incomeRanges= []; 
+efcIndWithDep[4].incomeRanges[0] = 0;  efcIndWithDep[4].incomeRanges[1] = 0;  efcIndWithDep[4].incomeRanges[2] = 0;  efcIndWithDep[4].incomeRanges[3] = 1513;  efcIndWithDep[4].incomeRanges[4] = 3381;  efcIndWithDep[4].incomeRanges[5] = 5733;  efcIndWithDep[4].incomeRanges[6] = 8928;  efcIndWithDep[4].incomeRanges[7] = 12738;  efcIndWithDep[4].incomeRanges[8] = 22158.5;  
+efcIndWithDep[5] = {};
+efcIndWithDep[5].numberInCollege=2;
+efcIndWithDep[5].numberInFamily=2;
+efcIndWithDep[5].incomeRanges= []; 
+efcIndWithDep[5].incomeRanges[0] = 0;  efcIndWithDep[5].incomeRanges[1] = 1152;  efcIndWithDep[5].incomeRanges[2] = 2093;  efcIndWithDep[5].incomeRanges[3] = 3294;  efcIndWithDep[5].incomeRanges[4] = 5061;  efcIndWithDep[5].incomeRanges[5] = 6666;  efcIndWithDep[5].incomeRanges[6] = 8505.5;  efcIndWithDep[5].incomeRanges[7] = 10170;  efcIndWithDep[5].incomeRanges[8] = 15498;  
+efcIndWithDep[6] = {};
+efcIndWithDep[6].numberInCollege=2;
+efcIndWithDep[6].numberInFamily=3;
+efcIndWithDep[6].incomeRanges= []; 
+efcIndWithDep[6].incomeRanges[0] = 0;  efcIndWithDep[6].incomeRanges[1] = 888;  efcIndWithDep[6].incomeRanges[2] = 1790;  efcIndWithDep[6].incomeRanges[3] = 2934;  efcIndWithDep[6].incomeRanges[4] = 4605;  efcIndWithDep[6].incomeRanges[5] = 6314.5;  efcIndWithDep[6].incomeRanges[6] = 8089;  efcIndWithDep[6].incomeRanges[7] = 9798.5;  efcIndWithDep[6].incomeRanges[8] = 14646.5;  
+efcIndWithDep[7] = {};
+efcIndWithDep[7].numberInCollege=2;
+efcIndWithDep[7].numberInFamily=4;
+efcIndWithDep[7].incomeRanges= []; 
+efcIndWithDep[7].incomeRanges[0] = 0;  efcIndWithDep[7].incomeRanges[1] = 432;  efcIndWithDep[7].incomeRanges[2] = 1313;  efcIndWithDep[7].incomeRanges[3] = 2300;  efcIndWithDep[7].incomeRanges[4] = 3652;  efcIndWithDep[7].incomeRanges[5] = 5347;  efcIndWithDep[7].incomeRanges[6] = 7079;  efcIndWithDep[7].incomeRanges[7] = 8774;  efcIndWithDep[7].incomeRanges[8] = 13030;  
+efcIndWithDep[8] = {};
+efcIndWithDep[8].numberInCollege=2;
+efcIndWithDep[8].numberInFamily=5;
+efcIndWithDep[8].incomeRanges= []; 
+efcIndWithDep[8].incomeRanges[0] = 0;  efcIndWithDep[8].incomeRanges[1] = 0;  efcIndWithDep[8].incomeRanges[2] = 847;  efcIndWithDep[8].incomeRanges[3] = 1728;  efcIndWithDep[8].incomeRanges[4] = 2871;  efcIndWithDep[8].incomeRanges[5] = 4435;  efcIndWithDep[8].incomeRanges[6] = 6139;  efcIndWithDep[8].incomeRanges[7] = 7821;  efcIndWithDep[8].incomeRanges[8] = 11893.5;  
+efcIndWithDep[9] = {};
+efcIndWithDep[9].numberInCollege=2;
+efcIndWithDep[9].numberInFamily=6;
+efcIndWithDep[9].incomeRanges= []; 
+efcIndWithDep[9].incomeRanges[0] = 0;  efcIndWithDep[9].incomeRanges[1] = 0;  efcIndWithDep[9].incomeRanges[2] = 167;  efcIndWithDep[9].incomeRanges[3] = 985;  efcIndWithDep[9].incomeRanges[4] = 1866;  efcIndWithDep[9].incomeRanges[5] = 2986;  efcIndWithDep[9].incomeRanges[6] = 4546.5;  efcIndWithDep[9].incomeRanges[7] = 6184;  efcIndWithDep[9].incomeRanges[8] = 10154.5;  
+        
+        // POA
+        var POA_Total = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var POA_TRF = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var POA_BS = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var POA_RB = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];        
+        var POA_O = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        
+             
+        // TGA
+        var TGA_0 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_1_1000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_1001_2500 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_2501_5000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_5001_7500 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_7501_10000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_10001_12500 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_12501_15000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_15001_20000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_20001_30000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_30001_40000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_40000 = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        var TGA_NFAFSA = ['0', '0', '0', '0', '0', '0', '0', '0', '0'];
+        POA_Total = ['25170','19410'];
+POA_TRF = ['11205','11205'];
+POA_BS = ['465','465'];
+POA_RB = ['9630','3870'];
+POA_O = ['3870','3870'];
+TGA_0 = ['5350','5350'];
+TGA_1_1000 = ['4907','4907'];
+TGA_1001_2500 = ['3800','3800'];
+TGA_2501_5000 = ['2000','2000'];
+TGA_5001_7500 = ['0','0'];
+TGA_7501_10000 = ['0','0'];
+TGA_10001_12500 = ['0','0'];
+TGA_12501_15000 = ['0','0'];
+TGA_15001_20000 = ['0','0'];
+TGA_20001_30000 = ['0','0'];
+TGA_30001_40000 = ['0','0'];
+TGA_40000 = ['0','0'];
+TGA_NFAFSA = ['0','0'];
+
+
+
+
+
+        // Step id Defenition
+        // 1 Age, Living Status, Residency Status
+        // 2 Marital Status, Number of Children
+        // 3 Dependent
+        // 4 Independent
+        // 5 Summary page
+        // 6 OUTPUT PAGE        
+        function GoNext() {
+            var imgJavaScriptNote = document.getElementById('imgJavaScriptNote');
+            if(imgJavaScriptNote) {
+                imgJavaScriptNote.style.display = 'none';
+            }
+            if (currentstepid) {
+                if (currentstepid == "0") {                    
+                    GoTo("1");
+                    return;
+                } else if (currentstepid == "1") {
+                    var tmp_financialAid = GetRadioButtonValues("rb_financialaid").value; // Financial Aid                    
+                    var tmp_age = GetTextBoxValue("txt_age"); // Age
+                    // Living Status
+                    if (npc1_livingstatus != "-1") {
+                        if (npc1_isdefaultlivingstatus == "0") {
+                            npc1_livingstatus = GetRadioButtonValues("rb_livingstatus").value;
+                        }
+                    }
+                    // Residency Status
+                    if (npc1_residencystatus != "-1") {
+                        if (npc1_isdefaultresidencystatus == "0") {
+                            npc1_residencystatus = GetRadioButtonValues("rb_residencystatus").value;
+                        }
+                    }
+                    // Validate
+                    if (tmp_financialAid == "" || tmp_age == "" || npc1_livingstatus == "" || npc1_residencystatus == "") {
+                        alert("Please answer all questions before proceeding.");
+                        return;
+                    }
+                    if (!IsInteger(tmp_age)) {
+                        alert("Please enter integers only.");
+                        return;
+                    }
+                    
+                    // Save entered values into dictionary
+                    dict['financialAid'].active = true;
+                    dict['financialAid'].intValue = tmp_financialAid;
+                    dict['age'].active = true;
+                    dict['age'].intValue = tmp_age;                    
+                    if (npc1_livingstatus != "-1") {
+                        if (npc1_isdefaultlivingstatus == "0") {
+                            dict['livingStatus'].active = true;
+                            dict['livingStatus']['textValue'] = GetRadioButtonValues("rb_livingstatus").label.getAttribute('title');
+                            
+                        }
+                    }
+                    if (npc1_residencystatus != "-1") {
+                        if (npc1_isdefaultresidencystatus == "0") {
+                            dict['residencyStatus'].active = true;
+                            dict['residencyStatus']['textValue'] = GetRadioButtonValues("rb_residencystatus").label.getAttribute('title');
+                        }
+                    }
+                    
+                    // Rules
+                    if (dict['financialAid'].intValue == "1") {
+                        GenerateSummary();
+                        GoTo("5"); 
+                    } 
+                    else {
+                        // Hide/show marital status depending on age
+                        if (dict['age'].intValue*1 > 23) {
+                            var tbl = document.getElementById('tblMaritalStatusQuestion');
+                            if (tbl) { tbl.style.display = 'none'; }
+                        } else {
+                            var tbl = document.getElementById('tblMaritalStatusQuestion');
+                            if (tbl) { tbl.style.display = ''; }
+                        }
+                        GoTo("2"); // Change: was 4
+                    }
+                    return;
+                } else if (currentstepid == "2") {
+                    // Marital Status
+                    var tmp_maritalStatus;
+                    if (dict['age'].intValue*1 < 24) {
+                        tmp_maritalStatus = GetRadioButtonValues("rb_maritalstatus").value;                       
+                        dict['maritalStatus'].active = true;
+                    }
+                    else { dict['maritalStatus'].active = false; }
+                    
+                    // Number of Children
+                    var tmp_numberOfChildren = GetRadioButtonValues("rb_numberofchildren").value;
+
+                    // Validate
+                    var showError = false;
+                    if (dict['age'].intValue * 1 < 24 && tmp_maritalStatus == "") {
+                        showError = true;
+                    }
+                    if (tmp_numberOfChildren == "") {
+                        showError = true;                        
+                    }
+                    if (showError == true) {
+                        alert("Please answer all questions before proceeding.");
+                        return;
+                    }
+                    // Save entered values into dictionary
+                    dict['maritalStatus'].intValue = tmp_maritalStatus;
+                    dict['numberOfChildren'].active = true;
+                    dict['numberOfChildren'].intValue = tmp_numberOfChildren;
+
+
+                    // For independent with children, display additional radio buttons with 'Number in Family'
+                    var divNumInFamilyRadiobuttons = document.getElementById('divNumInFamilyWithChildren');
+
+                    // For independent there are 2 different hints: with children and without
+                    var spanNumInFamilyHint = document.getElementById('spanNumInFamilyHint');
+                    if (spanNumInFamilyHint)
+                        spanNumInFamilyHint.style.display = 'none';
+                    var spanNumInFamilyHintWithChildren = document.getElementById('spanNumInFamilyHintWithChildren');
+                    if (spanNumInFamilyHintWithChildren)
+                        spanNumInFamilyHintWithChildren.style.display = 'none';
+
+                    // For independent we have 2 different scenarios for number on college: 'Two' and 'Two or more'
+                    var spanTwo = document.getElementById('spanIndNumInCollegeTwo');
+                    var spanTwoOrMore = document.getElementById('spanIndNumInCollegeTwoOrMore');
+                    var divFirstOptionForNumInFamilyWithChildren = document.getElementById('divFirstOptionForNumInFamilyWithChildren');
+
+                    spanTwo.style.display = 'none';
+                    spanTwoOrMore.style.display = 'none';
+                    divFirstOptionForNumInFamilyWithChildren.style.display = '';
+                    
+                    // Rules
+                    if (dict['age'].intValue * 1 > 23) {
+                        if (dict['maritalStatus'].intValue * 1 > 0) {
+                            // show options for student with children                            
+                            if (div) { div.style.display = ''; }                            
+                        }
+                        else {
+                            // hide options for student with children
+                            var div = document.getElementById('divNumInFamilyWithChildren');
+                            if (div) { div.style.display = 'none'; }                            
+                        }
+                        dict.isDependent = false;
+                        if (dict['numberOfChildren'].intValue * 1 == 1) {
+                            if (spanTwo) { spanTwo.style.display = 'none'; }
+                            if (spanTwoOrMore) { spanTwoOrMore.style.display = ''; }
+                            if (divNumInFamilyRadiobuttons) { divNumInFamilyRadiobuttons.style.display = ''; }
+                            if (spanNumInFamilyHintWithChildren) { spanNumInFamilyHintWithChildren.style.display = ''; }
+                            if (divFirstOptionForNumInFamilyWithChildren) { divFirstOptionForNumInFamilyWithChildren.style.display = 'none'; }
+                        } else {
+                            if (spanTwo) { spanTwo.style.display = ''; }
+                            if (spanTwoOrMore) { spanTwoOrMore.style.display = 'none'; }
+                            if (divNumInFamilyRadiobuttons) { divNumInFamilyRadiobuttons.style.display = 'none'; }
+                            if (spanNumInFamilyHint) { spanNumInFamilyHint.style.display = ''; }
+                            if (divFirstOptionForNumInFamilyWithChildren) { divFirstOptionForNumInFamilyWithChildren.style.display = ''; }
+                        }
+                        GoTo('4');
+
+                    } else {
+                        if (dict['numberOfChildren'].intValue * 1 > 0 || dict['maritalStatus'].intValue * 1 > 0) {                           
+                            dict.isDependent = false;
+                            if (dict['numberOfChildren'].intValue * 1 == 1) {
+                                if (spanTwo) { spanTwo.style.display = 'none'; }
+                                if (spanTwoOrMore) { spanTwoOrMore.style.display = ''; }
+                                if (divNumInFamilyRadiobuttons) { divNumInFamilyRadiobuttons.style.display = ''; }
+                                if (spanNumInFamilyHintWithChildren) { spanNumInFamilyHintWithChildren.style.display = ''; }
+                                if (divFirstOptionForNumInFamilyWithChildren) { divFirstOptionForNumInFamilyWithChildren.style.display = 'none'; }
+                            } else {
+                                if (spanTwo) { spanTwo.style.display = ''; }
+                                if (spanTwoOrMore) { spanTwoOrMore.style.display = 'none'; }
+                                if (divNumInFamilyRadiobuttons) { divNumInFamilyRadiobuttons.style.display = 'none'; }
+                                if (spanNumInFamilyHint) { spanNumInFamilyHint.style.display = ''; }
+                                if (divFirstOptionForNumInFamilyWithChildren) { divFirstOptionForNumInFamilyWithChildren.style.display = ''; }
+                            }
+
+                            GoTo("4");
+                        } else {
+                            dict.isDependent = true;
+                            GoTo("3");  
+                        }
+                    }
+                    return;
+                } else if (currentstepid == "3") {                    
+                    var arrNumInFamily = GetRadioButtonValues("rb_numinfamily_dep").value.split('|');
+                    var arrNumInCollege = GetRadioButtonValues("rb_numincollege_dep").value.split('|');                                        
+                    var tmp_numberinfamily = arrNumInFamily[0];
+                    var tmp_numberincollege = arrNumInCollege[0];
+                    var tmp_householdincome = GetRadioButtonValues("rb_householdincome_dep").value;
+                    
+                    // Validate
+                    if (tmp_numberinfamily == "" || tmp_numberincollege == "" || tmp_householdincome == "") {
+                        alert("Please answer all questions before proceeding.");
+                        return;
+                    }                   
+                    if (arrNumInCollege[1] * 1 >= arrNumInFamily[1] * 1) {                        
+                        alert('The Number in College must be less than the specified Number in Family.');
+                        return;
+                    }
+                    
+                    // Save entered values into dictionary
+                    dict['numberInFamily'].active = true;
+                    dict['numberInFamily'].textValue = tmp_numberinfamily;
+                    dict['numberInFamily'].intValue = arrNumInFamily[1]*1;
+                    dict['numberInCollege'].active = true;
+                    dict['numberInCollege'].textValue = tmp_numberincollege;
+                    dict['numberInCollege'].intValue = arrNumInCollege[1]*1;
+                    dict['householdIncome'].active = true;
+                    dict['householdIncome'].intValue = tmp_householdincome * 1;
+                    GenerateSummary();
+                    GoTo("5");
+                    return;
+                } else if (currentstepid == "4") {
+                    var arrNumInFamily = GetRadioButtonValues("rb_indnuminfamily").value.split('|');
+                    var arrNumInCollege = GetRadioButtonValues("rb_indnumincollege").value.split('|');
+                    var tmp_numberinfamily = arrNumInFamily[0];
+                    var tmp_numberincollege = arrNumInCollege[0];
+                    var tmp_householdincome = GetRadioButtonValues("rb_householdincome_ind").value;
+
+                    // Validate
+                    if (tmp_numberinfamily == "" || tmp_numberincollege == "" || tmp_householdincome == "") {
+                        alert("Please answer all questions before proceeding.");
+                        return;
+                    }
+                    if (arrNumInCollege[1] * 1 > arrNumInFamily[1] * 1) {
+                        alert('The Number in College must be less than or equal to the specified Number in Family.');
+                        return;
+                    }
+
+                    // Save entered values into dictionary
+                    dict['numberInFamily'].active = true;
+                    dict['numberInFamily'].textValue = tmp_numberinfamily;
+                    dict['numberInFamily'].intValue = arrNumInFamily[1]*1;
+                    dict['numberInCollege'].active = true;
+                    dict['numberInCollege'].textValue = tmp_numberincollege;
+                    dict['numberInCollege'].intValue = arrNumInCollege[1]*1;
+                    dict['householdIncome'].active = true;
+                    dict['householdIncome'].intValue = tmp_householdincome * 1;
+                    
+                    GenerateSummary();
+                    GoTo("5");
+                    return;
+                }
+                else if(currentstepid == "5")
+                {
+                    GenerateReport();
+                    GoTo("6");
+                }
+            }
+        }
+        
+        function GoTo(stepid) {
+            if (typeof stepid != 'undefined') {
+                var divWithContent = document.getElementById('dv_npc_s' + stepid);
+                var stepTitle = document.getElementById('dv_npc_s' + stepid + '_t');
+                var stepnumber = document.getElementById("s_step" + stepid);
+                var dv_npc_s6_r = document.getElementById("dv_npc_s"+stepid+"_r");
+                
+                if ((divWithContent && stepTitle && stepnumber) || (divWithContent && stepid=="0")) {
+                    // Handle Step Number
+                    if (stepid == "0") {                      // Going Back to Step #0  
+                        npc_step = "0";
+                    }
+                    else if (stepid * 1 > currentstepid) {    // next
+                        npc_step = npc_step * 1 + 1;
+                    } else {                                  // previous
+                        npc_step = npc_step * 1 - 1;
+                    }
+
+                    // Write step number to span element
+                    if (stepid != "0") {
+                        stepnumber.innerHTML = npc_step;
+                    }
+
+                    // Show/Hide Step - Change Step
+                    HideAllSteps();
+                    divWithContent.style.display = "block";                    
+                    if (stepid != "0") {
+                        stepTitle.style.display = "block";
+                    }
+                    if (stepid == "6") {
+                        dv_npc_s6_r.style.display = "block";
+                        var s_step6_h1 = document.getElementById("s_step6_h1");
+                        var s_step6_h2 = document.getElementById("s_step6_h2");
+                        if (s_step6_h1 && s_step6_h2) {
+                            if (npc1_financialaid * 1 == 0) {
+                                s_step6_h1.style.display = "block";
+                                s_step6_h2.style.display = "none";
+                            } else {
+                                s_step6_h1.style.display = "none";
+                                s_step6_h2.style.display = "block";
+                            }
+                        }
+                    }                    
+                    currentstepid = stepid;
+                }
+            }
+        }
+
+
+
+        function GoPrevious() {            
+            var imgJavaScriptNote = document.getElementById('imgJavaScriptNote');
+            if(imgJavaScriptNote) {
+                imgJavaScriptNote.style.display = 'none';
+            }
+
+            if(currentstepid == '1') {                
+                if(imgJavaScriptNote) {
+                    imgJavaScriptNote.style.display = '';
+                }
+            }
+            
+            if (currentstepid != '5' && currentstepid != '4') {
+                GoTo('' + (currentstepid * 1 - 1));
+            }
+            else if (currentstepid == '4') {
+                GoTo('2');
+            }
+            else {
+                if (dict.isDependent == true)
+                    GoTo('3');
+                else
+                    GoTo('4');
+            }
+        }
+
+
+        function GenerateReport() {
+            var efc = 0;
+            if (dict['financialAid'].intValue * 1 == 0) {                
+                efc = GetEFC();
+            }
+            var lookup_column = "-1";
+            if (npc1_livingstatus == "-1") {
+                lookup_column = npc1_livingstatus;
+            } else {
+                var res_status = 0;
+                if (npc1_residencystatus != "-1") {
+                    res_status = npc1_residencystatus;
+                }
+                lookup_column = numberoflivingstatus * 1 * res_status * 1 + npc1_livingstatus * 1;
+            }
+            
+            if (lookup_column == "-1") {
+                return;
+            }
+            
+            var s_etpoa = document.getElementById("s_etpoa");
+            var s_etf = document.getElementById("s_etf");
+            var s_erb = document.getElementById("s_erb");
+            var s_ebs = document.getElementById("s_ebs");
+            var s_eo = document.getElementById("s_eo");
+            var s_etga = document.getElementById("s_etga");
+            var s_enp = document.getElementById("s_enp");
+            var x = 0;
+            var y = 0;
+            
+            if (s_etpoa) {
+                x = POA_Total[lookup_column];
+                s_etpoa.innerHTML = formatCurrency(x);
+            }
+            if (s_etf) {
+                s_etf.innerHTML = formatCurrency(POA_TRF[lookup_column]);
+            }
+            if (s_erb) {
+                s_erb.innerHTML = formatCurrency(POA_RB[lookup_column]);
+            }
+            if (s_ebs) {
+                s_ebs.innerHTML = formatCurrency(POA_BS[lookup_column]);
+            }
+            if (s_eo) {
+                s_eo.innerHTML = formatCurrency(POA_O[lookup_column]);
+            }
+            if (s_etga) {
+                if (dict['financialAid'].intValue * 1 == 1) {
+                    // NON-FAFSA
+                    y = TGA_NFAFSA[lookup_column];
+                }  else if (efc * 1 == 0) {
+                    y = TGA_0[lookup_column];
+                } else if (efc * 1 >= 1 && efc * 1 <= 1000) {
+                    y = TGA_1_1000[lookup_column];
+                } else if (efc * 1001 >= 1 && efc * 1 <= 2500) {
+                    y = TGA_1001_2500[lookup_column];
+                } else if (efc * 2501 >= 1 && efc * 1 <= 5000) {
+                    y = TGA_2501_5000[lookup_column];
+                } else if (efc * 1 >= 5001 && efc * 1 <= 7500) {
+                    y = TGA_5001_7500[lookup_column];
+                } else if (efc * 1 >= 7501 && efc * 1 <= 10000) {
+                    y = TGA_7501_10000[lookup_column];
+                } else if (efc * 1 >= 10001 && efc * 1 <= 12500) {
+                    y = TGA_10001_12500[lookup_column];
+                } else if (efc * 1 >= 12501 && efc * 1 <= 15000) {
+                    y = TGA_12501_15000[lookup_column];
+                } else if (efc * 1 >= 15001 && efc * 1 <= 20000) {
+                    y = TGA_15001_20000[lookup_column];
+                } else if (efc * 1 >= 20001 && efc * 1 <= 30000) {
+                    y = TGA_20001_30000[lookup_column];
+                } else if (efc * 1 >= 30001 && efc * 1 <= 40000) {
+                    y = TGA_30001_40000[lookup_column];
+                } else if (efc * 1 >= 40001) {
+                    y = TGA_40000[lookup_column];
+                }
+                s_etga.innerHTML = formatCurrency(y);
+            }
+            if (s_enp) {
+                var z = x * 1 - y * 1;
+                s_enp.innerHTML = formatCurrency(z);
+            }
+            
+        }
+
+
+        function GetEFC() {
+            var efc = 0;
+            if(dict.isDependent == true) {
+                var arrayLength = efcDependent.length;
+                for(var i=0; i<arrayLength; i++) {
+                    if(efcDependent[i].numberInCollege == dict['numberInCollege'].intValue && efcDependent[i].numberInFamily == dict['numberInFamily'].intValue) {
+                        efc = efcDependent[i].incomeRanges[dict['householdIncome'].intValue];
+                        break;
+                    }
+                }
+
+            } else {                
+                if(dict['numberOfChildren'].intValue == 0) {
+                    // without children
+                    var arrayLength = efcIndWithoutDep.length;
+                    for(var i=0; i<arrayLength; i++) {
+                        if(efcIndWithoutDep[i].numberInCollege == dict['numberInCollege'].intValue && efcIndWithoutDep[i].numberInFamily == dict['numberInFamily'].intValue) {
+                            efc = efcIndWithoutDep[i].incomeRanges[dict['householdIncome'].intValue];
+                            break;
+                        }
+                    }
+                } else {
+                    // with children
+                    var arrayLength = efcIndWithDep.length;
+                    for(var i=0; i<arrayLength; i++) {
+                        if(efcIndWithDep[i].numberInCollege == dict['numberInCollege'].intValue && efcIndWithDep[i].numberInFamily == dict['numberInFamily'].intValue) {
+                            efc = efcIndWithDep[i].incomeRanges[dict['householdIncome'].intValue];
+                            break;
+                        }
+                    }
+                }
+            }
+            return efc;
+        }
+        
+        // Generate summary table with user's input
+        function GenerateSummary() {               
+            var html = '<table border=\'0\' cellpadding=\'2\' cellspacing=\'0\' style=\'width:100%;\'>';            
+            // Step 1
+            if (dict['financialAid'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['financialAid'].title + '</td><td>' + dict['financialAid'][dict['financialAid'].intValue] + '</td></tr>';
+            }
+            if(dict['age'].active == true) {
+                html = html +'<tr><td class=\'boldtd\'>'+dict['age'].title+'</td><td>'+dict['age'].intValue+'</td></tr>';
+            }
+            if (dict['livingStatus'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['livingStatus'].title + '</td><td>' + dict['livingStatus'].textValue + '</td></tr>';
+            }
+            if (dict['residencyStatus'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['residencyStatus'].title + '</td><td>' + dict['residencyStatus'].textValue + '</td></tr>';
+            }
+            
+            // Step 2
+            if (dict['maritalStatus'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['maritalStatus'].title + '</td><td>' + dict['maritalStatus'][dict['maritalStatus'].intValue] + '</td></tr>';
+            }
+            if (dict['numberOfChildren'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['numberOfChildren'].title + '</td><td>' + dict['numberOfChildren'][dict['numberOfChildren'].intValue] + '</td></tr>';
+            }
+            
+            // Step 3 & 4
+            if (dict['numberInFamily'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['numberInFamily'].title + '</td><td>' + dict['numberInFamily'].textValue + '</td></tr>';
+            }
+            if (dict['numberInCollege'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['numberInCollege'].title + '</td><td>' + dict['numberInCollege'].textValue + '</td></tr>';
+            }
+            if (dict['householdIncome'].active == true) {
+                html = html + '<tr><td class=\'boldtd\'>' + dict['householdIncome'].title + '</td><td>' + dict['householdIncome'][dict['householdIncome'].intValue] + '</td></tr>';
+            }
+            var dv_summary = document.getElementById('dv_summary');
+            dv_summary.innerHTML = html +  '</table>';
+        }
+
+        // Function displays bunner of institution
+        function setupBanner() {
+            var imgInstitutionBanner = document.getElementById('imgInstitutionBanner');
+            var divInstitutionBanner = document.getElementById('divInstitutionBanner');
+
+            if(imgInstitutionBanner)
+            {
+                imgInstitutionBanner.src = '../wp-content/uploads/2011/10/' + bannerFileName;
+                if(divInstitutionBanner)                
+                    divInstitutionBanner.style.display = '';                
+            }
+        }
+
+
+
+        function HideAllSteps() {
+            var dv_npc_s1_t = document.getElementById("dv_npc_s1_t");
+            if(dv_npc_s1_t)
+                dv_npc_s1_t.style.display = 'none';
+            
+            var dv_npc_s2_t = document.getElementById("dv_npc_s2_t");
+            if(dv_npc_s2_t)
+                dv_npc_s2_t.style.display = 'none';
+            
+            var dv_npc_s3_t = document.getElementById("dv_npc_s3_t");
+            if(dv_npc_s3_t)
+                dv_npc_s3_t.style.display = 'none';
+            
+            var dv_npc_s4_t = document.getElementById("dv_npc_s4_t");
+            if(dv_npc_s4_t)
+                dv_npc_s4_t.style.display = 'none';
+            
+            var dv_npc_s5_t = document.getElementById("dv_npc_s5_t");
+            if(dv_npc_s5_t)
+                dv_npc_s5_t.style.display = 'none';
+            
+            var dv_npc_s6_t = document.getElementById("dv_npc_s6_t");
+            if(dv_npc_s6_t)
+                dv_npc_s6_t.style.display = 'none';
+            
+            var dv_npc_s6_r = document.getElementById("dv_npc_s6_r");
+            if(dv_npc_s6_r)
+                dv_npc_s6_r.style.display = 'none';
+            
+            var dv_npc_s0 = document.getElementById("dv_npc_s0");
+            if(dv_npc_s0)
+                dv_npc_s0.style.display = 'none';
+            
+            var dv_npc_s1 = document.getElementById("dv_npc_s1");
+            if(dv_npc_s1)
+                dv_npc_s1.style.display = 'none';
+            
+            var dv_npc_s2 = document.getElementById("dv_npc_s2");
+            if(dv_npc_s2)
+                dv_npc_s2.style.display = 'none';
+            
+            var dv_npc_s3 = document.getElementById("dv_npc_s3");
+            if(dv_npc_s3)
+                dv_npc_s3.style.display = 'none';
+            
+            var dv_npc_s4 = document.getElementById("dv_npc_s4");
+            if(dv_npc_s4)
+                dv_npc_s4.style.display = 'none';
+            
+            var dv_npc_s5 = document.getElementById("dv_npc_s5");
+            if(dv_npc_s5)
+                dv_npc_s5.style.display = 'none';
+            
+            var dv_npc_s6 = document.getElementById("dv_npc_s6");
+            if(dv_npc_s6)
+                dv_npc_s6.style.display = 'none';
+        }
+
+
+
+        function ResetForm() {
+            var imgJavaScriptNote = document.getElementById('imgJavaScriptNote');
+            if(imgJavaScriptNote) {
+                imgJavaScriptNote.style.display = '';
+            }
+            // 1
+            ResetRadioButton("rb_financialaid");
+            ResetTextBox("txt_age");
+            ResetRadioButton("rb_livingstatus");
+            ResetRadioButton("rb_residencystatus");
+            // 2
+            ResetRadioButton("rb_maritalstatus");
+            ResetRadioButton("rb_numberofchildren");
+            // 3
+            ResetRadioButton("rb_numinfamily_dep");
+            ResetRadioButton("rb_numincollege_dep");
+            ResetRadioButton("rb_householdincome_dep");
+            // 4
+            ResetRadioButton("rb_indnuminfamily");
+            ResetRadioButton("rb_indnumincollege");
+            ResetRadioButton("rb_householdincome_ind");
+            
+            // 6
+            ResetSpan("s_step6_body");
+        }
+        
+
+        function StartOver() {
+            ResetForm();
+            ClearVars();
+            GoTo("0");
+        }
+        
+        // function executes when user clicks 'Modify' button        
+        function ClearVars() {           
+            npc_step = "0";
+            currentstepid = "0";
+            
+            // set active=false to 'dict' variable
+            for(propertyName in dict) {
+                if(typeof(dict[propertyName]) !== 'function') {
+                    dict[propertyName].active = false;
+                    if (dict[propertyName].intValue)
+                        dict[propertyName].intValue = 0;
+                    if (dict[propertyName].textValue)
+                        dict[propertyName].textValue = '';
+                }
+            }
+            // setup initial constants
+            SetupConstants();            
+        }
+       
+        function ResetSpan(s) {
+            if (s) {
+                var sid = document.getElementById(s);
+                if (sid) {
+                    sid.innerHTML = "";
+                }
+            }
+        }
+
+        function ResetRadioButton(rb) {
+            if (rb) {
+                var n = document.getElementsByName(rb);
+                if (n) {
+                    for (var i = 0; i < n.length; i++) {
+                        n[i].checked = false;
+                    }
+                }
+            }
+        }
+
+        function ResetTextBox(t) {
+            if (t) {
+                var txt = document.getElementById(t);
+                if (txt) {
+                    txt.value = "";
+                }
+            }
+        }
+
+        function GetRadioButtonValues(rb) {
+            if (rb) {
+                var n = document.getElementsByName(rb);
+                if (n) {
+                    for (var i = 0; i < n.length; i++) {
+                        if (n[i].checked) {
+                            return {label:n[i],value:n[i].value};
+                        }
+                    }
+                }
+            }
+            return {value:"",label:""};
+        }
+
+        function GetTextBoxValue(t) {
+            if (t) {
+                var txt = document.getElementById(t);
+                if (txt) {
+                    return txt.value;
+                }
+            }
+        }       
+        
+        function IsInteger(sText)
+        {
+            var ValidChars = "0123456789";
+            var IsNumber = true;
+            var Char;
+
+            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1) {
+                    IsNumber = false;
+                }
+            }
+            return IsNumber;
+        }
+
+        function IsNumeric(sText) {
+            var ValidChars = "0123456789.";
+            var IsNumber = true;
+            var Char;
+
+            for (i = 0; i < sText.length && IsNumber == true; i++) {
+                Char = sText.charAt(i);
+                if (ValidChars.indexOf(Char) == -1) {
+                    IsNumber = false;
+                }
+            }
+            return IsNumber;
+        }
+
+        function formatCurrency(num) {
+            num = num.toString().replace(/\$|\,/g, '');
+            if (isNaN(num))
+                num = "0";
+            sign = (num == (num = Math.abs(num)));
+            num = Math.floor(num * 100 + 0.50000000001);
+            cents = num % 100;
+            num = Math.floor(num / 100).toString();
+            if (cents < 10)
+                cents = "0" + cents;
+            for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+                num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+            num.substring(num.length - (4 * i + 3));
+            return (((sign) ? '' : '-') + '$' + num ); //+ '.' + cents
+        }
+
+        function HideTag(ptr) {
+            if (ptr) {
+                var ptrHandle = document.getElementById(ptr);
+                if (ptrHandle) {
+                    ptrHandle.style.display = "none";
+                }
+            }
+        }
+
+        function ShowTag(ptr) {
+            if (ptr) {
+                var ptrHandle = document.getElementById(ptr);
+                if (ptrHandle) {
+                    ptrHandle.style.display = "block";
+                }
+            }
+        }
+    </script>
+
+
+<script type="text/javascript" src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/js/tmt_core.js"></script>
+<script type="text/javascript" src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/js/tmt_form.js"></script>
+<script type="text/javascript" src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/js/tmt_validator.js"></script>
+
+<link href="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/css/style_form.css" rel="stylesheet" media="all"  />
+<link href="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/css/styles.css" rel="stylesheet" media="all"  />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/js/iepngfix_tilebg.js"></script>
+<style type="text/css">
+	img, div, a, h1, h4, p { behavior: url(http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/iepngfix.htc) };
+</style>
+<![endif]-->
+<title>Moore Career College | School of Massage Therapy | Home</title>
+<meta name="description" content="Moore Career College Baton Rouge nationally accredited proprietary school comprehensive, holistic approach massage therapy education classes and certification spa therapies. Practical experience massage clinics Swedish Deep Tissue Neuromuscular Therapy effleurage petrissage tapotement friction vibration knuckling hydrotherapy thermal therapy acupressure Tai Chi yoga. Placement is integral.">
+<meta name="keywords" content="Massage Baton Rouge,Massage School Baton Rouge,Massage Therapy Baton Rouge,Massage Therapy School Baton Rouge,Massage Therapy College Baton Rouge,Massage Therapy Class Baton Rouge,Massage Therapy Classes Baton Rouge,Massage Therapy Certification Baton Rouge,Massage Therapy Certificate Baton Rouge,Massage Clinic Baton Rouge,Massage College Baton Rouge">
+<meta name="geo.placename" content="6160 Perkins Rd, Baton Rouge, LA 70808, USA" />
+<meta name="geo.position" content="30.407439;-91.126056" />
+<meta name="geo.region" content="US-LA" />
+<meta name="ICBM" content="30.407439, -91.126056" />
+<meta name="city" content="baton rouge" />
+<meta name="state" content="la" />
+<meta name="zip code" content="70808" />
+<meta name="country" content="United States (USA)" />
+<meta name="google-site-verification" content="_vpfAB-RWC03gv0fKVpciqi22R8B87rjwLqKJhq39S0" />
+</head>
+<body>
+
+<div id="bodytop">
+<div id="wrap-top" style="width:1024px">
+
+
+	
+            <div id="header">
+		<a href="http://moorecareercollege.edu"><div id="logo"><h1><span class="hide">Moore Career College</span></h1></div></a>
+		<div id="nav">
+		<!--	<div id="nav-right"></div> -->
+			<div id="nav-nav">
+
+					<ul id="navv" style="width:775px">
+						<li class="first"><a href="http://moorecareercollege.edu">Home</a></li>
+                                                
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/about-us">About Us</a>
+
+                                                    
+                                                    
+                                                        <ul>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/mission">Mission</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/philosophy">Philosophy</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/accredidation">Accreditation</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/facilities">Facilities</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/program">Massage Therapy</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/about-us/tv-spot">TV Spot</a></li>
+
+                                                        
+                                                       </ul>
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/your-career">Your Career</a>
+
+                                                    
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/student-experience">Student Experience</a>
+
+                                                    
+                                                    
+                                                        <ul>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/student-experience/testimonials">Testimonials</a></li>
+
+                                                        
+                                                       </ul>
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/admissions">Admissions</a>
+
+                                                    
+                                                    
+                                                        <ul>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/admissions/program-requirements">Program Requirements</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/admissions/start-dates">Start Dates</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/admissions/enrolled-students">Enrolled Students</a></li>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/admissions/download-catalog">Download Catalog</a></li>
+
+                                                        
+                                                       </ul>
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/financial-aid">Financial Aid</a>
+
+                                                    
+                                                    
+                                                        <ul>
+
+                                                        
+                                                            
+                                                            <li><a href="http://moorecareercollege.edu/financial-aid/net-price-calculator">Net Price Calculator</a></li>
+
+                                                        
+                                                       </ul>
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/contact-us">Contact Us</a>
+
+                                                    
+                                                    
+                                                     </li>
+                                                    
+                                                
+                                                    
+                                                    <li><a href="http://moorecareercollege.edu/gainful-employment">Gainful Employment</a>
+
+                                                    
+                                                    
+                                                     </li>
+                                                    
+                                                						
+
+					</ul>
+
+			</div>
+		<!--	<div id="nav-left"></div> -->
+		</div>
+	</div><!-- End Header -->
+
+	<div id="mast">
+
+		<div id="mast-pic"></div>
+		<div id="mast-text">
+
+			<h1><span class="hide">To do more, get Moore.</span></h1>
+                                                        <p>When you choose Moore, it&#8217;s your first step on the path toward success. We make this path as clear as possible &#8211; through great instruction, flexibility, affordability and guidance into your new career.</p>
+<p>Most importantly, we help you launch your new career as a massage therapist in as little as 9 months. As the oldest massage therapy college in the region, we have a proven track record of doing exactly that &#8211; and much more.</p>
+                        			<p id="callnow"><span class="hide">Give us a call: 800-517-9326</span></p>
+		</div>
+
+	</div><!-- End Mast -->
+
+
+	<div id="promos">
+
+		<div class="promo-1 first">
+
+			<h2 class="title-massage"><span class="hide">Massage Therapy</span></h2>
+			<div class="promo-pic"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/pic-flower.jpg" alt="student" /></div>
+			<div class="promo-text">NOW is the time to become part of the growing field of massage therapy.</div>
+			<div class="promo-btn"><a href="/your-career/"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/btn-getmoreinfo.gif" alt="View Dates" /></a></div>
+		</div>
+
+		<div class="promo-1">
+			<h2 class="title-dayevening"><span class="hide">Day or Evening Classes</span></h2>
+			<div class="promo-pic"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/pic-student.jpg" width="64" height="80" alt="student" /></div>
+			<div class="promo-text">Start your new career in as little as 9 months!</div>
+			<div class="promo-btn dates"><a href="/about-us/program/"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/btn-findout.gif" alt="Get More Info" /></a></div>
+		</div>
+
+		<div class="promo-1">
+			<h2 class="title-dates"><span class="hide">Class Start Dates</span></h2>
+			<div class="promo-pic"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/pic-calendar.jpg" width="64" height="80" alt="student" /></div>
+			<div class="promo-text">Ongoing enrollment dates! Don't wait - Enroll today!</div>
+			<div class="promo-btn dates"><a href="/admissions/start-dates/"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/btn-viewdates.gif" alt="View Dates" /></a></div>
+		</div>
+
+		<div class="promo-1 stu">
+			<h2 class="title-students"><span class="hide">Student Experience</span></h2>
+			<div class="promo-pic"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/pic-studentfemale.jpg" width="64" height="80" alt="studentfemale" /></div>
+			<div class="promo-text">Once you're a student, we'll provide support far beyond your graduation date.</div>
+			<div class="promo-btn dates"><a href="/student-experience/"><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/btn-readmore.gif" alt="Read More" /></a></div>
+		</div>
+
+
+	</div><!-- End Promos -->
+
+
+
+	<div id="form-home" class="pod">
+		<div class="inner-border pod-botbg">
+
+		<div id="form-text">
+			<h3><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/title-formhome-enroll.gif" width="209" height="36" alt="Enroll Today" /></h3>
+			<p><img src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/pic-teacher.jpg" width="84" height="93" alt="Teacher" class="float-left" />To get started, tell us a little about yourself. Fill out the
+   form and get started on your career now! One of our advisors
+   will contact shortly. We invite you to come visit us to give you
+   the chance to learn more about both the college and the field of
+   massage therapy as a whole.</p>
+		</div>
+
+
+
+
+
+<script>
+function SelectYear(ele)
+{
+
+	if(ele.selectedIndex > 1)
+{
+tmt.form.enableFields('hsgradyear');
+}
+else
+{
+tmt.form.checkSelect('hsgradyear','0');
+tmt.form.disableFields('hsgradyear');
+}
+
+}
+
+
+	function dependondeg (fieldNode){
+
+var relatedSelect = document.getElementById("highestedu");
+
+// The field is required only if the box is checked
+
+if(relatedSelect.selectedIndex > 1){
+
+return false;
+
+}
+
+return true;
+
+}
+</script>
+
+
+		<div id="contact-form">
+
+                    
+                                                
+			<form action="#" method="post" tmt:validate="true" tmt:callback="tmt.validator.errorBoxCallback">
+
+                            <input type="hidden" name="program" value="MT" style="margin:0px; padding:0px; border:0px;">
+
+			<div id="form-left">
+
+					<div class="form-2">
+                                            <fieldset><label>First Name<br /><input type="text" id="firstname" name="fname" tmt:required="true" tmt:errorclass="invalid" tmt:message="First name is required." ></label></fieldset>
+                                            <fieldset><label>Last Name<br /><input type="text" id="lastname" name="lname" class="last" tmt:required="true" tmt:errorclass="invalid" tmt:message="Last name is required." ></label></fieldset>
+					</div>
+
+					<div class="form-1">
+                                            <fieldset><label>Address<br /><input type="text" id="address1" name="addr" tmt:required="true" tmt:errorclass="invalid" tmt:message="Address is required." ></label></fieldset>
+					</div>
+
+
+					<div class="form-2">
+                                            <fieldset><label>City<br /><input type="text" id="city" name="city" tmt:required="true" tmt:errorclass="invalid" tmt:message="City is required." ></label></fieldset>
+                                            <fieldset><label>Zip Code<br /><input type="text" id="zipcode" name="zipcode" class="last" tmt:required="true" tmt:errorclass="invalid" tmt:message="Zipcode is required." ></label></fieldset>
+					</div>
+
+					<div class="form-1">
+                                            <fieldset><label>State<br /><select id="state" name="state" tmt:invalidindex="0" tmt:message="Please select a state.">
+
+<option value="0">Select</option>
+<option value="AL" >Alabama</option>
+<option value="AK" >Alaska</option>
+<option value="AZ" >Arizona</option>
+<option value="AR" >Arkansas</option>
+<option value="CA" >California</option>
+<option value="CO" >Colorado</option>
+<option value="CT" >Connecticut</option>
+<option value="DE" >Delaware</option>
+
+<option value="FL" >Florida</option>
+<option value="GA" >Georgia</option>
+<option value="HI" >Hawaii</option>
+<option value="ID" >Idaho</option>
+<option value="IL" >Illinois</option>
+<option value="IN" >Indiana</option>
+<option value="IA" >Iowa</option>
+<option value="KS" >Kansas</option>
+<option value="KY" >Kentucky</option>
+
+<option value="LA" >Louisiana</option>
+<option value="ME" >Maine</option>
+<option value="MD" >Maryland</option>
+<option value="MA" >Massachusetts</option>
+<option value="MI" >Michigan</option>
+<option value="MN" >Minnesota</option>
+<option value="MS" >Mississippi</option>
+<option value="MO" >Missouri</option>
+<option value="MT" >Montana</option>
+
+<option value="NE" >Nebraska</option>
+<option value="NV" >Nevada</option>
+<option value="NH" >New Hampshire</option>
+<option value="NJ" >New Jersey</option>
+<option value="NM" >New Mexico</option>
+<option value="NY" >New York</option>
+<option value="NC" >North Carolina</option>
+<option value="ND" >North Dakota</option>
+<option value="OH" >Ohio</option>
+
+<option value="OK" >Oklahoma</option>
+<option value="OR" >Oregon</option>
+<option value="PA" >Pennsylvania</option>
+<option value="PR" >Puerto Rico</option>
+<option value="RI" >Rhode Island</option>
+<option value="SC" >South Carolina</option>
+<option value="SD" >South Dakota</option>
+<option value="TN" >Tennessee</option>
+<option value="TX" >Texas</option>
+
+<option value="UT" >Utah</option>
+<option value="VT" >Vermont</option>
+<option value="VA" >Virginia</option>
+<option value="WA" >Washington</option>
+<option value="DC" >Washington Dc</option>
+<option value="WV" >West Virginia</option>
+<option value="WI" >Wisconsin</option>
+<option value="WY" >Wyoming</option>
+</select>
+
+</label></fieldset>
+					</div>
+
+					<div class="form-extra">
+						<span class="check"><fieldset><label><input type="checkbox" id="custText1" name="custText1" value="Yes" checked>
+ Schedule Campus Tour</label></fieldset>
+</span>
+					</div>
+
+
+
+			</div>
+
+
+			<div id="form-right">
+
+
+					<div class="form-2">
+                                            <fieldset><label>Primary Phone<br /><input type="text" id="phone1" name="phone1" tmt:required="true" tmt:errorclass="invalid" tmt:message="Primary phone number is required." ></label></fieldset>
+                                            <fieldset><label>Secondary Phone<br /><input type="text" id="phone2" name="phone2" class="last"></label></fieldset>
+					</div>
+
+					<div class="form-1">
+                                            <fieldset><label>Email<br /><input type="text" id="email" name="email" tmt:required="true" tmt:errorclass="invalid" tmt:message="Please insert a name" ></label></fieldset>
+					</div>
+
+
+					<div class="form-1">
+                                            <fieldset><label>Highest Level of Education<br /><select id="highestedu" onchange="SelectYear(this);" name="degree" tmt:invalidindex="0" tmt:message="Please select a degree."><option value="0">Select</option>
+<option value="NONE" >No HS Diploma/GED</option><option value="HSGED" >HS Diploma/GED</option><option value="SOMCOL" >Some College</option><option value="ASCDEG" >Associate Degree</option><option value="BACDEG" >Bachelor Degree</option><option value="GRADEG" >Post Graduate Degree</option></select>
+
+</label></fieldset>
+					</div>
+
+					<div class="form-1">
+                                            <fieldset><label>High School Graduation Year<br /><select id="hsgradyear" disabled="true" tmt:required="dependondeg" name="gradyear" tmt:invalidindex="0" tmt:message="Please select a year.">
+<option value="0">Select</option>
+<option value="2012">2012</option>
+<option value="2011">2011</option>
+<option value="2010">2010</option>
+<option value="2009">2009</option>
+<option value="2008">2008</option>
+<option value="2007">2007</option>
+<option value="2006">2006</option>
+<option value="2005">2005</option>
+<option value="2004">2004</option>
+<option value="2003">2003</option>
+<option value="2002">2002</option>
+<option value="2001">2001</option>
+<option value="2000">2000</option>
+<option value="1999">1999</option>
+<option value="1998">1998</option>
+<option value="1997">1997</option>
+<option value="1996">1996</option>
+<option value="1995">1995</option>
+<option value="1994">1994</option>
+<option value="1993">1993</option>
+<option value="1992">1992</option>
+<option value="1991">1991</option>
+<option value="1990">1990</option>
+<option value="1989">1989</option>
+<option value="1988">1988</option>
+<option value="1987">1987</option>
+<option value="1986">1986</option>
+<option value="1985">1985</option>
+<option value="1984">1984</option>
+<option value="1983">1983</option>
+<option value="1982">1982</option>
+<option value="1981">1981</option>
+<option value="1980">1980</option>
+<option value="1979">1979</option>
+<option value="1978">1978</option>
+<option value="1977">1977</option>
+<option value="1976">1976</option>
+<option value="1975">1975</option>
+<option value="1974">1974</option>
+<option value="1973">1973</option>
+<option value="1972">1972</option>
+<option value="1971">1971</option>
+<option value="1970">1970</option>
+<option value="1969">1969</option>
+<option value="1968">1968</option>
+<option value="1967">1967</option>
+<option value="1966">1966</option>
+<option value="1965">1965</option>
+<option value="1964">1964</option>
+<option value="1963">1963</option>
+<option value="1962">1962</option>
+<option value="1961">1961</option>
+<option value="1960">1960</option>
+<option value="1959">1959</option>
+<option value="1958">1958</option>
+<option value="1957">1957</option>
+<option value="1956">1956</option>
+<option value="1955">1955</option>
+<option value="1954">1954</option>
+<option value="1953">1953</option>
+<option value="1952">1952</option>
+<option value="1951">1951</option>
+<option value="1950">1950</option>
+<option value="1949">1949</option>
+<option value="1948">1948</option>
+<option value="1947">1947</option>
+<option value="1946">1946</option>
+<option value="1945">1945</option>
+<option value="1944">1944</option>
+<option value="1943">1943</option>
+<option value="1942">1942</option>
+<option value="1941">1941</option>
+<option value="1940">1940</option>
+</select>
+</label></fieldset>
+					</div>
+
+
+					<div class="form-btns"><input type="image" src="http://moorecareercollege.edu/wp-content/themes/moore-theme-itbd/images/submit-btn.gif" /></div>
+
+					<div class="clear">&nbsp;</div>
+
+
+			</div>
+
+			</form>
+
+                        
+		</div>
+
+
+		</div><!-- End Inner border -->
+	</div><!-- End Form Home -->
+
+
+</div><!-- End Wrap-top -->
+</div><!-- End body Top -->
+
+
+<div class="clear">&nbsp;</div>
+
+<div id="bodybot">
+	<div id="wrap-bot">
+
+		<div id="footer-logo">
+			<h4><span class="hide">Moore Career College</span></a></h4>
+			<p>Moore Career College<br />
+			6160 Perkins Rd., Ste. 200<br />
+			Baton Rouge, LA 70808<br />
+
+			225-757-3770</p>
+		</div>
+
+		<div id="footer-nav">
+
+                    
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/about-us">About Us</a></li>
+
+                                    
+                                    
+                                    
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/mission">Mission</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/philosophy">Philosophy</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/accredidation">Accreditation</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/facilities">Facilities</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/program">Massage Therapy</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/about-us/tv-spot">TV Spot</a></li>
+
+                                        
+                                    
+                            </ul>
+
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/your-career">Your Career</a></li>
+
+                                    
+                                        <li>Position yourself for the future in a growing career field!</li>
+
+                                    
+                                    
+                                    
+                            </ul>
+
+                        
+                            <ul class="long">
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/student-experience">Student Experience</a></li>
+
+                                    
+                                        <li>Learn what benefits you'll receive as a Moore Student!</li>
+
+                                    
+                                    
+                                    
+                                        
+                                            <li><a href="http://moorecareercollege.edu/student-experience/testimonials">Testimonials</a></li>
+
+                                        
+                                    
+                            </ul>
+
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/admissions">Admissions</a></li>
+
+                                    
+                                    
+                                    
+                                        
+                                            <li><a href="http://moorecareercollege.edu/admissions/program-requirements">Program Requirements</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/admissions/start-dates">Start Dates</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/admissions/enrolled-students">Enrolled Students</a></li>
+
+                                        
+                                            <li><a href="http://moorecareercollege.edu/admissions/download-catalog">Download Catalog</a></li>
+
+                                        
+                                    
+                            </ul>
+
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/financial-aid">Financial Aid</a></li>
+
+                                    
+                                        <li>We have financial aid information and staff who'll help you sort it all out.</li>
+
+                                    
+                                    
+                                    
+                                        
+                                            <li><a href="http://moorecareercollege.edu/financial-aid/net-price-calculator">Net Price Calculator</a></li>
+
+                                        
+                                    
+                            </ul>
+
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/contact-us">Contact Us</a></li>
+
+                                    
+                                        <li>225-757-3770</li>
+
+                                    
+                                    
+                                    
+                            </ul>
+
+                        
+                            <ul>
+
+                                    <li class="footer-nav-head"><a href="http://moorecareercollege.edu/gainful-employment">Gainful Employment</a></li>
+
+                                    
+                                    
+                                    
+                            </ul>
+
+                        
+                    	
+		</div>
+
+		<div class="clear">&nbsp;</div>
+
+	</div>
+</div><!-- End body Bot -->
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-1188345-33");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

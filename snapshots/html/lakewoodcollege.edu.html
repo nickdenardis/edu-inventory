@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Lakewood College</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<meta name="revisit-after" content="7 days" />
+<link type="text/css" rel="stylesheet" href="styles/style.css" />
+<script type="text/javascript" src="scripts/functions.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="scripts/jquery.blend-effects.js"></script>
+<script type="text/javascript">
+/* jQuery */
+$(document).ready(function(){
+	/* Hover Intent */
+	var strSpeed   = 'normal';
+	var strConfig  = {
+		 sensitivity: 3,	// number = sensitivity threshold (must be 1 or higher)
+		 interval: 100,		// number = milliseconds for onMouseOver polling interval
+		 over: mouseOver,	// function = onMouseOver callback (REQUIRED)
+		 timeout: 400,		// number = milliseconds delay before onMouseOut
+		 out: mouseOut		// function = onMouseOut callback (REQUIRED)
+	};
+
+	/* Blend */
+	var intSpeed  = 300;
+	var strClass  = 'selected';
+	var strEffect = 'wipe down';
+	$('#nav > ul > li > a').blend(intSpeed,'.' + strClass,strEffect);
+
+	/* Overlays */
+	$('#nav ul ul li').each(function(){
+		if ($(this).children('ul').length > 0) {
+			$(this).children('a').append('<div class="marker">&raquo;</div>'); //&#61492;
+			$(this).addClass('parent');
+		}
+	});
+
+	$('#nav ul li').hoverIntent(strConfig);
+
+	function mouseOver() {
+		objElem = $(this).children('ul');
+		objElem.slideDown(strSpeed);
+		if (objElem.length > 0) {
+			$(this).children('a').stop(true,true).addClass(strClass);
+		}
+	}
+	function mouseOut() {
+		$(this).children('ul').slideUp(strSpeed,function(){
+			objElemPrev = $(this).prev();
+			objElemSpan = objElemPrev.children('span:first');
+			objElemPrev.removeClass(strClass);
+			if (objElemSpan.length > 0) {
+				blnFunction = false;
+				switch (strEffect.toLowerCase()) {
+					case 'slide up':
+					case 'slide down':
+					case 'slide left':
+					case 'slide right':
+						strAnimation = 'top:0,left:0';
+						break;
+
+					case 'wipe up':
+						strAnimation = 'height:"show"';
+						break;
+
+					case 'wipe left':
+						strAnimation = 'width:"show"';
+						break;
+
+					case 'wipe down':
+					case 'wipe right':
+					case 'wipe vertical':
+					case 'wipe horizontal':
+					case 'wipe all':
+						strAnimation = 'clip: "rect(auto, auto, auto, auto)"';
+						blnFunction  = true;
+						break;
+
+					default: //fade
+						strAnimation = 'opacity:"show"';
+						break;
+				}
+				objElemSpan.animate(eval('({' + strAnimation + '})'), intSpeed, function(){
+					if (blnFunction) { objElemSpan.css('clip',''); }
+				});
+			}
+		});
+	}
+});
+</script>
+<!--[if lt IE 9]>
+<style>
+.ImageLink {
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#888888, Strength=4, Direction=0),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#888888, Strength=4, Direction=90),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#888888, Strength=4, Direction=180),
+            progid:DXImageTransform.Microsoft.Shadow(Color=#888888, Strength=4, Direction=270);
+}
+</style>
+<![endif]--><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19281312-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</head>
+<body>
+<div id="header">
+	<div id="header_container">
+		<div id="home"><a href="index.php">Home</a></div>
+		<div id="nav">
+			<ul>
+				<li><a href="index.php" class="home selected">Home</a></li>
+				<li><a href="about.php" class="about">About</a>
+					<ul>
+						<li><a href="about_why.php">Why Lakewood College?</a></li>
+						<li><a href="about_mission.php">Our Mission</a></li>
+						<li><a href="about_message.php">Director's Message</a></li>
+						<li><a href="about_testimonials.php">Student Testimonials</a></li>
+					</ul>
+				</li>
+				<li><a href="programs.php" class="programs">Programs</a>
+					<ul>
+						<li><a href="programs_mediation.php">Mediation Certificate Program</a></li>
+						<li><a href="programs_paralegal.php">Paralegal Diploma Program</a></li>
+						<li><a href="programs_pharmacy.php">Pharmacy Technician Diploma Program</a></li>
+						<li><a href="programs_combination.php">Combination Mediation & Paralegal Program</a></li>
+						<li><a href="programs_degree.php">Associate Degree Programs</a></li>
+						<li><a href="programs_catalog.php">College Catalog</a></li>
+					</ul>
+				</li>
+				<li><a href="accreditation.php" class="accreditation">Accreditation</a></li>
+				<li><a href="https://www.lakewoodcollege.edu/military.php" class="military">Military</a></li>
+				<li><a href="faq.php" class="faq">FAQ</a></li>
+				<li><a href="https://www.lakewoodcollege.edu/contact.php" class="contact">Contact</a></li>
+				<li><a href="https://www.lakewoodcollege.edu/register.php" class="register">Register</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div id="body_bg">
+	<div id="body">
+		<div id="body_container">
+			<div id="body_left">
+<div id="body_right">
+  <div id="panel">
+    <form id="frmPanel" name="frmPanel" method="post" action="contact.php">
+      <table width="100%" border="0" cellspacing="0" cellpadding="2">
+        <tr>
+          <td width="18%" nowrap="nowrap"><strong>First Name: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="First Name" id="First Name" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Last Name: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Last Name" id="Last Name" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Email: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Email" id="Email" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Address: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Address" id="Address" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>City: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="City" id="City" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>State: <span class="Highlight1">*</span></strong></td>
+          <td width="44%"><select name="State" id="State">
+              <option value=""></option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option>
+              <option value="ME">Maine</option>
+              <option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option>
+              <option value="MI">Michigan</option>
+              <option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option>
+              <option value="MO">Missouri</option>
+              <option value="MT">Montana</option>
+              <option value="NE">Nebraska</option>
+              <option value="NV">Nevada</option>
+              <option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option>
+              <option value="NM">New Mexico</option>
+              <option value="NY">New York</option>
+              <option value="NC">North Carolina</option>
+              <option value="ND">North Dakota</option>
+              <option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option>
+              <option value="OR">Oregon</option>
+              <option value="PA">Pennsylvania</option>
+              <option value="RI">Rhode Island</option>
+              <option value="SC">South Carolina</option>
+              <option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option>
+              <option value="TX">Texas</option>
+              <option value="UT">Utah</option>
+              <option value="VT">Vermont</option>
+              <option value="VA">Virginia</option>
+              <option value="WA">Washington</option>
+              <option value="WV">West Virginia</option>
+              <option value="WI">Wisconsin</option>
+              <option value="WY">Wyoming</option>
+            </select></td>
+          <td width="16%"><strong>Zip: <span class="Highlight1">*</span></strong></td>
+          <td width="22%"><input type="text" name="Zip" id="Zip" style="width:65%;" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Country: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Country" id="Country" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Day Phone: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Day Phone" id="Day Phone" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Eve. Phone: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><input type="text" name="Eve. Phone" id="Eve. Phone" /></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Program of<br />
+            interest: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><select name="Program of Interest" id="Program of Interest">
+              <option value=""></option>
+              <option value="(Best Value) Both the Mediation and Paralegal Program">(Best Value) Both the Mediation and Paralegal Program</option>
+              <option value="Mediation Certificate Program">Mediation Certificate Program</option>
+              <option value="Paralegal Diploma Program">Paralegal Diploma Program</option>
+              <option value="Pharmacy Technician">Pharmacy Technician</option>
+              <option value="Associate Degree Program">Associate Degree Program</option>
+            </select></td>
+        </tr>
+        <!-- <tr>
+          <td nowrap="nowrap"><strong>When do you<br />
+            plan to enroll?</strong></td>
+          <td colspan="3"><select name="When to enroll" id="When to enroll?">
+              <option value=""></option>
+              <option value="Immediately">Immediately</option>
+              <option value="Within 1-2 weeks">Within 1-2 weeks</option>
+              <option value="Within 3-4 weeks">Within 3-4 weeks</option>
+              <option value="Not sure">Not sure</option>
+            </select></td>
+        </tr> -->
+        <tr>
+          <td nowrap="nowrap"><strong>Military<br />
+            Affiliation: <span class="Highlight1">*</span></strong></td>
+          <td><select name="Military Affiliation" id="Military Affiliation">
+              <option value=""></option>
+              <option value="Active Duty Military">Active Duty Military</option>
+              <option value="Military Spouse">Military Spouse</option>
+              <option value="Veteran">Veteran</option>
+              <option value="None">None</option>
+            </select></td>
+          <td nowrap="nowrap"><strong>Branch: <span class="Highlight1">*</span></strong></td>
+          <td><select name="Military Branch" id="Military Branch">
+              <option value=""></option>
+              <option value="Army">Army</option>
+              <option value="Air Force">Air Force</option>
+              <option value="Navy">Navy</option>
+              <option value="Coast Guard">Coast Guard</option>
+              <option value="Marine Corps">Marine Corps</option>
+              <option value="Army National Guard">Army National Guard</option>
+              <option value="Air Force Reserve">Air Force Reserve</option>
+              <option value="Army Reserve">Army Reserve</option>
+              <option value="Navy Reserve">Navy Reserve</option>
+              <option value="None">None</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>Your Rank or Rank<br />
+            of Military Spouse <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><select name="Rank of Spouse" id="Rank of Spouse">
+              <option value=""></option>
+              <option value="E1">E1</option>
+              <option value="E2">E2</option>
+              <option value="E3">E3</option>
+              <option value="E4">E4</option>
+              <option value="E5">E5</option>
+              <option value="W1">W1</option>
+              <option value="W2">W2</option>
+              <option value="O1">O1</option>
+              <option value="O2">O2</option>
+              <option value="Other">Other</option>
+              <option value="None">None</option>
+
+
+			  
+
+            </select></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap"><strong>How did you <br />
+            hear about us? <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><select name="How did you hear" id="How did you hear?">
+              <option value=""></option>
+              <option value="Counselor/teacher">Counselor/teacher</option>
+              <option value="Craigslist">Craigslist</option>
+              <option value="Family/friend">Family/friend</option>
+              <option value="Flyer">Flyer</option>
+              <option value="Internet">Internet</option>
+              <option value="MYCAA Program">MYCAA Program</option>
+              <option value="Poster">Poster</option>
+              <option value="DETC">DETC</option>
+              <option value="Email Ad">Email Ad</option>
+              <option value="Magazine Ad">Magazine Ad</option>
+              <option value="Other">Other</option>
+              <option value="Postcard">Postcard</option>
+              <option value="School Representative">School Representative</option>
+            </select></td>
+        </tr>
+        <tr>
+          <td valign="top" nowrap="nowrap"><strong>Comments/<br />
+            Questions: <span class="Highlight1">*</span></strong></td>
+          <td colspan="3"><textarea name="Comments" rows="2" id="Comments"></textarea></td>
+        </tr>
+        <tr>
+        	<td valign="top" nowrap="nowrap"><strong>Security Code: <span class="Highlight1">*</span><br />
+        	</strong><img src="captcha/captcha.php?_CAPTCHA&t=0.02617600+1336336750" alt="Please reload page..." /></td>
+        	<td colspan="3"><input name="captcha" type="text" id="captcha" size="6" maxlength="5" text="Enter CAPTCHA Security Code" /></td>
+        </tr>
+      </table>
+		<!--<input type="text" name="emailaddress" id="emailaddress" alt="Leave Blank!" /> -->
+      <div id="panel_btn">
+        <input name="submit" type="image" src="images/clear.gif" value="submit" onclick="return ValidateAll();" />
+      </div>
+    </form>
+  </div>
+</div><p><img src="images/Text_YourFuture.jpg" alt="Your future starts at Lakewood College." width="398" height="110" /></p>
+<h1>Online College Courses &amp; Distance Learning Degrees for Adults<br />
+</h1>
+<h2>Take control of your future by taking control of your career.</h2>
+<p class="Heading1">At Lakewood College, our goal is to help you achieve just that, at a pace that suits your current lifestyle. Our online college certificate, diploma and distance learning degrees make it possible for you to achieve a fresh start in the career field of your choice — without ever stepping foot in a traditional classroom.</p>
+<p class="Heading1">We understand that you have responsibilities for today as well as dreams for tomorrow. Our focus is on helping you achieve both.</p>
+<p class="Heading1">To get a better idea of the online college certificate, diploma and distance learning degrees here at Lakewood College, we invite you to continue browsing this site.</p>
+		<!-- BEGIN Comm100 Live Chat Button Code --><link href="https://chatserver.comm100.com/css/comm100_livechatbutton.css" rel="stylesheet" type="text/css"/><a href="http://www.comm100.com/livechat" target="_blank" onclick="comm100_19083.openChatWindow(event,93,-1);return false;"><img style="border:0px" id="comm100_ButtonImage" src="https://chatserver.comm100.com/BBS.aspx?siteId=19083&amp;planId=93&amp;partnerId=-1"></img></a><script src="https://chatserver.comm100.com/js/LiveChat.js?siteId=19083&amp;planId=93&amp;partnerId=-1" type="text/javascript"></script><div id="comm100_ChatButton"><div id="comm100_warp"><div id="comm100_dvhelp"><div id="comm100_track"><a href="http://www.comm100.com/livechat/" target="_blank"><b>Live Chat</b></a> by <a style="color:#009999;cursor:pointer;" onclick="javascript:document.getElementById('comm100_dvbox').style.display='';">Comm100</a></div></div><div id="comm100_dvbox" class="comm100_dvbox_css" style="display:none;" onmouseover="this.style.display=''" onmouseout="this.style.display='none'"><div class="comm100_dvcontent_css"><p class="comm100_ptitle_css"><b><a href="http://www.comm100.com/" target="_blank" class="comm100_atitle_css" >Comm100</a> Products:</b></p><ul class="comm100_ulbox_css"><li style="display:none;" class="comm100_onelinone">&nbsp;</li><li><a href="http://www.comm100.com/livesupport/" target="_blank">Live Support</a> Software</li><li><a href="http://www.comm100.com/livechat/iphoneclient.aspx" target="_blank">iPhone Chat</a></li><li><a href="http://www.comm100.com/emailmarketing/" target="_blank">Email Marketing Software</a></li><li><a href="http://www.comm100.com/helpdesk/" target="_blank">Help Desk</a> Software</li><li><a href="http://www.comm100.com/emailmarketing/emailmarketingtips.aspx" target="_blank">Email Marketing Tips</a></li><li><a href="http://www.comm100.com/ticket/" target="_blank">Support Ticket</a> Software</li></ul></div></div></div></div><!-- End Comm100 Live Chat Button Code -->	
+            
+            </div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<div id="footer_container">
+		<div id="facebook"><a href="http://www.facebook.com/pages/Lakewood-College-ADR-Conflict-Mediator-and-Paralegal-Training/121802797877167?created#!/pages/Lakewood-College-ADR-Conflict-Mediator-and-Paralegal-Training/121802797877167?v=wall" target="_blank">Facebook</a></div>
+		<div id="twitter"><a href="http://twitter.com/lakewoodcollege" target="_blank">Twitter</a></div>
+		<div id="youtube"><a href="http://www.youtube.com/user/lakewoodonline?feature=mhum" target="_blank">YouTube</a></div>
+		<div id="sample"><a href="http://www.4FREECOURSE.COM">Register</a></div>
+		<div id="navf">
+			<ul>
+				<li><a href="index.php">Home</a>|</li>
+				<li><a href="about.php">About Us</a>|</li>
+				<li><a href="programs.php">Our Programs</a>|</li>
+				<li><a href="accreditation.php">Accreditation</a>|</li>
+				<li><a href="https://www.lakewoodcollege.edu/military.php">Military</a>|</li>
+				<li><a href="faq.php">FAQs</a>|</li>
+				<li><a href="https://www.lakewoodcollege.edu/contact.php">Contact Us</a>|</li>
+				<li><a href="https://www.lakewoodcollege.edu/register.php">Register</a>|</li>
+                <li><a href="https://www.lakewoodcollege.edu/privacy.php">Privacy Policy</a></li>
+			</ul>
+		</div>
+		<div id="designed">
+			Lakewood College | Online College Courses &amp; Distance Learning Degrees | 800-517-0857  | Website designed by <a href="http://www.postcardmania.com" target="_blank">Postcardmania.com</a>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

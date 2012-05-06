@@ -1,0 +1,662 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" version="XHTML+RDFa 1.0" dir="ltr"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+>
+  <head profile="http://www.w3.org/1999/xhtml/vocab">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="canonical" href="http://www.ucsf.edu/home"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/all/themes/ucsf_public/favicon.ico" type="image/x-icon" />
+<meta name="description" content="The University of California, San Francisco (UCSF) is a leading university dedicated to promoting health worldwide through advanced biomedical research, graduate-level education in the life sciences and health professions, and excellence in patient care. It is the only UC campus in the 10-campus system dedicated exclusively to the health sciences." />
+        <title>University of California, San Francisco | www.ucsf.edu</title>
+
+    <link type="text/css" rel="stylesheet" media="all" href="/sites/default/files/css/css_64a5478292d6bf1931f13e3131cdee0f.css" />
+<link type="text/css" rel="stylesheet" media="print" href="/sites/default/files/css/css_1ccfc58898b4fbe2d106ad44eb2ddb33.css" />
+
+    <!--[if IE 6]>
+    <link type="text/css" rel="stylesheet" href="/sites/all/themes/ucsf_public/css/ie6.css" />
+    <![endif]-->
+    <!--[if IE 7]>
+    <link type="text/css" rel="stylesheet" href="/sites/all/themes/ucsf_public/css/ie7.css" />
+    <![endif]-->
+ <!--[if IE 8]>
+    <link type="text/css" rel="stylesheet" href="/sites/all/themes/ucsf_public/css/ie8.css" />
+    <![endif]-->
+    <script type="text/javascript" src="/sites/default/files/js/js_b01e5009436241d9e71a409e3520cfc7.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","ahahPageStorage":{"pageBuildId":"page-7e8a929e5815d362a5da73cffeb8ba3d"},"automodal":{".automodal":{"autoFit":true,"draggable":true,"width":600,"height":400,"automodalClose":true,"automodalReload":false}},"getQ":"node\/2560"});
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+function debug_log(thing) {
+  var debug_console = 0;
+  if (debug_console) {
+    if (typeof console != 'undefined') {
+      console.log(thing);
+    }
+    else {
+      setTimeout('throw new Error(\'' + thing + '\')', 0);
+    }
+  }
+}
+Drupal.behaviors.GABehavior = function(context) {
+  /* init external tracking links */
+  var gaprefix = '';
+  var gaurls = eval('({"http:\/\/dentistry.ucsf.edu":"school_dentistry","http:\/\/dentistry.ucsf.edu\/patient-services":"find_dentist","http:\/\/dentistry.ucsf.edu\/patients\/patients_main.html":"find_dentist","http:\/\/finaid.ucsf.edu":"financial_aid","http:\/\/graduate.ucsf.edu":"grad_div","http:\/\/medschool.ucsf.edu":"school_medicine","http:\/\/medschool2.ucsf.edu":"school_medicine","http:\/\/medschool2.ucsf.edu\/":"school_medicine","http:\/\/nurseweb.ucsf.edu":"school_nursing","http:\/\/nurseweb.ucsf.edu\/index.shtml":"school_nursing","http:\/\/pharmacy.ucsf.edu":"school_pharmacy","http:\/\/registrar.ucsf.edu":"office_registrar","http:\/\/registrar.ucsf.edu\/registration\/fees":"fees_tuition","http:\/\/www.ucsfhealth.org":"medical_center","http:\/\/www.ucsfhealth.org\/appointments":"request_appointment","http:\/\/www.ucsfhealth.org\/conditions\/all.html":"conditions_treatments","http:\/\/www.ucsfhealth.org\/directory\/A.html":"doctor_staff_directory","http:\/\/www.ucsfhealth.org\/doctors_and_clinics":"find_doctor","https:\/\/makeagift.ucsf.edu\/*":"giving","https:\/\/registrar.ucsf.edu\/registration\/fees":"fees_tuition"})');
+  // galist = '';
+  $.each(gaurls, function(url,vpage) {
+    var re = /\*$/;
+    var op = '=';
+    if (url.match(re)) {
+      op = '^=';
+    }
+    var asel = 'a[href' + op + '"' + url.replace(re, '') + '"]:not([ga])';
+    debug_log('url=' + url + ' vpage=' + vpage + ' asel=' + asel);
+    $(asel).each(function() {
+      var debug_console = 0;
+      var gatype = 'ga';
+      if ($(this).closest('ul#primary-nav').length) {
+        debug_log('you are in the top nav');
+        gatype = 'ga_main_nav';
+      }
+      else if ($(this).closest('div.quick-links').length) {
+        debug_log('you are in quick-links ');
+        gatype = 'ga_bucket';
+      }
+      else if ($(this).closest('div.blind').length) {
+        debug_log('you are in a duck blind');
+        gatype = 'ga_blind';
+      }
+      gavalue = gaprefix + '/' + gatype + '/' + vpage;
+      debug_log("set ga attribute of " + $(this).attr('href') + ' to ' + gavalue);
+      $(this).addClass('track-external').attr('ga', gavalue);
+      if (debug_console) {
+        var dhtml = $('<div>').append($(this).clone()).remove().html();
+        debug_log('result is ' + dhtml);
+      }
+    });
+  });
+  // don't do this automagically
+  // $('.track-external').attr('target', '_blank');
+  var trackhandler = function() {
+    var debug_alert = 0;
+    var href = $(this).attr('href');
+    var vpage = href;
+    if ($(this).attr('ga')) {
+      vpage = $(this).attr('ga');
+      debug_log('tracking ' + vpage);
+      if (debug_alert) {
+        alert('tracking ' + vpage);
+      }
+      _gaq.push(['_trackPageview', vpage]);
+    }
+    else {
+      debug_log('no ga attribute');
+      debug_log($(this));
+    }
+  };
+  $('.track-external').unbind('click.GA', trackhandler);
+  $('.track-external').bind('click.GA', trackhandler);
+};
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+Drupal.behaviors.HomePageBehaviors = function(context) {
+  $("#tools-search-go").click(function() {
+    $("#tools-directory-search").submit();
+  });
+
+  featuredcontentglider.init({
+    gliderid: "rotateMast", //ID of main glider container
+    contentclass: "glidecontent", //Shared CSS class name of each glider content
+    togglerid: "p-select", //ID of toggler container
+    remotecontent: "", //Get gliding contents from external file on server? "filename" or "" to disable
+    selected: 0, //Default selected content index (0=1st)
+    persiststate: false, //Remember last content shown within browser session (true/false)?
+    speed: 1200, //Glide animation duration (in milliseconds)
+    direction: "updown", //set direction of glide: "updown", "downup", "leftright", or "rightleft"
+    autorotate: true, //Auto rotate contents (true/false)?
+    autorotateconfig: [8000, 1] //if auto rotate enabled, set [milliseconds_btw_rotations, cycles_before_stopping]
+  });
+
+
+  /* init quicklinks popups */
+  $(".quick-links-link").bind("mouseover", show_quick_links_popup);
+  $(".quick-links").bind("mouseleave", hide_quick_links_popups);
+};
+
+
+//--><!]]>
+</script>
+
+    <script type="text/javascript"> </script>
+    <!--[if IE 6]>
+	  <script type="text/javascript" src="/sites/all/themes/ucsf_public/js/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>
+      DD_belatedPNG.fix('div.corner.top-left, div.corner.top-right, div.corner.bottom-left, div.corner.bottom-right, .map-bubble a, a div.map-node-button, a.map-point, a.link-home, .form-holder a, .arrow-heading a, .button-details, .button-close, h4.blue-heading a, .directory-search, .button-search, .button-read-more, .search-input-holder, a.light-blue-arrowed span, #filter-search-go, .news-two-column .column-left h4.blue-heading span, a.learn-more, .glider-thumbnails .thumbnail .inner');
+    </script>
+    <![endif]-->
+  </head>
+  <body class="article front not-logged-in page-node node-type-home-page one-sidebar sidebar-right article home">
+    <div id="header">
+      <div class="nav">
+        <div class="large-inner">
+         <div id="print-logo"><img src="/sites/all/themes/ucsf_public/images/print/logo.png" alt="ucsf logo"/></div>
+          <div class="nav-inner">
+            <div class="column-left">
+              <a href="/" class="link-home active">Home</a><ul id="primary-nav" class="sf-menu"><li class="expanded first"><a href="/about" title="" class="nav-about">About</a><ul class="menu"><li class="leaf first"><a href="/about/about-ucsf" title="">About UCSF</a></li>
+<li class="leaf"><a href="/about/achievements" title="">Achievements</a></li>
+<li class="leaf"><a href="/about/areas-excellence" title="">Areas of Excellence</a></li>
+<li class="leaf"><a href="http://ucsfchancellor.ucsf.edu/" title="Link to UCSF Chancellor Site" target="_blank">Chancellor</a></li>
+<li class="leaf"><a href="/about/history-1" title="">History</a></li>
+<li class="leaf"><a href="/about/community-overview" title="">UCSF in the Community</a></li>
+<li class="leaf last"><a href="/about" title="">More </a></li>
+</ul></li>
+<li class="expanded"><a href="/patient-care" class="nav-patient-care">Patient Care</a><ul class="menu"><li class="leaf first"><a href="http://www.ucsfhealth.org/doctors_and_clinics" title="" target="_blank">Find a Doctor</a></li>
+<li class="leaf"><a href="http://www.ucsfhealth.org/appointments" title="" target="_blank">Request an Appointment</a></li>
+<li class="leaf"><a href="http://www.ucsfbenioffchildrens.org/" title="UCSF Benioff Children&#039;s Hospital" target="_blank">UCSF Benioff Children&#039;s Hospital</a></li>
+<li class="leaf"><a href="http://dentistry.ucsf.edu/patient-services" title="" target="_blank">UCSF Dental Center</a></li>
+<li class="leaf"><a href="http://www.ucsfhealth.org" title="" target="_blank">UCSF Medical Center</a></li>
+<li class="leaf"><a href="http://www.ucsfhealth.org/conditions/all.html" title="" target="_blank">Conditions &amp; Treatments</a></li>
+<li class="leaf last"><a href="/patient-care" title="">More</a></li>
+</ul></li>
+<li class="expanded"><a href="/research" class="nav-research">Research</a><ul class="menu"><li class="leaf first"><a href="/research/research-excellence" title="">Research Excellence</a></li>
+<li class="leaf"><a href="/research/major-research-initiatives" title="">Major Research Initiatives</a></li>
+<li class="leaf"><a href="/research/clinical-trials-overview" title="">Clinical Trials</a></li>
+<li class="leaf"><a href="/research/vision" title="">Research Partnerships</a></li>
+<li class="leaf last"><a href="/research" title="">More</a></li>
+</ul></li>
+<li class="expanded"><a href="/education" class="nav-education">Education</a><ul class="menu"><li class="leaf first"><a href="http://dentistry.ucsf.edu" title="" target="_blank">School of Dentistry</a></li>
+<li class="leaf"><a href="http://medschool2.ucsf.edu" title="" target="_blank">School of Medicine</a></li>
+<li class="leaf"><a href="http://nurseweb.ucsf.edu" title="" target="_blank">School of Nursing</a></li>
+<li class="leaf"><a href="http://pharmacy.ucsf.edu" title="" target="_blank">School of Pharmacy</a></li>
+<li class="leaf"><a href="http://graduate.ucsf.edu" title="" target="_blank">Graduate Division</a></li>
+<li class="leaf last"><a href="/education" title="">More</a></li>
+</ul></li>
+<li class="expanded last"><a href="/news" title="" class="nav-news-center">News Center</a><ul class="menu"><li class="leaf first"><a href="/news" title="">Latest News</a></li>
+<li class="leaf"><a href="/news/media-coverage" title="">Media Coverage</a></li>
+<li class="leaf"><a href="/news/news-media-services" title="">For Journalists</a></li>
+<li class="leaf last"><a href="/news/news-media-services/faq-faculty-staff" title="">For Faculty</a></li>
+</ul></li></ul>            </div>
+            <div class="column-right">
+              <div>
+                <ul id="secondary-nav" class="links secondary-links">
+  <li class="leaf first"><a href="http://www.ucsf.edu/support/" title="" target="_blank">Support UCSF</a></li>
+<li class="leaf"><a href="http://insideguide.ucsf.edu" title="" target="_blank">Students</a></li>
+<li class="leaf last"><a href="/faculty-staff" title="">Faculty/Staff</a></li>
+  <li class="text-size">
+    <span>Text Size</span>
+    <a name="link-increase-font-size" id="link-increase-font-size" class="mickey" onclick="return false;">+</a>
+    <a name="link-decrease-font-size" id="link-decrease-font-size" class="mickey" onclick="return false;">&ndash;</a>
+  </li>
+</ul>              </div>
+              <div class="form-holder">
+                <form action="/ucsf/search" method="get" id="form-search">
+                  <div>
+                    <div class="search-box-outer">
+                      <div class="search-input-holder">
+                        <input type="text" name="search" id="search-q" value="Search by keyword or last name" onClick="this.value='';" />
+                      </div>
+                      <a class="mickey" name="form-search-button" id="form-search-button">Go</a>
+                    </div>
+                    <div class="search-type-holder">
+                      <input type="radio" name="search-type" id="search-type-ucsf" checked="checked" />
+                      <label for="search-type-ucsf">UCSF</label>
+                      <input type="radio" name="search-type" id="search-type-people" />
+                      <label for="search-type-people">People</label>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end div#header -->
+
+    <div id="home-top">
+      <div class="large-inner">
+  <div class="mast glidecontentwrapper" id="rotateMast">
+        <div class="mast-section section-1 glidecontent">
+      <a href="http://www.ucsf.edu/news/2012/05/11985/ucsf-clinicians-get-new-ammunition-fight-against-childhood-cancers"><img  class="imagefield imagefield-field_home_feature_image" width="380" height="270" title="UCSF Pediatricians Steven DuBois and Kate Matthay talk with nurse Kate Mantis" alt="UCSF Pediatricians Steven DuBois and Kate Matthay talk with nurse Kate Mantis" src="/sites/default/files/home_feature/images/380-05032012.jpg?1336085586" /></a><div class="description">
+  <h2><a href="news/2012/05/11985/ucsf-clinicians-get-new-ammunition-fight-against-childhood-cancers">UCSF Gets New Ammunition Against Childhood Cancers</a></h2>
+  <p>UCSF is now part an elite National Cancer Institute consortium of institutions selected to conduct Phase 1 testing that allows clinicians to offer patients a wider array of novel agents across the spectrum of childhood cancers.</p>
+  <p id="button-read-more" class="left"><a href="/news/2012/05/11985/ucsf-clinicians-get-new-ammunition-fight-against-childhood-cancers" class="button-read-more">READ MORE</a></p>
+  
+    
+  </div>
+    </div>
+        <div class="mast-section section-2 glidecontent">
+      <a href="http://www.ucsf.edu/news/2012/05/11991/fda-official-says-drug-advances-could-get-boost-academic-medical-centers"><img  class="imagefield imagefield-field_home_feature_image" width="380" height="270" title="Janet Woodcock, MD" alt="Janet Woodcock, MD" src="/sites/default/files/home_feature/images/380-05042012.jpg?1336165132" /></a><div class="description">
+  <h2><a href="news/2012/05/11991/fda-official-says-drug-advances-could-get-boost-academic-medical-centers">Academic Medical Centers Can Play Key Role in Drug Testing</a></h2>
+  <p>Academic medical centers can play a larger role in drug development and testing, according to an FDA official, who says there is a need for better strategies to identify winners, minimize costs and reduce failures during drug development. </p>
+  <p id="button-read-more" class="left"><a href="/news/2012/05/11991/fda-official-says-drug-advances-could-get-boost-academic-medical-centers" class="button-read-more">READ MORE</a></p>
+  
+      <p id="button-video" class="left"><a href="http://www.youtube.com/watch?feature=player_embedded&amp;v=FsQVL0UqPr4" class="button-video-link">WATCH VIDEO</a></p>
+    
+  </div>
+    </div>
+        <div class="mast-section section-3 glidecontent">
+      <a href="http://www.ucsf.edu/news/focus-2012-commencement-season"><img  class="imagefield imagefield-field_home_feature_image" width="380" height="270" title="UCSF School of Medicine commencement" alt="UCSF School of Medicine commencement" src="/sites/default/files/home_feature/images/c-380-05022012.jpg?1336000007" /></a><div class="description">
+  <h2><a href="news/focus-2012-commencement-season">UCSF Celebrates Commencement Season</a></h2>
+  <p>UCSF celebrates the start of commencement season when 806 students will graduate from its top-ranked schools of dentistry, medicine, nursing, pharmacy, and Graduate Division.</p>
+  <p id="button-read-more" class="left"><a href="/news/focus-2012-commencement-season" class="button-read-more">READ MORE</a></p>
+  
+      <p id="button-video" class="left"><a href="http://www.youtube.com/watch?v=CsJnIefMwpc&amp;feature=youtu.be" class="button-video-link">WATCH VIDEO</a></p>
+    
+  </div>
+    </div>
+      </div>
+
+  <div class="glider-thumbnails">
+    <div class="thumbnails-inner glidecontenttoggler" id="p-select">
+            <div class="thumbnail">
+        <div class="inner">
+         
+          <a href="#" class="toc" id="thm1"><img class="imagefield imagefield-field_home_feature_thumb" src="/sites/default/files/home_feature/thumbs/thumb-05032012.jpg" alt="Kate Matthay, MD" title="Kate Matthay, MD"></a>
+           <a href="#" class="storylink">
+          <span class="description">UCSF Gets New Ammunition Against Childhood Cancers</span>
+          </a>
+        </div>
+      </div>
+            <div class="thumbnail">
+        <div class="inner">
+         
+          <a href="#" class="toc" id="thm2"><img class="imagefield imagefield-field_home_feature_thumb" src="/sites/default/files/home_feature/thumbs/woodcock-thumbc-05042012_0.jpg" alt="Janet Woodcock, MD" title="Janet Woodcock, MD"></a>
+           <a href="#" class="storylink">
+          <span class="description">Academic Medical Centers Can Play Key Role in Drug Testing</span>
+          </a>
+        </div>
+      </div>
+            <div class="thumbnail last">
+        <div class="inner">
+         
+          <a href="#" class="toc" id="thm3"><img class="imagefield imagefield-field_home_feature_thumb" src="/sites/default/files/home_feature/thumbs/thumb-05022012-2.jpg" alt="A graduate of the UCSF School of Medicine" title="A graduate of the UCSF School of Medicine"></a>
+           <a href="#" class="storylink">
+          <span class="description">UCSF Celebrates Commencement Season</span>
+          </a>
+        </div>
+      </div>
+            <a class="next" href="#">Next</a>
+    </div>
+  </div>
+</div>
+    </div>
+
+    <div id="main">
+      <div class="large-inner layout-landing">
+
+        <div id="content" class="layout-column-left">
+          
+          
+          <div id="node-2560" class="node">
+
+
+  <div class="buckets">
+  <div class="bucket">
+  <h4 class="grey-heading"><span><a href="/patient-care">Patient Care</a></span></h4>
+  <div class="inner">
+    <div class="quick-links">
+      <a href="#" class="quick-links-link" rel="patient-care">Patient Care Quick Links</a>
+      <div class="quick-links-popup" id="quick-links-popup-patient-care">
+        <ul>
+    <li><a href="http://www.ucsfhealth.org/doctors_and_clinics">Find a Doctor</a></li>
+      <li><a href="http://www.ucsfhealth.org/appointments">Request an Appointment</a></li>
+      <li><a href="http://www.ucsfbenioffchildrens.org/">UCSF Benioff Children&#039;s Hospital</a></li>
+      <li><a href="http://dentistry.ucsf.edu/patient-services">UCSF Dental Center</a></li>
+      <li><a href="http://www.ucsfhealth.org">UCSF Medical Center</a></li>
+      <li><a href="http://www.ucsfhealth.org/conditions/all.html">Conditions &amp; Treatments</a></li>
+  </ul>
+      </div>
+    </div>
+    <a href="/news/2012/04/11938/teens-enjoy-prom-night-ucsf-benioff-childrens-hospital"><img  class="imagefield imagefield-field_home_topic_image" width="222" height="108" title="Patient Erin Miller and her boyfriend Michael DeMasters, both 15" alt="Patient Erin Miller and her boyfriend Michael DeMasters, both 15" src="/sites/default/files/prom-222-05012012.jpg?1335891894" /></a>  </div>
+  <div class="description">
+    <div id="node-16702" class="node" about="/news/2012/04/11938/teens-enjoy-prom-night-ucsf-benioff-childrens-hospital">
+
+  <h4 class="headline" property="dc:title"><a href="/news/2012/04/11938/teens-enjoy-prom-night-ucsf-benioff-childrens-hospital" title="Teens Enjoy Prom Night at UCSF Benioff Children’s Hospital">Teens Enjoy Prom Night at UCSF Benioff Children’s Hospital</a></h4>
+  
+<span class="date"><span class="date-display-single" datatype="xsd:dateTime" content="2012-04-27T00:00:00-07:00" property="dc:date dc:created">April 27, 2012</span></span>
+<p>More than 100 teenagers filled UCSF’s Moffitt Café on April 20 for the second annual UCSF Benioff Children’s Hospital prom – the only hospital prom for teens in the San Francisco Bay Area.</p>
+
+</div>
+  </div>
+  <div class="more-stories-link">
+    <div class="field field-type-link field-field-more-stories-link">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="/news#Patient_Care">More patient care stories</a>        </div>
+        </div>
+</div>
+  </div>
+</div>
+  <div class="bucket">
+  <h4 class="grey-heading"><span><a href="/research">Research</a></span></h4>
+  <div class="inner">
+    <div class="quick-links">
+      <a href="#" class="quick-links-link" rel="research">Research Quick Links</a>
+      <div class="quick-links-popup" id="quick-links-popup-research">
+        <ul>
+    <li><a href="/research/major-research-initiatives">Major Research Initiatives</a></li>
+      <li><a href="/research/clinical-trials-overview">Clinical Trials</a></li>
+      <li><a href="/research/vision">Research Partnerships</a></li>
+      <li><a href="http://profiles.ucsf.edu/">UCSF Profiles</a></li>
+  </ul>
+      </div>
+    </div>
+    <a href="/news/2012/05/11969/pain-control-focus-allan-basbaums-research-career"><img  class="imagefield imagefield-field_home_topic_image" width="222" height="108" title="Allan Basbaum, PhD" alt="Allan Basbaum, PhD" src="/sites/default/files/bas-222-05022012_0.jpg?1335977861" /></a>  </div>
+  <div class="description">
+    <div id="node-16765" class="node" about="/news/2012/05/11969/pain-control-focus-allan-basbaums-research-career">
+
+  <h4 class="headline" property="dc:title"><a href="/news/2012/05/11969/pain-control-focus-allan-basbaums-research-career" title="Pain Control is Focus of Allan Basbaum’s Research Career">Pain Control is Focus of Allan Basbaum’s Research Career</a></h4>
+  
+<span class="date"><span class="date-display-single" datatype="xsd:dateTime" content="2012-05-02T00:00:00-07:00" property="dc:date dc:created">May 2, 2012</span></span>
+<p>UCSF's Allan Basbaum, PhD, a pioneer in the pain field, says one major lesson that has emerged in years of research is that not all types of pain are the same — nor should they be treated the same.</p>
+
+</div>
+  </div>
+  <div class="more-stories-link">
+    <div class="field field-type-link field-field-more-stories-link">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="/news#Research">More research stories</a>        </div>
+        </div>
+</div>
+  </div>
+</div>
+  <div class="last bucket">
+  <h4 class="grey-heading"><span><a href="/education">Education</a></span></h4>
+  <div class="inner">
+    <div class="quick-links">
+      <a href="#" class="quick-links-link" rel="education">Education Quick Links</a>
+      <div class="quick-links-popup" id="quick-links-popup-education">
+        <ul>
+    <li><a href="http://dentistry.ucsf.edu">School of Dentistry</a></li>
+      <li><a href="http://medschool2.ucsf.edu">School of Medicine</a></li>
+      <li><a href="http://nurseweb.ucsf.edu/index.shtml">School of Nursing</a></li>
+      <li><a href="http://pharmacy.ucsf.edu">School of Pharmacy</a></li>
+      <li><a href="http://graduate.ucsf.edu">Graduate Division</a></li>
+  </ul>
+      </div>
+    </div>
+    <a href="/news/2012/04/11937/ucsf-chancellor-announces-health-sciences-education-initiative"><img  class="imagefield imagefield-field_home_topic_image" width="222" height="108" title="UCSF Chancellor Susan Desmond-Hellmann talks with a graduating student " alt="UCSF Chancellor Susan Desmond-Hellmann talks with a graduating student " src="/sites/default/files/chancellor-222-05042012_1.jpg?1336165314" /></a>  </div>
+  <div class="description">
+    <div id="node-16672" class="node" about="/news/2012/04/11937/ucsf-chancellor-announces-health-sciences-education-initiative">
+
+  <h4 class="headline" property="dc:title"><a href="/news/2012/04/11937/ucsf-chancellor-announces-health-sciences-education-initiative" title="UCSF Chancellor Announces Health Sciences Education Initiative">UCSF Chancellor Announces Health Sciences Education Initiative</a></h4>
+  
+<span class="date"><span class="date-display-single" datatype="xsd:dateTime" content="2012-04-26T00:00:00-07:00" property="dc:date dc:created">April 26, 2012</span></span>
+<p>UCSF Chancellor Susan Desmond-Hellmann announced a four-year $100 million fund-raising initiative during her April 24 speech marking the beginning of commencement season at the University.</p>
+
+</div>
+  </div>
+  <div class="more-stories-link">
+    <div class="field field-type-link field-field-more-stories-link">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="/news#Education">More education stories</a>        </div>
+        </div>
+</div>
+  </div>
+</div>
+</div>
+<div class="buckets-blue">
+  <div class="buckets-blue-2-column">
+    <div id="node-2559" class="bucket node">
+  <h4 class="blue-heading"><span><a href="http://support.ucsf.edu">Support UCSF</a></span></h4>
+<div class="inner">
+  <img  class="imagefield imagefield-field_home_block_image" width="100" height="120" alt="" src="/sites/default/files/home-give-100-04252012.jpg?1335385287" />  <div class="description">
+    <p>UCSF launches a four-year, $100 million education fundraising initiative, the first initiative of its kind at UCSF. The goal is to raise $80 million for new scholarships and fellowships and $20 million for curriculum innovation, interprofessional education, and teaching facilities. </p>
+        <p><a href="http://www.youtube.com/watch?v=LXv9KXFNdUk&amp;feature=youtu.be">Watch video</a></p>
+      </div>
+</div>
+</div>
+
+<div id="node-2558" class="last bucket node">
+  <h4 class="blue-heading"><span><a href="/about/community-overview">Community Involvement</a></span></h4>
+<div class="inner">
+  <img  class="imagefield imagefield-field_home_block_image" width="100" height="120" title="Kids playing soccer" alt="Kids playing soccer" src="/sites/default/files/home-community-100-03142012.jpg?1331740640" />  <div class="description">
+    <p>UCSF's "Committed to the City" series takes a look at how the University helps kids learn how to manage their anger while excelling on the field and in the classroom by providing scientifically based curriculum at after-school programs.</p>
+        <p><a href="/news/teaching-tolerance-one-goal-time">Read more</a></p>
+      </div>
+</div>
+</div>
+  </div>
+  <div class="bucket">
+  <div class="directory-search">
+    <form id="tools-directory-search" action="http://directory.ucsf.edu/people_result_set.jsp" method="get" target="_blank">
+      <div>
+          <input type="text" name="last_name" value="Directory search (by last name)" onclick="this.value='';" />
+          <a id="tools-search-go" name="tools-search-go" class="mickey button-search">Go!</a>
+        </div>
+      </form>
+    </div>
+    <h4 class="blue-heading"><span>Tools and Resources</span></h4>
+    <div class="inner">
+      <div class="links">
+        <div class="column-links column-1">
+  <h4></h4>
+<ul>
+  <li><a href="http://atyourservice.ucop.edu/">At Your Service</a></li>
+  <li><a href="/azlist">A to Z Website List</a></li>
+  <li><a href="/about/budget">Budget</a></li>
+  <li><a href="http://ucsfchancellor.ucsf.edu">Chancellor&#039;s Website</a></li>
+  <li><a href="http://controller.ucsf.edu">Controller&#039;s Office</a></li>
+  <li><a href="http://directory.ucsf.edu">Directory</a></li>
+  <li><a href="http://diversity.ucsf.edu">Diversity at UCSF</a></li>
+  <li><a href="https://mail.ucsf.edu/owa">Email (Exchange)</a></li>
+  <li><a href="/about/about-working-ucsf">Employment</a></li>
+</ul>
+</div>
+<div class="column-links column-2">
+  <h4></h4>
+<ul>
+  <li><a href="http://compliance.ucsf.edu">Ethics &amp; Compliance</a></li>
+  <li><a href="https://hbsweb.ucsfmedicalcenter.org/tpweb/">HBS Timekeeping System</a></li>
+  <li><a href="http://ucsfhr.ucsf.edu/">Human Resources</a></li>
+  <li><a href="http://help.ucsf.edu/">IT help</a></li>
+  <li><a href="http://www.library.ucsf.edu/">Library</a></li>
+  <li><a href="http://www.ucsf.edu/locations">Locations</a></li>
+  <li><a href="/locations/campus-maps">Maps</a></li>
+  <li><a href="http://m.ucsf.edu/">Mobile Web</a></li>
+  <li><a href="https://myaccess.ucsf.edu/eai/UCAlias/jsp/home.jsp">My Access</a></li>
+</ul>
+</div>
+<div class="column-links column-3">
+  <h4></h4>
+<ul>
+  <li><a href="http://police.ucsf.edu/">Police</a></li>
+  <li><a href="http://graduate.ucsf.edu/postdoctoral/office-postdoctoral-affairs">Postdoctoral Affairs Office</a></li>
+  <li><a href="http://campuslifeservices.ucsf.edu/transportation/shuttles/timetables/default.php">Shuttle Schedule</a></li>
+  <li><a href="http://sustainability.ucsf.edu">Sustainability</a></li>
+  <li><a href="http://synapse.ucsf.edu">Synapse - Newspaper</a></li>
+  <li><a href="http://identity.ucsf.edu/">UCSF Identity Standards</a></li>
+  <li><a href="http://profiles.ucsf.edu/">UCSF Profiles</a></li>
+  <li><a href="/about/ucsfs-2014-2015-plan">UCSF&#039;s 2014-2015 Plan</a></li>
+  <li><a href="http://vpn.ucsf.edu">VPN</a></li>
+</ul>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="field field-type-nodereference field-field-calendar-block">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <div id="node-12826" class="node">
+
+
+  <h2><a href="/node/12826" title="Home Page Calendar Block 12826">Home Page Calendar Block 12826</a></h2>
+
+      <span class="submitted">Submitted by ck on Mon, 2011-09-12 17:03</span>
+  
+  <div class="content clear-block">
+    <h4 class="blue-heading">
+	<a href="http://www.ucsf.edu/about/ucsf-calendars">		<span>
+			Calendars and Events		</span>
+	</a></h4>
+<div class="inner">
+	<img src="/sites/default/files/calendar-block-imgs/green-thumb-04262012.jpg" alt="Calendar Event Image" />
+	<span class="event-header">
+		EVENT HIGHLIGHT	</span><br />
+	<span class="event-title">
+		<a href="http://calendar.ucsf.edu/event/24143/">
+			UCSF’s Living Green Fair 2012		</a>
+	</span>
+	</span><br />
+	<span class="event-date">Thursday, May 10, 11:00 - 2:00p.m.</span><br />	<span class="cal-header">
+		<a href="http://www.ucsf.edu/about/ucsf-calendars">CALENDARS</a>	</span>
+	<div class="cal-links"><p><a href="http://registrar.ucsf.edu/academic-calendar">Academic Calendar</a>&nbsp;|&nbsp;<a href="https://webviewer.collegenet.com/wv3_servlet/ucsf/urd/run/wv_event.DayList?evfilter=25377">Classroom Schedule</a> |&nbsp;<a href="https://webviewer.collegenet.com/wv3_servlet/ucsf/urd/run/wv_event.DayList?evfilter=30459,ebdviewmode=grid">Featured Academic Events</a> |&nbsp;<a href="http://insideguide.ucsf.edu/calendar">Student Inside Guide</a>&nbsp;| <a href="http://calendar.ucsf.edu/">UCSF Events Calendar</a></p></div>
+</div>
+  </div>
+
+  <div class="clear-block">
+    <div class="meta">
+        </div>
+
+      </div>
+
+</div>
+        </div>
+        </div>
+</div>
+</div>
+
+  
+</div>
+        </div> <!-- end div#content -->
+
+        <div id="sidebar-right" class="column sidebar layout-column-right">
+                    <div class="follow-home">
+  <div class="inner">
+    <div class="item"><span class="follow-text">Follow UCSF on:</span></div>
+    <div class="item"><a id="ck_facebook" class="external stbar stbar-chicklet chicklet" href="http://facebook.com/ucsf"><img src="http://w.sharethis.com/chicklets/facebook.gif" alt="" /></a></div>
+    <div class="item"><a id="ck_twitter" class="external stbar stbar-chicklet chicklet" href="http://twitter.com/ucsf"><img src="http://w.sharethis.com/chicklets/twitter.gif" alt="" /></a></div>
+    <div class="item"><a id="ck_youtube" class="external stbar stbar-chicklet chicklet" href="http://youtube.com/ucsf"><img src="/sites/all/themes/ucsf_public/images/buttons/youtube.png" alt="" /></a></div>
+    <div class="item"><span class="st_sharethis">Share</span></div>
+  </div>
+</div>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">
+if (typeof stLight == 'object') {
+  stLight.options({
+    publisher: 'bdfa2dbe-3ea0-4fe8-a85e-40894f61641b'
+  });
+}
+</script>
+            <div id="block-views-news_teasers-block_1" class="block block-views">
+
+  <div class="content">
+    <div class="view view-news-teasers view-id-news_teasers view-display-id-block_1 view-dom-id-1">
+  
+  
+  
+      <div class="view-content">
+        <h3 class="arrow-heading">
+    <a href="/news">Latest News</a>  </h3>
+  <ul class="orange-bullets">
+    <li class="first">
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11991/fda-official-says-drug-advances-could-get-boost-academic-medical-centers">FDA Official Says Drug Advances Could Get Boost from Academic Medical Centers</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-04T00:00:00-07:00" property="dc:date dc:created">May 4, 2012</span>    </li>
+      <li>
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11985/ucsf-clinicians-get-new-ammunition-fight-against-childhood-cancers">UCSF Clinicians Get New Ammunition in Fight Against Childhood Cancers</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-04T00:00:00-07:00" property="dc:date dc:created">May 4, 2012</span>    </li>
+      <li>
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11982/cardiovascular-safety-concerns-over-smoking-cessation-drug-misleading">Cardiovascular Safety Concerns Over Smoking-Cessation Drug Misleading</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-03T00:00:00-07:00" property="dc:date dc:created">May 3, 2012</span>    </li>
+      <li>
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11986/rats-recall-past-make-daily-decisions">Rats Recall Past to Make Daily Decisions</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-03T00:00:00-07:00" property="dc:date dc:created">May 3, 2012</span>    </li>
+      <li>
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11983/anti-smoking-drug-decreases-alcohol-consumption-heavy-drinking-smokers">Anti-Smoking Drug Decreases Alcohol Consumption in Heavy-Drinking Smokers</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-02T00:00:00-07:00" property="dc:date dc:created">May 2, 2012</span>    </li>
+      <li class="last">
+      <h4 class="headline" property="dc:title"><a href="/news/2012/05/11969/pain-control-focus-allan-basbaums-research-career">Pain Control is Focus of Allan Basbaum’s Research Career</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-05-02T00:00:00-07:00" property="dc:date dc:created">May 2, 2012</span>    </li>
+    </ul>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <div class="rssteasers rsslink"><a href="/news/rss-news-feeds" class="rss">Subscribe</a></div>    </div>
+  
+  
+  
+</div>   </div>
+</div>
+  <div id="block-views-news_teasers-block_12" class="block block-views">
+
+  <div class="content">
+    <h3 class="arrow-heading"><a href="/faculty-staff/news">Campus News</a></h3>
+<div class="view view-news-teasers view-id-news_teasers view-display-id-block_12 view-dom-id-2">
+    
+  
+  
+      <div class="view-content">
+        <ul class="orange-bullets">
+    <li class="first">
+      <h4 class="headline" property="dc:title"><a href="/news/2012/04/11924/ucsf-offers-employees-week-free-access-fitness-centers">UCSF Offers Employees Week of Free Access to Fitness Centers</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-04-30T00:00:00-07:00" property="dc:date dc:created">April 30, 2012</span>    </li>
+      <li>
+      <h4 class="headline" property="dc:title"><a href="/news/2012/04/11913/city-project-continues-repave-parnassus-avenue">City Project Continues to Repave Parnassus Avenue</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-04-23T00:00:00-07:00" property="dc:date dc:created">April 23, 2012</span>    </li>
+      <li class="last">
+      <h4 class="headline" property="dc:title"><a href="/news/2012/04/11879/ucsf-police-inform-campus-about-world-laboratory-animal-liberation-week-april-21">UCSF Police Inform Campus About World Laboratory Animal Liberation Week: April 21-29</a></h4>
+<span class="date-display-single" datatype="xsd:dateTime" content="2012-04-19T00:00:00-07:00" property="dc:date dc:created">April 19, 2012</span>    </li>
+    </ul>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <div class="rsslink"><a href="/news/rss-news-feeds" class="rss">Subscribe</a></div>    </div>
+  
+  
+</div> <br clear="both" />
+  </div>
+</div>
+        </div> <!-- end div#sidebar-right -->
+
+      </div> 
+    </div> <!-- end div#main -->
+
+    
+
+    <div id="footer">
+      <!-- begin #footer.large-inner -->
+      <div class="large-inner">
+        <!-- begin #footer.large-inner.column-left -->
+        <div class="column-left">
+          <a href="/" class="active">Home</a>        </div>
+        <!-- end #footer.large-inner.column-left -->
+        <!-- begin #footer.large-inner.column-right -->
+        <div class="column-right">
+          <p class="links">
+            <a href="/" class="active">Home</a> |
+            <a href="/sitemap">Site Map</a> |
+            <a href="/contact-us">Contact Us</a> |
+            <a href="http://oaais.ucsf.edu/OAAIS/790-DSY.html">Accessibility</a> |
+            <a href="/terms-of-use">Terms of Use</a> |
+            <a href="/azlist">A-Z Website List</a>          </p>
+          <p><a href="/feedback" class="feedback">Feedback</a></p>
+          <p>The University of California, San Francisco, CA 94143, 415-476-9000<br />
+            &copy; 2012 The Regents of the University of California. All rights reserved.</p>
+        </div>
+      </div>
+    </div> <!-- end #footer -->
+
+        	<script type="text/javascript" src="/sites/all/themes/ucsf_public/js/ucsf-tracking.js?v=1"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+  </body>
+</html>

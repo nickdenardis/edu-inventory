@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Chemeketa Home Page</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<style media="all" type="text/css">
+@import url('/global_files/css/globalclass.css');
+</style>
+<style media="all" type="text/css">
+@import url('/global_files/css/pages/home.css');
+@import url('/global_files/css/pages/homenews.css');
+</style>
+<style media="print" type="text/css">
+@import url('/global_files/css/print.css');
+</style>
+<!--<style media="only screen and (max-device-width: 480px)" type="text/css">
+@import url('/global_files/css/handheld.css');
+</style>-->
+<style media="all" type="text/css">
+@import url('/global_files/js/fancybox/fancybox/jquery.fancybox-1.3.4.css');
+.scroll {
+	height: 50px;
+	background-color: rgb(120,31,28);
+	border-bottom: 1px solid #000;
+	color: rgb(255,255,255);
+	font-size: 30px;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	position: absolute;
+	z-index: 50000;
+	top: 417px;
+	left: 0px;
+	width: 100%;
+}
+div.scrollingtext {
+	position:absolute;
+	white-space:nowrap;
+}
+.replace {
+	height: 222px;
+	width: 585px;
+	text-align: center;
+	vertical-align: middle;
+}
+.maxLine {
+	width: 570px;
+}
+</style>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" /> 
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<!--[if lte IE 6]>
+<script src="/global_files/js/ie7/IE7.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if (IE 6)|(IE 7)]>
+<style type="text/css">
+#outerWrapper #header #headercontent .skiplinks {
+    top:125px;
+	position:absolute;
+	text-align:left;
+	width:100%;
+}
+#footer #footcontent #rcoltile {
+	display:none;
+}
+</style>
+<![endif]-->
+<!--[if lte IE 6]>
+<style media="all" type="text/css">
+@import url('/global_files/css/ie6.css');
+</style>
+<![endif]-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src="/global_files/js/emailpopup.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1421430-1']);
+  _gaq.push(['_setDomainName', '.chemeketa.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><!--<script src="//ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"></script>-->
+<script src="/global_files/js/jquery.cycle.liteff3e.js?v1.0" type="text/javascript"></script>
+<script src="/global_files/js/jcarousellite_1.0.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(function() {
+    jQuery('#slideshow1').cycle();
+    function onBefore() {
+        jQuery('#title').html(this.alt);
+    }
+});
+</script>
+<script type="text/javascript">
+function closeNotice(){
+	document.getElementById("notice_container").style.height="0px";
+	document.getElementById("notice").style.height="0px";
+	document.getElementById("notice").style.margin="0px";
+	document.getElementById("notice").style.left="-100000px";
+	}
+</script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+   jQuery('.scrollingtext').bind('marquee', function() {
+       var ob = $(this);
+       var tw = ob.width();
+       var ww = ob.parent().width();
+       ob.css({ right: -tw });
+       ob.animate({ right: ww }, 50000, 'linear', function() {
+       ob.trigger('marquee');
+       });
+    }).trigger('marquee');
+});
+</script>
+<script type="text/javascript"> 
+jQuery(document).ready(function() {
+	//Default Action
+	jQuery(".tab_content").hide(); //Hide all content
+	jQuery("ul.tabs li:first").addClass("active").show(); //Activate first tab
+	jQuery(".tab_content:first").show(); //Show first tab content	
+	//On Click Event
+	jQuery("ul.tabs li").click(function() {
+		jQuery("ul.tabs li").removeClass("active"); //Remove any "active" class
+		jQuery(this).addClass("active"); //Add "active" class to selected tab
+		jQuery(".tab_content").hide(); //Hide all tab content
+		var activeTab = jQuery(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+		jQuery(activeTab).fadeIn(); //Fade in the active content
+		return false;
+	});
+});
+jQuery(function() {
+    jQuery(".newcarousel").jCarouselLite({
+        btnNext: ".next",
+        btnPrev: ".prev",
+		visible: 4
+    });
+});
+</script>
+
+<script src="/global_files/js/noconflict_plus.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="outerWrapper">
+	<div id="header">
+		<div id="headercontent">
+			<a id="logozone" href="index.html">
+			<!--&nbsp;--></a>
+			<ul id="imenu">
+<li><a class="search basic" title=" Search Chemeketa site " href="/contactus/search.html"><span class="xhide">Search</span></a></li>
+<li><a class="my" href="/locations/" title=" Visit Locations "><span class="xhide">Locations</span></a></li>
+<li><a class="contact" href="/contactus/" title=" Contact us "><span class="xhide">Contact</span></a></li>
+</ul>
+<div><span id="imenutext">&nbsp;</span></div>
+		</div>
+	</div>
+	<div id="topNavigation">
+		<ul id="menu">
+			<li>
+			<a class="calendar" href="/calendar/" title=" Find out what's happening ">
+			<span>calendar</span></a></li>
+			<li>
+			<a class="forms" href="/forms/" title=" Access frequently-used Chemeketa forms ">
+			<span>forms</span></a></li>
+			<li>
+			<a class="services" href="/services/" title=" Learn about the services we provide to students ">
+			<span>services</span></a></li>
+			<li>
+			<a class="clazzes" href="/classes/" title=" View our current class schedule ">
+			<span>classes</span></a></li>
+			<li>
+			<a class="programs" href="/programs/" title=" Learn about our academic programs ">
+			<span>programs</span></a></li>
+		</ul>
+	</div><div id="contenthold1">
+  <div id="contentWrapper">
+    <div id="rightColumn1">
+      <div> <a class="mainlnk" href="/earncertdegree/" title=" Start here for admission and paying for college "> </a></div>
+      <div class="spacers2"> 
+        <!--&nbsp;--></div>
+      <div> <a class="main2lnk" href="/aboutchemeketa/" title=" Discover Chemeketa's mission, foundation and community connections "> </a></div>
+    </div>
+    <div id="content">
+      <div id="holdflash">
+                <div id="slideshow1" class="pics">
+         <a href='http://blogs.chemeketa.edu/newsevents/2012/03/15/horticultureplantsale/'><img alt='Greenhouse2012' title='Greenhouse2012' height='222' src='/global_files/flash/home/banners/greenhouse2012.jpg' width='585' /></a>
+<a href='http://www.chemeketa.edu/aboutchemeketa/athletics/'><img alt='Baseball' title='Baseball' height='222' src='/global_files/flash/home/banners/baseball.jpg' width='585' /></a>
+<img alt='Chemistry2' title='Chemistry2' height='222' src='/global_files/flash/home/banners/chemistry2.jpg' width='585' />
+<img alt='Fire' title='Fire' height='222' src='/global_files/flash/home/banners/fire.jpg' width='585' />
+        </div>
+              </div>
+      
+    </div>
+  </div>
+</div>
+<div id="contenthold2">
+    <!--<div> begin quick links </div>-->
+  <p class="slide"><a title=" Quick Links " class="btn-slide" href="#">&nbsp;</a></p>
+  <div id="panel">
+    <div id="list_wrapper">
+      <h3>Students</h3>
+      <ul class="multiple_columns">
+        <li><a href="http://my.chemeketa.edu" title="My Chemeketa">My Chemeketa</a></li>
+        <li><a href="/earncertdegree/admission/" title="Admission">Admission</a></li>
+        <li><a href="http://online.chemeketa.edu/" title="Online classes" rel="external">Online classes</a></li>
+        <li><a href="/earncertdegree/tuition/" title="Tuition">Tuition</a></li>
+        <li><a href="/earncertdegree/evening/" title="Evening &amp; weekend courses">Evening &amp; weekend courses</a></li>
+        <li><a href="/earncertdegree/payingforcollege/" title="Paying for college">Paying for college</a></li>
+        <li><a href="/earncertdegree/international/" title="International students">International students</a></li>
+        <li><a href="/earncertdegree/advising/" title="Advising &amp; counseling">Advising &amp; counseling</a></li>
+        <li><a href="/earncertdegree/payingforcollege/veterans/" title="Veterans">Veterans</a></li>
+      </ul>
+    </div>
+    <div id="list2_wrapper">
+      <h3>Business</h3>
+      <ul class="multiple_columns">
+        <li> <a href="/busprofession/ccbi/" title="Workforce training"> Workforce training</a></li>
+        <li><a href="/busprofession/procurementservices/" title="Procurement services">Procurement services</a></li>
+      </ul>
+      <div class="spacers20">&nbsp;</div>
+      <h3>Community</h3>
+      <ul class="multiple_columns">
+        <li> <a href="http://hr.chemeketa.edu/jobopportunities.html" title="Chemeketa jobs"> Chemeketa jobs</a></li>
+        <li> <a href="/aboutchemeketa/athletics/" title="Athletics"> Athletics</a></li>
+      </ul>
+    </div>
+    <div class="clearing"> </div>
+  </div>
+  <!--<div> end quick links </div>-->
+  <div id="leftColumn1"> <a class="hmbtncontent" href="/classforfun/" title=" Improve your skills in noncredit classes "> <span class="hmlnk">Improve your skills in noncredit classes</span></a>
+    <div class="hmbtnbg"> 
+      <!--&nbsp;--></div>
+    <a class="hmbtncontent" href="/basicskills/" title="Earn your GED, high school diploma or better your English skills"> <span class="hmlnk">Earn your GED, high school diploma or better your English skills (ESOL)</span></a> 
+    <div class="hmbtnbg"> 
+      <!--&nbsp;--></div>
+    <a class="hmbtncontent" href="/busprofession/" title=" Find training for your business or organization"> <span class="hmlnk">Find training for your business or organization</span> </a>
+    <div class="hmbtnbg"> 
+      <!--&nbsp;--></div>
+    <a class="hmbtncontent" href="/aboutchemeketa/athletics/" title="Cheer for Storm athletics"> <span class="hmlnk">Cheer for Storm athletics</span> </a>
+    <div class="hmbtnbg"> 
+      <!--&nbsp;--></div>
+    <a class="hmbtncontent" href="/espanol/" title=" Chemeketa en espa&ntilde;ol"> <span class="hmlnk">Chemeketa en espa&ntilde;ol</span></a>
+    <div class="hmbtnbg"><!--&nbsp;--></div>
+    <div id="socialbtns"><a href="http://www.facebook.com/chemeketacommunitycollege" title="Visit our Facebook page"><img class="facebook-left" alt="Visit our Facebook page" src="/global_files/images/home/facebook1-trans.png" height="32" width="32" title="Visit our Facebook page" /></a> <a href="http://twitter.com/chemeketa" title="Visit our Twitter page"><img class="twitterbird-left" alt="Visit our Twitter page" src="/global_files/images/home/twitterbird-trans.png" height="32" width="32" title="Visit our Twitter page" /></a> <a href="/aboutchemeketa/learnaboutus/news/newsletter.html" title="newsletter sign-up"><img class="emailimg-left" alt="Sign up for our newsletter" src="/global_files/images/home/email_home-trans.png" title="Sign up for our newsletter" /></a></div>
+  </div>
+  <div id="content2">
+    <div id="lowercontent">
+      <div id="lowercontop">
+        
+      </div>
+      <div id="lowerconmid">
+        <h3>College News</h3>
+        <div class="spacers10">&nbsp;</div>
+    <!--begin content-->
+        <div class="newsholder">
+                <div class="leftbutton prev" title="Previous news item"></div>
+                <div class="newcarousel" style="height:220px; border: #ddd 0px solid; margin-bottom:0px;">
+                  <ul class="slidercontainer">
+                    <li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=368'><img src='http://www.chemeketa.edu/sharedassets/news/news_robbins.jpg' alt='Robbins speaks at Chemeketa on disabilities, access' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=368'>Robbins speaks at Chemeketa on disabilities, access</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=351'><img src='http://www.chemeketa.edu/sharedassets/news/news_lowellford.jpg' alt='Former Chemeketa administrator’s wine featured at Obama fundraiser' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=351'>Former Chemeketa administrator’s wine featured at Obama fundraiser</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=335'><img src='http://www.chemeketa.edu/sharedassets/news/news_okeefe.jpg' alt='“Oregon Original” exhibit coming to gallery' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=335'>“Oregon Original” exhibit coming to gallery</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=328'><img src='http://www.chemeketa.edu/sharedassets/news/news_garden.jpg' alt='A garden grows for Chemeketa Food Pantry' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=328'>A garden grows for Chemeketa Food Pantry</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=321'><img src='http://www.chemeketa.edu/sharedassets/news/news_burke.jpg' alt='Chemeketa librarian receives national honor' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=321'>Chemeketa librarian receives national honor</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=297'><img src='http://www.chemeketa.edu/sharedassets/news/news_roberts.jpg' alt='Chemeketa safety: Video/Q&A from forum, message from President Roberts' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=297'>Chemeketa safety: Video/Q&A from forum, message from President Roberts</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=281'><img src='http://www.chemeketa.edu/sharedassets/news/news_yamhillribbon.jpg' alt='Yamhill Valley campus officially dedicated' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=281'>Yamhill Valley campus officially dedicated</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=278'><img src='http://www.chemeketa.edu/sharedassets/news/news_vistahills.jpg' alt='New wine to fund Foundation scholarships' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=278'>New wine to fund Foundation scholarships</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=269'><img src='http://www.chemeketa.edu/sharedassets/news/news_hemodialysis.jpg' alt='Hemodialysis technician program starts at Chemeketa' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=269'>Hemodialysis technician program starts at Chemeketa</a></div></li><li class='newsitemcontainer'><a href='http://blogs.chemeketa.edu/newsevents/?p=263'><img src='http://www.chemeketa.edu/sharedassets/news/news_verizon.jpg' alt='Verizon Connect Center begins at Chemeketa' height='120' width='140' /></a><br /><div class='newsitemtext'><a href='http://blogs.chemeketa.edu/newsevents/?p=263'>Verizon Connect Center begins at Chemeketa</a></div></li>                  </ul>
+                </div>
+                <div class="rightbutton next" title="Next news item"></div>
+              </div>
+        <!--end content-->
+      </div>
+      <div id="lowerconbot"> &nbsp;</div>
+      <div> </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript"> adroll_adv_id = "DMN3OLTS35HWFPCYZUYDRC"; adroll_pix_id = "Q3B2CGDYGFFRNC7TCDRXHH"; (function () { var oldonload = window.onload; window.onload = function(){ __adroll_loaded=true; var scr = document.createElement("script"); var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com"); scr.setAttribute('async', 'true'); scr.type = "text/javascript"; scr.src = host + "/j/roundtrip.js"; document.documentElement.firstChild.appendChild(scr); if(oldonload){oldonload()}}; }()); </script><img src="http://ad.reachlocal.com/pixel?id=1281581&amp;id=1281590&amp;t=2" width="0" height="0" alt="" />
+<div class="push"> &nbsp;</div>
+</div>
+<div id="footer">
+	<div id="footcontent">
+    <div id="rcoltile">&nbsp;</div>
+	  <div><a href="/locations/"><span>Chemeketa locations</span></a><span class="dotcolor">&bull;</span><a href="/contactus/site/privacy.html"><span>Privacy</span></a><span class="dotcolor">&bull;</span><a href="/contactus/site/legal.html"><span>Legal</span></a><span class="dotcolor">&bull;</span><a href="/contactus/site/"><span>Help with this site</span></a><span class="dotcolor">&bull;</span><a href="/contactus/site/sitemap.html"><span>Site map</span></a></div>
+      <div id="footerform"><span class="txtcolor">© 2010 - 2011 Chemeketa Community College</span><form action="">
+				<script type="text/javascript">
+<!--
+var webmastercontact = "<a href='/contactus/websitefeedback.html?pg=";
+webmastercontact += location.href;
+webmastercontact += "'>Send corrections or feedback</a>";
+document.write(webmastercontact);
+//-->
+</script>
+			</form></div>
+	</div>
+</div>
+</body>
+</html>

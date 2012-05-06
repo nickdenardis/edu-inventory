@@ -1,0 +1,136 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="images/index/favicon.ico" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+<link rel="stylesheet" href="css/index/style.css" type="text/css" />
+<title>kcg.edu</title>
+
+
+<script type="text/javascript">
+$(function(){
+	$("#item-box>div").bind("mouseover",function(){ 
+		var imgurl1 = 'images/index/main_';
+		var imgurl2 = '.jpg';
+
+		var code = $(this).attr('id').substr(3);// id="box1" の box
+		if(code <= 9) {
+			code = '0'+code;
+		}
+		//var lasturl = $("#topimg2").attr('src');
+		//if($("#topimg1").attr('src') != $("#topimg2").attr('src')) {
+		//	$("#topimg1").attr('src',$("#topimg2").attr('src'));
+		//	$("#topimg1").show();
+		//}
+		$("#topimg2").attr('src', $("#topimg1").attr('src'));
+		$("#topimg1").hide();
+		$("#topimg1").attr('src', imgurl1 + code + imgurl2);
+		$("#topimg1").fadeIn("fast");
+
+	});
+});
+</script>
+
+<style type="text/css">
+#obi {
+	z-index: 50;
+}
+#item-box {
+	z-index: 50;
+}
+
+#topimg1 {
+	z-index:3;
+	position: absolute;
+}
+#topimg2 {
+	z-index: 2;
+	position: absolute;
+}
+#topimg3 {
+	z-index: 1;
+	position: absolute;
+}
+#topimg4 {
+	z-index: 1;
+	position: absolute;
+}
+#topimg5 {
+	z-index: 1;
+	position: absolute;
+}
+#topimg6 {
+	z-index: 1;
+	position: absolute;
+}
+
+</style>
+
+
+<script type="text/javascript">
+<!--
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-790136-5']);
+
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+function urchinTracker(path)
+{
+	if(path == undefined) {
+	} else {
+		if(_gaq) {
+		  _gaq.push(['_trackPageview', path]);
+		}
+	}
+}
+//-->
+</script>
+</head>
+<body>
+	<div id="conteiner" class="clearfix">
+		<img id="topimg1" src="images/index/main_01.jpg" alt="メインイメージ" />
+		<img id="topimg2" src="images/index/main_02.jpg" alt="メインイメージ" />
+
+		<img id="topimg3" src="images/index/main_03.jpg" alt="メインイメージ" />
+		<img id="topimg4" src="images/index/main_04.jpg" alt="メインイメージ" />
+		<img id="topimg5" src="images/index/main_05.jpg" alt="メインイメージ" />
+		<img id="topimg6" src="images/index/main_06.jpg" alt="メインイメージ" />
+
+
+		<div id="obi">
+			<h1><img src="images/index/logo.gif" alt="kcg.edu" /></h1>
+			<img src="images/index/text.gif" alt="古都にあるわが国最初のコンピュータ教育機関" />
+		</div>
+		<div id="item-box" class="clearfix">
+			<div id="box1"><a href="http://www.kcg.ac.jp/"><img src="images/index/kcg.gif" alt="京都コンピュータ学院">
+			専修学校<br />京都コンピュータ学院<br /><span id="url1">www.kcg.ac.jp</span></a></div>
+			
+			<div id="box3"><a href="http://www.kcg.edu/"><img src="images/index/kcgi.gif" alt="京都情報大学院大学">
+			IT専門職大学院<br />京都情報大学院大学<br /><span id="url2">www.kcg.edu</span></a></div>
+
+			<div id="box2"><a href="http://www.kjltc.jp/"><img src="images/index/kjltc.gif" alt="京都日本語研修センター">
+			日本語学校<br />京都日本語研修センター<br /><span id="url3">www.kjltc.jp</span></a></div>
+			
+			<br clear="both" style="clear:left">
+			<div id="box4"><a href="http://www.accumu.jp/"><img src="images/index/ac.gif" alt="アキューム">
+			校友会機関誌「アキューム」<br /><span id="url4">www.accumu.jp</span></a></div>
+			
+			<div id="box5"><a href="http://www.kcg.ac.jp/museum/index.html"><img src="images/index/siryo.gif" alt="KCG資料館">
+			KCG資料館<br /><span id="url5">www.kcg.ac.jp/museum</span></a></div>
+			
+			<div id="box6"><a href="http://blog.kcg.ne.jp/"><img src="images/index/kcgblog.gif" alt="KCGブログ">
+			KCGブログ<br /><span id="url6">blog.kcg.ne.jp</span></a></div>
+		</div>
+		<div id="copyright"><p>All contents copyright (C) kcg.edu.</p></div>
+	</div>
+</body>
+
+
+</html>

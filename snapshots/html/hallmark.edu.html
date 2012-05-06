@@ -1,0 +1,406 @@
+<!doctype html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<title>Hallmark Institute of Photography / Photography School</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="/includes/hallmarkstyle.css" media="screen, tv, projection" title="Default">
+	<meta name="description" content="Hallmark Institute of Photography provides a real world, serious approach to professional photographic education, where training is completed within ten months.">
+	<meta name="keywords" content="photography, photography school, photography schools, U.S. photography schools, photography training, photography courses, digital photography class, photography workshops, art schools, photojournalism, digital photography">
+
+	<link rel="alternate" type="application/rss+xml" title="ROR" href="ror.xml" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/slideshow.js"></script>
+	<script type="text/javascript" src="/js/ticker.js"></script>
+	<script type="text/javascript" src="http://cdn.jquerytools.org/1.2.5/tiny/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="/js/jQuery.tubeplayer.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.tweet.js"></script>
+
+	<script type="text/javascript">
+		//<![CDATA[
+		$(document).ready(function() {
+			$('#slideshow').slideshow({
+				timeout: 7000
+			});
+			$('#newsticker').newsticker();
+			$("#nav-one li").hover(
+				function() { $("ul", this).fadeIn("fast"); }, 
+				function() { } 
+			);
+			if (document.all) {
+				$("#nav-one li").hoverClass ("sfHover");
+			}
+			$("#hijack").overlay({
+				top: 150,
+				mask: {
+					color: '#fff',
+					loadSpeed: 200,
+					opacity: 0.5
+				},
+				closeOnClick: true,
+				load: true
+			});
+			theTube=$("#ytholder").val();
+			$("#YTFrame").tubeplayer({
+				autoPlay: true , // the width of the player
+				width: 390, // the width of the player
+				height: 219, // the height of the player
+				allowFullScreen: "true", // true by default, allow user to go full screen
+				initialVideo: theTube, // the video that is loaded into the playerhttp://www.youtube.com/watch?v=y4pTOaa5-xk
+				preferredQuality: "default",// preferred quality: default, small, medium, large, hd720
+				onPlay: function(id){}, // after the play method is called
+				onPause: function(){}, // after the pause method is called
+				onStop: function(){$}, // after the player is stopped
+				onSeek: function(time){}, // after the video has been seeked to a defined point
+				onMute: function(){}, // after the player is muted
+				onUnMute: function(){} // after the player is unmuted
+			});
+			$(".bullitem").click(function() {
+				$(".bullitem").each(function(index) {
+					$(this).removeClass('bullactive');
+				});
+				$(this).addClass('bullactive');
+				var theN=$(this).attr('id');
+				var numb = theN.match(/[0-9]+/g);
+				$(".bulldesc").filter(":visible").each(function(index) {
+					$(this).fadeOut("fast", function() {
+						$("#desc"+numb).fadeIn("slow");
+					});
+				});
+				return false;
+			});
+
+
+		});
+
+		$.fn.hoverClass = function(c) {
+			return this.each(function(){
+				$(this).hover( 
+					function() { $(this).addClass(c);  },
+					function() { $(this).removeClass(c); }
+				);
+			});
+		};
+		function load(url,height,width) {
+			var load = window.open(url,'','scrollbars=no,menubar=no,height=' + height + ',width=' + width + ',resizable=yes,toolbar=no,location=no,status=no');
+		}
+	//]]>
+	</script>
+
+<style>
+#socialNetworks {
+	height:272px;
+}
+.tweet_list {
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	list-style: none;
+	margin: 0;
+	padding: 5px;
+	overflow-y: hidden;
+	background-color: #FFF;
+	border:1px solid #222255;
+}
+
+.tweet_list .awesome, .tweet_list .epic {
+	text-transform: uppercase;
+}
+
+.tweet_list li {
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-bottom: 0.5em;
+	margin:4px;
+}
+
+.tweet_list .tweet_even {
+	background-color: #FFF;
+}
+
+.tweet_list .tweet_avatar {
+	padding-right: .5em; float: left;
+}
+
+.tweet_list .tweet_avatar img {
+	vertical-align: middle;
+}
+.tweetaction a {color:#999;font-size:9px;}
+.tweetaction {color:#222255;font-size:9px;}
+
+.hidden {display:none;}
+
+a.bullactive {border:#AAA solid 1px;background:#CCC;padding:2px;}
+.bulldesc {border:#AAA solid 1px;background:#CCC;padding:3px;width:354px;padding-left:18px;padding-right:18px;margin-bottom:20px;}
+#WHUL, #WHUL ul, #WHUL li {list-style:none;text-indent:0px;margin-left:0px;padding-left:0px;margin-top:1px;}
+.WHIMAGE {width:392px;}
+</style>
+</head>
+
+<body id="home">
+
+<div id="pagebody">
+	<div id="main-copy" style="margin-bottom:6px;margin-top:0px;">
+		<img src="/images/hallmark-logo-350.gif" width="350" style="margin-left: 55px;" alt="[Hallmark Institute of Photography]">
+		<div id="upper-right-box">
+			<strong>Are You Serious About A Career in Photography?</strong><br>
+			<a href="/requestinfo/">&raquo; Click here to receive our catalog</a><br>
+			<a href="/requestinterview/">&raquo; Click here to to schedule an interview for admission</a><br>
+			<a href="/admissions/apply/">&raquo; Click here to download our Application for Admission</a><br>
+			&raquo; Call us at <strong>413-863-2478</strong><br>
+		</div>
+	</div>
+
+<!-- TODO: 
+    put sitemap link (removed from navs) in footer 
+    /links/ will live only in sitemap
+    /location/lodging/ needs a new home
+-->
+<div id="navdiv"><!-- used to center and provide the dark background -->
+<div id="nav-width-box"><!-- used to make ie behave itself -->
+    <ul id="nav-one">
+        <li>
+            <a href="/">Home</a> 
+        </li>
+
+        <li>
+            <a href="/studentgallery/">Student Galleries</a> 
+            <ul>
+                <li><a href="/studentgallery/2011/">Class of 2011</a></li>
+                <li><a href="/studentgallery/2010/">Class of 2010</a></li>
+                <li><a href="/studentgallery/2009/">Class of 2009</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/admissions/">Admissions</a> 
+            <ul>
+                <li><a href="/requestinfo/">Download Catalog</a></li>
+                <li><a href="/admissions/apply/">Download Application</a></li>
+                <li><a href="/admissions/">Entrance Requirements</a></li>
+                <li><a href="/requestinfo/">Request Information</a></li>
+                <li><a href="/financialaid/">Financial Aid</a></li>
+                <li><a href="/studentservices/housing/">Housing</a></li>
+                <li><a href="/location/">About the Area</a></li>
+                <li><a href="/location/lodging/">Area Lodging</a></li>
+                <li><a href="/legal/nondiscrimination/">Students with Disabilities</a></li>
+                
+            </ul>
+        </li>
+
+        <li>
+            <a href="/courses/">Our Program</a>
+            <ul>
+                <li><a href="/aboutus/placement/">Graduation &amp; Placement Rates</a></li>
+                <li><a href="/aboutus/video/">New Video Classes</a></li>
+                <li class="heading"><a href="/courses/artandtechnique/">Photography Art &amp; Technique</a></li>
+                <li><a href="/courses/digitalimaging/">Digital Imaging</a></li>
+                <li><a href="/courses/designandimagingarts/">Design &amp; Imaging Arts</a></li>
+                <li><a href="/courses/management/">Management</a></li>
+                <li><a href="/courses/marketing/">Marketing</a></li>
+                <li><a href="/courses/finance/">Finance</a></li>
+                <li><a href="/courses/personnel/">Personnel</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/aboutus/">About Us</a> 
+            <ul>
+                <li><a href="/aboutus/mission/">Our Mission</a></li>
+                <li><a href="/facultystaff/">Faculty and Staff</a></li>
+                <li><a href="/news/">News</a> </li>
+                <li><a href="/events/">Special Events</a> </li>
+                <li><a href="/events/speakers/">Guest Lecturer Series</a></li>
+                <li><a href="/aboutus/reputation/">What Professionals Say</a></li> 
+                <li><a href="/aboutus/communityservice/">Community Service</a></li>
+                <li class="heading"><a href="/facility/">Facilities</a></li>
+                <li class="indented"><a href="/facility/panoramas/">Virtual Tour</a></li>
+                <li class="heading"><a href="/year/">A Year at Hallmark</a></li>
+                <li class="indented"><a href="/weekbyweek/">Follow Our Current Class</a></li>
+                <li class="heading"><a href="#">Additional Sites</a></li>
+                <li class="indented"><a href="http://workshops.hallmark.edu/">DSLR Video Workshops</a></li>
+                <li class="indented"><a href="http://store.hallmark.edu/">Online Store</a></li>
+                <li class="indented"><a href="http://gallery.hallmark.edu/">The Gallery at Hallmark</a></li>
+                <li class="indented"><a href="http://www.youtube.com/user/HallmarkInstitute">Hallmark on YouTube</a></li>
+                <li class="indented"><a href="http://www.facebook.com/hallmarkinstituteofphotography">Hallmark on Facebook</a></li>
+                <li class="indented"><a href="http://twitter.com/hallmarkedu">Follow Us on Twitter</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/alumni/">Alumni</a> 
+            <ul>
+                <li><a href="/success/">Graduate Spotlight</a></li>
+                <li><a href="/alumni/">More Hallmark Alumni</a></li>
+            </ul>
+        </li>
+
+        <li><a href="/requestinfo/">Request Info</a></li>
+        
+    </ul>
+</div>
+</div>
+
+<div class="bigblock">    
+    <div id="slideshow" title="These Images were all created by Hallmark Institute of Photography students.">
+        <img src="/images/banners/125/01.jpg" alt=""> 
+        <img src="/images/banners/125/02.jpg" alt=""> 
+        <img src="/images/banners/125/03.jpg" alt=""> 
+        <img src="/images/banners/125/04.jpg" alt=""> 
+        <img src="/images/banners/125/05.jpg" alt=""> 
+    </div>
+</div>
+<div id="announcement"><table style="border-spacing:0;">
+<tr><td id="newsticker">
+<div><a href='/events/#event332'><strong>May 7</strong>: Guest Speaker: Tiffany Wayne</a></div>
+<div><a href='/events/#event336'><strong>May 10</strong>: Guest Speaker: Sam Abell</a></div>
+<div><a href='/events/#event334'><strong>May 11</strong>: Guest Speaker: Matthew Cavanaugh</a></div>
+<div><a href='/events/#event335'><strong>May 18</strong>: Guest Speaker: Matthew Cavanaugh</a></div>
+<div><a href='/events/#event338'><strong>June 4</strong>: Class of 2012 Final Portfolio Review</a></div>
+<div><a href='/news/#100'><strong>News</strong>: Hallmark Instructors Shoot it up at The Hole In the Wall Gang Camp</a></div>
+</td></tr>
+</table></div>
+
+
+
+
+		
+    <div class="rowOfBoxes dividingBorderAbove" id="belowfold">
+        <div class='quarter noBorderOnLeft'>
+            <h2>Hallmark &#8230;<br>Where Talent, Technology, and Passion Meet</h2>
+
+<p>The latest data from the Bureau of Labor Statistics shows that opportunities for careers in the arts and communications are on the rise.</p>
+    <ul id='whyhallmark'>
+<li><a href="/aboutus/professionals/">
+Work with real-world professional photographers and artists in our 10-month hands-on training program.
+</a></li>
+
+<li><a href="/aboutus/business/">
+Learn the business of photography, integrated with 40% of our curriculum.
+</a></li>
+
+<li><a href="/aboutus/equipment/">
+Master today's most relevant photographic and digital imaging equipment in industry-envied facilities.
+</a></li>
+
+<li><a href="/aboutus/environment/">
+Become your best in our cohesive and intimate learning environment.
+</a></li>
+</ul>
+            <h2><a href='/success/'>Graduate Spotlight</a></h2>
+            <p class='bottomblock'>
+<a href='/success/?year=2011#289'><img src='/success/people/2011/adolphe_ganitte.jpg' alt="Ganitte Adolphe" class="spotlight-img"></a>
+"When I first came to Hallmark I didn't know much about photography at all but all I did know is that I love photography and taking pictures. My experience being here was just so great; the teachers and equipment were just so great having around. The teachers are always there for you when you need them and they would also work with you on a one on one basis and that is ... </p>
+<p class="bottomblock" style="text-align: right; font-weight: medium; font-style: italic">
+Ganitte Adolphe<br />Class of 2011<br />Florida</p>            <p class="bottomblock" ><a href='/success/' style='white-space: nowrap;'>More graduates &raquo;</a></p>
+
+        </div>
+
+        <div class='half'>
+			<h2>What's Happening at Hallmark</h2>
+            				<div id="YTFrame"> </div>
+
+			<input name='ytholder' id='ytholder' type='hidden' value='OMVSCR6yPc4' /><div class='videocaption'><p>The Hallmark students work towards this all year, the Phase IV Year-End Portfolio Assignment. 27 images, 27 prints to be produced and presented as a Final Portfolio in just 10 weeks.</p></div><p><strong>Week Thirty-Four:</strong></p>
+<ul id="WHUL"><li><a href="#" class="bullitem bullactive" id="bul1">Video Photography using DSLR Cameras</a></li>
+<li><a href="#" class="bullitem" id="bul2">Photographers and their Web Sites</a></li>
+<li><a href="#" class="bullitem" id="bul3">Portrait and Tabletop Commercial Studio Photography</a></li>
+<li><a href="#" class="bullitem" id="bul4">Photojournalism &mdash; On Location Interviewing Skills</a></li>
+<li><a href="#" class="bullitem" id="bul5">Welcome Back October 2012 Graduates</a></li>
+<li><a href="#" class="bullitem" id="bul6">Special Guest Lecturer Rick Souders</a></li>
+</ul>
+<div class="bulldesc" id="desc1"><p>Many of this week's classes are continuations for the June Class of 2012. For example, in Video they spend their time working on their year-end group video projects. This year's class are using their Canon 5D Mark II cameras to capture video footage (this is the same camera they are issued for the entire program). &nbsp;They work in teams on all aspects of their project, starting with writing, directing, post-production, editing and finally, publishing.</p></div>
+<div class="bulldesc hidden" id="desc2"><p>Web Site Design is set aside for students to continue work on their personal/business web sites, which is a mandatory part of their Final Year-end Portfolio assignment. &nbsp;As part of their Career Business Plans, students identified how they will incorportate their Web site as part of their business. &nbsp;Almost everyone will use it as a publically viewable portfolio, but some will also have private client galleries and E-commerce on their sites to streamline client communication.</p></div>
+<div class="bulldesc hidden" id="desc3"><p>Portrait and Commercial Studios remain busy as &nbsp;our June 2012 graduating students continue to shoot for this portfolio. The role of the Instructor has changed in the studios. &nbsp;They act as advisors and mentors more than before and are on-hand to provide assistance and guidance as needed.</p></div>
+<div class="bulldesc hidden" id="desc4"><p>Location Studio takes them on location to one of the local newspaper offices,&nbsp;<em>The Gazette</em>&nbsp;and they are instructed on what to expect from an interview, and will even do some role-playing, in their Interviewing Skills class.</p></div>
+<div class="bulldesc hidden" id="desc5"><p>They get back into the swing of things by reviewing some assignments they turned in before the break, as well as new lectures in Portrait and Commercial Photography and Photojournalism.</p></div>
+<div class="bulldesc hidden" id="desc6"><p>Both classes get to enjoy a full-day presentation by Guest Lecturer <a href="http://soudersstudios.com/" target="_blank">Rick Souders</a>. A&nbsp;Denver-based food photographer, Rick will lecture on the ins and outs of food photography and share his award-winning imagery with the class, delving into this very interesting and profitable niche of our industry.&nbsp;</p></div>
+<img src="/images/media/cms/Happening/133/OClair__MG_2650.jpg" alt="Week Thirty-Four" class="WHIMAGE" /><br /><p class="happening-img">Dennis O'Clair photo</p>
+<div style="text-align:left;font-size:10px;color:#555;"><p>Invading the Office of the President, Artist-in-Residence Gregory Heisler and Instructor David Turner work with Hallmark students to demonstrate the photographing of an executive in his environment. Being able to mix various light sources, both natural window light as well as artificial light, is a crucial part of creating a successful executive portrait.</p></div>
+<p style="clear: both"><br><a href="/weekbyweek/">&raquo; <strong>Follow</strong> our current class week by week</a></p>
+
+<!-- 
+            <br style='clear: both'><br><a href="/weekbyweek/">&raquo; <strong>Read more</strong> to see what's happening at Hallmark</a>
+ -->
+
+			<p class="bluebox">
+            <a href="/requestinterview/">&raquo; Click here to schedule an interview for admission</a><br>
+            <a href="/requestinfo/">&raquo; Click here to receive our catalog</a><br>
+            </p>
+            
+                    </div>
+
+        <div class='quarter'>
+<div id="socialNetworks">
+<h2>Stay Connected</h2>
+<p><a href="http://www.youtube.com/user/HallmarkInstitute" target="_blank"><img src="/images/youtube.jpg" alt="Watch our YouTube videos" /></a> <a href="http://www.youtube.com/user/HallmarkInstitute" target="_blank">Watch Our Videos</a></p><p><a href="http://www.facebook.com/hallmarkinstituteofphotography" target="_blank"><img src="/images/facebook.jpg"  alt="Visit our Facebook Page" /></a> <a href="http://www.facebook.com/hallmarkinstituteofphotography" target="_blank">Like Us on Facebook</a></p><p><a href="http://twitter.com/hallmarkedu" target="_blank"><img src="/images/twitter.jpg" alt="Follow us on Twitter" /></a> <a href="http://twitter.com/hallmarkedu" target="_blank">Follow Us on Twitter</a>
+</p>
+<div style="height:3px;width:155px;border-top:1px solid #CCC;" /></div>
+<h2>Share</h2>
+<!-- AddThis Button BEGIN -->
+<p><a class="addthis_button_facebook_send"></a></p>
+<p><a class="addthis_button_tweet"></a></p>
+<p><a class="addthis_button_google_plusone"></a></p>
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=hallmarkinstitute"></script>
+<!-- AddThis Button END -->
+</div>
+<div class="tweet_list" style="background:#222255;height:30px;">
+<img src="/images/twitter-widget-logo.png" alt="Twitter" />
+</div>
+<div id="tweet" style="margin-top:-10px;">
+<script>
+	jQuery(function($){
+		$("#tweet").tweet({
+			avatar_size: 32,
+			count: 4,
+			username: ["hallmarkedu", "hallmarkmotion"],
+			loading_text: "searching twitter...",
+			refresh_interval: 360,
+			template: "{avatar}{text} <br><span class='tweetaction'> {retweet_action} &bull; {reply_action}</span>"
+    });
+    }).bind("loaded", function(){
+      $(this).find("a.tweet_action").click(function(ev) {
+        window.open(this.href, "Retweet",
+                    'menubar=0,resizable=0,width=550,height=420,top=200,left=400');
+        ev.preventDefault();
+      });
+    });
+  </script>
+</div>
+    </div>
+    
+    <!-- ##### Footer ##### -->
+</div> <!-- end pagebody -->
+<div id="footer">
+
+    <form id="searchbox_012340287631518775381:ejrv6crakcq" action="http://www.google.com/cse">
+    <fieldset>
+        <legend></legend>
+        <input type="hidden" name="cx" value="012340287631518775381:ejrv6crakcq">
+        <input name="q" type="text" size="25">
+        <input type="hidden" name="hl" value="en">
+        <input type="submit" name="sa" value="Search our site">
+        <input type="hidden" name="cof" value="FORID:0">
+    </fieldset>
+    </form>
+
+    <a href="/accreditation/">Accredited by the Accrediting Commission of Career Schools and Colleges</a> <br>Licensed by the Massachusetts Department of Elementary and Secondary Education, Office of Proprietary Schools<br /><a href='/financialaid/'>Financial Aid available to those who qualify</a>
+
+    <br>
+    Hallmark Institute of Photography, At the Airport, P.O. Box 308 &bull; Turners Falls MA 01376
+    <br>
+    Phone 413-863-2478 &bull; Fax 413-863-4118 &bull; <a href="mailto:info@hallmark.edu">info@hallmark.edu</a>
+    <br>
+    &#169; Copyright 1998-2012 Hallmark Institute of Photography 
+    <br>
+    <a href="/legal/copyright/">Copyright Notice</a> &bull; 
+    <a href="/legal/disclaimer/">Disclaimer</a> &bull; 
+    <a href="/info/">Student Consumer Information</a> &bull; 
+    <a href="/legal/privacy/">Privacy</a><br><br>
+    <a href="http://www.youtube.com/user/HallmarkInstitute"><img src="/images/youtube.jpg" width="16" alt="Watch our YouTube videos" /></a> <a href="http://www.youtube.com/user/HallmarkInstitute">Watch our YouTube videos</a>&nbsp;&nbsp;&nbsp;<a href="http://www.facebook.com/hallmarkinstituteofphotography"><img src="/images/facebook.jpg" width="16" alt="Visit our Facebook Page" /></a> <a href="http://www.facebook.com/hallmarkinstituteofphotography">You can also find us on Facebook</a>&nbsp;&nbsp;&nbsp;<a href="http://twitter.com/hallmarkedu"><img src="/images/twitter.jpg" width="16" alt="Follow us on Twitter" /></a> <a href="http://twitter.com/hallmarkedu">Follow Us on Twitter</a>
+</div>
+<!-- the </body> ending tag should come just after this. -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-3154556-1";
+urchinTracker();
+</script>  </body>

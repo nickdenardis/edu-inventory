@@ -1,0 +1,1873 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+
+<title>Welcome to De Anza College</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="De Anza College is a community college serving the south bay within the San Francisco region." />
+<meta name="keywords" content="De Anza,DeAnza,De Anza College,DeAnza College,Cupertino,Silicon Valley,community college,education,training,associates degree,Flint Center,junior college,classes,teaching,planetarium,community education,continuing education,California History Center,athletics" />
+<!-- ================================================================== -->
+
+<!--   === CSS INCLUDE ===    -->
+
+<script type="text/javascript">
+
+var imageCache = new Array();
+
+var slideCache = new Array(
+
+"/template/standard/images/homepage/arch-frame-firstimage.jpg",
+"/template/standard/images/homepage/arch-frame-image3.jpg",
+"/template/standard/images/homepage/arch-frame-image2.jpg",
+"/template/standard/images/homepage/arch-frame-image1.jpg",
+"/template/standard/images/homepage/arch-frame-club2.jpg",
+"/template/standard/images/homepage/arch-frame-image4.jpg",
+"/template/standard/images/homepage/arch-frame-image5.jpg",
+"/template/standard/images/homepage/arch-frame-image7.jpg",
+"/template/standard/images/homepage/arch-frame-image9.jpg"
+
+);
+
+var captionCache = new Array(
+
+"<div class='image-title' style='font-size:12px;'>De Anza College. Just What You Need.</div><div class='image-desc' style='float:right;'><a href='/outreach/'>Welcome future students and parents!</a></div>",
+"<div class='image-title' style='font-size:12px;'>De Anza Associated Student Body</div><div class='image-desc' style='float:right;'><a href='/dasb/'>Get involved with your DASB senate!</a></div>",
+"<div class='image-title' style='font-size:12px;'>Student &amp; Community Services Building</div><div class='image-desc' style='float:right;'>Admissions &amp; Records, Bookstore, Counseling <a href='/admissions/appregmenu.html'>and more</a></div>",
+"<div class='image-title' style='font-size:12px;'>Visual &amp; Performing Arts Center</div><div class='image-desc' style='float:right;'><a href='/euphrat/'>Visit the Euphrat Museum of Art</a></div>",
+"<div class='image-title' style='font-size:12px;'>Inter Club Council <span style='font-size: 9px;'> &bull; </span>Join a Club</div><div class='image-desc' style='float:right;'><a href='/clubs/'>Come to the next Club Day</a></div>",
+"<div class='image-title' style='font-size:13px;'>Transfer Planning</div><div class='image-desc' style='float:right;'><a href='/transfer/'>Go to UC, CSU or another 4-year college</a><a href='/clubs/'></a></div>",
+"<div class='image-title' style='font-size:12px;'>A Green Campus for a Green Community</div><div class='image-desc' style='float:right;'><a href='/sustainability/'>What <em>we </em>can do </a></div>",
+"<div class='image-title' style='font-size:12px;'>Get a degree or certificate</div><div class='image-desc' style='float:right;'><a href='/courseinfo/majors.html'>Find the best program for you</a></div>",
+"<div class='image-title' style='font-size:12px;'>Community &amp; Civic Engagement</div><div class='image-desc' style='float:right;'><a href='/communityengagement/'>Learn about De Anza's ICCE </a></div>"
+
+);
+
+function pausePlaySlide()
+{
+    if(Cap) {clearTimeout(Cap);}
+    clearInterval(SlideShow);
+        
+    if( paused == false )
+    {
+        paused = true;       
+        bckGrnImg = document.getElementById("pauseButton");
+        bckGrnImg.setAttribute("class", "play");    
+    }
+    else
+    {
+        paused = false;     
+        bckGrnImg = document.getElementById("pauseButton");
+        bckGrnImg.setAttribute("class", "pause");
+              
+        SlideShow = setInterval("RunSlideShow('primaryImage','img_div')",displaySecs * 1000);
+    }
+}
+
+function revSlide()
+{
+    if(paused == false) 
+    { 
+        pausePlaySlide();        
+        currentImage--; 
+    }
+    
+    currentImage--; 
+            
+    if( currentImage < 0 )
+    { 
+        currentImage = slideCache.length - 1;
+    }
+    
+    if(Cap) {clearTimeout(Cap);}
+    clearInterval(SlideShow);
+    
+    FadeInImage("primaryImage",slideCache[currentImage],"img_div");
+}
+
+function advSlide()
+{
+    if(paused == false) 
+    { 
+        pausePlaySlide();       
+        currentImage++; 
+    }   
+    currentImage++; 
+
+    if( currentImage > slideCache.length - 1 )
+    { 
+        currentImage = 0;
+    }
+    
+    if(Cap) {clearTimeout(Cap);}
+    clearInterval(SlideShow);
+    
+    FadeInImage("primaryImage",slideCache[currentImage],"img_div");
+}
+
+function loadSlideImages()
+{
+    for( i = 1; i < slideCache.length; i++)
+    {
+        imageCache[i] = new Image(362,448);
+        imageCache[i].src = slideCache[i];
+    } 
+} 
+
+function ClearIfAppropriate() 
+{
+    if(document.search.q.value == " Search") 
+    {
+        document.search.q.value = "";
+    }
+}
+
+
+</script>
+
+
+<style type="text/css">
+
+body 
+{      
+    margin: 0px;  
+    background: #9E7113 url(/template/standard/images/homepage/background1a.jpg) no-repeat center 80px; 
+}
+
+
+/* ********************************** */
+/*                                    */
+/*     HEADER LOGO AND TOP TOOLS      */
+/*                                    */
+/* ********************************** */
+
+#da_header { display:block; clear:both; width:800px;height:110px; } /*the div container of the header */
+
+#da_logo { left:1px;top:7px;width:119px;height:58px;z-index:1;}
+
+#da_top-tools { position:absolute;left:210px;top:13px;width:590px;height:22px; z-index:1; vertical-align:bottom; font-weight:bold;color: #990033; text-align:right;}
+
+/* ********************************** */
+/*                                    */
+/*     TAB BUTTONS AND HEADER BAR     */
+/*                                    */
+/* ********************************** */
+
+div#da_menu {float:right;padding-top:4px;width:450px;display:inline;font-family: Arial, Verdana, Helvetica, sans-serif; margin:0px;padding:0px; position:absolute; left:374px;top:63px;}
+
+ul#da_nav{width:415px;display:inline;margin:0px;padding:0px;list-style-type:none;}
+
+ul#da_nav li{float:left; margin-right: 2px; text-align:center; font-size:0.9em; line-height:0.85em;}
+
+ul#da_nav a{float:left;width: 8em;padding:2px 1px 6px 1px;background: #830330;text-decoration:none; color: #fff; font-size:7.5pt; font-weight:bold;}
+
+ul#da_nav a:hover{background:#830330;color: #FFF;font-weight:bold;}
+
+ul#da_nav li.active a,ul#da_nav li.active a:hover{color: #fff; font-weight:bold; font-weight:bold;}
+
+
+#da_navigation 
+{
+    background-image:url('/template/standard/images/nav-buttons-bg.gif');
+    border: solid 3px #830330; /* Deanza default maroon/burgundy color */
+    white-space:nowrap;            
+    width:794px;  /* 794 + 3 +3 (borders) = 800px - IE 6, Firefox and Safari*/ 
+    /* on IE 5 the 3 px of borders gets included in the 794 pixel of width, and I havn't found a work-around yet */        
+    margin:0px;                
+    position:absolute;         
+    top:87px;
+    height:18px;
+}
+
+#da_navigation a, #da_navigation a:hover
+{
+    font-family:Arial, Verdana, Helvetica, sans-serif;
+    color:#1F1F1F;
+    font-size:9pt;
+    font-weight:bold;
+    text-decoration:none;
+    padding:0px 0px 3px 0px;
+    line-height:18px;
+    
+    vertical-align: baseline;
+}
+
+#da_navigation ul
+{
+    margin:0px;padding:0px;
+    list-style-type:none;
+    display:inline;
+    height:18px;
+}
+
+#da_navigation li
+{
+    float:left;
+    height:18px;
+}
+
+#da_navigation li.first{padding-left:2px;}
+#da_navigation li.last {padding-right:0px;}
+#da_navigation li#navbar-home{width:72px; }
+#da_navigation li#navbar-about{width:139px;}
+#da_navigation li#navbar-admission{width:204px;}
+#da_navigation li#navbar-courseinfo{width:169px;}
+#da_navigation li#navbar-library{width:85px;}
+#da_navigation li#navbar-studentservices{width:119px;}
+
+
+#da_address 
+{
+    font-family:Arial, Verdana, Helvetica, sans-serif;
+    font-size:11px;
+    line-height:10px;
+    margin-left:40px;
+    color:#333333;
+    width:180px;
+    display:inline;
+    float:left;
+    left: 2px;
+    top: 57px;
+    padding-bottom:2px;
+    font-weight:500;    
+}
+
+
+/* ********************************** */
+/*                                    */
+/*         TOP NAV DROPDOWN MENU      */
+/*                                    */
+/* ********************************** */
+div.dropdown-menu{padding:3px; background-color: #830330;line-height:20px;}
+div.dropdown-menu ul{list-style-type:none; padding:0px; margin:0px;}
+
+#about {
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    left: 84px;
+    top: 108px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#apply {
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    left: 222px;
+    top: 108px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#reginfo2 {
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+    left: 384px;
+    top: 111px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#reginfo {
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+    left: 384px;
+    top: 131px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#clas {
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    left: 430px;
+    top: 108px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#divdepts {
+    position: absolute;
+    width: 200px;
+    z-index: 6;
+    left: 590px;
+    top: 116px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+#stuser {
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+    left: 600px;
+    top: 108px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+p 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size:small; */
+    font-size:10pt;
+    font-weight: normal;
+}
+
+
+.toplinks 
+{
+    font-size: 90%;
+    font-weight: bold;
+}
+
+.bar 
+{
+    color: #FFFFFF;
+    background-color: #830330;
+    font-size: 10pt;
+    font-weight: bold;
+    text-decoration: none
+}
+
+.menu 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 9pt;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:link { color: maroon;}
+a:visited { color: #cc6666;}
+a:active { color: #cc6666;}
+a:hover { color: #000066;}
+a.bar:link { color: #FFFFFF; }
+a.bar:visited { color: #FFFFFF; }
+a.bar:active { color: #FFFFFF; }
+a.menu:link { color: #FFFFFF; }
+a.menu:visited { color: #FFFFFF;  }
+a.menu:active { color: #FFFFFF; }
+a.menu:hover { color: #FFFFFF; text-decoration: underline;}
+.small { font-family: Arial, Helvetica, sans-serif; font-size: x-small;}
+.news { font-family: Arial, Helvetica, sans-serif; font-size: 10pt;}
+.smlink {font-family: Arial, Helvetica, sans-serif; font-size: 8pt}
+
+
+#footer {
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    color:#ffffff;
+    font-size:10pt;
+    font-weight:bold;
+    background: #830330;
+    white-space:nowrap;
+    width:799px;
+    height:18px;
+    display:block;
+    line-height:18px;
+    padding:2px;
+    position:relative;
+}
+.link-to-top{width:1px;position:absolute;bottom:24px;left:704px;display:inline;}
+.left{ display:block;position:absolute;font-weight:bold;font-size:10pt;width:260px;}
+.right{display:inline;position:absolute;width:796px; text-align:right;font-weight:bold;font-size:10pt;}
+.print-version{width:1px;position:absolute;bottom:24px;left:592px;display:inline;color:#8C042C;}
+
+.smlink {
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:8pt;
+    width:799px;
+}
+#da_header.homepage
+{
+    height:140px;  
+}
+
+#reginfo2, #reginfo, #divdepts
+{
+    background:#272727;
+}
+
+div 
+{ 
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:13px; 
+    font-weight:normal;
+}
+
+td, th 
+{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:13px;/* 10pt */
+    font-weight:normal;
+}
+
+li 
+{
+    font-family:Arial,Helvetica;
+    font-size:13px;/* 10pt */
+    font-weight:normal;
+}
+
+
+div.top_main_container
+{ 
+    background:url(/template/standard/images/homepage/yellowsquares1.png) repeat-x top; 
+}
+
+div.top_yellow_squares 
+{
+    background:url(/template/standard/images/homepage/yellowsquares1.png) repeat-x top; 
+    height:300px;
+    position:absolute;
+    width:100%;
+}
+
+div.main_container
+{
+    background:#ffffff url(/template/standard/images/homepage/yellowsquares2.jpg) -1px top no-repeat;
+    min-height:600px; 
+}
+
+div.bottom_main_container
+{
+    background:url(/template/standard/images/homepage/yellowsquares3.png) repeat-x bottom; 
+    height:160px; position:relative; top:-180px; 
+}
+.homepage div.bottom_main_container
+{
+     position:relative; top:-52px; 
+}
+
+
+
+div#da_logo 
+{
+    height:80px;
+}
+.homepage div#da_logo 
+{
+    height:111px;
+}
+
+#da_address 
+{
+    color:#333333;
+    display:inline;
+    float:left;
+    font-family:Arial,Verdana,Helvetica,sans-serif;
+    font-size:11px;
+    font-weight:500;
+    left:2px;
+    line-height:10px;
+    margin-left:26px;
+    padding-bottom:2px;
+    top:57px;
+    width:200px;
+}
+
+#da_header 
+{
+    clear:both;
+    display:block;
+    height:110px;
+    width:800px;
+    background-color:#FFFFFF;
+}
+
+div.da_header_date
+{
+    font-weight:bold;
+    color:#000000;
+    font-size:10px;
+}
+
+#da_top-tools 
+{
+    color:#990033;
+    font-weight:bold;
+    height:22px;
+    left:185px;
+    /* position:absolute; */
+    text-align:right;
+    top:13px;
+    vertical-align:bottom;
+    width:590px;
+    z-index:1;
+}
+
+div#container 
+{ 
+    padding:0;
+    position:relative;
+    top:0;
+    width:800px;
+    z-index:1;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+/* ===========  TABS ==============*/
+
+ul#da_nav li a 
+{
+    line-height:13px;
+    -moz-border-radius-topleft:10px; 
+    -moz-border-radius-topright:10px; 
+    -webkit-border-top-left-radius:  10px;  
+    -webkit-border-top-right-radius: 10px;
+    -khtml-border-top-left-radius:10px; 
+    -khtml-border-top-right-radius:10px; 
+    border-top-left-radius:10px; 
+    border-top-right-radius:10px; 
+    height:24px;
+    margin-bottom:-1px;
+    margin-left:4px;
+    margin-top:3px;
+    min-height:12px;
+    font-size:12px;
+    padding:3px 3px 6px; 
+}
+
+ul#da_nav li.gold a{ background-color: #9E7012; }
+ul#da_nav li.gold a:hover{background-color: #B08429;}
+ul#da_nav li.maroon a{background-color: #830330;}
+ul#da_nav li.maroon a:hover{background-color: #93113F;}
+ul#da_nav li.blue a{background-color: #7D8F91;}
+ul#da_nav li.blue a:hover{background-color: #A3B3B5;}
+ul#da_nav li.green a{background-color: #6A704C;}
+ul#da_nav li.green a:hover{background-color: #898E72;}
+ul#da_nav li.purple a{background-color: #552F54;}
+ul#da_nav li.purple a:hover{background-color: #754E74;}
+
+
+ul#da_nav a 
+{
+    background:none repeat scroll 0 0 #830330;
+    color:#FFFFFF;
+    float:left;
+    font-size:7.5pt;
+    font-weight:bold;
+    padding:2px 1px 6px;
+    text-decoration:none;
+    width:98px;
+}
+
+div.navigation_bar a.dropdown  
+{
+    background:url(/template/standard/images/homepage/arrow-down.gif) no-repeat 0px 5px;
+}
+
+div.navigation_bar a.dropdown:hover  
+{
+    background:url(/template/standard/images/homepage/arrow-down2.gif) no-repeat 0px 5px;
+}
+
+ul.menu
+{
+    margin:0px;
+    padding:0px;
+}
+
+ul.menu li
+{
+    list-style-type:none;
+    margin:0px;
+    padding:0px;
+}
+
+a.menu
+{
+    display:block;
+    padding:3px;
+}
+
+a.menu:hover{text-decoration:none;}
+
+div#da_menu 
+{
+    display:inline;
+    float:right;
+    font-family:Arial,Verdana,Helvetica,sans-serif;
+    left:242px;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:52px;
+    width:550px;
+}
+
+.homepage div#da_menu 
+{
+    top:83px;
+}
+
+div.navigation_bar
+{
+    width:800px;
+    float:left;
+    background:#000000;
+    position:relative;
+    top:7px;
+    height:24px;
+    display:block;
+}
+
+ul#horizontal_bar
+{
+    margin:0px;
+    padding:0px;
+}
+
+ul#horizontal_bar li
+{
+    display:inline;
+    list-style-type:none;
+    margin:0;
+}
+ul#horizontal_bar li a
+{
+    color:#FFFFFF;
+    font-weight:bold;
+    font-size:12px;
+    padding:4px 10px 4px 14px;
+    line-height:24px;
+    text-decoration:none;
+}
+
+ul#horizontal_bar li a:hover
+{
+    color:#CCCCCC;
+}
+
+.homepage #about, .homepage #apply, .homepage #reginfo2, .homepage #reginfo, .homepage #clas, .homepage #divdepts, .homepage #stuser
+{
+    top:140px; 
+    background:#161616;
+    z-index:100;
+}
+
+.homepage #reginfo { top:160px; }
+
+a.menu:active,a.menu ,a.menu:visited,a.menu:link 
+{
+    background-color: inherit;
+    color:#FFFFFF;
+}
+
+#about { left:0px; }
+#apply {left:152px; }
+#reginfo2,#reginfo {left:352px; }
+#reginfo{top:131px;}
+#clas {left:370px; width:210px; }
+#divdepts {left:578px;}
+#stuser { left:598px;}
+
+#about a.menu:hover,#apply a.menu:hover,div#clas a.menu:hover,div#stuser a.menu:hover
+{
+    background-color:#272727;
+}
+
+#reginfo2 a.menu:hover, #reginfo a.menu:hover, #divdepts a.menu:hover 
+{
+    background-color:#373737;
+}
+
+#reginfo2, #reginfo, #divdepts
+{
+    background:#272727;
+}
+
+a.menu.arrow{background:url(/template/standard/images/homepage/arrow-right.png) no-repeat 180px center; }
+#clas a.menu.arrow{background:url(/template/standard/images/homepage/arrow-right.png) no-repeat 190px center transparent; }
+
+
+#footer 
+{
+    background:none;
+    color:#000000;
+    display:block;
+    font-family:Verdana,Arial,Helvetica,sans-serif;
+    font-size:10pt;
+    font-weight:bold;
+    height:18px;
+    left:0px;
+    line-height:18px;
+    padding:0px;
+    position:relative;
+    white-space:nowrap;
+    width:799px;
+    margin:0px;
+    text-align: center;    
+    z-index: 3; 
+}
+
+.homepage #footer 
+{
+    left:-2px;
+    margin:10px 0 0;
+}
+
+#footer a, #footer a:link
+{
+    color:#000000;
+    text-decoration:none;
+}
+
+#footer a:hover
+{
+    text-decoration:underline;
+}
+
+#footer a:active, #footer a:visited
+{
+    color:#DBB320;
+}
+
+#footer a:hover
+{
+    color:#ffffff;
+}
+
+#footer a.rotating_images img
+{
+    padding:2px;
+    margin:0px 6px;
+    border:none;
+}
+
+#footer a.rotating_images#first img
+{
+    margin-left:0px;
+    margin-right:9px;
+}
+
+#footer a.rotating_images#first:hover img
+{
+
+}
+
+#footer a.rotating_images#last img
+{
+    margin-right:0px;
+    margin-left:9px;
+}
+#footer a.rotating_images#last:hover img
+{
+
+}
+
+#footer a.rotating_images:hover img
+{
+    padding:0px;
+    border:solid 2px #8c042c;
+    margin: 0px 6px;
+}
+
+#footer td.bar {background:#000000; padding:6px;}
+
+div.footer_address
+{
+    font-weight:bold;
+    margin-bottom:8px;
+    letter-spacing:1.3px;
+    font-size:12px;
+}
+.smlink 
+{
+    padding:6px;
+    font-size:12px;
+}
+
+ul.list_links
+{
+    margin:0px 0px 0px 4px;
+    padding: 0px 0px 6px 6px; /* top, right, bottom, left */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color:#FFFFFF;
+
+}
+
+ul.list_links li.more_news
+{
+
+    font-style:italic;
+}
+
+ul.list_links li
+{
+    list-style-type:none;
+    font-size:12px;
+}
+
+ul.list_links li a
+{
+    text-decoration:none;
+}
+
+ul.list_links li a:hover
+{
+    text-decoration:underline;
+}
+
+
+div.left_column
+{
+    margin:4px 4px;
+}
+
+div.left_column li
+{
+    margin:0px 0px 3px 0px;
+}
+
+ul.list_links#events
+{
+
+}
+
+div.left_column ul#events li 
+{
+    list-style-type:none;
+    color:#61325f;
+    padding:0px 0px 4px 0px;
+    line-height:14px;
+}
+
+ul.list_links#calendar
+{
+}
+
+ul.list_links#community
+{
+}
+
+div.right_column
+{
+    margin:0px 4px;
+}
+
+div.right_column ul.list_links 
+{
+    padding:0 6px 6px;
+}
+div.right_column li
+{
+    padding:1px 0px;
+    font-weight:bold;
+}
+
+div.right_column ul.list_links li a
+{
+    padding:0 6px 6px;
+    text-decoration:none;
+}
+
+div.right_column ul.list_links li a:hover
+{
+    text-decoration:underline;
+}
+
+h3.list_links_header 
+{
+    color:#61325f;
+    font-size:15px;
+    padding: 6px 0px 2px 4px;
+    margin:2px 0 1px 6px;
+    display:block;
+}
+
+ul.list_links#catalog
+{
+    margin: 10px 0px 4px ;
+    padding:0 6px 6px 0; 
+}
+ul.list_links#catalog li a
+{
+    padding:0 6px 6px 0px;
+}
+
+div.right_column_bottom
+{
+    width:260px;
+    font-size:12px;
+    padding:0 10px 10px 0;
+}
+
+h3.gold_title
+{
+    font-size:14px;
+    color:#9e7012;
+    padding: 6px 0px 2px;
+    margin: 4px 2px 0px;
+}
+
+div.stay_connected 
+{
+    padding:0px ;
+    margin:0px;
+    font-size:11px;
+    line-height:20px;
+}
+
+div.stay_connected img
+{
+    vertical-align:baseline;
+    padding:2px 6px 2px 0px;
+    float:left;
+}
+
+div.stay_connected h3
+{
+    font-size:16px;
+    color:#8c042c;
+    padding: 2px 0px 2px;
+    margin: 4px 0px 2px;
+    display:block;
+}
+
+div.share_save
+{
+    padding-top:6px;
+}
+div.donate_logo
+{
+    padding:0px 0 0;
+}
+
+div.maroon_background_bar
+{
+    background-color:#830330;
+    color:#FFFFFF;
+    min-height:66px;
+    padding:10px 10px 22px;
+    border:solid 1px #000000;
+}
+
+div.maroon_background_bar a, div.maroon_background_bar a:link,div.maroon_background_bar a:visited, div.maroon_background_bar a:hover
+{
+    color:#FFFFFF;
+}
+
+div.arch_framed_image
+{ 
+    height:448px;
+    position:relative;
+    top:-23px;
+    width:362px;
+    overflow:hidden;
+}
+
+div.background_right
+{
+    background: #9E7113 url(/template/standard/images/homepage/backgroundright.gif) no-repeat  left 20px; /* left top positioning */
+    height:865px; /* this determines the position of the bottom yellow squares, in home */
+    width:200%;
+    position:absolute;
+    left:800px;
+}
+
+div.background_left
+{
+    background: #9E7113 url(/template/standard/images/homepage/backgroundleft.gif) no-repeat right 20px;
+    height:865px; /* this determines the position of the bottom yellow squares, in home */
+    width:200%;
+    right:800px;
+    position:absolute;
+}
+
+/*  GALLERY SLIDESHOW */
+div.slideshow span.image-wrapper {display:block;left:0;position:absolute;top:0;}
+#slideshow a{text-decoration:none;}
+#slideshow img{border:none;}
+div#controls{float:left;position:absolute;right:145px;top:450px;}
+div#controls a, a.prev,a.next,a.play, div#controls a img{border:none;}
+div.ss-controls{float:left;display:inline;width:13px;padding:4px;}
+div.nav-controls{float:left;display:inline;width:13px;padding:4px;}
+div.nav-controls a.prev {background:url(/template/standard/images/homepage/prev.jpg); width:16px; height:16px;display:block;}
+div.nav-controls a.prev:hover {background:url(/template/standard/images/homepage/prev.jpg) 32px top;  width:16px; height:16px;}
+div.nav-controls a.prev:active{background:url(/template/standard/images/homepage/prev.jpg)  16px top;  width:16px; height:16px;}
+div.nav-controls a.next {background:url(/template/standard/images/homepage/next.jpg); width:16px; height:16px;display:block;}
+div.nav-controls a.next:hover {background:url(/template/standard/images/homepage/next.jpg) 32px top;   width:16px; height:16px;}
+div.nav-controls a.next:active {background:url(/template/standard/images/homepage/next.jpg)  16px top; width:16px; height:16px;}
+div.ss-controls a.pause {background:url(/template/standard/images/homepage/pause.jpg); width:16px; height:16px;display:block;}
+div.ss-controls a.pause:hover {background:url(/template/standard/images/homepage/pause.jpg) 32px top;  width:16px; height:16px;}
+div.ss-controls a.pause:active {background:url(/template/standard/images/homepage/pause.jpg) 16px top;  width:16px; height:16px;}
+div.ss-controls a.play {background:url(/template/standard/images/homepage/play.jpg); width:16px; height:16px;display:block;}
+div.ss-controls a.play:hover {background:url(/template/standard/images/homepage/play.jpg) 32px top;   width:16px; height:16px;}
+div.ss-controls a.play:active {background:url(/template/standard/images/homepage/play.jpg) 16px top;  width:16px; height:16px;}
+div.caption { color:#CCCCCC; padding:6px; }
+div.caption{  }
+div#caption { display:block; left:5px;  margin:6px; position:absolute; top:389px; }
+span.image-caption {  height:42px; display:block; position:absolute; width:340px; }
+div.image-title{ font-size:16px; font-weight:bold; color:#ffffff; text-transform:uppercase; font-variant:small-caps; font-family:Verdana, Arial, Helvetica, sans-serif; }
+div.image-desc{ font-size:12px; }
+div.image-desc a, div.image-desc a:visited, div.image-desc a:link{ color:#F3BE88; }
+div.image-desc a:hover{ color:#FFFFFF; }
+/* END OF GALLERY SLIDESHOW */
+
+</style>
+
+
+
+<!--  ==== end css include ==== -->
+
+<!--  === JAVASCRIPT INCLUDE === -->
+	
+
+<style type="text/css">  ul#da_nav li a,ul#da_nav li a:hover  {background: url(/template/standard/images/homepage/tab_corner_top.png) no-repeat top;} </style>
+
+<!-- Google Analytics, installed by De Anza Web Team -->
+<script type="text/javascript">
+var gaJsHost = "" ;
+if(document.location.protocol) {
+  gaJsHost = (("https:" == document.location.protocol) ?"https://ssl." : "http://www.");
+}else if(window.location.protocol){
+  gaJsHost = (("https:" == window.location.protocol) ?"https://ssl." : "http://www.");
+}else{
+  gaJsHost = "http://www." ;
+}
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- End Google Analytics -->
+<style type="text/css">
+  
+.notices1 
+{ 
+    position: absolute;
+    top: 175px;
+    left: 15px;
+    width: 170px;
+    height: 146px;
+    font-size: 9pt;
+}
+
+.slide_image
+{
+    position:absolute;
+    border:none;
+}
+
+a.arch_images_link 
+{
+    border:none;
+}
+
+div.caption 
+{
+    padding:5px 6px 6px;
+}
+
+.caption_container
+{
+    width:336px;
+    z-index:3;
+    position:absolute;
+    left:12px;
+    top:396px;
+}
+
+.caption
+{
+    position:absolute;
+    background-color:#000000;
+    top:396px;
+    left:12px; 
+    width:326px; 
+}
+
+div.slide img, div.slide div.image-title, div.slide div.image-desc{position:relative;}
+div#slide_controls{float:left;position:relative;left:145px;top:-16px;}
+div#slide_controls a, a.prev,a.next,a.play, div#slide_controls a img{border:none;cursor:pointer;}
+div.slide_controls a{float:left;display:inline;width:13px;margin:4px;}
+div.slide_controls a.prev {background:url(/template/standard/images/homepage/prev.jpg); width:16px; height:16px;display:block;}
+div.slide_controls a.prev:hover {background:url(/template/standard/images/homepage/prev.jpg) 32px top;  width:16px; height:16px;}
+div.slide_controls a.prev:active{background:url(/template/standard/images/homepage/prev.jpg)  16px top;  width:16px; height:16px;}
+div.slide_controls a.next {background:url(/template/standard/images/homepage/next.jpg); width:16px; height:16px;display:block;}
+div.slide_controls a.next:hover {background:url(/template/standard/images/homepage/next.jpg) 32px top;   width:16px; height:16px;}
+div.slide_controls a.next:active {background:url(/template/standard/images/homepage/next.jpg)  16px top; width:16px; height:16px;}
+div.slide_controls a.pause {background:url(/template/standard/images/homepage/pause.jpg); width:16px; height:16px;display:block;}
+div.slide_controls a.pause:hover {background:url(/template/standard/images/homepage/pause.jpg) 32px top;  width:16px; height:16px;}
+div.slide_controls a.pause:active {background:url(/template/standard/images/homepage/pause.jpg) 16px top;  width:16px; height:16px;}
+div.slide_controls a.play {background:url(/template/standard/images/homepage/play.jpg); width:16px; height:16px;display:block;}
+div.slide_controls a.play:hover {background:url(/template/standard/images/homepage/play.jpg) 32px top;   width:16px; height:16px;}
+div.slide_controls a.play:active {background:url(/template/standard/images/homepage/play.jpg) 16px top;  width:16px; height:16px;}
+
+</style>
+
+</head>
+<body class="homeground homepage">
+
+<div class="top_main_container">
+
+<div id="container">
+
+<div id="da_header" class="homepage">
+        <!-- LOGO -->
+        <div id="da_logo">
+        <a href="/" title="De Anza College &bull; 21250 Stevens Creek Blvd. &bull; Cupertino, CA 95014 "><img src="/template/standard/images/homepage/DeAnza_Logo_96px.jpg" style="border:none; margin:8px 0px 0px 6px;" width="233" height="96" alt="De Anza College &bull; 21250 Stevens Creek Blvd. &bull; Cupertino, CA 95014" /></a>
+    <!-- <div id="da_address">
+          21250 Stevens Creek Blvd. <br>
+         Cupertino, CA 95014 &bull; 408.864.5678  
+          </div>     -->
+        </div>
+    
+        <div id="da_top-tools">    
+        <!-- SEARCH -->
+        <form id="search" name="search" method="get" action="http://gsearch2.fhda.edu/search">
+        <div class="da_header_date">May 6, 2012</div>
+        
+        <input type="hidden" name="site" value="Main_Crawl" />
+        <input type="hidden" name="client" value="Main_Crawl" />
+        <input type="hidden" name="proxystylesheet" value="Main_Crawl" />
+        <input type="hidden" name="output" value="xml_no_dtd" />    
+       &nbsp;&nbsp;&nbsp; <input type="text" size="20" name="q" id="q" value=" Search" style="height:18px;border:inset 1px #9e7012;"  onclick="ClearIfAppropriate();" /> <!-- onblur="focused = false;" -->
+        <input type="image" name="btnG" src="/template/standard/images/homepage/Go-Button.jpg"  onmouseover="this.src='/template/standard/images/homepage/Go-Button_hover.jpg'" onmouseout="this.src='/template/standard/images/homepage/Go-Button.jpg'" style="width: 27px;  margin-bottom:-3px; height: 27px;vertical-align:bottom;" alt="Search" /> &nbsp; <span class="toplinks"><a href="/directory/dir-az.html">A-Z Index</a>&nbsp;&bull;&nbsp;<a href="/directory/">Directories</a>&nbsp;&bull;&nbsp;<a href="comment.html">Contact</a></span></form>
+        </div> 
+        
+        
+ <!-- TABS MENU -->        
+    <div id="da_menu" class="home"> <!-- navigation-tabs -->
+        <ul id="da_nav">
+            <li class="gold"><a href="/students/"  id="students" title="Current Students" >Current<br /> Students</a></li>    
+            <li  class="green"><a href="/outreach/" id="outreach">Future Students <br />&amp; Parents</a></li>
+            <li  class="blue"><a href="/international/" id="international">International Students</a></li>
+            <li  class="maroon"><a href="/faculty/" id="faculty">Faculty <br /> &amp; Staff</a></li>
+            <li  class="purple"><a href="/community/" id="friends">Community,<br />Alumni &amp; Donors</a></li>    
+        </ul>
+    </div>  <!-- //navigation-tabs -->    
+
+    <div class="navigation_bar">
+        <ul id="horizontal_bar">
+            <li style="width:16%; display:inline-block; padding-left:8px;">
+                <a href="/about/" onmouseover="showabout();" onmouseout="hideabout();" alt="About De Anza"  class="dropdown" >About De Anza</a></li>
+            <li style="width:26%; display:inline-block;text-align:center;">
+                <a href="/admissions/appregmenu.html" onmouseover="showapply();" 
+                    onmouseout="hideapply();" alt="Apply and Register" class="dropdown" >Admissions & Registration</a></li>
+            <li style="width:24%; display:inline-block;text-align:center;">
+                <a href="/courseinfo/" onmouseover="showclas();" onmouseout="hideclas();" alt="Course Information" 
+                class="dropdown" >Course Information</a></li>
+            <li style="width:12%; display:inline-block;text-align:center;">
+                <a href="/library/" alt="Library" >Library</a></li>
+            <li style="width:18%; display:inline-block;text-align:right;">
+                <a href="/studentservices/" onmouseover="showstuser();" onmouseout="hidestuser();" 
+                class="dropdown" alt="Student Services" >Student Services</a></li>
+        </ul>
+    </div>       
+        
+</div>
+
+<!-- CONTENT BEGINS. DO NOT CHANGE ORDER. -->
+
+    <!-- MAROON BACKGROUND MAIN NEWS BAR -->	
+    <div class="maroon_background_bar">
+     
+      <div align="center">
+      <p>
+      
+                                          
+                    
+                    <!-- COMMENT TIMEOUT CODE -->                    
+                    <strong>PLAN FOR   SUMMER CLASSES </strong> <br />
+        View <a href="/schedule/">searchable schedule</a>. Continuing student <a href="/calendar/summer2012.html">registration starts</a> June 7.
+        <br />
+        <br />
+        <strong>NEW STUDENTS:</strong>        Reserve a seat today for a <a href="http://daappointments.deanza.edu/NewStudent/eSARS.asp">Getting Started presentation</a> at our <a href="/outreach/openhouse.html">Open House</a> on May 12. <br />
+        Then plan to take <a href="/counseling/newstudents.html">COUN 200: Orientation to College</a> this summer. <a href="/registration/myinfo.html">APPLY NOW!</a> <br />
+       
+      
+      </div>
+    </div> <!--    //maroon_background_bar -->
+     <!-- END OF MAROON BACKGROUND MAIN NEWS BAR -->   
+ 
+ <!-- ======================= -->
+ <!-- MAIN CONTENT SPACE HERE -->
+ <!-- ======================= -->
+ <div class="main_container">
+   <table width="100%" border="0" cellspacing="0" cellpadding="0px">
+     <tr>
+     <!-- ================================================================================================= -->
+ 	 <!--      LEFT COLUMN                                                                                  -->
+     <!-- ================================================================================================= -->
+      <td  width="218" rowspan="2"  valign="top" style="padding: 54px 10px 0px 0px;">       
+        <div class="left_column" style="width:201px; overflow:hidden;">
+
+            <h3 class="list_links_header" style="font-size:16px;">NEWS &amp; EVENTS </h3>                 
+
+            <a href="/news/"><img src="/images/grad-openhouse-2012x115.jpg" alt="Female and male graduates" width="115" height="93" border="0" style="width:115px; height:93px; padding:0px;border:solid 2px #8c042c;margin:3px 0px 8px 10px;" /></a>
+
+            <ul class="list_links" id="events">
+			
+			
+			    <li><a href="/counseling/">Attend May 9 Graduation Open House to apply for your degree </a></li>
+			    <li><a href="/ecopass/"> Order your  DASB Eco Pass and get unlimited rides on VTA </a></li>  
+			   <li><a href="/transfercenter/repvisits.html">Check out   the university  transfer advising visits for spring</a></li> 
+			  
+			 
+			  	  
+			   
+			  
+			 
+			
+			 
+			  
+			  
+			   
+			  
+			  
+			   
+			  
+               
+			  
+			  			   
+			   <li class="more_news"><a href="/news/">More news </a></li>
+            </ul>
+
+            <h3 class="list_links_header" style="font-size:14px;">Events Calendar </h3>                 
+            <ul class="list_links" id="calendar">
+
+
+<li><a href="/eventscalendar/week.php?date=20120401"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="/eventscalendar/view_entry.php?id=1322&amp;date=20120505" class="last">Flea Market</a> 5/5</li>
+<li><a href="/eventscalendar/week.php?date=20120506">AB540 Awareness Week</a> 5/7-5/10</li>
+<li><a href="/eventscalendar/view_entry.php?id=1397&amp;date=20120507">Banned Books on Display</a> 5/7-6/13</li>
+<li><a href="/eventscalendar/view_entry.php?id=1424&amp;date=20120508">Student Art Show</a> 5/8-6/14</li>
+<li><a href="/eventscalendar/view_entry.php?id=1395&amp;date=20120508" class="last">Author Cherrie Moraga</a> 5/8</li>
+<li><a href="/eventscalendar/view_entry.php?id=1392&amp;date=20120510">Slaying the Dragon</a> 5/10</li>
+
+
+
+
+
+
+
+<!--<li><a href="eventscalendarURL">DescriptiveText</a> da/te</li>-->
+									
+									
+<li class="more_news"><a href="http://www.deanza.edu/eventscalendar/month.php">More events</a></li>
+            </ul>
+ 
+            <h3 class="list_links_header" style="font-size:14px;">Visit  Us </h3>
+            <ul class="list_links" id="community">
+                <li><a href="http://www.deanza.edu/athletics/">Athletics Game Schedules</a></li>
+                <li><a href="/califhistory/">California History Center</a>  </li>
+                <li><a href="http://www.deanza.edu/euphrat/">Euphrat Museum of Art</a></li>
+                <li><a href="http://www.deanza.edu/planetarium/">Fujitsu Planetarium Shows</a></li>
+                <li><a href="http://www.deanza.edu/kirschcenter/">Kirsch Center </a></li>
+                <li><a href="http://www.deanza.edu/map/directions.html">Directions to De Anza</a></li>
+                <li><a href="http://www.measurec.fhda.edu/" target="_blank">Measure C Bond Program</a> </li>
+            </ul>
+
+        </div> <!-- //left_column -->
+    <!-- ================================================================================================= -->                
+    </td>   
+    
+            
+      <!-- ============================= -->
+      <!--      CENTER TOP COLUMN        -->
+      <!-- ============================= -->
+ 	  <td width="362" align="left" valign="top">       
+        
+            <div class="arch_framed_image" id="rotator">
+
+    <!-- ==================================================================== -->
+    <!--                SLIDER CYCLE                                          -->
+    <!-- ==================================================================== --> 
+    
+                <div class="slideshow">
+                    <div class="slide" id="img_div">
+                        <img class="slide_image" alt="Textbooks" src="/template/standard/images/homepage/arch-frame-firstimage.jpg" width="362" height="448" id="primaryImage" />
+
+                        <!-- IMAGE CAPTION -->
+                        <div class="caption" id="slidecaption" style="z-index:10;">                            
+                        <div class="image-title" style="font-size:12px;">De Anza College. Just What You Need.</div><div class="image-desc" style="float:right;"><a href="/outreach/">Welcome future students and parents!</a></div>
+                    </div> 
+                </div>
+
+
+            </div> <!-- // end slideshow container-->  
+            
+      </div>      
+      
+        <!-- //arch_framed_image -->     
+	 <!-- ============================= -->
+     <!-- slideshow navigation buttons  -->
+     <!-- ============================= -->
+     
+            
+         <div class="slide_controls" id="slide_controls">
+         
+         <a title="Prev"  id="prev" class="prev" onclick="revSlide();" ></a>
+         
+         <a title="Pause/Play" id="pauseButton" class="pause" onclick="pausePlaySlide();" ></a>
+         
+         <a title="Next"  id="next" rel="history" class="next" onclick="advSlide();" ></a>
+         
+         </div>	 
+              </td>
+       
+      <!-- =================================================================== -->
+      <!--        RIGHT COLUMN                                                 -->
+      <!-- =================================================================== -->
+      <td  width="218"  valign="top" style="text-align:right; padding: 60px 0px 0px;">
+       
+         <div class="right_column" style="width:212px; overflow:hidden;">
+         <a href="/registration/myinfo.html">
+         <img src="/template/standard/images/homepage/MyPortaLogo.jpg"  onmouseover="this.src='/template/standard/images/homepage/MyPortal3DAlice_hover.jpg';" onmouseout="this.src='/template/standard/images/homepage/MyPortaLogo.jpg';"  alt="My Portal Logo" border="0" style="border:none;padding:0px 6px;" /></a>
+            <ul class="list_links">
+			<li><a href="/registration/myinfo.html">APPLY ONLINE  </a></li>
+			<li><a href="/registration/current.html">Getting Started &bull; How to Enroll</a></li>
+			<li><a href="/calendar/">Academic Calendar</a></li>
+			<li><a href="/courseinfo/majors.html">Degrees &amp; Programs</a></li>
+			<li><a href="/registration/">Register for Classes </a></li>
+			<li><a href="/admissions/placement/prereqclear.html">Prerequisite Clearance  </a></li>
+            <li><a href="/financialaid/">Financial Aid &amp; Scholarships</a></li>
+            <li><a href="/map/">Maps, Directions &amp; Parking</a></li>
+            <li><a href="/vtour/">Take a Virtual Tour!</a></li>
+            
+            </ul>
+			
+			 <ul class="list_links" id="catalog">			 		 
+			 <li><a href="/schedule/">Spring Schedule &amp; Catalog</a></li> 			 			 
+             <li><a href="/schedule/"><img src="/template/standard/images/homepage/catalogIcons.jpg" alt="Schedule &amp; Catalog" border="0" style="border:none;padding:2px 0px 2px 6px;" title="Check out the schedule and catalog"  /></a></li>
+            </ul>  	
+			</div><!-- //right_column --> 
+			<!-- =================================================================== -->
+           </td>
+           
+     </tr>
+     <tr>
+       <td width="580" colspan="2" valign="top">
+        <!-- ====================================================================== -->
+ 	    <!--      CENTER BOTTOM COLUMN   	                                        -->		
+        <!-- ====================================================================== -->
+        <!-- =============================== -->
+        <!--      CENTER BOTTOM COLUMN       -->
+        
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>            
+            <td width="120">            
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+            <div class="stay_connected">
+                <h3>STAY CONNECTED</h3> 
+                <a href="/itunesu/" target="_blank"><img src="/template/standard/images/homepage/iTunes.png" alt="iTunes" border="0" /></a><a href="/itunesu/" target="_blank">De Anza iTunes U</a> <br />
+                <a href="http://www.facebook.com/pages/Cupertino-CA/De-Anza-College/34410694953?ref=search" target="_blank"><img src="/template/standard/images/homepage/facebook.png" alt="facebook" border="0" /></a> 
+                <a href="http://www.facebook.com/pages/Cupertino-CA/De-Anza-College/34410694953?ref=search" target="_blank">Become a Fan</a> <br />   
+                
+                <div class="share_save">
+                <a href="http://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.deanza.edu%2F&amp;title=De%20Anza%20College%20Home%20Page&amp;description=" class="a2a_dd">
+                <img width="171" height="16" border="0" alt="Share/Bookmark" src="/template/standard/images/homepage/share_save_171_16.png" style="border-width: 0pt;"></a>
+                </div><!--//share --> 
+
+                </div><!--//stay connected --> </td>
+            <td align="center" valign="middle"> <div class="donate_logo"><a href="http://foundation.fhda.edu/" target="_blank"> 
+          <img src="/template/standard/images/homepage/givenow.jpg" onmouseover="this.src='/template/standard/images/homepage/givenow_hover.jpg';" onmouseout="this.src='/template/standard/images/homepage/givenow.jpg';" alt="givenow"  border="none"/> </a> 
+          
+                <a href="/accreditation/"><img src="template/standard/images/homepage/buttonaccreditation.gif" alt="Accreditation 2011" border="0" /></a>
+				  <a href="/dss/"><img src="template/standard/images/homepage/button-ada.jpg" alt="Accreditation 2011" width="128" height="51" border="0" /></a>
+          
+          </div>
+            
+           </td>
+          </tr>
+        </table>
+        
+          <!-- ==========       end of center bottom              ================== --> 
+          </td> 
+          <!-- ====================================================================== -->          
+          
+           <!-- ====================================================================== -->  
+           <!-- ==========            BOTTOM RIGHT AREA                =============== -->    
+          <td align="right">                    
+                <div class="right_column_bottom"> 
+				
+				
+				
+                    
+               			<h3 class="gold_title">Prerequisite Requirements   </h3>
+                        
+                    When planning which classes to take,   <br />
+                    always check the schedule of classes for <br />
+                    <a href="/registration/prerequisites.html">prerequisite/corequisite
+                    requirements</a>.<br />
+                    <br />
+					
+					
+					<h3 class="gold_title">Student Success Center    </h3>
+                        
+                    Get the help you need early! Check out <br />
+                    <a href="/studentsuccess/">tutorial and academic skills 
+                    services</a> offered through our Student Success Center.
+                    <br />
+                    <br />
+                      
+					
+					
+					
+					
+					
+                </div>
+                <!-- //right_column_bottom --> 
+              <!-- ==========            END OF BOTTOM RIGHT AREA        =============== -->  
+             <!-- ====================================================================== -->    
+            </td>
+          </tr>
+        </table>          
+        
+        
+         </td>
+       </tr>
+   </table>
+ </div> <!-- //div.main_container -->
+ <!-- END OF MAIN CONTENT SPACE HERE --> 
+ 
+<script type="text/javascript">
+
+
+/* Brad updated: 11/23/2010, eliminated old IE 5 and Navigator code */
+
+// About
+function showabout()
+{
+    document.getElementById('about').style.visibility = "visible";
+}
+
+function hideabout()
+{    
+    document.getElementById('about').style.visibility = "hidden";
+}
+
+// Apply and Register
+function showapply()
+{    
+    document.getElementById('apply').style.visibility = "visible";
+}
+
+function hideapply()
+{    
+    document.getElementById('apply').style.visibility = "hidden";
+}
+
+// Apply and Register > Admissions
+function showadinfo()
+{    
+    document.getElementById('reginfo2').style.visibility = "visible";
+    document.getElementById('apply').style.visibility = "visible";
+}
+
+function hideadinfo(hidechild)
+{    
+    document.getElementById('reginfo2').style.visibility = "hidden";
+    document.getElementById('apply').style.visibility = "hidden";
+}
+
+// Apply and Register > Registration
+function showreginfo()
+{
+    document.getElementById('reginfo').style.visibility = "visible";
+    document.getElementById('apply').style.visibility = "visible";
+}
+
+function hidereginfo(hidechild)
+{    
+    document.getElementById('reginfo').style.visibility = "hidden";
+    document.getElementById('apply').style.visibility = "hidden";
+}
+
+// Course Information
+function showclas()
+{    
+    document.getElementById('clas').style.visibility = "visible";
+}
+
+function hideclas()
+{    
+    document.getElementById('clas').style.visibility = "hidden";
+}
+
+// Course Information > Divisions and Departments
+function showdivdepts()
+{    
+    document.getElementById('clas').style.visibility = "visible";
+    document.getElementById('divdepts').style.visibility = "visible";
+}
+
+function hidedivdepts(hidechild)
+{    
+    document.getElementById('clas').style.visibility = "hidden";
+    document.getElementById('divdepts').style.visibility = "hidden";
+}
+
+// Student Services
+function showstuser()
+{    
+    document.getElementById('stuser').style.visibility = "visible";
+}
+
+function hidestuser()
+{    
+    document.getElementById('stuser').style.visibility = "hidden";
+}
+
+</script>
+
+ <!-- END OF CONTENT  Do not edit under there -->  
+
+ <!-- footer-home.inc -->
+<!-- bottom photos -->
+<div id="footer">     
+
+
+  <!-- < d i v class = "bottompics" > --> 
+  
+    <a class="rotating_images" id="first" href="/campus_art/"><img src="/template/standard/images/homepage/rotatingimages/art06.jpg" width="143" height="125" alt="Mural detail - Sublimnalities by John da Guia, Andy Gouveia, Rebecca Hartman, Erin Kawamata, Josh Luke, Maria Pungnetti and Micheal Selby" /></a> 
+    <a class="rotating_images" href="/sustainability/"><img src="/template/standard/images/homepage/rotatingimages/sustain06.jpg" width="143" height="125" alt="Student cycling to class" /></a> 
+    <a class="rotating_images" href="/collegelife/"><img src="/template/standard/images/homepage/rotatingimages/college06.jpg" width="143" height="125" alt="Study group in Sunken Garden" /></a>  
+    <a class="rotating_images" href="/athletics/"><img src="/template/standard/images/homepage/rotatingimages/athletics06.jpg" width="143" height="125" alt="" /></a>
+    <a class="rotating_images" id="last" href="/vtour/"><img src="/template/standard/images/homepage/rotatingimages/support01.jpg" width="143" height="125"   alt="Study group in Sunken Garden" style="margin-right:0px" /></a>
+    
+    <div align="center" style="padding:6px;">
+        <img src="/template/standard/images/homepage/JustWhatYouNeed.jpg" alt="Just What You Need"/>
+    </div>
+    
+<!-- text navigation at bottom of page -->
+        
+    <div align="center" class="footer_address">
+         21250 Stevens Creek Blvd.  &#9642;  Cupertino, CA 95014  
+    </div>
+
+    <p style="margin:0px;line-height:14px;"> 
+        <a class="smlink" href="/students/">Current Students</a>   &#9642;  
+        <a class="smlink" href="/outreach/">Future Students &amp; Parents</a>   &#9642; 
+        <a class="smlink" href="/international/">International Students</a>  &#9642;  
+        <a class="smlink" href="/faculty/">Faculty &amp; Staff</a>   &#9642;   
+        <a class="smlink" href="/community/">Friends &amp; Community</a>   <br />  
+        
+        <a class="smlink" href="/about/">About De Anza</a>  &#9642;
+        <a class="smlink" href="/admissions/appregmenu.html">Admissions &amp; Registration</a>     &#9642;
+        <a class="smlink" href="/courseinfo/">Course Information</a>  &#9642;
+        <a class="smlink" href="/library/">Library</a>  &#9642;
+        <a class="smlink" href="/studentservices/">Student Services</a>  <br />
+        
+        
+        <a class="smlink"  style="line-height:22px;" href="http://www.fhda.edu">Foothill-De Anza Community College District</a> <br />        
+        <a class="smlink" style="line-height:22px;" href="/policies/privacy.html">Privacy Statement</a>  
+    </p>
+  
+    <br /> 
+ 
+  </div>
+
+<!-- Drop-down menus for the horizontal navigation bar at the top of the page -->
+<!-- About -->
+<div class='about' id='about' onmouseover='showabout();' onmouseout='hideabout();'>
+    <ul class='menu'>
+    <li><a class='menu'  href='/about/special.html'>Why De Anza?</a></li>
+    <li><a class='menu'  href='/about/offer.html'>What We Can Offer You</a></li>
+    <li><a class='menu'  href='/about/mission.html'>De Anza's Mission</a></li>
+    <li><a class='menu'  href='/accreditation/'>Accreditation</a></li>
+    <li><a class='menu'  href='/about/facts.html'>De Anza Fast Facts</a></li>
+    <li><a class='menu'  href='/map/'>Campus Map</a></li>
+    <li><a class='menu'  href='/parking/'>Parking</a></li>
+    <li><a class='menu'  href='/vtour/'>Campus Virtual Tour</a></li>
+    <li><a class='menu'  href='/about/campustour.html'>Sign Up for a Guided Tour</a></li>
+    <li><a class='menu'  href='/president/'>Office of the President</a></li>
+    <li><a class='menu'  href='/instruction/'>Office of Instruction</a></li>
+    <li><a class='menu'  href='/studentservices/'>Office of Student Services</a></li>
+    <li><a class='menu'  href='/outreach/'>Outreach &amp; Relations with Schools</a></li>
+    <li><a class='menu'  href='/about/jobs.html'>Job Opportunities</a></li>
+    <li><a class='menu'  href='http://www.foothill.edu'>Foothill College</a></li>
+    <li><a class='menu'  href='http://www.fhda.edu/'>Foothill-De Anza Community College District</a></li>
+    </ul>
+</div>
+<!-- Apply & Register -->
+<div class='apply' id='apply' onmouseover='showapply();' onmouseout='hideapply();'>
+    <ul class='menu'>
+    <li><a href='/registration/current.html' class='menu arrow' onmouseover='showadinfo();' onmouseout='hideadinfo();'>How to Apply and Register</a></li>
+    <li><a href='/registration/' class='menu arrow' onmouseover='showreginfo();' onmouseout='hidereginfo();'>Registration Info</a></li>
+    <li><a class='menu' href='/registration/cashier/'>Fees and Refunds</a></li>
+    <li><a class='menu' href='/financialaid/'>Financial Aid</a></li>
+    <li><a class='menu' href='/counseling/'>Counseling and Advising</a></li>
+    <li><a class='menu' href='/transfer/'>Transfer Planning</a></li>
+    <li><a class='menu' href='/admissions/placement/'>Placement Tests</a></li>
+    <li><a class='menu' href='/registration/forms.html'>Student Forms</a></li>
+    <li><a class='menu' href='/registration/transcript.html'>Transcripts</a></li>
+    <li><a class='menu' href='/registration/enrollverify.html'>Verify Degree / Enrollment</a></li>
+    <li><hr size='1' /></li>
+    <li><a class='menu' href='/registration/myinfo.html'><img src='/template/standard/images/homepage/myportal-logo-101x31white.gif' border='0' alt='My Portal' width='101' height='31' align='middle' /></a></li>
+    <li><a class='menu' href='/registration/myinfo.html'>Apply &amp; Register for Classes</a></li>
+    </ul>
+</div>
+
+<!-- Apply & Register  Admissions Info -->
+<div class='reginfo2' id='reginfo2' onmouseover='showadinfo();' onmouseout='hideadinfo();'>
+    <ul class='menu'>
+    <li><a class='menu' href='/registration/current.html'>Getting Started &bull; How to Enroll</a></li>
+    <li><a class='menu' href='/admissions/admreq.html'>Admission Requirements</a></li>
+    <li><a class='menu' href='/admissions/residency.html'>Residency Requirements</a></li>
+    <li><a class='menu' href='/admissions/policies.html'>College Policies and Guidelines</a></li>
+    <li><a class='menu' href='/admissions/faq.html'>Frequently Asked Questions</a></li>
+    <li><a class='menu' href='/admissions/contact.html'>Admissions and Records Office</a></li>
+    </ul>
+</div>
+
+<!-- Apply & Register  Registration Info -->
+<div class='reginfo' id='reginfo' onmouseover='showreginfo();' onmouseout='hidereginfo();'>
+    <ul class='menu'>
+    <li><a class='menu' href='/registration/'>Register for Classes</a></li>
+    <li><a class='menu' href='/calendar/'>Important Dates</a></li>
+    <li><a class='menu' href='/registration/add-drop.html'>Adding/Dropping Classes</a></li>
+    <li><a class='menu' href='/registration/waitinglists.html'>Waiting Lists</a></li>
+    <li><a class='menu' href='/registration/password.html'>MyPortal Password</a></li>
+    <li><a class='menu' href='/registration/photoid.html'>Photo ID</a></li>
+    </ul>
+</div>
+
+<!-- Course Information (Classes) -->
+<div class='clas' id='clas' onmouseover='showclas();' onmouseout='hideclas();'>
+    <ul class='menu'>
+    <li><a class='menu arrow' href='/directory/dir-depts.html' onmouseover='showdivdepts();' onmouseout='hidedivdepts();'>Instructional Divisions &amp; Depts.</a></li>
+    <li><a class='menu' href='/schedule/'>Schedule of Classes</a></li>
+    <li><a class='menu' href='/calendar/'>Academic Calendar/Final Exams</a></li>
+    <li><a class='menu' href='http://faculty.deanza.edu/'>Faculty Websites</a></li>
+    <li><a class='menu' href='/courseinfo/majors.html'>Degrees and Programs</a></li>
+    <li><a class='menu' href='/publications/catalog/'>College Catalog</a></li>
+    <li><a class='menu' href='/distance/'>Distance Learning</a></li>
+    <li><a class='menu' href='https://catalyst.deanza.edu/'>Catalyst Login</a></li>
+    <li><a class='menu' href='http://communityeducation.fhda.edu/'>Community Ed. Short Courses</a></li>
+    <li><a class='menu' href='/workforceed/'>Workforce Education</a></li>
+    </ul>
+</div>
+
+<!-- Course Information Divisions -->
+<div class='divdepts' id='divdepts' onmouseover='showdivdepts();' onmouseout='hidedivdepts();'>
+    <ul class='menu'>
+    <li><a class='menu' href='/appliedtech/'>Applied Technologies</a></li>
+    <li><a class='menu' href='/bhes/'>Biological, Health and Environmental Sciences</a></li>
+    <li><a class='menu' href='/buscis/'>Business/Computer Systems</a></li>
+    <li><a class='menu' href='/counseling/'>Counseling</a></li>
+    <li><a class='menu' href='/creativearts/'>Creative Arts</a></li>
+    <li><a class='menu' href='/dsps/'>Disability Support Programs &amp; Services (DSPS)</a></li>
+    <li><a class='menu' href='/iis/'>Intercultural/International Studies</a></li>
+    <li><a class='menu' href='http://group.deanza.edu/languagearts/'>Language Arts</a></li>
+    <li><a class='menu' href='/learningresources/'>Learning Resources</a></li>
+    <li><a class='menu' href='/pe-athletics/'>Physical Education/Athletics</a></li>
+    <li><a class='menu' href='http://nebula.deanza.edu/'>Physical Science/Math/Engineering</a></li>
+    <li><a class='menu' href='/socialsciences/'>Social Sciences and Humanities</a></li>
+    </ul>
+</div>
+
+<!-- Student Services -->
+<div class='stuser' id='stuser' onmouseover='showstuser();' onmouseout='hidestuser();'>
+    <ul class='menu'>
+    <li><a class='menu' href='/academicsupport/'>Academic Success Programs</a></li>    
+    <li><a class='menu' href='/admissions/contact.html'>Admissions and Records</a></li>
+    <li><a class='menu' href='/admissions/placement/'>Assessment Center</a></li>    
+    <li><a class='menu' href='/bookstore/'>Bookstore</a></li>
+    <li><a class='menu' href='/counseling/career/'>Career Services</a></li>
+    <li><a class='menu' href='/child/'>Child Care</a></li>
+    <li><a class='menu' href='/counseling/'>Counseling and Advising</a></li>
+    <li><a class='menu' href='/diningservices/'>Dining Services</a></li>
+    <li><a class='menu' href='/dsps/'>Disability Support Programs &amp; Services (DSPS)</a></li>
+    <li><a class='menu' href='/financialaid/'>Financial Aid</a></li>
+    <li><a class='menu' href='/healthservices/'>Health Services</a></li>
+    <li><a class='menu' href='/honors/'>Honors Program</a></li>
+    <li><a class='menu' href='/collegelife/'>Office of College Life</a></li>
+    <li><a class='menu' href='/studenthandbook/'>Student Handbook</a></li>
+    <li><a class='menu' href='/registration/transcript.html'>Transcript Request</a></li>
+    <li><a class='menu' href='/transfer/'>Transfer Planning</a></li>
+    <li><a class='menu' href='/veterans/'>Veteran Services</a></li>
+    </ul>
+</div>
+
+</div>  
+<!-- end of div#container -->   
+
+
+            <div class="bottom_main_container">
+            <!-- THIS JUST CONTAINS THE LITTLE YELLOW SQUARES IMAGE IN THE BOTTOM OF THE PAGE-->
+            </div> 
+  <!-- //bottom_main_container -->	            
+  <!-- END OF EVERYTHING :)  -->
+    
+</div> <!-- end of div.top_main_container  (contains top yellow squares bg image) -->
+
+<!-- Google Analytics, installed by De Anza Web Team -->
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2729974-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- End Google Analytics -->
+<script type="text/javascript">
+
+// Cache the slide show images to improve performance.
+
+                
+
+// Browser Slide-Show script. With image cross fade effect for those browsers that support it.
+// Script copyright (C) 2004-2010 www.cryer.co.uk.
+// Script is free to use provided this copyright header is included.
+// modifications by De Anza Web Team
+
+var FadeDurationMS = 1000;
+var displaySecs = 5; // number of seconds for each slide
+var Cap = false;
+var SlideShow = false;
+var currentImage = 0;
+var paused = false;
+var hasMSIE = true
+function setCaption()
+{
+    var domObjectCap = document.getElementById("slidecaption");
+    
+    if(!paused)
+    {
+        if( currentImage == 0)
+        { currentCaption = slideCache.length - 1; }
+        else
+        { currentCaption = currentImage - 1; }
+    }
+    else
+    { currentCaption = currentImage; }
+    
+    domObjectCap.innerHTML = captionCache[currentCaption];
+}
+
+function SetOpacity(object,opacityPct)
+{
+    if(hasMSIE){
+        object.style.filter = 'alpha(opacity=' + opacityPct + ')';
+    }
+    object.style.MozOpacity = opacityPct/100;
+    object.style.opacity = opacityPct/100;
+}
+
+function ChangeOpacity(id,msDuration,msStart,fromO,toO)
+{
+    var element = document.getElementById(id);
+    var msNow = (new Date()).getTime();
+    
+    var opacity = fromO + (toO - fromO) * (msNow - msStart) / msDuration;
+    
+    if (opacity >= 100)
+    {
+        SetOpacity(element,100);
+        element.timer = undefined;        
+    }
+    else if (opacity <= 0)
+    {
+        SetOpacity(element,0);
+        element.timer = undefined;
+    }
+    else 
+    {
+        SetOpacity(element,opacity);
+        element.timer = window.setTimeout("ChangeOpacity('" + id + "'," + msDuration + "," + msStart + "," + fromO + "," + toO + ")",10);
+    }
+}
+
+function FadeInImage(foregroundID,newImage,backgroundID)
+{
+    var foreground = document.getElementById(foregroundID);
+
+    if (foreground.timer) window.clearTimeout(foreground.timer);
+
+    if (backgroundID)
+    {
+        var background = document.getElementById(backgroundID);
+        
+        if (background)
+        {
+            if (background.src)
+            {
+                foreground.src = background.src; 
+                SetOpacity(foreground,100);
+            } 
+            
+            Cap = setTimeout("setCaption()", 500);      
+
+            background.src = newImage;
+            background.style.backgroundImage = 'url(' + newImage + ')';
+            background.style.backgroundRepeat = 'no-repeat';
+            var startMS = (new Date()).getTime();
+            foreground.timer = window.setTimeout("ChangeOpacity('" + foregroundID + "'," + FadeDurationMS + "," + startMS + ",100,0)",10);
+        }
+    } 
+    else 
+    {
+        foreground.src = newImage;
+    }
+}
+
+function RunSlideShow(pictureID,backgroundID)
+{
+    if (slideCache[currentImage])
+    {     
+        if(! paused)
+        { 
+            FadeInImage(pictureID,slideCache[currentImage],backgroundID);
+            
+            if( currentImage == (slideCache.length - 1) )
+            { 
+                currentImage = 0;
+            }
+            else
+            {
+                currentImage++;
+            }
+        }
+    } 
+}
+
+window.onload = loadSlideImages;
+
+SlideShow = setInterval("RunSlideShow('primaryImage','img_div')",displaySecs * 1000);
+        
+
+var a2a_linkname="De Anza College Home Page";
+var a2a_linkurl="http://www.deanza.edu/";
+var a2a_onclick=1;a2a_show_title=1;
+var a2a_num_services=8;
+var a2a_prioritize=["facebook","twitter","google_bookmarks","google_buzz","google_gmail","yahoo_mail","myspace","hotmail"];
+     
+</script>
+
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+</body>
+</html>

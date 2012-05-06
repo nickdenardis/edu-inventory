@@ -1,0 +1,560 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>World Mission University, an Evangelical educational institution, exists to equip Bible-centered, mission-minded, leaders for the Church and the world.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<style type="text/css">
+body {
+  background-image: url('/images/bg.jpg');
+  background-repeat: repeat-x
+}
+a:link {
+  text-decoration: none;
+  color: #ffffff;
+}
+a:visited {
+  text-decoration: none;
+  color: #ffffff;
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+}
+
+a.lmenu {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+a.lmenu:link {
+  text-decoration: none;
+  color: #94938b;
+}
+a.lmenu:visited {
+  text-decoration: none;
+  color: #94938b;
+}
+a.lmenu:hover {
+  text-decoration: none;
+  color: #a9a89f;
+}
+a.lmenu:active {
+  text-decoration: none;
+  color: #a9a89f;
+}
+
+.lmenu {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  color: #94938b;
+}
+.text {
+  font-family: Arial, Helvetica, sans-serif, "굴림", "돋움";
+  font-size: 12px;
+  line-height: 15px;
+}
+.topmenu {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  color: #CCCCCC;
+}
+a.kren {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #cc3300;
+}
+a.kren:link {
+  color: #cc3300;
+  text-decoration: none;
+}
+a.kren:visited {
+  color: #cc3300;
+  text-decoration: none;
+}
+a.kren:hover {
+  color: #cc3300;
+  text-decoration: none;
+}
+a.kren:active {
+  color: #cc3300;
+  text-decoration: none;
+}
+.mainmenu {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  cursor: hand;
+}
+.toptitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  color: #7a7972;
+}
+.subtitle {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #bbb9b0;
+}
+.menuwhite {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: normal;
+  color: #FFFFFF;
+}
+.date {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+}
+.subti {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: #ce9d1b;
+}
+.subtii {
+  font-family: Arial, Helvetica, sans-serif, "굴림", "돋움";
+  font-size: 12px;
+  color: #71934a;
+}
+.subtiii {
+  font-family: Arial, Helvetica, sans-serif, "굴림", "돋움";
+  font-size: 12px;
+  color: #4e90bf;
+}
+
+.navBox {
+  background-color: #0f2859;
+  position: absolute;
+  padding: 2px;
+  border-color: #0f2859;
+  border-style: solid;
+  border-width: 1px;
+  /*filter:progid:DXImageTransform.Microsoft.shadow(direction:135 , Color='gray', Positive='true', Strength=4);*/
+  }
+
+  .rowOver {
+    height: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #19356c;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    cursor: hand;
+  }
+
+  .rowOff {
+    height: 20px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color: #0f2859;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: default;
+  }
+
+.content, td, p {
+  color: #000000;
+  font-size: 9pt;
+}
+
+</style>
+
+<script language=JavaScript type="text/javascript">
+
+function change(form) {
+if(form.url.options[form.url.selectedIndex].value != "")
+window.open(form.url.options[form.url.selectedIndex].value)
+}
+
+
+function navLinkOver(cellID) {
+  document.getElementById(cellID).className = 'rowOver';
+}
+
+function navLinkOut(celID) {
+  document.getElementById(celID).className = 'rowOff';
+}
+
+
+// Main Show drop Menus
+var state = 'off';
+var menu_names = new Array ("topMenu1", "topMenu2", "topMenu3", "topMenu4", "topMenu5", "topMenu6", "topMenu7");
+var menu_num = menu_names.length;
+var time_on;
+
+function dropOn(menu) {
+
+  document.getElementById(menu).style.visibility = 'visible';
+  clearTimeout(time_on);
+    for (i=0; i<menu_names.length; i++) {
+      this_menu = menu_names[i];
+      if (menu != this_menu) {
+      document.getElementById(this_menu).style.visibility = 'hidden';
+      }
+    }
+}
+
+function hide() {
+  time_on = setTimeout("dropOff()", 200);
+}
+
+
+// Main Hide drop Menushttp://wmu/
+function dropOff() {
+  for (i=0; i<menu_names.length; i++) {
+  this_menu = menu_names[i];
+  document.getElementById(this_menu).style.visibility = 'hidden';
+  }
+}
+
+function dropOff2() {
+  for (i=0; i<menu_names.length; i++) {
+  this_menu = menu_names[i];
+  document.getElementById(this_menu).style.visibility = 'hidden';
+  }
+}
+
+function goURL(URL_) {
+    document.location.href=URL_;
+}
+
+</script>
+
+</head>
+<body topmargin='0' leftmargin='0' marginheight='0' marginwidth='0' onload="if (typeof SLIDES != 'undefined') SLIDES.play();">
+<center>
+<table width="865" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="865" height="100" background="/images/top_bg.jpg"><table width="865" height="100" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="574" align="left"><a href="/" onfocus="blur();"><img src="/images/top_logo.jpg" width="513" height="100" border="0"></a></td>
+        <td width="261" align="right" valign="top" class="topmenu" style="padding-top: 70px; line-height: 10px;">
+          <a href="/" style="color:#fff">Home</a> &nbsp;|&nbsp;
+                    <a href="/bbs/login.php?id=request_info" style="color:#fff">Login</a> &nbsp;|&nbsp;
+                    <a href="/about_contact.php" style="color:#fff">Contact Us</a> &nbsp;|&nbsp;
+          <a href="/sitemap.php" style="color:#fff">Sitemap</a>
+        </td>
+        <td width="30" align="right"><img src="/images/top_1.jpg" width="30" height="100"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td width="865" height="28" background="/images/menu_bg.jpg"><table width="865" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="22" align="left"><img src="/images/menu1.jpg" width="22" height="28"></td>
+        <td width="163" align="left"><a href="?lang=ko" class="kren">Korean</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="?lang=en" class="kren">English</a></td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu1')" onmouseout=hide() class="mainmenu">About WMU</div>
+          <div class="content navBox" id=topMenu1 onmouseover="dropOn('topMenu1')" style="z-index: 10; visibility: hidden; width_: 135px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr id=m1Row1 onmouseover="navLinkOver('m1Cell1')" onmouseout="navLinkOut('m1Cell1')" onclick="goURL('/about_president.php')">
+                <td class=rowOff id=m1Cell1 noWrap>President's Welcome</td>
+              </tr>
+              <tr id=m1Row2 onmouseover="navLinkOver('m1Cell2')" onmouseout="navLinkOut('m1Cell2')" onclick="goURL('/about_history.php')">
+                <td class=rowOff id=m1Cell2 noWrap>About Us</td>
+              </tr>
+              <tr id=m1Row3 onmouseover="navLinkOver('m1Cell3')" onmouseout="navLinkOut('m1Cell3')" onclick="goURL('/about_accreditation.php')">
+                <td class=rowOff id=m1Cell3 noWrap>Accreditation</td>
+              </tr>
+              <tr id=m1Row4 onmouseover="navLinkOver('m1Cell4')" onmouseout="navLinkOut('m1Cell4')" onclick="goURL('/about_faculty.php')">
+                <td class=rowOff id=m1Cell4 noWrap>Faculty</td>
+              </tr>
+              <tr id=m1Row5 onmouseover="navLinkOver('m1Cell5')" onmouseout="navLinkOut('m1Cell5')" onclick="goURL('/about_administration.php')">
+                <td class=rowOff id=m1Cell5 noWrap>Administration</td>
+              </tr>
+              <tr id=m1Row6 onmouseover="navLinkOver('m1Cell6')" onmouseout="navLinkOut('m1Cell6')" onclick="goURL('/bbs/data/file_download/2010-2011_Catalog_en.pdf')">
+                <td class=rowOff id=m1Cell6 noWrap>School Catalog</td>
+              </tr>
+              <tr id=m1Row7 onmouseover="navLinkOver('m1Cell7')" onmouseout="navLinkOut('m1Cell7')" onclick="goURL('/about_contact.php')">
+                <td class=rowOff id=m1Cell7 noWrap>Contact Us</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu2')" onmouseout=hide() class="mainmenu">Programs</div>
+          <div class="content navBox" id=topMenu2 onmouseover="dropOn('topMenu2')" style="z-index: 10; visibility: hidden; width_: 180px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr id=m2Row1 onmouseover="navLinkOver('m2Cell1')" onmouseout="navLinkOut('m2Cell1')" onclick="goURL('/program_degree.php')">
+                <td class=rowOff id=m2Cell1 noWrap>Degree Programs</td>
+              </tr>
+              <tr id=m2Row2 onmouseover="navLinkOver('m2Cell2')" onmouseout="navLinkOut('m2Cell2')" onclick="goURL('/program_nondegree.php')">
+                <td class=rowOff id=m2Cell2 noWrap>Non-degree Programs</td>
+              </tr>
+              <tr id=m2Row3 onmouseover="navLinkOver('m2Cell3')" onmouseout="navLinkOut('m2Cell3')" onclick="goURL(' http://www.wmu.edu/distance_vision.php')">
+                <td class=rowOff id=m2Cell3 noWrap>Distance Program</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu3')" onmouseout=hide() class="mainmenu">Admissions</div>
+          <div class="content navBox" id=topMenu3 onmouseover="dropOn('topMenu3')" style="z-index: 10; visibility: hidden; width_: 180px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr id=m3Row1 onmouseover="navLinkOver('m3Cell1')" onmouseout="navLinkOut('m3Cell1')" onclick="goURL('/admission_requirements.php')">
+                <td class=rowOff id=m3Cell1 noWrap>Requirements</td>
+              </tr>
+              <tr id=m3Row2 onmouseover="navLinkOver('m3Cell2')" onmouseout="navLinkOut('m3Cell2')" onclick="goURL('/admission_calendar.php')">
+                <td class=rowOff id=m3Cell2 noWrap>Academic Calendar</td>
+              </tr>
+              <tr id=m3Row3 onmouseover="navLinkOver('m3Cell3')" onmouseout="navLinkOut('m3Cell3')" onclick="goURL('/admission_class_schedule.php')">
+                <td class=rowOff id=m3Cell3 noWrap>Class Schedule</td>
+              </tr>
+              <tr id=m3Row4 onmouseover="navLinkOver('m3Cell4')" onmouseout="navLinkOut('m3Cell4')" onclick="goURL('/admission_financial_info.php')">
+                <td class=rowOff id=m3Cell4 noWrap>Financial Information</td>
+              </tr>
+              <tr id=m3Row4 onmouseover="navLinkOver('m3Cell5')" onmouseout="navLinkOut('m3Cell4')" onclick="goURL('/admission_financial_calculator.php')">
+                <td class=rowOff id=m3Cell5 noWrap>Financial calculator</td>
+              </tr>
+              <tr id=m3Row5 onmouseover="navLinkOver('m3Cell6')" onmouseout="navLinkOut('m3Cell5')" onclick="goURL('/admission_request_ack.php')">
+                <td class=rowOff id=m3Cell6 noWrap>Application Forms</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu4')" onmouseout=hide() class="mainmenu">International Students</div>
+          <div class="content navBox" id=topMenu4 onmouseover="dropOn('topMenu4')" style="z-index: 10; visibility: hidden; width: 130px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr id=m4Row1 onmouseover="navLinkOver('m4Cell1')" onmouseout="navLinkOut('m4Cell1')" onclick="goURL('/international_about.php')">
+                <td class=rowOff id=m4Cell1 noWrap>About I-20</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu5')" onmouseout=hide() class="mainmenu">Distance Education</div>
+          <div class="content navBox" id=topMenu5 onmouseover="dropOn('topMenu5')" style="z-index: 10; visibility: hidden; width_: 180px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr id=m5Row1 onmouseover="navLinkOver('m5Cell1')" onmouseout="navLinkOut('m5Cell1')" onclick="goURL('/distance_vision.php')">
+                <td class=rowOff id=m5Cell1 noWrap>Vision</td>
+              </tr>
+              <tr id=m5Row2 onmouseover="navLinkOver('m5Cell2')" onmouseout="navLinkOut('m5Cell2')" onclick="goURL('/distance_program.php')">
+                <td class=rowOff id=m5Cell2 noWrap>Programs</td>
+              </tr>
+              <tr id=m5Row3 onmouseover="navLinkOver('m5Cell3')" onmouseout="navLinkOut('m5Cell3')" onclick="goURL('/distance_admission.php')">
+                <td class=rowOff id=m5Cell3 noWrap>Admission</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px; padding-right: 13px" onmouseover="dropOn('topMenu6')" onmouseout=hide() class="mainmenu">Student Life</div>
+          <div class="content navBox" id=topMenu6 onmouseover="dropOn('topMenu6')" style="z-index: 10; visibility: hidden; width_: 180px; POSITION: absolute; margin-left: -5px" onmouseout=hide()>
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr id=m6Row4 onmouseover="navLinkOver('m6Cell4')" onmouseout="navLinkOut('m6Cell4')" onclick="goURL('/student_campus.php')">
+                <td class=rowOff id=m6Cell4 noWrap>Campus Tour</td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td class="mainmenu" align="left" valign="top">
+          <div style="height: 27px; line-height: 27px" onmouseover="dropOn('topMenu7')" onmouseout=hide() class="mainmenu"></div>
+        </td>        <td width="30" align="right"><img src="/images/menu2.jpg" width="30" height="28"></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<SCRIPT type="text/javascript" src="slideshow.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+<!--
+
+SLIDES = new slideshow("SLIDES");
+
+// Create some slides and add custom filters for Microsoft IE
+SLIDES.add_slide(s = new slide('images/slideshow/fl_img1.jpg'));
+s.filter = 'progid:DXImageTransform.Microsoft.Fade()';
+
+SLIDES.add_slide(s = new slide('images/slideshow/fl_img2.jpg'));
+s.filter = 'progid:DXImageTransform.Microsoft.Fade()';
+
+SLIDES.add_slide(s = new slide('images/slideshow/fl_img3.jpg'));
+s.filter = 'progid:DXImageTransform.Microsoft.Fade()';
+
+SLIDES.add_slide(s = new slide('images/slideshow/fl_img4.jpg'));
+s.filter = 'progid:DXImageTransform.Microsoft.Fade()';
+
+//-->
+</SCRIPT>
+
+<script type="text/javascript">
+window.open("http://www.wmu.edu/ats.html","ats", "toolbar=no, width=580, height=700, top=0, left=0");
+</script>
+
+<table width="865" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="212" height="372" align="left" valign="top" background="images/body_bg_left.jpg">
+      <table width="191" border="0" cellspacing="1" cellpadding="0">
+        <tr>
+          <td colspan="2" height="26"></td>
+        </tr>
+        <tr>
+          <td width="21">&nbsp;</td>
+          <td width="170" class="toptitle">Welcome to<br>
+            World Mission University</td>
+        </tr>
+      </table>
+      <table width="191" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="21">&nbsp;</td>
+          <td width="170"><img src="/images/left_line.jpg" width="170" height="24"></td>
+        </tr>
+      </table>
+      <br><br>
+      <table width="199" height="81" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="18">&nbsp;</td>
+          <td width="181">
+  <a href="http://online.wmu.edu" target="_blank"><img src="/images/banner_distance.jpg" width="174" height="68" border="0"></a><br>
+  <a href="http://www.wmu.edu/bbs/zboard.php?id=file_download"><img src="/images/banner_library.jpg" width="174" height="68" border="0"></a><br>
+  <a href="http://www.wmu.edu/index_jobs.php"><img src="/images/banner_jobs.jpg" width="174" height="68" border="0"></a><br>
+  <a href="http://www.wmu.edu/program_doctoral_dmin.php"><img src="/images/banner_dmin.jpg" width="174" height="68" border="0"></a>          </td>
+        </tr>
+      </table>
+      <br>
+      <br>
+      <br>      <br></td>
+    <td width="653" valign="top" background="images/body_bg_right.jpg"><table width="653" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="499" height="104"><img src="images/index_img.jpg" width="499" height="104"></td>
+        <td width="154" height="104"><img src="images/index_imgright1.jpg" width="154" height="104"></td>
+      </tr>
+      <tr>
+        <td width="499" height="30" background="images/index_imgbot.jpg" class="menuwhite">
+                </td>
+        <td width="154" height="30"><img src="images/index_imgright2.jpg" width="154" height="30"></td>
+        </tr>
+    </table>
+      <img src="images/jjum.gif" width="10" height="35"><br>
+        <table width="653" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="27" valign="top">&nbsp;
+            </td>
+            <td width="472" align="left" valign="top" class="text"><strong><a href="/bbs/zboard.php?id=notice">WMU Notices</a></strong><br><br>
+              <table width="446" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td class="toptitle"><a href="/bbs/view.php?id=notice&no=20" class="lmenu">TWENTIETH ANNUAL COMMENCEMENT</a></td>
+              </tr>
+              <tr>
+                <td>The Board of Trustees, Faculty, and Graduationg Class of WORLD MISSION UNIVERSITY take pleasure in announcing the TWENTIETH ANNUAL COMMENCEMENT Saturday, Juen 4, 2011 1:00 p.m. WORLD MISSION UNIVERSITY 500 Shatto Place, ...</td>
+              </tr>
+            </table>
+              <img src="images/news_line.jpg" width="446" height="19"><br>
+              <table width="446" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="toptitle"><a href="/bbs/view.php?id=notice&no=19" class="lmenu">WMU was granted reaffirmation of its accredited status with ABHE</td>
+                </tr>
+                <tr>
+                  <td>World Mission University (WMU) was granted Candidate Status with The Association for Biblical Higher Education (ABHE) in 2004, which is a pre-accredited status.&nbsp;&nbsp;In 2006, WMU was granted accredited status as be...</td>
+                </tr>
+              </table>
+              <img src="images/news_line.jpg" width="446" height="19"><br>
+              <table width="446" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td class="toptitle"><a href="/bbs/view.php?id=notice&no=18" class="lmenu">WMU Supporting NIght</td>
+                </tr>
+                <tr>
+                  <td>There will be a World Mission University Supporting Night event on November 6, Saturday at 6:00 p.m. at the school’s chapel. This event is being held for the establishment of a digital library as an addition to the schoo...</td>
+                </tr>
+              </table>
+              <br>
+              <br><br>
+              <table width="461" height="17" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="461">
+                    <a href="http://library.wmu.edu" target="_blank"><img src="images/ban_on_library.jpg" width="110" height="64" border="0" style="filter: gray;" onmouseover="this.style.filter='chroma()'" onmouseout="this.style.filter='gray()'"></a><a href="http://holyhouse.org/wmuaa" target="_blank"><img src="images/ban_on_alumni.jpg" width="111" height="64" border="0" style="filter: gray;" onmouseover="this.style.filter='chroma()'" onmouseout="this.style.filter='gray()'"></a><a href="http://www.omc.org" target="_blank"><img src="images/ban_on_omc.jpg" width="111" height="64" border="0" style="filter: gray;" onmouseover="this.style.filter='chroma()'" onmouseout="this.style.filter='gray()'"></a><a href="http://www.wema.net" target="_blank"><img src="images/ban_on_wema.jpg" width="111" height="64" border="0" style="filter: gray;" onmouseover="this.style.filter='chroma()'" onmouseout="this.style.filter='gray()'"></a>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <br></td>
+          </tr>
+        </table>
+  <br>      </td></tr>
+</table>
+<table width="865" border="0" cellspacing="0" cellpadding="0" class="">
+  <tr>
+    <td width="34" height="25" align="left" background="/images/bot_bg.jpg"><img src="/images/bot_left.jpg" width="25" height="25"></td>
+    <td width="797" height="25" align="center" background="/images/bot_bg.jpg" class="date">Copyright ⓒ World Mission University 2010&nbsp;&nbsp;&nbsp;500 Shatto Pl. #600 Los Angeles, CA 90020 USA&nbsp;&nbsp;&nbsp;(213) 388-1000&nbsp;&nbsp;&nbsp;Email: wmuinfo @ wmu.edu</td>
+    <td width="34" height="25" align="right" background="/images/bot_bg.jpg"><img src="/images/bot_right.jpg" width="25" height="25"></td>
+  </tr>
+</table>
+<script type="text/javascript">
+<!--
+var ads = [
+  "images/slideshow/20th_ban_wmu.jpg", // This should be the first image above.
+  "images/slideshow/20th_ban_sym.jpg",
+  "images/slideshow/20th_ban_music.jpg",
+  "images/slideshow/20th_ban_hcd.jpg",
+  "images/slideshow/20th_ban_20th.jpg"
+  ];
+
+var ads_link = [
+  "20th_book_lim.php",
+  "20th_sym.php",
+  "20th_music.php",
+  "20th_hcd.php",
+  "20th_wmu.php"
+  ];
+
+var counter = -1;
+
+function banner() {
+  setTimeout("banner()", 5000); // 5000 = 5 seconds
+  counter = ++counter % ads.length;
+  document.bannerad.src = ads[counter];
+}
+
+function gothere() {
+  window.location.href = ads_link[counter];
+}
+
+banner();
+//-->
+</script>
+<SCRIPT type="text/javascript">
+<!--
+
+if (document.images) {
+
+SLIDES.image = document.images.SLIDESIMG;
+
+// Create a function to ramp up the image opacity in Mozilla
+var fadein_opacity = 0.04;
+var fadein_img = SLIDES.image;
+function fadein(opacity) {
+  if (typeof opacity != 'undefined') { fadein_opacity = opacity; }
+  if (fadein_opacity < 0.99 && fadein_img && fadein_img.style &&
+      typeof fadein_img.style.MozOpacity != 'undefined') {
+
+    fadein_opacity += .05;
+    fadein_img.style.MozOpacity = fadein_opacity;
+    setTimeout("fadein()", 50);
+  }
+}
+
+// Tell the slideshow to call our function whenever the slide is changed
+SLIDES.post_update_hook = function() { fadein(0.04); }
+
+}
+
+
+//-->
+</SCRIPT>
+</body>
+</center>
+</html>

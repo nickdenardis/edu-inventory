@@ -1,0 +1,988 @@
+<script src="js/jquery-1.6.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+<script src="js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+<link rel="shortcut icon" href="favicon.ico" >
+
+<html>
+<head>
+
+  <link type="text/css" href="menu.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="menu.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="myCSS.css" />
+
+<title>JE MONDEJAR COMPUTER COLLEGE</title>
+
+<style type="text/css">
+
+/*Example CSS for the two demo scrollers*/
+
+#pscroller1{
+width: 210px;
+height: 200px;
+border: 1px solid black;
+padding: 5px;
+background-color: lightyellow;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+}
+
+#pscroller2{
+width: 350px;
+height: 20px;
+border: 1px solid black;
+padding: 3px;
+}
+
+#pscroller2 a{
+text-decoration: none;
+}
+
+.someclass{ //class to apply to your scroller(s) if desired
+}
+
+.style1 {
+	font-family: Arial, Helvetica, sans-serif;
+	
+	font-size: 14px;
+}
+.style6 {
+	color: #000000;
+	font-size: 12px;
+}
+#menu center .menu li a span {
+	text-align: center;
+	color: #FFFFFF;
+}
+body p {
+	text-align: left;
+	
+}
+
+.sc_menu_wrappers .sc_menu a p {
+	text-align: left;
+	background-color: #FFC;
+	border: 1px solid black;
+}
+</style>
+
+<script type="text/javascript">
+
+/*Example message arrays for the two demo scrollers*/
+
+var pausecontent=new Array()
+pausecontent[0]='Principal<br />Qualifications:<br>•	25 – 40 years old<br>•	Masteral degree holder<br>•	Administrative experience for at least 2 years<br>•	LET passers<br>•	With pleasing personality<br>•	Excellent in oral English communication'
+pausecontent[1]='Requirements:<br />•	Letter of intent<br>•	PDS<br>•	TOR<br>•	Diploma<br>•	Training certificates<br>•	Passport size ID picture( Yellow green back ground )'
+pausecontent[2]='Elementary and High school teachers<br />Qualification:<br>•	LET passers<br>•	Excellent in oral english communication<br>•	20 – 30 years old'
+pausecontent[3]='Requirements: <br>•	Letter of intent<br>•	PDS<br>•	TOR and certificates<br>•	Diploma<br>•	Passport size ID picture( Yellow green back ground )'
+pausecontent[4]='Bookkeeper<br />Qualification:<br>•	Graduate of BS Accountancy<br>•	At least one year experience in general accounting <br>•	Computer Literate<br>Attention to detail and ability to multi-task is an advantage<br>•	Can work under pressure with minimum supervision'
+pausecontent[5]='Submit All Requirements to:<br><br>The President<br>JE Mondejar Computer College<br>Brgy. 71, Naga-naga, Tacloban City.<br> Contact Number 09195067458 or 321-5883'
+
+
+</script>
+
+<script type="text/javascript">
+
+/***********************************************
+* Pausing up-down scroller- © Dynamic Drive (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+
+function pausescroller(content, divId, divClass, delay){
+this.content=content //message array content
+this.tickerid=divId //ID of ticker div to display information
+this.delay=delay //Delay between msg change, in miliseconds.
+this.mouseoverBol=0 //Boolean to indicate whether mouse is currently over scroller (and pause it if it is)
+this.hiddendivpointer=1 //index of message array for hidden div
+document.write('<div id="'+divId+'" class="'+divClass+'" style="position: relative; overflow: hidden"><div class="innerDiv" style="position: absolute; width: 100%" id="'+divId+'1">'+content[0]+'</div><div class="innerDiv" style="position: absolute; width: 100%; visibility: hidden" id="'+divId+'2">'+content[1]+'</div></div>')
+var scrollerinstance=this
+if (window.addEventListener) //run onload in DOM2 browsers
+window.addEventListener("load", function(){scrollerinstance.initialize()}, false)
+else if (window.attachEvent) //run onload in IE5.5+
+window.attachEvent("onload", function(){scrollerinstance.initialize()})
+else if (document.getElementById) //if legacy DOM browsers, just start scroller after 0.5 sec
+setTimeout(function(){scrollerinstance.initialize()}, 500)
+}
+
+// -------------------------------------------------------------------
+// initialize()- Initialize scroller method.
+// -Get div objects, set initial positions, start up down animation
+// -------------------------------------------------------------------
+
+pausescroller.prototype.initialize=function(){
+this.tickerdiv=document.getElementById(this.tickerid)
+this.visiblediv=document.getElementById(this.tickerid+"1")
+this.hiddendiv=document.getElementById(this.tickerid+"2")
+this.visibledivtop=parseInt(pausescroller.getCSSpadding(this.tickerdiv))
+//set width of inner DIVs to outer DIV's width minus padding (padding assumed to be top padding x 2)
+this.visiblediv.style.width=this.hiddendiv.style.width=this.tickerdiv.offsetWidth-(this.visibledivtop*2)+"px"
+this.getinline(this.visiblediv, this.hiddendiv)
+this.hiddendiv.style.visibility="visible"
+var scrollerinstance=this
+document.getElementById(this.tickerid).onmouseover=function(){scrollerinstance.mouseoverBol=1}
+document.getElementById(this.tickerid).onmouseout=function(){scrollerinstance.mouseoverBol=0}
+if (window.attachEvent) //Clean up loose references in IE
+window.attachEvent("onunload", function(){scrollerinstance.tickerdiv.onmouseover=scrollerinstance.tickerdiv.onmouseout=null})
+setTimeout(function(){scrollerinstance.animateup()}, this.delay)
+}
+
+
+// -------------------------------------------------------------------
+// animateup()- Move the two inner divs of the scroller up and in sync
+// -------------------------------------------------------------------
+
+pausescroller.prototype.animateup=function(){
+var scrollerinstance=this
+if (parseInt(this.hiddendiv.style.top)>(this.visibledivtop+5)){
+this.visiblediv.style.top=parseInt(this.visiblediv.style.top)-5+"px"
+this.hiddendiv.style.top=parseInt(this.hiddendiv.style.top)-5+"px"
+setTimeout(function(){scrollerinstance.animateup()}, 50)
+}
+else{
+this.getinline(this.hiddendiv, this.visiblediv)
+this.swapdivs()
+setTimeout(function(){scrollerinstance.setmessage()}, this.delay)
+}
+}
+
+// -------------------------------------------------------------------
+// swapdivs()- Swap between which is the visible and which is the hidden div
+// -------------------------------------------------------------------
+
+pausescroller.prototype.swapdivs=function(){
+var tempcontainer=this.visiblediv
+this.visiblediv=this.hiddendiv
+this.hiddendiv=tempcontainer
+}
+
+pausescroller.prototype.getinline=function(div1, div2){
+div1.style.top=this.visibledivtop+"px"
+div2.style.top=Math.max(div1.parentNode.offsetHeight, div1.offsetHeight)+"px"
+}
+
+// -------------------------------------------------------------------
+// setmessage()- Populate the hidden div with the next message before it's visible
+// -------------------------------------------------------------------
+
+pausescroller.prototype.setmessage=function(){
+var scrollerinstance=this
+if (this.mouseoverBol==1) //if mouse is currently over scoller, do nothing (pause it)
+setTimeout(function(){scrollerinstance.setmessage()}, 100)
+else{
+var i=this.hiddendivpointer
+var ceiling=this.content.length
+this.hiddendivpointer=(i+1>ceiling-1)? 0 : i+1
+this.hiddendiv.innerHTML=this.content[this.hiddendivpointer]
+this.animateup()
+}
+}
+
+pausescroller.getCSSpadding=function(tickerobj){ //get CSS padding value, if any
+if (tickerobj.currentStyle)
+return tickerobj.currentStyle["paddingTop"]
+else if (window.getComputedStyle) //if DOM2
+return window.getComputedStyle(tickerobj, "").getPropertyValue("padding-top")
+else
+return 0
+}
+
+</script>
+
+
+<style type="text/css">
+
+div.sc_menu_wrapper {
+	position: relative;
+	height: 300px;
+	/* Make bigger than a photo, because we need a place for a scrollbar. */
+
+	width: 200px;
+	border: 1px solid black;
+	overflow: auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+}
+
+div.sc_menu {
+
+	padding: 15px 0;
+	/*border: 1px solid black;*/
+}
+
+.sc_menu a {
+	width: 200px;
+	height: 40px;
+	/*border: 2px rgb(79, 79, 79) solid;*/
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	/* When image support is turned off */
+
+	color:#000;
+	font-size: 12px;
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+.sc_menu a:hover {
+	background-color:#0F0;
+	text-align: left;
+	text-decoration:underline;
+	background-size:cover;
+	background-repeat: no-repeat;
+	color:#FF0000;	
+}
+
+
+.sc_menu_wrapper .loading {
+
+	position: absolute;
+
+	top: 50px;
+
+	left: 10px;
+
+	
+
+	margin: 0 auto;
+
+	padding: 10px;
+
+
+
+	width: 100px;
+
+    -webkit-border-radius: 4px;
+
+    -moz-border-radius: 4px;	
+
+	
+
+	text-align: center;
+
+	color: #fff;
+
+	border: 1px solid rgb(79, 79, 79);
+
+	background: #1F1D1D;
+
+}
+
+/* Styling tooltip */
+
+
+
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js" type="text/javascript"></script>
+
+<script type= "text/javascript">/*<![CDATA[*/
+
+
+
+function makeScrollable(wrapper, scrollable){
+
+	// Get jQuery elements
+
+	var wrapper = $(wrapper), scrollable = $(scrollable);
+
+	
+
+	// Hide images until they are not loaded
+
+	scrollable.hide();
+
+	var loading = $('<div class="loading">Loadings...</div>').appendTo(wrapper);
+
+	
+
+	// Set function that will check if all images are loaded
+
+	var interval = setInterval(function(){
+
+		var images = scrollable.find('img');
+
+		var completed = 0;
+
+		
+
+		// Counts number of images that are succesfully loaded
+
+		images.each(function(){
+
+			if (this.complete) completed++;	
+
+		});
+
+		
+
+		if (completed == images.length){
+
+			clearInterval(interval);
+
+			// Timeout added to fix problem with Chrome
+
+			setTimeout(function(){
+
+				
+
+				loading.hide();
+
+				// Remove scrollbars	
+
+				wrapper.css({overflow: 'hidden'});						
+
+				
+
+				scrollable.slideDown('slow', function(){
+
+					enable();	
+
+				});					
+
+			}, 1000);	
+
+		}
+
+	}, 100);
+
+	
+
+	function enable(){
+
+		// height of area at the top at bottom, that don't respond to mousemove
+
+		var inactiveMargin = 99;					
+
+		// Cache for performance
+
+		var wrapperWidth = wrapper.width();
+
+		var wrapperHeight = wrapper.height();
+
+		// Using outer height to include padding too
+
+		var scrollableHeight = scrollable.outerHeight() + 2*inactiveMargin;
+
+		// Do not cache wrapperOffset, because it can change when user resizes window
+
+		// We could use onresize event, but it's just not worth doing that 
+
+		// var wrapperOffset = wrapper.offset();
+
+		
+
+		// Create a invisible tooltip
+
+		var tooltip = $('<div class="sc_menu_tooltip"></div>')
+
+			.css('opacity', 0)
+
+			.appendTo(wrapper);
+
+	
+
+		// Save menu titles
+
+		scrollable.find('a').each(function(){				
+
+			$(this).data('tooltipText', this.title);				
+
+		});
+
+		
+
+		// Remove default tooltip
+
+		scrollable.find('a').removeAttr('title');		
+
+		// Remove default tooltip in IE
+
+		scrollable.find('img').removeAttr('alt');	
+
+		
+
+		var lastTarget;
+
+		//When user move mouse over menu			
+
+		wrapper.mousemove(function(e){
+
+			// Save target
+
+			lastTarget = e.target;
+
+
+
+			var wrapperOffset = wrapper.offset();
+
+		
+
+			var tooltipLeft = e.pageX - wrapperOffset.left;
+
+			// Do not let tooltip to move out of menu.
+
+			// Because overflow is set to hidden, we will not be able too see it 
+
+			tooltipLeft = Math.min(tooltipLeft, wrapperWidth - 75); //tooltip.outerWidth());
+
+			
+
+			var tooltipTop = e.pageY - wrapperOffset.top + wrapper.scrollTop() - 40;
+
+			// Move tooltip under the mouse when we are in the higher part of the menu
+
+			if (e.pageY - wrapperOffset.top < wrapperHeight/2){
+
+				tooltipTop += 80;
+
+			}				
+
+			tooltip.css({top: tooltipTop, left: tooltipLeft});				
+
+			
+
+			// Scroll menu
+
+			var top = (e.pageY -  wrapperOffset.top) * (scrollableHeight - wrapperHeight) / wrapperHeight - inactiveMargin;
+
+			if (top < 0){
+
+				top = 0;
+
+			}			
+
+			wrapper.scrollTop(top);
+
+		});
+
+		
+
+		// Setting interval helps solving perfomance problems in IE
+
+		var interval = setInterval(function(){
+
+			if (!lastTarget) return;	
+
+										
+
+			var currentText = tooltip.text();
+
+			
+
+			if (lastTarget.nodeName == 'IMG'){					
+
+				// We've attached data to a link, not image
+
+				var newText = $(lastTarget).parent().data('tooltipText');
+
+
+
+				// Show tooltip with the new text
+
+				if (currentText != newText) {
+
+					tooltip
+
+						.stop(true)
+
+						.css('opacity', 0)	
+
+						.text(newText)
+
+						.animate({opacity: 1}, 1000);
+
+				}					
+
+			}
+
+		}, 200);
+
+		
+
+		// Hide tooltip when leaving menu
+
+		wrapper.mouseleave(function(){
+
+			lastTarget = false;
+
+			tooltip.stop(true).css('opacity', 0).text('');
+
+		});			
+
+		
+
+		/*
+
+		//Usage of hover event resulted in performance problems
+
+		scrollable.find('a').hover(function(){
+
+			tooltip
+
+				.stop()
+
+				.css('opacity', 0)
+
+				.text($(this).data('tooltipText'))
+
+				.animate({opacity: 1}, 1000);
+
+	
+
+		}, function(){
+
+			tooltip
+
+				.stop()
+
+				.animate({opacity: 0}, 300);
+
+		});
+
+		*/			
+
+	}
+
+}
+
+	
+
+$(function(){	
+
+	makeScrollable("div.sc_menu_wrapper", "div.sc_menu");
+
+});
+
+/*]]>*/</script>
+
+</head>
+
+<body >
+
+<table width="100%" border="0" height="691" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="151" height="139" background="images/bgImageL.jpg" >&nbsp;</td>
+    <td height="139" colspan="5" background="images/bgImage.jpg" ><img src="images/myBanner.jpg"></td>
+    <td width="198" height="139" background="images/bgImage.jpg" >&nbsp;</td>
+  </tr> 
+   <tr>
+  <td colspan="7">
+
+  
+ <div id="menu">
+ <ul class="menu">
+
+  <li><a href="?"><span>Home</span></a> </li>
+  <li><a href="?jemfc=7"><span>Mission and Vision</span></a>  </li>
+  <li><a href="#" class="parent"><span>About Us</span></a>
+    <div>
+    <ul>
+      <li><a href="?jemfc=1"><span>History</span></a></li>
+      <li><a href="?jemfc=2"><span>Accreditation</span></a></li>
+      <li><a href="?jemfc=3"><span>Board of Trustees</span></a></li>
+      <li><a href="?jemfc=4"><span>Administration</span></a></li>
+      <li><a href="?jemfc=5"><span>Employment</span></a></li>
+      <li><a href="?jemfc=6"><span>Related Links</span></a></li>
+    </ul>
+    </div>
+  </li>
+    <li><a href="?jemfc=8"><span>Calendar of Events</span></a></li>
+  <li><a href="#" class="parent"><span>Programs &amp; Courses</span></a>
+    <div>
+    <ul>
+      <li><a href="?jemfc=9"><span>Elementary</span></a></li>
+      <li><a href="?jemfc=10"><span>High School</span></a></li>
+      <li><a href="?jemfc=11"><span>College</span></a></li>
+      <li><a href="?jemfc=12"><span>Graduate Program</span></a></li>
+      <li><a href="?jemfc=13"><span>Admission Requirements</span></a></li>
+    </ul>
+    </div>
+  </li>
+
+  <li><a href="#" class="parent"><span>Event gallery</span></a>
+            <div><ul>
+			
+                <li><a href="#" class="parent"><span>2010</span></a>
+                    <div><ul>
+						 
+                        <li><a href="?jemfc=14&amp;egallery=2"><span>2010&nbsp;Intrams</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=3"><span>2010&nbsp;SSC Attend Crime Prevention</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=1"><span>2010&nbsp;Field Day</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=23"><span>2010&nbsp;Foundation Day</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=14"><span>2010&nbsp;JS Prom</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=13"><span>2010&nbsp;Basic Education Orientation Program</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=12"><span>2010&nbsp;Nutrition Month</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=11"><span>2010&nbsp;College Oriantation Program</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=10"><span>2010&nbsp;Faculty in service day</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=9"><span>2010&nbsp;SSC Grand Rally</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=8"><span>2010&nbsp;SSC Election</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=7"><span>2010&nbsp;Acquintance Party</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=6"><span>2010&nbsp;Mr. & Ms Sportsfest</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=5"><span>2010&nbsp;Cast Away Event</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=4"><span>2010&nbsp;JEMFC joins TESDA Anniversary</span></a>
+                        </li>
+						
+                        
+                    </ul></div>
+                </li>
+				
+                <li><a href="#" class="parent"><span>2011</span></a>
+                    <div><ul>
+						 
+                        <li><a href="?jemfc=14&amp;egallery=27"><span>2011&nbsp;College Prom & Recognition Nights</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=26"><span>2011&nbsp;Basic Education Recognition Rites</span></a>
+                        </li>
+						
+                        <li><a href="?jemfc=14&amp;egallery=24"><span>2011&nbsp;APEX & Manila Tour</span></a>
+                        </li>
+						
+                        
+                    </ul></div>
+                </li>
+				
+                
+            </ul></div>
+        </li>
+
+  <li><a href="?jemfc=19"><span>Giving</span></a></li>
+  <li><a href="?jemfc=20"><span>Contact Us</span></a></li>
+
+</ul>
+</div>
+
+  
+  </td>
+  </tr>
+  <tr>
+    <td height="518" align="right" bgcolor="#CCCCCC">&nbsp;</td>
+    <td width="194" valign="top" bgcolor="#FFFFFF">
+    <table>
+    <tr>
+        <td height="32" bgcolor="#C5DCAB" class="style3">College Courses</td>
+      </tr>
+      <tr>
+        <td height="65" align="left" bgcolor="#FFFFCC">
+        <div class="sc_menu_wrapper">
+        <div class="sc_menu">
+    <a title="Menu" href="#"><p class="sc_menu_wrapper"> Bachelor of Science in Computer Science </p>
+    </a>
+    <a title="Navigation" href="#"><p> Bachelor of Science in Information Technology </p>
+    </a>
+    <a title="jQuery" href="#"><p> Bachelor of Science in Information Management </p>
+    </a>        
+    <a title="CSS" href="#"><p> Bachelor of Science in Business Administration </p>
+    </a>
+    <a title="Vertical" href="#"><p> 2 Years Associate in Computer Technology </p>
+    </a>
+    <a title="Menu" href="#"><p> 2 Years Computer Hardware Technology </p>
+    </a>
+    <a title="Navigation" href="#"><p> 2 Years Computer Secretarial </p>
+    </a>    
+     <a title="Menu" href="#"><p> Bachelor of Science in Computer Science </p>
+    </a>
+    <a title="Navigation" href="#"><p> Bachelor of Science in Information Technology </p>
+    </a>
+    <a title="jQuery" href="#"><p> Bachelor of Science in Information Management </p>
+    </a>        
+    <a title="CSS" href="#"><p> Bachelor of Science in Business Administration </p>
+    </a>
+    <a title="Vertical" href="#"><p> 2 Years Associate in Computer Technology </p>
+    </a>
+    <a title="Menu" href="#"><p> 2 Years Computer Hardware Technology </p>
+    </a>
+    <a title="Navigation" href="#"><p> 2 Years Computer Secretarial </p>
+    </a>    
+     <a title="Menu" href="#"><p> Bachelor of Science in Computer Science </p>
+    </a>
+    <a title="Navigation" href="#"><p class="unselected"> Bachelor of Science in Information Technology </p>
+    </a>
+    <a title="jQuery" href="#"><p> Bachelor of Science in Information Management </p>
+    </a>        
+    <a title="CSS" href="#"><p> Bachelor of Science in Business Administration </p>
+    </a>
+    <a title="Vertical" href="#"><p> 2 Years Associate in Computer Technology </p>
+    </a>
+    <a title="Menu" href="#"><p> 2 Years Computer Hardware Technology </p>
+    </a>
+    <a title="Navigation" href="#"><p> 2 Years Computer Secretarial </p>
+    </a>    
+  </div>
+</div></td>
+      </tr>
+    
+    </table>
+    </td>
+    <td width="1" valign="top" bgcolor="#FFFFFF" align="center">
+<img src="images/VLine.jpg" width="1" height="100%" />	</td>
+    <td width="509" valign="top" bgcolor="#FFFFFF">
+
+
+
+<link href="myCSS.css" rel="stylesheet" type="text/css" />
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="480" height="400" align="middle">
+		<param name="allowScriptAccess" value="sameDomain" />
+		<param name="movie" value="home2/home.swf?xml_path=home2/home.xml" />
+		<param name="quality" value="high" />
+		<param name="wmode" value="transparent" />
+		<embed src="home2/home.swf?xml_path=home2/home.xml" width="480" type="application/x-shockwave-flash" height="400" quality="high" align="middle" allowScriptAccess="sameDomain" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" />
+	</object>
+	<br />
+    <p>
+<div id="main">
+			
+			<div class="fleft">
+<table width="96%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="32" bgcolor="#C5DCAB" class="style3"><strong>Announcement:</strong></td>
+  </tr>
+  <tr>
+    <td class="style1" >
+    
+<style type="text/css">
+hr { height: 0; border-style: dotted ; border-width: 2px 0 0 0; border-color:
+#COLORHERE; }
+.dateR {
+	text-align: right;
+	font-family: "MS Serif", "New York", serif;
+	font-weight: normal;
+}
+</style>
+
+<link href="myCSS.css" rel="stylesheet" type="text/css" />
+
+<hr />
+
+<p class="dateR">April 17 2012</p>
+
+
+<span class="style1_title">JEMCC High School Department has already been granted Government Recognition - GR No. 011, Series of 2011.<br /></span>
+
+<span class="style1"><br />
+Congratulation JEMCC-HS Faculty, Admin & Staff !</span><br />
+
+  <br />
+   <br />
+
+
+<hr />
+
+<p class="dateR">April 11, 2012</p>
+<p align="left" class="style1_title" >
+
+<span class="style2_text"><span class="style1_title">Immediate Hiring!</span></span><br />
+
+  <br />
+   <span class="style1"><span class="style1_title">BOOKKEEPER</span></span><br />
+   <br />
+   <span class="style1">Qualifications:</span></p>
+<ul type="disc">
+  <li class="style1">Graduate of BS Accountancy </li>
+  <li class="style1">At least one year experience       in general&nbsp;accounting </li>
+  <li class="style1">Computer Literate</li>
+  <li class="style1">Attention to detail and ability       to multi-task is an advantage</li>
+  <li class="style1">Can work under pressure with       minimum supervision</li>
+</ul>
+<p align="left" class="style1_title" ><span class="style1">Requirements:</span></p>
+<ul type="disc">
+  <li class="style1">Letter of intent</li>
+  <li class="style1">PDS</li>
+  <li class="style1">TOR and certificates</li>
+  <li class="style1">Diploma</li>
+  <li class="style1">Passport size ID picture( Yellow green back ground ) </li>
+</ul>
+<hr />
+
+<p class="dateR">April 10, 2012</p>
+<p align="left" class="style1_title" >
+
+BSBA is now accredited with the Department of Veterans Affairs<br />
+
+  <br />
+   <br />
+</p>
+<hr />
+<p class="dateR">Febuary 23, 2012</p>
+<p align="left" class="style1_title" >
+Congratulation to the following winners 
+  of recntly held JEMCC Film Festival 2012</p>
+    <table>
+        <tr >
+          <td ><p class="style2_title" >1st Place</p></td>
+          <td ><p class="style2_title" >2nd Place</p></td>
+          <td ><p class="style2_title">3rd Place</p></td>
+        </tr>
+        <tr>
+          <td><span class="style2"><a href="?vid=2" rel="prettyPhoto" onClick="popImage('http://www.youtube.com/watch?v=kh29_SERH0Y?rel=0','Photo Gallery')"><img src="images/movie/1.jpg" alt="" width="140" height="110" /></a></span>
+         </td>
+          <td class="style2"><a href="?vid=3"><img src="images/movie/2.jpg" alt="" width="140" height="110" /></a></td>
+          <td class="style2"><a href="?vid=1"><img src="images/movie/3.jpg" alt="" width="140" height="110" /></a></td>
+        </tr>
+        <tr class="style1">
+          <td><p><span class="style1_title">Title:</span> &quot;Kuya&quot;<br />
+            <span class="style1_title">Course</span>: ACT &amp; CHT I</p></td>
+          <td><p><span class="style1_title">Title:</span> &quot;Noli Me Tangere&quot;<br />
+            <span class="style1_title">Course:</span> BSCS III</p></td>
+          <td><p><span class="style1_title">Title:</span> &quot;Kwintas&quot;<br />
+            <span class="style1_title">Course:</span> HS 4th Year</p></td>
+        </tr>
+    </table>
+    <br />
+    <br />
+ 
+    <hr />
+    <br />
+    <br />
+   <p class="style2_text">
+   Enrollment is now going on for school year 2012-2013</p>
+  
+<br />
+<br />
+<br />
+<br />
+<br />
+		
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+</p>
+
+<h2>
+			  <script type="text/javascript" charset="utf-8">
+			$(document).ready(function(){
+				$("area[rel^='prettyPhoto']").prettyPhoto();
+				
+				$(".gallery:first a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'normal',theme:'light_square',slideshow:3000, autoplay_slideshow: true});
+				$(".gallery:gt(0) a[rel^='prettyPhoto']").prettyPhoto({animation_speed:'fast',slideshow:10000, hideflash: true});
+		
+				$("#custom_content a[rel^='prettyPhoto']:first").prettyPhoto({
+					custom_markup: '<div id="map_canvas" style="width:260px; height:265px"></div>',
+					changepicturecallback: function(){ initialize(); }
+				});
+
+				$("#custom_content a[rel^='prettyPhoto']:last").prettyPhoto({
+					custom_markup: '<div id="bsap_1259344" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div><div id="bsap_1237859" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6" style="height:260px"></div><div id="bsap_1251710" class="bsarocks bsap_d49a0984d0f377271ccbf01a33f2b6d6"></div>',
+					changepicturecallback: function(){ _bsap.exec(); }
+				});
+			});
+			  </script>
+	
+			<!-- Google Maps Code -->
+			<script type="text/javascript"
+			    src="http://maps.google.com/maps/api/js?sensor=true">
+			</script>
+			<script type="text/javascript">
+			  function initialize() {
+			    var latlng = new google.maps.LatLng(-34.397, 150.644);
+			    var myOptions = {
+			      zoom: 8,
+			      center: latlng,
+			      mapTypeId: google.maps.MapTypeId.ROADMAP
+			    };
+			    var map = new google.maps.Map(document.getElementById("map_canvas"),
+			        myOptions);
+			  }
+
+			</script>
+			
+			<!-- END Google Maps Code -->
+	
+			<!-- BuySellAds.com Ad Code --><script type="text/javascript">
+			(function(){
+			  var bsa = document.createElement('script');
+			     bsa.type = 'text/javascript';
+			     bsa.async = true;
+			     bsa.src = '//s3.buysellads.com/ac/bsa.js';
+			  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+			})();
+			</script>
+			
+			<!-- END BuySellAds.com Ad Code -->	</h2>
+<table width="100%" height="32" border="0" cellpadding="2" cellspacing="0">
+<!--<tr>
+<td height="32" colspan="2" bgcolor="#C5DCAB" class="style3" >Upcoming Events</td>
+</tr>-->
+
+</table>	  
+		
+	</td>
+    <td width="1" valign="top" bgcolor="#FFFFFF" align="center">
+<img src="images/VLine.jpg" width="1" height="100%" />	</td>
+    <td width="176" valign="top" bgcolor="#FFFFFF">
+    <table>
+    
+	  <tr>
+	  <td height="32" bgcolor="#C5DCAB" class="style3">Immediate Hiring!</td></tr>
+	  <tr>
+	  <td>
+	  
+<script type="text/javascript">
+
+//new pausescroller(name_of_message_array, CSS_ID, CSS_classname, pause_in_miliseconds)
+
+new pausescroller(pausecontent, "pscroller1", "someclass", 5000)
+
+</script></td>
+	  </tr>
+    <tr>
+      <td height="32" bgcolor="#C5DCAB" class="style3">Follow Us </td>
+    </tr>
+      <tr>
+        <td height="65" align="center"><a href="http://www.facebook.com/#!/group.php?gid=42891107967" target="_blank"><img src="images/FacebookLogo.jpg" border="0" /></a>&nbsp;&nbsp;<a href="http://twitter.com/JEMFCTacloban" target="_blank"><img src="images/twitter.jpg" border="0" /></a>&nbsp;&nbsp;<img src="images/rss.jpg" /><br></td>
+      </tr>
+    </table>
+    </td>
+    <td valign="top" bgcolor="#CCCCCC">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="34" bgcolor="#006600">&nbsp;</td>
+    <td colspan="5" bgcolor="#006600">
+	<font color="#FFFFFF"><div align="center" class="style2">For comments or   inquiries regarding the website, email : <a href="mailto:info@mondejar.edu" target="_blank" style="color:#FFFFFF">Webmaster</a> </div>
+      </font><div>
+        <div align="center" class="style2"><font color="#FFFFFF">Copyright 2010.   JE Mondejar Computer College. All Rights Reserved. </font></div>
+    </div></td>
+    <td bgcolor="#006600"></td>
+  </tr>
+</table>
+<div style="visibility:hidden">
+<a href="http://apycom.com/"></a>
+</div>
+</body>
+</html>

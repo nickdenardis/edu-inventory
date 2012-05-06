@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Shepherds Theological Seminary</title>
+	<link rel="stylesheet" type="text/css" href="includes/style.css" />
+        <link rel="shortcut icon" href="favicon.ico" />
+<!--[if IE]><link rel="stylesheet" type="text/css" href="includes/ie.css" /><![endif]-->
+<script type="text/javascript" src="includes/embed.js"></script>
+<script type="text/javascript" src="/includes/swfobject.js"></script>
+<script type="text/javascript" language="javascript">
+function showPic (whichpic, url, target) {
+ if (document.getElementById) {
+  document.getElementById('mainimage').innerHTML = '<a href="' + url + '" id="placeholderlink" target="' + target + '"><img src="' + whichpic + '" /></a>';
+  return false;
+ } else {
+  return true;
+ }
+}
+
+function lightup(imageid, opacity){
+	opacity = (opacity == 100)?99.999:opacity;
+    document.getElementById(imageid).style.MozOpacity=opacity/100;
+	document.getElementById(imageid).style.KHTMLOpacity = opacity/100;
+	document.getElementById(imageid).style.opacity = opacity/100;
+	document.getElementById(imageid).style.filter = "progid:DXImageTransform.Microsoft.Alpha(opacity=" + opacity + ");";
+
+}
+
+ function changemedia(whichpic, path, w, h) {
+
+document.getElementById('mainimage').innerHTML = '<div id="mediaplayer" style="margin-top:40px;"></div>'; //  style="margin-top:40px;"
+
+    var so = new SWFObject('includes/player.swf','mpl', w, h,'9');
+    so.addParam('allowscriptaccess','always');
+    so.addParam('allowfullscreen','false');
+    so.addParam('flashvars','&file=' + path + '&backcolor=393939&frontcolor=999999&volume=100&autostart=false&image=' + whichpic);
+    so.write('mediaplayer');
+return false;
+
+ }
+
+var c=1
+var t
+
+function timedCount()
+{
+	
+	if (c == 4) { c = 1; }
+	thumbimgname = 'thumbimg' + c;
+	newthumbimg = document.getElementById(thumbimgname).value.replace(/return /, '');
+	eval(newthumbimg);
+	
+	if (c==1) {
+		document.getElementById('thumbnail1').style.backgroundColor = "#000000";
+		lightup('imagelink1', 30)
+		document.getElementById('thumbnail2').style.backgroundColor = "";
+		lightup('imagelink2', 100)
+		document.getElementById('thumbnail3').style.backgroundColor = "";
+		lightup('imagelink3', 100)
+	}
+	if (c==2) {
+		document.getElementById('thumbnail1').style.backgroundColor = "";
+		lightup('imagelink1', 100)
+		document.getElementById('thumbnail2').style.backgroundColor = "#000000";
+		lightup('imagelink2', 30)
+		document.getElementById('thumbnail3').style.backgroundColor = "";
+		lightup('imagelink3', 100)
+	}
+	if (c==3) {
+		document.getElementById('thumbnail1').style.backgroundColor = "";
+		lightup('imagelink1', 100)
+		document.getElementById('thumbnail2').style.backgroundColor = "";
+		lightup('imagelink2', 100)
+		document.getElementById('thumbnail3').style.backgroundColor = "#000000";
+		lightup('imagelink3', 30)
+	}
+	
+	c=c+1;
+	
+	t=setTimeout("timedCount()",7000);
+	
+}
+
+
+var player = null;
+function playerReady(thePlayer) {
+	player = document.getElementById(thePlayer.id);
+	addListeners();
+}
+
+
+function addListeners() {
+	if (player) { 
+		player.addModelListener("STATE", "stateListener");
+	} else {
+		setTimeout("addListeners()",100);
+	}
+}
+
+
+function stateListener(obj) { //IDLE, BUFFERING, PLAYING, PAUSED, COMPLETED
+	currentState = obj.newstate; 
+	previousState = obj.oldstate; 
+
+	if (((currentState == "COMPLETED") || (currentState == "IDLE"))&&(previousState == "PLAYING")) {
+		setTimeout("timedCount()",1000);
+	}
+	if (currentState == "PLAYING") {
+		clearTimeout(t);
+	}
+}
+
+
+
+</script>
+	</head>
+	
+<body onload="timedCount()">
+
+<!-- Top of the site. Logo, search. -->
+
+	<div class="format">
+	<div class="top">
+		<a href="index.php"><div class="top" id="logo"></div></a>
+        <div id="homelink" class="top"><a href="index.php">Home</a> | <a href="page.php?pageid=27">Support</a> | <a href="mailto:info@shepherds.edu">Contact Us</a></div>
+<div class="top" id="search">
+			<form action="search.php">
+				<div style="float: left;">
+			    <input type="text" name="q" class="search" /></div>
+				<div style="float: left;">
+				  <input type="submit" value=" " class="searchsubmit" />
+		    </div>
+				</form>
+			</div>
+		</div>
+		
+<!-- Tabbed, main menu selections. -->
+		
+<div class="menu" style="width: 100%;">
+        			<a href="page.php?pageid=1" target=""><div class="menu" id="about" ></div></a>
+            
+        			<a href="page.php?pageid=46" target=""><div class="menu" id="programs" ></div></a>
+            
+        			<a href="page.php?pageid=47" target=""><div class="menu" id="admissions" ></div></a>
+            
+        			<a href="page.php?pageid=79" target=""><div class="menu" id="current" ></div></a>
+            
+        			<a href="page.php?pageid=27" target=""><div class="menu" id="alumni" ></div></a>
+            
+        			<a href="page.php?pageid=37" target=""><div class="menu" id="news" ></div></a>
+        </div>
+		
+<!-- Primary content area. -->
+		
+		<div class="content">
+			<div class="container" id="homepage">
+            <div class="homepage" id="mainimage"><a href="page.php?pageid=104" id="placeholderlink"><img id="placeholder" src="images/homepage/home1.jpg" /></a></div>
+                        <input type="hidden" id="thumbimg1" value="return showPic('images/homepage/home1.jpg', 'page.php?pageid=104', '_self')" />
+                        <div class="thumbnail" id="thumbnail1"><a onclick="return showPic('images/homepage/home1.jpg', 'page.php?pageid=104', '_self')" onMouseover="lightup('imagelink1', 50)" onMouseout="lightup('imagelink1', 100)" href="images/homepage/home1.jpg" id="clicklink1"><img id="imagelink1" src="images/homepage/home1_thumb.jpg" border="0" style="margin-right:1px;" /></a></div>
+                        <input type="hidden" id="thumbimg2" value="return showPic('images/homepage/home2.jpg', 'page.php?pageid=81', '_self')" />
+                        <div class="thumbnail" id="thumbnail2"><a onclick="return showPic('images/homepage/home2.jpg', 'page.php?pageid=81', '_self')" onMouseover="lightup('imagelink2', 50)" onMouseout="lightup('imagelink2', 100)" href="images/homepage/home2.jpg" id="clicklink2"><img id="imagelink2" src="images/homepage/home2_thumb.jpg" border="0" style="margin-right:1px; margin-left:1px;" /></a></div>
+                        <input type="hidden" id="thumbimg3" value="return showPic('images/homepage/home3.jpg', 'page.php?pageid=79', '_self')" />
+                        <div class="thumbnail" id="thumbnail3"><a onclick="return showPic('images/homepage/home3.jpg', 'page.php?pageid=79', '_self')" onMouseover="lightup('imagelink3', 50)" onMouseout="lightup('imagelink3', 100)" href="images/homepage/home3.jpg" id="clicklink3"><img id="imagelink3" src="images/homepage/home3_thumb.jpg" border="0" style="margin-left:1px;" /></a></div>
+				</div>
+				
+<!-- Secondary content area. -->
+
+			<div class="container" id="secondary">
+				<table class="secondary" cellspacing="0">
+					<tr>
+					  <th class="secondary" id="neutral">QUICK LINKS</th>
+					</tr>
+				<tr><td class="secondary"><a href="page.php?pageid=47" target="" class="navigation">Becoming a Student</a></td></tr>
+									<tr><td class="secondary"><a href="page.php?pageid=46" target="" class="navigation">Academic Programs</a></td></tr>
+									<tr><td class="secondary"><a href="page.php?pageid=27" target="" class="navigation">Support STS</a></td></tr>
+									<tr><td class="secondary"><a href="page.php?pageid=42" target="" class="navigation">Faculty</a></td></tr>
+									<tr><td class="secondary"><a href="page.php?pageid=79" target="" class="navigation">Class Schedule</a></td></tr>
+									<tr><td class="secondary"><a href="https://www.facebook.com/pages/Shepherds-Theological-Seminary/137193409644909" target="" class="navigation">Facebook</a></td></tr>
+										</table>
+					
+				<a href="http://www.colonial.org/mediahome.html" target="_blank"><div class="podcasts"></div></a>
+					
+				<table class="secondary" cellspacing="0">
+					<tr>
+					  <th class="secondary" id="recentnews">RECENT NEWS</th>
+					</tr>
+                    <tr><td class="secondary"><a href="http://blog.shepherds.edu/2012/04/27/sts-educational-seminar/" class="navigation" target="_blank">STS Educational Seminar</a></td></tr>
+<tr><td class="secondary"><a href="http://blog.shepherds.edu/2012/04/19/2012-founders-banquet-in-review/" class="navigation" target="_blank">2012 Founders Banquet in Review</a></td></tr>
+<tr><td class="secondary"><a href="http://blog.shepherds.edu/2012/03/23/recap-of-spring-colloquium/" class="navigation" target="_blank">Recap of Spring Colloquium</a></td></tr>
+<tr><td class="secondary"><a href="http://blog.shepherds.edu/2012/02/06/dr-bookmans-israel-initiative/" class="navigation" target="_blank">The Shepherds Israel Initiative</a></td></tr>
+					</table>
+				</div>
+			</div>
+			
+<!-- This is the navigation that is at the bottom of the site, extending the width of the page. -->
+	<div class="navigation">
+	<div class="navigationsection">
+				<p class="navigationabout">ABOUT STS</p>
+                					<a href="page.php?pageid=1" target="" class="navigation">About Us</a><br />
+                					<a href="page.php?pageid=87" target="" class="navigation">STS Purpose</a><br />
+                					<a href="page.php?pageid=2" target="" class="navigation">Doctrinal Statement</a><br />
+                					<a href="page.php?pageid=42" target="" class="navigation">Faculty</a><br />
+                					<a href="page.php?pageid=44" target="" class="navigation">Staff</a><br />
+                					<a href="page.php?pageid=77" target="" class="navigation">Accreditation</a><br />
+                					<a href="page.php?pageid=6" target="" class="navigation">Library</a><br />
+                					<a href="page.php?pageid=3" target="" class="navigation">History of STS</a><br />
+                					<a href="page.php?pageid=30" target="" class="navigation">Global Impact</a><br />
+                			</div>
+				
+			<div class="navigationsection">
+				<p class="navigationprograms">PROGRAMS OF STUDY</p>
+									<a href="page.php?pageid=8" target="" class="navigation">Master of Divinity</a><br />
+                					<a href="page.php?pageid=9" target="" class="navigation">Master of Arts in Church Ministry</a><br />
+                					<a href="page.php?pageid=11" target="" class="navigation">Bachelor of Theology</a><br />
+                					<a href="page.php?pageid=10" target="" class="navigation">Certificate of Graduate Studies</a><br />
+                					<a href="page.php?pageid=12" target="" class="navigation">Associate of Church Ministry</a><br />
+                					<a href="page.php?pageid=83" target="" class="navigation">Academic Teaching Site</a><br />
+                                </div>
+				
+			<div class="navigationsection">
+				<p class="navigationadmissions">ADMISSIONS</p>
+									<a href="page.php?pageid=47" target="" class="navigation">Becoming a Student</a><br />
+                					<a href="page.php?pageid=16" target="" class="navigation">Catalog</a><br />
+                					<a href="page.php?pageid=18" target="" class="navigation">Financial Info</a><br />
+                					<a href="page.php?pageid=21" target="" class="navigation">FAQ</a><br />
+                					<a href="page.php?pageid=5" target="" class="navigation">Student Life</a><br />
+                					<a href="page.php?pageid=4" target="" class="navigation">Visit STS</a><br />
+                                </div>
+				
+			<div class="navigationsection">
+				<p class="navigationcurrent">CURRENT STUDENTS</p>
+									<a href="page.php?pageid=79" target="" class="navigation">Summer Registration</a><br />
+                					<a href="page.php?pageid=22" target="" class="navigation">Calendar</a><br />
+                					<a href="page.php?pageid=49" target="" class="navigation">Course Descriptions</a><br />
+                					<a href="page.php?pageid=25" target="" class="navigation">Distance Education</a><br />
+                					<a href="page.php?pageid=26" target="" class="navigation">Forms & Downloads</a><br />
+                					<a href="page.php?pageid=28" target="" class="navigation">Internships & Apprenticeships</a><br />
+                					<a href="page.php?pageid=73" target="" class="navigation">Block Mondays</a><br />
+                					<a href="page.php?pageid=74" target="" class="navigation">Financial Aid</a><br />
+                					<a href="page.php?pageid=118" target="" class="navigation">Shepherds Wives Fellowship</a><br />
+                					<a href="page.php?pageid=100" target="" class="navigation">Populi Student Portal</a><br />
+                                </div>
+				
+			<div class="navigationsection">
+				<p class="navigationalumni">ALUMNI &amp; FRIENDS</p>
+									<a href="page.php?pageid=111" target="" class="navigation">Your Impact</a><br />
+                					<a href="page.php?pageid=27" target="" class="navigation">Support STS</a><br />
+                					<a href="page.php?pageid=109" target="" class="navigation">Shepherds Partners</a><br />
+                					<a href="page.php?pageid=105" target="" class="navigation">Foundation</a><br />
+                					<a href="page.php?pageid=29" target="" class="navigation">Audit a Class</a><br />
+                					<a href="page.php?pageid=117" target="" class="navigation">360 A Circle of Shepherds </a><br />
+                					<a href="page.php?pageid=119" target="" class="navigation">STS Placement Service</a><br />
+                                </div>
+				
+			<div class="navigationsection">
+				<p class="navigationnews">MEDIA &amp; EVENTS</p>
+									<a href="page.php?pageid=36" target="" class="navigation">Recordings</a><br />
+                					<a href="page.php?pageid=37" target="" class="navigation">Videos</a><br />
+                					<a href="page.php?pageid=35" target="" class="navigation">Tabletalk</a><br />
+                					<a href="page.php?pageid=81" target="" class="navigation">Graduation</a><br />
+                					<a href="page.php?pageid=104" target="" class="navigation">STS Golf Tournament</a><br />
+                					<a href="page.php?pageid=94" target="" class="navigation">Spring Colloquium</a><br />
+                					<a href="page.php?pageid=110" target="" class="navigation">Class of 2011</a><br />
+                                </div>
+			</div>
+             <div class="footer">
+             <strong>Shepherds Theological Seminary</strong><br />
+           	   6051 Tryon Road Cary, NC 27518<br />
+      919.573.5350 |<strong> </strong>800.672.3060 </div>
+            </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{
+var pageTracker = _gat._getTracker("UA-15956802-1");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+	</body>
+	
+</html>

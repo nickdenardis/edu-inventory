@@ -1,0 +1,1569 @@
+
+   
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+<HTML>
+<HEAD>
+<TITLE>한성대학교</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<script language='javascript' src='/js/common.js'></script>  <!-- 공통 스크립트 Include -->
+
+<!-- 팝업 툴팁을 나오게하기위한 파일들, 시작-->
+<link rel="stylesheet" href="jquery-tooltip/jquery.tooltip.css" />
+<script type="text/javascript" src="jquery-tooltip/lib/jquery.js"></script>   
+<script type="text/javascript" src="jquery-tooltip/jquery-ui.js" type="text/javascript"></script>   
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="jquery.cycle/jquery.cycle.all.js"></script>
+
+<script src="jquery-tooltip/chili-1.7.pack.js" type="text/javascript"></script>
+<script src="jquery-tooltip/jquery.tooltip.js" type="text/javascript"></script>
+<script src="http://www.hansung.ac.kr/jquery-tooltip/easing.js" type="text/javascript"></script> 
+<!-- 팝업 툴팁을 나오게하기위한 파일들, 끝-->
+
+<script language="JavaScript"> 
+
+<!-- 
+
+/*function TripodShowPopup() 
+{ 
+// open the popup window 
+var popupURL = "http://www.hansung.ac.kr/images/main/cece40.gif"; var popup = window.open(popupURL,"TripodPopup",'toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,resizable=0,width=350,height=414'); 
+// set the opener if it's not already set. it's set automatically 
+// in netscape 3.0+ and ie 3.0+. 
+if( navigator.appName.substring(0,8) == "Netscape" ) { popup.location = popupURL; } 
+} 
+
+TripodShowPopup(); 
+*/
+// --> 
+
+</script>
+
+<!-- 메인플래시링크 스크립트 -->
+<script language="JavaScript">
+<!--
+	//팝업툴팁을 나오게 하는 소스~
+	$(document).ready(function() {
+		$(function() {
+			for(i=1;i<20;i++){
+				$('#popup'+i).tooltip({
+					delay: 0,
+					fade: 250 ,
+					showURL: false,
+					top: 15, 
+					left: 15,
+					bodyHandler: function() {
+						if(this.dsrc!= undefined ){
+							return $("<img/>").attr("src", this.dsrc).attr("style", "position:absolute;top:-250;left:0");	
+						}
+						return $("<img/>").attr("src", this.src);
+					}
+				});
+			}
+		});
+
+		$('.slideshow').cycle({ 
+			fx:   'scrollLeft,scrollDown,scrollRight,zoom,shuffle', 
+			shuffle: { 
+				top:  50, 
+				left:  50 
+			}, 
+			speedIn:  1500, 
+		    speedOut: 800,
+			easeIn:  'bounceout', 
+		    easeOut: 'backin', 
+			delay: -4000,
+			timeout: 15000,
+			slideExpr: 'img',
+			pager:  '#nav' 
+		}); 
+       
+    // 팝업 드래그 2010-09-01   
+      
+	 $("#divpop1").draggable();
+	 $("#divpop2").draggable();
+	// $("#divpop3").draggable();
+	
+	});
+
+	
+	function popupLink(url){
+		var win = window.open(url, "popup", "toolbar=yes,location=yes,status=yes,menubar=yes,left=10,top=10,scrollbars=yes,resizable=yes");
+		win.focus();	
+		}
+	//팝업 툴팁을 나오게하기위한 파일들, 끝
+	
+	function openwin1(theURL){
+		window.open(theURL,"01",'width=800,height=579,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+		}
+//-->
+</script>
+<!-- 메인플래시링크 스크립트끝 -->
+
+<!-- 팝업 레이어 DIV 관련 스크립트 [S] -->
+<script type="text/javascript">
+<!--
+
+//윈도우창을 닫음
+function closeWin(n) {
+  if ( document.getElementById("chkbox"+n).checked ){
+    setCookie( "maindiv"+n, "done" , 1 );
+  }
+  var div = document.getElementById("divpop"+n);
+  div.style.display = "none";
+}
+
+function log( str ){
+
+  //로그보기 (보기편하시라고 남겨봅니다.)
+  var logObj = document.getElementById("logDiv");
+  if (logObj != null){
+    ogObj.innerHTML += str +"<br/>";
+  }
+}
+
+//쿠키설정
+function setCookie( name, value, expiredays ) {
+  //log("setCookie");
+  var todayDate = new Date();
+  todayDate.setDate( todayDate.getDate() + expiredays );
+  document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}
+ 
+//쿠키가져오기
+function getCookie( name )
+{
+  var nameOfCookie = name + "=";
+  var x = 0;   
+
+  while ( x <= document.cookie.length )
+  {
+    var y = (x+nameOfCookie.length);
+
+    if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+      if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) {
+        endOfCookie = document.cookie.length;
+      }
+
+      return unescape( document.cookie.substring( y, endOfCookie ) );
+    }
+
+    x = document.cookie.indexOf( " ", x ) + 1;
+
+    if ( x == 0 ) {
+      break;
+    }
+  }
+  return "";
+}
+
+ //쿠키 설정여부체크
+function cookieChk(n) {
+  //log( "window.onload 이벤트발생시 실행하는 함수 : cookieChk");
+
+  //log( "쿠키가설정되었으면 done 아니면 공백 : " +getCookie( "maindiv") );
+  if ( getCookie( "maindiv"+n) != "done" ) {
+    log("쿠키 설정 전 입니다. divpop레이어를 보여줍니다.");
+    document.getElementById("divpop"+n).style.display = "block";
+  } else {
+    log("쿠키 설정 후 입니다. divpop레이어를 감춥니다.");
+    document.getElementById("divpop"+n).style.display = "none";
+  }
+}
+ 
+ function MM_openBrWindow(theURL,winName,features) { //v2.0
+    window.open(theURL,winName,features);
+ }
+
+ function goToKnowledge() {
+   window.open("http://www.hansung.ac.kr/jsp/member/Qiv_knowledge_login1.jsp?return_url=knowledgehttp://knowledge.hansung.ac.kr/index.jsp");
+ }
+ 
+ function goTofindstud() {
+   window.open("http://www.hansung.ac.kr/bbs.message.normal_list.screen?bbs_id=find_graduate&p_tpid=700&p_lpid=744&p_mpid=2380");
+ }
+
+ 
+ function goUrl(url) {
+   window.open(url);
+ }
+
+//-->
+</script>   
+<!-- 팝업 레이어 DIV 관련 스크립트 [E] -->
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+	var cur_name = "";
+	function Main_Bbs_Change(name) {
+				 
+		if(name == "hs_notice") {
+			document.hs_notice.src = "/images/main/hs_notice_r.png"; 
+			document.edu_notice.src = "/images/main/edu_notice1.gif"; 
+			document.hs_news.src = "/images/main/hs_news1.gif";
+			document.td_notice.src = "/images/main/edu_news1.gif"; 
+			document.hs_qkfwjs.src = "/images/main/hs_qkfwjs1.gif"; 
+			div_notice.innerHTML = "<table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=486934 class=news>[일반] [공사 재공지] 우촌관 잔디광장 쪽 주출입구...</a></td><td width=80 align=right>[2012-05-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=487017 class=news>[일반] [공지]12년 향방기본훈련 5월4일 명단</a></td><td width=80 align=right>[2012-05-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=487013 class=news>[일반] 2012학년도 1학기 우수강의수필공모 안내</a></td><td width=80 align=right>[2012-05-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=486923 class=news>[일반] [저자와의 만남] '가끔은 제정신'의 저자 허...</a></td><td width=80 align=right>[2012-05-02]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=487101 class=news>[일반] 한국사회복지협의회 '교통사고 유자녀 장학...</a></td><td width=80 align=right>[2012-05-02]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table>";
+			cur_name = name;
+		}
+		else if (name == "hs_news"){
+			document.hs_notice.src = "/images/main/hs_notice1.gif"; 
+			document.edu_notice.src = "/images/main/edu_notice1.gif"; 
+			document.hs_news.src = "/images/main/hs_news_r.png";
+			document.td_notice.src = "/images/main/edu_news1.gif"; 
+			document.hs_qkfwjs.src = "/images/main/hs_qkfwjs1.gif"; 
+			div_notice.innerHTML = "<table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news&message_id=486828 class=news>[언론보도] 이창원 교수, [SBS 현장21]'9호선 요금...</a></td><td width=80 align=right>[2012-05-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news&message_id=486820 class=news>[언론보도] 이창원 교수, '고용친화형 복지국가'를...</a></td><td width=80 align=right>[2012-05-01]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news&message_id=486902 class=news>[언론보도] 김상봉 교수, 대형가맹점 '갑'의 횡포…...</a></td><td width=80 align=right>[2012-04-30]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news&message_id=486901 class=news>[언론보도] 한성대 앱창작터, &quot;나이 대신 열정으로...</a></td><td width=80 align=right>[2012-04-30]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news&message_id=486600 class=news>[언론보도] 김상조 교수, 경제 민주화와 복지국가가...</a></td><td width=80 align=right>[2012-04-30]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table>";
+			cur_name = name;
+		}
+		else if (name == "edu_notice"){
+			document.hs_notice.src = "/images/main/hs_notice1.gif"; 
+			document.edu_notice.src = "/images/main/edu_notice_r.png"; 
+			document.hs_news.src = "/images/main/hs_news1.gif";
+			document.td_notice.src = "/images/main/edu_news1.gif"; 
+			document.hs_qkfwjs.src = "/images/main/hs_qkfwjs1.gif"; 
+			div_notice.innerHTML = "<table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=486829 class=news>2012 여름계절학기 삼육대 학점교류 신청안내</a></td><td width=80 align=right>[2012-05-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=486910 class=news>2012-2학기 전과/전부 시행 안내</a></td><td width=80 align=right>[2012-05-01]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=486590 class=news>2012-1 학부 분납3차 납부기간 안내</a></td><td width=80 align=right>[2012-04-27]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=486656 class=news>2012 여름계절학기 동덕여대 학점교류 신청안내</a></td><td width=80 align=right>[2012-04-26]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=486642 class=news>2012 여름계절학기 건국대 학점교류 신청안내</a></td><td width=80 align=right>[2012-04-24]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table>";
+			cur_name = name;
+		}
+		else if (name == "td_notice"){
+			document.hs_notice.src = "/images/main/hs_notice1.gif"; 
+			document.edu_notice.src = "/images/main/edu_notice1.gif"; 
+			document.hs_news.src = "/images/main/hs_news1.gif";
+			document.td_notice.src = "/images/main/edu_news_r.png";
+			document.hs_qkfwjs.src = "/images/main/hs_qkfwjs1.gif"; 
+			div_notice.innerHTML = "<table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice&message_id=485246 class=news>긴급입찰공고 제2012-6호 한성대학교 행정조직 개편...</a></td><td width=80 align=right>[2012-04-03]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice&message_id=485218 class=news>&lt;공고수정&gt;입찰공고 제2012-3호 대학평가지표 분석...</a></td><td width=80 align=right>[2012-03-28]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice&message_id=484406 class=news>입찰공고 제2012-3호 대학평가지표 분석 솔루션 도...</a></td><td width=80 align=right>[2012-03-23]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice&message_id=483740 class=news>지명경쟁입찰 제2012-5호 2012학년도 단행본 공급업...</a></td><td width=80 align=right>[2012-03-21]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.normal_view.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice&message_id=483505 class=news>긴급재입찰 제2012-4호 교직원 단체보험 업체 선정...</a></td><td width=80 align=right>[2012-03-13]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table>";
+			cur_name = name;
+		}
+		else if (name == "hs_qkfwjs"){
+			document.hs_notice.src = "/images/main/hs_notice1.gif"; 
+			document.edu_notice.src = "/images/main/edu_notice1.gif"; 
+			document.hs_news.src = "/images/main/hs_news1.gif";
+			document.td_notice.src = "/images/main/edu_news1.gif"; 
+			document.hs_qkfwjs.src = "/images/main/hs_qkfwjs_r.png"; 
+			div_notice.innerHTML = "<table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=100&p_lpid=125&p_mpid=2341&p_spid=&p_bpid=&bbs_id=qkfwjs&message_id=485009 class=news target=parent>영어영문학과 79학번 일동 500만원 기부</a></td><td width=80 align=right>[2012-03-26]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=100&p_lpid=125&p_mpid=2341&p_spid=&p_bpid=&bbs_id=qkfwjs&message_id=482712 class=news target=parent>정보화팀 유부상 팀장 500만원 약정</a></td><td width=80 align=right>[2012-03-09]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=100&p_lpid=125&p_mpid=2341&p_spid=&p_bpid=&bbs_id=qkfwjs&message_id=480636 class=news target=parent>행정학과 윤경준 교수 200만원 기부</a></td><td width=80 align=right>[2012-03-05]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=100&p_lpid=125&p_mpid=2341&p_spid=&p_bpid=&bbs_id=qkfwjs&message_id=479408 class=news target=parent>영어영문학부 이병은 교수 200만원 기부</a></td><td width=80 align=right>[2012-02-29]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table><table border=0 cellpadding=0 cellspacing=0><tr height=22><td width=329><img src=/images/main/icon_rect.gif border=0 align=absmiddle>&nbsp;<a href=/bbs.message.notice_view.screen?p_tpid=100&p_lpid=125&p_mpid=2341&p_spid=&p_bpid=&bbs_id=qkfwjs&message_id=479015 class=news target=parent>언어교육원 신영헌 교수 200만원 기부</a></td><td width=80 align=right>[2012-02-29]</td></tr><tr height=1><td colspan=2 background=/images/common/line_bg.gif width=409></td></tr></table>";
+			cur_name = name;
+		}
+	}
+
+	function goListPage() {
+		if(cur_name == "hs_notice") {
+			location.href = "/bbs.message.notice_list.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice";
+		}
+		else if (cur_name == "hs_news"){
+			location.href = "/bbs.message.normal_list.screen?p_tpid=0&p_lpid=0&p_mpid=3&bbs_id=main_news";
+		}
+		else if (cur_name == "edu_notice"){
+			location.href = "/bbs.message.notice_list.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice";
+		}
+		else if (cur_name == "td_notice"){
+			location.href = "/bbs.message.normal_list.screen?p_tpid=0&p_lpid=0&p_mpid=5&bbs_id=main_td_notice";
+		}
+		else if (cur_name == "hs_qkfwjs"){
+			location.href = "/bbs.message.notice_list.screen?p_tpid=100&p_lpid=125&p_mpid=2341&bbs_id=qkfwjs";
+		}
+	}
+
+	function read_autho_alert()
+	{
+		alert("읽기 권한이 없습니다. 로그인 해주세요.");
+		return;
+	}
+
+	function goSch() {
+		
+		var frm = document.frmSch;
+	
+		if(frm.p_coltxt.value == "") {
+			alert("검색어를 입력해 주세요");
+			frm.p_coltxt.value = "";
+			frm.p_coltxt.focus();
+			return false;
+		}
+		else if(frm.p_schkey.value == 0) {
+			alert("검색분야를 선택해 주세요");
+			frm.p_schkey.focus();
+			return false;
+		}
+		else {
+			if(frm.p_schkey.value == 1 || frm.p_schkey.value == 4) {//홈페이지내 검색
+				frm.action = "/jsp/main/main_sch.jsp";
+				return true;
+			}
+			else if(frm.p_schkey.value == 2) {//교내 홈페이지 검색
+				frm.action = "/jsp/cmty/home/search/HomeSearch.jsp";
+				return true;
+			}
+			else if(frm.p_schkey.value == 3) {//교내 클럽 검색
+				frm.action = "/jsp/cmty/club/search/ClubSearch.jsp";
+				return true;
+			}
+		}
+		
+	}
+
+	function onlineOpen() {
+		var url = '/jsp/entr/univ/online_ipsi_2005/display.html';
+		window.open(url,'','toolbar=no,menubar=no,scrollbars=no,width=1024,height=768');
+	}
+	function tourOpen() {
+		var url = '/jsp/intro/campus/tour/campus_tour.jsp?p_tpid=100&p_lpid=128&p_mpid=129';
+		window.open(url,'','toolbar=no,menubar=no,scrollbars=no,width=800,height=579');
+	}
+	function hongboOpen() {
+		var url = '/hongbo/hs2005_300.WMV';
+		window.open(url,'','toolbar=no,menubar=no,scrollbars=no,width=800,height=579');
+	}
+
+  function uf_newWin(url, winName, sizeW, sizeH) {
+    var nLeft = screen.width / 2 - sizeW / 2;
+    var nTop = screen.height / 2 - sizeH / 2;
+
+    opt = ",toolbar=no,menubar=no,location=no,scrollbars=yes,status=no,resizable=yes";
+    window.open(url, winName, "left=" + nLeft + ",top=" + nTop + ",width=" + sizeW + ",height=" + sizeH + opt);
+  }
+//-->
+</SCRIPT>
+
+<script language = "javascript">
+<!--
+var mbId = "";
+
+function chat_open()
+{
+	var ChatLoading = window.open("/jsp/cmty/chatting/ChatLoading.jsp?p_tpid=700&p_lpid=756","","titlebar=no,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=370,height=120,left="+(screen.availwidth-300)/2 +", top="+ (screen.availheight-185)/2);
+	ChatLoading.focus();
+}
+//-->
+</script>
+</HEAD>
+
+<BODY MARGINWIDTH="0" MARGINHEIGHT="0" topmargin="0" leftmargin="0"  BGCOLOR="#FFFFFF">
+<TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" width="100%">
+<TR valign="top">
+   <TD COLSPAN="4" background="/images/main/20081222/2_3_bg.gif">
+            <!-- 글로벌 메뉴 시작 -->
+<script language='javascript' src='/js/flash/embed_main_2_3.js'></script>
+
+			
+
+			<!-- 글로벌 메뉴 끝 -->
+   </TD>
+</TR>
+
+
+
+<TR WIDTH="100%" HEIGHT="">
+	<TD valign="top" width="197">
+             <!-- main left start --> 
+		  <table width="197" border="0" cellpadding="0" cellspacing="0">
+			 <!--tr>
+				<td colspan="2">
+					<table border="0" cellpadding="0" cellspacing="0">
+					<TR valign="top">
+					    <TD align="center"><img src="/flash/main/33/top_middle_etc.gif" border="0"></TD>
+					</TR>
+					</table>
+				</td>
+			</tr-->
+			<tr>
+				<td colspan="2" height="13"></td>
+			</tr>
+
+			<tr>
+				<td width="38"></td>
+
+				<td width="161" align="center" style="padding-top:3">					
+					<table border="0" width="161" height="56" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" align="center">
+					<tr bgcolor="#FFFFFF">
+						<td align="center">
+							<table border="0" width="147" height="42" bgcolor="#FFFFFF" align="center">
+							<tr><td align="center"><img src="images/popup/popup_banner.gif" height=30/></td></tr>
+							<tr height="5">
+								<td align="center">	
+								<div id="main">
+									<div class="slideshow">
+										<div id="nav"></div>	
+										<!-- 좌측 중앙 Hot News 이미지 배너부분 시작 -->
+									
+												<img id="popup1" class="popup-link-img" src="http://www.hansung.ac.kr/images/popup/hot_20120430.png" dsrc="http://www.hansung.ac.kr/images/popup/hot_20120430.png" width="150" height="150"onclick="popupLink('http://gs.hansung.ac.kr/servlet/HanUniGrad.community.servlet.CommunityServlet?GUBUN=VIEW&SEQ=336768&PAGE=1&DIV=&DIV1=A&DIV2=A&KEY=003001000000&SECRET=O');"/>
+											
+												<img id="popup2" class="popup-link-img" src="http://www.hansung.ac.kr/images/popup/hot_20120427.png" dsrc="http://www.hansung.ac.kr/images/popup/hot_20120427.png" width="150" height="150"onclick="popupLink('http://www.hansung.ac.kr/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=486479&classified_search=&search_field=&search_word=&currentPage=1');"/>
+											
+												<img id="popup3" class="popup-link-img" src="http://www.hansung.ac.kr/images/popup/APEC_hotnews.jpg" dsrc="http://www.hansung.ac.kr/images/popup/APEC_hotnews.jpg" width="150" height="150"onclick="popupLink('http://www.hansung.ac.kr/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=484205&classified_search=&search_field=&search_word=&currentPage=1');"/>
+											
+												<img id="popup4" class="popup-link-img" src="http://www.hansung.ac.kr/images/popup/poup_20120228_1.png" dsrc="http://www.hansung.ac.kr/images/popup/poup_20120228_1.png" width="150" height="150"onclick="popupLink('http://www.hansung.ac.kr');"/>
+											
+										<!--img id="popup1" class="popup-link-img" src="images/popup/20110201.gif" dsrc="images/popup/20110201.gif" width="150" height="150"onclick="popupLink('http://gs.hansung.ac.kr/servlet/HanUniGrad.community.servlet.CommunityServlet?GUBUN=VIEW&SEQ=336678&PAGE=1&DIV=&DIV1=A&DIV2=A&KEY=003001000000&SECRET=O');"/-->
+																			
+																										
+								        <!-- 좌측 중앙 Hot News 이미지 배너부분 끝 -->
+									</div>									
+																		
+								</div>
+								</td>
+							</tr>							
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr>
+				<td width="38"></td>
+				<td width="161" align="center" style="padding-top:3">					
+					<table border="0" width="100%" height="56" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC" align="center">
+					<tr bgcolor="#FFFFFF">
+						<td align="center">
+							<table border="0" width="147" height="42" bgcolor="#FFFFFF" align="center">
+							<tr height="5"><td></td></tr>
+							<form name=frmSch method=post onSubmit="javascript: return goSch();">
+							<input type=hidden name="p_column" value="H">
+							<tr>
+								<td>
+									<select name="p_schkey" size="1" class="main_srch_option">
+									<option value=0>검색분야선택</option>
+									<option value=1>홈페이지내 검색</option>
+									<option value=2>교내홈페이지 검색</option>
+									<option value=3>교내클럽 검색</option>
+									<--option value=4>규정집내 검색</option-->
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="text" name=p_coltxt style="width:118">&nbsp;<input type="image" src="/images/main/submit_go.gif" border="0"  align="absmiddle"></td>
+							</tr>
+							<tr height="3"><td></td></tr>
+							</form>
+							</table>
+						</td>
+					</tr>
+					</table>
+				</td>
+			</tr>
+			<tr height="4">
+				<td width="38"></td>
+				<td width="158">
+			</tr>
+			<tr>
+				<td width="38"></td>
+				<td width="162" align="right">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" align="right">
+					<tr>
+						<td width="77" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=101&p_mpid=1667"><img src="/images/main/web_bro.gif" border="0"></a></td>
+						<!--td width="77" align="center"><a href="http://unibook.gouni.co.kr/univ/hansung/20031010" onfocus="this.blur()" target="_blank"><img src="/images/main/web_bro.gif" border="0"></a></td-->
+						<td width="80" align="center"><a href="javascript:tourOpen();" onFocus="this.blur()"><img src="/images/main/campus_tour.gif" border="0"></a></td>
+					<!--/td-->
+					</tr>
+					<tr>
+						<td width="77" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=101&p_mpid=1411"><img src="/images/main/soonbo.gif" border="0"></a></td>
+						<!--td width="80" align="center"><a href="javascript:hongboOpen();" onfocus="this.blur()"><img src="/images/main/hongbo_mpg.gif" border="0"></a></td-->
+						<td width="80" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=101&p_mpid=1491"><img src="/images/main/hongbo_mpg.gif" border="0"></a></td>
+					<!--/td-->
+					</tr>
+
+					</table>
+				</td>
+			</tr>
+			<tr height="4" bgcolor="#FFFFFF">
+				<td></td>
+			</tr>
+             
+			<tr>
+				<td width="38"></td>
+				<td width="160" align="center" style="padding-top:3">									
+					<a href="#" onClick="popupLink('http://www.hansung.ac.kr/bbs.message.normal_list.screen?bbs_id=find_graduate&p_tpid=700&p_lpid=744&p_mpid=2380');"><img src="/images/main/ccee.jpg" border="0"/></a>							
+				</td>
+				<tr>
+				<td width="38"></td>
+				<td width="160" align="center" style="padding-top:3">									
+					<a href="javascript:goToKnowledge();"><img src="/images/main/knowledge_4.jpg" border="0"/></a>							
+				</td>
+			</tr>
+
+
+			<tr>
+				<td width="38"></td>
+				<td width="159" align="center">
+					<table width="159" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" align="center" background="/images/main/leftbox_bg.gif">
+					<tr><td height="4" background="/images/main/leftbox_top_line.gif"></td></tr>
+					<tr>
+						<td style="border-left:1 solid #EFDACD;border-right:1 solid #EFDACD;padding-left:15;padding-top:12;padding-bottom:12">
+							<table border="0" cellspacing="0" cellpadding="0" width="100%">
+							<tr><td><a href = "http://cyber.hansung.ac.kr" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;사이버강의실</a></td></tr>
+							<tr height="7"><td></td></tr>
+							
+							<tr><td><a href = "http://writingcenter.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;Writing Center</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://language.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;Korean Language</a></td></tr>
+							<tr height="7"><td></td></tr>            
+							<tr><td style="padding-left:16px;"><a href = "http://language.hansung.ac.kr/" target="_blank">&nbsp;Program</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hansung.ac.kr/~ecprogram" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;교양영어</a></td></tr>
+							<tr height="7"><td></td></tr>
+												
+							<tr><td><a href = "http://abeek.hansung.ac.kr" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;공학인증센터</a></td></tr>
+							<tr height="7"><td></td></tr>
+							
+							<tr><td><a href = "http://press.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;한성프레스센터</a></td></tr>
+							<tr height="7"><td></td></tr>
+							
+							<!--tr><td><a href = "http://hstimes.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;영자신문사</a></td></tr>
+							<tr height="7"><td></td></tr-->
+							
+							<!--tr><td><a href = "http://hbs.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;한성대방송국</a></td></tr>
+							<tr height="7"><td></td></tr-->
+
+							<tr><td><a href = "http://edubank.hansung.ac.kr" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;학점은행제</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://edulife.hansung.ac.kr" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;디자인아트평생교육원</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://sanhak.hansung.ac.kr" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;산학협력단</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<!--tr><td><a href = "http://www.idc1004.com/school/?sc=0101" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;인터넷증명발급</a></td></tr-->
+
+							<tr><td><a href = "http://uni.webminwon.com/web_kiosk_3/login_tpid/auto_contact/login_framessl.asp?contentId=10001&giwan_no=021133" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;인터넷증명발급</a></td></tr>
+
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hanbi.or.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;벤처창업지원센터</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hansung.ac.kr/~ctl" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;교수학습지원</a></td></tr>
+							
+							
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hansunggender.org/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;양성평등상담소</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hansung.ac.kr/~campus365" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;Start! 365캠퍼스</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://hrd.hansung.ac.kr/" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;중소기업직업훈련센터</a></td></tr>
+							<tr height="7"><td></td></tr>
+							<tr><td><a href = "http://www.hansung.ac.kr/~plan" target="_blank"><img src="/images/main/sh_icon2.gif" border="0" align="absmiddle">&nbsp;경쟁력특성화프로그램</a></td></tr>
+							<tr height="7"><td></td></tr>
+							
+
+
+							
+
+</table>
+						</td>
+					</tr>					
+					<tr><td height="4" background="/images/main/leftbox_bottom_line.gif"></td></tr>
+					</table>
+				</td>
+			</tr>
+			</table>
+			<!-- main left end -->
+
+	</TD>
+	<td width="27">&nbsp;</td>
+	<TD valign="top" align="left">  <!-- 메인 컨텐트 기술 시작 -->
+		<table border="0" cellspacing="0" cellpadding="0" width="647">
+		<tr>
+			<td width="409" valign="top">
+				<!-- 한성공지, 학사공지, 한성소식 시작 -->
+				<table border="0" width="409" cellpadding="0" cellspacing="0">
+				<tr height="16"><td></td></tr>
+				<tr width="1" bgcolor="#D9D9D9"><td></td></tr>
+				<tr height="20">
+					<td background="/images/main/news_blank.gif">
+						<img src="/images/main/hs_notice_1.gif" border="0" align="absmiddle" name="hs_notice" onMouseOver="Main_Bbs_Change('hs_notice');" onClick="goListPage();" style="cursor:hand;">
+						<img src="/images/main/edu_notice1.gif" border="0" align="absmiddle" name="edu_notice" onMouseOver="Main_Bbs_Change('edu_notice');" onClick="goListPage();" style="cursor:hand;" >
+						<img src="/images/main/hs_news1.gif" border="0" align="absmiddle" name="hs_news" onMouseOver="Main_Bbs_Change('hs_news');"
+						onClick="goListPage();" style="cursor:hand;" >
+						<img src="/images/main/edu_news1.gif" border="0" align="absmiddle" name="td_notice" onMouseOver="Main_Bbs_Change('td_notice');"  onClick="goListPage();" style="cursor:hand;">
+						<img src="/images/main/hs_qkfwjs1.gif" border="0" align="absmiddle" name="hs_qkfwjs" onMouseOver="Main_Bbs_Change('hs_qkfwjs');"  onClick="goListPage();" style="cursor:hand;">
+					<span style="padding-left:10;padding-bottom:8">&nbsp;<a href="javascript:goListPage();"><img src="/images/main/view_all.gif" border="0" align="absmiddle"></a></span></td>
+				</tr>
+				<tr height="1" bgcolor="#F4F4F4"><td></td></tr>
+				<tr width="20" bgcolor="#FFFFFF"><td>&nbsp;</td></tr>
+				
+			<!-- 각종 공지 리스트 표시를 위한 Loop문 시작할 부분 -->
+				<tr height = 120><td valign=top>
+				<div name="div_notice" id="div_notice" ></div>
+				</td></tr>
+
+						
+				<!-- 각종 공지 리스트 표시를 위한 Loop문 끝 부분 -->
+				
+				<tr height="20" bgcolor="#FFFFFF"><td></td></tr>
+				</table>
+				<!-- 한성공지, 학사공지, 한성소식 끝 -->
+
+				<!-- ISSUE 표시 시작 -->
+				<table border="0" width="409" cellpadding="0" cellspacing="0">
+				<tr height="16">
+					<td width="409" height="16" background="/images/main/main_line_bg.gif" valign="top" colspan=3>
+						<img src="/images/main/issue.gif" border="0"><span style="padding-left:292;">&nbsp;<a href="/bbs.message.issue_list.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue" onFocus="this.blur();"><img src="/images/main/view_all.gif" border="0" valign="top"></a></span>
+					</td>
+				</tr>
+				<tr height="12"><td colspan=3>&nbsp;</td></tr>
+				<tr>
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=487104" class="main_issue">'Disney College Prog..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							   <img src=/images/main/new.gif border=0 align=absmiddle>
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/14.jpg" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">'Disney College Program'Disney College Program의 선발면접행사가 2012년...</td>
+						</tr>
+						</table>
+					</td>
+
+			 		<td align=center width=9><img src="/images/main/line_vertical.gif" border="0"></td>
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=455012" class="main_issue">우촌학사 준공기념식 ..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/IMG_5069.JPG" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">'우촌학사 준공기념식 열려'학생기숙사(우촌학사)는 2010년 11월부터 2011년...</td>
+						</tr>
+						</table>
+					</td>
+					</tr>
+					<tr><td  height="25" colspan="3" valign="center"><img src = "/images/main/dot_line.gif"></td></tr>
+					<tr>					
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=456519" class="main_issue">제7회 한성공학경진대..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/IMG_5423a[1].JPG" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">'제7회 한성공학경진대회'한성공학경진대회가 10월 6일(목)부터 7일(금)까지...</td>
+						</tr>
+						</table>
+					</td>
+
+			 		<td align=center width=9><img src="/images/main/line_vertical.gif" border="0"></td>
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=458616" class="main_issue">테러 대비 긴급구조 종..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/aaa.jpg" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">"테러 대비 긴급구조종합훈련"본교는 제 49회 소방의 날(11월 9일)을 맞이하...</td>
+						</tr>
+						</table>
+					</td>
+					</tr>
+					<tr><td  height="25" colspan="3" valign="center"><img src = "/images/main/dot_line.gif"></td></tr>
+					<tr>					
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=458785" class="main_issue">'창업 아이디어 경진대..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/aa.JPG" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">'창업 아이디어 경진대회'
+본교는 예비 창업가 발굴을 위해 지난 10월 6일...</td>
+						</tr>
+						</table>
+					</td>
+
+			 		<td align=center width=9><img src="/images/main/line_vertical.gif" border="0"></td>
+
+					<td>
+						<table border="0" width="200" cellpadding="0" cellspacing="0">
+						<tr>
+							<td width="4">&nbsp;</td>
+							<td colspan="3"><img src="/images/main/icon_tri.gif" border="0" align="absmiddle">&nbsp;<span class="main_issue"><a href="/bbs.message.issue_view.screen?p_tpid=0&p_lpid=0&p_mpid=4&bbs_id=main_issue&message_id=457339" class="main_issue">제3회 한성대학교 외국..
+							
+							
+							<!-- 이슈 New 표시 부분 시작 -->
+							
+							<!-- 이슈 New 표시 부분 끝 -->
+							</a></span></td>
+
+						</tr>
+						<tr height="70">
+							<td width="4">&nbsp;</td>
+							<td width="68"><table width=72 height=55  cellpadding="0" cellspacing="1" bgcolor="#cccccc" align="center" ><tr><td align="center" bgcolor="#ffffff" style="padding:1 1 1 1"><img src="/bbsfile/main_issue/4/speaking_allaa.JPG" border="0" height=55 width=72 ></td></tr></table></td>
+							<td width="10">&nbsp;</td>
+							<td width="117" style="padding-right:4">"제3회 한성대학교 외국인 말하기 대회"제3회 한성대학교 외국인 말하기 대...</td>
+						</tr>
+						</table>
+					</td>
+
+				</tr>
+				<tr height="29"><td colspan=3>&nbsp;</td></tr>
+				</table>
+				<!-- ISSUE 표시 끝 -->
+				
+				<table width="409" cellpadding="0" cellspacing="0" style="border:1 solid #DEDEDE">
+				<tr align="center" height="31" valign="bottom">
+					<td width="136"><a href="/jsp/cmty/club/pride/ClubRanking.jsp?p_homemenu=3"><img src="/images/main/popular_club.gif" border="0"></a></td>
+					<td width="139"><a href="/jsp/cmty/home/search/NewHomeList.jsp"><img src="/images/main/new_home.gif" border="0"></a></td>
+					<td width="134" align="right"><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=112&p_mpid=115"><img src="/images/main/good_homepage.gif" border="0"></a></td>
+				</tr>
+				</table>
+			</td>
+			
+			<td width="170" valign="top" >
+				<table border="0" width="170" cellpadding="0" cellspacing="0">
+				<tr height="15">
+					<td align="right" valign="top"><img src="/images/main/2010_entr_info.gif" border="0"></td>
+				</tr>
+				<tr>
+					<td>
+						<table border="0" width="165" cellpadding="0" cellspacing="0">
+						<tr height="2"><td colspan="3" bgcolor="#6EBF24"></td></tr>
+						
+						<tr height="5">
+							<td width="1"></td>
+							<td width="163"></td>
+							<td width="1"></td>
+						</tr>
+						<tr>
+							<td width="1"></td>
+							<td width="163" align="center"><a href="http://www.hansung.ac.kr/bbs.message.notice_list.screen?bbs_id=jobboard&p_tpid=0&p_lpid=0&p_mpid=2400" target="_blank"><img src="/images/main/job_20120419.gif" border="0"></a></td>
+							<td width="1"></td>
+						</tr>
+						<tr height="5">
+							<td width="1"></td>
+							<td width="163"></td>
+							<td width="1"></td>
+						</tr>
+						<tr>
+							<td width="1"></td>
+							<td width="163" align="center"><a href="http://enter.hansung.ac.kr/" target="_blank"><img src="/images/main/ipsi_2011.gif" border="0"></a></td>
+							<td width="1"></td>
+						</tr>
+						<tr height="5">
+							<td width="1"></td>
+							<td width="163"></td>
+							<td width="1"></td>
+						</tr>
+
+						<!--tr height="7">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						
+						
+						
+						<tr height="2">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><img src="/images/main/line_h.gif" border="0"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="1">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						
+						<tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1549"><img src="/images/main/ipsi_2006_dance.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr-->
+						
+						
+						
+						<!--tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="/bbs.message.notice_view.screen?p_tpid=200&p_lpid=201&p_mpid=202&p_spid=203&bbs_id=entr_univ_ad_notice&message_id=56859"><img src="/images/main/ipsi_6.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						
+						<tr height="1">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><img src="/images/main/line_h.gif" border="0"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr-->
+						
+						
+						
+						<!-------------------tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=205&p_spid=1361"><img src="/images/main/ipsi_9.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr------------------------->
+						
+						
+		
+						
+						<!--tr height="1">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><img src="/images/main/line_h.gif" border="0"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+
+
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="/jsp/info/univ/uni_main.jsp"><img src="/images/main/ipsi_2.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<!--tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td-->
+						</tr-->
+						
+						<!--tr height="1">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><img src="/images/main/line_h.gif" border="0"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="javascript:onlineOpen();" onfocus="this.blur()"><img src="/images/main/ipsi_online.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr-->
+						
+						
+						<!--tr height="7">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>						
+						<tr height="1">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><img src="/images/main/line_h.gif" border="0"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr height="4">
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163"></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr>
+						<tr>
+							<td width="1" bgcolor="#CCCCCC"></td>
+							<td width="163" align="center"><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1251"><img src="/images/main/highschool.gif" border="0"></a></td>
+							<td width="1" bgcolor="#CCCCCC"></td>
+						</tr-->
+							
+						
+					
+						
+						<table border="0" width="165" cellpadding="0" cellspacing="0">
+
+						<!-- 교수초빙2011 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/employ/candidate/info_.jsp"><img src="/images/main/banner_20120113.gif" border="0"></a></td></tr-->	
+						
+						<!-- ybm -->				        
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/ybmlink.jsp"><img src="/images/main/banner_hsa.gif" border="0" alt="로그인 후 접속"></a></td></tr>
+						
+						<!--기업은행등록금납부조회-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="javascript:void(0);" onClick="javascript:uf_newWin('http://campus.emore.co.kr/main/member/CE_PAYSEA_001.jsp?link_saupno=2098200506', 'detailWin', 710, 510);"><img src="/images/main/20100806_ibk.gif" border="0" alt="고지 및 납부 내역 조회"></a></td></tr>
+
+
+							<!--2011학년도 정시 신입학원서접수-->
+				<!--		<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/home" target="_blank"><img src="/images/main/20101217.gif" border="0"></a></td></tr> -->
+
+					            <!--교직과정 홈페이지-->
+<!-- 						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/~educate" target="_blank"><img src="/images/main/200909041.gif" border="0"></a></td></tr>	 -->
+
+                        <!--2010학년도 수시2 원서접수-->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ipsi10.uwayapply.com/susi2/hansung/?CHA=2" target="_blank"><img src="/images/main/20101118.gif" border="0"></a></td></tr> -->
+
+					            <!--2010학년도 수시2 경쟁률-->
+						<!--<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ratio.uwayapply.com/2011/susi2/hansung/2/" target="_blank"><img src="/images/main/20101118_1.gif" border="0"></a></td></tr> -->
+
+						
+						<!--2009학년도 수시2-2 모집요강-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/susi22/contview?depth_cd=010101" target="_blank"><img src="/images/main/20081114_2.gif" border="0"></a></td></tr-->
+	
+						<!--계절학기 타대생 성적조회-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/ta_sugang/login.html" target="_blank"><img src="/images/main/20090529.gif" border="0"></a></td></tr-->
+
+						<!-- 언어교육원2009 AUTUMN-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://language.hansung.ac.kr/korean/bbs/view.php?id=e_apply&page=1&sn1=&divpage=1&sn=off&ss=on&sc=on&select_arrange=headnum&desc=asc&no=2" target="_blank"><img src="/images/main/20090812.gif" border="0"></a></td></tr-->
+							
+						<!-- 2009 대학원 후기 원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=&p_bpid=&bbs_id=entr_grad_notice&message_id=310113&classified_search=&search_field=&search_word=&currentPage=1" target="_blank"><img src="/images/main/20090512.gif" border="0"></a></td></tr-->	
+
+						<!-- 2011무용경연대회 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ipsi1.uwayapply.com/ksi/hansung/?CHA=1" target="_blank"><img src="/images/main/20110331.gif" border="0"></a></td></tr>-->
+						
+						<!--신입생 학번조회-->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://128.134.165.1:2003/dcd_haksa/owa/ps_hakbun_in" target="_blank"><img src="/images/main/20100225_1.gif" border="0"></a></td></tr> -->	
+
+                        <!--순수외국인 신입 편입학 안내-->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/foreigner/guide_flash?term=40&gb=3" target="_blank"><img src="/images/main/20100609.gif" border="0"></a></td></tr> -->
+
+						
+						
+                        
+						<!--대학생활안내-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/down_data/hsfreshmen/ebook.html" target="_blank"><img src="/images/main/20100219.gif" border="0"></a></td></tr-->
+
+						<!-- 2010학년도 2학기 교원초빙 -->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/employ/candidate/info_.jsp" target="_blank"><img src="/images/main/20100511.gif" border="0"></a></td></tr> -->
+						
+                        <!-- 2010무용경연대회 -->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/guide/board?bbsid=notice&no=34417&mode=view&depth_cd=05&m=6&s=5" target="_blank"><img src="/images/main/20100504.gif" border="0"></a></td></tr> -->
+
+						<!--수강신청 바로가기-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/servlet/s_gong.gong_login" target="_blank"><img src="/images/main/20090216.gif" border="0"></a></td></tr>
+						
+						<!--계절학기 타대생 수강신청-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/ta_sugang/login.html" target="_blank"><img src="/images/main/20100226.gif" border="0"></a></td></tr>
+
+						<!--2010학년도 수시 2 최동 합격자 등록안내-->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/susi22/contview?depth_cd=08&m=1&s=8" target="_blank"><img src="/images/main/20091210.gif" border="0"></a></td></tr>	 -->
+
+					
+						<!--2010학년도 전기 편입학원서접수-->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/home" target="_blank"><img src="/images/main/20091228.gif" border="0"></a></td></tr> -->
+
+						<!--신종인플루엔자-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<!--tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=700&p_lpid=744&p_mpid=1072&p_spid=&p_bpid=&bbs_id=cmty_naksan_healthnews&message_id=350402&classified_search=&search_field=&search_word=&currentPage=1" target="_blank"><img src="/images/main/20090828.gif" border="0"></a></td></tr-->	
+
+						<!--2010학년도 전기 대학원 원서접수-->
+					    <!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://gs.hansung.ac.kr/servlet/HanUniGrad.community.servlet.CommunityServlet?GUBUN=SEARCH&PAGE=1&DIV1=A&DIV2=A&KEY=003001000000/" target="_blank"><img src="/images/main/20091119.gif" border="0"></a></td></tr>
+ -->
+                        <!--2010학년도 수시 2 합격자 발표 -->
+					    <!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ipsi7.uway.com/susi2/hansung/pass/4/" target="_blank"><img src="/images/main/20091027_1.gif" border="0"></a></td></tr> -->
+
+						<!--2009학년도 정시 다군 합격자 발표-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/jungsi/contview?depth_cd=0801" target="_blank"><img src="/images/main/20090130.gif" border="0"></a></td></tr-->	
+
+						<!--2009 CCTV 개인정보 이해하기-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.kisa.or.kr/kisa/privacy/down/2009_CCTV/index.htm" target="_blank"><img src="/images/main/20090202.gif" border="0"></a></td></tr-->	
+
+						<!-- 언어교육원 2009 한국어과정 경력강사초빙-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=285213&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/20090121.gif" border="0"></a></td></tr-->
+						
+						<!--2009학년도 정시 합격자 발표-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/jungsi/contview?depth_cd=0801" target="_blank"><img src="/images/main/20090119.gif" border="0"></a></td></tr-->	
+
+						<!--총장초빙공고2009-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=283405"><img src="/images/main/20081229.gif" border="0"></a></td></tr-->
+				
+					
+						<!-- 2009 정시 모집요강 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/jungsi/contview?depth_cd=010101"  target="_blank"><img src="/images/main/20081217.gif" border="0"></a></td></tr-->
+						
+						<!-- 2009 정시 원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ipsi6.uway.com/jung/hansung/?CHA=1"  target="_blank"><img src="/images/main/20081219.gif" border="0"></a></td></tr-->
+
+                         				<!-- 2009학년도 전기대학원 원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=&p_bpid=&bbs_id=entr_grad_notice&message_id=275764&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/20081124.gif" border="0"></a></td></tr-->
+						
+						<!-- 총장예비후보 개인정보-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/~hspr"><img src="/images/main/2005_02_16.gif" border="0"></a></td></tr-->
+										
+						<!-- 신입학 수시 안내-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=200&p_lpid=201&p_mpid=202&p_spid=1471&bbs_id=2006&message_id=84952"><img src="/images/main/banner_20051011.gif" border="0"></a></td></tr-->
+						
+						<!-- 신입학원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1051"><img src="/images/main/2005_12_282.gif" border="0"></a></td></tr-->
+
+						<!-- 편입학원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1051"><img src="/images/main/2006_01_09.gif" border="0"></a></td></tr-->
+
+						<!-- 신입 가군합격자발표 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1142"><img src="/images/ipsi/ipsipass.gif" border="0"></a></td></tr-->	
+						
+						<!-- 신입 추가합격자발표 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1142"><img src="/images/main/20060207.gif" border="0"></a></td></tr-->	
+						
+						<!-- 편입 합격자발표 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1143&p_spid=1583"><img src="/images/main/20060209.gif" border="0"></a></td></tr-->	
+						
+						<!-- 무용경연대회 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=200&p_lpid=201&p_mpid=1747"><img src="/images/main/ipsi_dance2006.gif" border="0"></a></td></tr-->
+						
+						<!-- 대학원모집안내 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=&p_bpid=&bbs_id=entr_grad_notice&message_id=102122"><img src="/images/main/2006-2-daehakwon.gif" border="0"></a></td></tr-->
+						
+						<!-- 원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://ipsi4.uway.com/susi2/hansung/?CHA=1" target="_blank"><img src="/images/main/20070904-1.gif" border="0"></a></td></tr-->
+						
+						<!-- 편입 원서접수 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/guide/bbs_view.jsp?bid=4&did=10165&term=7" target="_blank"><img src="/images/main/20080102.gif" border="0"></a></td></tr-->
+						
+						<!-- 수강신청 바로가기>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://cyber.hansung.ac.kr/jsp/sugang/login.htm"><img src="/images/main/sugangbanner.gif" border="0"></a></td></tr-->
+
+						<!-- 언어교육원2008-3 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://language.hansung.ac.kr/korean/bbs/view.php?id=e_apply&page=1&sn1=&divpage=1&sn=off&ss=on&select_arrang=headnum&desc=asc=asc&no=2" target="_blank"><img src="/images/main/20081008.jpg" border="0"></a></td></tr-->
+						
+						<!-- 교수초빙2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/employ/candidate/info_.jsp"><img src="/images/main/20080410.gif" border="0"></a></td></tr-->
+
+						<!--취업 페스티벌-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://job.hansung.ac.kr/event/mailform.html" target="_blank"><img src="/images/main/20080926.gif" border="0"></a></td></tr-->
+		
+						<!--2009학년도 수시2-1원서접수-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://enter.hansung.ac.kr/susi21/contview?depth_cd=05" target="_blank"><img src="/images/main/20080826.gif" border="0"></a></td></tr-->
+	
+						<!-- 행정연구원/직원모집 2008 -->
+						<!-- tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=273801"><img src="/images/main/20081015.gif" border="0"></a></td></tr-->
+					
+						<!-- 대학원 원서접수2008-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=p_bpid=&bbs_id=entr_grad_notice&message_id=250054&lassified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/20080721.gif" border="0"></a></td></tr-->
+	
+						<!-- 대학원 원서접수 추가 2008-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&pspid=&p_bpid=&bbs_id=entr_grad_notice&message_id=255304&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/20080804.gif" border="0"></a></td></tr-->
+
+						<!-- 직원모집2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=260828"><img src="/images/main/20080829.gif" border="0"></a></td></tr-->
+
+						<!-- 직원모집 서류합격자 발표 2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=266711"><img src="/images/main/20080918.gif" border="0"></a></td></tr-->
+							
+						<!-- 언어교육원2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://language.hansung.ac.kr/korean/bbs/view.php?id=e_apply&page=1&sn1=&divpage=1&sn=off&ss=on&sc=on&select_arrange=headnum&desc=asc&no=2" target="_blank"><img src="/images/main/20080414.gif" border="0"></a></td></tr-->
+						
+						<!-- 언어교육원2008-2 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://language.hansung.ac.kr/korean/bbs/view.php?id=e_apply&page=1&sn1=&divpage=1&sn=off&ss=on&sc=on&select_arrange=headnum&desc=asc&no=2" target="_blank"><img src="/images/main/20080717.gif" border="0"></a></td></tr-->
+						
+						<!-- 대학원 입시안내 2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=&p_bpid=&bbs_id=entr_grad_notice&message_id=240815&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/20080513.gif" border="0"></a></td></tr-->
+						
+						<!-- 대학원 원서접수 바로가기 2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/index_wonipsi.html"><img src="/images/main/20080513_2.gif" border="0"></a></td></tr-->
+				
+						<!-- 토익2008-2 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://hsu.campusedu.kr/?mode=lecinfo_openlist&camp=HSU.campusedu.kr" target="_blank"><img src="/images/main/20080819.gif" border="0"></a></td></tr-->
+		
+						<!-- 대학원 입시 안내 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=200&p_lpid=276&p_mpid=277&p_spid=&p_bpid=&bbs_id=entr_grad_notice&message_id=206415"><img src="/images/main/20071114.gif" border="0"></a></td></tr-->
+						
+						<!-- 스승의날 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=164919" target="_blank"><img src="/images/main/20070430.gif" border="0"></a></td></tr-->
+						
+						<!-- 행정부서평가 설문조사 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/poll/main_poll_lst.jsp?p_tpid=500&p_lpid=569&p_mpid=605"><img src="/images/main/20070410.gif" border="0"></a></td></tr-->
+						
+						<!-- 홍보도우미 선발 공고 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=156305"><img src="/images/main/20070322.gif" border="0"></a></td></tr -->
+												
+						<!--정규학기 타대생 / 수시입학생 성적확인>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://easerver.hansung.ac.kr/ta_hansugang/login.htm" target="_blank"><img src="/images/main/grade.gif" border="0"></a></td></tr-->
+
+						<!--연계전공자 모집공고-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=131219"><img src="/images/main/20060123.gif" border="0"></a></td></tr-->
+
+						<!-- 전임교원초빙안내 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/employ/candidate/info_.jsp"><img src="/images/main/20061002-2.gif" border="0"></a></td></tr-->
+						
+						<!-- 주민번호 부정사용 방지 안내 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=119505"><img src="/images/main/20060921.gif" border="0"></a></td></tr-->
+				
+						<!-- 설문조사 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/poll/main_poll_lst.jsp?p_tpid=500&p_lpid=569&p_mpid=605"><img src="/images/main/banner_haksul.gif" border="0"></a></td></tr-->
+												
+						<!-- 강의평가 >
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&p_spid=&p_bpid=&bbs_id=life_eduguide_notice&message_id=172403"><img src="/images/main/banner_pyungga.gif" border="0"></a></td></tr-->
+						
+						<!-- 성폭력예방교육 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="./bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=86945"><img src="/images/main/banner_20051116.gif" border="0"></a></td></tr-->		
+						
+						<!-- 교수초빙 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/employ/candidate/info_.jsp"><img src="/images/main/banner_kyosu_20051012.gif" border="0"></a></td></tr-->
+						
+						<!-- 어학특강 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=96479"><img src="/images/main/20060221-3.gif" border="0"></a></td></tr-->
+									
+						<!-- 직원모집공고>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/employ/staff/info_.jsp"><img src="/images/main/banner_jikwon10.gif" border="0"></a></td></tr-->
+						
+						<!-- 편입생학번조회-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://128.134.165.1:2003/dcd_haksa/owa/ps_hakbun_in"><img src="/images/main/banner_20050818.gif" border="0"></a></td></tr-->
+						
+						<!-- 신입생 수강신청-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/servlet/s_gong.gong_login"><img src="/images/main/2005_02_25.gif" border="0"></a></td></tr-->
+
+						<!--계절학기 사이버수강신청안내-->					
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=74009"><img src="/images/main/cyber_20050531.gif" border="0"></a></td></tr==>
+						
+						<!--계절학기 수강신청-->											
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/servlet/s_gong.gong_login" target="_blank"><img src="/images/main/main_sukang.gif" border="0"></a></td></tr-->
+
+						<!-- 교수초빙 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/employ/candidate/info_.jsp"><img src="/images/main/2006-2gyosu.gif" border="0"></a></td></tr-->
+						
+					
+						<!--수시입학생 수강신청>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://easerver.hansung.ac.kr/ta_hansugang/login.htm" target="_blank"><img src="/images/main/susi1term.gif" border="0"></a></td></tr-->
+
+						<!-- 학석사연계과정 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=400&p_lpid=423&p_mpid=424&p_spid=&p_bpid=&bbs_id=info_grad_notice&message_id=102409"><img src="/images/main/20060517.gif" border="0"></a></td></tr-->
+						
+						<!-- 재학생 등록금 납입-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&bbs_id=life_eduguide_notice&message_id=110202"><img src="/images/main/2005_02_04.gif" border="0"></a></td></tr-->
+
+						<!-- 산학협력단 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=79073"><img src="/images/main/sanhak_20050228.gif" border="0"></a></td></tr-->
+						
+						<!-- 산학협력단 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=71346"><img src="/images/main/sanhak_20050418.gif" border="0"></a></td></tr-->
+						
+						<!-- 캠퍼스365 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/~campus365"><img src="/images/main/365-2.gif" border="0"></a></td></tr-->
+						
+						<!-- 스승의 날-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=72213"><img src="/images/main/teacher_20050502.gif" border="0"></a></td></tr-->
+						
+						<!-- 싸이월드 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=70836"><img src="/images/main/ssai_20050407.gif" border="0"></a></td></tr-->
+						
+						<!-- 주거래은행 변경 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=73213"><img src="/images/main/sulmun_20050524.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+									
+						<!-- 인터렉티브엔터테인먼트 연계전공 학생 모집 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&p_spid=&p_bpid=&bbs_id=life_eduguide_notice&message_id=87953"><img src="/images/main/20060123.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+						
+						
+						<!-- 행정서비스헌장 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=700&p_lpid=744&p_mpid=1261&p_spid=1264"><img src="/images/main/banner_service.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+						
+						<!-- 학술정보관 문화행사 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/poll/main_poll_lst.jsp?p_tpid=500&p_lpid=569&p_mpid=605"><img src="/images/main/2005_09_21.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+						
+						<!-- 인터넷빈소 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/bbs/action/bbs/bbs.message.normal_view.screen?p_tpid=700&p_lpid=744&p_mpid=1718&p_spid=1721&p_bpid=&bbs_id=binso_1&message_id=98423"><img src="/images/main/binso.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+						
+						<!-- 디지털 경진대회 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=187602"><img src="/images/main/20070906.gif" border="0"></a></td></tr-->
+						
+						<!-- 한성회화전 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&bbs_id=main_notice&message_id=195410"><img src="/images/main/20070927.gif" border="0"></a></td></tr-->
+						
+						<!-- 35주년 기념음악회 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://hsel.hansung.ac.kr/HSEL/community/view.csp?sccode=notice&scKey=290&scPageNo=1&HLOC=HSEL&COUNT=41uqnhQl00&Kor=1"><img src="/images/main/20070927-2.gif" border="0"></a></td></tr-->
+						
+						<!-- 35주년 인터넷카드 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.gouni.co.kr/ecard/hansung_2007/popindex.html"><img src="/images/main/20070928.gif" border="0"></a></td></tr-->
+						
+						<!-- 홍보홈페이지-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><script language='javascript' src='/js/flash/embed_banner3.js'></script></td></tr-->
+						
+						<!-- 교수초빙 >
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/employ/candidate/info_.jsp"><img src="/images/main/20070502.gif" border="0"></a></td></tr-->
+						
+						<!-- 산학협력단 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=186509"><img src="/images/main/20070904.gif" border="0"></a></td></tr-->
+						
+						<!-- 발전기금 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=125&p_mpid=127"><img src="/images/main/hsu_devbanner.gif" border="0"></a></td></tr>	
+
+						<!-- 교수초빙 -->
+						<!-- <tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/employ/candidate/info_.jsp"><img src="/images/main/banner.gif" border="0"></a></td></tr> -->
+
+						<!-- 전자구매시스템 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www2.ebiz4u.co.kr" target="_blank"><img src="/images/main/banner_20050812.gif" border="0"></a></td></tr>
+						
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=500&p_lpid=501&p_mpid=502&p_spid=&p_bpid=&bbs_id=life_eduguide_notice&message_id=454523&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/main/banner_20070419.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=500&p_lpid=569&p_mpid=585"><img src="/images/main/banner3.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						
+						<!-- 학자금대출 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=500&p_lpid=541&p_mpid=543"><img src="/images/main/banner_hakjagum.gif" border="0"></a></td></tr-->
+						
+						<!-- 국제학생증 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=500&p_lpid=541&p_mpid=1798"><img src="/images/main/banner_card.gif" border="0"></a></td></tr>
+												
+						<!-- 예결산공고 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=117&p_mpid=122"><img src="/images/main/banner4.gif" border="0"></a></td></tr>
+		
+						<!-- 2008 찾아오시는 길, 스쿨버스시간표 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/jsp/main/cms_main.jsp?p_tpid=100&p_lpid=128"><img src="/images/main/20081110.gif" border="0"></a></td></tr>
+						
+						<!--2008 대학정보공시-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.academyinfo.go.kr/schoolAction.do?process=schoolDisclose00&schoolCd=53120000&orgcode=1&sry_yy=2008&univ_gubun=U&estb=3&dKind=E" target="_blank"><img src="/images/main/20081204.gif" border="0"></a></td></tr>
+
+					    <!--2009 대학자체평가 결과보고서-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/down_data/acinfo/info_2011.pdf" target="_blank"><img src="/images/main/20111230.gif" border="0"></a></td></tr>
+
+                        <!--안전 환경 조성-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.hansung.ac.kr/bbs.message.normal_list.screen?bbs_id=safe_board&p_tpid=0&p_lpid=0&p_mpid=2360" target="_blank"><img src="/images/main/fire_20110317.jpg" border="0"></a></td></tr>
+
+						
+<script language="JavaScript">
+<!--
+function na_open_window(name, url, left, top, width, height, toolbar, menubar, statusbar, scrollbar, resizable)
+{
+  toolbar_str = toolbar ? 'yes' : 'no';
+  menubar_str = menubar ? 'yes' : 'no';
+  statusbar_str = statusbar ? 'yes' : 'no';
+  scrollbar_str = scrollbar ? 'yes' : 'no';
+  resizable_str = resizable ? 'yes' : 'no';
+  window.open(url, name, 'left='+left+',top='+top+',width='+width+',height='+height+',toolbar='+toolbar_str+',menubar='+menubar_str+',status='+statusbar_str+',scrollbars='+scrollbar_str+',resizable='+resizable_str);
+}
+
+// -->
+</script>
+
+						<!--2009 개인정보보호 학습자료-->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="javascript:na_open_window('win', 'http://www.kisa.or.kr/privacy_study.html', 110, 110, 410, 510, 0, 0, 0, 0, 0)" target="_self"><img src="/images/main/20090729.gif" border="0"></a></td></tr>
+
+						<!-- 온라인 원격지원 서비스 -->
+						<tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://as82.kr/hsu" target="_blank"><img src="/images/main/20120320.gif" border="0"></a></td></tr>
+
+
+
+
+
+
+
+
+						<!--2009 개인정보보호 학습자료-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.kisa.or.kr/privacy_study.html" target="_blank" menubar=no,toolbar=no,scrollbars=no,width=400,height=500 top=110 left=110'><img src="/images/main/20090729.gif" border="0"></a></td></tr-->
+
+
+
+
+
+						<!-- 교육과학기술부2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://www.mest.go.kr/ms_kor/index.jsp"  target="_blank"><img src="/images/main/banner_2008_mest.gif" border="0"></a></td></tr-->	
+
+
+						<!-- 교육과학기술 뉴스2008 -->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://mest.korea.kr/mest/jsp/mest1_main.jsp" target="_blank"><img src="/images/main/banner_2008_mest2.gif" border="0"></a></td></tr-->	
+				
+
+
+						
+			
+		
+						
+						<!--tr><td><a href="http://edu.hansung.ac.kr/~sanhak/" target="_blank"><img src="/images/main/banner_sanhak3.gif" border="0"></a></td></tr>
+						<tr height="1" bgcolor="#FFFFFF"><td></tr-->
+						
+						
+						
+						
+						
+						
+						<!--우리은행-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://pot.wooribank.com/common/remoteLoginCtl.jsp?target=http://pot.wooribank.com/pot/pib/good/ln/wplon445_07i.jsp&&PRD_CODE=34220&TGT_CUS_DIS=100&PRD_DIS=x074X"><img src="/images/main/woori.gif" border="0"></a></td></tr-->	
+						
+						<!--농협-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="http://banking.nonghyup.com/index_schloan.html"><img src="/images/main/nonghyup.gif" border="0"></a></td></tr-->	
+						
+						<!--PDP-->
+						<!--tr height="1" bgcolor="#FFFFFF"><td></tr>
+						<tr><td><a href="/jsp/main/cms_main.jsp?p_tpid=500&p_lpid=569&p_mpid=1221"><img src="/images/main/banner_kang.gif" border="0"></a></td></tr-->
+						
+						</table>
+					</td>
+					
+				</tr>
+				</table>
+			</td>
+		</tr>
+		</table>
+   </TD>  <!-- 메인 컨텐트 기술 끝 -->
+   <td></td>
+</TR>  <!-- 좌측 서브메뉴 / 우측 컨텐트 끝 -->
+
+<TR WIDTH="100%" HEIGHT="36">
+   <TD COLSPAN="4"></TD>
+</TR>
+
+<TR WIDTH="100%">  <!-- 최하단 대학교 주소 / 기타 바로가기 메뉴 삽입 시작 -->
+   <TD COLSPAN="4">
+        <script language='javascript' src='/js/footer_2011.js'></script>
+   </TD>
+</TR>  <!-- 최하단 대학교 주소 / 기타 바로가기 메뉴 삽입 끝 -->
+
+</TABLE>  <!-- 전체 내용 구성 테이블 끝 -->
+<script language="javascript">
+	Main_Bbs_Change('hs_notice');
+</script>
+
+
+<div id="divpop1" style="position:absolute; z-index:99200; left: 120px; top: 85px;">
+   <table height=305 border="0" cellpadding=0 cellspacing=0  >
+    <tr>
+     <td  height=300 align=center><a href="http://www.hansung.ac.kr/jsp/bbs/action/bbs/bbs.message.notice_view.screen?p_tpid=0&p_lpid=0&p_mpid=2&p_spid=&p_bpid=&bbs_id=main_notice&message_id=485272&classified_search=&search_field=&search_word=&currentPage=1"><img src="/images/popup/2011/popup_20120406.png" alt=""  height="300" border="0"/></a></p>
+</td>
+    </tr>
+    <form name="notice_form">
+      <tr>
+	     <td align=right bgcolor="#666666"><input type="checkbox" name="chkbox1" id="chkbox1" value="checkbox">
+          <font color="#FFFFFF">오늘 하루 이 창을 열지 않음</font> <a href="javascript:closeWin('1');" onClick="javascript:closeWin('1');"><B><font color="#FFFFFF">[닫기] </font></B></a> </td>
+	  </tr>
+    </form>
+  </table>
+</div>
+
+
+<div id="divpop2" style="position:absolute; z-index:99200; left: 377px; top: 85px;">
+   <table height=305 border="0" cellpadding=0 cellspacing=0  >
+    <tr>
+     <td  height=300 align=center><a href="http://copyright.kcue.or.kr"><img src="/images/popup/2011/popup_20120418.png" alt=""  height="300" border="0"/></a></p>
+</td>
+    </tr>
+    <form name="notice_form">
+      <tr>
+	     <td align=right bgcolor="#666666"><input type="checkbox" name="chkbox2" id="chkbox2" value="checkbox">
+          <font color="#FFFFFF">오늘 하루 이 창을 열지 않음</font> <a href="javascript:closeWin('2');" onClick="javascript:closeWin('2');"><B><font color="#FFFFFF">[닫기] </font></B></a> </td>
+	  </tr>
+    </form>
+  </table>
+</div> 
+<!--div id="divpop3" style="position:absolute; z-index:99200; left: 677px; top: 85px;">
+   <table height=300 border="0" cellpadding=0 cellspacing=0  >
+    <tr>
+     <td height=300 align=center ><a href="http://www.hansung.ac.kr/jsp/main/poll/main_poll_vote_20121.jsp?p_BBSCODE=77&p_cur_page=1&p_num=3308&p_poll_status=R&p_tpid=500&p_lpid=569&p_mpid=605&p_spid=&p_bpid=&p_status=A"><img src="/images/popup/2011/popup_20120423.png" alt="" height="300" border="0"/></a></p>
+</td>
+    </tr>
+    <form name="notice_form">
+      <tr>
+	     <td align=right bgcolor="#666666"><input type="checkbox" name="chkbox3" id="chkbox3" value="checkbox">
+          <font color="#FFFFFF">오늘 하루 이 창을 열지 않음</font> <a href="javascript:closeWin('3');" onClick="javascript:closeWin('3');"><B><font color="#FFFFFF">[닫기] </font></B></a> </td>
+	  </tr>
+    </form>
+  </table>
+</div--> 
+
+			   
+<script type="text/javascript">
+<!--
+	for(var i=1;i<=2;i++){
+	     cookieChk(i);
+	}
+-->
+</script> 
+
+<div id ="logDiv" style="border:1px solid #000;"></div>
+
+</BODY>
+</HTML>
+
+

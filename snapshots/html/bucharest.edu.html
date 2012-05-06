@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="google-site-verification" content="2fuvLbQhBOx8i8YraVt6QmceI5eZHgETf4KeXd-fPvk" />
+<meta name="google-site-verification" content="piggxit-iW77dl3RqiDD-FujiCHqbv6VVq-7ZeQBQEo" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta name="robots" content="index, follow" />
+<meta name="keywords" content="Facultăţi-Departamenta UB, Afaceri si Administraţie, Biologie, Chimie, Drept, Filosofie, Fizică, Geografie, Geologie şi Geofizică, Istorie, Jurnalism şi Ştiinţele Comunicării, Limbi şi Literaturi Străine, Litere, Matematică şi Informatică, Psihologie şi Ştiinţele Educaţiei, Sociologie şi Asistenţă Socială, Ştiinţe Politice, Teologie Baptistă, Teologie Ortodoxă, Departament pentru Pedagogia Invatamantului, Departamentul de Tehnologii, Centrul de Excelenţă ȋn Studiul Imaginii, Teologie Romano-Catolică şi Asistenţă Socială, Departamentul de învăţământ deschis la distanţă, Departamentul-Catedra UNESCO pentru schimburi interculturale şi interreligioase, Scoala Doctorala Francofona de Stiinte Sociale" />
+<meta name="description" content="Universitatea din București - Pagina principală. Universitatea din Bucureşti (UB) este una din cele mai importante instituţii de învăţământ superior din România. Ea este localizată în București, capitala României." />
+<meta http-equiv="Pragma" content="no-cache" />
+<link rel="SHORTCUT ICON" href="favicon1.ico" />
+<title>Universitatea din București - Pagina principală</title>
+<link href="/templates/main/css/main.css" rel="stylesheet" type="text/css" media="all" />
+<script type="text/javascript">
+var editing=false;
+var server,FILENAME="index.html";
+window.onload=function(){
+	loc=document.location.href;
+	server=loc.split("//")[1].split('/')[0];
+	oDiv=roller=document.getElementById('roller');
+	whoActive=whoami;//highlight(document.getElementById('admitere_b'));
+	channelStartColor='#142145';
+	channelEndColor=channelColor;
+	delay_int=setTimeout("delay()",1000);
+}
+if (top.location != location && parent.location==top.location && parent.edit) {editing=true;
+	document.write('<scr'+'ipt type="text/javascript" src="/n/admn/edit_addon.js"></scr'+'ipt>');
+}
+</script>
+<script type="text/javascript">
+var imgs=new Array("Basorelief, Facultatea de Litere.jpg","Cicerone.jpg","Palatul Facultatii de Drept.jpg",
+"Piata Universitatii, 1930.jpg","Sala Profesorilor, BCU.jpg","Facultatea de Istorie, 1921.jpg","Sala de lectura, Facultatea de Litere.jpg");
+var imgs_nm=new Array("Basorelief, Facultatea de Litere.jpg","Cicero.jpg","Palatul Facultăţii de Drept.jpg",
+"Piata Universităţii, 1930.jpg","Sala Profesorilor, BCU.jpg","Facultatea de Istorie, 1921.jpg","Sala de lectură, Facultatea de Litere.jpg");
+var index_img=gen_rnd();
+
+function gen_rnd(){
+	var i=imgs.length;
+	while(i>=imgs.length){i=Math.floor(Math.random() * imgs.length);}
+	return i;
+}
+function ch_pict(i){var img=document.getElementById("imgub");
+	img.src="/templates/ub_home002/img/"+imgs[i];
+	var im_name=imgs_nm[i].split('.jpg')[0];
+	document.getElementById('img_name').innerHTML=im_name;
+	wimg=document.getElementById('img'+index_img);wimg.src="/templates/main/img/mic_wh7x7.gif";
+	wimg=document.getElementById('img'+i);wimg.src="/templates/main/img/mic_wh7x7r.gif";
+	index_img=i;
+}
+function schimba_ma(){
+	var img=document.getElementById("imgub");
+	var i=gen_rnd();
+	while (i==index_img){i=gen_rnd();}
+	img.src="/templates/ub_home002/img/"+imgs[i];index_img=i;
+
+}
+function color2rgb(color){//color in formatul #xxxxxx sau #xxx
+	
+	var s=color;
+	if(s.indexOf('rgb(',0)!=-1){
+		s=s.replace('rgb(','');
+		col=s.split(',');
+		for(i=0;i<3;i++)col[i]=parseInt(col[i]);
+		//alert(col);
+		return col;
+	}
+	s=color.slice(1);//tai #-ul
+	var col=new Array();
+	if(s.length==3){
+		col[0]=17*parseInt(s.slice(0,1),16);//red
+		col[1]=17*parseInt(s.slice(1,2),16);//green
+		col[2]=17*parseInt(s.slice(2),16);//blue
+		//alert(col);
+	}else {
+		col[0]=parseInt(s.slice(0,2),16);
+		col[1]=parseInt(s.slice(2,4),16);
+		col[2]=parseInt(s.slice(4),16);
+	}
+	return col;
+}
+var color;
+function RGBsmooth(a,c0,c1){//cu a in [0,1] c0=culoare de start;c1=culoare de sfarsit
+	var col=new Array();
+	col[0]=Math.round(c0[0]+a*(c1[0]-c0[0]));//red
+	col[1]=Math.round(c0[1]+a*(c1[1]-c0[1]));//green
+	col[2]=Math.round(c0[2]+a*(c1[2]-c0[2]));//blue
+	color="#"+int2hex(col[0])+int2hex(col[1])+int2hex(col[2]);
+	return col;
+}
+function int2hex(intega){
+	Ziffer = "0123456789ABCDEF";
+return Ziffer.charAt((intega/16) % 256)+''+Ziffer.charAt(intega % 16);
+}
+var a=0,aStep=0.2,rate=100;
+var startBgColor,endBgColor,startColor,endBgColor,channelStartColor='#142145',channelEndColor;
+function loopFade(){a+=aStep;
+	if(a>1)return;
+
+	//RGBsmooth(a,color2rgb(startBgColor),color2rgb(endBgColor));
+
+	//oDiv.style.backgroundColor=color;
+	RGBsmooth(a,color2rgb(startColor),color2rgb(endColor));
+	oDiv.style.color=color;	document.getElementById('news_link').style.color=color;
+	//alert(channelStartColor+":"+channelEndColor+":"+color);
+	RGBsmooth(a,color2rgb(channelStartColor),color2rgb(channelEndColor));
+
+	document.getElementById('channel').style.color=color;
+	
+
+	setTimeout("loopFade()",rate);
+}
+var oDiv,channelColor='#ffd886';
+function startFadeOut(id,bg,cl,as,rt){a=0;
+	aStep=as;rate=rt;
+	oDiv=document.getElementById(id);
+	startBgColor=oDiv.style.backgroundColor;
+	endBgColor=bg;//"#2F455A";
+	startColor=oDiv.style.color;
+	endColor=cl;//"#2F455A";
+	channelStartColor=channelColor;
+	channelEndColor=cl;
+	loopFade();
+}
+function startFadeIn(id,bg,cl,as,rt){a=0;
+	aStep=as;rate=rt;
+	oDiv=document.getElementById(id);
+	while(oDiv==null)oDiv=document.getElementById(id);
+	startBgColor=oDiv.style.backgroundColor;
+	//alert(startBgColor);
+	endBgColor=bg;//"#fff";
+	//alert(endBgColor);
+	startColor=oDiv.style.color;
+	endColor=cl;//"#000";
+	channelStartColor=oDiv.style.backgroundColor;
+	channelEndColor=channelColor;	
+//alert(channelStartColor+":"+channelEndColor+":"+color);
+	loopFade();
+}
+</script>
+<script type="text/javascript">
+var admitere=1,media=0,topub=0,startub=0,whoActive='admitere',whoami='admitere',imgsrc;
+function up_roller(){
+	var top=parseInt(document.getElementById('roller').style.top);top--;
+	document.getElementById('roller').style.top=top+'px';
+	if(top<-15)document.getElementById('roller').style.top='-2px';
+}
+var roller_interval=null;
+var old_src="";
+function delay(){
+	var src="http://"+server+"/tt_php/read_news_ub01.php?do=ok&news="+whoami;
+	var old_src=document.getElementById('ifr').src;
+	//alert(old_src+'\n'+src);
+	if(old_src==src) {setRollerContent(news_content);}//alert('acelasi src');
+	else {document.getElementById('ifr').src=src;
+		old_src=src;
+	}
+}
+var delay_int=null;
+function setNews(img){
+	clearInterval(delay_int);
+	startFadeOut("roller",'#142145;','#142145;',.2,100);
+	whoami=img;
+	whoActive=whoami;
+	delay_int=setTimeout("delay()",1000);
+}
+var actualrollerwidth,roller,marqueewidth,mqspeed=1,separator=']   [';
+function scrollmq(){//alert(roller.style.left);
+	if (parseInt(roller.style.left)>(actualrollerwidth*(-1)))//+8
+	roller.style.left=parseInt(roller.style.left)-mqspeed+"px"
+	else roller.style.left=0+"px";//8+parseInt(marqueewidth)
+}
+
+var news_content="",rotate_blogs;
+
+function r_blogs(){
+	aimgs_i++;aimgs_i=aimgs_i%4;
+	setNews(aimgs[aimgs_i]);
+}
+function setRollerContent(t){
+	news_content=t;
+	roller=document.getElementById('roller');
+	roller.innerHTML='  '+t;
+	startFadeIn('roller','#ccdddd','#7FA9D3',.2,100);
+	rotate_blogs=setTimeout('r_blogs()',15000);
+}
+
+</script>
+<script type="text/javascript">
+function flipDiv(what){
+  var div=document.getElementById(what);
+  if(div.ff) div.ff=!div.ff;else div.ff=true
+  if(div.ff){div.style.display='block';}else div.style.display='none';
+}
+</script>
+<style type="text/css">
+body {
+	background-image: url(/templates/main/img/bg_home.png);
+	background-position: top center;
+	background-repeat: repeat-y;    
+    font-size: 10px;    
+    background-color: #132A5A;/*#0b072d;*/
+	margin-top:0px;
+}
+p{
+	text-align:justify;
+}
+div#wrapper {
+	width:957px;
+	margin: 0 auto;
+	position: relative;
+	top:3px;
+}
+#header_mare{
+	/*background:url(/templates/ub_home002/img/home_header_mare000.jpg) top left no-repeat;*/
+	width:957px;
+	height:284px;
+}
+#top_voal{
+	background:url(/templates/main/img/transparent_astral_blue50.png);
+	height:70px;
+	width:100%;
+	top:3px;position: relative;
+}
+#logo{
+	position: relative;top:7px;left:13px;
+}
+#nav_header{
+	position: relative;top:162px;left:0px;
+}
+div#header {
+	width: 100%;
+	height: 35px;
+	position: relative;
+	top:15px;
+	background-image:url(/templates/main/img/transparent_astral_blue50.png);
+}
+div#flag{
+	position:absolute;left:5px;top:10px;
+}
+/*
+div#search{
+	position:absolute;left:40px;top:25px;
+	font-family:Arial;
+	font-size:8pt;color:#cdd;
+}*/
+input#google_, input#people_, input#offices_ {
+	width: 14px;
+	height: 14px;
+    margin:0;
+    margin-bottom:2px;
+}
+div#qklinks{
+	position:absolute;left:480px;top:5px;
+}
+.selectGroup,#select,#searchBox_,#gobut_{
+	font-size:8pt;
+}
+input#gobut {
+
+}
+
+#img_pool{
+	width:300px;top:20px;right:5px;position:absolute;/*float:right;*/
+	font-family:Arial;font-size:8pt;color:#cdd;/*#7FA9D3;*/
+	text-align:right;
+}
+.care{cursor:pointer;}
+div#main_menu_panel{
+	width:100%;
+	margin-top:3px;
+	/*background-image:url(/templates/main/img/transparent_astral_blue50.png);*/
+	/*background-color:#2F455A;*/
+	height:300px;
+	float:left;
+}
+.hr{
+	background:url(/templates/ub_home002/img/punctuletz_albt2x1.gif) top left repeat-x;
+	font-size:1px;
+	position:absolute;
+	left:30px;
+	height:1px;
+}
+.menu_cols{
+	font-size:9pt;
+	text-align:left;
+	color:#7FA9D3;
+	position:absolute;
+	left:0px;
+	width:150px;
+	font-family:arial;
+}
+.menu_cols h2{
+	/*background:url(/templates/ub_home002/img/punctuletz_albt2x1.gif) bottom left repeat-x;*/
+	margin-bottom:4px;
+	margin-top:2px;
+	font-size:11pt;
+}
+.menu_cols a{color:#7FA9D3;}
+.menu_cols a:hover{color:#ffd886;}
+
+#wrapper_main_menu1,#wrapper_main_menu2{
+	background:url(/templates/ub_home002/img/punctuletz_albt2x1.gif) top left repeat-x;
+	position:absolute;
+	width:900px;left:30px;height:1px;
+}
+
+
+div#blogs_panel{
+	position:absolute;
+	width:100%;
+	/*background-image:url(/templates/main/img/transparent_astral_blue50.png);*/
+	background-color:#142145;
+	height:28px;
+	top:650px;
+}
+.blgimg{position:absolute;bottom:0px;left:30px;}
+#roller{color:#7FA9D3;width:942px;height:15px;top:0px;left:-3px;
+	background-color: #142145;
+	/*background-image:url(/templates/ub_home002/img/bg_roller15.gif);*/
+	position:absolute;font-size:8pt}
+#roller a{color:#7FA9D3;text-decoration:underline;}	
+#roller a:hover{color:#7FA9D3;text-decoration:none;}	
+#roller_wrapper{position:absolute;top:5px;width:770px;
+  height:27px;overflow:hidden;font-size:17px;
+  left:8px;
+}
+#channel{color:#ffd886;}
+div#footer{
+	position:absolute;
+	width:100%;
+	background-color:#2F455A;
+	height:39px;
+	top:621px;left:0px;
+}
+
+span#attention a{font-weight:bold;}
+span#attention a:visited{color:#ee0000;}
+span#attention a:hover{color:#ffd886;}
+.a_link{color: #ffd886;}
+.a_link a:visited {color: #ffd886;}
+div.a_link a:hover {color:#fff;}
+.a_link:hover {background-color:#142145;}
+</style>
+
+</head>
+<body background="/templates/main/img/bg_home.png">
+<div id="wrapper">
+	<div id="header_mare">
+	<img id="imgub" src="/templates/ub_home002/img/img0.jpg" width="957" height="284" style="position:absolute;left:0px;top:0px;"/>
+<div class="a_link" style="position:relative;float:right;top:5px;right:5px;z-index:17;">
+<p><a href="http://www.unibuc.ro/n/admn/logfr.php">   Login   </a></p>
+</div>
+		<div id="top_voal">
+			<div id="logo"><img src="/templates/main/img/logo_unibuc_monocrom.png" alt="UB logo" height="53" width="281" /></div>
+		</div>
+	
+
+<style type="text/css">
+#search {color:#FFF;position:absolute;font-size:10px;height:28px;padding:5px 10px 0 0;width:145px;left:50px;margin-top:253px;z-index:3}
+#searchform {background:url(/templates/main/img/search.png) no-repeat;height:29px; }
+#searchform label,#searchform .submit { display:none; }
+#se {background:none ;border:0;height:15px;width:110px;margin:1px 16px 0 0;padding:3px 15px 0 5px;color:#656668;font-size:11px;}
+#searchform input:focus { border:0px solid #fff; }
+div#acceswp{font-size:9pt;}
+div#acceswp a:active, div#acceswp a:link{color: #ffd886;}
+div#acceswp a:visited{color: #ffd886;}
+div#acceswp a:hover{color:#fff;}
+.lk{padding:3px;}
+.lk a{color:#ffd886;font-weight:bold;}
+.lk a:hover{color:#fff;font-weight:bold;}
+
+#news_img2{
+	padding-top:2px;padding-left:2px;
+	position:absolute;left:710px;top:0px;width:200px;
+	border: 1px solid transparent;
+	background-color:#263253;color:#fff;/*#cdd;*/
+	font-size:8pt;}
+.lkb{position:relative;clear:both;color:#fff;}
+.lkb a{color:#ffd886}
+.lkb a:hover{color:#fff;text-decoration:underline;}
+div.menu_cols p{text-align:left}
+</style>
+	<div id="search">
+		<form id="searchform" action="/cautare_unibuc.php" method="post" id="quicksearch" enctype="multipart/form-data"> <!--  accept-charset="utf-8" -->
+			<input type="hidden" name="op" value="search" />
+			<input type="text" name="atLeastOne" id="se" size="35"  onblur="if (this.value == '') {this.value = 'caută...';}" onfocus="if (this.value == 'caută...') {this.value = '';}" value="caută..." class="text" /> 
+			<input type="submit" id="searchsubmit" class="submit" value="Search" /> 
+		</form> 
+	</div>
+	<div id="acceswp" style="position:absolute;left:450px;top:265px;z-index:4;font-weight:bold;">
+		<a href="javascript:void(0)" onclick="flipDiv('acces_panel');">Acces direct Facultăţi</a>
+	</div>
+	<div id="acces_panel" style="position:absolute;left:5px;top:150px;width:940px;height:85px;padding:4px;font-size:10pt;display:none;z-index:7;background-image:url(/templates/main/img/transparent_astral_blue50.png);"><!-- /templates/main/img/transparent_astral_blue75.png-->
+		<div id="1000art" class="lk" style="position:absolute;left:0px;top:3px;" onmouseover="this.style.backgroundImage='url(/templates/main/img/transparent_astral_blue75.png)';" onmouseout="this.style.backgroundImage='url()';"><a name="1000art"></a>
+		<p>
+		<a href="http://www.faa.unibuc.ro/" target="_blank">Administraţie și Afaceri</a><br /> 
+		<a href="http://www.bio.unibuc.ro/" target="_blank">Biologie</a><br /> 
+		<a href="http://www.chimie.unibuc.ro/" target="_blank">Chimie</a><br /> 
+		<a href="http://www.credis.ro/" target="_blank">Credis</a><br /> 
+		<a href="http://www.drept.unibuc.ro/" target="_blank">Drept</a></p><!--/1000art--></div>
+		
+		<div id="1001art" class="lk" style="position:absolute;left:155px;top:3px;" onmouseover="this.style.backgroundImage='url(/templates/main/img/transparent_astral_blue75.png)';" onmouseout="this.style.backgroundImage='url()';"><a name="1001art"></a><p>
+		<a href="http://www.filosofie.unibuc.ro/" target="_blank">Filosofie</a><br /> 
+		<a href="http://www.fizica.unibuc.ro/fizica/Main.asp" target="_blank">Fizică</a><br /> 
+		<a href="http://geo.unibuc.ro/" target="_blank">Geografie</a><br /> 
+		<a href="http://www.unibuc.ro/facultati/geologie-geofizica/">Geologie și Geofizică</a><br /> 
+		<a href="http://www.fjsc.ro/" target="_blank">Jurnalism și Știinţele Comunicării</a></p><!--/1001art--></div>
+		<div id="1002art" class="lk" style="position:absolute;left:375px;top:3px;" onmouseover="this.style.backgroundImage='url(/templates/main/img/transparent_astral_blue75.png)';" onmouseout="this.style.backgroundImage='url()';"><a name="1002art"></a>
+			<a href="/facultati/istorie/">Istorie</a><br/>
+			<a href="http://www3.limbi-straine.ro/" target="_blank">Limbi și Literaturi Străine</a><br/>
+			<a href="/facultati/litere/">Litere</a><br/>
+			<a href="http://www.fmi.unibuc.ro/" target="_blank">Matematică și Informatică</a><br/>
+			<a href="http://www.fpse.ro/" target="_blank">Psihologie şi Ştiinţele Educaţiei</a><br/>
+		<!--/1002art--></div>
+		<div id="1003art" class="lk" style="position:absolute;left:580px;top:3px;" onmouseover="this.style.backgroundImage='url(/templates/main/img/transparent_astral_blue75.png)';" onmouseout="this.style.backgroundImage='url()';"><a name="1003art"></a>
+			<a href="http://sas.unibuc.ro/" target="_blank">Sociologie<br />     și Asistenţă Socială</a><br/>
+			<a href="http://www.fspub.unibuc.ro/" target="_blank">Știinţe Politice</a><br/>
+			<a href="http://www.unibuc.ro/facultati/teologie-baptista/" target="_blank">Teologie Baptistă</a><br/>
+			<a href="http://www.ftoub.ro/" target="_blank">Teologie Ortodoxă</a><br/>
+		<!--/1003art--></div>
+
+		<div id="1004art" class="lk" style="position:absolute;left:760px;top:3px;" onmouseover="this.style.backgroundImage='url(/templates/main/img/transparent_astral_blue75.png)';" onmouseout="this.style.backgroundImage='url()';"><a name="1004art"></a><p>
+		<a href="http://ftrc.unibuc.ro" target="_blank">Teologie Romano-Catolică<br/>     și Asistenţă Socială</a><br/>
+		<a href="http://www.interculturel.org/" target="_blank">Departament UNESCO</a><br />
+		<a href="http://cesi.ro/" target="_blank">Centrul de Excelență<br />     în Studiul Imaginii</a></p><!--/1004art--></div>
+	</div>
+		<div id="nav_header">
+		
+  <div id="header">
+	<div id="img_pool"><span id="img_name">Palatul Facultăţii de Drept</span> <img id="img0" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(0)" /><img id="img1" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7"  onclick="ch_pict(1)" /><img id="img2" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(2)" /><img id="img3" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(3)" /><img id="img4" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(4)" /><img id="img5" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(5)" /><img id="img6" class="care" alt="." src="/templates/main/img/mic_wh7x7.gif" width="7" height="7" onclick="ch_pict(6)" /></div>
+	<div id="flag"><a href="http://www.unibuc.ro/e/"><img alt="UK flag" src="/templates/main/img/uk-flag.jpg" width="30" height="15" /></a></div>
+
+  </div>
+
+		</div><!-- CLOSE NAV HEADER -->
+	</div><!-- close header mare -->
+	<div id="main_menu_panel" style="top:295px;background-color:#142145">
+		<div id="wrapper_main_menu1" style="top:310px;">
+		<div id="masurica"  class="hr" style="width:900px;top:20px;left:0px;"></div>
+			<div id="1100art" class="menu_cols" style="position:absolute;top:0px;"><a name="1100art"></a><h2><a title="Aici gasiti informatii generale despre Universitatea din Bucuresti" href="/n/despre/">Universitatea</a></h2>
+<p><a title="Repere istorice ale UB" href="/n/despre/carte_vizita.php">Despre UB</a></p>
+<p><a href="http://www.unibuc.ro/n/despre/amfi-acad/">Amfiteatru academic</a><br /><a href="/n/despre/legi_regul.php">Informaţii publice</a><br /><a href="/n/despre/colaborari_internationale.php">Colaborări internaţionale<br /></a><a href="http://www.unibuc.ro/n/despre/proi-fond-stru/">Proiecte fonduri structurale<br /></a><a href="http://www.unibuc.ro/n/despre/vizitare.php">Sucursale</a><a href="http://www.unibuc.ro/n/despre/facilitati/index.php"><br />Facilități</a></p>
+<p><a href="/n/despre/sedii_facultati.php"></a></p><!--/1100art--></div>
+			<div id="1200art" class="menu_cols" style="position:absolute;left:270px;top:0px;"><a name="1200art"></a><h2><a href="/n/studii/">Studii</a></h2>
+<p><a href="http://doctorat.unibuc.ro">Doctorat</a><a href="/n/studii/posdru.php"><br />Studii Postdoctorale</a><br /><a href="http://www.unibuc.ro/n/studii/scoli-de-vara/">Școli de vară</a><br /> <a href="/n/studii/calendar_academic.php">Calendar academic</a></p><!--/1200art--></div>
+			<div id="1300art" class="menu_cols" style="position:absolute;left:530px;top:0px;width:180px;"><a name="1300art"></a><h2><a href="/n/cercetare/">Cercetare</a></h2>
+<p><a href="http://www.unibuc.ro/ro/cons_st_ub">Consiliul Știinţific al Universităţii</a><br /><a href="http://www.unibuc.ro/n/cercetare/Directii_prioritare.php"> Direcții prioritare</a><br /> <a href="http://topub.unibuc.ro/?p=1287">Laboratoare/Centre</a><br /> <a href="http://www.anelis.ro" target="_blank">Acces on-line reviste ANELIS<br />www.anelis.ro</a><br /></p>
+<!--<a href="/" mce_href="/">Publicare</a><br /> <a href="http://startub.unibuc.ro/s4t/" mce_href="http://startub.unibuc.ro/s4t/">Ghiduri</a>--><!--/1300art--></div>
+			<div id="1400art" class="menu_cols" style="position:absolute;left:800px;top:0px;width:80px;"><a name="1400art"></a><h2><a href="/n/organizare/">Organizare</a></h2>
+<p><a href="n/organizare/conducere.php">Conducere</a><a href="../../facultati/"><br />Facultăţi</a><br /> <a href="../../depts/">Departamente</a><a href="/n/organizare/conducere.php"></a><br /> <a href="/n/organizare/">Administrație</a><br /> <a href="http://www.sind-unibuc.ro/">Sindicate</a><br /><a href="/n/organizare/contact.php">Contact</a></p><!--/1400art--></div>
+			
+		</div>
+		<div id="wrapper_main_menu2" style="top:440px;">
+		<div id="masurica1" class="hr" style="width:900px;top:20px;left:0px;"></div>
+			<div id="2100art" class="menu_cols" style="position:absolute;left:0px;top:0px;"><a name="2100art"></a><h2><a href="http://admitere.unibuc.ro/">Admitere</a></h2>
+<p><a href="http://admitere.unibuc.ro/infoadmitere/studii-universitare-de-licenta">Licenta</a><br /> <a href="/n/admitere/admitere_master2010.php">Master</a><br /> <a href="http://admitere.unibuc.ro/infoadmitere/studii-universitare-de-doctorat">Doctorat</a><br /> <a href="http://www.unibuc.ro/ro/dep_credis_ro">Învăţământ la distanţă</a><br /> <a href="/n/despre/taxe.php">Taxe</a></p><!--/2100art--></div>
+			<div id="2200art" class="menu_cols" style="position:absolute;left:270px;top:0px;" ><a name="2200art"></a><h2><a href="/n/student/">Student UB</a></h2>
+<p><a href="/n/student/">Programe studențești</a><br /> <a href="http://www.unibuc.ro/ro/main_burse_ro">Burse</a><br /> <a href="http://www.unibuc.ro/n/student/Campus.php">Campus</a><br /> <a href="http://www.unibuc.ro/n/student/Mobilitati.php">Mobilități</a><br /><a href="http://ciocp.ro"> Consiliere (CIOCP)</a><br /> <a href="http://www.unibuc.ro/n/student/Asociatii_studentesti.php">Asociaţii studenţești</a></p><!--/2200art--></div>
+			<div id="2300art" class="menu_cols" style="position:absolute;left:530px;top:0px;width:170px;"><a name="2300art"></a><h2><a href="/n/resurse/">Resurse Educaţionale</a></h2>
+<p><a href="http://www.unibuc.ro/n/resurse/resurse_electronice.php">Resurse electronice</a><a href="http://unibuc.ro/n/resurse/Biblioteci.php"><br />Biblioteci<br /></a><a href="http://www.unibuc.ro/n/resurse/centre-de-formare/">Centre de formare</a><a href="http://www.unibuc.ro/ro/main_biblioteci_ro"><br /></a><a href="http://www.unibuc.ro/n/resurse/Editurile_Universitatii_din_Bucureti.php">Edituri UB</a><br /> <a href="http://www.unibuc.ro/n/resurse/Reviste_UB.php">Reviste UB</a></p>
+<p><a href="http://librarie-unibuc.ro" target="_blank">Librărie online - Editura UB</a></p><!--/2300art--></div>
+			<div id="2400art" class="menu_cols" style="position:absolute;left:800px;top:0px;width:80px;"><a name="2400art"></a><h2><a href="/n/cultura/">Comunitate</a></h2>
+<p><a href="http://www.unibuc.ro/n/cultura/studenti/">Studenți</a><br /><a href="/prof/index.php?facid=1">Profesori</a><br /><a href="http://www.unibuc.ro/n/cultura/alumni/">Alumni</a></p>
+<p><a href="http://media.unibuc.ro/proiecte-dezvoltare-regionala/blog" target="_blank">Implicare socială</a></p><!--/2400art--></div>
+		</div>
+	</div>
+	<div id="blogs_panel" style="top:590px;left:0px;">
+		<div id="roller_wrapper" style="width:942px;padding-left:6px;">
+			<div id="roller" style="color:#7FA9D3;background-color:#142145;">
+			</div>
+		</div>
+		<iframe id="ifr" src="" frameborder="0" width="0" height="0" style="position:absolute;bottom:3px;left:35px;"></iframe>
+		<!--<div style="display:none">
+			<img id="admitere_b" alt="Buton admitere" style="left:30px;" class="blgimg" border="0" src="/templates/ub_home002/img/admitere1.gif" width="134" height="42" onmouseover="highlight(this)" onmouseout="normal(this)" onclick="setNews(this)"/>
+			<img id="mediaub_b" alt="Buton blog multimedia" style="left:200px;" class="blgimg" border="0" src="/templates/ub_home002/img/mediaub0.gif" width="175" height="42" onmouseover="highlight(this)" onmouseout="normal(this)" onclick="setNews(this)"/> 
+			<img id="startub_b" alt="Buton blog StartUB" style="left:430px;" class="blgimg" border="0" src="/templates/ub_home002/img/startub0.gif" width="135" height="42" onmouseover="highlight(this)" onmouseout="normal(this)" onclick="setNews(this)"/> 
+			<img id="topub_b" alt="Buton blog TopUB" style="left:630px;" class="blgimg" border="0" src="/templates/ub_home002/img/topub0.gif" width="125" height="42" onmouseover="highlight(this)" onmouseout="normal(this)" onclick="setNews(this)"/>
+		</div>-->	
+	</div>
+
+	<div id="footer">
+		<div id="footerwp" style="position:absolute;top:5px;left:30px;font-family:arial;font-size:9pt;">
+		<div id="3000art"><a name="3000art"></a><p><a href="/site_map.php">Harta site</a> <span style="color: #ccdddd;">  |  </span><span id="attention"><a href="/ro/">Vechiul site</a></span> <span style="color: #ccdddd;">  |  </span><span><a href="http://www.unibuc.ro/apps/">E-mail</a></span> <span style="color: #ccdddd;">  |  </span><span><a href="/n/news/">Pagini noi </a></span> <span style="color: #ccdddd;">  | </span><span><a href="../organizare/dirresumane/post-vaca/"><img src="../../img/blink.gif" alt="" width="4" height="4" /></a></span><span style="color: #ccdddd;"> </span><span><a href="/n/organizare/dirresumane/post-vaca/">Posturi vacante</a> </span><span><a href="../organizare/dirresumane/post-vaca/"><img src="../../img/blink.gif" alt="" width="4" height="4" /></a></span><span><span style="color: #ccdddd;"> |   </span><a href="/n/organizare/dirresumane/post-vaca/"><img style="border-style: initial; border-color: initial;" src="/img/blink.gif" alt="" width="4" height="4" /></a> <a href="http://www.unibuc.ro/n/despre/legi_regul.php"><strong>ALEGERI ÎN UNIVERSITATEA DIN BUCUREȘTI</strong></a> <span style="color: #ccdddd;"> </span><a href="/n/organizare/dirresumane/post-vaca/"><img style="border-style: initial; border-color: initial;" src="/img/blink.gif" alt="" width="4" height="4" /></a></span></p>
+<p><span style="color: #ccdddd; font-size: 8pt;">UB | Bd. M. Kogălniceanu 36-46, Sector 5, 050107,  | București, ROMANIA  | +40-21-307 73 00 | Fax: +40-21-313 17 60</span></p><!--/3000art--></div>
+		</div>
+		<div id="rss_twitter_faceb" style="position:absolute;top:10px;left:830px;font-family:arial;font-size:9pt;">
+		<a href="http://www.facebook.com/Universitatea.din.Bucuresti?ref=ts" target="_blank"><img src="/img/facebook.png" width="9" height="19"></a><a href="http://twitter.com/unibuc" target="_blank"><img src="/img/twitter.png" width="12" height="15" style="margin:0px 30px"></a><a href="http://www.unibuc.ro/n/news/ub_blogs_news.php"  target="_blank"><img src="/img/rss.png" width="14" height="14"></a>
+		</div>
+	</div>
+	
+
+<div style="clear:both">
+<div style="position:relative;top:100px;">
+	<a href="http://media.unibuc.ro/"><img src="img/mediaub.png" alt="MediaUB" style="margin-left:15px" title="MediaUB - 
+Știrile Universităţii" /></a>
+	<a href="http://topub.unibuc.ro/"><img src="img/topub.png" alt="TopUB" style="margin-left:185px" title="TopUB -
+REVISTA ONLINE A UNIVERSITĂŢII DIN BUCUREȘTI" /></a>
+	<a href="http://startub.unibuc.ro/"><img src="img/startub.png" alt="StartUB" style="margin-left:185px" title="StartUB -
+Platforma de Educaţie non-formală" /></a>
+</div>
+
+</div>
+	
+	
+	
+</div>
+<!-- CLOSES WRAPPER -->
+<script type="text/javascript">
+var aimgs=new Array('admitere','mediaub','startub','topub'),aimgs_i=0;//aimgs[0]=document.getElementById('admitere_b');aimgs[1]=document.getElementById('mediaub_b');
+//aimgs[2]=document.getElementById('startub_b');aimgs[3]=document.getElementById('topub_b');
+	var img=document.getElementById("imgub");
+	img.src="/templates/ub_home002/img/"+imgs[index_img];
+	var im_name=imgs_nm[index_img].split('.jpg')[0];
+	document.getElementById('img_name').innerHTML=im_name;
+	wimg=document.getElementById('img'+index_img);wimg.src="/templates/main/img/mic_wh7x7r.gif";
+
+</script>
+<script type="text/javascript">
+if(!editing && document.location.href.match("^.*?://[^/]*")[0]=="http://www.unibuc.ro"){
+	document.write('<scri'+'pt src="http://www.google-analytics.com/urchin.js" type="text/javascript"></sc'+'ript>');
+	document.write('<scri'+'pt type="text/javascript">_uacct = "UA-4613376-1";urchinTracker();</sc'+'ript>');}
+</script>
+
+</body>
+</html>

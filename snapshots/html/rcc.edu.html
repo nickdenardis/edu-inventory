@@ -1,0 +1,870 @@
+
+
+
+
+
+
+
+    
+            
+
+
+
+	
+ 
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head><title>Riverside Community College District | Riverside City College</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<script type="text/javascript" src="/js/showdiv.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+
+	
+		
+		
+
+	
+		
+		
+
+
+		<script type="text/javascript">
+		/*  BannerRotate JavaScript framework, version 1.0
+		 *  (c) 2007 Michael Juan 
+		 *
+		 /*------------------------------------------------------------------*/
+		
+		
+		
+		
+		
+			
+			
+			
+					
+			
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+				
+					
+					
+			
+			
+		
+			
+			var diaplyMinutes = 1; 
+			var ads = new Array();
+			var imageid = new Array("colAD1-img","colAD2-img","colAD3-img"); //banner id's
+			var adlnk = new Array("colAD1-lnk","colAD2-lnk","colAD3-lnk"); //url id's
+			var rotationSlots = 1;
+			
+			
+			ad0 = {src:'/district/BannerAds/opencourseD.jpg', alt:'Open Course List on WebAdvisor', url:'https://was02.rcc.edu/RCCD/RCCD?TYPE=P&PID=ST-XWESTOCL1', imgid:0}			
+			ads[0] = ad0;  
+			
+			ad1 = {src:'riverside/bannerads/crucible.jpg', alt:'Crucible', url:'/riverside/files/Cruciblepostcardweb.pdf', imgid:1}			
+			ads[1] = ad1;  
+			
+			ad2 = {src:'/district/BannerAds/florencebanner.gif', alt:'Florence2012', url:'http://www.rccd.edu/services/studyabroad/Documents/Study%20Abroad%20Italy%20poster%202%207%2012.pdf', imgid:2}			
+			ads[2] = ad2;  
+			
+			ad3 = {src:'/district/BannerAds/Prague.jpg', alt:'PragueStudyAbroad', url:'http://www.rccd.edu/services/studyabroad/Pages/index.aspx', imgid:3}			
+			ads[3] = ad3;  
+			
+			ad4 = {src:'/district/BannerAds/RCCD_Banner.jpg', alt:'Brandman University RCC', url:'http://www.Brandman.edu/eap/RCC', imgid:4}			
+			ads[4] = ad4;  
+			
+			ad5 = {src:'/district/BannerAds/FAmandatory_R.gif', alt:'RiversideDisbursementportal', url:'https://bosebill.salliemae.com/NetPay/Templates/1215/frameset1215.html', imgid:5}			
+			ads[5] = ad5;  
+			
+			ad6 = {src:'/district/BannerAds/springsche.jpg', alt:'Spring Schedules', url:'http://www.rccd.edu/services/counseling/Documents/RIVSPR12.pdf', imgid:6}			
+			ads[6] = ad6;  
+			
+			ad7 = {src:'/riverside/bannerads/WebArtVet5kart.jpg', alt:'Veterans 5K Postcard', url:'/riverside/files/Veterans5KPostcard.pdf', imgid:7}			
+			ads[7] = ad7;  
+			
+			ad8 = {src:'/riverside/BannerAds/intervention.gif', alt:'BIRT', url:'/services/support/birt/index.cfm', imgid:8}			
+			ads[8] = ad8;  
+			
+			ad9 = {src:'/district/BannerAds/financialaidtvad.gif', alt:'Financial Aid TV', url:'http://rccd.financialaidtv.com/', imgid:9}			
+			ads[9] = ad9;  
+			
+			ad10 = {src:'/riverside/BannerAds/Ally-Riverside.jpg', alt:'Riverside Ally', url:'/riverside/allies.cfm', imgid:10}			
+			ads[10] = ad10;  
+			
+			ad11 = {src:'/district/BannerAds/CAPad.jpg', alt:'CAP', url:'/services/support/cap/files/CAPspring2012.pdf', imgid:11}			
+			ads[11] = ad11;  
+			
+			
+			var adindex =0;
+			var slotcounterStart = 3;
+			var slotindex = 0;
+			var totalads = 0;	
+			var running = true;
+			function bannerinit(){
+				slotcounterStart-=rotationSlots;
+				slotindex = slotcounterStart;
+				totalads = ads.length;
+				run();
+			}
+			function rotate(){
+				if(slotindex >= 3){slotindex= slotcounterStart;}
+				var adslot = document.getElementById(imageid[slotindex]);
+				var adlnkid = document.getElementById(adlnk[slotindex]);
+				if(adindex >= totalads){adindex = 0;}
+				
+				//update image
+				adslot.src = ads[adindex].src;
+				adslot.alt = ads[adindex].alt;
+				adlnkid.href = ads[adindex].url;
+				adindex++;
+				slotindex++;
+			}
+			function run(){
+				if(running){
+					 rotate();	
+				}
+				 setTimeout('run()',diaplyMinutes*3200);
+			}
+			function pause(){
+				running = false;
+			}
+			function resume(){
+				running = true;
+			}
+			
+			</script>
+
+
+<script>
+
+function loadUrl(name,burl){
+	pageTracker._trackPageview(name);
+	window.open(burl,"_self");
+}
+
+</script>
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+  		// Load jQuery
+  		google.load("jquery","1");
+  		google.load("jqueryui","1");
+</script>
+<script type="text/javascript">
+function init(){
+  
+   
+   	   bannerinit();
+   
+
+
+
+   
+   
+	 
+	  
+	 	showAd();
+	  
+   
+
+
+
+
+      
+
+
+
+}
+function showAd(){
+	
+	
+	
+		
+		$('div#splashad').fadeIn('fast');	
+		//ajaxEngine.registerAjaxElement('splashad');
+		//setTimeout('popupAd()',1000);
+		//setTimeout('hideAd()',10000);
+		
+		
+		
+		      
+	
+}
+
+function popupAd(){
+	var ad = document.getElementById('splashad');
+	ad.style.display='block';
+}
+function hideAd(){
+	$('div#splashad').fadeOut('slow');
+}
+
+$(document).ready(function() {
+	init();
+	//setTimeout('rotate6(stat6)',2000);
+	$('a#closead').click(function(){hideAd();});
+	
+});
+
+
+
+</script>
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+
+
+
+	
+
+
+	
+
+		
+        	
+		
+			
+		
+	
+		
+		
+	
+	
+		
+			
+			
+		<link rel="stylesheet" type="text/css" href="/css/riverside.css" />
+    	<link rel="stylesheet" type="text/css" href="/css/riversidePRINT.css" media="print" />
+
+<link rel="stylesheet" type="text/css" href="../css/typography.css" />
+</head><body onload="javascript:init();">
+<!-- start skipper -->
+<div id="skipper">skip to: [<a href="#skipperCONTENT" title="content">content</a>][<a href="#skipperCAMPUS" title="navigation by campus">navigation by campus</a>][<a href="#skipperAUDIENCE" title="navigation by audience">navigation by audience</a>][<a href="#skipperSEARCHBAR" title="searchbar">searchbar</a>][<a href="#skipperMENU" title="campus navigation by catagory">navigation by catagory</a>][<a href="#skipperLEGAL" title="legal links">legal links</a>][<a href="#skipperADDRESS" title="address information">address information</a>]</div>
+<!-- end skipper -->
+
+<!-- start print only headers -->
+<div id="districtPRINTheader"><img src="/images/districtPRINTheader.jpg" style="width:750px; height:85px;" alt="" /></div>
+<div id="morenoPRINTheader"><img src="/images/morenoPRINTheader.jpg" style="width:750px; height:85px;" alt="" /></div>
+<div id="norcoPRINTheader"><img src="/images/norcoPRINTheader.jpg" style="width:750px; height:85px;" alt="" /></div>
+<div id="riversidePRINTheader"><img src="/images/riversidePRINTheader.jpg" style="width:750px; height:85px;" alt="" /></div>
+<!-- end print only headers -->
+
+<!-- start background colors -->
+<div id="rowBOTTOMbg"><img src="/images/colorBLANK.gif" style="width:1px; height:1px;" alt="" /></div>
+<div id="rowTOPbg"><img src="/images/colorBLANK.gif" style="width:1px; height:235px;" alt="" /></div>
+<!-- end background colors -->
+
+<!-- start top row -->
+<div id="rowTOP">
+	<div id="imgCAMPUS"><img src="/images/colorBLANK.gif" style="width:350px; height:80px;" alt="Riverside Community College District" /></div>
+
+	<!-- start campus navigation -->
+	<div id="navCAMPUS"><a name="skipperCAMPUS"></a>
+		<div id="navRCCDoff"><img src="/images/colorBLANK.gif" style="width:51px; height:30px;" alt="" /></div>
+		<div id="navRCCDon"><img src="/images/colorBLANK.gif" style="width:51px; height:30px;" alt="" /></div>
+		<div id="navRCCDlink"><a href="http://www.rccd.edu" onmouseover="showMenu('navRCCDon');" onfocus="showMenu('navRCCDon');" onmouseout="hideMenu('navRCCDon');" onblur="hideMenu('navRCCDon');"><img src="/images/colorBLANK.gif" style="width:51px; height:30px;" alt="RCCD" /></a></div>
+		<div id="navCAMPUSvline1"><img src="/images/colorBLANK.gif" style="width:1px; height:30px;" alt="" /></div>
+		<div id="navRIVERSIDEoff"><img src="/images/colorBLANK.gif" style="width:90px; height:30px;" alt="" /></div>
+		<div id="navRIVERSIDEon"><img src="/images/colorBLANK.gif" style="width:90px; height:30px;" alt="" /></div>
+		<div id="navRIVERSIDElink"><a href="/riverside/index.cfm" onmouseover="showMenu('navRIVERSIDEon');" onfocus="showMenu('navRIVERSIDEon');" onmouseout="hideMenu('navRIVERSIDEon');" onblur="hideMenu('navRIVERSIDEon');"><img src="/images/colorBLANK.gif" style="width:90px; height:30px;" alt="Riverside City College" /></a></div>
+		<div id="navCAMPUSvline2"><img src="/images/colorBLANK.gif" style="width:1px; height:30px;" alt="" /></div>
+		<div id="navMORENOoff"><img src="/images/colorBLANK.gif" style="width:92px; height:30px;" alt="" /></div>
+		<div id="navMORENOon"><img src="/images/colorBLANK.gif" style="width:92px; height:30px;" alt="" /></div>
+		<div id="navMORENOlink"><a href="http://mvc.edu" onmouseover="showMenu('navMORENOon');" onfocus="showMenu('navMORENOon');" onmouseout="hideMenu('navMORENOon');" onblur="hideMenu('navMORENOon');"><img src="/images/colorBLANK.gif" style="width:92px; height:30px;" alt="Moreno Valley Campus" /></a></div>
+		<div id="navCAMPUSvline3"><img src="/images/colorBLANK.gif" style="width:1px; height:30px;" alt="" /></div>
+		<div id="navNORCOoff"><img src="/images/colorBLANK.gif" style="width:45px; height:30px;" alt="" /></div>
+		<div id="navNORCOon"><img src="/images/colorBLANK.gif" style="width:45px; height:30px;" alt="" /></div>
+		<div id="navNORCOlink"><a href="http://norcocollege.edu" onmouseover="showMenu('navNORCOon');" onfocus="showMenu('navNORCOon');" onmouseout="hideMenu('navNORCOon');" onblur="hideMenu('navNORCOon');"><img src="/images/colorBLANK.gif" style="width:45px; height:30px;" alt="Norco Campus" /></a></div>
+		<div id="navCAMPUSvline4"><img src="/images/colorBLANK.gif" style="width:1px; height:30px;" alt="" /></div>
+		<div id="navLEARNINGoff"><img src="/images/colorBLANK.gif" style="width:113px; height:30px;" alt="" /></div>
+		<div id="navLEARNINGon"><img src="/images/colorBLANK.gif" style="width:113px; height:30px;" alt="" /></div>
+		<div id="navLEARNINGlink"><a href="/learning/index.cfm" onmouseover="showMenu('navLEARNINGon');" onfocus="showMenu('navLEARNINGon');" onmouseout="hideMenu('navLEARNINGon');" onblur="hideMenu('navLEARNINGon');"><img src="/images/colorBLANK.gif" style="width:113px; height:30px;" alt="Learning Centers" /></a></div>
+	</div>
+<!-- end campus navigation -->
+
+	<div id="rowTOPhline"><img src="/images/colorBLANK.gif" style="width:400px; height:20px;" alt="" /></div>
+</div>
+<!-- end top row -->
+
+
+<div id="splashad" style=" width:800px; height:653px;z-index:1;  position:absolute; top:50px; left:20px;display:none;  ">
+	<div style="text-align:right; height:24px; background-color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; padding-right:5px;  padding-bottom:2px;"><a href="index.cfm?SkipAD">Don't Show Again</a> <a href="#" id="closead" style="padding-left:15px;"><img src="/images/cross.png" style="border:solid 1px;margin-top:3px; vertical-align:middle;" /></a></div> 
+	<img src="/riverside/images/Pop-up-ad-3-12-riv.jpg" border="1" longdesc="importantinfo.cfm" />
+</div>
+
+
+<!-- start middle row -->
+<form name="searchbar" id="formSEARCHBAR" action="/district/RCCSearch2.cfm" method="post">
+
+<div id="rowMIDDLE">
+	<div id="imgLEFT"><img src="/images/colorBLANK.gif" style="width:150px; height:155px;" alt="campus images montage" /></div>
+	<div id="imgCENTER"><img src="/images/colorBLANK.gif" style="width:600px; height:155px;" alt="campus images montage" /></div>
+	<div id="navMIDDLE">
+		<div id="navMIDDLEhline"><img src="/images/colorBLANK.gif" style="width:600px; height:5px;" alt="" /></div>
+
+	<!-- start audience navigation -->
+		
+<div id="navAUDIENCE"><a name="skipperAUDIENCE"></a>
+<div id="navSTUDENTSoff"><a class="audience-lnk" href="/students/index.cfm" style="margin-left:-33px">Students</a></div>
+<div >|</div>
+<div id="navFACULTYoff"><a class="audience-lnk" href="/faculty/index.cfm" style="margin-left:-22px">Faculty</a></div>
+<div ></div>
+<div id="navSTAFFoff"><a class="audience-lnk" href="/staff/index.cfm" style="margin-left:-12px">Staff</a></div>
+<div ></div>
+<div id="navSUPPORTERSoff"><a class="audience-lnk" href="/supporters/index.cfm" style="margin-left:-8px">Alumni&amp;Friends</a></div>
+<div ></div>
+<div id="navATHLETICSoff"><a class="audience-lnk" href="http://athletics.rcc.edu" style="margin-left:5px">Athletics</a></div>
+<div ></div>
+<div id="navCOMMUNITYoff"><a class="audience-lnk" href="/community/index.cfm" style="margin-left:10px">Community&amp;Businesses</a></div>
+</div>
+<!-- end audience navigation -->
+
+
+	
+<!-- Start Quantcast tag -->
+<script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<script type="text/javascript">_qacct="p-62FZWPmVqjSWc";quantserve();</script>
+<noscript>
+<a href="http://www.quantcast.com/p-62FZWPmVqjSWc" target="_blank"><img src="http://pixel.quantserve.com/pixel/p-62FZWPmVqjSWc.gif" style="display: none" border="0" height="1" width="1" alt="Quantcast"/></a>
+</noscript>
+
+<!-- End Quantcast tag -->
+
+
+<script type="text/javascript" src="/_ssi/js/departmentSearch.js"></script>
+<!-- start search navigation -->
+	<div id="navSEARCHBAR" class="alignCENTER">
+			
+			
+				
+				
+			<a name="skipperSEARCHBAR"></a><img src="/images/colorBLANK.gif" style="width:10px; height:1px;" alt="" />
+			<label for="searchbarTEXT"><img src="/images/navSEARCH.gif" class="mmhide-formIMG" style="width:45px; height:13px;" alt="Search:" /></label>
+			<img src="/images/colorBLANK.gif" style="width:2px; height:1px;" alt="" />
+			<span id="searchTextField"><input name="searchbarTEXT" id="searchbarTEXT" class="mmhide-formTEXT" type="text" /></span> 
+			
+		
+			<img src="/images/colorBLANK.gif" style="width:7px; height:1px;" alt="" />
+
+			
+			<input id="searchType" name="searchType" class="mmhide-formRADIO" type="radio" value="directory" onClick="dirSearch();"  />
+			<img src="/images/colorBLANK.gif" style="width:2px; height:1px;" alt="" />
+			<label for="searchbarFACULTYSTAFF"><img src="/images/navEMPLOYEEDIRECTORY.gif" class="mmhide-formIMG" style="width:54px; height:15px;" alt="Employee Directory" /></label>
+			<img src="/images/colorBLANK.gif" style="width:7px; height:1px;" alt="" />
+			
+			<input id="searchType" label="Department Search" name="searchType" class="mmhide-formRADIO" type="radio" value="department" onClick="deptSearch();"  />
+			<img src="/images/colorBLANK.gif" style="width:2px; height:1px;" alt="" />
+			<label for="searchbarDEPARTMENT"><img src="/images/navDEPARTMENT.gif" class="mmhide-formIMG" style="width:65px; height:15px;" alt="Department" /></label>
+			<img src="/images/colorBLANK.gif" style="width:7px; height:1px;" alt="" />
+			
+			<input id="searchType" label="Website Search" name="searchType" class="mmhide-formRADIO" type="radio" value="website" onClick="webSearch();" CHECKED />
+			<img src="/images/colorBLANK.gif" style="width:2px; height:1px;" alt="" />
+			<label for="searchbarWEB"><img src="/images/navRCCEDU.gif" class="mmhide-formIMG" style="width:50px; height:15px;" alt="RCC Website" /></label>
+			
+			
+			
+			<input id="searchbarGO" class="mmhide-formSUBMIT" type="submit" value="GO" />
+			<img src="/images/colorBLANK.gif" style="width:10px; height:1px;" alt="" />
+			
+	
+</div>
+<!-- end search navigation -->
+
+
+	</div>
+</div>
+ 
+</form>
+<!-- end middle row -->
+
+
+<!-- start bottom row -->
+<div id="rowBOTTOM">
+
+	
+ 
+
+
+
+<!-- start menu navigation -->
+	<div id='navMENU'><a name='skipperMENU'></a>
+		<div id='navGOINGTOoff'><a href='/students/apply/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='GOING TO COLLEGE' /></a></div>
+		<div id='navGOINGTOon'><a href='/students/apply/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='GOING TO COLLEGE' /></a></div>
+		<div id='navGOINGTOlink'><a href='/students/apply/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='GOING TO COLLEGE' /></a></div>
+
+
+
+
+
+
+
+
+
+		<div id='navWEBADVISORoff'><a href='https://was02.rcc.edu/RCCD/RCCD'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='WEBADVISOR' /></a></div>
+		<div id='navWEBADVISORon'><a href='https://was02.rcc.edu/RCCD/RCCD'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='WEBADVISOR' /></a></div>
+		<div id='navWEBADVISORlink'><a href='https://was02.rcc.edu/RCCD/RCCD' onClick="javascript: pageTracker._trackPageview('/outgoing/Webadvisor');"><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='WEBADVISOR' /></a></div>
+		
+
+
+		<div id='navSCHEDULESoff'><a href='/schedules/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='SCHEDULES' /></a></div>
+		<div id='navSCHEDULESon'><a href='/schedules/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='SCHEDULES' /></a></div>
+		<div id='navSCHEDULESlink'><a href='/schedules/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='SCHEDULES' /></a></div>
+		<div id='navPROGRAMSoff'><a href='/programs/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='PROGRAMS/CATALOG' /></a></div>
+		<div id='navPROGRAMSon'><a href='/programs/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='PROGRAMS/CATALOG' /></a></div>
+		<div id='navPROGRAMSlink'><a href='/programs/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='PROGRAMS/CATALOG' /></a></div>
+		<div id='navEVENTSoff'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='EVENTS' /></div>
+		<div id='navEVENTSon'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='EVENTS' /></div>
+		
+		<div id='navEVENTSlink'><!--<a href='/calendars/' onmouseover='show("navEVENTSon");' onfocus='show("navEVENTSon");' onmouseout='hide("navEVENTSon");' onblur='hide("navEVENTSon");'>-->
+		<img src='/images/colorBLANK.gif' style='width:154px; height:24px;' usemap='#news_events_map' alt='News and Events' /></a></div>
+		 <map name='news_events_map' id='News and Events'>
+          <area shape='rect' coords='86,0,153,22' href='/calendars/index.cfm?calendar=riverside' alt='Events'/>
+ 		  <area shape='rect' coords='0,0,88,22' href='/events/index_news.cfm' alt='News' />
+		 </map>
+		
+		<div id='navONLINEoff'><a href='http://www.opencampus.com'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ONLINE CLASSES' /></a></div>
+		<div id='navONLINEon'><a href='http://www.opencampus.com'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ONLINE CLASSES' /></a></div>
+		<div id='navONLINElink'><a href='http://www.opencampus.com/index.html' onClick="javascript: pageTracker._trackPageview('/outgoing/OpenCampus');"><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ONLINE CLASSES' /></a></div>
+		<div id='navSERVICESoff'><a href='/services/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='STUDENT SERVICES' /></a></div>
+		<div id='navSERVICESon'><a href='/services/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='STUDENT SERVICES' /></a></div>
+		<div id='navSERVICESlink'><a href='/services/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='STUDENT SERVICES' /></a></div>
+
+		<div id='navLIBRARYoff'>
+
+
+<!--riverside-->
+
+
+
+
+<a href='http://library.rcc.edu'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='LIBRARY' /></a></div>
+		<div id='navLIBRARYon'><a href='http://library.rcc.edu'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='LIBRARY' /></a></div>
+		<div id='navLIBRARYlink'><a href='http://library.rcc.edu'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='LIBRARY' /></a></div>
+
+
+
+
+	
+		<div id='navADMINoff'><a href='/administration/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ADMINISTRATION' /></a></div>
+		<div id='navADMINon'><a href='/administration/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ADMINISTRATION' /></a></div>
+		<div id='navADMINlink'><a href='/administration/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='ADMINISTRATION' /></a></div>
+		<div id='navBOToff'><a href='/administration/board/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='BOARD OF TRUSTEES' /></a></div>
+		<div id='navBOTon'><a href='/administration/board/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='BOARD OF TRUSTEES' /></a></div>
+		<div id='navBOTlink'><a href='/administration/board/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='BOARD OF TRUSTEES' /></a></div>
+		<div id='navFINDUSoff'><a href='/findus/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='FIND US' /></a></div>
+		<div id='navFINDUSon'><a href='/findus/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='FIND US' /></a></div>
+		<div id='navFINDUSlink'><a href='/findus/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='FIND US' /></a></div>
+		<div id='navEMPLOYMENToff'><a href='/administration/hr/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:48px;' alt='RCC EMPLOYMENT' /></a></div>
+		<div id='navEMPLOYMENTon'><a href='/administration/hr/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='RCC EMPLOYMENT' /></a></div>
+		<div id='navEMPLOYMENTlink'><a href='/administration/hr/index.cfm'><img src='/images/colorBLANK.gif' style='width:154px; height:24px;' alt='RCC EMPLOYMENT' /></a></div>
+		
+	</div>
+<!-- end menu navigation -->
+
+
+  
+
+
+<!-- start content -->
+
+	<div id="navCONTENT"><a name="skipperCONTENT"></a>
+		<div id="rowAD-riverside">
+			
+			<div id='rowADleft-riverside' style='padding-bottom:5px;'><a id="colAD1-lnk" href='https://was02.rcc.edu/RCCD/RCCD?TYPE=P&PID=ST-XWESTOCL1' onClick="javascript: pageTracker._trackPageview('BannerAds'+this.href);"><img src='/district/BannerAds/opencourseD.jpg' id='colAD1-img' class='mmhide-imgAD-riverside' style=" height:90px; width:160px;" alt='Open Course List on WebAdvisor'  onmouseover="pause();" onmouseout="resume();" /></a></div>
+			<div id='rowADcenter-riverside' style='padding-bottom:5px;'><a id="colAD2-lnk" href='/district/files/Textbooks-BandN.pdf' onClick="javascript: pageTracker._trackPageview('BannerAds'+this.href);"><img src='/district/bannerads/BarnesNobleRCC.jpg' id='colAD2-img' class='mmhide-imgAD-riverside' style=" height:90px; width:160px;" alt='Barnes and Noble Textbooks'  onmouseover="pause();" onmouseout="resume();" /></a></div>
+			<div id='rowADright-riverside' style='padding-bottom:5px;'><a id="colAD3-lnk" href='https://was02.rcc.edu/RCCD/RCCD?TYPE=P&PID=ST-XWESTOCL1' onClick="javascript: pageTracker._trackPageview('BannerAds'+this.href);"><img src='/district/BannerAds/opencourseD.jpg' id='colAD3-img' class='mmhide-imgAD-riverside' style=" height:90px; width:160px;" alt='Open Course List on WebAdvisor'  onmouseover="pause();" onmouseout="resume();" /></a></div>
+			
+		</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2815587-1");
+pageTracker._setDomainName("www.rcc.edu");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+
+<!-- Do Nothing -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- system messages go here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p>
+
+
+
+
+
+<br />
+
+
+
+
+
+
+</p>
+
+
+
+
+
+
+<br /><br />
+
+
+
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="167,200,308,220" href="http://www.jotform.com/form/10963607667" target="_blank" alt="" />
+  <area shape="rect" coords="318,199,444,222" href="http://www.jotform.com/form/11160255634" target="_blank" alt="" />
+  <area shape="rect" coords="157,237,269,257" href="http://www.jotform.com/form/11163035577" target="_blank" alt="" />
+  <area shape="rect" coords="278,236,454,258" href="http://www.jotform.com/form/11163433611" target="_blank" alt="" />
+</map>
+
+<p class="title">Welcome</p>
+<p class="body"><img src="images/IMGstudentlife.jpg" style="width:145px; height:190px; vertical-align:top; float:right;" alt="Student Life" />Riverside City College is the most dynamic and diverse college in the Inland Empire. From its opening in 1916 on the site of the former Poly High School, Riverside City College has grown to be one of California's leading community colleges and is a landmark in downtown Riverside.</p>
+<p class="body">Serving more than 19,000 students each semester, Riverside City College provides students with a wide range of choices including associate's degree programs, transfer to a four-year college or university, or career certificates that prepare them to enter the workforce. Riverside City College is home to strong programs in liberal arts, science, performing arts, the School of Nursing and athletics.</p>
+<p class="header">Mission Statement</p>
+<p class="body">Riverside City College provides a high-quality, affordable education, including comprehensive student services, student activities, and community programs, and empowers and supports a diverse community of learners as they work toward individual achievement and life-long learning. To help students achieve their goals, the College offers learning support services, pre-college and transferable courses, and career and technical programs leading to certificates or associate degrees. Based on a learner-centered philosophy, the College fosters critical thinking, develops information and communication skills, expands the breadth and application of knowledge, and promotes community and global awareness.</p>
+
+
+<div style="float:left;padding-left:20px;">
+<p class="header">Riverside Quick Links</p>
+
+<p class="body"><a href="https://www.credentialsops.com/CGI-BIN/gacgiord.pgm?ALUMPPD01270">RCCD On-line Daily Parking Permit</a><br/>
+<a href="http://www.rcc.edu/programs/files/2010-11RiversideCityCollege.pdf">RCC Catalog</a><br />
+  <a href="http://www.rccd.edu/services/counseling/Documents/RIV%20SUM12.pdf">RCC Summer 2012 Schedule of Classes</a><br />
+ <a href="http://www.rccd.edu/services/counseling/Documents/Summer2012InformationPages.pdf">Summer 2012 Informational Pages</a><br />
+<a href="/services/counseling/files/StudentHandbook.pdf">RCC Student Handbook<br />
+</a><br />
+<a href="http://www.rccd.edu/administration/police/Documents/Clery%20Reports/clery2011.pdf">2011 Clery Statistics</a></p>
+<p class="body"><a href="/administration/police/index.cfm">RCC 2011-12 Parking Information</a><br />
+  <a href="goPass.cfm">Don’t miss out! RCC Go Pass Program</a></p>
+ 
+
+ <p class="body"><a href="/riverside/accreditation/index.cfm">RCC Accreditation Website</a><br />
+ <a href="/riverside/files/RiversideMP.pdf">RCC Master Plan (PDF)</a>   (116.6 MB)<br />
+
+ <a href="/riverside/riversidestp/index.cfm">RCC Strategic Planning Information</a></p>
+  <p class="body"><a href="files/RiversideStyleGuide.pdf">RCC Style Guide</a><br />
+
+<p class="body">View course outlines online at <a href="http://www.curricuNET.com/RCCD">CurricuNET</a>.</p>
+
+ 
+
+<p>&nbsp;</p>
+<div style="float:left">
+<object enableJSURL="false" enableHREF="false" saveEmbedTags="true" allowScriptAccess="always" type="application/x-shockwave-flash" allowScriptAccess="always" height="116" width="175" id="alertu_widget" align="middle" data="https://www.alertu.org/flash/alertu_widget.swf">
+  <param name="allowScriptAccess" value="always" />
+<param name="movie" value="https://www.alertu.org/flash/alertu_widget.swf" />
+  <param name="quality" value="high" />
+  <param name="bgcolor" value="#FFFFFF" />
+  <param name="flashvars" value="autostart=no&keyword_id=13812&fill_color=0xCC6733&user_text=Emergency%20Alerts&info_text=Sign%20up%20for%20mobile%20alerts%20from%20RCCD.%20Enter%20your%20mobile%20#:&btn_color=0x000000&text_color=0x000000&btntext_color=0xCCCCCC&foottext_color=0x000000" />
+</object>
+</div>
+</div>
+
+
+
+	
+
+
+</div>
+
+<!-- end content -->
+
+
+
+
+
+
+<!-- start mmhide-footer -->
+<div id="rightCOL">
+	<div id="navLEGAL"><a name="skipperLEGAL"></a>
+		<div id="navLEGAL-spacer1" class="mmhide-footer">&nbsp;</div>
+		<div id="navPRIVACY" class="mmhide-footer"><a href="/privacy/index.cfm">Privacy</a></div>
+		<div id="navFERPA" class="mmhide-footer-center"><a href="/ferpa/index.cfm">FERPA</a></div>
+		<div id="navSECTION508" class="mmhide-footer-right"><a href="/accessibility.cfm">Section&nbsp;508</a></div>
+		
+		<div id="navComments" class="mmhide-footer-center"><a href="/forms/requestForm.cfm">Comments and/or Suggestions</a></div>
+		<div id="navMISSION" class="mmhide-footer-right"><a href="/administration/index.cfm">Mission Statement</a></div>
+		<div id="navWEBAFAQ" class="mmhide-footer-right"><a href="/administration/InformationServices/wa_faqs.cfm">WebAdvisor FAQs</a></div>
+		
+		
+	</div>
+	
+		
+				<div id="navADDRESS" class="mmhide-footer-right"><a name="skipperADDRESS"></a>RCCD&nbsp;Riverside&nbsp;City&nbsp;College | 4800&nbsp;Magnolia&nbsp;Ave,&nbsp;Riverside,&nbsp;CA&nbsp;92506 | (951)&nbsp;222-8000</div>
+			
+				
+</div>	
+</div>
+
+
+<!-- end mmhide-footer -->
+
+
+
+<!-- end bottom row -->
+
+</body><!-- InstanceEnd --></html>

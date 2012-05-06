@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="description" content="Penn State Homepage, Penn State" />
+		<meta name="keywords" content="Penn State Homepage, Penn State" />
+		<title>Penn State - A public research university serving Pennsylvania and the global community</title>
+		<link type="text/css" href="css/screen-i3.css" rel="stylesheet" />
+        <link type="text/css" href="css/anythingslider-i3.css" rel="stylesheet" />
+		<link type="text/css" href="css/print-i3.css"  media="print" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Asap' rel='stylesheet' type='text/css'>
+		<link rel="shortcut icon" href="img/psuicon.png" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js" type="text/javascript"></script>
+        <script src="js/jquery.anythingslider.min.js" type="text/javascript"></script>
+        <script src="js/jquery.anythingslider.video.min.js" type="text/javascript"></script>
+		<script type="text/javascript">
+		//<![CDATA[
+		
+		function onYouTubePlayerReady(playerId) {
+		    var player = $('#'+playerId)[0];
+		    player.addEventListener('onStateChange', '(function(state) { return playerState(state, "' + playerId + '"); })' );
+		}
+		
+		function playerState(state, playerId) {
+			if (state == 0) {
+				$('#slider').data('AnythingSlider').startStop(true);
+				$('.vid_img').show();
+				$('#'+playerId).hide();
+			}
+		}
+	
+		hover = function() {
+			var sfEls = document.getElementById("nav").getElementsByTagName("LI");
+			for (var i=0; i<sfEls.length; i++) {
+				sfEls[i].onmouseover=function() {
+					this.className+=" hover";
+				}
+				sfEls[i].onmouseout=function() {
+					this.className=this.className.replace(new RegExp(" hover\\b"), "");
+				}
+			}
+		}
+		if (window.attachEvent) window.attachEvent("onload", hover);
+		
+		function multiPSUsearch(){
+			var searchstring=window.document.searchengine.search.value;
+			switch (window.document.searchengine.engine.selectedIndex){
+				case 1:
+					str = searchstring.replace(/ /, '*');
+					window.document.psupeople.qry_str.value='(|(cn=' + str + ')(cn=*' + str + '*)(cn=' + str + ')(cn=*' + str + ')(edupersonnickname=' + str + ')(uid=' + searchstring + '))';
+					window.document.psupeople.action="http://www.psu.edu/cgi-bin/ldap/ldap_query.cgi";
+					window.document.psupeople.target="_blank";
+					window.document.psupeople.submit();
+					break;
+				case 2:
+					window.document.psudepts.dept_name.value=searchstring;
+					window.document.psudepts.action="http://www.psu.edu/cgi-bin/ldap/dept_query.cgi";
+					window.document.psudepts.target="_blank";
+					window.document.psudepts.submit();
+					break;
+				case 3:
+					window.document.google.q.value=searchstring;
+					window.document.google.action="http://www.google.com/search";
+					window.document.google.ie.value="UTF-8";
+					window.document.google.oe.value="UTF-8";
+					window.document.google.target="_blank";
+					window.document.google.submit();
+					break;
+				case 4:
+					window.document.psugoogle.q.value="site:psu.edu " + searchstring;
+					window.document.psugoogle.action="http://www.google.com/search";
+					window.document.psugoogle.target="_blank";
+					window.document.psugoogle.submit();
+				default:
+					window.document.psugoogle.q.value=searchstring;
+					window.document.psugoogle.action="http://search.psu.edu";
+					//window.document.psugoogle.client.value="PennState";
+					//window.document.psugoogle.proxystylesheet.value="PennState";
+					//window.document.psugoogle.output.value="xml_no_dtd";
+					//window.document.psugoogle.site.value="PennState";
+					window.document.psugoogle.target="_blank";
+					window.document.psugoogle.submit();
+			}
+		}
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['1._setAccount', 'UA-190618-5']);   // dump data into main account - change the account number here accordingly
+	  _gaq.push(['1._setDomainName', '.psu.edu']);  
+	  _gaq.push(['1._trackPageview']);
+
+	  _gaq.push(['2._setAccount', 'UA-26745558-1']);  // dump data into roll up account
+	  _gaq.push(['2._setDomainName', '.psu.edu']);
+	  _gaq.push(['2._trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+	
+		window.onload = function() {
+		    var links = document.getElementsByTagName('a');
+		    for (var x = 0; x < links.length; x++) {
+		        links[x].onclick = function() {
+		            var mydomain = new RegExp(document.domain, 'i');
+		            var link = this.getAttribute('href');
+		            if(link.indexOf("http:") != -1){
+		                if (!mydomain.test(link)) {
+		                    tracker = _gat._createTracker('UA-190618-5');
+		                    tracker._trackEvent('outgoing','click',link);
+		                }
+		            }
+		        };
+		    }
+		};
+		
+		//]]>
+		
+		$(document).ready(function(){
+			
+			if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ) {
+				$('.vid_img').hide();
+			}
+
+			$('.vid_img').each(function(index) {
+				var ytid = $(this).data('ytid');
+				if ( navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/iPad/i) ) {
+					$(this).after('<iframe class="youtube-player" type="text/html" width="570" height="320" src="http://www.youtube.com/embed/'+ytid+'?wmode=transparent" frameborder="0"> </iframe>');
+				}else{
+					if (!navigator.userAgent.match(/android/i)) {
+						$(this).after('<div id="'+ytid+'"><object width="570" height="320"><param name="movie" value="http://www.youtube.com/v/'+ytid+'?version=3&amp;hl=en_US&amp;enablejsapi=1&amp;autohide=1&amp;controls=1&amp;fs=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=dark&amp;autoplay=0"></param><param name="wmode" value="transparent"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+ytid+'?version=3&amp;hl=en_US&amp;enablejsapi=1&amp;autohide=1&amp;controls=1&amp;fs=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=dark&amp;autoplay=0" type="application/x-shockwave-flash" width="570" height="320" allowscriptaccess="always" allowfullscreen="true" wmode="transparent"></embed></object></div>');
+					}
+				}
+			});
+			
+			$(".vid_img > a").replaceWith(function() { return $(this).contents(); });
+			
+			$(".clicky").attr('href','#');
+						
+			$('#slider').anythingSlider({
+    			buildArrows: true,
+    			buildNavigation: false,
+    			buildStartStop: true,
+    			startText: "Play",
+    			stopText: "Pause",
+    			forwardText: "Next &raquo;",
+    			backText: "&laquo; Previous",
+				appendForwardTo: '#next',
+				appendBackTo: '#previous',
+				appendControlsTo: '#play-pause',
+    			enableKeyboard: true,
+    			hashTags: false,
+    			infiniteSlides: true,
+    			autoPlay: false,
+    			autoPlayLocked: false,
+    			autoPlayDelayed: true,
+    			pauseOnHover: true,
+    			delay: 5000,
+    			resumeDelay: 5000,
+    			animationTime: 600,
+				resumeOnVideoEnd: true
+			});
+			
+			setTimeout(function() { $('#slider').data('AnythingSlider').startStop(true)} , 5000);			
+
+			$(".vid_img").click(function() {
+				$('#slider').data('AnythingSlider').startStop(false);
+				var ytid = $(this).data('ytid');
+				$(this).hide();
+				if ( navigator.userAgent.match(/android/i) ) {
+					$(this).after('<div id="'+ytid+'"><object width="570" height="320"><param name="movie" value="http://www.youtube.com/v/'+ytid+'?version=3&amp;hl=en_US&amp;enablejsapi=1&amp;autohide=1&amp;controls=1&amp;fs=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=dark&amp;autoplay=1"></param><param name="wmode" value="transparent"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'+ytid+'?version=3&amp;hl=en_US&amp;enablejsapi=1&amp;autohide=1&amp;controls=1&amp;fs=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;theme=dark&amp;autoplay=1" type="application/x-shockwave-flash" width="570" height="320" allowscriptaccess="always" allowfullscreen="true" wmode="transparent"></embed></object></div>');
+				}else{
+					$('#'+ytid).html($('#'+ytid).html().replace(/autoplay=0/gi, 'autoplay=1'));	
+				}
+			});		
+		});
+		</script>
+	</head>
+<body>
+
+<!-- wrap -->
+<div id="wrap">
+	<div id="header">
+		<h1 id="univ_mark"><a href="http://www.psu.edu">The Pennsylvania State University</a></h1>
+		<div id="pennstate">Penn State Banner</div>
+        <!--BEGIN SEARCH BLOCK-->
+	<div id="form_elements">
+		<form name="psugoogle" method="get" action="http://search-results.aset.psu.edu/search" id="psugoogle">
+			<input type="hidden" name="q" id="q" value="" />
+			<!--<input type="hidden" name="client" id="client" value="PennState" />
+			<input type="hidden" name="proxystylesheet" id="proxystylesheet" value="PennState" />
+			<input type="hidden" name="output" id="output" value="xml_no_dtd" />
+			<input type="hidden" name="site" id="site" value="PennState" />-->
+		</form>
+		<form name="psupeople" method="post" action="http://www.psu.edu/cgi-bin/ldap/ldap_query.cgi" id="psupeople">
+			<input type="hidden" name="qry_str" id="cn" />
+		</form>
+		<form name="psudepts" method="post" action="http://www.psu.edu/cgi-bin/ldap/dept_query.cgi" id="psudepts">
+			<input type="hidden" name="dept_name" id="dept_name" />
+		</form>
+	</div>
+	<script type="text/javascript">
+	//<![CDATA[
+	document.writeln('<div id="searchForm" class="pipedlist">');
+	document.writeln('<form name="searchengine" method="post" action="javascript:multiPSUsearch()" id="searchengine">');
+		document.writeln('<input name="search" type="text" placeholder="Search" /><select name="engine">');
+			document.writeln('<option>Penn State</option>');
+			document.writeln('<option>People</option>');
+			document.writeln('<option>Departments</option>');
+		document.writeln('</select><input id="button" type="button" value="Search" name="submit" onclick="javascript:multiPSUsearch()" />');
+	document.writeln('</form>');
+	document.writeln('</div>');
+	//]]>
+	</script>
+	<noscript>
+		<div class="njsearch">
+			<ul id="searchForm_nj">
+				<li class="nb">Search:</li>
+				<li class="nb"><a href="http://search.psu.edu">Penn State</a></li>
+				<li><a href="/ldap/">People</a></li>
+				<li><a href="/ph/department/">Departments</a></li>
+			</ul>
+		</div>
+	</noscript>
+	<!--END SEARCH BLOCK-->
+        <div class="clear"></div>
+	</div>
+
+    <!--[if lt IE 7]>
+    <div id="ie6Warning">
+        <h2>It might be time to upgrade your browser</h2>
+        <p>Our crack web team is concerned to learn that you're surfing using what appears to be Internet Explorer 6 or older. This seems like a good time to mention that this browser cannot cope with many of the demands of the modern internet. For the best web experience, we strongly recommend at least upgrading to a more recent version of <a href="http://www.microsoft.com/windows/downloads/ie/getitnow.mspx">Internet Explorer</a>, or to <a href="http://www.getfirefox.com/">Firefox</a>, <a href="http://www.opera.com/">Opera</a>, <a href="http://www.apple.com/safari/">Safari</a>, or <a href="http://www.google.com/chrome">Google Chrome</a>.</p>
+    </div>
+    <![endif]-->
+
+	<div id="content-wrap">
+    <div id="left-wrap">
+		<div id="gallery-wrap">
+			<ul id="slider">
+				<!--<li class="panel1">
+                	<div class="clicky vid_img" data-ytid="r-1VmeJAtWI">
+                    	<a href="http://live.psu.edu/youtube/r-1VmeJAtWI"><img src="img/slider/slides/leukemia_vid.jpg" alt="Penn State's Dr. Prabhu and Dr. Paulson facing the camera with their arms crossed" /></a>
+                        <div class="caption">
+	                        <h1>Fighting Leukemia</h1>
+	                        <p>An unlikely collaboration results in a possible cure for leukemia. <a href="http://live.psu.edu/youtube/r-1VmeJAtWI" class="clicky">Explore &raquo;</a></p>
+                    	</div>
+                    </div>
+                </li>-->
+				<li class="panel1">
+					<div class="clicky vid_img" data-ytid="MnycTGB8BQk">
+			        	<a href="http://www.youtube.com/watch?v=MnycTGB8BQk"><img src="img/slider/slides/robot_arm.jpg" alt="Students with robotic arm" /></a>
+			            <div class="caption">
+			            	<h1>This is Penn State</h1>
+			                <p>This is where one person can change the world.<a href="http://www.youtube.com/watch?v=MnycTGB8BQk">Explore &raquo;</a></p>
+			            </div>
+					</div>
+		        </li>
+				<li class="panel2">
+		        	<img src="img/slider/slides/academics2.jpg" alt="Penn State student on Wall Street" />
+		            <div class="caption">
+		            	<h1>Excellence in Academics</h1>
+		                <p>Our students learn to be leaders in the workforce. <a href="ur/academic.html">Explore &raquo;</a></p>
+		            </div>
+		        </li>
+				<li class="panel3">
+		        	<img src="img/slider/slides/research2.jpg" alt="Penn State researcher looking at cell structure" />
+		            <div class="caption">
+		            	<h1>Breakthroughs in Research</h1>
+		                <p>Our research is all about helping people. <a href="ur/research.html">Explore &raquo;</a></p>
+		            </div>
+		        </li>
+				<li class="panel4">
+		        	<img src="img/slider/slides/global2.jpg" alt="Global Penn State student with two African tribesmen" />
+		            <div class="caption">
+		            	<h1>Life in the Global Community</h1>
+		                <p>Our outreach extends across borders. <a href="ur/global.html">Explore &raquo;</a></p>
+		            </div>
+		        </li>
+			</ul>
+            <div id="controls">
+            	<ul>
+                	<li id="previous"></li>
+                    <li id="play-pause"></li>
+                    <li id="next"></li>
+                </ul>
+            </div>
+    	</div>
+			<div id="sub-nav">
+				<ul>
+					<li class="nb"><a href="http://www.psu.edu/ur/hotline.html" title="Hotlines">Hotlines</a></li>
+					<li><a href="http://openness.psu.edu/" title="Penn State's Openness">Openness</a></li>
+					<li><a href="http://psu.jobs/" title="Jobs">Jobs</a></li>
+					<li><a href="http://www.events.psu.edu/" title="Event calendars">Calendars</a></li>
+					<li><a href="ur/contact.html" title="Contact Us">Contact Us</a></li>
+					<li><a href="https://portal.psu.edu/" title="Access the portal (login required)">Portal</a></li>
+					<li class="last"><a href="ur/search.html" title="Search" class="np-right">Search</a></li>
+				</ul>
+			</div>
+        </div>
+
+		<div id="mainnav"><!-- start menu -->
+			<ul id="nav">
+			<li><a href="ur/about.html" title="About Penn State">About Penn State</a>
+				<ul>
+					<li><a href="http://president.psu.edu" title="President Rodney Erickson">President Rodney Erickson</a></li>
+					<li><a href="trustees/" title="Trustees">Board of Trustees</a></li>
+					<li><a href="http://www.universityethics.psu.edu/" title="University Ethics">University Ethics</a></li>
+					<li><a href="ur/about/administration.html" title="Administration">Administration</a></li>
+					<li><a href="http://www.budget.psu.edu/" title="Budget">Budget</a></li>
+					<li><a href="http://www.budget.psu.edu/factbook/" title="Fact Book">Fact Book</a></li>
+					<li><a href="ur/rankings/" title="Rankings">Rankings</a></li>
+					<li><a href="http://www.equity.psu.edu/" title="Diversity">Educational Equity</a></li>
+					<li><a href="ur/about/history.html" title="History">History</a></li>
+					<li><a href="ur/about.html" title="More...">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/prospective.html" title="Prospective Students">Prospective Students</a>
+				<ul>
+					<li><a href="http://admissions.psu.edu/" title="Undergraduate Admissions">Undergraduate Admissions</a></li>
+					<li><a href="http://www.gradsch.psu.edu/prospective/apply.html" title="Graduate Admissions">Graduate Admissions</a></li>
+					<li><a href="http://www.worldcampus.psu.edu/" title="Distance and Online Education">Distance &amp; Online Education</a></li>
+					<li><a href="http://studentaid.psu.edu/" title="Costs and Financial Aid">Costs and Financial Aid</a></li>
+					<li><a href="ur/students.html" title="Student Activities">Student Activities</a></li>
+					<li><a href="http://tuition.psu.edu/" title="Tuition and Fees">Tuition and Fees</a></li>
+					<li><a href="http://www.hfs.psu.edu/" title="Housing, Food Services and Residential Life">Housing</a></li>
+					<li><a href="http://www.parentprogram.psu.edu/" title="Information for Parents and Families">Information for Parents and Families</a></li>
+					<li><a href="ur/prospective.html" title="More Information for Prospective Students">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/academic.html" title="Academic programs">Academic Programs</a>
+				<ul>
+					<li><a href="bulletins/bluebook/" title="Undergraduate Programs">Undergraduate Programs</a></li>
+					<li><a href="http://www.gradsch.psu.edu/" title="Graduate Programs">Graduate Programs</a></li>
+					<li><a href="http://www.hmc.psu.edu/" title="Medical Education">Medical Education</a></li>
+					<li><a href="http://www.dsl.psu.edu/" title="Legal Education">Legal Education</a></li>
+					<li><a href="http://www.international.psu.edu/" title="International Programs">Global Programs</a></li>
+					<li><a href="http://www.registrar.psu.edu/programs_majors/programs_majors_index.cfm" title="Programs and Course Bulletins">Program and Course Description Bulletins</a></li>
+					<li><a href="ldap/dept/" title="Department Search">Department Search</a></li>
+					<li><a href="ur/academic.html" title="More About Academic Programs">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="http://www.outreach.psu.edu/" title="Outreach Programs">Outreach Programs</a>
+				<ul>
+					<li><a href="http://www.outreach.psu.edu/ce/" title="Continuing Education">Continuing Education</a></li>
+					<li><a href="http://www.worldcampus.psu.edu/" title="World Campus">World Campus</a></li>
+					<li><a href="http://www.outreach.psu.edu/conferences/" title="Conferences">Conferences</a></li>
+					<li><a href="http://www.outreach.psu.edu/youth/" title="Youth Programs">Youth Programs</a></li>
+					<li><a href="http://www.outreach.psu.edu/CE/courses.html" title="Customized Training">Customized Training</a></li>
+					<li><a href="http://www.extension.psu.edu/" title="Cooperative Extension">Cooperative Extension</a></li>
+					<li><a href="http://www.wpsu.org/" title="Public Broadcasting">Public Broadcasting</a></li>
+					<li><a href="http://www.outreach.psu.edu/" title="More about Outreach programs">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/global.html" title="Global Penn State">Global Penn State</a>
+				<ul>
+					<li><a href="http://global.psu.edu/global/" title="Global Portal">Global Portal</a></li>
+					<li><a href="http://global.psu.edu/" title="Office of Global Programs">Office of Global Programs</a></li>
+					<li><a href="http://gpglobalea.gp.psu.edu/" title="Education Abroad">Education Abroad</a></li>
+					<li><a href="http://global.psu.edu/International_Students/" title="International Student Support">International Student Support</a></li>
+					<li><a href="http://global.psu.edu/GIS/Portal.cfm" title="Global Reach">Global Reach</a></li>
+					<li><a href="http://global.psu.edu/GEN/" title="Global Engagement Network">Global Engagement Network</a></li>
+					<li><a href="ur/global.html" title="More about our global reach">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/cmpcoll.html" title="Campuses and Colleges">Campuses and Colleges</a>
+				<ul>
+					<li><a href="ur/cmpcoll.html" title="Campuses">Campuses</a></li>
+					<li><a href="ur/cmpcoll.html" title="Colleges">Colleges</a></li>
+					<li><a href="ldap/dept/" title="Department Search">Department Search</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/visitors.html" title="Visitors Guide">Visitors Guide</a>
+				<ul>
+					<li><a href="http://www.pshs.psu.edu/" title="On-campus Hotels">On-campus Hotels</a></li>
+					<li><a href="http://www.visitpennstate.org/visitors/hotels-lodging/" title="Area Lodging">Area Lodging</a></li>
+					<li><a href="http://www.transportation.psu.edu/" title="Parking">Parking</a></li>
+					<li><a href="ur/tours.html" title="Campus Tours">Tours</a></li>
+					<li><a href="ur/campusmaps.html" title="Visitor Maps">Visitor Maps</a></li>
+					<li><a href="http://php.scripts.psu.edu/dept/ur/cam.php" title="Lion Cam">Lion Cam</a></li>
+					<li><a href="ur/weather/" title="Weather">Weather</a></li>
+					<li><a href="ur/visitors.html" title="More About Visiting Penn State">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/alumni.html" title="Alumni, Friends, and Industry">Alumni, Friends, and Giving</a>
+				<ul>
+					<li><a href="http://www.alumni.psu.edu/default.asp" title="Penn State Alumni Association">Alumni Association</a></li>
+					<li><a href="http://psudirectory.com" title="Alumni Directory">Alumni Directory</a></li>
+					<li><a href="http://www.alumni.psu.edu/travel/" title="Alumni Travel">Alumni Travel</a></li>
+					<li><a href="http://www.alumni.psu.edu/marketplace/default.htm" title="Alumni Store">Alumni Store</a></li>
+					<li><a href="http://giveto.psu.edu/">For the Future Campaign</a></li>
+					<li><a href="https://secure.ddar.psu.edu/GiveTo/" title="Make a Gift">Make a Gift</a></li>
+					<li><a href="http://www.corporateconnect.psu.edu/" title="Corporate Connections">Corporate Connections</a></li>
+					<li><a href="http://www.villageatpennstate.com/" title="The Village at Penn State">The Village at Penn State</a></li>
+					<li><a href="ur/alumni.html" title="More about alumni, friends and giving">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/news.html" title="News and Announcements">News and Announcements</a>
+				<ul>
+					<li><a href="http://live.psu.edu/" title="Penn State Live">Penn State Live</a></li>
+					<li><a href="http://newswire.psu.edu/" title="Penn State Newswire Subscription">Penn State Newswire Subscription</a></li>
+					<li><a href="http://www.opp.psu.edu/planning-construction/projects" title="Campus construction">Campus Construction</a></li>
+					<li><a href="ur/news.html" title="More about news and announcements">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/research.html" title="Research">Research</a>
+				<ul>
+					<li><a href="http://www.research.psu.edu/" title="VP for Research">VP for Research</a></li>
+					<li><a href="http://www.research.psu.edu/tt/index.html" title="Technology Transfer">Technology Transfer</a></li>
+					<li><a href="http://www.innovationpark.psu.edu/" title="Innovation Park">Innovation Park</a></li>
+					<li><a href="http://www.research.psu.edu/interdisciplinaryresearch.html" title="Interdisciplinary Research">Interdisciplinary Research</a></li>
+					<li><a href="http://www.rps.psu.edu/" title="Research Magazine">Research Magazine</a></li>
+					<li><a href="http://live.psu.edu/tag/research" title="Research News">Research News</a></li>
+					<li><a href="http://www.corporateconnect.psu.edu/" title="Corporate Connections">Corporate Connections</a></li>
+					<li><a href="ur/research.html" title="More about research">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/health.html" title="Health &amp; Medicine Resources">Health &amp; Medicine Resources</a>
+				<ul>
+					<li><a href="http://www.pennstatehershey.org/web/college/home" title="College of Medicine">College of Medicine</a></li>
+					<li><a href="http://pennstatehershey.org/statecollege">HMC State College Practice</a></li>
+					<li><a href="http://www.hhdev.psu.edu/" title="Health &amp; Human Development">Health &amp; Human Development</a></li>
+					<li><a href="http://www.pennstatehershey.org/web/guest/home" title="Hershey Medical Center">Hershey Medical Center</a></li>
+					<li><a href="http://www.pennstatehershey.org/web/childrens/home" title="Children's Hospital">Children's Hospital</a></li>
+					<li><a href="http://www.pennstatehershey.org/web/guest/patientcare/patientvisitorinformation" title="Patient Guide">Patient Guide</a></li>
+					<li><a href="http://www.sa.psu.edu/uhs/basics/services.cfm" title="University Health Services">University Health Services</a></li>
+					<li><a href="http://www.pennstatehershey.org/healthinfo/hie/" title="Health and Disease Information">Health and Disease Information</a></li>
+					<li><a href="http://www.pennstatehershey.org/web/guest/patientcare/locationsservices" title="Medical Services &amp; Specialties">Medical Services &amp; Specialties</a></li>
+					<li><a href="ur/health.html" title="More...">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/arts.html" title="Arts and Performance">Arts and Performance</a>
+				<ul>
+					<li><a href="http://www.events.psu.edu/" title="Calendar">Calendar</a></li>
+					<li><a href="ur/arts.html" title="Tickets">Tickets</a></li>
+					<li><a href="ur/arts.html" title="Performing Arts">Performing Arts</a></li>
+					<li><a href="http://www.events.psu.edu/cgi-bin/cal/webevent.cgi?cmd=opencal&amp;cal=cal182" title="School of Music">School of Music</a></li>
+					<li><a href="ur/arts.html" title="Peformance Venues">Performance Venues</a></li>
+					<li><a href="http://www.bjc.psu.edu/" title="Bryce Jordan Center">Bryce Jordan Center</a></li>
+					<li><a href="ur/arts.html" title="Galleries and Museums">Galleries and Museums</a></li>
+					<li><a href="ur/arts.html" title="More about arts and performace">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="http://www.libraries.psu.edu/welcome/index.html" title="Libraries">Libraries</a>
+				<ul>
+					<li><a href="http://www.libraries.psu.edu/psul.html" title="Libraries Home">Libraries Home</a></li>
+					<li><a href="http://www.libraries.psu.edu/psul/locations/up.html" title="University Park Libraries">University Park Libraries</a></li>
+					<li><a href="http://www.libraries.psu.edu/psul/locations/ccl.html" title="Campus College Libraries">Campus College Libraries</a></li>
+					<li><a href="http://alumni.libraries.psu.edu/" title="Alumni Library">Alumni Library</a></li>
+					<li><a href="http://www.libraries.psu.edu/development" title="Giving to Libraries">Giving to Libraries</a></li>
+					<li><a href="http://www.libraries.psu.edu/psul/staffdirectory.html" title="Libraries Staff Directory">Libraries Staff Directory</a></li>
+					<li><a href="http://www.psupress.psu.edu/" title="Penn State University Press">Penn State University Press</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/athrec.html" title="Athletics and Recreation">Athletics and Recreation</a>
+				<ul>
+					<li><a href="http://www.gopsusports.com/home/" title="Intercollegiate Athletics">Intercollegiate Athletics</a></li>
+					<li><a href="http://www.gopsusports.com/tickets/" title="Tickets">Tickets</a></li>
+					<li><a href="http://www.athletics.psu.edu/recsports/" title="Intramural Sports">Intramural Sports</a></li>
+					<li><a href="http://www.athletics.psu.edu/rec/">Recreation Facilities and Programs</a></li>
+					<li><a href="http://www.outreach.psu.edu/programs/psusportcamps/" title="Sports Camps">Sports Camps</a></li>
+					<li><a href="http://www.bigtennetwork.com" title="Big Ten Network">Big Ten Network</a></li>
+					<li><a href="ur/athrec.html" title="More about athletics and recreation">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/students.html" title="Current Students">Current Students</a>
+				<ul>
+					<li><a href="http://www.psu.edu/oue/current_students.html" title="Undergraduate Information">Undergraduate Information</a></li>
+					<li><a href="http://www.gradsch.psu.edu/" title="Graduate Information">Graduate Information</a></li>
+					<li><a href="http://www.outreach.psu.edu/adult-learners" title="Adult Learners">Adult Learners</a></li>
+					<!--li><a href="ur/activities.html" title="Activities">Activities</a></li>-->
+					<li><a href="ur/students.html" title="Student Life Resources">Student Life Resources</a></li>
+					<li><a href="http://its.psu.edu/" title="Information Technology">Information Technology</a></li>
+					<li><a href="https://elion.psu.edu/" title="eLion">eLion</a></li>
+					<li><a href="http://portal.psu.edu/" title="Portal">Portal</a></li>
+					<li><a href="ur/students.html" title="More information for current students">More...</a></li>
+				</ul>
+			</li>
+			<li><a href="ur/facstaff.html" title="Faculty and staff services">Faculty and Staff Services</a>
+				<ul>
+					<li><a href="http://www.senate.psu.edu/" title="Faculty Senate">Faculty Senate</a></li>
+					<li><a href="ur/teachingres.html" title="Teaching Resources">Teaching Resources</a></li>
+					<li><a href="http://guru.psu.edu" title="GURU">GURU</a></li>
+					<li><a href="http://www.ohr.psu.edu/" title="Human Resources">Human Resources</a></li>
+					<li><a href="http://its.psu.edu/" title="Information Technology">Information Technology</a></li>
+					<li><a href="http://www.transportation.psu.edu/" title="Parking and Transportation">Parking &amp; Transportation</a></li>
+					<li><a href="https://elion.psu.edu/" title="eLion">eLion</a></li>
+					<li><a href="http://portal.psu.edu/" title="Portal">Portal</a></li>
+					<li><a href="ur/facstaff.html" title="More information for current students">More...</a></li>
+				</ul>
+			</li>
+			</ul>
+		</div> <!-- end menu -->
+        <div class="clear"></div>
+	</div>
+	<div id="lowercontent-wrap">
+		<div id="headlines">
+			<h1><a href="http://live.psu.edu">Headlines</a></h1>
+			<ul>
+				<li>
+  	<a href="http://live.psu.edu/story/59619"><img src="http://farm8.static.flickr.com/7134/6997918098_2e08a5692c_s.jpg" alt="Ravi Rajendra Shah accepts his diploma as student marshal for bioengineering during the College of Engineering commencement ceremony held Friday night, May 4, in the Bryce Jordan Center on Penn State&#039;s University Park campus. Shah also has a minor in mathematics."></a>
+    <div class="news_text">
+	  	<h2><a href="http://live.psu.edu/story/59619">Commencement 2012</a></h2>
+	  	<p>Approximately 12,987 students University-wide will receive diplomas this weekend as commencement gets under way University-wide.</p>
+    </div>
+</li>
+
+<li>
+  	<a href="http://live.psu.edu/story/59540"><img src="http://farm8.static.flickr.com/7205/7135588275_f6f0d82bca_s.jpg" alt="The University has given more than $1.1 million to The Center for the Protection of Children, based at Penn State Hershey Children&#039;s Hospital."></a>
+    <div class="news_text">
+	  	<h2><a href="http://live.psu.edu/story/59540">$2.6 million goes to abuse prevention efforts</a></h2>
+	  	<p>Penn State split its share of the Big Ten bowl revenue, which totaled $2,616,184, between the Center for the Protection of Children and the Pennsylvania Coalition Against Rape.</p>
+    </div>
+</li>
+
+<li>
+  	<a href="http://live.psu.edu/story/59503"><img src="http://farm8.static.flickr.com/7136/6985585778_f69a9fb9a7_s.jpg" alt="A process that spins starch into fine strands could take the sting out of removing bandages, as well as produce less expensive and more environmentally-friendly toilet paper, napkins and other products, according to Penn State food scientists."></a>
+    <div class="news_text">
+	  	<h2><a href="http://live.psu.edu/story/59503">&#039;Ouchless&#039; is good</a></h2>
+	  	<p>Researchers at Penn State have developed starch fibers that could be used in a wide array of applications, including the development of &#039;ouchless&#039; bandages.</p>
+    </div>
+</li>
+
+
+			</ul>
+            <div class="clear"></div>
+		</div>
+	</div>
+	<div id="footer">
+      	<div class="highlight">
+	    	<h1>Knowledge Is Our Story</h1>
+	        <p>Teaching students to be leaders with a global perspective. Conducting research that improves lives. Contributing millions to the economy. Sharing expertise with communities in Pennsylvania and beyond. <span class="tagline">Penn State runs on knowledge power.</span></p>
+        </div>
+        <div class="highlight">
+	        <h1>Give to Penn State</h1>
+	        <p>Our alumni and friends are helping us become the most student-centered research university in the U.S. by supporting For the Future: The Campaign for Penn State Students. <a href="http://giveto.psu.edu/">Make a gift now, make a difference For the Future</a>.</p>
+        </div>
+        
+        <div id="connect">
+            <div id="social-media">
+                <ul>
+                    <li class="facebook"><a href="http://www.facebook.com/pennstate">Facebook</a></li>
+                    <li class="twitter"><a href="http://www.twitter.com/penn_state">Twitter</a></li>
+                    <li class="youtube"><a href="http://www.youtube.com/pennstate">YouTube</a></li>
+                    <li class="flickr"><a href="http://www.flickr.com/pennstatelive">Flickr</a></li>
+                    <li class="linkedin"><a href="http://www.linkedin.com/groups?home=&amp;gid=40178">LinkedIn</a></li>
+                    <li class="googleplus"><a href="http://plus.google.com/103312667856357934827">Google+</a></li>
+                </ul>
+            </div>
+            
+            <div id="blog"><a href="http://storyboard.psu.edu">Redesign Blog</a></div>
+            
+            <div id="feedback"><a href="http://helpdesk.psu.edu/homepagefeedback">Feedback</a></div>
+        </div>
+        
+        <div class="clear"></div>
+		<ul id="standard_links">
+	<li class="nb"><a href="http://siteindex.psu.edu/psu.html">Site Index</a></li>
+	<li><a href="http://www.psu.edu/ur/legal.html">Privacy and Legal Statements</a></li>
+	<li><a href="http://www.psu.edu/ur/copyright.html">Copyright</a></li>
+	<li>Please direct questions to <a href="http://ask.psu.edu/psu.html">AskPSU</a>.</li>
+	<li>The Pennsylvania State University &copy;2012</li>
+</ul>
+
+	</div>	
+</div>
+<!-- end wrap -->	
+</body>
+</html>

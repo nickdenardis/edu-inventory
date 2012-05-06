@@ -1,0 +1,536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>University of Hawaii System</title>
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="Author" content="University of Hawaii System" />
+    <meta name="Description" content="University of Hawaii System" />
+    <meta name="Keywords" content="Univeristy of Hawaii,System" />
+    <link rel="shortcut icon" href="http://www.hawaii.edu/favicon.ico" />
+    <link rel="stylesheet" href="/site/styles/2007/global.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/site/styles/2007/header.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/site/styles/2007/footer.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/site/styles/2007/portal.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/site/styles/2007/layout.css" type="text/css" media="all" />
+
+    <link rel="stylesheet" href="/news/photogallery/css/jd.gallery.css" type="text/css" media="screen" charset="utf-8" />
+
+    <script src="/news/photogallery/scripts/mootools-1.2.1-core-yc.js" type="text/javascript"></script>
+    <script src="/news/photogallery/scripts/mootools-1.2-more.js" type="text/javascript"></script>
+    <script src="/news/photogallery/scripts/jd.gallery.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/site/scripts/homepage/jquery-latest.pack.js"></script>
+    <script type="text/javascript" src="/site/scripts/homepage/jcarousel/lib/jquery.jcarousel.pack.js"></script>
+
+    <script type="text/javascript">
+    /* <![CDATA[ */
+	// Photo Gallery
+        		var photogallery_itemList = [{id: "735", url: "http://www.hawaii.edu/news/frontimages/2010/735_1015_1015-maui-cleanup.jpg", title: "group by trash bags"}
+,{id: "734", url: "http://www.hawaii.edu/news/frontimages/2010/734_1014_f_languageuhhm.jpg", title: "Western researcher visiting with Negrito tribespeople"}
+,{id: "733", url: "http://www.hawaii.edu/news/frontimages/2010/733_1012_murphyuhhm.jpg", title: "Suzanne Murphy headshot"}
+,{id: "732", url: "http://www.hawaii.edu/news/frontimages/2010/732_1008_gorey.jpg", title: "Edward Gorey drawing"}
+,{id: "731", url: "http://www.hawaii.edu/news/frontimages/2010/731_1007_1007-auw-softball.jpg", title: "chancellor with softball gear"}
+,{id: "730", url: "http://www.hawaii.edu/news/frontimages/2010/730_1006_1006-aster-gardener 1.jpg", title: "people in garden"}
+,{id: "729", url: "http://www.hawaii.edu/news/frontimages/2010/729_1004_yana.jpg", title: "Ryuzo Yanagimachi and Ian Wilmut"}
+,{id: "728", url: "http://www.hawaii.edu/news/frontimages/2010/728_1001_vote.jpg", title: "Hawaiian flag with text No Vote No Grumble"}
+,{id: "727", url: "http://www.hawaii.edu/news/frontimages/2010/727_0929_planet.jpg", title: "artists rendering of planet and star"}
+,{id: "726", url: "http://www.hawaii.edu/news/frontimages/2010/726_0929_mele.jpg", title: "students at music sound board"}
+];
+
+	function photogallery_itemLoadCallback(carousel, state) {
+	    for (var i = carousel.first; i <= carousel.last; i++) {
+		if (carousel.has(i)) {
+		    continue;
+		}
+		if (i > photogallery_itemList.length) {
+		    break;
+		}
+		carousel.add(i, photogallery_getItemHTML(photogallery_itemList[i-1]));
+	    }
+	};
+
+	/**
+	* Item html creation helper.
+	*/
+	function photogallery_getItemHTML(item) {
+	    return '<a href="?photo=' + item.id + '"><img src="' + item.url + '" alt="' + item.url + '" /></a>';
+	};
+
+	jQuery(document).ready(function() {
+	    jQuery('#photogallery-list').jcarousel({
+		vertical: true,
+		visible: 3, 
+		scroll: 1,
+		size: photogallery_itemList.length,
+		itemLoadCallback: {onBeforeAnimation: photogallery_itemLoadCallback}
+	    });
+	});
+
+        
+	campuses_arr = [
+		{'manoa':'manoa.gif', 'hilo':'hilo.gif', 'westoahu':'westoahu.gif', 'hawaii':'hawaii.gif', 'honolulu':'honolulu.gif', 'kapiolani':'kapiolani.gif', 'kauai':'kauai.gif', 'leeward':'leeward.gif', 'maui':'maui.gif', 'windward':'windward.gif', 'random':'kauai.gif'}
+		,{'manoa':'University of Hawai&#145;i at Manoa (O&#145;ahu)', 'hilo':'University of Hawai&#145;i at Hilo (Hawai&#145;i)', 'westoahu':'University of Hawai&#145;i at West O&#145;ahu (O&#145;ahu)', 'hawaii':'Hawai&#145;i Community College (Hawai&#145;i)', 'honolulu':'Honolulu Community College (O&#145;ahu)', 'kapiolani':'Kapi&#145;olani Community College (O&#145;ahu)', 'kauai':'Kaua&#145;i Community College (Kaua&#145;i)', 'leeward':'Leeward Community College (O&#145;ahu)', 'maui':'Maui Community College (Maui)', 'windward':'Windward Community College (O&#145;ahu)', 'random':'Kaua&#145;i Community College (Kaua&#145;i)'}
+		,{'manoa':'manoa.hawaii.edu', 'hilo':'hilo.hawaii.edu', 'westoahu':'westoahu.hawaii.edu', 'hawaii':'hawaii.hawaii.edu', 'honolulu':'honolulu.hawaii.edu', 'kapiolani':'kapiolani.hawaii.edu', 'kauai':'kauai.hawaii.edu', 'leeward':'www.leeward.hawaii.edu', 'maui':'maui.hawaii.edu', 'windward':'windward.hawaii.edu', 'random':'kauai.hawaii.edu'}
+		];
+
+	function campuses_swap (campus) {
+	    img = document.getElementById('campuses_img');
+	    img.src='site/images/' + campuses_arr[0][campus];
+	    alt_title = campuses_arr[1][campus];
+	    var okina = "&#145;";
+	    // Pageserver strips out the codes if diacritical is set to none.
+	    if (okina.length > 0) {
+		var regexp = new RegExp(okina, "gi");
+		alt_title = alt_title.replace(regexp, "\u02bb");
+	    }
+	    var kahako = "a";
+	    if (kahako.length > 1) {
+		var regexp = new RegExp(kahako, "gi");
+		alt_title = alt_title.replace(kahako, "a\u0304");
+	    }
+	    
+	    img.alt=alt_title;
+	    img.title=alt_title;
+
+	    // Remove link from campus image per Jeela on 2007-09-07.
+	    //img_a = document.getElementById('campuses_img_a');
+	    //img_a.href='http://' + campuses_arr[2][campus];
+	}
+
+
+
+	function banner_motto_swap (lang) {
+	    img = document.getElementById('banner1_img');
+	    if (lang == 'eng') {
+		img.src='site/images/banner_motto_english.gif';
+		alt_title = "Above all nations is humanity.";
+	    } else {
+		img.src='site/images/banner_motto_hawaiian.gif';
+		alt_title = "Ma luna a&#145;e o na lahui a pau ke ola o ke kanaka";
+	    }
+	    var okina = "&#145;";
+	    // Pageserver strips out the codes if diacritical is set to none.
+	    if (okina.length > 0) {
+		var regexp = new RegExp(okina, "gi");
+		alt_title = alt_title.replace(regexp, "\u02bb");
+	    }
+	    var kahako = "a";
+	    if (kahako.length > 1) {
+		var regexp = new RegExp(kahako, "gi");
+		alt_title = alt_title.replace(kahako, "a\u0304");
+	    }
+	    
+	    img.alt=alt_title;
+	    img.title=alt_title;
+	}
+    /* ]]> */
+    </script>
+
+    <link rel="alternate" href="http://feeds.feedburner.com/UHawaiiSystemHome" title="UH News Headlines" type="application/rss+xml" />    <style type="text/css">
+	@import url(/site/styles/2007/homepage.css);
+    </style>    <script src="/news/photogallery/scripts/mootools-1.2.1-core-yc.js" type="text/javascript"></script>
+    <script src="/news/photogallery/scripts/mootools-1.2-more.js" type="text/javascript"></script>
+    <script src="/news/photogallery/scripts/jd.gallery.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/site/scripts/homepage/jquery-latest.pack.js"></script>
+    <script type="text/javascript" src="/site/scripts/homepage/jcarousel/lib/jquery.jcarousel.pack.js"></script>
+
+    <script type="text/javascript">
+    /* <![CDATA[ */
+	// Photo Gallery
+        		var photogallery_itemList = [{id: "735", url: "http://www.hawaii.edu/news/frontimages/2010/735_1015_1015-maui-cleanup.jpg", title: "group by trash bags"}
+,{id: "734", url: "http://www.hawaii.edu/news/frontimages/2010/734_1014_f_languageuhhm.jpg", title: "Western researcher visiting with Negrito tribespeople"}
+,{id: "733", url: "http://www.hawaii.edu/news/frontimages/2010/733_1012_murphyuhhm.jpg", title: "Suzanne Murphy headshot"}
+,{id: "732", url: "http://www.hawaii.edu/news/frontimages/2010/732_1008_gorey.jpg", title: "Edward Gorey drawing"}
+,{id: "731", url: "http://www.hawaii.edu/news/frontimages/2010/731_1007_1007-auw-softball.jpg", title: "chancellor with softball gear"}
+,{id: "730", url: "http://www.hawaii.edu/news/frontimages/2010/730_1006_1006-aster-gardener 1.jpg", title: "people in garden"}
+,{id: "729", url: "http://www.hawaii.edu/news/frontimages/2010/729_1004_yana.jpg", title: "Ryuzo Yanagimachi and Ian Wilmut"}
+,{id: "728", url: "http://www.hawaii.edu/news/frontimages/2010/728_1001_vote.jpg", title: "Hawaiian flag with text No Vote No Grumble"}
+,{id: "727", url: "http://www.hawaii.edu/news/frontimages/2010/727_0929_planet.jpg", title: "artists rendering of planet and star"}
+,{id: "726", url: "http://www.hawaii.edu/news/frontimages/2010/726_0929_mele.jpg", title: "students at music sound board"}
+];
+
+	function photogallery_itemLoadCallback(carousel, state) {
+	    for (var i = carousel.first; i <= carousel.last; i++) {
+		if (carousel.has(i)) {
+		    continue;
+		}
+		if (i > photogallery_itemList.length) {
+		    break;
+		}
+		carousel.add(i, photogallery_getItemHTML(photogallery_itemList[i-1]));
+	    }
+	};
+
+	/**
+	* Item html creation helper.
+	*/
+	function photogallery_getItemHTML(item) {
+	    return '<a href="?photo=' + item.id + '"><img src="' + item.url + '" alt="' + item.url + '" /></a>';
+	};
+
+	jQuery(document).ready(function() {
+	    jQuery('#photogallery-list').jcarousel({
+		vertical: true,
+		visible: 3, 
+		scroll: 1,
+		size: photogallery_itemList.length,
+		itemLoadCallback: {onBeforeAnimation: photogallery_itemLoadCallback}
+	    });
+	});
+
+        
+	campuses_arr = [
+		{'manoa':'manoa.gif', 'hilo':'hilo.gif', 'westoahu':'westoahu.gif', 'hawaii':'hawaii.gif', 'honolulu':'honolulu.gif', 'kapiolani':'kapiolani.gif', 'kauai':'kauai.gif', 'leeward':'leeward.gif', 'maui':'maui.gif', 'windward':'windward.gif', 'random':'kauai.gif'}
+		,{'manoa':'University of Hawai&#145;i at Manoa (O&#145;ahu)', 'hilo':'University of Hawai&#145;i at Hilo (Hawai&#145;i)', 'westoahu':'University of Hawai&#145;i at West O&#145;ahu (O&#145;ahu)', 'hawaii':'Hawai&#145;i Community College (Hawai&#145;i)', 'honolulu':'Honolulu Community College (O&#145;ahu)', 'kapiolani':'Kapi&#145;olani Community College (O&#145;ahu)', 'kauai':'Kaua&#145;i Community College (Kaua&#145;i)', 'leeward':'Leeward Community College (O&#145;ahu)', 'maui':'Maui Community College (Maui)', 'windward':'Windward Community College (O&#145;ahu)', 'random':'Kaua&#145;i Community College (Kaua&#145;i)'}
+		,{'manoa':'manoa.hawaii.edu', 'hilo':'hilo.hawaii.edu', 'westoahu':'westoahu.hawaii.edu', 'hawaii':'hawaii.hawaii.edu', 'honolulu':'honolulu.hawaii.edu', 'kapiolani':'kapiolani.hawaii.edu', 'kauai':'kauai.hawaii.edu', 'leeward':'www.leeward.hawaii.edu', 'maui':'maui.hawaii.edu', 'windward':'windward.hawaii.edu', 'random':'kauai.hawaii.edu'}
+		];
+
+	function campuses_swap (campus) {
+	    img = document.getElementById('campuses_img');
+	    img.src='site/images/' + campuses_arr[0][campus];
+	    alt_title = campuses_arr[1][campus];
+	    var okina = "&#145;";
+	    // Pageserver strips out the codes if diacritical is set to none.
+	    if (okina.length > 0) {
+		var regexp = new RegExp(okina, "gi");
+		alt_title = alt_title.replace(regexp, "\u02bb");
+	    }
+	    var kahako = "a";
+	    if (kahako.length > 1) {
+		var regexp = new RegExp(kahako, "gi");
+		alt_title = alt_title.replace(kahako, "a\u0304");
+	    }
+	    
+	    img.alt=alt_title;
+	    img.title=alt_title;
+
+	    // Remove link from campus image per Jeela on 2007-09-07.
+	    //img_a = document.getElementById('campuses_img_a');
+	    //img_a.href='http://' + campuses_arr[2][campus];
+	}
+
+
+
+	function banner_motto_swap (lang) {
+	    img = document.getElementById('banner1_img');
+	    if (lang == 'eng') {
+		img.src='site/images/banner_motto_english.gif';
+		alt_title = "Above all nations is humanity.";
+	    } else {
+		img.src='site/images/banner_motto_hawaiian.gif';
+		alt_title = "Ma luna a&#145;e o na lahui a pau ke ola o ke kanaka";
+	    }
+	    var okina = "&#145;";
+	    // Pageserver strips out the codes if diacritical is set to none.
+	    if (okina.length > 0) {
+		var regexp = new RegExp(okina, "gi");
+		alt_title = alt_title.replace(regexp, "\u02bb");
+	    }
+	    var kahako = "a";
+	    if (kahako.length > 1) {
+		var regexp = new RegExp(kahako, "gi");
+		alt_title = alt_title.replace(kahako, "a\u0304");
+	    }
+	    
+	    img.alt=alt_title;
+	    img.title=alt_title;
+	}
+    /* ]]> */
+    </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18687602-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<ul id="config">
+    <li id="text-version"><a href="?pv=text">Text Version</a></li>
+    <li id="diacritics"><a href="/site/info/diacritics.php">Hawaiian language online</a></li>
+</ul>
+<div id="header">    
+    <div id="header-title"><a href="http://www.hawaii.edu/"><span>University of Hawaii System</span></a></div>
+
+    <div id="header-search">
+	<div id="search-box">
+	    <a href="/dir/">Directory</a> 
+	    &#183; <a href="/calendar/uh/2012/05/06">Calendar</a>
+	    <form method="get" action="/search/index.php">
+		<input type="hidden" name="cx" value="008945998903415758105:4nrwh9-26ni" />
+		<input type="hidden" name="cof" value="FORID:11" />
+		<input id="q" type="text" name="q" size="17" maxlength="255" value="SEARCH" onblur="if (this.value=='') {this.value='SEARCH';};" onfocus="if (this.value=='SEARCH') {this.value='';};" />
+		<input id="btn_search" name="submit" type="image" alt="go!" src="/site/images/navbar/btn_search.gif" />
+	    </form>
+	</div> <!-- search-box -->
+    </div> <!-- header-search -->
+
+    <ul id="nav1">
+	<li class="first"><a href="/prospective/">Prospective Students</a></li>
+	<li><a href="/students/">Current Students</a></li>
+	<li><a href="http://www.uhalumni.org">Alumni &amp; Friends</a></li>
+	<li><a href="/faculty/">Faculty &amp; Staff</a></li>
+	<li class="last"><a href="/news/media/">News Media</a></li>
+    </ul>
+
+    <ul id="nav2">
+	<li class="first"><a href="/" class="selected">Aloha</a></li>
+	<li><a href="/about/">About</a></li>
+	<li><a href="/campuses/">Campuses</a></li>
+	<li><a href="/admissions/">Admissions</a></li>
+	<li><a href="/academics/">Academics</a></li>
+	<li><a href="/research/">Research</a></li>
+	<li><a href="/technology/">Technology</a></li>
+	<li><a href="/libraries/">Libraries</a></li>
+	<li class="last"><a href="/arts/">Arts &amp; Community</a></li>
+    </ul>
+</div>
+<div id="page-main">
+    <div id="section-campuses-wrapper">
+	<div id="section-campuses">
+	    <img id="campuses_img" src="/site/images/kauai.gif" title="Kaua&#145;i Community College (Kaua&#145;i)" alt="Kaua&#145;i Community College (Kaua&#145;i)" />
+	    <div id="campuses-10campuses">
+		<h2>Our 10 Campuses</h2>
+		<div id="campuses-10campuses-left">
+		    <h3>Universities</h3>
+		    <ul class="campuses-list">
+			<li><a href="http://manoa.hawaii.edu/" onmouseover="campuses_swap('manoa');">Manoa</a></li>
+			<li><a href="http://hilo.hawaii.edu/" onmouseover="campuses_swap('hilo');">Hilo</a></li>
+			<li><a href="http://westoahu.hawaii.edu/" onmouseover="campuses_swap('westoahu');">West O&#145;ahu</a></li>
+		    </ul>
+		</div>
+		<div id="campuses-10campuses-right">
+		    <h3>Community Colleges</h3>
+		    <ul class="campuses-list">
+			<li><a href="http://hawaii.hawaii.edu/" onmouseover="campuses_swap('hawaii');">Hawai&#145;i</a></li>
+			<li><a href="http://honolulu.hawaii.edu/" onmouseover="campuses_swap('honolulu');">Honolulu</a></li>
+			<li><a href="http://kapiolani.hawaii.edu/" onmouseover="campuses_swap('kapiolani');">Kapi&#145;olani</a></li>
+			<li><a href="http://kauai.hawaii.edu/" onmouseover="campuses_swap('kauai');">Kaua&#145;i</a></li>
+		    </ul>
+		    <ul class="campuses-list cc2">
+			<li><a href="http://www.leeward.hawaii.edu/" onmouseover="campuses_swap('leeward');">Leeward</a></li>
+			<li><a href="http://maui.hawaii.edu/" onmouseover="campuses_swap('maui');">Maui</a></li>
+			<li><a href="http://windward.hawaii.edu/" onmouseover="campuses_swap('windward');">Windward</a></li>
+		    </ul>
+		</div>
+	    </div> <!-- campuses-10campuses -->
+	    <div id="campuses-more">
+		<h3 style="padding-top:3px">Explore</h3>
+		<ul class="campuses-list">
+		    <li><a href="academics/degrees/">Degrees &amp; Programs</a></li>
+			<li><a href="http://uhcc.hawaii.edu">UH Community &nbsp;&nbsp;&nbsp;Colleges</a></li>
+		    <li><a href="campuses/edcenters.html">Other Learning Options</a></li>
+		</ul>
+	    </div> <!-- campuses-more -->
+	</div> <!-- section-campuses -->
+    </div> <!-- section-campuses-wrapper -->
+
+
+    <div id="left-content-wrapper">
+
+	<div id="nav4">
+	    <ul>
+		<li><h3>Governance</h3></li>
+		<li><a href="offices/bor/">Board of Regents</a></li>
+		<li><a href="offices/op/">Office of the President</a></li>
+        
+        <li><h3>Connections</h3></li>
+		<li><a href="admissions/">Apply to a UH Campus</a></li>
+		<li><a href="campuses/">View Campus Profiles</a></li>
+		<li><a href="http://www.bookstore.hawaii.edu/main/">Visit the Bookstores</a></li>
+		<li><a href="http://workatuh.hawaii.edu/">Work at UH</a></li>
+		<li><a href="http://www.uhfoundation.org/">Make a Gift</a></li>
+		<li class="last"><a href="http://myuh.hawaii.edu/">Access MyUH</a></li>
+	    </ul>
+	</div> <!-- nav4 -->
+
+	<div id="banner1">
+    
+         
+<a href="about/values/" onMouseOver="banner_motto_swap('eng');" onMouseOut="banner_motto_swap('hawaiian');"><img id="banner1_img" src="/site/images/banner_motto_hawaiian.gif" title="Ma luna a&#145;e o na lahui a pau ke ola o ke kanaka" alt="Ma luna a&#145;e o na lahui a pau ke ola o ke kanaka" width="156" height="130"/>
+
+<!--<a href="settlement/"><img src="settlement/settlement.jpg" alt="Notice of Class Action Settlement UH Data Breach Lawsuit - view notice" width="156" height="142" id="banner_img" title="View Notice of Class Action Settlement UH Data Breach Lawsuit" /></a>-->
+
+<!--<a href="http://www.hawaii.edu/finaid/workshops.html"><img src="site/images/finaid-workshops.jpg" alt="Free Finanical Aid Workshops"></a>-->
+
+		
+  </div>
+
+	<div id="banner2">
+	    <a href="http://hawaii.edu/offices/eaur/docs/viewbook.pdf"><img id="banner_img" src="site/images/home-features/ohia.jpg" title="like no place else" alt="red ohia lehua blossom" /></a>	<span class="small-text">Download Viewbook (PDF)</span></div>
+	<!-- banner2-->
+
+
+    </div> <!-- left-content-wrapper -->
+
+    <div id="right-content-wrapper">
+
+	    <div id="section-photogallery">
+	<script type="text/javascript">
+	function startGallery() {
+		var myGallery = new gallery($('myGallery'), {
+			timed: true,
+			showArrows: true,
+			showCarousel: false,
+			embedLinks: false,
+			useThumbGenerator: false,
+			thumbHeight: 36,
+			thumbWidth: 50
+		});
+	}
+	window.addEvent('domready', startGallery);
+	</script>
+	<div class="content">
+		<div id="myGallery" style="width: 576px; height: 288px;">
+
+
+<div class="imageElement">
+    <h3><div style="height: 1px;"></div></h3>
+      <p>Celebrate May Day with a cherished Hawai&#145;i tradition&#8212;a lei. Learn more about lei making from <a href="http://www.ctahr.hawaii.edu/oc/forsale/leiflier.pdf"><i>Growing Plants for Hawaiian Lei</i></a>.</p>
+        <img src="http://farm8.staticflickr.com/7138/6983511910_1222aff218_o.jpg" alt="lei" width="576" height="288" class="full" />
+      <!--<img src="smoothgallery/images/100914-convocation.jpg" class="thumbnail" /> -->
+</div>
+
+
+<div class="imageElement">
+    <h3><div style="height: 1px;"></div></h3>
+      <p>The trumpet shell is one of nearly 200 species of marine mollusks in the <a href="http://www.flickr.com/photos/uhmuseum/sets/72157616090546606/">Hawaiian Marine Shell Reference Collection</a> in the university&#8217;s <a href="http://www.museum.hawaii.edu/">Virtual Museum</a>.
+</p>
+        <img src="http://farm8.staticflickr.com/7210/7114168915_36db93cb35_o.jpg" alt="trumper seashell" width="576" height="288" class="full" />
+      <!--<img src="smoothgallery/images/100914-convocation.jpg" class="thumbnail" /> -->
+</div>
+
+
+<div class="imageElement">
+    <h3><div style="height: 1px;"></div></h3>
+      <p>Coral in Peril: A recent outbreak of coral disease has scientists working hard to understand the causes and the extent in order to mitigate future outbreaks. <a href="http://www.hawaii.edu/malamalama/2012/04/coral-in-peril/">Watch the video</a>.
+</p>
+        <img src="http://farm6.staticflickr.com/5456/6941892496_f006eafed4_o.jpg" alt="coral reef with disease" width="576" height="288" class="full" />
+      <!--<img src="smoothgallery/images/100914-convocation.jpg" class="thumbnail" /> -->
+</div>
+
+
+
+
+
+
+
+		</div>
+	</div>
+            </div> <!-- section-photogallery -->
+
+            <div style="float: left; width: 100%; text-align: right; padding-top: 6px;">
+                <a href="http://www.flickr.com/photos/uhawaii/sets/72157628104012851/" style="font-size: 90%" target="_blank" title="UH System Flickr photostream">
+                    More photos</a>&nbsp;
+            </div>
+
+            <div id="section-events"><!-- -->
+                <h3 id="events-header">Events &nbsp;<a href="/calendar/uh.rss?front=true"><img src="/site/images/rss12.jpg" height="12" width="12" alt="System Events Calendar Feed" border="0" /></a></h3>
+
+<ul id="events-list"><li><span class="dte">Ongoing</span>, <a href="/calendar/uh/2012/05/05/18358.html">Flamenco Premier</a>, Manoa</li><li><span class="dte">May 7</span>, <a href="/calendar/uh/2012/05/07/18431.html">Gartley Hall Groundbreaking Ceremony</a>, Manoa</li><li><span class="dte">May 11</span>, <a href="/calendar/uh/2012/05/11/18195.html">Honolulu Community College Graduation Ceremony</a></li><li><span class="dte">May 11</span>, <a href="/calendar/uh/2012/05/11/17485.html">Hawaiâ€˜i Community College Commencement</a>, Hawai'i</li></ul>                <div id="events-footer">
+                    <p class="small-text"><a href="calendar/uh/" title="view the calendar of UH events">UH Calendar</a> | <a href="http://etickethawaii.com/" title="buy tickets to UH athletic and theater events">Event Tickets</a></p>
+                </div> <!-- events-footer -->
+            </div> <!-- section-events -->
+		
+
+	    <div id="section-headlines">
+        
+        
+        
+                <h3 id="headlines-header">Headlines &nbsp;<a href="http://feeds.feedburner.com/UHawaiiSystemHome"><img src="/site/images/rss12.jpg" height="12" width="12" alt="University News Headlines Feed" border="0" /></a></h3>
+                
+                    <!--<p style="font-size:11px"><a href="http://www.hawaii.edu/news/category/emergency/">Latest <abbr>UH</abbr> Fire Updates</a></p>-->
+                
+<!--<p class="small-text"><strong>ANNOUNCEMENT TEXT</strong>.  </p>
+ -->
+<!--<p class="small-text"><strong>EMERGENCY MESSAGE TEXT<a href="http://www.hawaii.edu/emergency/index.php">Read the details</a>.</strong></p>
+ -->
+<ul id="headlines-list">
+<li><a href="http://feedproxy.google.com/~r/UHawaiiSystemHome/~3/8ZFOm40d8Tg/">Law School professor awarded Fred T. Korematsu professorship</a></li><li><a href="http://feedproxy.google.com/~r/UHawaiiSystemHome/~3/Vf32V-sszFI/">Honolulu recruits graduate as certified firefighters</a></li><li><a href="http://feedproxy.google.com/~r/UHawaiiSystemHome/~3/36cuf88NTXE/">Janine Oshiro honored with Cades literary award</a></li><li><a href="http://feedproxy.google.com/~r/UHawaiiSystemHome/~3/AmE_Xm3guV0/">Invasive species programs earn state recognition</a></li><li><a href="http://feedproxy.google.com/~r/UHawaiiSystemHome/~3/AfCIBzAhZf0/">Mark Hamasaki's photographs featured at Gallery Iolani</a></li>
+
+</ul> <!-- headlines-list -->
+		<p class="small-text"><a href="news/" title="UH System News">More UH News</a> | <a href="/news/archive.php" title="press release archive">News releases</a></p>
+
+            <div id="section-sports-news">
+                <h3 id="section-sports-news-header">Sports News</h3>
+                <ul>
+                    <li><a href="http://HawaiiAthletics.com/" target="blank"><img src="/site/images/manoa-athletics.jpg" alt="UH Manoa Athletics" height="28" width="32"/></a><a href="http://HawaiiAthletics.com/" target="blank">UH Manoa<br />Athletics</a></li>
+<li>
+&nbsp;
+&nbsp;
+</li>
+
+                    <li><a href="http://hiloathletics.com/"><img src="/site/images/hilo-athletics.jpg" alt="UH Hilo Athletics"  height="28" width="38" /></a><a href="http://hiloathletics.com/">UH Hilo<br />Athletics</a></li>
+                </ul>
+            </div> <!-- section-sports-news -->
+
+	    </div> <!-- section-headlines -->
+
+	    <div id="section-weather">
+        
+<div id="section-publications">
+	<h3 id="section-publications-header">UH News</h3>
+	<ul>
+		<li>
+		<a href="http://www.hawaii.edu/news/"><img id="banner_img" src="http://www.hawaii.edu/site/images/home-features/newsbox.jpg" title="University of Hawaii System News" alt="University of Hawaii System News" width="107" height="107" align="left" style="margin-bottom:13px; margin-left:0px" /></a>
+		</li>
+	</ul>
+        
+		<h3 id="section-weather-header" style="margin-left: 1px;">Weather &amp; Surf</h3>
+		<div id="weather">
+		<a href="news/weather/"><img src="/site/images/weather/mosunny.gif" alt="mosunny" /></a><br/><span id="weather-temperature">79&deg;</span>		</div> <!-- weather -->
+
+              </div>  <!-- end section-publications -->
+        
+	    </div> <!-- section-weather -->
+
+    </div> <!-- right-content-wrapper -->
+</div>
+<div id="footer"><div id="footer-container">
+    <div id="footer-top">
+    </div> <!-- footer-top -->
+    <div id="footer-left">
+    The University of Hawai&#145;i is an <a href="/offices/eeo/policies.php?policy=antidisc">equal opportunity/affirmative action institution</a>.
+
+	Use of this site implies consent with our 
+        <a href="/site/policy/disclaimer.html">
+            Usage Policy</a>.
+	<br />
+        <br />
+        copyright &copy; 2012 University of Hawai&#145;i 
+    </div> <!-- footer-left -->
+    <div id="footer-right">
+	<a href="/site/contact/">Contact UH</a> | <a href="/emergency/">Emergency information</a>
+        <br />
+        <div id="socialRow">
+        <a href="http://www.facebook.com/universityofhawaii" title="UH System Facebook page" target="_blank" >
+        <img src="/site/images/social/facebook-16x16.png" alt="facebook" width="16" height="16" border="0" /></a>
+        &nbsp;
+        <a href="http://www.flickr.com/photos/uhawaii/sets/" target="_blank" title="UH System Flickr photographs"><img src="/site/images/social/flickr-16x16.png" alt="flickr" width="16" height="16" /></a>
+        &nbsp;
+        <a href="http://twitter.com/#!/uhawaiinews" target="_blank" title="UH System Twitter feed"><img src="/site/images/social/twitter-16x16.png" alt="twitter" width="16" height="16" /></a>
+        
+        &nbsp;
+        <a href="http://vimeo.com/uhawaii/videos" target="_blank" title="UH System Vimeo video channel"><img src="/site/images/social/vimeo-16x16.png" alt="vimeo" width="16" height="16" /></a>
+        
+                &nbsp;
+        <a href="http://www.youtube.com/user/UHmagazine" target="_blank" title="UH System YouTube video channel"><img src="/site/images/social/youtube-16x16.png" alt="youtube" width="16" height="16" /></a>
+        
+        </div> <!-- id="socialRow" -->
+
+	This page last modified on May 2, 2012    
+    </div> <!-- footer-right -->
+</div> <!-- footer-container -->
+</div>
+</body>
+</html>

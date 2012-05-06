@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<!-- The purpose of this page is to determine if a mobile device is accessing the site.  
+If it is a mobile device, the user is directed to the mobile site, otherwise the user
+is directed to the standard site. -->
+<script type="text/javascript">
+<!--
+// Capture the browser string
+var nav = navigator.userAgent;
+// List the mobile browsers.  The pipe (|) is OR; the i at the end indicates
+// the string is case insensitive
+var mobile = /ipad|iphone|ipod|android|blackberry|webos/i ;
+// The .match function returns true if the string 'nav' matches any item in the 'mobile' list
+var ismobile=nav.match(mobile);
+
+if (ismobile) {
+// True, it is mobile
+document.location = "http://www.raphaelsbeautyschool.mobi";
+}
+else {
+// False, it is standard access such as PC 
+document.location = "http://raphaelsbeautyschool.edu/index.shtml";
+}
+//-->
+</script>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Raphael's Barber Academy</title>
+<style type="text/css"> 
+.content {
+		font-family:Arial, Helvetica, sans-serif;
+		color:#000000;
+		font-weight:BOLD;
+		font-size:100%;
+		text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+<noscript>
+<div class="content"><br><br>
+Please enable JAVASCRIPT in your browser for a better viewing experience.<br>
+<br>
+For our full website, <a href="http://raphaelsbeautyschool.edu/index.shtml">CLICK HERE</a>.
+<br>
+<br>
+If you are using a mobile device, <a href="http://www.raphaelsbeautyschool.mobi">CLICK HERE</a> 
+for our mobile website.<br>
+<br>
+</div>
+</noscript>
+</body>
+</html>

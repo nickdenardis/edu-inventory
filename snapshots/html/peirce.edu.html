@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        Peirce.edu
+    </title>
+    <link type="text/css" rel="stylesheet" href="/Content/jquery.ui.tabs.home.css" />
+    
+<link type="text/css" rel="stylesheet" href="/Content/Site.css" />
+<!--[if lt IE 9]>
+<link rel="stylesheet" type="text/css" href="/Content/ie.css" />
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<!--[if lt IE 8]>
+    <style type="text/css">
+        #ie6alert {
+            display: block;
+        }
+    </style>
+<![endif]-->
+<script type="text/javascript" src="/Scripts/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/Scripts/jquery.tools.1.2.5.min.js"></script>
+<script type="text/javascript" src="/Scripts/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="/Scripts/pct.js"></script>
+<script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1027132-1']);
+    _gaq.push(['_setDomainName', '.peirce.edu']);
+    _gaq.push([' _setAllowHash(false)']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<!-- Start of StatCounter Code -->
+
+<script type="text/javascript">
+    $(function () {
+        $('#tabs').tabs({
+            collapsible: false
+        });
+    });
+</script>
+
+</head>
+<body>
+    <div id="ie6alert">
+    <p>
+        You are using an outdated Internet browser to view this web site. To improve your web browsing experience and better protect
+        your computer from harmful web sites, consider updating to one of the following browsers:</p>
+    <p class="browserlink">
+        <a href="/IeCorporate" target="_blank">
+            <img src="http://media.peirce.edu/Themes/Web2/Graphics/btn_download_noIE.png" alt="Message to Corporate Users" /></a>
+        <a href="http://www.google.com/chrome" target="_blank">
+            <img src="http://media.peirce.edu/Themes/Default/Images/btn_download_Chrome.png" alt="Download Google Chrome now" /></a>
+        <a href="http://www.microsoft.com/windows/Internet-explorer/default.aspx" target="_blank">
+            <img src="http://media.peirce.edu/Themes/Default/Images/btn_download_IE.png" alt="Update Internet Explorer now" /></a>
+        <a href="http://www.mozilla.com/en-US/firefox/firefox.html" target="_blank">
+            <img src="http://media.peirce.edu/Themes/Default/Images/btn_download_Firefox.png" alt="Download Mozilla Firefox now" /></a></p>
+</div>
+
+    <input type="hidden" id="NaviLeft" value="HOMEPAGE/ID_HOMELTD" />
+    <div id="container">
+        <div class="NAVIGATIONLEFT">
+    <a href="/Default">
+        <div class="LOGO">
+            
+        </div>
+    </a>
+    <div class="PRIMARY">
+        <div class="HOME CLOSED DEFAULT">
+            <ul>
+                <li><a title="Home" href="/Default">Home</a></li>
+            </ul>
+        </div>
+        <div class="HOME OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="ID_HOME">
+                        <a title="Home" href="/Default">Home</a>
+                </li>
+            </ul>
+        </div>
+        <div class="ABOUT CLOSED DEFAULT">
+            <ul>
+                <li><a title="About Peirce" href="/About/">About Peirce</a></li>
+            </ul>
+        </div>
+        <div class="ABOUT OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="SECTIONLABEL ID_ABOUTPEIRCE">
+                        <a href="/About">About Peirce</a></p>
+                    <ul>
+                        <li><a class="ID_WHYPEIRCE" title="Why Choose Peirce?" href="/About/WhyPeirce">Why Choose Peirce?</a></li>
+                        <li><a class="ID_BOARD" title="Board of Trustees" href="/About/Board">Board of Trustees</a></li>
+                        <li><a class="ID_ADMINISTRATIVE" title="Administration" href="/About/Administrative">Administrative Team</a></li>
+                        <li><a class="ID_ACCREDITATION" title="Accreditation" href="/About/Accreditation">Accreditation</a></li>
+                        <li><a class="ID_CATALOG" title="College Catalog" href="/About/CollegeCatalog">College Catalog</a></li>
+                        <li><a class="ID_COMPLIANCE" title="Compliance Info" href="/About/Compliance">Compliance Info</a></li>
+                        <li><a class="ID_STAFF" title="Departments/Staff" href="/About/DepartmentsStaff">Departments/Staff</a></li>
+                        <li><a class="ID_DIRECTIONS" title="Directions" href="/About/Directions">Directions</a></li>
+                        <li><a class="ID_HISTORY" title="History of Peirce" href="/About/Hist1">History of Peirce</a></li>
+                        <li><a class="ID_JOBS" title="Jobs At Peirce" href="/About/Jobs">Jobs At Peirce</a></li>
+                        <li><a class="ID_EQUALOPPORTUNITY" title="Equal Opportunity" href="/About/EO">Equal Opportunity</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="DEGREES CLOSED DEFAULT">
+            <ul>
+                <li><a title="Degrees and Programs" href="/DegreesPrograms/">Degrees and Programs</a></li>
+            </ul>
+        </div>
+        <div class="DEGREES OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="SECTIONLABEL ID_DEGREES">
+                        <a href="/DegreesPrograms">Degrees and Programs</a></p>
+                    <ul>
+                        <li><a class="ID_BUSINESSADMIN" title="Business Administration" href="/DegreesPrograms/Business/Default">Business</a></li>
+                        <li><a class="ID_HEALTHCARE" title="Healthcare" href="/DegreesPrograms/Health/Default">Healthcare</a></li>
+                        <li><a class="ID_IT" title="Information Technology" href="/DegreesPrograms/IT/Default">Information Technology</a></li>
+                        <li><a class="ID_LEGALSTUDIES" title="Legal Studies" href="/DegreesPrograms/LegalStudies/Default">Legal Studies</a></li>
+                        <li><a class="ID_DEGREECOMPLETION" title="Degree Completion" href="/DegreesPrograms/DegreeCompletion">Degree
+                            Completion</a></li>
+                        <li><a class="ID_GENERALSTUDIES" title="General Studies" href="/DegreesPrograms/General/Default">General Studies</a></li>
+                        <li><a class="ID_INTERNATIONAL" title="International Focus" href="/DegreesPrograms/International/Default">International
+                            Focus</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="PARTNERSHIPS CLOSED DEFAULT">
+            <ul>
+                <li><a title="Partnerships" href="/Partnerships">Partnerships</a></li>
+            </ul>
+        </div>
+        <div class="PARTNERSHIPS OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="SECTIONLABEL ID_PARTNERSHIPS">
+                        <a href="/Partnerships">Partnerships</a></p>
+                    <ul>
+                        <li><a class="ID_ACADEMIC" title="Academic" href="/Partnerships/Academic">Academic</a></li>
+                        <li><a class="ID_CORPORATE" title="Corporate" href="/Partnerships/Corporate/Default">Corporate</a></li>
+                        <li><a class="ID_ONSITE" title="On Site Programs" href="/OnSite">On Site Programs</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="ALUMNI CLOSED DEFAULT">
+            <ul>
+                <li><a title="Alumni" href="/Alumni/Default">Alumni</a></li>
+            </ul>
+        </div>
+        <div class="ALUMNI OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="SECTIONLABEL ID_ALUMNI">
+                        Alumni</p>
+                    <ul>
+                        <li><a class="ID_COMMENCEMENT" title="Commencement" href="/Current/Graduation/Video/Default">Commencement</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="CDS CLOSED DEFAULT">
+            <ul>
+                <li><a title="CDS" href="/Current/CDS/Default">Career Development</a></li>
+            </ul>
+        </div>
+        <div class="EDGE CLOSED DEFAULT">
+            <ul>
+                <li><a title="EDGE" href="/Edge">Continuing Education</a></li>
+            </ul>
+        </div>
+        <div class="EDGE OPEN" style="display: none;">
+            <ul>
+                <li>
+                    <p class="SECTIONLABEL ID_EDGE">
+                        <a href="/Edge">Continuing Education</a></p>
+                    <ul>
+                        <li><a class="ID_INDIVIDUALWORKSHOPS" title="Individual Workshops" href="/Edge/Workshops">Individual Workshops</a></li>
+                        <li><a class="ID_CORPTRAINING" title="Corporate Training" href="/Edge/Corptraining">Corporate Training</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <ul>
+            <li class="onlinks"><a title="On Campus" href="/OnCampus">On Campus</a></li>
+            <li class="onlinks"><a title="On Site" href="/OnSite">On Site</a></li>
+            <li class="onlinks last"><a title="Online" href="/Online">Online</a></li>
+        </ul>
+    </div>
+    <div class="CONTACTUS">
+        <a href="/ContactUs">
+            <img alt="" src="http://media.peirce.edu/Themes/web2/Graphics/contact_us_btn.png" /></a>
+        <div class="HOMEPAGE CLOSED DEFAULT">
+        </div>
+    </div>
+    <div class="TERTIARY">
+        <ul>
+            <li><a href="http://www.phillyadultlearners.com" target="_blank">adult learners</a></li>
+            <li><a href="/Military/Default">military</a></li>
+            <li><a href="/ReturningStudents/Default">returning students</a></li>
+            <li><a href="https://my.peirce.edu">my.peirce.edu</a></li>
+            <li><a href="http://blog.peirce.edu" target="_blank">BLOG.PEIRCE.EDU</a></li>
+            <li><a href="/FirstYearInitiative/Default">first year initiative</a></li>
+            <li><a href="http://library.peirce.edu/">library</a></li>
+            <li><a href="/About/Jobs">jobs at peirce</a></li>
+        </ul>
+        <br />
+        <!--<div id="zazacontainer">
+
+            <script type="text/javascript">
+                document.write(unescape("%3Cscript src='http://zazachat.zazasoftware.com/livechatclient/scripts/zazamagic.aspx?div=&zimg=1450&zazac=14242&iv=&iwidth=144&iheight=60&zzwindow=0&d=0&custom1=&custom2=&custom3=' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+
+        </div>-->
+        <div class="ZAZACHAT">
+            
+            <script type="text/javascript" src="http://zazachat.zazasoftware.com/livechatclient/scripts/zazamagic.aspx?div=&zimg=2491&zazac=14242&iv=&iwidth=200&iheight=60&zzwindow=0&d=0&custom1=&custom2=&custom3="></script>
+            <br />
+            <br>
+            <a href="/Rentals">
+                <img style="margin-top: -16px;" alt="" src="http://media.peirce.edu/Themes/Web2/Graphics/LEFT-NAV-Event.png"></a>
+        </div>
+        <div class="HOMEPAGELIMITED">
+            <div class="HOMEPAGE CLOSED DEFAULT">
+                
+            </div>
+            <div class="HOMEPAGE OPEN">
+                <div class="SECTIONLABEL ID_HOMELTD">
+                    <a href="/Military/default">
+                        <img src="http://media.peirce.edu/Themes/Default/Images/support_troops_70w.png" alt="Yellow Ribbon Program" /></a>
+                    <br />
+                    <br />
+                    <div style="text-align: center; font-size: .8em; font-weight: bold; cursor: pointer;">
+                        <a href="http://www.usnews.com/education/best-colleges/articles/2011/02/22/10-colleges-with-the-most-older-students" target="_blank">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/USNews.png" alt="10 Colleges With the Most Older Students" /></a>
+                        <br />
+                        <a href="http://www.usnews.com/education/best-colleges/articles/2011/02/22/10-colleges-with-the-most-older-students" target="_blank"
+                            style="text-decoration: none;">10 Colleges with the<br />
+                            Most Older Students</a>
+                    </div>
+                    <br />
+                    <br />
+                    <img src="http://media.peirce.edu/Themes/Web2/Graphics/TW-Winners-Badge-11.png" alt="2011 Best Places to Work" />
+                    <br />
+                    <br />
+                    <img src="http://media.peirce.edu/Themes/Default/Images/BPTW-Logo-2010.png" alt="Business Journal 2010 - Best Places to Work" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div id="header">
+            <div class="quickLinksWrapper">
+    <input type="image" src="http://media.peirce.edu/Themes/Default/Images/searchBtn.gif" name="search" value="" id="searchsubmit" /></div>
+<div class="quickLinksWrapper">
+    <input type="text" name="seekphrase" value="" id="searchinput" /></div>
+<div id="quickLinks">
+    <div class="quickLinksWrapper">
+        <select onchange="OpenQuickLink(this)">
+            <option value="">PEIRCE QUICKLINKS</option>
+            <option value="http://my.peirce.edu/">My.Peirce.Edu</option>
+            <option value="http://blog.peirce.edu/">Blog.Peirce.Edu</option>
+            <option value="/Current/Services/Bookstore">Peirce Bookstore</option>
+            <option value="/AdvisingRegistration/RegisterIndex">Register for Class</option>
+            <option value="/About/CollegeCatalog">Student Handbook</option>
+            <option value="/About/CollegeCatalog">College Catalog</option>
+            <option value="/SupMediaFaculty">Faculty</option>
+            <option value="/FinancialAid/Default">Financial Aid</option>
+            <option value="/Current/Services/WCAE/Default">Walker Center</option>
+            <option value="/Current/UsefulDocuments">Academic Calendar</option>
+            <option value="/AdvisingRegistration/TranscriptRequest">Transcript Request</option>
+            <option value="https://npc.collegeboard.org/student/app/peirce">Net Price Calculator</option>
+        </select>
+    </div>
+</div>
+<br />
+<div id="studentLinks">
+    <a id="myPeirceBtn" href="http://my.peirce.edu">My.Peirce.Edu</a> <a href="/Future">Future Students</a>
+    <a href="/Current/Default">Current Students</a>
+</div>
+
+        </div>
+        
+<input type="hidden" id="NaviLeft" value="HOMEPAGE/ID_HOME" />
+<div id="content">
+    <div id="header">
+        <div id="flashContent">
+            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="640" height="264" id="HomeHeader">
+                <param name="movie" value="/Content/HomeHeader.swf" />
+                <param name="quality" value="high" />
+                <param name="bgcolor" value="#ffffff" />
+                <param name="play" value="true" />
+                <param name="loop" value="false" />
+                <param name="wmode" value="window" />
+                <param name="scale" value="showall" />
+                <param name="menu" value="true" />
+                <param name="devicefont" value="false" />
+                <param name="salign" value="" />
+                <param name="allowScriptAccess" value="sameDomain" />
+                <!--[if !IE]>-->
+                <object type="application/x-shockwave-flash" data="/Content/HomeHeader.swf" width="640" height="264">
+                    <param name="movie" value="HomeHeader.swf" />
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <param name="play" value="true" />
+                    <param name="loop" value="false" />
+                    <param name="wmode" value="window" />
+                    <param name="scale" value="showall" />
+                    <param name="menu" value="true" />
+                    <param name="devicefont" value="false" />
+                    <param name="salign" value="" />
+                    <param name="allowScriptAccess" value="sameDomain" />
+                    <!--<![endif]-->
+                    <a href="http://www.adobe.com/go/getflash">
+                        <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+                    </a>
+                    <!--[if !IE]>-->
+                </object>
+                <!--<![endif]-->
+            </object>
+        </div>
+        <div style="color: #015697; font-size: 2.2em; text-align: center; padding: 10px;">
+            The college that really works for working adults.
+        </div>
+        <div id="tabs">
+            <ul class="homeTabMod">
+                <li><a href="#tabs-1">Business Programs</a></li>
+                <li><a href="#tabs-2">Legal Studies</a></li>
+                <li><a href="#tabs-3">IT Program</a></li>
+                <li><a href="#tabs-4">Healthcare</a></li>
+                <li><a href="#tabs-5">Degree Completion</a></li>
+            </ul>
+            <div id="tabs-1">
+                <p>
+                    Get ahead with a business degree from Peirce. Whatever your career choice, at Peirce you will gain the confidence, skills
+                    and knowledge to succeed in today's business world.
+                </p>
+                <br />
+                <p class="btnContainer">
+                    <a href="/DegreesPrograms/Business/Default">
+                        <img src="http://media.peirce.edu/Themes/Web2/Graphics/learn-more.png" alt="Click here to learn more" /></a><a href="https://www.peirce.edu/aWA/Admissions/StudentApplication.aspx">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/apply-now.png" alt="Click here to apply" /></a>
+                </p>
+            </div>
+            <div id="tabs-2">
+                <p>
+                    Peirce Paralegal Studies is an American Bar Association-approved degree program and the ultimate way to become one of the
+                    most sought-after graduates in one of America's fastest-growing professions. Our Criminal Justice Associate degree program
+                    provides students with a sound foundation of practical, conceptual and analytic skills required to work in this dynamically
+                    diverse field.
+                </p>
+                <br />
+                <p class="btnContainer">
+                    <a href="/DegreesPrograms/LegalStudies/Default">
+                        <img src="http://media.peirce.edu/Themes/Web2/Graphics/learn-more.png" alt="Click here to learn more" /></a><a href="https://www.peirce.edu/aWA/Admissions/StudentApplication.aspx">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/apply-now.png" alt="Click here to apply" /></a>
+                </p>
+            </div>
+            <div id="tabs-3">
+                <p>
+                    In today's world, every organization needs technology and the employment outlook for skilled IT staff is strong. Keep pace
+                    with the latest skills with a cutting-edge Information Technology degree from Peirce to succeed in this exciting field.
+                </p>
+                <p class="btnContainer">
+                    <a href="/DegreesPrograms/IT/Default">
+                        <img src="http://media.peirce.edu/Themes/Web2/Graphics/learn-more.png" alt="Click here to learn more" /></a><a href="https://www.peirce.edu/aWA/Admissions/StudentApplication.aspx">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/apply-now.png" alt="Click here to apply" /></a>
+                </p>
+            </div>
+            <div id="tabs-4">
+                <p>
+                    With healthcare management careers on the rise, Peirce's Health Information Technology, Health Information Administration
+                    and Healthcare Administration programs give you the skills you need to get on the fast track to a career centered on supporting
+                    the delivery of healthcare and the management of patient health information.
+                </p>
+                <p class="btnContainer">
+                    <a href="/Health">
+                        <img src="http://media.peirce.edu/Themes/Web2/Graphics/learn-more.png" alt="Click here to learn more" /></a><a href="https://www.peirce.edu/aWA/Admissions/StudentApplication.aspx">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/apply-now.png" alt="Click here to apply" /></a>
+                </p>
+            </div>
+            <div id="tabs-5">
+                <p>
+                    Have you earned college credits over the years, but have not completed your degree? Put your previous college work to good
+                    use with the Peirce Degree Completion Program!
+                </p>
+                <br />
+                <p class="btnContainer">
+                    <a href="/DegreesPrograms/DegreeCompletion">
+                        <img src="http://media.peirce.edu/Themes/Web2/Graphics/learn-more.png" alt="Click here to learn more" /></a><a href="https://www.peirce.edu/aWA/Admissions/StudentApplication.aspx">
+                            <img src="http://media.peirce.edu/Themes/Web2/Graphics/apply-now.png" alt="Click here to apply" /></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="segmentContainer">
+        <div class="segment firstHomeSegment" style="float: left;">
+            <h2>NEW WORKING ADULT RESOURCE</h2>
+            <a href="http://www.philly-adult-learners.com" target="_blank">
+                <img style="float: left; padding: 0px 10px 0px 0px;" src="http://media.peirce.edu/Themes/Web2/Graphics/PhillyAdultLearners.png"
+                    alt="" /></a>
+            <div style="font-size: 12px; margin-top: 10px;">
+                Created by Peirce College to help working adults in Philadelphia earn their degree.
+            </div>
+        </div>
+        <div class="segment firstHomeSegment" style="float: right;">
+            <h2>TAKE A VIRTUAL TOUR</h2>
+            <a href="/VirtualTours/Default">
+                <img style="float: left; padding: 0px 10px 0px 0px;" src="http://media.peirce.edu/Themes/Default/Images/virtualtour.jpg"
+                    alt="" /></a>
+            <div style="font-size: 12px; margin-top: 10px;">
+                Visit Peirce College's historic Center City Philadelphia campus virtually.
+            </div>
+        </div>
+        <div class="segment">
+            <table>
+                <tr>
+                    <td style="width: 50%;">
+                        <h2>What's New</h2>
+                        <span><strong style="text-transform: capitalize;">Peirce College Professor Appointed to Health Information Management Council
+                            for Excellence in Education</strong>
+                            <br />
+                            Philadelphia's leading private, nonprofit, four-year accredited institution for working adult learners, announced Stephanie
+                            Donovan, Assistant Professor &amp; Program Manager, of Health Information Management at Peirce… <a href="http://content.peirce.edu/PDF/Peirce_College_Professor_Appointed_to_Health_Information_Management_Council_for_Excellence_in_Education_.pdf" target="_blank">
+                                [read more]</a></span>
+                        <br />
+                        <br />
+                        <span><strong style="text-transform: capitalize;">Mark Edwards and Joseph T. Steuer Elected Trustees of Peirce College</strong>
+                            <br />
+                            CEO of Philadelphia Workforce Development Corporation and the CFO of the Philadelphia Zoo Bring Non-Profit Experience to
+                            Peirce Board… <a href="/Home/MediaCenter/NewsItem61" target="_blank">[read more]</a></span>
+                        <br />
+                        <br />
+                        <span><a href="/Home/MediaCenter/Default">more Media Center updates &#187;</a></span></td>
+                    <td>
+                        <h2>What's Happening</h2>
+                        <table>
+                            <tr>
+                                <td style="padding: 0px; vertical-align: top; font-weight: bold;">Watch and learn how Peirce transforms lives and why we are
+                                    the college that really works for working adults: </td>
+                                <td style="padding: 0px; width: 139px;"><a href="http://youtu.be/D14GMshjJGY" target="_blank">
+                                    <img style="margin: 0px; padding: 0px;" src="http://media.peirce.edu/themes/web2/graphics/brand_video_play.png" alt="Peirce brand video" />
+                                </a></td>
+                            </tr>
+                        </table>
+                        <br />
+                        <div style="font-weight: bold;">
+                            Listen to Peirce College's new<br />
+                            radio advertisement:<br />
+                            <br />
+                        </div>
+                        <audio style="width: 100%" controls preload="auto">
+                            <source src="http://content.peirce.edu/OGG/Peirce_spokenword30_Final_Rev.ogg" />
+                            <source src="http://content.peirce.edu/MP3/Peirce_spokenword30_Final_Rev.mp3" />
+                            <object class="playerpreview" type="application/x-shockwave-flash" data="http://content.peirce.edu/SWF/mp3pl.swf"
+                                    width="286" height="32">
+                                <param name="movie" value="http://content.peirce.edu/SWF/mp3pl.swf" />
+                                <param name="bgcolor" value="#ffffff" />
+                                <embed href="http://content.peirce.edu/SWF/mp3pl.swf" bgcolor="#085c68" width="286" height="32" name="movie"
+                                        align="" type="application/x-shockwave-flash" />
+                            </object>
+                        </audio>
+                        <br />
+                        <br />
+                        <span><a href="/StrategicPlanning"><strong>Peirce College Strategic Planning Process &#187;</strong></a>
+                        </span>
+                        <br />
+                        <br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="segment" id="peircePeople">
+            <span id=""></span>
+            <table cellspacing="8px">
+                <tr>
+                    <td><a href="/Current/Services/FeaturedLearner">
+                        <img src="http://media.peirce.edu/Themes/Web2/Images/gonzales.jpg" alt="" /></a></td>
+                    <td><span id="meetMore"><a href="http://blog.peirce.edu/2011/03/featured-learner-series-marine-gilberto.html">meet more Peirce
+                        people &#187;</a></span>
+                        <h2>PEIRCE PEOPLE</h2>
+                        <div>
+                            <span style="font-weight: bold;">Gilberto Gonzalez, Business Administration Student</span>
+                        </div>
+                        <span>A self-described carefree kid, Gilberto Gonzalez started out on the traditional path of an 18-year-old as a college freshman
+                            in the fall of 2000. He soon decided to enlist in the Marines, with plans to complete summer boot camp and then resume classes
+                            in the fall.</span>
+                        <br />
+                        <br />
+                        <a href="http://blog.peirce.edu/2011/03/featured-learner-series-marine-gilberto.html" target="_blank">read on &#187;</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+        <div class="clearfloat">
+        </div>
+    </div>
+    <div id="footer">
+    <ul id="footerlinks">
+        <li class="copyright">&#169; 2012 Peirce College</li>
+        <li><a title="Equal Opportunity Policy" href="/About/EO">Equal Opportunity Policy</a></li>
+        <li><a title="Privacy Statement" href="/Privacy">Privacy Statement</a></li>
+        <li><a title="Accreditation" href="/About/Accreditation">Accreditation</a></li>
+        <li><a title="Sitemap" href="/SiteMap">Sitemap</a></li>
+        <li class="last"><a title="Contact Us" href="/ContactUs">Contact Us</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    $("#searchsubmit").click(function (e) {
+        //alert(document.getElementById("searchinput").value);
+        txtSearch = document.getElementById("searchinput").value;
+        window.open("http://search.peirce.edu/search?q=" + txtSearch + "&ie=&site=PeirceMain&output=xml_no_dtd&client=PeirceMain&proxystylesheet=PeirceMain");
+    });
+
+    $("#searchinput").keyup(function (e) {
+        if (e.keyCode == 13) {
+            //alert(document.getElementById("searchinput").value);
+            txtSearch = document.getElementById("searchinput").value;
+            window.open("http://search.peirce.edu/search?q=" + txtSearch + "&ie=&site=PeirceMain&output=xml_no_dtd&client=PeirceMain&proxystylesheet=PeirceMain");
+        }
+    });
+</script>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+    var sc_project = 5458395;
+    var sc_invisible = 1;
+    var sc_security = "3e78fb38";
+    var sc_https = 1;
+    var sc_remove_link = 1;
+    var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+    document.write("<sc" + "ript type='text/javascript' src='" +
+scJsHost +
+"statcounter.com/counter/counter.js'></" + "script>");</script>
+<noscript>
+    <div class="statcounter">
+        <img class="statcounter" src="https://c.statcounter.com/5458395/0/3e78fb38/1/" alt="statsbot"></div>
+</noscript>
+<!-- End of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+    LoadMenuNaviLeft();
+    LoadMenuNaviRight();
+    LoadMenuNaviLeftZaza();
+</script>
+;
+</body>
+</html>

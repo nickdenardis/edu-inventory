@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Curtis Institute of Music</title>
+<link rel="shortcut icon" type="image/png" href="/favicon.png" />
+<link rel="stylesheet" type="text/css" href="/resources/css/home.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/listmenu_h.css" />
+<!--[if IE6]>
+<link rel="stylesheet" type="text/css" href="/resources/css/ie6.css" />
+<![endif]-->
+<!--[if IE7]>
+<link rel="stylesheet" type="text/css" href="/resources/css/ie7.css" />
+<![endif]-->
+<!--[if IE]>
+<link rel="stylesheet" type="text/css" href="/resources/css/ie.css" />
+<![endif]-->
+<script type="text/javascript" src="/resources/scripts/fsmenu.js"></script>
+<script type="text/javascript" src="/resources/scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/resources/scripts/jquery-ui-1.7.1.custom.min.js"></script>
+<script type="text/javascript" src="/resources/scripts/jquery.innerfade.js"></script>
+<script src='https://instantencore.com/m/js/moweb.js' type='text/javascript'></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/generic.css" />
+</head>
+<body>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(document).ready(function(){
+$('a').each(function(){
+var externalhost = $(this).attr('href');
+if (externalhost){
+externalhost = externalhost.toString();
+if (externalhost.indexOf('http') == 0 || externalhost.indexOf('ftp') == 0) {
+externalhost = externalhost.replace(/http:\/\//i, '').replace(/https:\/\//i, '').replace(/ftp:\/\//i, '').split('/')[0];
+if ($.inArray(externalhost, 'www.curtis.edu,www.curtis.edu,curtis.edu,216.158.58.59,commonroom.curtis.edu,204.75.178.16,192.168.1.150'.split(',')) == -1) {
+$(this).attr('target', '_blank');
+}
+}
+}
+});
+});
+//--><!]]>
+</script>
+<div align="center">
+<div class="container">
+<div class="wrapper">
+<div class="leftpanel">
+<script src="/resources/scripts/swfobject_modified.js" type="text/javascript"></script>
+<div class="logoholder">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="203" height="246" id="flashlogo" title="Logo">
+<param name="movie" value="/resources/media/logo_piano.swf" />
+<param name="quality" value="high" />
+<param name="wmode" value="opaque" />
+<param name="swfversion" value="8.0.35.0" />
+<!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="/resources/media/logo_piano.swf" width="203" height="246">
+<!--<![endif]-->
+<param name="quality" value="high" />
+<param name="wmode" value="opaque" />
+<param name="swfversion" value="8.0.35.0" />
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+swfobject.registerObject("flashlogo");
+//--><!]]>
+</script>
+<div class="eventcal">
+<div class="cal">
+<div></div>
+<div class="caltitle">Events</div>
+<div class="calendar">
+<div class="calcontrols">
+<div class="calprev">&lt;</div>
+<div class="calmonthyear">
+<span class="calmonth"></span><span class="calyear"></span>
+</div>
+<div class="calnext">&gt;</div>
+</div>
+<div class="caldays">
+<span>S</span><span>M</span><span>T</span><span>W</span><span>TH</span><span>F</span><span>S</span>
+</div>
+<div class="caldates">
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$('<img>').attr('src', '/resources/images/design/loader.gif');
+$('<img>').attr('src', '/resources/images/design/bg_eventspopup_top.png');
+$('<img>').attr('src', '/resources/images/design/bg_eventspopup_bottom.png');
+var currentyear = new Date().getFullYear();
+var currentmonth = new Date().getMonth();
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+$(document).ready(function(){
+$('<img>').attr('src', '/resources/images/design/glow_pink.png');
+$('.caltoggle').click(function(){
+$('.calendar:visible').slideUp(function(){
+$('.caltoggle').text('Open Calendar');
+});
+$('.calendar:hidden').slideDown(function(){
+$('.caltoggle').text('Close Calendar');
+});
+});
+$('.calprev, .calnext').mouseover(function(){$(this).css('color', '#FFF');}).mouseout(function(){$(this).css('color', '');});
+$('.calprev').click(function(){
+$('.caldates').hide().clone().prependTo('.cal').addClass('caldatescopy').removeClass('caldates').show().effect('slide', {direction: 'right', mode: 'hide'}, 500, function(){$(this).remove();});
+generateMonth(new Date(currentyear, currentmonth-1, 1).getFullYear(), new Date(currentyear, currentmonth-1, 1).getMonth());
+$('.caldates').effect('slide', {direction: 'left', mode: 'show'}, 500);
+});
+$('.calnext').click(function(){
+$('.caldates').hide().clone().prependTo('.cal').addClass('caldatescopy').removeClass('caldates').show().effect('slide', {direction: 'left', mode: 'hide'}, 500, function(){$(this).remove();});
+generateMonth(new Date(currentyear, currentmonth+1, 1).getFullYear(), new Date(currentyear, currentmonth+1, 1).getMonth());
+$('.caldates').effect('slide', {direction: 'right', mode: 'show'}, 500);
+});
+generateMonth(currentyear, currentmonth);
+});
+function generateMonth(y, m) {
+var monthstring = '';
+currentyear = y;
+currentmonth = m;
+for (i = 1; i <= new Date(y, m, 1).getDay(); i++)
+monthstring = monthstring + '<span></span>';
+for (i = 1; i <= new Date(y, m+1, 0).getDate(); i++)
+monthstring = monthstring + '<span id="' + (y*10000 + (m+1)*100 + i) + '">' + i + '</span>';
+$('.caldates').html(monthstring);
+$('.calyear').text(y);
+$('.calmonth').text(months[m]);
+$('.caldates span[id=' + (new Date().getFullYear()*10000 + (new Date().getMonth()+1)*100 + new Date().getDate()) + ']').addClass('caltoday');
+$('.caltoday').mouseover(function(){$(this).addClass('caltodayhover');}).mouseout(function(){$(this).removeClass('caltodayhover');});
+if(!$('#' + (y*100 + (m+1)))[0]) {
+$('.calcontrols').addClass('calloader');
+$.getJSON('/components/events.cfc?method=GenerateMiniCalendarEvents&jsonpcallback=?', {intyear: y, intmonth: m+1}, function(data) {
+$('.eventcal').append($.trim(data));
+$('#' + (y*100 + (m+1)) + ' .eventpopup').mouseover(function(){
+$(this).addClass('activepopup');
+}).mouseout(function(){
+$(this).removeClass('activepopup');
+setTimeout('hidePopup(' + $(this).attr('date') + ')', 200);
+});
+$('.calcontrols').removeClass('calloader');
+addEvents(y, m);
+});
+}
+addEvents(y, m);
+}
+function addEvents(y, m){
+$('#' + (y*100 + (m+1))).children('.eventpopup').each(function(i){
+var cell = $('.caldates #'+$(this).attr('date')), caltoday = '';
+var date = $(cell).html();
+if ($(cell).hasClass('caltoday')) caltoday = ' caltoday';
+$(cell).replaceWith('<a href="/performances/?&amp;performancedate='+$(this).attr('date')+'" id="'+$(this).attr('date')+'" class="caleventdate'+caltoday+'">'+date+'</a>');
+});
+$('.caleventdate').mouseover(function(){
+$(this).addClass('caleventdatehover');
+$('.eventpopup[date=' + $(this).attr('id') + ']').addClass('activepopup');
+$('.eventpopup[date=' + $(this).attr('id') + ']:hidden').css({'zIndex': 20, top: ($(this).position().top-$('.eventpopup[date=' + $(this).attr('id') + ']').height()+33)+'px', left: ($(this).position().left+38)+'px'}).fadeIn(200);
+//$('.eventpopup[date=' + $(this).attr('id') + ']:hidden').css({'zIndex': 20, top: ($('.caldates').position().top+138-$('.eventpopup[date=' + $(this).attr('id') + ']').height())+'px', left: ($('.caldates').position().left+160)+'px'}).fadeIn(200);
+}).mouseout(function(){
+$('.eventpopup[date=' + $(this).attr('id') + ']').removeClass('activepopup');
+setTimeout('hidePopup(' + $(this).attr('id') + ')', 200);
+});
+}
+function hidePopup(el) {
+if (!$('.eventpopup[date=' + el + ']').hasClass('activepopup')) {
+$('.eventpopup[date=' + el + ']').css('zIndex', 10).fadeOut(100, function(){
+$('#'+el).removeClass('caleventdatehover');
+});
+}
+}
+//--><!]]>
+</script>
+<!--<iframe src="/caltest.cfm" width="1" height="1"/> -->
+</div>
+<div class="rightpanel">
+<div class="header">
+<form name="frmsearch" class="searchform" method="post" action="/search.cfm">
+<input type="text" name="txtsearch" class="searchfield" value="Search This Site" />
+<input type="submit" name="btnsearch" class="searchbutton" value="Go" />
+</form>
+<div class="headerlinks">
+<a href="http://commonroom.curtis.edu/Page.aspx?pid=312">Mailing List</a>
+&nbsp;&nbsp;&nbsp;
+<a href="/about-curtis/press-media-room/">Press Room</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://commonroom.curtis.edu/SSLPage.aspx?pid=186">Log In/Out</a>
+&nbsp;&nbsp;&nbsp;
+<a href="/global/contact-find-us/">Contact/Find Us</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://commonroom.curtis.edu/Page.aspx?pid=195" id="carticon">&nbsp;</a>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(document).ready(function(){
+$('<img>').attr('src', '/resources/images/design/icon_cart_hover.png');
+$('input[name=txtsearch]').focus(function(){
+if ($(this).val() == 'Search This Site')
+$(this).val('');
+});
+$('input[name=txtsearch]').blur(function(){
+if ($(this).val() == '')
+$(this).val('Search This Site');
+});
+$('.fontresizer a').click(function(){
+if ($(this).hasClass('size_small'))
+$('.content, .content td, h1, h2, h3').css('fontSize', '10px');
+if ($(this).hasClass('size_normal'))
+$('.content, .content td, h1, h2, h3').css('fontSize', '');
+if ($(this).hasClass('size_large'))
+$('.content, .content td, h1, h2, h3').css('fontSize', '14px');
+$(this).addClass('current').siblings().removeClass('current');
+return false;
+});
+});
+//--><!]]>
+</script>
+<div class="mainnav">
+<ul class="menulist" id="listMenuRoot">
+<li class="navitem_1">
+<a href="/about-curtis/" title="About Curtis" class="section">About Curtis</a>
+<ul>
+<li class="navitem_1">
+<a href="/about-curtis/curtis-education/" title="A Curtis Education" class="section">A Curtis Education</a>
+</li>
+<li class="navitem_2">
+<a href="/about-curtis/listen/" title="Watch and Listen" class="section">Watch and Listen</a>
+</li>
+<li class="navitem_3">
+<a href="/about-curtis/history/" title="History" class="section">History</a>
+</li>
+<li class="navitem_4">
+<a href="/about-curtis/administration/roberto-diaz-president/" title="Administration" class="section">Administration</a>
+</li>
+<li class="navitem_5">
+<a href="/about-curtis/facilities/" title="Facilities" class="section">Facilities</a>
+</li>
+<li class="navitem_6">
+<a href="/about-curtis/press-media-room/" title="Press/Media Room" class="section">Press/Media Room</a>
+</li>
+<li class="navitem_7">
+<a href="/about-curtis/festival/" title="Appassionato" class="section">Appassionato</a>
+</li>
+</ul>
+</li>
+<li class="navitem_2">
+<a href="/admissions/" title="Admissions" class="section">Admissions</a>
+<ul>
+<li class="navitem_1">
+<a href="/admissions/audition/" title="Audition" class="section">Audition</a>
+</li>
+<li class="navitem_2">
+<a href="/admissions/applications/" title="Apply" class="section">Apply</a>
+</li>
+<li class="navitem_3">
+<a href="/admissions/curtis-curriculum/" title="The Curtis Curriculum" class="section">The Curtis Curriculum</a>
+</li>
+<li class="navitem_4">
+<a href="/admissions/financial-assistance/" title="Financial Assistance" class="section">Financial Assistance</a>
+</li>
+<li class="navitem_5">
+<a href="/admissions/student-expenses/" title="Student Expenses" class="section">Student Expenses</a>
+</li>
+<li class="navitem_6">
+<a href="/admissions/housing-2/" title="Housing" class="section">Housing</a>
+</li>
+<li class="navitem_7">
+<a href="http://summerprograms.curtis.edu/" target="_blank" title="Summer Programs" class="section">Summer Programs</a>
+</li>
+</ul>
+</li>
+<li class="navitem_3">
+<a href="/students/" title="Students" class="section">Students</a>
+<ul>
+<li class="navitem_1">
+<a href="/students/life-at-curtis/" title="Life at Curtis" class="section">Life at Curtis</a>
+</li>
+<li class="navitem_2">
+<a href="/students/learning-performing/" title="Learning and Performing" class="section">Learning and Performing</a>
+</li>
+<li class="navitem_3">
+<a href="/students/campus-resources/" title="Campus Resources" class="section">Campus Resources</a>
+</li>
+<li class="navitem_4">
+<a href="/students/policies-procedures/" title="Policies and Procedures" class="section">Policies and Procedures</a>
+</li>
+<li class="navitem_5">
+<a href="/students/parents/" title="Parents" class="section">Parents</a>
+</li>
+</ul>
+</li>
+<li class="navitem_4">
+<a href="/faculty/" title="Faculty" class="section">Faculty</a>
+<ul>
+<li class="navitem_1">
+<a href="/faculty/faculty-bios-by-name/" title="Faculty Bios by Name" class="section">Faculty Bios by Name</a>
+</li>
+<li class="navitem_2">
+<a href="/faculty/faculty-bios-by-discipline/" title="Faculty Bios by Discipline" class="section">Faculty Bios by Discipline</a>
+</li>
+<li class="navitem_3">
+<a href="/faculty/visiting-artists/" title="Visiting Artists" class="section">Visiting Artists</a>
+</li>
+<li class="navitem_4">
+<a href="/faculty/visiting-lecturers/" title="Visiting Lecturers" class="section">Visiting Lecturers</a>
+</li>
+</ul>
+</li>
+<li class="navitem_5">
+<a href="/alumni/" title="Alumni" class="section">Alumni</a>
+<ul>
+<li class="navitem_1">
+<a href="/alumni/about-alumni/" title="About Alumni" class="section">About Alumni</a>
+</li>
+<li class="navitem_2">
+<a href="/alumni/alumni-resources/" title="Alumni Resources" class="section">Alumni Resources</a>
+</li>
+<li class="navitem_3">
+<a href="/alumni/give-back-to-curtis/" title="Alumni Support" class="section">Alumni Support</a>
+</li>
+<li class="navitem_4">
+<a href="/alumni/alumni-council/" title="Alumni Council" class="section">Alumni Council</a>
+</li>
+<li class="navitem_5">
+<a href="/alumni/alumni-events/" title="Alumni Gatherings" class="section">Alumni Gatherings</a>
+</li>
+<li class="navitem_6">
+<a href="/alumni/alumni-reunion-2011/" title="Alumni Reunion" class="section">Alumni Reunion</a>
+</li>
+</ul>
+</li>
+<li class="navitem_6">
+<a href="/performances/" title="Performances" class="section">Performances</a>
+<ul>
+<li class="navitem_1">
+<a href="/performances/student-recital-series/" title="Student Recital Series" class="section">Student Recital Series</a>
+</li>
+<li class="navitem_2">
+<a href="/performances/curtis-symphony-orchestra/" title="Curtis Symphony Orchestra" class="section">Curtis Symphony Orchestra</a>
+</li>
+<li class="navitem_3">
+<a href="/performances/curtis-opera-theatre/" title="Curtis Opera Theatre" class="section">Curtis Opera Theatre</a>
+</li>
+<li class="navitem_4">
+<a href="/performances/alumni-recital-series/" title="Alumni Recital Series" class="section">Alumni Recital Series</a>
+</li>
+<li class="navitem_5">
+<a href="/performances/family-concerts/" title="Wells Fargo Family Concerts" class="section">Wells Fargo Family Concerts</a>
+</li>
+<li class="navitem_6">
+<a href="/performances/curtis-on-tour/" title="Curtis On Tour" class="section">Curtis On Tour</a>
+</li>
+<li class="navitem_7">
+<a href="/performances/more-performances/" title="More Performances" class="section">More Performances</a>
+</li>
+</ul>
+</li>
+<li class="navitem_7">
+<a href="/giving/" title="Giving" class="section">Giving</a>
+<ul>
+<li class="navitem_1">
+<a href="/giving/ways-to-give/" title="How You Can Help" class="section">How You Can Help</a>
+</li>
+<li class="navitem_2">
+<a href="/giving/gift-planning/" title="Planned Giving" class="section">Planned Giving</a>
+</li>
+<li class="navitem_3">
+<a href="/giving/special-events/" title="Special Events" class="section">Special Events</a>
+</li>
+<li class="navitem_4">
+<a href="/giving/regional-programs/" title="Regional Programs" class="section">Regional Programs</a>
+</li>
+<li class="navitem_5">
+<a href="/giving/fund-raising-staff/" title="Fundraising Staff" class="section">Fundraising Staff</a>
+</li>
+<li class="navitem_6">
+<a href="https://commonroom.curtis.edu/SSLPage.aspx?pid=318" target="_blank" title="Give Now" class="page">Give Now</a>
+</li>
+<li class="navitem_7">
+<a href="/giving/annual-report/" title="2010–11 Annual Report" class="section">2010–11 Annual Report</a>
+</li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var listMenu = new FSMenu('listMenu', true, 'display', 'block', 'none');
+listMenu.switchDelay = 0;
+listMenu.hideDelay = 0;
+listMenu.animInSpeed = 0;
+$(document).ready(function(){
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_111_top.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_112_top.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_113_top.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_111_middle.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_112_middle.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_113_middle.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_111_bottom.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_112_bottom.png');
+$('<img>').attr('src', '/resources/images/design/shadow_mainnav_113_bottom.png');
+$('.menulist ul').each(function(i){
+$(this).prepend('<li class="navdropdowntop"><span></span></li>').append('<li class="navdropdownbottom"><span></span></li>');
+});
+listMenu.activateMenu('listMenuRoot');
+});
+//--><!]]>
+</script>
+</div>
+<div class="primaryfeature">
+<div class="shadow"></div>
+<div class="primaryfeaturecontent">
+<a href="/updates" style="display:none;">
+<img src="/resources/uploads/banners/CapuletiCance3.jpg" alt="Capuleti Cancelled" />
+</a>
+<a href="http://www.curtis.edu/performances/?&performancedate=20120509&utm_campaign=prism%20quartet.5.9.2012&utm_medium=banner&utm_source=curtis.edu&utm_content=image" style="display:none;">
+<img src="/resources/uploads/banners/Prism_May9.2012.jpg" alt="Prism on May 9" />
+</a>
+<a href="http://www.curtis.edu/giving/special-events/gateway-to-europe-appassionato-season-finale-at-mann/?utm_campaign=gateway.5.11.2012&utm_medium=banner&utm_source=curtis.edu&utm_content=image" style="display:none;">
+<img src="/resources/uploads/banners/Gateway_May11.2012.jpg" alt="Gateway to Europe" />
+</a>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(document).ready(function(){
+$('.primaryfeaturecontent').innerfade({
+animationtype: 'fade',
+speed: 3000,
+timeout: 8000,
+type: 'sequence',
+containerheight: '320px'
+});
+});
+//--><!]]>
+</script>
+<div class="secondaryfeature">
+<div class="featurebuttons">
+<div id="listen" class="fb_large">
+<div class="shadow"></div>
+<div class="hover" style="background:url(/resources/uploads/featureimages/listen_a.jpg) left top no-repeat;"><span class="fb_title">Watch and Listen</span></div>
+<a class="normal" href="http://www.curtis.edu/about-curtis/listen/">
+<span class="fb_title">Watch and Listen</span>
+<span class="fb_text">Experience “The Curtis Factor” plus videos and music. <b>More ...</b></span>
+</a>
+</div>
+<div id="watch" class="fb_large">
+<div class="shadow"></div>
+<div class="hover" style="background:url(/resources/uploads/featureimages/bow210x90.jpg) left top no-repeat;"><span class="fb_title">CANCELLATIONS</span></div>
+<a class="normal" href="http://www.curtis.edu/updates">
+<span class="fb_title">CANCELLATIONS</span>
+<span class="fb_text">Tonight and tomorrow afternoons performances are cancelled. <b>Please Read More ...</b></span>
+</a>
+</div>
+<div id="shop" class="fb_large">
+<div class="shadow"></div>
+<div class="hover" style="background:url(/resources/uploads/featureimages/app210x901.jpg) left top no-repeat;"><span class="fb_title">Appassionato</span></div>
+<a class="normal" href="http://www.curtis.edu/giving/special-events/party-in-park.html">
+<span class="fb_title">Appassionato</span>
+<span class="fb_text">Join us at the Party in the Park gala May 11! <b>More ...</b></span>
+</a>
+</div>
+<div id="donate" class="fb_medium">
+<div class="shadow"></div>
+<div class="hover"><span class="fb_title">Donate</span></div>
+<a class="normal" href="https://commonroom.curtis.edu/SSLPage.aspx?pid=315">
+<span class="fb_title">Donate</span>
+</a>
+</div>
+<div id="tickets" class="fb_medium">
+<div class="shadow"></div>
+<div class="hover"><span class="fb_title">Tickets</span></div>
+<a class="normal" href="http://www.curtis.edu/updates">
+<span class="fb_title">Tickets</span>
+</a>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(document).ready(function(){
+$('.featurebuttons .normal').mouseover(function(){
+$(this).parent().children('.normal:first').stop().animate({opacity: 0},{duration:500});
+}).mouseout(function(){
+$(this).parent().children('.normal:first').stop().animate({opacity: 1},{duration:500});
+});
+animateMarquee();
+});
+function animateMarquee() {
+$('.marquee span').animate({'marginLeft': '-' + $('.marquee span').width() + 'px'}, $('.marquee span').width() * 50, 'linear', function(){
+$(this).css('marginLeft', $(this).parent().width() + 'px');
+animateMarquee();
+});
+}
+//--><!]]>
+</script>
+<div class="news">
+<a href="/about-curtis/press-media-room/" class="newstitle">In The News</a>
+<div class="newsscrollwindow">
+<div class="newsscroller">
+<a href="/about-curtis/press-media-room/news-archive/2011/curtis-grieves-tragic-loss-of-student.html" class="newsitem odd">Curtis Grieves the Tragic Loss of a Student</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/curtis-opera-theatre-presents-bellinis-i-capuleti-e-i-montecchi-may-3-6.html" class="newsitem">Curtis Opera Theatre presents Bellini's 'I Capuleti e i Montecchi' May 3-6</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/prism-quartet-concludes-curtis-residency-with-recital-of-six-world-premieres-on-may-9.html" class="newsitem odd">PRISM Quartet Concludes Curtis Residency with Recital of Six World Premieres on May 9</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/contralto-meredith-arwady-04-performs-april-29-on-alumni-recital-series.html" class="newsitem">Contralto Meredith Arwady ('04) Performs April 29 on the Alumni Recital Series</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/robert-spano-conducts-curtis-symphony-orchestra-at-kimmel-center-april-23.html" class="newsitem odd">Robert Spano Conducts the Curtis Symphony Orchestra at the Kimmel Center April 23</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/joseph-silverstein-celebrates-80th-birthday-with-faculty-recital-april-15.html" class="newsitem">Joseph Silverstein Celebrates 80th Birthday with Faculty Recital April 15</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/curtis-opera-theatre-performs-hans-werner-henzes-elegy-for-young-lovers-march-14-16-18.html" class="newsitem odd">Curtis Opera Theatre Performs Hans Werner Henze's Elegy for Young Lovers March 14, 16, and 18</a>
+<a href="/about-curtis/press-media-room/news-archive/2011/cellist-gary-hoffman-concludes-curtis-residency-with-free-performance-march-7.html" class="newsitem">Cellist Gary Hoffman Concludes Curtis Residency with Free Performance March 7</a>
+</div>
+</div>
+<div class="newscontrols">
+<a href="#up">&Lambda;</a>&nbsp;&nbsp;<a href="#down">V</a>
+</div>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(document).ready(function(){
+$('.news').mouseover(function(){
+$('.newstitle').html('See All News &gt;&gt;');
+}).mouseout(function(){
+$('.newstitle').html('In The News');
+});
+$('.newscontrols a[href=#up]').mousedown(function(){
+$('.newsscroller').animate({marginTop: '0px'}, 15 * (-1 * parseInt($('.newsscroller').css('marginTop').replace(/px/gi, ''))), 'linear');
+});
+$('.newscontrols a[href=#down]').mousedown(function(){
+$('.newsscroller').animate({marginTop: '-' + ($('.newsscroller').height()-$('.newsscrollwindow').height()) + 'px'}, 15 * ($('.newsscroller').height() - $('.newsscrollwindow').height() + parseInt($('.newsscroller').css('marginTop').replace(/px/gi, ''))), 'linear');
+});
+$('.newscontrols a').click(function(){
+return false;
+}).mouseup(function(){
+$('.newsscroller').stop();
+}).mouseout(function(){
+$('.newsscroller').stop();
+});
+});
+//--><!]]>
+</script>
+<div class="quicklinks">
+<div>
+<span>Quicklinks</span>
+<a href="/performances/">This Week at Curtis</a>
+<a href="http://www.facebook.com/CurtisInstitute">Curtis on Facebook</a>
+<a href="http://twitter.com/CurtisInstitute">Curtis on Twitter</a>
+<a href="http://www.philly.com/philly/entertainment/131474208.html#cSTO">The Curtis Factor in the Philadelphia Inquirer</a>
+</div>
+</div>
+</div>
+<div class="footer">
+<a href="/global/privacy-policy/">Privacy Policy</a>
+&nbsp;&nbsp;&nbsp;
+<a href="/global/store/">Store</a>
+&nbsp;&nbsp;&nbsp;
+<a href="/sitemap.cfm">Site Map</a>
+&nbsp;&nbsp;&nbsp;
+<a href="https://commonroom.curtis.edu/intranet">Intranet</a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://commonroom.curtis.edu/CurtisCalendar/default.aspx?type=curtisprivate">Intranet Calendar</a>
+&nbsp;&nbsp;&nbsp;
+<a id='mowebLink' onclick='InstantEncoreMobileWeb.viewMobile()'>&nbsp;&nbsp;&nbsp;View Mobile Site</a>
+</div>
+<!--<script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js#pub=xa-4aca2cd061c1d3c4"></script>-->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var addthis_config = {
+services_exclude: 'print',
+services_compact: 'facebook,twitter,mailto,gmail,wordpress,bleetbox,myspace,pdfmyurl,favorites,googletranslate,more'
+}
+//--><!]]>
+</script>
+</div>
+</div>
+</div>
+</div>
+<div id="page_loader">Loading...</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var cal_link_clicked = false;
+$('<img>').attr('src', '/resources/images/design/loader_page.gif');
+window.onbeforeunload = function(){
+window.setTimeout('showLoader()', 1000);
+};
+function showLoader() {
+if (!cal_link_clicked)
+$('#page_loader').show();
+}
+$('a[href^=javascript]').each(function(){
+$(this).attr('href', eval($(this).attr('href').replace(/javascript:location.href=/i, '').replace("+'?'", ''))).attr('target', '_blank').click(function(){
+if($.browser.msie) {
+window.open($(this).attr('href'), 'mailwindow', 'width=0,height=0');
+return false;
+}
+});
+});
+$('a').click(function(){
+if ($(this).hasClass('performancebutton') || $(this).attr('href').indexOf('.doc') != -1)
+cal_link_clicked = true;
+else
+cal_link_clicked = false;
+});
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://s3.amazonaws.com/new.cetrk.com/pages/scripts/0002/9488.js"></script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-1805263-48']);
+_gaq.push(['_setDomainName', '.curtis.edu']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</body>
+</html>

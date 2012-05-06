@@ -1,0 +1,239 @@
+
+
+		
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+	    <title>myCampus Secure Login</title>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script type='text/javascript' src='/cas/js/jquery.js'></script>
+		<script type='text/javascript' src='/cas/js/jquery.simplemodal.js'></script>
+		<script type='text/javascript' src='/cas/js/osx.js'></script>
+	    <style type="text/css" media="screen">@import 'css/cas.css'/**/;</style>
+		<link type='text/css' href='/cas/css/osx.css' rel='stylesheet' media='screen' />
+	    <!--[if gte IE 6]><style type="text/css" media="screen">@import 'css/ie_cas.css';</style><![endif]-->
+	    <script type="text/javascript" src="js/common_rosters.js"></script>
+		<script type="text/javascript">
+			(function () {
+					var e = 'abbr article aside audio bb canvas datagrid datalist details dialog figure footer header hgroup mark menu meter nav output progress section time video'.split(' ');
+
+					i = e.length;
+
+					while (i--) {
+						document.createElement(e[i]);
+					}
+				}
+			)();
+		</script>
+
+<script type="text/javascript">/*jQuery(function(){
+jQuery("head").append('<style type="text/css">#bg{width:100%; height:100%; position:absolute; z-index:1;left:0; top:0;}.cas-logo{position:relative; z-index:3;}footer{z-index:5;left:0;} #content{position:relative;z-index:2;}</style>');jQuery("body").prepend('<img src="/cas/images/cas-bg.jpg" id="bg" alt="" />');
+});*/</script>
+
+
+<script language="JavaScript" type="text/javascript">
+function newCookie(name,value,days) {
+
+ var days = 365;   // the number at the left reflects the number of days for the cookie to last
+
+                 // modify it according to your needs
+
+ if (days) {
+
+   var date = new Date();
+
+   date.setTime(date.getTime()+(days*24*60*60*1000));
+
+   var expires = "; expires="+date.toGMTString(); }
+
+   else var expires = "";
+
+   document.cookie = name+"="+value+expires+"; path=/"; }
+
+ 
+
+function readCookie(name) {
+
+   var nameSG = name + "=";
+
+   var nuller = '';
+
+  if (document.cookie.indexOf(nameSG) == -1)
+
+    return nuller;
+
+ 
+
+   var ca = document.cookie.split(';');
+
+  for(var i=0; i<ca.length; i++) {
+
+    var c = ca[i];
+
+    while (c.charAt(0)==' ') c = c.substring(1,c.length);
+
+  if (c.indexOf(nameSG) == 0) return c.substring(nameSG.length,c.length); }
+
+    return null; }
+
+ 
+
+function eraseCookie(name) {
+
+  newCookie(name,"",1); }
+
+
+function toMem(a) {
+
+    newCookie('username', document.form.username.value);     // add a new cookie as shown at left for every
+
+    newCookie('password', document.form.password.value);
+
+    newCookie('rememberme', document.form.rememberme.checked);   // field you wish to have the script remember
+
+}
+
+function dontRem(a){
+
+                newCookie('username', '');     // add a new cookie as shown at left for every
+
+    newCookie('password', '');
+
+    newCookie('rememberme', '');
+
+    if(a=="reset"){
+
+                document.form.username.value = '';  // Change the names of the fields at right to match the ones in your form.
+
+                document.form.password.value = '';
+
+                document.form.rememberme.checked = '';
+    }
+}
+//-->
+
+</script>
+<!--[if IE]> 
+
+<link rel="stylesheet" type="text/css" href="css/cas-ie.css" />
+<![endif]-->
+	    
+	</head>
+
+	<body id="cas" onload="init();">
+   <div class="cas-logo"></div>
+	<div id="content">
+    <div id="help">Need Help? Call 229.430.4909</div>
+    
+
+	
+
+			<form id="fm1" name="form" class="fm-v clearfix" action="/cas/login;jsessionid=EF316D3118C2AFB617EABA13F526CCD0.node2?service=https%3A%2F%2Fmycampus.asurams.edu%2Fc%2Fportal%2Flogin" method="post" onsubmit="if (this.rememberme.checked) toMem(this);else dontRem(this);">
+			    
+                <div class="box" id="login" >
+                <!-- Congratulations on bringing CAS online!  The default authentication handler authenticates where usernames equal passwords: go ahead, try it out.  
+                    <h2>Enter your NetID and Password</h2> -->
+                    <div class="row">
+                        <label for="username">Login:</label>
+						
+							
+						
+						<input id="username" name="username" class="required" tabindex="1" accesskey="n" type="text" value="" size="25" autocomplete="false"/>
+						
+                    </div>
+                    <div class="row">
+                        <label for="password">Password:</label>
+						
+						
+						<input id="password" name="password" class="required" tabindex="2" accesskey="p" type="password" value="" size="25" autocomplete="off"/>
+                    </div>
+                   <!-- <div class="row check">
+                        <input id="warn" name="warn" value="true" tabindex="3" accesskey="w" type="checkbox" />
+                        <label for="warn"><span class="accesskey">W</span>arn me before logging me into other sites.</label>
+                    </div> -->
+                    <div class="row btn-row">
+						<input type="hidden" name="lt" value="_c9558F704-1C3E-DB95-4B5B-DE98F6B442CA_kD5765C21-54AF-9E02-EBA6-FB4E41629384" />
+						<input type="hidden" name="_eventId" value="submit" />
+						<span class="rem-me"><input type="checkbox" tabindex="3" name="rememberme" id="rememberme"> </span><span class="remember-me"><label for="rememberme">Remember Me</label> </span>
+                     <span class="login-btn">    <input class="btn-submit" name="submit" accesskey="l" value="LOGIN" tabindex="4" type="submit" /></span>
+						
+								<input class="btn-reset" name="reset" accesskey="c" value="CLEAR" tabindex="5" type="reset" />
+						
+
+
+                        
+                    </div>
+                </div>
+               
+	     
+        	</form>
+<div id="tos">
+<!-- <a href="#" title="Reset Password">Reset Password</a> | <a href="#" title="Forgot Password">Forgot Password</a> <br />
+<a href="#" title="First Time Users">First Time Users </a>-->
+
+<!-- <a id="install-mycampus" href="#" class="osx"><span>Install myCampus Mobile App</span>
+ on your iPhone, Blackberry, Android or Windows Mobile device.</a> -->
+
+<a href="/cas/images/iphone.png" id="mycampus-mobile" rel="lyteshow[mobile]" title="Mobile Websites"><span>myCampus Mobile:</span>  To Access myCampus from your smartphone, on your smartphone browser, go to mycampus.asurams.edu. </a> 
+<a href="/cas/images/blackberry.png" id="mycampus-mobile" rel="lyteshow[mobile]" title="Mobile Websites"></a>
+<a href="/cas/images/android.png" id="mycampus-mobile" rel="lyteshow[mobile]" title="Mobile Websites"></a>
+<a href="/cas/images/ipad.png" id="mycampus-mobile" rel="lyteshow[mobile]" title="Mobile Websites"></a>
+<br />
+By signing onto this portal, you agree to abide by its <a href="#">Terms of Use</a>. Violations could lead to restriction of portal privileges and/or disciplinary action. </div>
+
+<div class="footer-logo"><a href="https://www.campuseai.org">Link to CampusEAI</a></div>
+</div>
+
+</div>
+
+
+
+<footer class="toggle-footer">
+ <div class="fwrap">
+    <div class="fl">
+<a href="#">Legal Disclaimer</a> | <a href="#">Privacy Policy</a> | <a href="#">License Terms</a>&nbsp;
+</div><span class="copyright">CampusEAI Consortium &copy; 2011 
+ </span>
+    <div class="fr"> <a href="https://www.campuseai.org/"> <img border="0" alt="in partnership with Campus EAI" src="/mycampus-v7-theme/images/custom/campusEAI.gif"> </a> </div><div class="cl"></div></div></footer>
+
+ <script type="text/javascript" language="javascript">
+
+<!--
+
+document.form.username.value = readCookie("username");  
+
+document.form.password.value = readCookie("password");
+
+document.form.rememberme.checked = readCookie("rememberme");
+
+//-->
+
+</script>
+
+
+<div id="osx-modal-content">
+			<div id="osx-modal-title">Download myCampus App</div>
+			<div class="close"><a href="#" class="simplemodal-close">x</a></div>
+            
+			<div id="osx-modal-data">
+				<h2>Install myCampus Mobile App</h2>
+<p> on your iPhone, Blackberry, Android or Windows Mobile device. <button class="">Click here to download</button></p>
+                <div class="iphone"></div>
+                <p><button class="simplemodal-close">Close</button> <span>(or press ESC or click the overlay)</span></p>
+			</div>
+            
+</div>
+
+
+		
+	
+
+ 
+</body>
+</html>

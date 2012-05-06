@@ -1,0 +1,464 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	
+	
+	
+<link href="/etc/designs/ccsf.css" rel="stylesheet" type="text/css">
+
+<head>
+    
+    
+    <title>CCSF Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="keywords" content="">
+    <link title="CCSF Global Style" rel="stylesheet" type="text/css" href="/common/css/main.css"/>
+    <!--[if IE 7]><link title="CCSF Global IE 7 Style" rel="stylesheet" type="text/css" href="/common/css/main-ie7.css"  /><![endif]-->
+    <!--[if IE 6]><link title="CCSF Global IE 6 Style" rel="stylesheet" type="text/css" href="/common/css/main-ie6.css"  /><![endif]-->
+    <style type="text/css">img, input { behavior: url("/common/images/iepngfix.htc") }</style>
+    <script type="text/javascript" src="/common/js/swfobject.js"></script>
+    <script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
+    <script type="text/javascript">
+        swfobject.registerObject("flash", "9.0.0", "/common/swfobject/expressInstall.swf");
+    </script> 
+    <script type="text/javascript" src="/common/js/jquery.js"></script>
+    <script type="text/javascript" src="/common/js/dropshadow.js"></script>   
+    <script type="text/javascript" src="/common/js/browserdetect.js"></script>
+    <script type="text/javascript" src="/common/js/text_manip.js"></script> 
+    <script type="text/javascript" src="/common/js/menu.js"></script>
+
+    <script type="text/javascript">
+    
+    var mainbodyfont;
+    var fontsize;
+ 
+    function set_font(size)
+    {
+        mainbodyfont = new fontSize(document.getElementById('accessibility-text-size'), size);
+        createCookie('ccsf_accessibility_fontSize', size, 365);
+        updateFontSize(size)
+    }
+ 
+    function getMainFont() {
+        fontsize = readCookie('ccsf_accessibility_fontSize');
+        if (fontsize != undefined || fontsize != null) {
+            fontsize = fontsize.replace(/px/, "");
+            //if font size is the smallest set button to inactive
+        } else {
+            fontsize = 12;
+        }       
+        mainbodyfont = new fontSize(document.getElementById('accessibility-text-size'), fontsize);
+        updateFontSize(fontsize)        
+    }
+ 
+    function updateFontSize(size) {
+        //Reset all fontsize buttons to normal
+        document.getElementById('fs1').className = 'inactive';
+        document.getElementById('fs2').className = 'inactive';
+        document.getElementById('fs3').className = 'inactive';      
+        
+        //If fontsize is 12 highlight small button
+        if (size == 12) {
+            document.getElementById('fs1').className = 'active';
+        }
+        if (size == 14) {
+            document.getElementById('fs2').className = 'active';
+        }
+        if (size == 16) {
+            document.getElementById('fs3').className = 'active';
+        }   
+    }
+    
+    
+    $(document).ready(function() {
+        var start = document.getElementById("droptopnav");
+        var menus = [];
+        for (var i = 0; i < start.childNodes.length; ++i) {
+            if (start.childNodes[i].tagName == "LI") {
+                menus[menus.length - 1] = new Menu(start.childNodes[i], "DIV", "dropshadowcontainer");
+            }
+        }
+    });
+    </script>
+
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-2983236-1");
+            pageTracker._trackPageview();
+        } catch(err) {
+        }
+    </script>
+</head> 
+    
+
+	<body onload="javascript:getMainFont();"><style type="text/css">#google_translate_element a{display:none;}a.goog-logo-link img{margin-bottom:0px;display:none}div.goog-te-gadget{color:transparent!important;line-height:0;margin:0;padding:0;}select.google_translate_element{color:black;}</style><div id="google_translate_element" style="position:absolute;z-index:9999;top:6px;left:50%;width:490px;line-height:0;margin:0;padding:0;text-align:right;"></div><script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en'
+  }, 'google_translate_element');
+}
+</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		 
+		
+		
+<!-- Begin Header -->
+<div id="wrap-header">
+  <div id="header">
+
+    <!-- Begin Logo -->
+    <div id="logo"><div class="header-logo headerimage"><a href="/ccsf/en.html"><img title="CCSF Homepage" alt="CCSF Homepage" src="/content/dam/ccsf/ccsf-logo.png"></a></div>
+</div>
+
+    <!-- End Logo -->
+    <div class="wrap-right-content">
+      <!-- Begin Accessibility -->
+      <div id="accessibility">
+		<div class="accessibility">
+
+        <ul>
+          <li><a href="/ccsf/en/educational-programs/school-and-departments/school-of-behavioral-and-social-sciences/dsps/about/accessibility.html"> </a></li>
+          <li id="type-size">
+          	<span class="offset">Type Size:</span>
+            <ul>
+              <li class="first"><a href="javascript:set_font('12');" class="active" id="fs1"> </a></li>
+              <li class="second"><a href="javascript:set_font('14');" id="fs2"> </a></li>
+              <li class="third"><a href="javascript:set_font('16');" id="fs3"> </a></li>            
+            </ul>
+          </li>
+        </ul> 
+</div>
+
+      </div>
+      <!-- End Accessibility -->
+      <div class="clear"></div>
+      <!-- Begin Search Site -->
+      <div id="search-site">
+		<div class="googlemini">
+<script type="text/javascript">
+function submitSearchForm()	//validate search against empty string or default text
+{
+	var query = document.search_form.q.value;
+	query = query.replace(/^\s+|\s+$/g, '') ;
+	//alert(query);
+  	if ( (query == "") || (query == "Enter Keyword") )
+  	{ 	 
+		return false;
+	}
+	return true;
+}
+</script>
+        <div class="top-left"></div><div class="top-center"></div><div class="top-right"></div><div class="clear"></div>
+        <div class="center">      
+	      <form method="get" action="http://search.ccsf.edu/search" onsubmit="return submitSearchForm();" name="search_form">
+	      <label for="search-input" class="offset">Search Site</label><input type="text" name="q" value="" id="search-input" maxlength="256" />
+          <input type="hidden" name="pageurl" value=http://search.ccsf.edu/search id="pageurlid" /> 
+          <input type="hidden" name="start" value="0" id="pageurlid" />
+	      <script type="text/javascript">
+            document.getElementById('search-input').value = "Enter Keyword";
+            document.getElementById('search-input').hasBeenClicked = false;
+            document.getElementById('search-input').originalColor = document.getElementById('search-input').style.color;
+            document.getElementById('search-input').style.color = "#939393";
+            document.getElementById('search-input').onclick = function() { if (!document.getElementById('search-input').hasBeenClicked) { this.value = ""; document.getElementById('search-input').hasBeenClicked = true; document.getElementById('search-input').style.color = document.getElementById('search-input').originalColor; } };
+          </script>			    
+          <label for="btn-search"><input type="submit" name="btnG" id="btn-search" value="Search" alt="Search Site" title="Search Site" /></label>
+	      </form><div class="clear"></div>
+        </div>
+        <div class="clear"></div><div class="bottom-left"></div><div class="bottom-center"></div><div class="bottom-right"></div></div>
+
+      </div>
+      <!-- End Search Site -->
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="wrap-headerlinks">
+      <!-- Begin Top Links -->
+      <div id="toplinks">
+		<div class="toplinks">
+        <span class="offset">Top Links:</span>    
+        <ul>
+          <li><a href="/ccsf/en/employee-services/employee-directory.html">Employee Directory</a></li>
+          <li><a href="/ccsf/en/about-city-college/contact-us.html">Contact Us</a></li>
+          <li class="last"><a href="/ccsf/en/myccsf.html">MyCCSF</a></li>
+        </ul>  
+</div>
+
+      </div>
+      <!-- End Top Links -->
+      <!-- Begin CCSF Guide Links -->
+	<div id="guidelinks">
+      	<div class="left"></div>
+      	<div class="center">
+			<div class="guidelinks">
+          <div class="title"><strong>CCSF Guides:</strong></div>
+          <ul>
+            <li><a href="/ccsf/en/future-students.html">Future Students</a></li>
+            <li class="last"><a href="/ccsf/en/community.html">Community</a></li>
+          </ul>
+         </div>
+
+        </div>
+        <div class="right"></div>
+    </div>
+      <!-- End CCSF Guide Links -->
+    </div>
+  </div>
+
+  <div class="clear"></div>
+</div>
+
+<!-- Begin Top Navigation -->
+<div id="wrap-topnav">
+	<div class="topnav">
+  <div id="topnav">
+    <div class="left"></div>
+    <span class="offset">Main Navigation:</span>
+    <ul id="droptopnav">
+    
+    
+    
+      <li id="droptopnav1"><a href="/ccsf/en/student-services.html">Student Services</a><div class="divider"></div><div class="clear"></div>
+		<div class="dropshadowcontainer">
+		<div class="dropshadow">
+        <ul>
+	 <li> <a href="/ccsf/en/student-services/admissions-and-registration.html">Admissions & Records/Registration</a> </li>  <li> <a href="/ccsf/en/student-services/matriculation_services.html">Matriculation Services</a> </li>  <li> <a href="/ccsf/en/student-services/veterans-affairs.html">Veterans Services</a> </li>  <li> <a href="/ccsf/en/student-services/outreach-and-recruitment.html">Outreach & Recruitment</a> </li>  <li> <a href="/ccsf/en/student-services/financial-aid.html">Financial Aid</a> </li>  <li> <a href="/ccsf/en/student-services/student-counseling.html">Student Counseling</a> </li>  <li> <a href="/ccsf/en/student-services/learning-resources.html">Learning Resources</a> </li>  <li> <a href="/ccsf/en/student-services/student-activities.html">Student Activities</a> </li>  <li> <a href="/ccsf/en/student-services/student-health-services.html">Student Health Services</a> </li>  <li> <a href="/ccsf/en/student-services/student-advocacy.html">Student Advocacy</a> </li>  <li class="last"> <a href="/ccsf/en/student-services/StudentAffairs.html">Student Affairs</a> </li>        
+        </ul>		
+		</div>
+		<div class="dropshadow-bottom"></div>		
+		</div>
+      </li>
+      
+    
+    
+      <li id="droptopnav2"><a href="/ccsf/en/educational-programs.html">Educational Programs</a><div class="divider"></div><div class="clear"></div>
+		<div class="dropshadowcontainer">
+        <div class="dropshadow">
+		<ul>
+		 <li> <a href="/ccsf/en/educational-programs/ccsf-catalog.html">CCSF Catalog</a> </li>  <li> <a href="/ccsf/en/educational-programs/class-schedule.html">Class Schedule</a> </li>  <li> <a href="/ccsf/en/educational-programs/calendar-of-instruction.html">Faculty Instructional Calendar</a> </li>  <li> <a href="/ccsf/en/educational-programs/school-and-departments.html">Schools & Departments</a> </li>  <li> <a href="/ccsf/en/educational-programs/AcademicDepartments0.html">Academic Departments</a> </li>  <li> <a href="/ccsf/en/educational-programs/career-and-technical-education.html">Career & Technical Education</a> </li>  <li> <a href="/ccsf/en/educational-programs/continuing-education.html">Continuing Education</a> </li>  <li> <a href="/ccsf/en/educational-programs/contract-education.html">Contract Education</a> </li>  <li> <a href="/ccsf/en/educational-programs/distance_learning.html">Distance Learning</a> </li>  <li> <a href="/ccsf/en/educational-programs/honors.html">Honors Program</a> </li>  <li> <a href="/ccsf/en/educational-programs/k-12-programs.html">K-12 Programs</a> </li>  <li class="last"> <a href="/ccsf/en/educational-programs/working-adults-program.html">Working Adults Degree Program</a> </li>         
+        </ul>
+		</div>
+		<div class="dropshadow-bottom"></div>		
+		</div>
+      </li>
+         
+	
+      <li id="droptopnav3"><a href="/ccsf/en/our-campuses.html">Our Campuses</a><div class="divider"></div><div class="clear"></div>
+		<div class="dropshadowcontainer">
+        <div class="dropshadow">
+		<ul>
+         <li> <a href="/ccsf/en/our-campuses/airport.html">Airport (Site)</a> </li>  <li> <a href="/ccsf/en/our-campuses/castro.html">Castro</a> </li>  <li> <a href="/ccsf/en/our-campuses/chinatown-north-beach.html">Chinatown/North Beach</a> </li>  <li> <a href="/ccsf/en/our-campuses/civic-center.html">Civic Center/Alemany</a> </li>  <li> <a href="/ccsf/en/our-campuses/downtown.html">Downtown</a> </li>  <li> <a href="/ccsf/en/our-campuses/evans.html">Evans</a> </li>  <li> <a href="/ccsf/en/our-campuses/fort-mason.html">Fort Mason (Site)</a> </li>  <li> <a href="/ccsf/en/our-campuses/gough.html">Gough Street (Site)</a> </li>  <li> <a href="/ccsf/en/our-campuses/john-adams2.html">John Adams</a> </li>  <li> <a href="/ccsf/en/our-campuses/mission.html">Mission </a> </li>  <li> <a href="/ccsf/en/our-campuses/ocean.html">Ocean</a> </li>  <li class="last"> <a href="/ccsf/en/our-campuses/southeast.html">Southeast</a> </li>        
+        </ul>
+		</div>
+		<div class="dropshadow-bottom"></div>		
+		</div>
+      </li>
+	
+      <li id="droptopnav4"><a href="/ccsf/en/library.html">Library</a><div class="divider"></div><div class="clear"></div>
+		<div class="dropshadowcontainer">
+        <div class="dropshadow">
+		<ul>
+         <li> <a href="/ccsf/en/library/finding-information.html">Finding Information</a> </li>  <li> <a href="/ccsf/en/library/research-help.html">Research Help</a> </li>  <li> <a href="/ccsf/en/library/library-services.html">Library Services</a> </li>  <li> <a href="/ccsf/en/library/about-library.html">About the Library</a> </li>  <li class="last"> <a href="/ccsf/en/library/biblioteca.html">Recursos en Español</a> </li>        
+        </ul>
+		</div>
+		<div class="dropshadow-bottom"></div>		
+		</div>
+      </li>
+	
+      <li id="droptopnav5"><a href="/ccsf/en/employee-services.html">Employee Services</a><div class="divider"></div><div class="clear"></div>
+		<div class="dropshadowcontainer">
+        <div class="dropshadow">
+		<ul>
+         <li> <a href="/ccsf/en/employee-services/office-of-instruction.html">Office of Instruction</a> </li>  <li> <a href="/ccsf/en/employee-services/educational-technology.html">Educational Technology</a> </li>  <li> <a href="/ccsf/en/employee-services/scheduling-office.html">Scheduling Office</a> </li>  <li> <a href="/ccsf/en/employee-services/media-services.html">Media Services</a> </li>  <li> <a href="/ccsf/en/employee-services/technology-services2.html">Technology Division</a> </li>  <li> <a href="/ccsf/en/employee-services/district-business-office.html">District Business Office</a> </li>  <li> <a href="/ccsf/en/employee-services/human-resources.html">Human Resources</a> </li>  <li> <a href="/ccsf/en/employee-services/research-planning-and-grants.html">Division of Research & Policy</a> </li>  <li> <a href="/ccsf/en/employee-services/professional-staff-development.html">Professional/Staff Development</a> </li>  <li> <a href="/ccsf/en/employee-services/forms.html">Frequently Used Forms</a> </li>  <li class="last"> <a href="/ccsf/en/employee-services/payroll-retirement-manager.html">Payroll / Retirement Manager</a> </li>        
+        </ul>
+		</div>
+		<div class="dropshadow-bottom"></div>		
+		</div>
+      </li>
+	
+      <li id="droptopnav6"><a href="/ccsf/en/about-city-college.html">About City College</a><div class="clear"></div>
+		<div class="dropshadowcontainer">
+        <div class="dropshadow">
+		<ul>
+		 <li> <a href="/ccsf/en/about-city-college/aboutccsf.html">An Overview of City College</a> </li>  <li> <a href="/ccsf/en/about-city-college/mission-and-vision.html">Mission and Vision Statement</a> </li>  <li> <a href="/ccsf/en/about-city-college/sustainability.html">Sustainability</a> </li>  <li> <a href="/ccsf/en/about-city-college/administration.html">Administration</a> </li>  <li> <a href="/ccsf/en/about-city-college/board-of-trustees.html">Board of Trustees</a> </li>  <li> <a href="/ccsf/en/about-city-college/news-and-events.html">Upcoming Events</a> </li>  <li> <a href="/ccsf/en/about-city-college/shared-governance.html">Shared Governance</a> </li>  <li> <a href="/ccsf/en/about-city-college/marketing_publications.html">Marketing & Public Information</a> </li>  <li> <a href="/ccsf/en/about-city-college/jobs-at-ccsf.html">Jobs at CCSF</a> </li>  <li> <a href="/ccsf/en/about-city-college/diego-rivera-mural-project.html">Diego Rivera Mural Project</a> </li>  <li class="last"> <a href="/ccsf/en/about-city-college/contact-us.html">Contact Us</a> </li>        
+        </ul>
+		</div>
+		<div class="dropshadow-bottom"></div>		 
+		</div>
+      </li>                         
+    </ul>
+    <div class="right"></div>
+  </div>
+  <div class="clear"></div>    </div>
+
+</div>
+<!-- End Top Navigation -->
+
+<!-- End Header -->
+		
+		 
+<!-- Begin Campus Image and Quick Links -->
+<div id="wrap-quickview"> 
+  <div id="quickview">
+    <div id="quicklinks">
+      <div class="title">CCSF <span class="yellow">QuickLinks</span></div>
+	  <div class="quicklinks quick-links">
+      <ul>
+        <li class="first"><a href="/ccsf/en/student-services/admissions-and-registration/admissions.html">Online Application</a></li>
+        <li><a href="https://ocean.ccsf.cc.ca.us/web4stud.shtml">Online Registration</a></li>
+        <li><a href="/ccsf/en/student-services/financial-aid.html">Financial Aid</a></li>
+        <li><a href="/ccsf/en/educational-programs/class-schedule.html">Class Schedule</a></li>
+        <li><a href="/ccsf/en/educational-programs/ccsf-catalog.html">College Catalog</a></li>
+        <li><a href="/ccsf/en/educational-programs/school-and-departments/school-of-health-and-physical-education/physical-education-and-dance/athletics.html">Athletics &nbsp;<img src="/content/dam/ccsf/homepage/rams.gif" height="32" align="top" style="margin-top:-8px;" alt="Rams"></a></li>
+        <li class="last"><a href="/ccsf/en/educational-programs/school-and-departments/school-of-international-education-and-esl/international-student-program.html">International Students</a></li>
+      </ul></div>
+
+    </div>
+    <div id="campusview"><div class="parbase homeflash splash-img">	<img src="/content/dam/ccsf/770x263/ccsf-main-new-image.jpg" height="263" width="770" alt="City College of San Francisco Ocean Campus" title="City College of San Francisco Ocean Campus"/>
+          </div>
+</div>     
+    <div class="clear"></div>
+  </div>  
+</div> 
+<!-- End Campus Image and Quick Links --> 
+
+
+<!-- Begin Homepage Content -->
+<div id="wrap-homecontent">
+
+  <!-- Begin Accessibility Text Size Function -->
+	<div id="accessibility-text-size">        
+
+  <div id="homecontent">
+    <div class="welcome-top"></div>
+    <div class="col1">
+		<div class="parsys col1"><div class="ccsftitle section"><h1><b>Welcome</b> to City College!</h1>
+</div>
+<div class="parbase snippet section"><div class="text"><div style="width:344px;font-family:verdana,sans-serif;line-height:16px;"><p>City College of San Francisco is an urban community college serving about 100,000 students annually at nine campuses and many other sites throughout <span style="white-space:nowrap;">San Francisco.</span> <a href="http://www.ccsf.edu/Offices/SupportCCSF/"><img src="http://www.ccsf.edu/Images/donateRedW.jpg" width="107" border="0" align="right" alt="CCSF DONATE" title="DONATE to City College"></a> We offer an affordable opportunity to earn associate degrees, prepare for transfer, and pursue career and technical education. City College also offers distance learning and free noncredit courses in many fields.</p></div>
+            </div>
+</div>
+<div class="ccsftitle section"><h2>Public Information</h2>
+</div>
+<div class="linkarrowlist section">
+		<ul class="link-arrow">
+			<li><a href="http://www.ccsf.edu/News/ChancellorSearch.htm">Interim Chancellor Selected</a></li><li><a href="/ccsf/en/about-city-college/board-of-trustees.html">Board of Trustees</a></li><li><a href="http://www.ccsf.edu/Board/Bond/">Citizen's Bond Oversight Committee</a></li><li><a href="/ccsf/en/our-campuses/chinatown-north-beach/chnblivecam.html">Chinatown/North Beach Building Project: Live Cam</a></li><li><a href="/ccsf/en/about-city-college/board-of-trustees/board-live.html">Board Live Video Webcast</a></li><li><a href="http://www.ccsf.edu/police">City College Police Department</a></li><li><a href="http://www.ccsf.edu/News/FAQ.htm">Network Security Update</a></li> 
+		</ul>
+</div>
+<div class="ccsftitle section"><h2><p>Upcoming Events<br>
+</p>
+</h2>
+</div>
+<div class="linkarrowlist section">
+		<ul class="link-arrow">
+			<li><a href="/ccsf/en/about-city-college/news-and-events/cls_home.html">Concert and Lecture Series</a></li> 
+		</ul>
+</div>
+</div>
+  
+    </div>
+    <div class="col2">			
+     
+      <!-- Begin Three Small Banners -->
+      <div id="small-banners">
+        <div class="one"><div class="parbase smallbanner small-banners-01"><a href="/ccsf/en/myccsf.html"><img title="MyCCSF" alt="MyCCSF" class="cq-dd-image" src="/content/ccsf/en/_jcr_content/small-banners-01/image.img.png/1308787728360.png"></a>    </div>
+</div>
+      	<div class="two"><div class="parbase smallbanner small-banners-02"><a href="http://www.ccsf.edu/Schedule/"><img title="Summer School Classes Schedule" alt="Summer School Classes Schedule" class="cq-dd-image" src="/content/ccsf/en/_jcr_content/small-banners-02/image.img.png/1333477083671.png"></a>    </div>
+</div>
+      	<div class="three"><div class="parbase smallbanner small-banners-03"><a href="https://ocean.ccsf.cc.ca.us/web4stud.shtml"><img title="Register for Classes (Web4)" alt="Register for Classes (Web4)" class="cq-dd-image" src="/content/ccsf/en/_jcr_content/small-banners-03/image.img.png/1308778391110.png"></a>    </div>
+</div>
+      	<div class="clear"></div>
+      </div>
+      <!-- End Three Small Banners --> 
+
+      <div class="wrap-cols">
+        <div class="col2a">
+			<div class="col2a parsys"><div class="ccsftitle section"><h2><p>Announcements</p>
+</h2>
+</div>
+<div class="parbase snippet section"><div class="text"><div  style="z-index:10000;margin-bottom:10px;padding:0;text-align:left ;color:#000;"><a href="http://www.ccsf.edu/NEW/?$CN#googtrans(zh-CN)"><img src="http://www.ccsf.edu/Images/Lang/csimp.gif" width="85" alt="Simplified Chinese"></a> <a href="http://www.ccsf.edu/NEW/?$TW#googtrans(zh-TW)"><img src="http://www.ccsf.edu/Images/Lang/ctran.gif" width="85" alt="Traditional Chinese"></a> <a href="http://www.ccsf.edu/NEW/?$ES#googtrans(es)"><img src="http://www.ccsf.edu/Images/Lang/spanish.gif" width="85" alt="Espanol"></a></div>
+            </div>
+</div>
+<div class="ccsftitle section"><h3><p><b><a href="/ccsf/en/student-services/admissions-and-registration.html"><b>APPLY NOW!</b></a></b></p>
+</h3>
+</div>
+<div class="linkarrowlist section">
+		<ul class="link-arrow">
+			<li><a href="http://www.ccsf.edu/Schedule">Summer School 2012 Class Schedule</a></li><li><a href="/ccsf/en/employee-services/technology-services2/technical_operations/WirelessNetwork.html">CCSF Wireless</a> New!</li><li><a href="http://www.ccsf.edu/Schedule/">Free noncredit courses can be added throughout the semester.</a></li><li><a href="http://www.ccsf.edu/continEd">Continuing Education Workshops and Classes</a></li><li><a href="/ccsf/en/about-city-college/jobs-at-ccsf/shep.html">Student Jobs</a></li><li><a href="http://ccsf.edu/Offices/Research_Planning/study.html">Accreditation Self Study & Team Visit</a></li><li><a href="/ccsf/en/educational-programs/school-and-departments/school-of-business/culinary-arts-hospitality-studies/donateCAHS.html">Culinary Arts In the News</a></li> 
+		</ul>
+</div>
+</div>
+
+        </div>
+        <div class="col2b">
+			<div class="parsys col2b"><div class="ccsftitle section"><h2><p>City College News</p>
+</h2>
+</div>
+<div class="linkarrowlist section">
+		<ul class="link-arrow">
+			<li><a href="http://www.ccsf.edu/eatv">Educational Access TV</a></li><li><a href="/ccsf/en/educational-programs/school-and-departments/school-of-liberal-arts/broadcast-electronic-media-arts/KCSF1.html">KCSF Radio</a></li><li><a href="http://www.ccsf.edu/CityCurrents">City Currents</a></li><li><a href="http://theguardsman.com/">The Guardsman Newspaper</a></li><li><a href="http://www.etc-magazine.com/">Etc. Magazine</a></li><li><a href="http://www.facebook.com/pages/City-College-of-San-Francisco/52854829754?sk=wall&filter=2">Like Us on Facebook <img src="http://ccsf.edu/Images/facebook.jpg" width="15" alt="Facebook"></a></li> 
+		</ul>
+</div>
+<div class="ccsftitle section"><h2><p>Calendars</p>
+</h2>
+</div>
+<div class="linkarrowlist section">
+		<ul class="link-arrow">
+			<li><a href="/ccsf/en/student-services/admissions-and-registration/academic-calendar.html">Academic</a></li><li><a href="/ccsf/en/educational-programs/school-and-departments/school-of-health-and-physical-education/physical-education-and-dance/athletics.html">Athletics</a></li><li><a href="http://www.ccsf.edu/Schedule/Calendar/">Faculty/Instructional</a></li><li><a href="/ccsf/en/about-city-college/shared-governance/master_calendar.html">Shared Governance</a></li> 
+		</ul>
+</div>
+</div>
+
+        </div>
+      </div>
+      
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  
+    </div>      
+  <!-- End Accessibility Text Size Function -->  
+    
+</div>
+<!-- End Homepage Content -->
+
+			
+		
+
+<!-- Begin Footer -->
+<div id="wrap-footer">
+	<div class="footer">
+  <div id="footer">
+    <div class="col1">50 Phelan Avenue, San Francisco, CA. 94112 (415)239-3000
+
+</div>
+    <div class="col2">
+      <span class="offset">Bottom Navigation:</span>
+      <ul>
+		<li><a href="/ccsf/en.html">Home</a></li>
+		<li><a href="/ccsf/en/about-city-college/ccsf-index.html">Site Index</a></li>
+		<li><a href="/ccsf/en/about-city-college/jobs-at-ccsf.html">Jobs at CCSF</a></li>
+		<li><a href="/ccsf/en/about-city-college/administration/support-city-college.html">Support CCSF</a></li>
+		<li><a href="/ccsf/en/privacy-policy.html">Legal Information</a></li>
+		<li><a href="/ccsf/en/site-map.html">Site Map</a></li>
+		<li class="last"><a href="/ccsf/en/about-city-college/contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="footer2">
+    <p>Accredited by the Accrediting Commission for Community and Junior Colleges of the Western Association of Schools and Colleges</p>
+  </div>
+</div>
+
+</div>
+<!-- End Footer -->
+
+	</body>
+</html>

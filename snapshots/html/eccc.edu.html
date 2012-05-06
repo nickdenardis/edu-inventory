@@ -1,0 +1,206 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//Dtd HTML 4.0 transitional//EN" >
+<html>
+  <head>
+		<title>Login</title>
+		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
+		<meta content="C#" name="CODE_LANGUAGE">
+		<meta content="JavaScript" name="vs_defaultClientScript">
+		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
+		<script type="text/javascript">
+			<!-- hide from non JavaScript Browsers
+			//This will pre-cache the login screen image and allow it to load faster.
+			//If you have made your own custom image and altered the stylesheet, you will want
+			//to remove this or alter the image name to reflect your new image name.
+			Image1= new Image()
+			Image1.src = "images/LoginBg.jpg"
+			// End Hiding -->
+		</script>
+		<script language="javascript" type="text/javascript">
+			function stopEnter() 
+			{
+				var pwd = document.getElementById('txtPassword').value;
+				
+				if (pwd.length == 0) {
+					return !(window.event && window.event.keyCode == 13);
+				} else {
+					return true;
+				}
+			}
+			
+			function ClearPwdChkbox()
+			{
+				var uname = document.getElementById('chkRememberUsername');
+				var pwd = document.getElementById('chkRememberPassword');
+				
+				if (!uname.checked)
+				{
+					pwd.checked = false;
+					pwd.disabled = true;
+				}
+				else
+				{
+					pwd.disabled = false;
+				}
+			}
+			
+			function CheckUnameChkbox()
+			{
+				var uname = document.getElementById('chkRememberUsername');
+				var pwd = document.getElementById('chkRememberPassword');
+				
+				if ((pwd.checked) && (!uname.checked))
+				{
+					uname.checked = true;
+				}
+			}
+			
+			function PopulatePassword(sValue) 
+			{
+				document.getElementById('txtPassword').value = sValue;
+			}
+			
+			function KeyDownHandler(btn)
+			{
+				// process only the Enter key
+				if (event.keyCode == 13)
+				{
+					// cancel the default submit
+					event.returnValue=false;
+					event.cancel = true;
+					// submit the form by programmatically clicking the specified button
+					document.getElementById(btn).click();
+				}
+			}
+			
+			function CheckForParent()
+			{
+				if (window != window.top)
+				{
+					window.top.location.href = "Login.aspx";
+				}
+			}
+			
+			function SetFocus() {
+			    var UserName = document.getElementById('txtUsername');
+
+			    if (UserName)
+				{
+				    UserName.focus();
+				}
+			}
+			
+			function ClearPassword() {
+
+			    var Password = document.getElementById('txtPassword');
+			    var HiddenPassword = document.getElementById('hdnPwdChanged');
+			    if (Password) {
+			        Password.value = '';
+			    }
+			    if (HiddenPassword) {
+			        HiddenPassword.value = 'yes';
+			    }
+			}
+		</script>
+		<link href="Cypress.css" type="text/css" rel="stylesheet" />	
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  </head>
+	<body onload="CheckForParent(); SetFocus()">
+		<form method="post" action="Login.aspx?ReturnUrl=%2f" id="login">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjAzNDEwMDg0OQ9kFgICAQ9kFgICAw9kFgoCCw8QZBAVCAdFbmdsaXNoDOeugOS9k+S4reaWhwznuYHpq5TkuK3mlocJRnJhbsOnYWlzB0RldXRzY2gISXRhbGlhbm8J5pel5pys6KqeCEVzcGHDsW9sFQgFZW4tVVMFemgtQ04FemgtVFcFZnItRlIFZGUtREUFaXQtSVQFamEtSlAFZXMtRVMUKwMIZ2dnZ2dnZ2cWAWZkAg0PEA8WAh4EVGV4dAUWVXNlIFdlYiBNZXNzYWdpbmcgTGl0ZWRkZGQCDw8QDxYCHwAFFFJlbWVtYmVyIG15IHVzZXJuYW1lFgIeB29uY2xpY2sFEENsZWFyUHdkQ2hrYm94KClkZGQCEQ8QDxYCHwAFFFJlbWVtYmVyIG15IHBhc3N3b3JkFgIfAQUSQ2hlY2tVbmFtZUNoa2JveCgpZGRkAhUPDxYGHwAFBUxvZ2luHgVXaWR0aBsAAAAAAABUQAEAAAAeBF8hU0ICgAJkZBgBBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAwUSY2hrVXNlTGl0ZVRlbXBsYXRlBRNjaGtSZW1lbWJlclVzZXJuYW1lBRNjaGtSZW1lbWJlclBhc3N3b3JkMaZnIntJPEnHCRPD1YeaPKxJ82Q2fm6fq3K9M63DLI4=" />
+</div>
+
+<script type="text/javascript">
+<!--
+var theForm = document.forms['login'];
+if (!theForm) {
+    theForm = document.login;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+// -->
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEQKS8qPTDwKl1bK4CQK1qbSRCwL5+vkbAuSM9tUIAtaH9sMOAu+HwrQBAo6PktcEAreNvvQFAruAnvAFAtyD5pgNAuSMgr0NAqztmKoFAqGsntADAsmg8toEAoLch4YMAoLj2osB1BptZU6NmrdYLKL610ZPmYClJS3EkTzekxj5SE1ILQc=" />
+</div>
+			<table cellpadding="0" cellspacing="0" border="0" align="center" width="75%">
+				<tr>
+					<td valign="bottom" style="height:80;"><br />&nbsp;</td>
+				</tr>
+			</table>
+		<div id="pnlLogin">
+	
+			<table align="center" cellspacing="0" cellpadding="0" border="0" class="LoginTable">
+				<tr>
+					<td rowspan="13" style="WIDTH: 30px">&nbsp;</td>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td style="HEIGHT: 125px" colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="right" style="WIDTH: 114px;"><span id="lblUsername" tabindex="-1" class="contentLabelCell">Username:</span>&nbsp;</td>
+					<td><input name="txtUsername" type="text" maxlength="255" id="txtUsername" tabindex="3" class="inputTextMedToLarge" onkeypress="return stopEnter()" /></td>
+				</tr>
+				<tr>
+					<td align="right" style="WIDTH: 114px; HEIGHT: 21px"><span id="lblPassword" tabindex="-1" class="contentLabelCell">Password:</span>&nbsp;</td>
+					<td style="HEIGHT: 21px"><input name="txtPassword" type="password" id="txtPassword" onkeypress="return stopEnter()" onfocus="ClearPassword()" tabIndex="4" maxlength="31" class="inputTextMedToLarge" /></td>
+				</tr>
+				<tr>
+					<td align="right" style="WIDTH: 114px; HEIGHT: 21px"><span id="lblLanguage" tabindex="-1" class="contentLabelCell">Language:</span>&nbsp;</td>
+					<td style="HEIGHT: 21px"><select name="ddlLanguage" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ddlLanguage\&#39;,\&#39;\&#39;)&#39;, 0)" language="javascript" id="ddlLanguage" class="inputTextMedToLarge" style="background-color:White;width:192px;">
+		<option selected="selected" value="en-US">English</option>
+		<option value="zh-CN">简体中文</option>
+		<option value="zh-TW">繁體中文</option>
+		<option value="fr-FR">Fran&#231;ais</option>
+		<option value="de-DE">Deutsch</option>
+		<option value="it-IT">Italiano</option>
+		<option value="ja-JP">日本語</option>
+		<option value="es-ES">Espa&#241;ol</option>
+
+	</select></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><span class="contentLabelCell"><input id="chkUseLiteTemplate" type="checkbox" name="chkUseLiteTemplate" tabindex="5" /><label for="chkUseLiteTemplate">Use Web Messaging Lite</label></span></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><span class="contentLabelCell"><input id="chkRememberUsername" type="checkbox" name="chkRememberUsername" onclick="ClearPwdChkbox();" tabindex="6" /><label for="chkRememberUsername">Remember my username</label></span></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><span class="contentLabelCell"><input id="chkRememberPassword" type="checkbox" name="chkRememberPassword" onclick="CheckUnameChkbox();" tabindex="7" /><label for="chkRememberPassword">Remember my password</label></span><BR>
+						<span id="lblStatus" tabindex="-1" class="LoginError" style="color:Red;"></span><BR>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input type="submit" name="btnLogin" value="Login" id="btnLogin" class="loginButton" style="width:80px;" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">&nbsp;</td>
+				</tr>
+				<tr>
+					<td colspan="3" style="HEIGHT: 50px">&nbsp;</td>
+				</tr>
+			</table>
+			<span id="lblVersion" tabindex="-1"><!-- iClient Version: 11.5.0.0 Created at: 4/18/2011 2:05:28 PM /--></span>
+			<input name="hdnPwdChanged" type="hidden" id="hdnPwdChanged" />
+		
+</div>
+		
+<script language=javascript>ClearPwdChkbox();</script></form>
+	</body>
+</html>

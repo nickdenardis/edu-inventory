@@ -1,0 +1,43 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.or
+g/TR/html4/frameset.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<title>카이스트 메일시스템</title>
+<script>
+var _ua = window.navigator.userAgent.toLowerCase();
+var currentURL = location.href;
+
+var mobileB = {
+        model: _ua.match(/(sch-m490|sonyericssonx1i|ipod|iphone)/) ? _ua.match(/(sch-m490|sonyericssonx1i|ipod|iphone)/)[0] : "",
+        skt : /msie/.test( _ua ) && /nate/.test( _ua ),
+        lgt : /msie/.test( _ua ) && /([010|011|016|017|018|019]{3}\d{3,4}\d{4}$)/.test( _ua ),
+        opera : (/opera/.test( _ua ) && /(ppc|skt)/.test(_ua)) || /opera mobi/.test( _ua ),
+        ipod : /webkit/.test( _ua ) && /\(ipod/.test( _ua ) ,
+        iphone : /webkit/.test( _ua ) && /\(iphone/.test( _ua ),
+        ipad : /webkit/.test( _ua ) && /\(ipad/.test( _ua ),
+        lgtwv : /wv/.test( _ua ) && /lgtelecom/.test( _ua ),
+        android : /android/.test( _ua )
+};
+
+try {
+        if ( mobileB.model || mobileB.skt || mobileB.lgt||
+                        mobileB.opera || mobileB.ipod || mobileB.iphone|| mobileB.ipad || mobileB.lgtwv ||mobileB.android
+                        || currentURL.indexOf("m.mail.kaist.ac.kr") != -1
+                        //|| currentURL.indexOf("mmail.kaist.ac.kr") != -1
+                        
+        ){
+                location.href = "/nara/servlet/text.user.UserServ?cmd=login_form";
+        }
+} catch (e) {}
+</script>
+
+</head>
+<frameset rows="100%,*" frameborder="0" border="0" noresize marginheight="0" marginwidth= "0" framespacing= "0">
+    <frame name="main"  src="index_main.jsp" scrolling=yes noresize border="0">
+    <frame name="hidden" src="">
+</frameset>
+</html>
+

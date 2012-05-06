@@ -1,0 +1,957 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>The Rockefeller University</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="description" value="The Rockefeller University is a world-renowned center for research and graduate education in the biomedical sciences, chemistry, bioinformatics and physics. Scientists in the university's 70 laboratories conduct both clinical and basic biomedical research with the mission of improving the understanding of life for the benefit of humanity." />
+        <meta name="keywords" value="Nobel, Lasker, Biomedical, Research, Neuroscience, Genetics, DNA, Immunology, Cell, Developmental, Biology, Biochemistry, Clinical" />
+	<style type="text/css">
+		@import url('css/hpStyle.css');
+	</style>  
+
+	<script type="text/javascript" src="/js/jquery/jquery_core.js"></script>			
+	<script type="text/javascript" src="/js/jquery/jquery_ui.js"></script>
+	<script type="text/javascript" src="/js/jquery/plugins/jquery.niftycube.js"></script>
+	<script type="text/javascript" src="/js/jquery/plugins/Horizontal_Accordion_Plugin/lib/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/js/jquery/plugins/Horizontal_Accordion_Plugin/lib/jquery.hrzAccordion.js"></script>
+	<script type="text/javascript" src="/js/hp/h_slider.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/hrzAccordion.css">
+	<link rel="stylesheet" type="text/css" href="/css/v_slider.css">
+		
+<!--[if IE]>
+		<style type="text/css">
+			@import url('css/ie.css');
+		</style>
+	<![endif]-->
+
+	
+	<!--[if IE 6]>
+		<style type="text/css">
+			@import url('css/ie6.css');
+		</style>
+	<![endif]-->
+    
+    <!--[if IE 7]>
+		<style type="text/css">
+			@import url('css/ie7.css');
+		</style>
+	<![endif]-->	
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+	
+		// set vars so we only traverse the DOM and select each element once 
+		var npli = $(".newswire-pane li"),
+		nw_img = $('.newswire_img'),
+		art1 = $('#nw_article1'),
+		art2 = $('#nw_article2'),
+		art3 = $('#nw_article3');
+	
+		// newswire li elements are all clickable to the only link in the element
+		npli.click(function(){
+			// find the first link in these li elements
+			window.location=$(this).find("a").attr("href");return false;
+		});
+	
+		npli.hover( // when hovering over an li show new bg img and new article img
+		  function () { // on mouse over 
+			// since we don't know if this is article 1,2, or 3 hide make the bg img the norm for all 3 first
+			art1.css('backgroundImage','none'); 
+			art2.css('backgroundImage','none'); 
+			art3.css('backgroundImage','none'); 
+			// show this li with new bg img, use npli as the DOM context to search from
+			$(this, npli).css('backgroundImage','url(/images/static/bg_panel_a_over.gif)'); 
+			nw_img.hide(); // hide all newswire_img objects which are the aricle images
+			$('#' + $(this).attr('id') + 'img').show(); // show this particular article img 
+		  }
+		);
+
+	// *****************  CLEAR DEFAULT TEXT ON INPUT FOCUS  ***********************
+	// cache results
+	var defaultValueElements = $('input:text.defaultValue, textarea.defaultValue');
+	
+	defaultValueElements.each(function(){
+	// set default value as prop. of element
+			this.defaultVal = this.value;
+	});
+	defaultValueElements.focus(function(){
+	// if value == default, clear default value & set color
+			if($(this).val() == this.defaultVal)
+			{
+				$(this).val('');
+				$(this).css('color','#000');
+			}
+	});
+	defaultValueElements.blur(function(){
+	// if value == blank or default reset back to default && change color
+			if( $(this).val() == '' || $(this).val() == ' ' || $(this).val() == this.defaultVal)
+			{
+				$(this).css('color','#ccc')
+				$(this).val(this.defaultVal);
+			} else {
+			// if value is not blank or default remove class 'defaultValue' && blur/focus event handlers
+				$(this).removeClass('defaultValue'); 
+				$(this).unbind('blur, focus');
+			} 
+	});
+
+
+	// ******************** ROLLOVER DROPDOWN MENUS ******************************
+	// original code at http://javascript-array.com/scripts/jquery_simple_drop_down_menu/
+		var ddtimeout    = 50;
+		var ddclosetimer = 0;
+		var ddmenuitem 	= 0;
+		
+		function jsddm_open()
+		{  jsddm_canceltimer();
+		   jsddm_close();
+		   ddmenuitem = $(this).toggleClass('open'); }
+		
+		function jsddm_close()
+		{  if(ddmenuitem) ddmenuitem.removeClass('open'); }
+		
+		function jsddm_timer()
+		{  ddclosetimer = window.setTimeout(jsddm_close, ddtimeout); }
+		
+		function jsddm_canceltimer()
+		{  if(ddclosetimer)
+		   {  window.clearTimeout(ddclosetimer);
+			  ddclosetimer = null; } }
+		
+		// prevent default action for links w/ href="#"
+		$('#nav > ul > li:has(ul)').bind('mouseover', jsddm_open);
+		$('#nav > ul > li:has(ul)').bind('mouseout',  jsddm_timer);
+		
+
+		//	
+		// clickable dropdown menus -- used prior
+		/*
+		$('#nav > ul > li > a').click(function(e){
+		
+			$(this).parent().siblings().removeClass('open');		
+		
+			if( $(this).parent().is(':has(ul)') )
+			{
+				$(this).parent().toggleClass('open');
+				e.preventDefault();
+			};
+		});	
+		*/
+
+
+		/* Fix for Linux hp nav spacing -- all the text is way wider
+		 *
+		 * Can't figure out better way to get same spacing btwn links using CSS
+		 * in Linux and other OSs && have it fit inside nav width
+		 */
+		var navWidth = $('#nav').width();
+		var ulWidth = 0;
+		var linkNum = 0;
+		var pad = 0;
+		var ulMargin = 0;
+
+		$('#nav > ul > li > a').each(function(){
+			ulWidth += $(this).width();
+			linkNum++;
+		});
+
+		/* Calculate padding for each link:
+		 * Get diff in width between nav links ul & #nav,
+		 * divide by num of links * 2 (for left & right padding),
+		 */
+		pad = Math.floor( (navWidth - ulWidth) / (linkNum * 2) );
+		pad -= 1;
+
+        $('#nav > ul > li > a').each(function(){
+			$(this).css('padding-left', pad);
+			$(this).css('padding-right', pad);
+		});
+
+
+		// add margin-left to ul so it's centerd and to adjust for rounding on padding 
+		ulWidth = 0;
+
+        $('#nav > ul > li > a').each(function(){
+            ulWidth += $(this).width();
+			ulWidth += $(this).css('padding-left').replace("px", "")*1;
+			ulWidth += $(this).css('padding-right').replace("px", "")*1;
+        });
+
+		ulMargin = ( Math.floor((navWidth - ulWidth) / 2 ) );
+		$('#nav > ul').css('margin-left', ulMargin); 
+	
+	}); 
+	</script>
+	
+</head>
+
+
+
+<body>
+<!-- wrapper start -->
+<div id="wrapper" class="hp">	
+
+<!-- critical alert -->
+	
+<div id="header">
+		<ul id="quickLinks">
+			<li><a href="https://appext.rockefeller.edu/calendar/events/main">Calendar</a></li><li><a href="http://www.rockefeller.edu/cgi-bin/ph2.pl">Directory</a></li><li class="lastQL"><a href="http://www.rockefeller.edu/hr/career.php">Employment</a></li>
+
+       	</ul>
+
+  
+       	
+		<form action="http://hubble.rockefeller.edu/search" method="get" name="gs" id="mainSearch">
+			<input type="text" name="q" value="Search" class="search defaultValue" />
+			<input type="image" src="images/static/go.gif" width="32" height="18" alt="Search" style="vertical-align: bottom;" />
+
+			<input type="hidden" name="btnG" value="Google Search" />
+			<input type="hidden" name="sort" value="date:D:L:d1" />
+			<input type="hidden" name="output" value="xml_no_dtd" />
+			<input type="hidden" name="oe" value="UTF-8">
+
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="hidden" name="client" value="default_frontendv2" />
+			<input type="hidden" name="proxystylesheet" value="default_frontendv2" />
+			
+			<input type="hidden" name="site" value="www_public" />
+		</form>
+
+
+      <a href="https://www.rockefeller.edu/cgi-bin/giving/makegiftonline.cgi" id="donate">Donate</a>
+		
+        
+		<p>		
+			Sunday, May 6, 2012				
+		</p>		
+		<a href="/"><img src="images/static/headerRU.gif" width="445" height="45" alt="The Rockefeller University" /></a>
+
+
+		<div id="nav">
+        	<ul>			
+                <li id="srSub"><a href="/research/">Scientists &amp; Research</a>
+                     <div class="subRight">
+						<ul>
+							<li><a href="/research/areas/">Research Areas</a></li>                         			
+							<li><a href="/research/faculty/">Faculty</a></li>
+							<li><a href="/research/clinical/">Research &amp; Clinical Initiatives</a></li>
+						</ul>	
+						<ul class="lastUL">
+							<li><a href="/research/intercenter/">Interdisciplinary Centers</a></li>
+							<li><a href="/ccts/">Center for Clinical & Translational Science</a></li>
+							<li><a href="/about/awards/">Awards &amp; Honors</a></li>
+						</ul>	
+                		</div>
+                </li>
+                <li id="edSub"><a href="/graduate/">Education</a>
+                   	<div class="subRight">
+						<ul>
+							<li><a href="/graduate/">The David Rockefeller Graduate Program</a></li>                         			
+							<li><a href="/postdocinfo/">Postdoctoral Information</a></li>
+							<li><a href="/surf/">Summer Undergraduate Research Fellows Program</a></li>
+						</ul>
+                        <ul>
+							<li><a href="/outreach/">Programs for High School Students and Teachers</a></li>
+                            <li><a href="/bard/">Bard-Rockefeller Program</a></li>
+							<li><a href="/volunteer/">Volunteer Registration</a></li>
+						</ul>		
+						<ul class="lastUL">
+							<li><a href="/ccts/">Center for Clinical and Translational Science</a></li>
+							<li><a href="/science_economics/">Science &amp; Economics Program</a></li>
+						</ul>	
+                		</div>
+                </li>
+                <li id="hospitalnav"><a href="http://www.rucares.org/" class="noSub">Hospital</a></li>
+                <li id="eventsSub"><a href="http://featuredevents.rockefeller.edu/">Events</a>
+                 	<div class="subLeft">
+						<ul>
+							<li><a href="https://appext.rockefeller.edu/calendar/events/main" target="_blank">Calendar of Events</a></li>
+							<li><a href="http://featuredevents.rockefeller.edu/">Featured Events</a></li>
+							<li><a href="http://www.rockefeller.edu/peggy/">Peggy Rockefeller Concerts</a></li>
+						</ul>
+						<ul class="lastUL">
+							<li><a href="http://www.rockefeller.edu/events/signup.php">Join Our Mailing List</a></li>
+							<li><a href="http://www.rockefeller.edu/events/facilities/">Facility Rental</a></li>
+							<li><a href="mailto:ruevents@rockefeller.edu">Contact Events Staff</a></li>
+						</ul>
+					</div>
+                </li>
+                <li id="deptSub"><a href="/departments/">Departments</a>
+			<div class="subLeft">
+						<ul>				
+							<li><a href="http://www.rockefeller.edu/pubaff/">Communications &amp; Public Affairs</a></li>                         			
+							<li><a href="http://www.rockefeller.edu/housing/">Housing</a></li>
+							<li><a href="http://www.rockefeller.edu/hr/">Human Resources</a></li>      
+						</ul>		
+						<ul>							
+							<li><a href="http://it.rockefeller.edu/">Information Technology</a></li>
+							<li><a href="http://markuslibrary.rockefeller.edu/">Library</a></li>                         			
+							<li><a href="/materials_management/">Materials Management (Purchases &amp; Supply)</a></li>
+						</ul>		
+						<ul>							
+							<li><a href="http://www.rockefeller.edu/rc.php">Resource Centers</a></li>							
+							<li><a href="http://www.rupress.org/">Rockefeller University Press</a></li>
+							<li><a href="http://www.rockefeller.edu/security/">Security</a></li>
+						</ul>		
+						<ul class="lastUL">		
+							<li><a href="http://www.rockefeller.edu/sr-pd/">Sponsored Research &amp; Program Development</a></li>                         			
+							<li><a href="http://www.rockefeller.edu/techtransfer/">Technology Transfer</a></li>
+							<li><a href="/departments/">&hellip;more</a></li>
+						</ul>						
+					</div>
+                </li>
+                <li id="givenav"><a href="http://www.rockefeller.edu/giving/">Give &amp; Join</a>
+					<div class="subLeft">
+						<ul>
+							<li><a href="http://www.rockefeller.edu/giving/message">Message from the President</a></li>
+							<li><a href="http://www.rockefeller.edu/giving/">Giving to Rockefeller</a></li> 
+							<li><a href="http://www.rockefeller.edu/giving/faqs">Why Support Rockefeller</a></li>
+							<li><a href="http://www.rockefeller.edu/giving/opportunities/giftstoadvance">Areas You Can Support</a></li>
+						</ul> 
+						<ul class="lastUL">					
+							<li><a href="https://www.rockefeller.edu/cgi-bin/giving/makegiftonline.cgi">Donate Today</a></li> 
+							<li><a href="http://womenandscience.rockefeller.edu/">Women &amp; Science</a></li> 
+							<li><a href="http://parentsandscience.rockefeller.edu/">Parents &amp; Science</a></li>
+							<li><a href="http://bridges.rockefeller.edu/">Bridges to Better Medicine</a></li>
+						</ul>
+					</div>
+				</li>
+                <li id="aboutSub"><a href="/about/">About</a>
+                		<div class="subLeft">
+   						<ul>
+							<li><a href="/about/">University Overview &amp; Facts</a></li>  
+							<li><a href="/about/history">History</a></li>							
+							<li><a href="/about/awards/">Awards &amp; Honors</a></li>	
+						</ul>             		
+						<ul>							
+							<li><a href="/about/campusmap">Campus Map &amp; Views</a></li>
+							<li><a href="/about/directions">Travel Directions</a></li>
+							<li><a href="/about/nycresources">NYC Resources</a></li>	
+						</ul>
+						<ul>
+							<li><a href="/about/president">Office of the President</a></li>                         			
+							<li><a href="/about/board_corp">Board of Trustees &amp; Corporate Officers</a></li>																
+							<li><a href="/about/sustainability/">Sustainability</a></li>
+						</ul>	
+						<ul class="lastUL">							
+
+							<li><a href="/about/contact">Contact</a></li>
+						</ul>	
+                		</div>
+                </li>
+            </ul>
+		</div>	
+    
+    <div id="headerImg">
+        <img src="/images/headerImg/headerImg7.jpg"  alt="" width="924" height="91" border="0" /> 		    
+    	</div>
+	
+	
+</div>	
+
+<!-- newswire -->
+<div id="newswire">
+    <div id="newswire_top">
+        <div id="nw_header"><a href="http://newswire.rockefeller.edu/">Newswire</a></div>
+        
+    </div>
+    <div id="newswire_mid">
+
+<div class="newswire_content">
+	<ul class="newswire-pane">
+
+    <li id="nw_article1">
+        <span class="newswire_date">April 23, 2012</span>
+		<br />
+        <span class="np_desc"><a href="http://newswire.rockefeller.edu/2012/04/23/influenza-%e2%80%9chistone-mimic%e2%80%9d-suppresses-antiviral-response/">Influenza “histone mimic” suppresses antiviral response</a></span>
+    </li>
+
+    <li id="nw_article2">
+        <span class="newswire_date">April 20, 2012</span>
+		<br />
+        <span class="np_desc"><a href="http://newswire.rockefeller.edu/2012/04/20/rockefeller-creates-cohn-steinman-professorship-to-honor-discoverers-of-dendritic-cells/">New Cohn-Steinman Professorship to honor discoverers of dendritic cells</a></span>
+    </li>
+
+    <li id="nw_article3">
+        <span class="newswire_date">March 28, 2012</span>
+		<br />
+        <span class="np_desc"><a href="http://newswire.rockefeller.edu/2012/03/28/albany-medical-center-prize-awarded-to-james-e-darnell-jr-and-robert-g-roeder/">Albany Medical Center Prize awarded to James E. Darnell Jr. and Robert G. Roeder</a></span>
+    </li>
+                                                                                            
+</ul>
+
+    <div id="nw_images">
+    
+        <div id="nw_article1img" class="newswire_img">
+            <a href="http://newswire.rockefeller.edu/2012/04/23/influenza-%e2%80%9chistone-mimic%e2%80%9d-suppresses-antiviral-response/"><img src="http://www.rockefeller.edu/images/hp/newswire/1_1.1335213647.jpg" border="0" /></a>
+            <p class="desc opaque">Researchers have discovered a novel mechanism by which influenza viruses hijack regulators of the body’s immune response...
+            <a href="http://newswire.rockefeller.edu/2012/04/23/influenza-%e2%80%9chistone-mimic%e2%80%9d-suppresses-antiviral-response/">Full story</a></p>
+        </div>
+    
+        <div id="nw_article2img" class="newswire_img" style="display: none;">
+            <a href="http://newswire.rockefeller.edu/2012/04/20/rockefeller-creates-cohn-steinman-professorship-to-honor-discoverers-of-dendritic-cells/"><img src="http://www.rockefeller.edu/images/hp/newswire/1_2.1335213647.jpg" border="0" /></a>
+            <p class="desc opaque">Named in honor of Ralph Steinman (right) and Zanvil Cohn, the professorship will be funded by Steinman's Nobel winnings... 
+			<a href="http://newswire.rockefeller.edu/2012/04/20/rockefeller-creates-cohn-steinman-professorship-to-honor-discoverers-of-dendritic-cells/">Full story</a></p>
+        </div>
+    
+        <div id="nw_article3img" class="newswire_img" style="display: none;">
+            <a href="http://newswire.rockefeller.edu/2012/03/28/albany-medical-center-prize-awarded-to-james-e-darnell-jr-and-robert-g-roeder/"><img src="http://www.rockefeller.edu/images/hp/newswire/1_3.1335213647.jpg" border="0" /></a>
+            <p class="desc opaque">“Towering figures” in cell research, Darnell and Roeder have helped define how cells grow, replicate and specialize... 
+			<a href="http://newswire.rockefeller.edu/2012/03/28/albany-medical-center-prize-awarded-to-james-e-darnell-jr-and-robert-g-roeder/">Full story</a></p>
+        </div>
+    
+    </div>
+
+</div>
+
+
+    </div>
+    <div id="newswire_bottom"><a href="http://newswire.rockefeller.edu/">More News</a> <span>|</span> <a href="http://newswire.rockefeller.edu/?page=emailsub">Subscribe</a></div>
+</div>
+
+<!-- right feature -->
+<div id="rightfeature">
+	
+<script type="text/javascript">
+ 	$(document).ready(function(){
+ 		var panelno ;
+ 		panelno = '1';
+ 		if(panelno.length < 1){
+ 			panelno=0;
+ 		}
+ 		panelno = parseInt(panelno);
+		$("#accordion").accordion({ header: 'h3',active: panelno});
+		
+		//$('#accordion h3:first').css({ 'padding-top' : '','padding-bottom' : '' }).niftycube('top');
+		$('#accordion h3:first').niftycube('top');
+	  	
+		var lastHeader = $('#accordion h3:last');
+		lastHeader.niftycube('bottom');
+		
+		lastHeader.click(function(){
+			if( $(this).find('b').length > 0 ) 
+			{
+				$(this).find('b').remove();
+				
+				$(this).siblings().click(function(){
+					if( lastHeader.find('b').length == 0 ) lastHeader.css({ 'padding-bottom' : '','padding-top' : '' }).niftycube('bottom');		
+				});
+			}
+		});
+		
+		//If the default panel is the lastHeader
+		if(panelno == 2){
+ 			if( lastHeader.find('b').length > 0 ) 
+			{
+				lastHeader.find('b').remove();
+				
+				lastHeader.siblings().click(function(){
+					if( lastHeader.find('b').length == 0 ) lastHeader.css({ 'padding-bottom' : '','padding-top' : '' }).niftycube('bottom');		
+				});
+			}
+ 		}
+ 	});
+ 	
+ 	function popUp(URL, ww, hh) {	
+		day = new Date();
+		id = day.getTime();
+		eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=" +ww+ ",height=" +hh+ "');");
+	}
+
+</script>
+  
+
+	<div id="accordion">
+					<h3 class="firstHeader"><a href="#">DISCOVERIES ADVANCING MEDICINE</a></h3>
+			<div style="margin: 0; padding: 0; overflow: hidden;">
+															<a href="http://centennial.rucares.org/100Stories.php">
+										<img src="http://www.rockefeller.edu/images/hp/v_slider/data/discoveries1.1327518689.jpg" width="289" height="150" alt="Discoveries Advancing Medicine"></a>
+								</div>
+					<h3 ><a href="#">FACULTY RECRUITMENT</a></h3>
+			<div style="margin: 0; padding: 0; overflow: hidden;">
+															<a href="http://www.rockefeller.edu/research/faculty/facultysearch/">
+										<img src="http://www.rockefeller.edu/images/hp/v_slider/data/faculty-may4.1336216048.jpg" width="289" height="150" alt="Faculty Recruitment"></a>
+								</div>
+					<h3 class="lastHeader"><a href="#">AWARDS &amp; HONORS</a></h3>
+			<div style="margin: 0; padding: 0; overflow: hidden;">
+															<a href="http://newswire.rockefeller.edu/2012/05/04/american-philosophical-society-elects-cori-bargmann-to-membership/">
+										<img src="http://www.rockefeller.edu/images/hp/v_slider/data/coribargmann.1336146720.jpg" width="289" height="150" alt="Awards & Honors"></a>
+								</div>
+			</div></div>
+
+<!-- bottom feature -->
+<div id="bottomfeature">
+	
+<script>
+$(document).ready(function() {
+	var defaultPanel = 1;
+	
+	$(".hrzAccordion").hrzAccordion({
+		openOnLoad:defaultPanel,
+		handlePositionArray: "left,left,left,left"
+	});
+	
+	// Total number of tabs
+	var total_tab = 4;
+	total_tab = total_tab-1;
+			
+	// Change the first tab tab background image
+	if(defaultPanel != 1){
+		$("#hrzAccordionHandle0.handle").css('background-image','url(\'images/hp/h_slider/frame/ru_off_left.png\')');
+	}
+	else{
+		$("#hrzAccordionHandle0.handle").css('background-image','url(\'images/hp/h_slider/frame/ru_on_left.png\')');
+	}
+	
+	// Change the last tab tab background image
+	if(defaultPanel == total_tab+1){
+		$("#hrzAccordionHandle"+total_tab+".handle").css('background-image','url(\'images/hp/h_slider/frame/ru_on.png\')');
+	}
+	else{
+		$("#hrzAccordionHandle"+total_tab+".handle").css('background-image','url(\'images/hp/h_slider/frame/ru_off_right.png\')');
+	}
+			
+	// Change the last tab content background image
+	$("#hrzAccordionContent"+total_tab).css('background-image','url(\'images/hp/h_slider/frame/ru_last_round.gif\')');
+			
+	//dejun's test:
+	//$("#hrzAccordionContent"+total_tab).css('background-image','url(\'http://www-preview.rockefeller.edu/tempfordejun/ru_last_round_test.gif\')');
+			
+	// check the tab on click event
+	$('#hrzAccordion > li >div').click(function(){
+				
+		// if it is the last tab and it is selected, change to default tab background
+		if($('#hrzAccordionHandle'+total_tab).attr('rel')=="hrzAccordionHandleSelected"){
+			$("#hrzAccordionHandle"+total_tab+".handle").css('background-image','url(\'images/hp/h_slider/frame/ru_on.png\')');
+		}
+		// else change it back to the original background
+		else{
+			$("#hrzAccordionHandle"+total_tab+".handle").css('background-image','url(\'images/hp/h_slider/frame/ru_off_right.png\')');
+		}
+					
+		// If the first tab is selected
+		if($('#hrzAccordionHandle0').attr('rel')=="hrzAccordionHandleSelected"){
+			$("#hrzAccordionHandle0.handle").css('background-image','url(\'images/hp/h_slider/frame/ru_on_left.png\')');
+		}
+		else{
+			$("#hrzAccordionHandle0.handle").css('background-image','url(\'images/hp/h_slider/frame/ru_off_left.png\')');
+		}
+				
+	});
+			
+	$('#kwan').click(function(){
+		$('#fb').val($('#hrzAccordion').html());	
+	});
+});
+</script>
+
+<div style="width:990px; margin:0 auto;">
+	<ul id="hrzAccordion" class="hrzAccordion">
+					<li>
+				<div class="handle"><img src='http://www.rockefeller.edu/images/hp/h_slider/frame/title1.gif'></div>
+				<div class="inside_hrzAccordion">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+					<tr>
+						<td valign="top" align="left" width="30%"><h2 style="color: rgb(0, 0, 0);"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">The David Rockefeller Graduate Program  </span></span></span></h2>
+<p>The university offers students from across the United States and the world access and opportunities to study and work with a diverse faculty of leading scientists. <a href="http://www.rockefeller.edu/graduate/" style="font-weight: bold; text-decoration: none;">More</a></p>
+</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="center" width="30%">
+														<div id="pic_1">
+								<div id="pic_1_1" class="pic" >
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','1')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/1.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','1')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_2" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','2')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/2.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','2')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_3" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','3')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/3.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','3')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_4" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','4')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/4.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','4')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_5" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','5')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/5.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','5')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_6" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','6')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/6.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','6')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_7" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','7')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/7.1266531395.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','7')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_1">
+								<div id="pic_1_8" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('1','8')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://www.rockefeller.edu/graduate/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/marc.1308946613.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('1','8')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+													</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="left" width="35%" class="part_3">
+							<div style="padding: 20px;">
+<p style="font-size: 10px; color: rgb(90, 90, 90);">Our online application is now closed.&nbsp; Applications for 2013 admission will be available in fall 2012. <br/> </p>
+<a href="http://www.rockefeller.edu/graduate/prospective/pdf/brochure.pdf"><img title="" alt=""  src="/hp_inc/uploads/h_slider/assets/images/downloadbrochure.gif" style="margin-top: 15px;" border="0" height="20" width="176" align=""/></a>
+</div>
+
+						</td>
+					</tr>
+				</table>	
+				</div>
+			</li>
+						<li>
+				<div class="handle"><img src='http://www.rockefeller.edu/images/hp/h_slider/frame/title2.gif'></div>
+				<div class="inside_hrzAccordion">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+					<tr>
+						<td valign="top" align="left" width="30%"><h2 style="color: rgb(0, 0, 0);"><span style="font-size: 10pt;"><span style="font-size: 12pt;"><span style="font-size: 10pt;">Give & Join<br/></span></span></span></h2>
+<p>Many of our benefactors consider an involvement with The Rockefeller University one of the soundest investments they can make in the future of medical science. <a href="http://www.rockefeller.edu/giving/" style="font-weight: bold; text-decoration: none;">More</a></p>
+
+
+</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="center" width="30%">
+														<div id="pic_2">
+								<div id="pic_2_1" class="pic" >
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('2','1')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://parentsandscience.rockefeller.edu/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/parents.1266876570.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('2','1')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_2">
+								<div id="pic_2_2" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('2','2')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://bridges.rockefeller.edu/"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/bridges.1266876570.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('2','2')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+														<div id="pic_2">
+								<div id="pic_2_3" class="pic" style="display:none;">
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_previous('2','3')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_pre.png" border="0" width="12" /></span></td>
+																		<td valign="middle" align="center">
+																			<a href="http://rockefeller.edu/giving/womenandscience.php"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/women.1266876588.jpg" border="0" /></a>
+																		</td>
+																			<td valign="middle" align="center"><span class="link arrow" onclick="pic_next('2','3')"><img src="http://www.rockefeller.edu/images/hp/h_slider/frame/arrow_next.png" border="0" width="12" /></span></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+													</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="left" width="35%" class="part_3">
+							<div style="padding:20px;">
+<table><tbody>
+<tr>
+<td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin:2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size:10px;line-height:12px;">
+
+<a href="http://womenandscience.rockefeller.edu/"><span style="font-style:italic;">Women & Science</span> Initiative</a></td>
+
+   </tr>
+<tr>
+
+     <td valign="top">
+
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin:2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size:10px;line-height:12px;">
+
+<a href="http://parentsandscience.rockefeller.edu/"><span style="font-style:italic;">Parents & Science</span> Initiative</a></td>
+
+   </tr>
+
+<tr>
+
+     <td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin:2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size:10px;line-height:12px;">
+<a href="http://bridges.rockefeller.edu/">Bridges to Better Medicine<br/></a></td>
+
+   </tr>
+
+
+<tr>
+
+     <td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin:2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size:10px;line-height:12px;">
+<a href="http://www.rockefeller.edu/giving/opportunities/giftstoadvance">Gifts to Advance Research<br/></a></td>
+
+   </tr>
+<tr>
+
+     <td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin:2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size:10px;line-height:12px;">
+<a href="http://www.rockefeller.edu/giving/opportunities/planningagift">Planned Gifts & Bequests<br/></a></td>
+
+   </tr>
+
+</tbody>
+</table><a href="https://www.rockefeller.edu/cgi-bin/giving/makegiftonline.cgi"><img title="" alt="" src="/hp_inc/uploads/h_slider/assets/images/makeagift4.jpg" border="0" height="25" hspace="0" width="176" align=""/></a></div>
+						</td>
+					</tr>
+				</table>	
+				</div>
+			</li>
+						<li>
+				<div class="handle"><img src='http://www.rockefeller.edu/images/hp/h_slider/frame/title3.gif'></div>
+				<div class="inside_hrzAccordion">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+					<tr>
+						<td valign="top" align="left" width="30%"><h2 style="color: rgb(0, 0, 0);"><span style="font-size: 10pt;">Featured Events</span></h2>
+<p>Featured Events at the University include the Monday & Friday Lecture Series, Peggy Rockefeller Concerts, Insight Lecture Series, and the Lewis Thomas Prize. <a href="http://featuredevents.rockefeller.edu/" style="font-weight: bold; text-decoration: none;">More</a></p>
+</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="center" width="30%">
+														<div id="pic_3">
+								<div id="pic_3_1" class="pic" >
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td><div style="width:12px;height:1px;">&nbsp;</div></td>
+																		<td valign="middle" align="center">
+																			<a href="http://rockefeller.edu/peggy"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/peggy2012.1308770095.jpg" border="0" /></a>
+																		</td>
+																			<td><div style="width:12px;height:1px;">&nbsp;</div></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+													</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="left" width="35%" class="part_3">
+							
+<a href="http://www.rockefeller.edu/calendar"><img title="" alt="" id="de_element_image" src="/hp_inc/uploads/h_slider/assets/images/calendar.jpg" align="" border="0" height="143" width="254"/><br/></a>
+						</td>
+					</tr>
+				</table>	
+				</div>
+			</li>
+						<li>
+				<div class="handle"><img src='http://www.rockefeller.edu/images/hp/h_slider/frame/title4.gif'></div>
+				<div class="inside_hrzAccordion">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" align="center">
+					<tr>
+						<td valign="top" align="left" width="30%"><h2 style="color: rgb(0, 0, 0);"><span style="font-size: 10pt;">Clinical Research</span></h2>
+<p>The Hospital conducts clinical studies that not only inspire the direction of basic laboratory research, but also translate the findings from the lab to the world of health care. <a href="http://www.rucares.org/" style="font-weight: bold; text-decoration: none;">More</a></p>
+</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="center" width="30%">
+														<div id="pic_4">
+								<div id="pic_4_1" class="pic" >
+									<table cellspacing="0" cellpadding="0" border="0">
+										<tr>
+																			<td><div style="width:12px;height:1px;">&nbsp;</div></td>
+																		<td valign="middle" align="center">
+																			<a href="http://centennial.rucares.org/homepage.php"><img src="http://www.rockefeller.edu/images/hp/h_slider/data/2010hospital.1266592019.jpg" border="0" /></a>
+																		</td>
+																			<td><div style="width:12px;height:1px;">&nbsp;</div></td>
+																			</tr>
+									</table>
+								</div>
+							</div>
+													</td>
+						<td width="2%">&nbsp;</td>
+						<td valign="top" align="left" width="35%" class="part_3">
+							<div style="padding: 20px;">
+<table>
+   <tbody>
+<tr>
+     <td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin: 2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+     <td style="font-size: 10px; line-height: 12px;">
+<a href="/ccts/">Center for Clinical & Translational Science</a></td>
+   </tr>
+
+<tr>
+     <td valign="top">
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin: 2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+     <td style="font-size: 10px; line-height: 12px;">
+<a href="http://www.rucares.org/clinicalstudies/list.php">Active Clinical Studies</a></td>
+   </tr>
+
+<tr>
+
+     <td valign="top">
+
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin: 2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size: 10px; line-height: 12px;">
+
+<a href="http://www.rucares.org/patientsvolunteers/">Research Participation</a></td>
+
+   </tr>
+
+<tr>
+
+     <td valign="top">
+
+<img  src="/hp_inc/uploads/h_slider/assets/images/liststyle.gif" style="margin: 2px 8px 0px 0px;" border="0" height="12" width="6"/></td>
+
+     <td style="font-size: 10px; line-height: 12px;">
+
+<a href="/ccts/training">Training Programs</a></td>
+
+   </tr>
+</tbody>
+</table>
+
+
+            
+</div>
+
+						</td>
+					</tr>
+				</table>	
+				</div>
+			</li>
+				</ul>
+	<br />
+	<br />
+	<div style="clear:both;"></div><br />
+</div></div>
+
+<!-- footer start -->
+	<div id="footer">
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27105711-1']);
+  _gaq.push(['_setDomainName', 'rockefeller.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+		<p>
+         <div id="footer-btns">
+            <a href="http://newswire.rockefeller.edu/rss.php" target="_blank"><img src="/images/static/btn-med-rss.gif" width="32" height="32" alt="RSS" /></a>
+            <a href="http://www.facebook.com/rockefelleruniversity" target="_blank"><img src="/images/static/btn-med-fb.gif" width="32" height="32" alt="Facebook" /></a>
+            <a href="http://www.twitter.com/rockefelleruniv" target="_blank"><img src="/images/static/btn-med-twitter.gif" width="32" height="32" alt="Twitter" /></a>
+            <a href="http://www.youtube.com/rockefelleruniv" target="_blank"><img src="/images/static/btn-med-youtube.gif" width="32" height="32" alt="YouTube" /></a>
+            <a href="https://inside.rockefeller.edu" id="footer-inside-link"><img src="/images/static/inside.gif" /></a>
+         </div>
+            The Rockefeller University  |  1230 York Avenue, New York, NY 10065  |  212-327-8000<br />
+			Copyright &copy; 2004&ndash;2012 The Rockefeller University. All rights reserved.<br />
+		                        <a href="/about/contact">Contact</a> |
+                        <a href="/about/comments">Comments</a> |
+                        <a href="/about/sitemap">Site Map</a> |
+                        <a href="/about/dmca">Copyright Complaints</a> | 
+            <a href="http://m.rockefeller.edu/">Mobile Site</a>
+		</p>
+
+	</div><!-- footer end -->	
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27105711-1']);
+  _gaq.push(['_setDomainName', 'rockefeller.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>

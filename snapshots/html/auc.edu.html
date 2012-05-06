@@ -1,0 +1,238 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>
+	Home | Atlantic Union College
+</title><base href="https://www.auc.edu/ICS/">
+    <link rel="stylesheet" type="text/css" href="UI/Common/Styles/siteStyle.css" /> 
+
+<link rel="stylesheet" type="text/css" href="UI/Common/Styles/tableStyle.css" />
+
+<link id="head_lnkPrint" rel="stylesheet" type="text/css" media="print" href="UI/Common/Styles/print.css"></link>
+ 
+<script type="text/javascript" src="UI/Common/Scripts/jcsfl.js?ver=062310.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/Utility.js?ver=042810.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/json2.js?ver=092409.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/jenz.js?ver=082109.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/PortletUtils.js?ver=082109.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/AJAX.js?ver=082109.1"></script>
+<script type="text/javascript" src="UI/Common/Scripts/Globalization.js.aspx?id=2bc531a620fd403b969262936e12b0da-f35d49f2b6fc44e594c1ace7d0c016ee"></script>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+
+<!--[if IE]>
+<style type="text/css" media="all">@import url( UI/Common/Styles/IEOnly.css );</style>
+<script type="text/javascript" language="JavaScript" src="UI/Common/Scripts/IEOnly.js"></SCRIPT>
+<![endif]-->
+<script type="text/javascript">
+
+	window.Portal =
+	{
+		url:			document.getElementsByTagName("base")[0].href,
+		uid:			null,
+		timeout:		20
+		
+	};
+	
+	JCSL.JICS.get_session_monitor().start();
+	
+    function pageLoad() {
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+    }
+    function EndRequestHandler(sender, args) {
+        if (args.get_error()) {
+            var reg = new RegExp("Sys.*?: ", "g");
+            alert(args.get_error().message.replace(reg, ""));
+            args.set_errorHandled(true);
+        }
+    }	
+</script>
+ 
+<link rel="Shortcut Icon" href="favicon.ico" type="image/x-icon"/>
+<style type="text/css" media="all">@import url( clientconfig/HtmlContent/custom.css );</style><link rel="stylesheet" type="text/css" href="./UI/Themes/default/style.css" />
+
+
+</head>
+<body onload="doLoad();">
+    <table style="width:100%;" cellpadding="0" cellspacing="0" border="0"><tr><td>
+        <form name="MAINFORM" method="post" action="/ics" id="MAINFORM" enctype="multipart/form-data" autocomplete="off">
+<div>
+<input type="hidden" name="_scriptManager_HiddenField" id="_scriptManager_HiddenField" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwNzc1NzE4MjgPEGRkZBYGAgMPFgIeBFRleHQFTjx0YWJsZSBzdHlsZT0id2lkdGg6MTAwJTsiIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIj48dHI+PHRkPmQCBQ9kFhACFQ8WAh8ABTs8dGFibGUgaWQ9Im1haW5MYXlvdXQiIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCI+PHRyPmQCFw8WAh8ABRE8dGQgaWQ9InNpZGVCYXIiPmQCGw8WAh8ABQU8L3RkPmQCHQ8WAh8ABRI8dGQgaWQ9InBvcnRsZXRzIj5kAh8PDxYCHgdWaXNpYmxlaGRkAiUPZBYEAgMPFCsAAmRkFggCAg8WAh8BaGQCBA8WAh8BaGQCCA9kFgJmDw8WAh4IX19Mb2FkZWRnZBYCAgEPDxYCHwAFwxI8ZGl2IGlkPSJBVUNTbCIgPg0KPHRhYmxlIGlkPSJBVUNTbE9iaiIgc3R5bGU9IndpZHRoOjEwMCU7Ij4NCjx0cj4NCjx0ZCBpZD0iU2xCb3hPYmoiID48L3RkPg0KPHRkIGlkPSJBVUNIbUFjdCI+DQo8dGFibGUgPg0KPHRyPjx0ZD48YSBocmVmPSIvSUNTL0RlcHRzL0luc3RpdHV0aW9uYWwvUHJlc2lkZW50L0hvbWUuam56IiA+PGltZyBhbHQ9IkFwcGx5IE9ubGluZSIgaWQ9IkFwT24iIHNyYz0iL2ljcy9pbWdzL21haW4vQXBPblIucG5nIiBvbm1vdXNlb3Zlcj0iZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ0FwT24nKS5zcmMgPScvaWNzL2ltZ3MvbWFpbi9BcE9uTy5wbmcnIiBvbm1vdXNlb3V0PSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnQXBPbicpLnNyYyA9Jy9pY3MvaW1ncy9tYWluL0FwT25SLnBuZyciID48L3RkPjwvdHI+DQo8dHI+PHRkID48YSBocmVmPSIvSUNTL0RlcHRzL0luc3RpdHV0aW9uYWwvUHJlc2lkZW50L0hvbWUuam56Ij48aW1nIGFsdD0iUmVxdWVzdCBJbmZvIiBpZD0iUnFJbiIgc3JjPSIvaWNzL2ltZ3MvbWFpbi9ScUluUi5wbmciIG9ubW91c2VvdmVyPSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnUnFJbicpLnNyYyA9Jy9pY3MvaW1ncy9tYWluL1JxSW5PLnBuZyciIG9ubW91c2VvdXQ9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdScUluJykuc3JjID0nL2ljcy9pbWdzL21haW4vUnFJblIucG5nJyIgPjwvdGQ+PC90cj4NCjx0cj48dGQ+PGEgaHJlZj0iL0lDUy9EZXB0cy9JbnN0aXR1dGlvbmFsL1ByZXNpZGVudC9Ib21lLmpueiI+PGltZyBhbHQ9IkNvdXJzZXMgU2NoZWR1bGUiIGlkPSJDcnMiIHNyYz0iL2ljcy9pbWdzL21haW4vQ3JzUi5wbmciIG9ubW91c2VvdmVyPSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnQ3JzJykuc3JjID0nL2ljcy9pbWdzL21haW4vQ3JzTy5wbmcnIiBvbm1vdXNlb3V0PSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnQ3JzJykuc3JjID0nL2ljcy9pbWdzL21haW4vQ3JzUi5wbmcnIiA+PC90ZD48L3RyPg0KPHRyPjx0ZD48YSBocmVmPSIvaWNzL0RlcHRzL0luc3RpdHV0aW9uYWwvRGV2ZWxvcG1lbnQvIiB0YXJnZXQ9X3BhcmVudD48aW1nIGFsdD0iR2l2ZSBUbyBBVUMiIGlkPSJHaXZlIiBzcmM9Ii9pY3MvaW1ncy9tYWluL0dpdmVSLnBuZyIgb25tb3VzZW92ZXI9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdHaXZlJykuc3JjID0nL2ljcy9pbWdzL21haW4vR2l2ZU8ucG5nJyIgb25tb3VzZW91dD0iZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ0dpdmUnKS5zcmMgPScvaWNzL2ltZ3MvbWFpbi9HaXZlUi5wbmcnIiA+PC90ZD48L3RyPg0KPHRyPjx0ZD48YSBocmVmPSIvSUNTL0RlcHRzL0luc3RpdHV0aW9uYWwvUHJlc2lkZW50L0hvbWUuam56IiB0YXJnZXQ9X3BhcmVudD48aW1nIGFsdD0iQWNjcmVkaXRhdGlvbiBVcGRhdGVzIiBpZD0iQWNVcCIgc3JjPSIvaWNzL2ltZ3MvbWFpbi9BY1VwUi5wbmciIG9ubW91c2VvdmVyPSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnQWNVcCcpLnNyYyA9Jy9pY3MvaW1ncy9tYWluL0FjVXBPLnBuZyciIG9ubW91c2VvdXQ9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdBY1VwJykuc3JjID0nL2ljcy9pbWdzL21haW4vQWNVcFIucG5nJyIgPg0KPC90ZD48L3RyPg0KPC90YWJsZT4NCjwvdGQ+PC90cj4NCjx0cj4NCjx0ZCBpZD0iU2xDbnRybHMiID4NCjxpbWcgYWx0PSJQcmlvciIgc3JjPSIvaWNzL2ltZ3MvTWFpbi9wclIyLnBuZyIgaWQ9IlByQnQiIA0Kb25jbGljaz0iU2xQcigpIiANCm9ubW91c2VvdmVyPSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnUHJCdCcpLnNyYz0nL2ljcy9pbWdzL01haW4vcHJPMi5wbmcnIiANCm9ubW91c2VvdXQ9ImRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdQckJ0Jykuc3JjID0nL2ljcy9pbWdzL01haW4vcHJSMi5wbmcnIj4NCjxpbWcgYWx0PSJQbGF5L1BhdXNlIiBzcmM9Ii9pY3MvaW1ncy9NYWluL3BzUjIucG5nIiBpZD0iUGxQc0J0Ig0Kb25jbGljaz0iU2xQbFBzKCkiPg0KPGltZyBhbHQ9Ik5leHQiIHNyYz0iL2ljcy9pbWdzL01haW4vbnhSMi5wbmciIGlkPSJOeEJ0Ig0Kb25jbGljaz0iU2xOeCgpIiANCm9ubW91c2VvdmVyPSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnTnhCdCcpLnNyYyA9Jy9pY3MvaW1ncy9NYWluL254TzIucG5nJyIgDQpvbm1vdXNlb3V0PSJkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnTnhCdCcpLnNyYyA9Jy9pY3MvaW1ncy9NYWluL254UjIucG5nJyI+DQo8L3RkPg0KPHRkPiZuYnNwOw0KPC90ZD48L3RyPg0KPC90YWJsZT4NCjwvZGl2PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Ii9JQ1MvUG9ydGxldHMvQ1VTL0lDUy9TbGlkZXNob3cvQVVDSG9tZS5qcyI+PC9zY3JpcHQ+ZGQCCg8PFgIfAWhkZAIEDxQrAAJkZBYIAgIPFgIfAWhkAgQPFgIfAWhkAggPZBYCZg8PFgIfAmdkFgICAQ8PFgIfAAWqDzxkaXYgaWQ9IkFVQ01uQnRtIiA+DQo8dGFibGUgaWQ9IkFVQ01uQnRtIiA+DQo8dHI+DQo8dGg+VXBjb21pbmcgRXZlbnRzPC90aD4NCjx0aD5OZXdzPC90aD4NCjx0aD5Kb2luIFVzIGF0PC90aD4NCjwvdHI+DQo8dHI+DQo8dGQgaWQ9IkV2ZW50cyI+DQo8cD48c3Ryb25nPjwvc3Ryb25nPjwvcD4NCjx1bD4NCjxsaT48L2xpPg0KPC91bD4NCjxwPiZuYnNwOzwvcD4NCjxwPjxhIGhyZWY9Ii9pY3MvQ2FsZW5kYXJfT2ZfRXZlbnRzLmpueiIgPlZpZXcgQWxsPC9hPjwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjwvdGQ+DQo8dGQgaWQ9Ik5ld3MiPg0KPHVsPg0KPGxpPjxhICBocmVmPSIvSUNTL0RlcHRzL0luc3RpdHV0aW9uYWwvUFIvTmV3cy5qbno/cG9ydGxldD1UaGVfQXRsYW50aWNfVW5pb25fQXBwcm92ZXNfTkVUUyI+VGhlIEF0bGFudGljIFVuaW9uIEFwcHJvdmVzIGluIHByaW5jaXBsZSBBbiBFdmFuZ2VsaXN0aWMgVHJhaW5pbmcgU2Nob29sPC9hPjwvbGk+DQo8bGk+PGEgIGhyZWY9Ii9JQ1MvRGVwdHMvSW5zdGl0dXRpb25hbC9QUi9OZXdzLmpuej9wb3J0bGV0PVVwZGF0ZV9vbl9BdGxhbnRpY19Vbmlvbl9Db2xsZWdlXy1fRmViXzE2XzIwMTIiPlVwZGF0ZSBvbiBBdGxhbnRpYyBVbmlvbiBDb2xsZWdlIC0gUG9zdGVkIEZlYnJ1YXJ5IDE2LCAyMDEyPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0lDUy9EZXB0cy9JbnN0aXR1dGlvbmFsL1BSL05ld3Muam56P3BvcnRsZXQ9VXBkYXRlX29uX0F0bGFudGljX1VuaW9uX0NvbGxlZ2VfLV9KYW5fMDNfMjAxMiI+VXBkYXRlIG9uIEF0bGFudGljIFVuaW9uIENvbGxlZ2UgLSBQb3N0ZWQgSmFudWFyeSAzLCAyMDEyPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0lDUy9EZXB0cy9JbnN0aXR1dGlvbmFsL1BSL05ld3Muam56P3BvcnRsZXQ9VGhlX0xhdGVzdF9vbl9BdGxhbnRpY19Vbmlvbl9Db2xsZWdlIj5VcGRhdGUgb24gQXRsYW50aWMgVW5pb24gQ29sbGVnZSAtIFBvc3RlZCBOb3ZlbWJlciAyOCwyMDExPC9hPjwvbGk+DQo8bGk+PGEgaHJlZj0iL0lDUy9EZXB0cy9JbnN0aXR1dGlvbmFsL1BSL05ld3Muam56P3BvcnRsZXQ9QW5fT3Blbl9MZXR0ZXIiPk9wZW4gTGV0dGVyIHRvIEZyaWVuZHMgb2YgQXRsYW50aWMgVW5pb24gQ29sbGVnZTwvYT48L2xpPg0KPC91bD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPjxhIGhyZWY9Ii9pY3MvRGVwdHMvSW5zdGl0dXRpb25hbC9TZWN1cml0eS9Ib21lLmpuej9wb3J0bGV0PVNjaG9vbF9DbG9zaW5nIiB0YXJnZXQ9Il9ibGFuayI+SW5jbGVtZW50IFdlYXRoZXIgQ2xvc2luZ3M8L2E+PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPHA+Jm5ic3A7PC9wPg0KPC90ZD4NCjx0ZCBpZD0iTW9yZSI+DQo8dWw+DQo8bGk+PC9saT4NCjxsaT48YSBocmVmPSIvaWNzL0RlcHRzL0luc3RpdHV0aW9uYWwvTWFpbi9WaWRlb3Muam56P3BvcnRsZXQ9RXh0ZXJuYWxfQ29udGVudF8yMDA5LTA1LTI1VDA3LTM4LTQyLTgzOSIgdGFyZ2V0PV9wYXJlbnQ+PGltZyBhbHQ9IkxlYXJuIE1vcmUiIHNyYz0iL2ljcy9pbWdzL21haW4vTGVhcm5Nb3JlMy5wbmciID48L2E+PC9saT4NCjxsaT4mbmJzcDs8L2xpPg0KPGxpPjxhIGhyZWY9Ii9pY3MvU3RhdGljUGFnZXMvU2VhcmNoMi5odG0iIHRhcmdldD1fcGFyZW50PlNlYXJjaCBXZWJzaXRlPC9hPjwvbGk+DQo8bGk+U2l0ZSBNYXA8L2xpPg0KPC91bD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjxwPiZuYnNwOzwvcD4NCjwvdGQ+DQo8L3RyPg0KPC90YWJsZT4NCjwvZGl2PmRkAgoPDxYCHwFoZGQCJw8WAh8ABQU8L3RkPmQCKQ8WAh8ABQ08L3RyPjwvdGFibGU+ZAIHDxYCHwAFEjwvdGQ+PC90cj48L3RhYmxlPmRka5ARg98GxNvfLbRBOVtC0JWKETA=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['MAINFORM'];
+if (!theForm) {
+    theForm = document.MAINFORM;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/ICS/WebResource.axd?d=Fu4fp0hTzS-LeJidIjKMfFSO7AjfVa13-D1tAE5iGDumpioftPdiNo0ePisE_1GrwsiYKS0tIpaJq5mTlMtkt1IuaqY1&amp;t=634604244479085897" type="text/javascript"></script>
+
+
+<script src="/ICS/ScriptResource.axd?d=beikb0Pdx78SYBsGLex9ARmWO2DVtS4qbflNOPJj1IvTPcHfDV3rYyQjCSx0tOGbyr6UnOA3vSPnB5L9o2riuM3Udr_EkA1oFDi6iA5sr263qaEX0&amp;t=ffffffffb2dcc549" type="text/javascript"></script>
+<script src="/ICS/ScriptResource.axd?d=NsBiDrygxJ0IS-h3w_OFQZ4wDH39frQZKi4WDaXsC6OmiB5RdA_4ZdaxhhEU_SsnW8eyGHOjtavZQ9p_wKsxvWhlnYAl3R0_vvLc1Cg5-QsP8pigTM42a2arD4v1P237bYHLwA2&amp;t=ffffffffb2dcc549" type="text/javascript"></script>
+
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('_scriptManager', document.getElementById('MAINFORM'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+            
+            <input name="___BrowserRefresh" type="hidden" id="___BrowserRefresh" value="826a34be-0e90-4f96-b450-156fbae7ebf8" />
+                
+            
+            <p class="accessibility"><a href="#content" title="Skip to Content" class="accessibility">Skip To Content</a> </p>
+            <div id="masthead"><h1><a href="." title="Atlantic Union College">Atlantic Union College</a></h1></div>
+            <div id="welcomeBackBar"><span id="userLogin"><label for="userName">AUC ID:</label><input type="text" name="userName" id="userName" value=""/><label for="password">Password:</label><input type="password" name="password" id="password"  /><input type="submit" name="btnLogin" value="Login" id="btnLogin" />&nbsp;<a onclick="preventDefault(event, ValidateLoginUserName());" id="lnkForgot" href="javascript:__doPostBack('lnkForgot','')">I forgot my password</a></span></div>
+            <div id="errorMessage"></div>
+            
+            <div id="headerTabs"><ul><li style="visibility: hidden; margin:0; padding: 0;">&nbsp</li><li class="firstTab selected"><a href="/ICS/">Home</a></li><li><a href="./Academics/" title="Academics">Academics</a></li><li class="lastTab"><a href="./Depts/" title="Depts">Depts</a></li></ul></div>
+            <div id="mainCrumbs">
+                
+	            <div id="youAreHere">
+		            <span class="crumbs">You are here:&nbsp; <a href="/ICS/Portal_Homepage.jnz" title="Home">Home</a> &nbsp;</span>
+	            </div>
+            </div>
+            <table id="mainLayout" cellpadding="0" cellspacing="0"><tr>
+                <td id="sideBar">
+	                <div class="sideSection" id="thisContext"><h2><a href="/ICS/" title="Atlantic Union College">Atlantic Union College</a></h2><ul id="contextPages"><li class="currentPage"><a href="/ICS/Portal_Homepage.jnz" title="Home">Home</a><ul id="pagePortlets"><li><a href="/ICS/Portal_Homepage.jnz?portlet=Welcome_To_AUC" title="Welcome To AUC">Welcome To AUC</a></li><li><a href="/ICS/Portal_Homepage.jnz?portlet=Connect_With_Us" title="Connect With Us">Connect With Us</a></li></ul></li><li><a href="/ICS/Alumni_and_Friends.jnz" title="Alumni and Friends">Alumni and Friends</a></li><li><a href="/ICS/Departments.jnz" title="Departments">Departments</a></li><li><a href="/ICS/Faculty_and_Staff.jnz" title="Faculty and Staff">Faculty and Staff</a></li><li><a href="/ICS/Calendar_Of_Events.jnz" title="Calendar Of Events">Calendar Of Events</a></li></ul><div class="contexts"></div></div><div id="quickLinks"><h3>Quick Links</h3><ul id="globalLinks"><li><a target="_blank" href="https://www.google.com/a/auc.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fa%2Fauc.edu%2F&bsv=zpwhtygjntrz&ss=1&ltmpl=default&ltmplcache=2" title="">E-Mail</a></li><li><a target="_blank" href="https://www.auc.edu/ics/Depts/Instructional/TPAC/" title="">Thayer Performing Arts Center</a></li><li><a target="_blank" href="https://auc.edu/ics/StaticPages/Search2.htm" title="">Search Website (Google)</a></li></ul></div>
+	            </td>
+                <td id="portlets">
+	                <div id="pageTitle">
+		                <div ID="pageTitleButtons">
+			                
+			                <a id="btnPrintView" title="" href="javascript:__doPostBack('btnPrintView','')" class="imageAndText" /><img src="/ICS/UI/Common/Images/PortletImages/Icons/print.gif" alt="" /> <span>Printer Friendly</span></a>
+		                </div>
+		                <h2><a href="/ICS/" title="Atlantic Union College" id="contextName">Atlantic Union College</a></h2>
+	                </div>
+	                <a name="content"></a>
+	                <table id="PORTLETGRID" border="0" class="one_column"><tr><td class="pColumn pColumn1"><div id="pg0_JavascriptContent" class="portlet pt_JavascriptContent pi_Welcome_To_AUC" style="z-index:2;"><div class="pHead"><h3><a href="/ICS/Portal_Homepage.jnz?portlet=Welcome_To_AUC" title="Go to main Welcome To AUC screen">Welcome To AUC</a></h3><div></div></div><div class="pContent">
+<div class="pContent">
+<span id="pg0_V_lblContent"><div id="AUCSl" >
+<table id="AUCSlObj" style="width:100%;">
+<tr>
+<td id="SlBoxObj" ></td>
+<td id="AUCHmAct">
+<table >
+<tr><td><a href="/ICS/Depts/Institutional/President/Home.jnz" ><img alt="Apply Online" id="ApOn" src="/ics/imgs/main/ApOnR.png" onmouseover="document.getElementById('ApOn').src ='/ics/imgs/main/ApOnO.png'" onmouseout="document.getElementById('ApOn').src ='/ics/imgs/main/ApOnR.png'" ></td></tr>
+<tr><td ><a href="/ICS/Depts/Institutional/President/Home.jnz"><img alt="Request Info" id="RqIn" src="/ics/imgs/main/RqInR.png" onmouseover="document.getElementById('RqIn').src ='/ics/imgs/main/RqInO.png'" onmouseout="document.getElementById('RqIn').src ='/ics/imgs/main/RqInR.png'" ></td></tr>
+<tr><td><a href="/ICS/Depts/Institutional/President/Home.jnz"><img alt="Courses Schedule" id="Crs" src="/ics/imgs/main/CrsR.png" onmouseover="document.getElementById('Crs').src ='/ics/imgs/main/CrsO.png'" onmouseout="document.getElementById('Crs').src ='/ics/imgs/main/CrsR.png'" ></td></tr>
+<tr><td><a href="/ics/Depts/Institutional/Development/" target=_parent><img alt="Give To AUC" id="Give" src="/ics/imgs/main/GiveR.png" onmouseover="document.getElementById('Give').src ='/ics/imgs/main/GiveO.png'" onmouseout="document.getElementById('Give').src ='/ics/imgs/main/GiveR.png'" ></td></tr>
+<tr><td><a href="/ICS/Depts/Institutional/President/Home.jnz" target=_parent><img alt="Accreditation Updates" id="AcUp" src="/ics/imgs/main/AcUpR.png" onmouseover="document.getElementById('AcUp').src ='/ics/imgs/main/AcUpO.png'" onmouseout="document.getElementById('AcUp').src ='/ics/imgs/main/AcUpR.png'" >
+</td></tr>
+</table>
+</td></tr>
+<tr>
+<td id="SlCntrls" >
+<img alt="Prior" src="/ics/imgs/Main/prR2.png" id="PrBt" 
+onclick="SlPr()" 
+onmouseover="document.getElementById('PrBt').src='/ics/imgs/Main/prO2.png'" 
+onmouseout="document.getElementById('PrBt').src ='/ics/imgs/Main/prR2.png'">
+<img alt="Play/Pause" src="/ics/imgs/Main/psR2.png" id="PlPsBt"
+onclick="SlPlPs()">
+<img alt="Next" src="/ics/imgs/Main/nxR2.png" id="NxBt"
+onclick="SlNx()" 
+onmouseover="document.getElementById('NxBt').src ='/ics/imgs/Main/nxO2.png'" 
+onmouseout="document.getElementById('NxBt').src ='/ics/imgs/Main/nxR2.png'">
+</td>
+<td>&nbsp;
+</td></tr>
+</table>
+</div><script type="text/javascript" src="/ICS/Portlets/CUS/ICS/Slideshow/AUCHome.js"></script></span>
+</div></div></div>
+<div id="pg1_BlankPage" class="portlet pt_BlankPage pi_Connect_With_Us" style="z-index:1;"><div class="pHead"><h3><a href="/ICS/Portal_Homepage.jnz?portlet=Connect_With_Us" title="Go to main Connect With Us screen">Connect With Us</a></h3><div></div></div><div class="pContent">
+<div class="pContent">
+<span id="pg1_V_lblContent"><div id="AUCMnBtm" >
+<table id="AUCMnBtm" >
+<tr>
+<th>Upcoming Events</th>
+<th>News</th>
+<th>Join Us at</th>
+</tr>
+<tr>
+<td id="Events">
+<p><strong></strong></p>
+<ul>
+<li></li>
+</ul>
+<p>&nbsp;</p>
+<p><a href="/ics/Calendar_Of_Events.jnz" >View All</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td id="News">
+<ul>
+<li><a  href="/ICS/Depts/Institutional/PR/News.jnz?portlet=The_Atlantic_Union_Approves_NETS">The Atlantic Union Approves in principle An Evangelistic Training School</a></li>
+<li><a  href="/ICS/Depts/Institutional/PR/News.jnz?portlet=Update_on_Atlantic_Union_College_-_Feb_16_2012">Update on Atlantic Union College - Posted February 16, 2012</a></li>
+<li><a href="/ICS/Depts/Institutional/PR/News.jnz?portlet=Update_on_Atlantic_Union_College_-_Jan_03_2012">Update on Atlantic Union College - Posted January 3, 2012</a></li>
+<li><a href="/ICS/Depts/Institutional/PR/News.jnz?portlet=The_Latest_on_Atlantic_Union_College">Update on Atlantic Union College - Posted November 28,2011</a></li>
+<li><a href="/ICS/Depts/Institutional/PR/News.jnz?portlet=An_Open_Letter">Open Letter to Friends of Atlantic Union College</a></li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="/ics/Depts/Institutional/Security/Home.jnz?portlet=School_Closing" target="_blank">Inclement Weather Closings</a></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+<td id="More">
+<ul>
+<li></li>
+<li><a href="/ics/Depts/Institutional/Main/Videos.jnz?portlet=External_Content_2009-05-25T07-38-42-839" target=_parent><img alt="Learn More" src="/ics/imgs/main/LearnMore3.png" ></a></li>
+<li>&nbsp;</li>
+<li><a href="/ics/StaticPages/Search2.htm" target=_parent>Search Website</a></li>
+<li>Site Map</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</td>
+</tr>
+</table>
+</div></span>
+</div></div></div>
+</td></tr></table>
+	            </td>
+            </tr></table>
+            <div id="foot"><span id="policies"><a target="_blank" href="/ICS/ClientConfig/HtmlContent/Privacy.html" title="Information about what personal information we collect and what we will do with it.">Privacy Policy</a>|<a target="_blank" href="/ICS/ClientConfig/HtmlContent/AboutUs.html" title="Information about this university.">About Us</a>|<a target="_blank" href="/ICS/ClientConfig/HtmlContent/ContactUs.html" title="Information on how to get in touch with us.">Contact Us</a>|<a href="javascript:__doPostBack('SiteFooter','CampusDirectory')" title="Directory of all users of this site.">Campus Directory</a></span><span id="copyright"> Powered by Jenzabar. v7.4.1</span></div>
+            
+        
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("_scriptManager_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.initialize();
+//]]>
+</script>
+</form>
+    </td></tr></table>
+</body>
+</html>

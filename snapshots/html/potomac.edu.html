@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--<title>Business and Computer School Online, Washington DC and Virginia  | Potomac</title>-->
+<title>Washington DC College | Virginia College | Online College | Potomac College</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+    <script type="text/javascript" src="/misc/jquery.js"></script>
+    <script type="text/javascript" src="/misc/drupal.js"></script>
+    <script type="text/javascript" src="/sites/default/modules/nice_menus/nice_menus.js"></script>
+    <![endif]-->
+<meta name="description" content="Potomac College Business School and Computer School with campuses in Virginia &amp; Washington DC as well as online programs. Degrees in Accounting, International Business, Information Systems, Business Management, and Health Systems Management." />
+<meta name="keywords" content="Online College,Online University,Online School,Technical School,Washington DC College,Virginia College,accredited online college,washington dc school,virginia school,virginia online college" />
+<meta name="robots" content="index,follow" />
+<meta name="DC.title" content="Potomac" />
+<link rel="shortcut icon" href="/sites/default/themes/potomacredesign/favicon.ico" type="image/x-icon" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!--<title>Business and Computer School Online, Washington DC and Virginia  | Potomac</title>-->
+<title>Washington DC College | Virginia College | Online College | Potomac College</title>
+<!-- head -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--[if IE]>
+    <script type="text/javascript" src="/misc/jquery.js"></script>
+    <script type="text/javascript" src="/misc/drupal.js"></script>
+    <script type="text/javascript" src="/sites/default/modules/nice_menus/nice_menus.js"></script>
+    <![endif]-->
+<meta name="description" content="Potomac College Business School and Computer School with campuses in Virginia &amp; Washington DC as well as online programs. Degrees in Accounting, International Business, Information Systems, Business Management, and Health Systems Management." />
+<meta name="keywords" content="Online College,Online University,Online School,Technical School,Washington DC College,Virginia College,accredited online college,washington dc school,virginia school,virginia online college" />
+<meta name="robots" content="index,follow" />
+<meta name="DC.title" content="Potomac" />
+<link rel="shortcut icon" href="/sites/default/themes/potomacredesign/favicon.ico" type="image/x-icon" />
+<!-- headend -->
+<!-- styles -->
+<style type="text/css" media="all">@import "/modules/node/node.css";</style>
+<style type="text/css" media="all">@import "/modules/system/defaults.css";</style>
+<style type="text/css" media="all">@import "/modules/system/system.css";</style>
+<style type="text/css" media="all">@import "/modules/user/user.css";</style>
+<style type="text/css" media="all">@import "/sites/default/modules/cck/content.css";</style>
+<style type="text/css" media="all">@import "/sites/default/modules/extlink/extlink.css";</style>
+<style type="text/css" media="all">@import "/sites/default/modules/lightbox2/css/lightbox.css";</style>
+<style type="text/css" media="all">@import "/sites/default/modules/nice_menus/nice_menus.css";</style>
+<style type="text/css" media="all">@import "/sites/default/themes/potomac/menu.css";</style>
+<style type="text/css" media="all">@import "/sites/default/themes/potomacredesign/style.css";</style>
+<!-- stylesend -->
+<!-- scripts -->
+
+<!-- scriptsend -->
+
+<link rel="stylesheet" type="text/css" href="/css/accordion.css">
+<link rel="stylesheet" type="text/css" href="/css/contact-form.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/javascript/jquery-ui.js"></script>
+<script type="text/javascript" src="/javascript/validator.js"></script>
+<script type="text/javascript" src="/javascript/masked_input.js"></script>
+<script type="text/javascript" src="/javascript/jquery-menu.js"></script>
+<script type="text/javascript" src="/javascript/jquery-easing.js"></script>
+<script type="text/javascript" src="/lib/jquery.hrzAccordion.js"></script>
+<script type="text/javascript">$(document).ready(function(){$("#edit-search_block_form_keys").bind("blur", function(){ if(this.value=='') this.value='Search';}); $("#edit-search_block_form_keys").bind("focus", function(){ if(this.value=='Search') this.value='';});});</script>
+
+<style type="text/css">
+    #onpage label {  }
+    #returnform label { }
+    input.error { border:1px solid red !important; } 
+    select.error { border:1px solid red !important; } 
+    #payment_form label.error {width:0px;}
+</style> 
+<script type="text/javascript">
+$(function($){
+   $("#phone").mask("(999) 999-9999");
+   $("#otherphone").mask("(999) 999-9999");
+});
+
+  $.validator.setDefaults({
+    submitHandler: function() {  
+        form.submit(); 
+    }
+});       
+
+$(document).ready(function() { 
+    var clearMePrevious = '';
+    
+    jQuery.validator.addMethod("notEqual", function(value, element, param) {
+        param = param.toLowerCase();
+        value = value.toLowerCase();                    
+        return this.optional(element) || value != param;
+    }, "ERROR");
+    
+        
+    $("select#campus").change(function () {
+         $.ajax({
+            type: "POST",
+            url: "/select_program.php",
+            data: "id=" + document.getElementById("campus").value,
+            success: function(html){     
+                    $("#program").html(html);
+              }
+         });               
+    });
+    $.ajax({
+        type: "POST",
+        url: "/select_program.php",
+        data: "id=" + 758,
+        success: function(html){     
+                $("#program").html(html);
+        }
+    });  
+     
+                  
+    $("#onpage").validate({  
+        rules: {
+            fname: {
+                required: true,
+                notEqual: "First Name"
+            },
+            lname: {
+                required: true,
+                notEqual: "Last Name"
+            },
+            address: "required",
+            city: "required",     
+            state: "required", 
+            how_do_u_hear: "required",  
+            campus: "required",
+            program: "required",                        
+            email: {
+                required: true,
+                notEqual: "Email address",
+                email: true
+            },
+            phone: {
+                required: true,
+                phone: true
+            },                                                 
+            zip: {
+                required: true,
+                maxlength: 5,
+                minlength: 5   
+            }                                                   
+        },
+        messages: {
+            fname: "",
+            lname: "",
+            email: "",
+            phone: "",
+            campus: "",
+            program: "",
+            address: "",
+            city: "",
+            state: "",               
+            zip: "",
+            how_do_u_hear: ""
+        }
+    });  
+
+    
+    $("#returnform").validate({  
+        rules: {
+            fullname: {
+                required: true,
+                notEqual: "Name"
+            },
+            campus: "required",
+            lastyear: "required",     
+            phone: {
+                required: true,
+                phone: true
+            }                                                   
+        },
+        messages: {
+            fullname: "",
+            campus: "",
+            lastyear: "",
+            phone: ""
+        }
+    });     
+    
+    
+    $("#request_info").validate({  
+        rules: {
+            fname: {
+                required: true,
+                notEqual: "First"
+            },
+            lname: {
+                required: true,
+                notEqual: "Last"
+            },   
+            state: "required", 
+            source: "required",  
+            campus: "required",
+            program: "required", 
+            gradyear: "required",                       
+            email: {
+                required: true,
+                notEqual: "Email",
+                email: true
+            },
+            phone: {
+                required: true,
+                phone: true
+            },                                                 
+            zip: {
+                required: true,
+                maxlength: 5,
+                minlength: 5   
+            }                                                   
+        },
+        messages: {
+            fname: "",
+            lname: "",
+            email: "",
+            phone: "",
+            campus: "",
+            program: "",
+            state: "",               
+            zip: "",
+            source: ""
+        }
+    });      
+    
+    $('#request_info input').focus(function(){
+    //alert("FOCUS!");
+        if($(this).val()==$(this).attr('title')){
+            clearMePrevious = $(this).val();
+            $(this).val('');
+        }
+    });
+                
+    $('#request_info input').blur(function(){
+        if($(this).val()==''){
+            $(this).val(clearMePrevious);
+        }
+    });   
+     
+                 
+});     
+</script> 
+
+<link href="/css/form.css" type="text/css" rel="stylesheet">
+<link href="/css/twitter.css" type="text/css" rel="stylesheet">
+<script 
+ src="http://twitterjs.googlecode.com/svn/trunk/src/twitter.min.js" 
+ type="text/javascript">
+</script>
+<script type="text/javascript" charset="utf-8">
+getTwitters('tweet', { 
+  id: 'Potomac_College', 
+  count: 2, 
+  enableLinks: true,
+  ignoreReplies: true, 
+  clearContents: true,
+  template: '<img src="/images/logo-potomac-college_normal.jpg" style="margin-right:5px; width=20px; height=20px;" />%text% <a href="http://twitter.com/%user_screen_name%/statuses/%id%/"><br />%time%</a>'
+});
+</script>
+
+<script type="text/javascript">$(document).ready(function(){$("#edit-search_block_form_keys").bind("blur", function(){ if(this.value=='') this.value='Search';}); $("#edit-search_block_form_keys").bind("focus", function(){ if(this.value=='Search') this.value='';});});</script>
+
+<script type="text/javascript">
+    $(function(){ 
+    
+        // ----- Label effect ----- //
+        
+        $("label").inFieldLabels();
+        
+        // ----- Form submissions & error handeling ----- //
+    
+        $("#rfi").validate({
+           errorClass: "form_error",
+           submitHandler: function(form) {
+                   $("#rfi .button").addClass('loading');
+                jQuery(form).ajaxSubmit({
+                    target: "#rfi .message",
+                    clearForm: true,
+                    success: function() { 
+                        $("#rfi .button").removeClass('loading'); 
+                        $("#rfi .message").css('display', 'block');
+                        $("#rfi label").css({'opacity': '1','display': 'block'});
+                    }             
+                });
+           }
+        });
+        
+                $('#rfi input').focus(function(){
+                    //alert("FOCUS!");
+                    if($(this).val()==$(this).attr('title')){
+                        clearMePrevious = $(this).val();
+                        $(this).val('');
+                    }
+                });
+                
+                $('#rfi input').blur(function(){
+                    if($(this).val()==''){
+                        $(this).val(clearMePrevious);
+                    }
+                });           
+        
+    });
+</script>
+<script type="text/javascript">
+    var clearMePreviousf = '';
+    function setValf (input) { 
+        if(input.value==input.title){
+            clearMePreviousf = input.value;
+            input.value='';
+        }            
+    }
+    function clearValf (input) {
+        if(input.value==''){
+            input.value=clearMePreviousf;
+        }            
+
+    }
+</script>        
+<script type="text/javascript">
+    var clearMePreviousl = '';
+    function setVall (input) { 
+        if(input.value==input.title){
+            clearMePreviousl = input.value;
+            input.value='';
+        }            
+    }
+    function clearVall (input) {
+        if(input.value==''){
+            input.value=clearMePreviousl;
+        }            
+
+    }
+</script> 
+<script type="text/javascript">
+    var clearMePreviouse = '';
+    function setVale (input) { 
+        if(input.value==input.title){
+            clearMePreviouse = input.value;
+            input.value='';
+        }            
+    }
+    function clearVale (input) {
+        if(input.value==''){
+            input.value=clearMePreviouse;
+        }            
+
+    }
+</script>          
+</head>
+<body onload="$('#accordionHandle0').click(); changeDiv('open','none');">
+<div id="root">
+<div id="header" class="front">
+    <div class="container" style="margin: 0px 0px 15px 0px; padding: 0px 0px 0px 0px;">
+    	<div class="col1" style="width: 316px; height: 83px; margin: 0px 0px 0px 27px;">
+        	<a href="/"><img src="/sites/default/themes/potomacredesign/images/new/logo-potomac-college.jpg" width="316" height="83" alt="Potomac Online College - Accredited Degree Programs for Virgina, Washington D.C and Online" border="0" /></a>
+		</div>
+        <div class="col3" style="text-align:right; float: right; width: 430px; height: 83px; position: relative; margin: 0px; padding: 0px;">
+        	<div style="width: 430px; height: 83px; position: absolute; top: 50%; right: 0px; margin-top: -28px; text-align: right;">
+                <a href="/admissions/request-information" style="font-size: 11px; margin-right: 6px;" >Request Info</a> <a href="/admissions/request-information" style="font-size: 11px;" ><img src="/sites/default/themes/potomacredesign/images/info.gif" align="absmiddle" style="margin-right: 5px;" /></a> <a href="http://student.potomac.edu/" style="font-size: 11px; margin-right: 6px;" target="_blank">Student Resource Portal</a> <a href="http://student.potomac.edu/" style="font-size: 11px;" target="_blank"><img src="/sites/default/themes/potomacredesign/images/student-portal.gif" align="absmiddle" style="margin-right: 5px;" /></a>
+                <font style="color:#719501; font-size:11px;"> Phone: (888) 635-1121</font><img src= "/sites/default/themes/potomacredesign/images/call-us2.jpg" align="absmiddle" style="padding-left: 5px; margin-right: 5px;" />
+                
+                <div style="clear: both; margin: 0px 0px 10px 0px;"></div>
+                <form action="/search/node"  accept-charset="UTF-8" method="post" id="search-block-form">
+                    <input type="text" maxlength="128" name="search_block_form_keys" id="edit-search_block_form_keys"  size="25" value="Search" title="Enter the terms you wish to search for." class="form-text" />
+                    <input type="hidden" name="form_id" id="edit-search-block-form" value="search_block_form" />
+                    <input type="hidden" name="form_token" id="a-unique-id" value="9eeb6188bbc9781812a8096b14cc8bab" />
+                    <input type="image" src="/sites/default/themes/potomacredesign/images/new/btn-search.jpg" name="op" value="Go" id="go" style="vertical-align: middle; margin: 0px; padding: 0px;" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="image">
+        <div style="width: 980px; height: 280px; overflow: hidden; position: relative;">
+            <div id="open"><button onclick="$('#accordionHandle0').click(); changeDiv('open','none'); changeDiv('close','block');" class="degree" ><span>View Degree Programs</span></button></div>
+            <div id="close"><button onclick="$('#accordionHandle1').click(); changeDiv('open','block'); changeDiv('close','none');" class="degree" ><span>View Degree Programs</span></button></div>
+            <div style="width: 981px; height: 280px;">
+                <ul class="accordion">
+                    <li><div class="handle3"></div></li>
+                    <li>
+                        <div class="handle3"></div>
+                        <div style="background:url(/images/menu.png) no-repeat right top; width: 981px; height: 182px; font-family: Arial, Helvetica, sans-serif; font-size: 12px; padding: 0px !important; position: relative;">
+                            <div class="progCont"> 
+                                <strong>Bachelor of Science Programs</strong>
+                                <ul class="programs">
+                                    <li>* <a href="/academics/degree-programs/bachelor-degree/management">Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/bachelor-degree/information-systems">Information Systems</a></li>
+                                    <li>* <a href="/academics/degree-programs/bachelor-degree/government-contract-management">Government Contract Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/bachelor-degree/international-business">International Business</a></li>
+                                    <li>* <a href="/academics/degree-programs/bachelor-degree/accounting">Accounting</a></li>
+                                </ul>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="progCont"> 
+                                <strong>Associate of Science Programs</strong>
+                                <ul class="programs">
+                                    <li>* <a href="/academics/degree-programs/associate-degree/management">Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/associate-degree/information-systems">Information Systems</a></li>
+                                    <li>* <a href="/academics/degree-programs/associate-degree/network-security-management">Network Security Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/associate-degree/international-business">International Business</a></li>
+                                    <li>* <a href="/academics/degree-programs/associate-degree/accounting">Accounting</a></li>
+                                </ul>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="progCont"> 
+                                <strong>Advanced Professional Certificates</strong>
+                                <ul class="programs">
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/international-business">International Business</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/general-management">General Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/health-systems-management">Health Systems Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/business-accounting">Business Accounting</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/government-contract-management">Government Contract Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/network-security-management">Network Security Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/advanced-certificate/information-systems-management">Information Systems Management</a></li>
+                                </ul>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="progCont"> 
+                                <strong>General Professional Certificates</strong>
+                                <ul class="programs">
+                                    <li>* <a href="/academics/degree-programs/general-certificate/international-studies">International Studies</a></li>
+                                    <li>* <a href="/academics/degree-programs/general-certificate/general-business">General Business</a></li>
+                                    <li>* <a href="/academics/degree-programs/general-certificate/accounting-clerical-support">Accounting Clerical Support</a></li>
+                                    <li>* <a href="/academics/degree-programs/general-certificate/office-application-support">Office Application Support</a></li>
+                                    <li>* <a href="/academics/degree-programs/general-certificate/informational-network-security-management">Network Security Management</a></li>
+                                    <li>* <a href="/academics/degree-programs/general-certificate/project-management">Project Management</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="menu"><h2>New Menu - No Dropdown</h2>
+<div class="content">
+<ul class="menu">
+<li class="leaf"><a href="/" title="Home" class="active">Home</a></li>
+<li class="leaf"><a href="/about" title="About Us">About Us</a></li>
+<li class="leaf"><a href="/student-services" title="Student Services">Student Services</a></li>
+<li class="leaf"><a href="/academics" title="Academics">Academics</a></li>
+<li class="leaf"><a href="/financial-aid" title="Financial Aid">Financial Aid</a></li>
+<li class="leaf"><a href="/admissions" title="Admissions">Admissions</a></li>
+<li class="leaf"><a href="/contact-us" title="Contact Us">Contact Us</a></li>
+<li class="leaf"><a href="/online-learning" title="Online Learning">Online Learning</a></li>
+<li class="leaf"><a href="/commuting-students" title="Commuters">Commuters</a></li>
+<li class="leaf"><a href="/careers/student-support" title="Career Services">Career Services</a></li>
+
+</ul>
+</div></div>
+<div id="content" class="front" style="background: none;">
+<div id="opener" class="front"></div> 
+    <div style="clear: both;"></div>
+    <div class="form-container">
+    <a href="#social media"><img src="/sites/default/themes/potomacredesign//images/announce-large1.png" alt="Online School Social Media" style="margin-bottom: 8px;" /></a>
+    <div class="form-wrapper">
+    
+            <form action="/contact-us" method="post" id="rfi" name="rfi">
+                <fieldset>
+                    <legend>Request Information</legend>
+                    <div class="message"><p class="success">Thanks for interest in Potomac College! Just a few questions about your educational goals and you will be on your way!</p></div>
+                    <div class="formfield">
+                        <div class="relative margin-r">
+                            <input type="text"class="text required" title="First Name" name="fname" id="fname" value="First Name" onfocus="setValf(this)" onblur="clearValf(this)">
+                        </div>
+                        <div class="relative">
+                            <input type="text"class="text required" title="Last Name" name="lname" id="lname" value="Last Name" onfocus="setVall(this)" onblur="clearVall(this)">
+                        </div>
+                    </div><!-- /.formfield -->
+                    <div class="formfield">
+                        <input type="text" class="text required email" title="Email address" name="email" id="email" value="Email address" onfocus="setVale(this)" onblur="clearVale(this)">
+                    </div><!-- /.formfield -->
+                </fieldset>
+                <div class="formfield" style="overflow:visible;">
+                <input type="hidden" name="do_continue" value="continue">
+                    <input type="submit" class="button" value="Continue" />
+                </div><!-- /.formfield -->
+            </form><!-- /#rfi -->    
+        </div> <!-- .form-wrapper -->
+        </div>  
+<div id="front_left_new" style="width:530px; float: left; margin-left: 0px; padding-left: 0px;">
+	<img src="/images/h1-your-talent-powered.png" width="530" height="57" alt="Online College - College Degrees Washington D.C. & Virginia" />
+    <p>There's a better you. Someone who is smarter, has a better professional outlook and better job security. Someone who earns more and has a better quality of life. Someone who has a college degree. Potomac College wants to introduce you to that person.</p>
+    <br style="line-height: 18px;" />
+    <img src="/images/h2-education-on-your.png" width="257" height="25" alt="Potomac College - Online, Virginia & Washington D.C. Campuses " />
+    <p>Imagine being able to pursue your degree at a pace and time that works with your busy schedule. Potomac College offers practical and tailored curricula to a diverse community of working adults and students. It is our goal to make education obtainable regardless of a student's schedule and finances. Our academic advisors are trained to assess your educational needs and tailor a curriculum that matches your career goals and expected time of completion. And with two convenient locations in Washington D.C. and Northern Virginia, your view for a better life broadens the moment you sign up.</p>
+    <h2 class="featured">Online Learning</h2>
+	<p>Potomac College offers students the opportunity to take advantage of the same programs and specializations online that are offered at either of their two physical campuses. This allows students the convenience of flexibility and makes it an ideal institution for fulltime working adults, military persons, or anyone with a busy, demanding schedule seeking to pursue a college degree.  In fact, many of our students residing in a close proximity to either our Washington, DC or Herndon, VA campuses have chosen to take both online and on-campus courses for an accommodating blended program.</p>
+    <p>Let us introduce you to a better you. Let us open the potential of all your talent. Let us show you how far you can go.</p>
+
+    <img src="/images/h2-at-potomac-college.png" width="406" height="25" alt="At Potomac College, it's your talent, powered." />
+    <h2 class="featured">Accredited College Degree from Potomac College</h2>
+    <p>Potomac College is accredited by the Middle States Commission on Higher Education, 3624 Market Street, Philadelphia, PA 19104, (267) 284-5000.</p>
+    <p><a href="http://www.msche.org/" target="_blank">Middle States Commission on Higher Education</a> <a href="http://www.msche.org/" target="_blank"><img src="/sites/default/themes/potomacredesign/images/new-window-icon.png" alt="" /></a></p>
+    <p>The Middle States Commission on Higher Education is an institutional accrediting agency recognized by the U.S. Secretary of Education and the Council for Higher Education Accreditation</p>
+    <a name="social media"></a>
+    <h2 style="color: #c9d59e; background-color: #41482a;">Potomac on <a style="color: #c9d59e;" href="https://twitter.com/#!/Potomac_College"><img src="/images/twitter-logo.png" "Twitter Potomac Online College Feed" /></a></h2>   
+    <div>
+       <div id="tweet">
+       </div>
+
+    </div> 
+    <h2 style="color: #c9d59e; background-color: #3b5998;">Potomac on <a style="color: #c9d59e;" href="http://www.facebook.com/pages/Potomac-College/28335913095?sk=wall"><img src="/images/fb-logo.png" "FB Potomac Online College Feed"/></a></h2>   
+      <div id="fb-feed-wrapper">
+      <ul>
+      <li><img class="fb-wall-avatar" src="/images/logo-potomac-college_normal.jpg" style="margin-right:5px; width=20px; height=20px;" style="margin-right:5px; width=20px; height=20px;" /><a href="http://www.facebook.com/28335913095/posts/394257787281558" target="_blank">We are delighted to announce that we have teleconference and on-ground tutoring options for Math and English. We also partnered with Smarthinking, on-demand live tutoring, that you can use at any time. We hope you will use these offerings which are intended to give you support you may need. Please contact either Student Services or Librarian for more information.</a></li><br/><li><img class="fb-wall-avatar" src="/images/logo-potomac-college_normal.jpg" style="margin-right:5px; width=20px; height=20px;" style="margin-right:5px; width=20px; height=20px;" /><a href="http://www.facebook.com/28335913095/posts/10150727159908096" target="_blank"></a></li><br/><li><img class="fb-wall-avatar" src="/images/logo-potomac-college_normal.jpg" style="margin-right:5px; width=20px; height=20px;" style="margin-right:5px; width=20px; height=20px;" /><a href="http://www.facebook.com/28335913095/posts/10150698844383096" target="_blank"></a></li><br/>       </ul>
+      </div>
+
+</div>
+<div id="front_right_new" style="float: left; width: 450px; text-align: right;">
+	<!--<br style="line-height: 36px;" />
+	<div style="background: url('/sites/default/themes/potomacredesign/images/live-help-large.png') no-repeat; width: 406px; height: 77px; margin-bottom: 8px; float: right; clear: both; position: relative;">
+		<div style="position: absolute; top: 30px; left: 200px;" >
+        	<a href="/contact-us"><img src="/sites/default/themes/potomacredesign/images/request-more-info-btn.jpg" alt="Request More Info" /></a>
+        </div>
+    </div>-->
+	<a href="/academics/catalog"><img src="/sites/default/themes/potomacredesign//images/2010-catalog-large.jpg" alt="Degree Program Catalog" style="margin-bottom: 8px;" /></a>
+	<a href="https://potomac.studentaidcalculator.com/survey.aspx"><img src="/sites/default/themes/potomacredesign//images/net-calculator.png" alt=" College Calculator" style="margin-bottom: 8px;" /></a>
+        <!--<a href="#social media"><img src="/sites/default/themes/potomacredesign//images/announce-large1.png" alt="Online School Social Media" style="margin-bottom: 8px;" /></a>-->
+    <div style="float: right; width: 406px; margin-bottom: 10px;">
+        <a href="/admissions/apply-online"><img src="/sites/default/themes/potomacredesign/images/apply-now-btn-half.jpg" style="border: 0px solid #000; float: right;" alt="Get College & Degree Program Information"></a>
+        <a href="/admissions/request-information" target="_blank"><img src="/sites/default/themes/potomacredesign/images/request-info-btn-half.jpg" style="border: 0px solid #000; float: left;" alt="Apply for College Online"></a>
+        <div style="clear: both;"></div>
+    </div>
+	<div style="float: right; width: 406px; margin-bottom: 10px;">
+		<a href="/about/online-community"><img src="/sites/default/themes/potomacredesign//images/online-community-btn.png" alt="Online Student Community" /></a>
+        <div style="clear: both;"></div>
+    </div>
+    <div style="float: right; width: 406px; margin-bottom: 10px;">
+        <a href="/admissions/military-students"><img src="/sites/default/themes/potomacredesign/images/military-students-btn-half.jpg" style="border: 0px solid #000; float: right;" alt="Military Students"></a>
+        <a href="https://student.potomac.edu/" target="_blank"><img src="/sites/default/themes/potomacredesign/images/student-resource-portal-btn-half.jpg" style="border: 0px solid #000; float: left;" alt="Online Student Portal"></a>
+        <div style="clear: both;"></div>
+    </div>
+ 
+</div>
+<div style="clear: both;"></div>
+
+<!-- <div id="front_left"></div>
+<div id="front_center"></div>
+<div id="front_right"><br/></div>
+<div id="closer" class="front"></div> -->
+</div>
+<div id="menu" style="background: #dededd; color: #939392; text-align: center; padding: 0; margin: 0; height: auto;">
+	<div style="padding: 6px 0 0 0 ;"><a href="/" style="color: #939392; font-size: 11px; padding: 0 2px;">Home</a> | <a href="/about/history" style="color: #939392; font-size: 11px; padding: 0 2px;">History</a> | <a href="/student-services/events" style="color: #939392; font-size: 11px; padding: 0 2px;">Student Events</a> | <a href="/student-services/student-portal" style="color: #939392; font-size: 11px; padding: 0 2px;">Student Resource Portal</a> | <a href="/online-learning" style="color: #939392; font-size: 11px; padding: 0 2px;">Online Learning</a> | <a href="/admissions" style="color: #939392; font-size: 11px; padding: 0 2px;">Admissions</a> | <a href="/financial-aid" style="color: #939392; font-size: 11px; padding: 0 2px;">Financial Support</a> | <a href="/careers/student-support" style="color: #939392; font-size: 11px; padding: 0 2px;">Careers</a> | <a href="/academics/degree-programs" style="color: #939392; font-size: 11px; padding: 0 2px;">Degree Programs</a> | <a href="/contact-us" style="color: #939392; font-size: 11px; padding: 0 2px;">Locations</a> | <a href="/contact-us" style="color: #939392; font-size: 11px; padding: 0 2px;">Contact Us</a> | <a href="/privacy-policy" style="color: #939392; font-size: 11px; padding: 0 2px;">Private Policy</a></div>
+</div>
+<div id="footer"><span id="copyright"><address>&copy; 2008 Potomac College<br />4000 Chesapeake Street N.W., Washington DC 20016 - Phone 888-635-1121 - Fax 202-686-0818</address>
+2070 Chain Bridge Rd, Vienna, VA 20170</span><span id="footer_links"><a href="/academics/degree-programs/bachelor-degree" title="Bachelors Degree">Bachelors Degree</a> | <a href="/academics/degree-programs/associate-degree" title="Associates Degree">Associates Degree</a> | <a href="/academics/degree-programs/certificate-programs" title="Certificate Programs">Certificate Programs</a> | <a href="/sitemap" title="Sitemap">Sitemap</a> | <a href="/about/news">News</a> | <a href="/contact-us" title="Contact Us">Contact Us</a> | <a href="/privacy-policy" title="Privacy policy">Privacy policy</a> | <a href="http://www.potomac.edu/files/potomac-student-disclosures.pdf">Information on graduation rates, programs and more.</a></span><br /><br />
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9063770-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<script type="text/javascript" src="http://cetrk.com/pages/scripts/0009/9764.js"> </script>
+<!-- BEGIN LivePerson Monitor. --><script language='javascript'> var lpMTagConfig = {'lpServer' : "server.iad.liveperson.net",'lpNumber' : "70044561",'lpProtocol' : "https"}; function lpAddMonitorTag(src){if(typeof(src)=='undefined'||typeof(src)=='object'){src=lpMTagConfig.lpMTagSrc?lpMTagConfig.lpMTagSrc:'/hcp/html/mTag.js';}if(src.indexOf('http')!=0){src=lpMTagConfig.lpProtocol+"://"+lpMTagConfig.lpServer+src+'?site='+lpMTagConfig.lpNumber;}else{if(src.indexOf('site=')<0){if(src.indexOf('?')<0)src=src+'?';else src=src+'&';src=src+'site='+lpMTagConfig.lpNumber;}};var s=document.createElement('script');s.setAttribute('type','text/javascript');s.setAttribute('charset','iso-8859-1');s.setAttribute('src',src);document.getElementsByTagName('head').item(0).appendChild(s);} if (window.attachEvent) window.attachEvent('onload',lpAddMonitorTag); else window.addEventListener("load",lpAddMonitorTag,false);</script><!-- END LivePerson Monitor. -->
+</body>
+</html>

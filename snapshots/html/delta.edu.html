@@ -1,0 +1,953 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><link href="/_themes/Deltacollege/css/cssreset.css" rel="stylesheet" type="text/css" media="screen" /><link href="/_themes/Deltacollege/css/deltamain.css" rel="stylesheet" type="text/css" media="screen" /><link href="/_themes/Deltacollege/css/deltaprint.css" rel="stylesheet" type="text/css" media="print" /><link href="/_themes/Deltacollege/css/flyouts.css" rel="stylesheet" type="text/css" media="screen" /><title>
+	Delta College
+</title>
+    <style type="text/css">
+        .RadRotator_Vista .rrClipRegion
+        {
+            border: 1px none #A7BAC5 !important;
+        }
+        
+        #alert h1
+        {
+            font-size: 3em;
+            margin-bottom: 8px;
+            margin-top: 10px;
+        }
+        #alert h2
+        {
+            font-size: 1.5em;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+        #alert p
+        {
+            font-size: 1.1em;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }        
+        #ctl10lnkBusinessTraining_pv
+        {
+            z-index: 999999!important;
+        }
+        #ctl05lnkFutureStudents_pv
+        {
+            z-index: 999999!important;
+        }
+        #ctl06lnkCurrentStudents_pv
+        {
+            z-index: 999999!important;
+        }
+        #ctl07lnkCareer_pv
+        {
+            z-index: 999999!important;
+        }
+        #ctl09lnkAlumniFriends_pv
+        {
+            z-index: 999999!important;
+        }
+        #ctl08lnkCommunity_pv
+        {
+            z-index: 999999!important;
+        }
+
+        
+    </style>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-7468780-2");
+            pageTracker._trackPageview();
+        } catch (err) { }</script>
+    <script type="text/javascript" src="/scripts/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.cycle.js"></script>
+    <script type="text/javascript">
+		$(document).ready(function(){ 
+			if ( $('#slides').length ) { 	
+				$('#slides').cycle({
+					fx:'fade', 
+					timeout: 5000, 
+					speed: 1000, 
+					cleartype:  1,
+					pager:'#slide-nav',
+					// callback fn that creates a thumbnail to use as pager anchor 
+					pagerAnchorBuilder: function(idx, slide) { 				
+						var img_src = $("img:first", slide).attr("src");
+						return '<a href="#"><img src="' + img_src + '" width="66" height="41" /></a>';
+		            }
+				});
+				$('#slide-nav a').click(function() { 		
+					$('#slides').cycle('pause'); 
+							return false;
+				});	
+			}
+		});
+    </script>
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7468780-2']);
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_setDomainName', '.delta.edu']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<link href="/WebResource.axd?d=LX3tR3N19BtSLtMEgIAKPAFMH6TK7qjkFLE-qtuRqKI1LYdYitFF2aQZ9xRWhscvYWKkLT-hc9CmmgDLO2jCiH_RkPBiJByK53Dj_xE7VF-i--i2OW5yCOpq_dbCL_BF2TpgfzzKdahR57IoP2TGuvpIUpM1&amp;t=634036585340000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /><link href="/WebResource.axd?d=ptHRqgw-GNwDPS2Me60dtDq-MBuCgzbvjqnQVrsQU0rD_buaaYphkDzXoqO0gYkM6TWfJsyobhgLT8pon5_jgFfziQuXA9Ox2oYhQiO95em7OL8LAGZgEWA33M946gtFCL2bFNiZgOQQvfaHdRpZdZNvaRk1&amp;t=634036585340000000" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <form name="form1" method="post" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJNTQ2MTQ0MTMyD2QWAgIDD2QWBAIVDxYCHgtfIUl0ZW1Db3VudAIDFgZmD2QWBmYPFQIDTWF5ATRkAgEPDxYEHgRUZXh0BRBEcmFtYSBEZXB0LiBQbGF5HgtOYXZpZ2F0ZVVybAUpL2ludGVybmFsL2V2ZW50c2Rpc3BsYXkuYXNweD9pdGVtaWQ9MTQ4NzJkZAIDDw8WAh8BBT4mcXVvdDtPaCBQcm9taXNlIE1lISZxdW90OyB0YWtlcyBvdmVyIHRoZSBEZWx0YSBzdGFnZSBNYXkgMy01LmRkAgEPZBYGZg8VAgNNYXkBNWQCAQ8PFgQfAQUSQ29tbWVuY2VtZW50IG9uIFRWHwIFKS9pbnRlcm5hbC9ldmVudHNkaXNwbGF5LmFzcHg/aXRlbWlkPTE1NTA5ZGQCAw8PFgIfAQVEV2F0Y2ggdGhlIHJlY29yZGVkIDIwMTIgY29tbWVuY2VtZW50IGNlcmVtb255IGF0IDEycG0gb24gY2hhbm5lbCAxOS5kZAICD2QWBmYPFQIDTWF5AjExZAIBDw8WBB8BBRRCcnVzaCBTdHJlZXQgQ29uY2VydB8CBSkvaW50ZXJuYWwvZXZlbnRzZGlzcGxheS5hc3B4P2l0ZW1pZD0xNTUwOGRkAgMPDxYCHwEFPkphenogYW5kIGJsdWVzIGNvbmNlcnQgYnkgQnJ1c2ggU3RyZWV0IGZlYXR1cmluZyBKdWxpZSBNdWxhZHkuZGQCFw8UKwACDxYGHg9TY3JvbGxEaXJlY3Rpb24LKX5UZWxlcmlrLldlYi5VSS5Sb3RhdG9yU2Nyb2xsRGlyZWN0aW9uLCBUZWxlcmlrLldlYi5VSSwgVmVyc2lvbj0yMDEwLjEuMzA5LjM1LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQMHgtfIURhdGFCb3VuZGceF0VuYWJsZUFqYXhTa2luUmVuZGVyaW5naGQPFCsABhQrAAEPFgQeBkhlaWdodBsAAAAAAEBlQAEAAAAeBF8hU0ICgAFkFCsAAQ8WBB8GGwAAAAAAQGVAAQAAAB8HAoABZBQrAAEPFgQfBhsAAAAAAEBlQAEAAAAfBwKAAWQUKwABDxYEHwYbAAAAAABAZUABAAAAHwcCgAFkFCsAAQ8WBB8GGwAAAAAAQGVAAQAAAB8HAoABZBQrAAEPFgQfBhsAAAAAAEBlQAEAAAAfBwKAAWQPFCsBBmZmZmZmZhYBBXZUZWxlcmlrLldlYi5VSS5SYWRSb3RhdG9ySXRlbSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMC4xLjMwOS4zNSwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0FgxmDw8WBB8GGwAAAAAAQGVAAQAAAB8HAoABZBYIAgEPDxYCHwEFEVN1Y2Nlc3MuIEp1bXAgSW4hZGQCAw8PFgIeCEltYWdlVXJsBS4vSW1hZ2VzL01hcmtldGluZyBQaG90b3MvYmx1cmIvc3VjY2VzczIwMTIuanBnZGQCBQ8PFgIfAQVbUGxhbm5pbmcgdG8gdHJhbnNmZXI/IExvb2tpbmcgZm9yIGEgY2FyZWVyIG9wcG9ydHVuaXR5PyBOb3Qgc3VyZSB3aGF0IHRvIGRvPyBDb21lIHRvIERlbHRhLmRkAgcPDxYGHwEFET4gUmVhZCBGdWxsIFN0b3J5HwIFJi9pbnRlcm5hbC9wcm9tb3Rpb25zLmFzcHg/aXRlbWlkPTE1NDg1HgZUYXJnZXQFBV9zZWxmZGQCAQ8PFgQfBhsAAAAAAEBlQAEAAAAfBwKAAWQWCAIBDw8WAh8BBQtDYXJlZXJGb2N1c2RkAgMPDxYCHwgFOi9JbWFnZXMvTWFya2V0aW5nIFBob3Rvcy9ibHVyYi9jYXJlZXJmb2N1cy1zcHJpbmctMjAxMi5qcGdkZAIFDw8WAh8BBT1UaGUgU3ByaW5nL1N1bW1lciAyMDEyIENhcmVlckZvY3VzIG1hZ2F6aW5lIGlzIG5vdyBhdmFpbGFibGUuZGQCBw8PFgYfAQURPiBSZWFkIEZ1bGwgU3RvcnkfAgUmL2ludGVybmFsL3Byb21vdGlvbnMuYXNweD9pdGVtaWQ9MTQ1MTcfCQUFX3NlbGZkZAICDw8WBB8GGwAAAAAAQGVAAQAAAB8HAoABZBYIAgEPDxYCHwEFDk9oIFByb21pc2UgTWUhZGQCAw8PFgIfCAUwL0ltYWdlcy9NYXJrZXRpbmcgUGhvdG9zL2JsdXJiL29oLXByb21pc2UtbWUuanBnZGQCBQ8PFgIfAQViVGhlIERlbHRhIENvbGxlZ2UgRHJhbWEgRGVwYXJ0bWVudCBwcmVzZW50cyAmcXVvdDtPaCBQcm9taXNlIE1lISZxdW90OyBvbiB0aGUgRGVsdGEgc3RhZ2UgTWF5IDMtNS5kZAIHDw8WBh8BBRE+IFJlYWQgRnVsbCBTdG9yeR8CBSYvaW50ZXJuYWwvcHJvbW90aW9ucy5hc3B4P2l0ZW1pZD0xNTQ4Mh8JBQVfc2VsZmRkAgMPDxYEHwYbAAAAAABAZUABAAAAHwcCgAFkFggCAQ8PFgIfAQUMU3VtbWVyIENhbXBzZGQCAw8PFgIfCAUvL0ltYWdlcy9NYXJrZXRpbmcgUGhvdG9zL2JsdXJiL3N1bW1lci1jYW1wcy5qcGdkZAIFDw8WAh8BBW9EZWx0YSBDb2xsZWdlIGhvc3RzIGEgbnVtYmVyIG9mIHN1bW1lciBjYW1wcyBmb3IgYXJlYSBraWRzIGFuZCB0ZWVucyBvbiBpdHMgbWFpbiBjYW1wdXMgYW5kIGF0IHRoZSBQbGFuZXRhcml1bS5kZAIHDw8WBh8BBRE+IFJlYWQgRnVsbCBTdG9yeR8CBSYvaW50ZXJuYWwvcHJvbW90aW9ucy5hc3B4P2l0ZW1pZD0xMjEyNh8JBQVfc2VsZmRkAgQPDxYEHwYbAAAAAABAZUABAAAAHwcCgAFkFggCAQ8PFgIfAQUbRGVsdGEgUmFua3MgaW4gVG9wIENvbGxlZ2VzZGQCAw8PFgIfCAUuL0ltYWdlcy9NYXJrZXRpbmcgUGhvdG9zL2JsdXJiL2FzcGVuLWF3YXJkLmpwZ2RkAgUPDxYCHwEFlgFUaGUgQXNwZW4gSW5zdGl0dXRlIGhhcyBzZWxlY3RlZCBEZWx0YSBDb2xsZWdlIGFzIG9uZSBvZiB0aGUgbmF0aW9uJ3MgMTIwIHRvcCBjb21tdW5pdHkgY29sbGVnZXMsIGVsaWdpYmxlIGZvciBhICQxIG1pbGxpb24gcHJpemUgZnVuZCBmb3IgZXhjZWxsZW5jZS5kZAIHDw8WBh8BBRE+IFJlYWQgRnVsbCBTdG9yeR8CBSYvaW50ZXJuYWwvcHJvbW90aW9ucy5hc3B4P2l0ZW1pZD0xNDQ4OR8JBQVfc2VsZmRkAgUPDxYEHwYbAAAAAABAZUABAAAAHwcCgAFkFggCAQ8PFgIfAQUfQW5pbWFsb3BvbGlzIGF0IHRoZSBQbGFuZXRhcml1bWRkAgMPDxYCHwgFLy9JbWFnZXMvTWFya2V0aW5nIFBob3Rvcy9ibHVyYi9hbmltYWxvcG9saXMuanBnZGQCBQ8PFgIfAQWaAUFuaW1hbHMgYXJlIHRha2luZyBvdmVyIHRoZSBEZWx0YSBDb2xsZWdlIFBsYW5ldGFyaXVtISBXYXRjaCB0aGUgbmV3IHNob3cgQW5pbWFsb3BvbGlzIGFuZCBtZWV0IHNvbWUgbmV3IGZ1cnJ5IGZyaWVuZHMgZHVyaW5nICZxdW90O0FuaW1hbCBXZWVrZW5kcyZxdW90Oy5kZAIHDw8WBh8BBRE+IFJlYWQgRnVsbCBTdG9yeR8CBSYvaW50ZXJuYWwvcHJvbW90aW9ucy5hc3B4P2l0ZW1pZD0xNTQ1Nh8JBQVfc2VsZmRkGAIFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBR1IZWFkZXJXcmFwcGVyMSRTZWFyY2hBcmVhMSRzYQUQcnB0TWFya2V0aW5nTmV3cwULbXZGcm9udFBhZ2UPD2RmZEZZhpxnw46b2DWOvVpn6M9qYLsq" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=jdIRBxeVYBpd80CwvxsEZgR0RB8BPOuOERe2LQpT2DHjhGqMqOFZCgqnHqfJ4vHf6RleiHXWYSryuiLmdIlLIOWp10k1&amp;t=634605330834856163" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=a1JBPVn4R2SUE7RcPjaS8MiRDnijoPktbrCjo-0lHBYvL2YZKHTu4EaGvAPXMph7b33Vmeebf0fUATDKOsNvMfIttA9wiOtHegsj6xSBPtU15Ojq6FmQZThgEIuxEyHlj4QvKoSzJ6_VAkPtkTlSVedp9bdQofB7_9EYHOt5kog-Pxj00&amp;t=2c6bacbd" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=rPj7PEZR4agwGqWv18dgJC0LF34ZNJeSv6X-VVhsDhFJAg5OxmH0erV1mmJpsxnuqT27yicvYywya_ijlspJjuUgP-rF3zxM0b8WuZ-mZ0EzHOy01Yz4AqC7W30sCds9f6QTaNOGQSAgCs5U5X4A5TaS0-tXBhi7n751l6jxerjZmkNt0&amp;t=2c6bacbd" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=mI6DYeirzO0HO8rUXUIbW6LkuOJYyUqK8IKneoTFBi2l3k6wkw3UC4SYmUUvpJh6ZGKAsAqSUqfioIX5-GGOsxgr6Y9sodJ9Rtu9OXUnXcxURv8TX0cX_G7m_tYOBvCl97Um3w2&amp;t=4b04ee4f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=UB2lmRs_NnRotrTKiucJC-YOzMixkfI5WDJ5ACWPANG-TI6KfSjM5xniEDYflZCGnD7HiJx1moZyWqfRD_FMlhYJP8CMw8g01eSDgv43MhE8YWKRAvf7l_r2Eu5D-g38DxL2qNhggCG2xLDz9C99ClcJA0s1&amp;t=4b04ee4f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Lpe_VI4RvRpfi7fY769OVlO1gO-tkTHRYnQtF3Owy66W0uANMGuCOqvVFZcUoybMmyY5yNsOjHRNXdgoFBJ543TEuy5ZrGVAHX7B_S6966-dsVMgiGFGXApB_6lRpnMGQOsEhnK9hHuh503K3WoQz30NRNM1&amp;t=4b04ee4f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=_nUmj35dTIE-D2Zp403HTgVGZWMY-zoY7gWNnQTpm4H0xWvywY4P_TffdMHwrarA3OjkB7T3sE5wy9FXr2EmLNKnedEijz4h2lYImEdGA0uiGf9erN5cKM4BJM8y6yWXvVWhiLLrdtPC0pR4alpkwfLHbke40Nx_soBvr0qsme2w7m7M0&amp;t=4b04ee4f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=beChH4HE6e_r2O4x5nM50fi25iLuhuFvL5WjOlPH4XsonU9Dkpn5HpTBeHbpkyMmxds0fQ2zSaVMgqI4g3IjYsxBjWyR_pKE7AwQE4pjC55va0mTJ4wIWIPI1p3b8onfC3ZD2xm2R_tojv6jSMeh5sp1QNE1&amp;t=4b04ee4f" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwK9rs/kBwLlhMrNCAK5n/i7Be2L9TZUFS6BtN5yhSlOwi5QFfW0" />
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('scriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        <div id="pagewrapper">
+            <div id="headerwrapper">
+                
+<h1 id="mainlogo" title="mainlogo">
+    <a href="/home.aspx" title="Delta College Home">
+        <img src="/images/system/deltacollegelogo.gif" title="Delta College Home" width="302"
+            height="51" alt="Delta College logo" /></a><span>Delta College: Serving Bay, Midland,
+                and Saginaw counties since 1961</span></h1>
+<div id="header_toplinks">
+    <a href="http://www.delta.edu/pages/125.aspx" title="About Delta">About Delta</a> | <a href="/humres" title="Jobs @ Delta">Jobs @ Delta</a> | <a href="/internal/atoz.aspx"
+        title="A-Z Index">A-Z Index</a> | <a href="https://myportal.delta.edu" title="MyPortal">MyPortal</a> | <a href="https://my.delta.edu" title="MyDelta">MyDelta</a> | <a href="http://app.delta.edu/peoplefinder/viewdepartment.aspx?departmentname=delta"
+                title="Contact Us">Contact Us</a>
+</div>
+<div id="searcharea">
+    
+            <select name="QuickLink" onchange="window.location=this.form.QuickLink.value;">
+                    <option value="#" selected="selected">Quicklinks</option>
+                    <option value="http://www.delta.edu/academicservices/">Academic Divisions</option>
+                    <option value="/bookstore.aspx">Bookstore</option>                    
+					<option value="https://elearning.delta.edu/">eLearning</option>					
+                    <option value="http://webmail.delta.edu">Email</option>
+                    <option value="/llic.aspx">Library</option>
+                    <option value="https://my.delta.edu">MyDelta</option>
+                    <option value="/pages/177.aspx">
+                        Payment Options</option>
+                   
+                    <option value="/pages/10930.aspx">Pool / Fitness</option>
+                    
+                    <option value="http://www.delta.edu/pages/12086.aspx">Student Services</option>
+                </select>
+                <input name="HeaderWrapper1$SearchArea1$searchbox" type="text" id="HeaderWrapper1_SearchArea1_searchbox" class="searchbox" size="20" maxlength="255" value="Search..." onclick="this.value='';" />
+                <input type="image" name="HeaderWrapper1$SearchArea1$sa" id="HeaderWrapper1_SearchArea1_sa" title="Go" class="searchButton" src="/images/system/search_gobutton.gif" alt="Go" style="border-style:None;height:19px;width:21px;border-width:0px;" />
+</div>
+
+            </div>
+            <div id="gnav">
+                
+<ul>
+    <li id="search">
+     Apply Online<a href="/apply" title="Apply Online Today"></a>
+    </li>
+    <li id="view"><a href="https://mydelta3c.delta.edu/WebAdvisor/WebAdvisor?TYPE=P&PID=ST-WSEI"
+        title="Search for Classes">Search for Classes</a></li>
+    <li id="admissions"><a href="https://public.delta.edu/catalog/Pages/Default.aspx" title="View our Programs">View our Programs</a></li>
+    <li id="financial"><a href="/admissionsenrollment.aspx" title="Admissions & Enrollment">
+        Admissions & Enrollment</a></li>
+    <li id="personalized">
+       <a href="/fundingyoureducation.aspx" title="Financial Information">
+        Financial Information</a>
+    </li>
+</ul>
+
+            </div>
+            <div id="audiencebar">
+                <div id="aud_top">
+                    <ul>
+                        <li id="future">
+                            <a id="lnkFutureStudents" href="/audiencepaths/futurestudents.aspx">Future Students</a></li>
+                        <li id="career">
+                            <a id="lnkCareer" href="/audiencepaths/careerretraining.aspx">Career Retraining</a></li>
+                        <li id="business">
+                            <a id="lnkBusinessTraining" href="/audiencepaths/businesssolutions.aspx">Business Solutions</a></li>
+                    </ul>
+                </div>
+                <div id="aud_bot">
+                    <ul>
+                        <li id="current">
+                            <a id="lnkCurrentStudents" href="/audiencepaths/currentstudents.aspx">Current Students</a></li>
+                        <li id="alumni">
+                            <a id="lnkAlumniFriends" href="/foundation.aspx">Alumni & Giving</a></li>
+                        <li id="community">
+                            <a id="lnkCommunity" href="/audiencepaths/community.aspx">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="homecontentarea">
+                <div id="left_content">
+                    <div id="brandingarea">
+                        
+                                
+<div id="home-slideshow">
+    <ul id="slides" >
+        
+        <li>		
+			
+				<a href="/facebook" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-1.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-2.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-3.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-9.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-5.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-4.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-6.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-7.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-13.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-11.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-8.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-14.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-10.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+        <li>		
+			
+				<a href="www.facebook.com/deltacollege" target="_self" class="no-underline"  > 
+			
+			<img src="http://www.delta.edu/Images/Marketing Photos/Homepage/graduation-12.jpg" alt="Congratulations Class of 2012"  />			            		            
+				
+					</a>
+								
+        </li>
+        
+    </ul>
+    <div id="slide-nav-wrap">
+        <div id="slide-nav">
+        </div>
+    </div>
+</div>
+<!-- /homeslideshow -->
+                            
+                    </div>
+                    <div id="whatshappening">
+                        <h1>
+                            <span>What's</span> Happening?</h1>
+                        <span id="happening_links"><a href="http://www3.delta.edu/EventsCalendar/index.aspx"
+                            title="College calendar" class="cal">Calendar</a> <a class="emgnot" href="/pages/12775.aspx" title="Emergency Notification Information">Emergency Alerts</a> <a href="http://app.delta.edu/newscenter/index.aspx"
+                                title="News from around campus" class="rss">News</a> <a class="twitter" title="Follow us on twitter"
+                                    href="http://twitter.com/deltacollege">Twitter</a> <a class="facebook" title="Follow us on facebook"
+                                        href="http://www.facebook.com/deltacollege">Facebook</a> </span>
+                        <div class="clearfix">
+                        </div>
+                        
+                                <div class="home_eventitem">
+                                    <h4>
+                                        <span class="month">
+                                            May</span><span class="day">4</span></h4>
+                                    <h1>
+                                        <a id="rptEvents_ctl00_eventLink1" href="/internal/eventsdisplay.aspx?itemid=14872">Drama Dept. Play</a></h1>
+                                    <p>
+                                        <span id="rptEvents_ctl00_lblEventTeaserText">&quot;Oh Promise Me!&quot; takes over the Delta stage May 3-5.</span>
+                                    </p>
+                                </div>
+                            
+                                <div class="home_eventitem">
+                                    <h4>
+                                        <span class="month">
+                                            May</span><span class="day">5</span></h4>
+                                    <h1>
+                                        <a id="rptEvents_ctl01_eventLink1" href="/internal/eventsdisplay.aspx?itemid=15509">Commencement on TV</a></h1>
+                                    <p>
+                                        <span id="rptEvents_ctl01_lblEventTeaserText">Watch the recorded 2012 commencement ceremony at 12pm on channel 19.</span>
+                                    </p>
+                                </div>
+                            
+                                <div class="home_eventitem">
+                                    <h4>
+                                        <span class="month">
+                                            May</span><span class="day">11</span></h4>
+                                    <h1>
+                                        <a id="rptEvents_ctl02_eventLink1" href="/internal/eventsdisplay.aspx?itemid=15508">Brush Street Concert</a></h1>
+                                    <p>
+                                        <span id="rptEvents_ctl02_lblEventTeaserText">Jazz and blues concert by Brush Street featuring Julie Mulady.</span>
+                                    </p>
+                                </div>
+                            
+                    </div>
+                </div>
+                <div id="right_content">
+                    <div id="right_top">
+                        &nbsp;</div>
+                    <div id="storyarea">
+                        <div id="rptMarketingNews" class="RadRotator RadRotator_Vista" style="border-color:White;border-style:None;height:550px;width:100%;">
+	<!-- 2010.1.309.35 --><div class="rrRelativeWrapper">
+		<div class="rrClipRegion">
+			<ul class="rrItemsList">
+				<li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i0">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i0_lblStoryTitle">Success. Jump In!</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i0_img1" src="/Images/Marketing%20Photos/blurb/success2012.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i0_lblTeaserText">Planning to transfer? Looking for a career opportunity? Not sure what to do? Come to Delta.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i0_lnkFullStory" href="/internal/promotions.aspx?itemid=15485" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li><li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i1">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i1_lblStoryTitle">CareerFocus</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i1_img1" src="/Images/Marketing%20Photos/blurb/careerfocus-spring-2012.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i1_lblTeaserText">The Spring/Summer 2012 CareerFocus magazine is now available.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i1_lnkFullStory" href="/internal/promotions.aspx?itemid=14517" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li><li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i2">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i2_lblStoryTitle">Oh Promise Me!</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i2_img1" src="/Images/Marketing%20Photos/blurb/oh-promise-me.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i2_lblTeaserText">The Delta College Drama Department presents &quot;Oh Promise Me!&quot; on the Delta stage May 3-5.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i2_lnkFullStory" href="/internal/promotions.aspx?itemid=15482" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li><li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i3">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i3_lblStoryTitle">Summer Camps</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i3_img1" src="/Images/Marketing%20Photos/blurb/summer-camps.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i3_lblTeaserText">Delta College hosts a number of summer camps for area kids and teens on its main campus and at the Planetarium.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i3_lnkFullStory" href="/internal/promotions.aspx?itemid=12126" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li><li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i4">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i4_lblStoryTitle">Delta Ranks in Top Colleges</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i4_img1" src="/Images/Marketing%20Photos/blurb/aspen-award.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i4_lblTeaserText">The Aspen Institute has selected Delta College as one of the nation's 120 top community colleges, eligible for a $1 million prize fund for excellence.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i4_lnkFullStory" href="/internal/promotions.aspx?itemid=14489" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li><li class="rrItem" style="height:170px;"><div id="rptMarketingNews_i5">
+					
+                                <div class="storyitem">
+                                    <h1>
+                                        <span id="rptMarketingNews_i5_lblStoryTitle">Animalopolis at the Planetarium</span>
+                                    </h1>
+                                    <img id="rptMarketingNews_i5_img1" src="/Images/Marketing%20Photos/blurb/animalopolis.jpg" alt="Marketing Photo" style="border-width:0px;" />
+                                    <p>
+                                        <span id="rptMarketingNews_i5_lblTeaserText">Animals are taking over the Delta College Planetarium! Watch the new show Animalopolis and meet some new furry friends during &quot;Animal Weekends&quot;.</span>
+                                    </p>
+                                    <a id="rptMarketingNews_i5_lnkFullStory" href="/internal/promotions.aspx?itemid=15456" target="_self">> Read Full Story</a>
+                                    <div class="clearfix">
+                                    </div>
+                                </div>
+                            
+				</div></li>
+			</ul>
+		</div><a class="rrButton rrButtonUp" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonLeft" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonRight" href="javascript:void(0);">&nbsp;</a><a class="rrButton rrButtonDown" href="javascript:void(0);">&nbsp;</a>
+	</div><input id="rptMarketingNews_ClientState" name="rptMarketingNews_ClientState" type="hidden" />
+</div>
+                    </div>
+                    <!-- end story area -->
+                </div>
+                <!-- end right content -->
+                <div class="clearfix">
+                </div>
+            </div>
+            <!-- end homecontainer content -->
+            <div id="footerwrapper">
+                
+<ul>
+		<li><a class="button" href="/pages/11716.aspx" title="Maps & Directions">Maps &
+			Directions</a></li>
+		<li><a class="button" href="http://app.delta.edu/peoplefinder/viewdepartment.aspx?departmentname=delta"
+			title="Contact Us">Contact Us</a></li>
+		<li id="footerlast"><a class="button" href="/currentstudents/onlinetools/deltacollegeacceptableuseandguidelines"
+			title="Access & Use Guidelines">Access and Use Guidelines</a></li>
+	</ul>
+<div style="margin-top: 45px; text-align: center; padding-left: 17px; font-size: 9pt;
+    padding-top: 5px;">
+    <p>
+        1961 Delta Road, University Center MI 48710 | 989-686-9000 | <a href="mailto:info@delta.edu">info@delta.edu</a><br />
+			Delta College is an <a href="/pages/10304.aspx">Equal Opportunity Organization</a>, committed
+			to excellence through inclusiveness and diversity. Copyright © <script type="text/javascript">var copywriteDate = new Date();document.write(copywriteDate.getFullYear())</script><noscript>2011</noscript>
+    </p>
+</div>
+<div id="footer-bottom-edge"></div>
+<!--END lower-content-wrapper -->
+            </div>
+        </div>
+        <!-- Flyouts -->
+        <!-- Data Sources -->
+        
+        
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadRotator, {"clientStateFieldID":"rptMarketingNews_ClientState","items":[{},{},{},{},{},{}],"rotatorType":3,"scrollDirection":12,"skin":"Vista"}, null, null, $get("rptMarketingNews"));
+});
+//]]>
+</script>
+</form>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</body>
+</html>
+
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl05_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Academics</h4><div class="list">
+				<div class="listitem">
+					<a href="https://public.delta.edu/catalog/Pages/Default.aspx">View Our Programs</a>
+				</div><div class="listitem">
+					<a href="/pages/172.aspx">Pick a Major or Program</a>
+				</div><div class="listitem">
+					<a href="https://mydelta3c.delta.edu/WebAdvisor/WebAdvisor?TYPE=P&amp;PID=ST-WSEI">Search for Classes</a>
+				</div><div class="listitem">
+					<a href="/pages/481.aspx">LifeLong Learning</a>
+				</div>
+			</div></td><td valign="top"><h4>Quick Links</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/101.aspx">Admissions & Enrollment</a>
+				</div><div class="listitem">
+					<a href="/pages/119.aspx">Funding Your Education</a>
+				</div><div class="listitem">
+					<a href="/pages/130.aspx">Campus Life</a>
+				</div><div class="listitem">
+					<a href="/pages/131.aspx">Athletics and Sports</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>How To</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/171.aspx">Apply Online</a>
+				</div><div class="listitem">
+					<a href="/pages/170.aspx">Complete Orientation</a>
+				</div><div class="listitem">
+					<a href="/pages/168.aspx">Transfer In or Out</a>
+				</div><div class="listitem">
+					<a href="/pages/432.aspx">Estimate Tuition</a>
+				</div>
+			</div></td><td valign="top"><h4>Services</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/325.aspx">Advising and Counseling</a>
+				</div><div class="listitem">
+					<a href="/pages/570.aspx">Bookstore</a>
+				</div><div class="listitem">
+					<a href="financial-aid-office.aspx">Financial Aid</a>
+				</div><div class="listitem">
+					<a href="/pages/615.aspx">Career Guidance</a>
+				</div><div class="listitem">
+					<a href="/pages/361.aspx">Disability Resources</a>
+				</div><div class="listitem">
+					<a href="/pages/12030.aspx">Veterans Services</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Parents</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/167.aspx">Admission Steps</a>
+				</div><div class="listitem">
+					<a href="/pages/12040.aspx">Choosing a Career</a>
+				</div><div class="listitem">
+					<a href="/pages/12045.aspx">Guide to Financial Aid</a>
+				</div><div class="listitem">
+					<a href="/pages/12004.aspx">Safety at Delta</a>
+				</div><div class="listitem">
+					<a href="/pages/12044.aspx">Visit Campus</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='future'><a href="/audiencepaths/futurestudents.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl05_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl05lnkFutureStudents;function initctl05lnkFutureStudents(attempt){try{ctl05lnkFutureStudents=new Flyout2('ctl05lnkFutureStudents','lnkFutureStudents','','ctl05_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl05lnkFutureStudents.removeOCB!=null){ctl05lnkFutureStudents.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl05lnkFutureStudents.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl05] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl05lnkFutureStudents(1);</script> 
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl06_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Taking Classes</h4><div class="list">
+				<div class="listitem">
+					<a href="http://www.delta.edu/files/Registrar/AcademicCalender11-12.pdf">Academic Calendar (PDF)</a>
+				</div><div class="listitem">
+					<a href="https://my.delta.edu">Search for Classes</a>
+				</div><div class="listitem">
+					<a href="/pages/460.aspx">Registration Dates</a>
+				</div><div class="listitem">
+					<a href="https://my.delta.edu">Register for Classes</a>
+				</div><div class="listitem">
+					<a href="registrars-office/payment-deadline.aspx">Payment Deadline</a>
+				</div><div class="listitem">
+					<a href="/pages/172.aspx">Pick a Major or Program</a>
+				</div><div class="listitem">
+					<a href="/pages/423.aspx">Drop a Class</a>
+				</div>
+			</div></td><td valign="top"><h4>Services</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/570.aspx">Bookstore</a>
+				</div><div class="listitem">
+					<a href="/pages/325.aspx">Counseling/Advising & Career Services</a>
+				</div><div class="listitem">
+					<a href="financial-aid-office.aspx">Financial Aid</a>
+				</div><div class="listitem">
+					<a href="/pages/10163.aspx">Library (LLIC)</a>
+				</div><div class="listitem">
+					<a href="/pages/10576.aspx">Teaching Learning Center</a>
+				</div><div class="listitem">
+					<a href="/pages/10663.aspx">Finance Office</a>
+				</div><div class="listitem">
+					<a href="/pages/361.aspx">Disability Resources</a>
+				</div><div class="listitem">
+					<a href="/pages/12030.aspx">Veterans Services</a>
+				</div><div class="listitem">
+					<a href="http://www.delta.edu/ace_sl/student-food-pantry">Student Food Pantry</a>
+				</div><div class="listitem">
+					<a href="/pages/12790.aspx">Delta's Closet</a>
+				</div><div class="listitem">
+					<a href="/pages/12762.aspx">Mobile App</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Finances</h4><div class="list">
+				<div class="listitem">
+					<a href="/financial-aid-office/types-of-financial-aid.aspx">Types of Financial Aid</a>
+				</div><div class="listitem">
+					<a href="/pages/612.aspx">Apply for Financial Aid</a>
+				</div><div class="listitem">
+					<a href="/pages/173%20.aspx">Pay for College</a>
+				</div><div class="listitem">
+					<a href="/pages/197.aspx">Get a Part-time Job</a>
+				</div><div class="listitem">
+					<a href="/pages/10791.aspx">Tuition Tax Benefits</a>
+				</div>
+			</div></td><td valign="top"><h4>Online Tools</h4><div class="list">
+				<div class="listitem">
+					<a href="http://signup.delta.edu">Reset Your Password</a>
+				</div><div class="listitem">
+					<a href="http://www.delta.edu/catalog">Catalog</a>
+				</div><div class="listitem">
+					<a href="/pages/588.aspx">eAdvising</a>
+				</div><div class="listitem">
+					<a href="/pages/592.aspx">eLearning</a>
+				</div><div class="listitem">
+					<a href="/pages/174.aspx">Registration</a>
+				</div><div class="listitem">
+					<a href="http://webmail.delta.edu">WebMail</a>
+				</div><div class="listitem">
+					<a href="https://my.delta.edu">MyDelta</a>
+				</div><div class="listitem">
+					<a href="https://myportal.delta.edu/">MyPortal</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='current'><a href="/audiencepaths/currentstudents.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl06_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl06lnkCurrentStudents;function initctl06lnkCurrentStudents(attempt){try{ctl06lnkCurrentStudents=new Flyout2('ctl06lnkCurrentStudents','lnkCurrentStudents','','ctl06_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl06lnkCurrentStudents.removeOCB!=null){ctl06lnkCurrentStudents.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl06lnkCurrentStudents.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl06] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl06lnkCurrentStudents(1);</script> 
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl07_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Job Training</h4><div class="list">
+				<div class="listitem">
+					<a href="/lifelonglearningcontent/career-retraining.aspx">Complete List of Programs</a>
+				</div><div class="listitem">
+					<a href="/lifelonglearningcontent/contactus.aspx">Contact Us (LifeLong Learning)</a>
+				</div><div class="listitem">
+					<a href="pages/11267.aspx">Paying for Training</a>
+				</div><div class="listitem">
+					<a href="/audiencepaths/careerretraining/fast-start-training.aspx">Fast Start Programs</a>
+				</div><div class="listitem">
+					<a href="/lifelonglearningcontent/register-for-classes.aspx">Sign-up for Classes</a>
+				</div>
+			</div></td><td valign="top"><h4>Career Degrees & Certificates</h4><div class="list">
+				<div class="listitem">
+					<a href="/admissions-office/returntolearn.aspx">Apply Today</a>
+				</div><div class="listitem">
+					<a href="https://public.delta.edu/catalog/Pages/Default.aspx">Complete List of Career Programs</a>
+				</div><div class="listitem">
+					<a href="/pages/12328.aspx">Financial Assistance</a>
+				</div><div class="listitem">
+					<a href="/files/Registrar/AcademicCalender11-12.pdf">Important Dates (PDF)</a>
+				</div><div class="listitem">
+					<a href="/financial-aid-office/payforcollege.aspx">Paying for College</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Related Departments</h4><div class="list">
+				<div class="listitem">
+					<a href="/counselingandcareerservices.aspx">Counseling/Advising & Career Services</a>
+				</div><div class="listitem">
+					<a href="/admissions-office.aspx">Academic Admissions</a>
+				</div><div class="listitem">
+					<a href="/financial-aid-office.aspx">Financial Aid</a>
+				</div><div class="listitem">
+					<a href="pages/483.aspx">Job Skills Training (non-credit)</a>
+				</div><div class="listitem">
+					<a href="/registrars-office.aspx">Registration</a>
+				</div>
+			</div></td><td valign="top"><h4>Services</h4><div class="list">
+				<div class="listitem">
+					<a href="/counselingandcareerservices/careerguidance.aspx">Career Guidance</a>
+				</div><div class="listitem">
+					<a href="/lifelonglearningcontent/testing-services/ged-testing.aspx">GED Testing</a>
+				</div><div class="listitem">
+					<a href="/lifelonglearningcontent.aspx">LifeLong Learning</a>
+				</div><div class="listitem">
+					<a href="/admissions-office/requestatour.aspx">Tour Campus</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='career'><a href="/audiencepaths/careerretraining.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl07_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl07lnkCareer;function initctl07lnkCareer(attempt){try{ctl07lnkCareer=new Flyout2('ctl07lnkCareer','lnkCareer','','ctl07_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl07lnkCareer.removeOCB!=null){ctl07lnkCareer.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl07lnkCareer.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl07] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl07lnkCareer(1);</script> 
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl08_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Delta College</h4><div class="list">
+				<div class="listitem">
+					<a href="http://www.delta.edu/aboutdelta.aspx">About Delta</a>
+				</div><div class="listitem">
+					<a href="/aboutdelta/campus-locations.aspx">Campus Locations & Maps</a>
+				</div><div class="listitem">
+					<a href="/pages/10163.aspx">Library</a>
+				</div><div class="listitem">
+					<a href="/pages/131.aspx">Athletics</a>
+				</div><div class="listitem">
+					<a href="/pages/10682.aspx">Sustainability</a>
+				</div>
+			</div></td><td valign="top"><h4>Human Resources</h4><div class="list">
+				<div class="listitem">
+					<a href="/humres/career-opportunities.aspx">Job Opportunities</a>
+				</div><div class="listitem">
+					<a href="http://www.delta.edu/humres/employeeawards.aspx">Employee Awards</a>
+				</div><div class="listitem">
+					<a href="/humres/great-service">Great Service Nomination</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>LifeLong Learning</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/483.aspx">Career Retraining</a>
+				</div><div class="listitem">
+					<a href="/pages/12537.aspx">Personal Enrichment</a>
+				</div><div class="listitem">
+					<a href="/pages/12118.aspx">Testing Services</a>
+				</div><div class="listitem">
+					<a href="/pages/486.aspx">50+ Programs</a>
+				</div>
+			</div></td><td valign="top"><h4>Recreation</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/10930.aspx">Fitness Center</a>
+				</div><div class="listitem">
+					<a href="/sculpturewalk">Delta Sculpture Walk</a>
+				</div><div class="listitem">
+					<a href="/pages/11004.aspx">Pool</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Public Broadcasting</h4><div class="list">
+				<div class="listitem">
+					<a href="http://www3.delta.edu/broadcasting/qtv/">Q-TV</a>
+				</div><div class="listitem">
+					<a href="http://www3.delta.edu/broadcasting/q901/">Q-90.1 FM</a>
+				</div><div class="listitem">
+					<a href="http://www3.delta.edu/broadcasting/support/donate.html">Donate Online</a>
+				</div>
+			</div></td><td valign="top"><h4>Planetarium</h4><div class="list">
+				<div class="listitem">
+					<a href="/planet/show-times.aspx">Show Schedule</a>
+				</div><div class="listitem">
+					<a href="http://www.delta.edu/planet/facility-and-rentals.aspx">Facility & Rentals</a>
+				</div><div class="listitem">
+					<a href="/planet/giving.aspx">Donate Online</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='community'><a href="/audiencepaths/community.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl08_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl08lnkCommunity;function initctl08lnkCommunity(attempt){try{ctl08lnkCommunity=new Flyout2('ctl08lnkCommunity','lnkCommunity','','ctl08_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl08lnkCommunity.removeOCB!=null){ctl08lnkCommunity.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl08lnkCommunity.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl08] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl08lnkCommunity(1);</script> 
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl09_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Alumni Information</h4><div class="list">
+				<div class="listitem">
+					<a href="https://donate.delta.edu/sslpage.aspx?pid=308">Update Your Alumni Information</a>
+				</div><div class="listitem">
+					<a href="/pages/710.aspx">Distinguished Alumni</a>
+				</div><div class="listitem">
+					<a href="https://donate.delta.edu">Signup for enewsletter</a>
+				</div>
+			</div></td><td valign="top"><h4>Delta College Foundation</h4><div class="list">
+				<div class="listitem">
+					<a href="http://www.delta.edu/foundation">Foundation homepage</a>
+				</div><div class="listitem">
+					<a href="https://donate.delta.edu/sslpage.aspx?pid=298">Give Now to Delta College</a>
+				</div><div class="listitem">
+					<a href="/pages/718.aspx">Give Later - Gift Planning</a>
+				</div><div class="listitem">
+					<a href="/foundation/publications.aspx">Journeys Magazine</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Special Events</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/722.aspx">A Chocolate Affair</a>
+				</div><div class="listitem">
+					<a href="/pages/723.aspx">Golf Classic</a>
+				</div>
+			</div></td><td valign="top"><h4>Other Information</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/712.aspx">Student Awards</a>
+				</div><div class="listitem">
+					<a href="/pages/302.aspx">Student Scholarships</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Contact Us</h4><div class="list">
+				<div class="listitem">
+					<a href="/foundation/about/contact-us.aspx">Foundation Staff</a>
+				</div><div class="listitem">
+					<a href="mailto:foundation@delta.edu">email Foundation Office</a>
+				</div><div class="listitem">
+					<a href="mailto:twcaylor@delta.edu">email Alumni Office</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='alumni'><a href="/foundation.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl09_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl09lnkAlumniFriends;function initctl09lnkAlumniFriends(attempt){try{ctl09lnkAlumniFriends=new Flyout2('ctl09lnkAlumniFriends','lnkAlumniFriends','','ctl09_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl09lnkAlumniFriends.removeOCB!=null){ctl09lnkAlumniFriends.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl09lnkAlumniFriends.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl09] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl09lnkAlumniFriends(1);</script> 
+
+<!-- obout Flyout v.2.0.2.9  http://www.obout.com  -->
+
+<div id="ctl10_content" style="display:none;filter:alpha(opacity=0);-moz-opacity:0;opacity:0;"><div class="flyoutPopup">
+	<table border="0">
+		<tr>
+			<td valign="top"><h4>Corporate Services</h4><div class="list">
+				<div class="listitem">
+					<a href="http://corpserv.delta.edu/pages/102.asp">Organizational Effectiveness</a>
+				</div><div class="listitem">
+					<a href="http://corpserv.delta.edu/pages/104.asp">Training Development</a>
+				</div><div class="listitem">
+					<a href="http://corpserv.delta.edu/pages/103.asp">Training Delivery</a>
+				</div><div class="listitem">
+					<a href="http://corpserv.delta.edu/pages/105.asp">Training Administration</a>
+				</div>
+			</div></td><td valign="top"><h4>MI-SBTDC</h4><div class="list">
+				<div class="listitem">
+					<a href="http://www.gvsu.edu/misbtdc/index.cfm?id=7C138C74-C223-9FE0-30C289ACBB3772A5">Starting a Business</a>
+				</div><div class="listitem">
+					<a href="http://www.gvsu.edu/misbtdc/index.cfm?id=7C29968B-A29D-33EF-1F1D2391789BA8D2">Counseling Services</a>
+				</div>
+			</div></td>
+		</tr><tr>
+			<td valign="top"><h4>Planetarium</h4><div class="list">
+				<div class="listitem">
+					<a href="/planet/facility-and-rentals.aspx">Facility Rental</a>
+				</div><div class="listitem">
+					<a href="/planet/other-groups.aspx">Group Outings</a>
+				</div>
+			</div></td><td valign="top"><h4>Services</h4><div class="list">
+				<div class="listitem">
+					<a href="/pages/10308.aspx">Printing Services</a>
+				</div><div class="listitem">
+					<a href="/pages/10919.aspx">Food Services Catering</a>
+				</div><div class="listitem">
+					<a href="/pages/10163.aspx">Library (LLIC)</a>
+				</div><div class="listitem">
+					<a href="/lifelonglearningcontent">LifeLong Learning</a>
+				</div>
+			</div></td>
+		</tr>
+	</table><div class="audiencepop"><ul><li id='business'><a href="/audiencepaths/businesssolutions.aspx">View Full Page</a></li></ul></div>
+</div></div><div id="ctl10_contentbox"></div><script type="text/javascript" src="/WebResource.axd?d=l0VJO3pZxsLhSjHNmuijyYpghod8m8XSkwfr4W5otNSepuuMPLzwqwBiFFMQZauFO6bsvwRZ47fSoqyiAAwZKXr02YoKzFDfr94yL7MbXEasUvLGerpsmcswmGeBLAgJRArZjV4OaYlUyAvcFvUMNhJFwbI1&t=633304757551252694" ></script><script type='text/javascript' >var ctl10lnkBusinessTraining;function initctl10lnkBusinessTraining(attempt){try{ctl10lnkBusinessTraining=new Flyout2('ctl10lnkBusinessTraining','lnkBusinessTraining','','ctl10_content','ABSOLUTE','BOTTOM','ONMOUSEOVER','ONMOUSEOUT',200,200,200,10,18,30,100,0,true,true);if (ctl10lnkBusinessTraining.removeOCB!=null){ctl10lnkBusinessTraining.registerOpenEffect(new FlyingEffect('TOP_LEFT'));ctl10lnkBusinessTraining.registerCloseEffect(new FlyingEffect('TOP_LEFT'));}}catch(e){alert("Failed to initialize [ctl10] \n.Error:"+ e+ "\nPlease contact support@obout.com for support.");}}initctl10lnkBusinessTraining(1);</script> 

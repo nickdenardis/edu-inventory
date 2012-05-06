@@ -1,0 +1,509 @@
+
+<!DOCTYPE>
+<html>
+<head>
+  
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="DESCRIPTION" content="Earn a high value, accredited degree online. No application fee. Apply Today! Online degree programs include Associates, Bachelors, Masters, Doctorate and Certificates.">
+  <meta name="KEYWORDS" content="">
+
+  <title>Online University - Online Degree Programs | Aspen University</title>
+  
+  <link rel="stylesheet" href="https://s3.amazonaws.com/Aspen/aspen_blue/css/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+  <script>window.jQuery || document.write("<script src='js/jquery-1.6.2.min.js'>\x3C/script>")</script>
+  <script src="/js/jquery.placeholder.js" type="text/javascript" charset="utf-8"></script>
+  <script src="http://www.aspen.edu/js/jquery.popupWindow.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    	$(document).ready(function() {
+      	$("input:text").placeholder();
+          $('.subMenu').data('hover','0');
+          $('.top_menu_item').hover(function(){
+            var id = $(this).attr('id');
+            var offset = $(this).offset();
+            var thiswidth = $(this).width();
+            var left = offset.left;
+            $('.subMenu').hide();
+            $('#sub_'+id).css('min-width',thiswidth)
+            $('#sub_'+id).css('left',left).show();
+          }, function () {
+			      $('.subMenu:eq(100)').hide();
+		      });
+          
+          $('.subMenu').mouseleave(function(){
+          	$(this).hide();
+          });
+          
+          $('#logo,.separator').mouseenter(function(){
+            $('.subMenu').hide();
+          });
+          
+		      $('.liveChat').popupWindow({  centerBrowser:1  });
+		      
+            // add padding to make the top menu look symmetric
+            var width = 0;
+            $('.top_menu_item').each(function(){
+                width = width +  $(this).outerWidth()
+            });
+            
+            var numberOfMenuItems = $('.top_menu_item').length;
+            var bigWidth = $('#top-menu').width();
+            var emptySpace = bigWidth - width;
+            var padding = ((emptySpace/numberOfMenuItems)/2)-2;
+            
+            $('#top-menu .separator')
+              .css('padding-left',padding)
+              .css('padding-right',padding);
+            $('.top_menu_item:eq(0)').css('margin-left',padding);
+            $('.top_menu_item:eq((numberOfMenuItems-1))').css('margin-right',padding);
+            // Finish symmetric menu info
+		      
+    	});
+  </script>
+</head>
+<body>
+	<style type="text/css" media="screen">
+		#search-section { position: absolute; right: 0; top: 0;}	
+		#chat-top { padding-left: 15px; color: #949598; font-size: 12px; line-height: 27px; margin-right: 4px;}
+		#chat-top span { color: #2e2c5d; font-family: georgia; font-variant: small-caps;}
+		#chat-top a { color: #949598; text-decoration: none; }
+		#start-chat, #chat-top { float: left; }
+		#search-form-holder { clear: both; float: right; display: none;}
+		#search-button { margin-left: 5px; margin-right: 4px; }
+		#top-menu .separator { background-position: center center !important; }
+	</style>
+	<div id="wrapper">
+    	<div id="header">
+        <div id="logo"><a href="http://www.aspen.edu/"><img src="https://s3.amazonaws.com/Aspen/aspen_blue/images/aspen-logo.png"></a></div>
+        <div id="search-section">
+          	<div id="chat-top"><span>t:</span> 1-800-373-7814 | <a href="/site/About-Us/Contact-Us">Contact Us</a> | <a href="http://classroom.aspen.edu">Student Login</a> | <a href="http://messenger.providesupport.com/messenger/aspen.html" class="liveChat">Chat with an Enrollment Counselor</a></div>
+          	<div id="search-form-holder">
+				<input type="text" name="search" value="" id="search" placeholder="search">
+				<input type="image" src="https://s3.amazonaws.com/Aspen/aspen_blue/images/go-button.png" id="search-button">
+          </div>
+        </div>
+        <div id="top-menu"><div id="menu_1" class="top_menu_item"><a href="/Degrees">degrees</a></div><div class="separator"></div><div id="menu_2" class="top_menu_item"><a href="/Schools">schools</a></div><div class="separator"></div><div id="menu_3" class="top_menu_item"><a href="/Admissions">admissions</a></div><div class="separator"></div><div id="menu_4" class="top_menu_item"><a href="/Tuition">tuition</a></div><div class="separator"></div><div id="menu_5" class="top_menu_item"><a href="/About-Us">about aspen university</a></div></div>
+	</div>
+  
+      <script type="text/javascript" charset="utf-8">
+      $(document).ready(function() {
+        $('.bottom-link').mouseenter(function(event) {
+          $(this).addClass('on');
+          $('#sub'+$(this).data('number')).addClass('on');
+        }).mouseleave(function(){
+          $(this).removeClass('on');
+          $('#sub'+$(this).data('number')).removeClass('on');
+        }); 
+        
+      });
+      
+      var ImageList;
+      var intervalID;
+      
+      $.get("includes/getHomePageImages.cfm",
+        function(data){
+          ImageList = data.Images;
+          intervalID = window.setInterval("fadeImage()", 5e3);
+          $('#currentImage').attr('src','http://s3.amazonaws.com/AspenUploadImages/' + ImageList[0].FileName );
+          $('#nextImage').attr('src','http://s3.amazonaws.com/AspenUploadImages/' + ImageList[1].FileName );
+        }, "json");
+      
+      
+      function fadeImage () {
+      
+        currentId = parseInt($('#currentImage').data('test')) + 1;
+        if (currentId >= ImageList.length) { currentId = 0 };
+        $('#currentImage').data('test', currentId);
+        $('#currentImage').animate({opacity: 0}, 1e3, function() {
+              $('#currentImage').attr('src', $('#nextImage').attr('src'));
+              setTimeout( function() {
+                  $('#currentImage').css('opacity','100');
+                  $('#nextImage').attr('src','http://s3.amazonaws.com/AspenUploadImages/' + ImageList[currentId].FileName );
+              }, 1000 );
+        });
+      
+      }
+      </script>
+
+      <div id="main-content" class="mt5">
+
+        <div id="main123">
+          <img id="nextImage" src="http://s3.amazonaws.com/AspenUploadImages/large-image2.jpg" class="homeImage">
+          <img id="currentImage" src="http://s3.amazonaws.com/AspenUploadImages/large-image1.jpg" class="homeImage" data-test='1'>
+          
+          <p class="header">Why choose Aspen University?</p>
+          <div id="step1">
+            <p>01.</p>
+            <div class="step-separator"></div>
+            <a href="http://www.aspen.edu/About-Us/Our-Mission">aspen<br> university<br> pioneered<br> online<br> education.</a>
+          </div>
+          <div id="step2">
+            <p>02.</p>
+            <div class="step-separator"></div>
+            <a href="http://www.aspen.edu/Tuition/Tuition-Rates">aspen is<br>committed to<br>the highest<br>academic<br>excellence at<br>the most<br>affordable<br>price.</a>
+          </div>
+          <div id="step3">
+            <p>03.</p>
+            <div class="step-separator"></div>
+            <a href="http://www.aspen.edu/About-Us/Accreditation">aspen is nationally accredited and internationally acclaimed.</a>
+          </div>
+
+          <div id="bottom-buttons">
+            <ul>
+              <li class="bottom-link" id="main1" data-number="1"><a href="http://application.aspen.edu/application" id="bb_apply_now" class="bottom-button-links">apply now</a></li>
+              <li class="bottom-link" id="main2" data-number="2"><a href="http://www.aspen.edu/About-Us/Our-Mission" id="bb_our_mission" class="bottom-button-links">our mission</a></li>
+              <li class="bottom-link" id="main3" data-number="3"><a href="http://www.aspen.edu/About-Us/Accreditation" id="bb_accreditation" class="bottom-button-links">accreditation</a></li>
+              <li class="bottom-link" id="main4" data-number="4"><a href="http://www.aspen.edu/Admissions/International-Students" id="bb_int_students" class="bottom-button-links">international<br>students</a></li>
+              <li class="bottom-link" id="main5" data-number="5"><a href="http://www.aspen.edu/Tuition/Military-Benefits" id="bb_course_catalog" class="bottom-button-links">military friendly</a></li>
+            </ul>
+          </div>
+          
+          <div id="main123-form">
+            <p>learn more about<br> aspen university</p>
+            <form action="http://application.aspen.edu/aspenu/onlineUniv-1/Aspen" method="post" accept-charset="utf-8">
+                <li><input type="text" name="FirstName" value="" id="FirstName" placeholder="First Name"></li>
+                <li><input type="text" name="LastName" value="" id="LastName" placeholder="Last Name"></li>
+                <li><input type="text" name="otherField" value="" id="otherField" placeholder="Email"></li>
+                <li><input type="image" name="submit123" value="" id="submit123" src="https://s3.amazonaws.com/Aspen/aspen_blue/images/123-continue-button.png"></li>
+            </form>
+          </div>
+        </div><!-- #main123 -->
+
+        <div id="sub-section">
+          
+          <div id="sub1"><span>...</span><br>Let Aspen University help you achieve your educational and career goals.  Click on the 'Apply Now' button above to get started!</div>
+          <div id="sub2"><span>...</span><br>At Aspen, we believe higher education should be a catalyst to your future economic success -- so we offer low tuition rates intended to minimize your student debt.</div>
+          <div id="sub3"><span>...</span><br>All Aspen University programs - certificate, undergraduate, and advanced degree - have been awarded national accreditation by the most respected independent accreditation organization.</div>
+          <div id="sub4"><span>...</span><br>Aspen University is as local as your home computer and as global as the world.  You will study with other students from around the world, developing lifelong contacts and relationships in our international community.</div>
+          <div id="sub5"><span>...</span><br>Aspen University is proud to be recognized as a military friendly school. Click above to discover the benefits you will be afforded as a result of your current or past service to our country.</div>
+        </div>
+        
+      </div><!-- #main-content -->
+      
+      <div id="home-seperator"></div>
+
+      <div id="footer" style="background-image: url('/images/footer-background2.jpg');">
+
+        <div id="socialDiv">
+          <div id="followUs">FOLLOW US:</div> 
+          
+          <div>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="Take The Next Step Towards Your Goals. Get Social With Aspen University!" data-via="aspenuniversity" data-hashtags="TeamAspen">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+          
+          <div>
+            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2Faspenuniversity&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=20&amp;appId=108168719288128" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:20px;" allowTransparency="true"></iframe>  
+          </div>
+          
+            <div id="linkedIn">
+              <script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+              <script type="IN/CompanyProfile" data-id="359795" data-format="click"  data-text="Aspen University"></script>
+            </div>
+
+        </div>
+        
+        <p class="footerLinks">   
+          <a href="/About-Us/Accreditation">Accreditation</a> | <a href="/About-Us/Academic-Calendar">2012 Academic Calendar</a> | <a href="/About-Us/Catalog">2011-2012 Course Catalog</a> | <a href="https://www.aspensecure.com/enroll_new.php">Enrollment Form</a> | <a href="https://www.aspensecure.com/online_enroll/categories.php">Pay Fees</a> | <a href="/Tuition/Refund-Policy">Refund Policy</a>  <br> 
+          <a href="/Admissions/Frequently-Asked-Questions">Frequently Asked Questions</a> | <a href="/Privacy-Policy">Privacy Policy</a> | <a href="/Info/EULA">End User License Agreement</a> | <a href="/Info/FERPA-Policy">Family Educational Rights & Privacy Act</a> | <a href="/About-Us/Gainful-Employment">Gainful Employment Disclosure</a>
+        </p>
+
+        <div class="disclaimer" style="padding-top: 5px;">Aspen University is nationally accredited by the Accrediting Commission, Distance Education and Training Council.<br>
+          &copy; 2012 Aspen University | 720 South Colorado Boulevard Suite 1150N Denver, CO 80246 | Toll Free: 1-800-373-7814 </p>
+        
+      </div><!--  #footer  -->
+
+  </div><!-- #wrapper -->
+
+
+
+    
+      
+      
+      
+      
+      
+        
+        <div id="sub_menu_1" class="subMenu">
+          
+            
+            <li>
+              
+                <a href="/Degrees/Associates-Degree">associate</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Degrees/Bachelors-Degree">bachelor</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Degrees/Masters-Degree">masters</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Degrees/Doctorate-Degree">doctoral</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Degrees/Certificate-Programs">certificate programs</a>
+                            
+            </li>
+            
+          
+        </div>
+        
+      
+    
+      
+      
+      
+      
+      
+        
+        <div id="sub_menu_2" class="subMenu">
+          
+            
+            <li>
+              
+                <a href="/Schools/College-Of-Professional-Studies">college of professional studies</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Schools/Graduate-School-Of-Business">graduate school of business</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Schools/School-Of-Criminal-Justice">school of criminal justice</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Schools/Graduate-School-Of-Education">graduate school of education</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Schools/Graduate-School-Of-Health-Professions-and-Studies">graduate school of health professions</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Schools/Graduate-School-Of-Technology">graduate school of  technology</a>
+                            
+            </li>
+            
+          
+        </div>
+        
+      
+    
+      
+      
+      
+      
+      
+        
+        <div id="sub_menu_3" class="subMenu">
+          
+            
+            <li>
+              
+                <a href="http://application.aspen.edu">apply to aspen</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Admissions/International-Students">international students</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Admissions/Requirements">admissions requirements</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Admissions/Transfer-Credits">transfer credits</a>
+                            
+            </li>
+            
+          
+        </div>
+        
+      
+    
+      
+      
+      
+      
+      
+        
+        <div id="sub_menu_4" class="subMenu">
+          
+            
+            <li>
+              
+                <a href="/Tuition/Tuition-Rates">tuition rates</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Tuition/Financial-Aid">financial aid</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/Tuition/Military-Benefits">military benefits</a>
+                            
+            </li>
+            
+          
+        </div>
+        
+      
+    
+      
+      
+      
+      
+      
+        
+        <div id="sub_menu_5" class="subMenu">
+          
+            
+            <li>
+              
+                <a href="/About-Us/Our-Mission">our mission</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/About-Us/Accreditation">accreditation</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/About-Us/Policies-and-Regulations">university policies</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/About-Us/Faculty-Spotlight">faculty spotlight</a>
+                            
+            </li>
+            <li class="menu-separator"></li>
+          
+            
+            <li>
+              
+                <a href="/About-Us/Contact-Us">contact us</a>
+                            
+            </li>
+            
+          
+        </div>
+        
+      
+        
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22411904-1']);
+      _gaq.push(['_setDomainName', '.aspen.edu']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    
+    
+    
+    
+      
+    
+      
+        
+          
+            <!-- Google Code for Aspen General Remarketing List -->
+            <script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 1069392315;
+                var google_conversion_language = "en";
+                var google_conversion_format = "3";
+                var google_conversion_color = "666666";
+                var google_conversion_label = "eZLnCMH6rQIQu8P2_QM";
+                var google_conversion_value = 0;
+                /* ]]> */
+            </script>
+            <script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js"></script>
+            <noscript>
+              <div style="display:inline;">
+              <img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1069392315/?label=eZLnCMH6rQIQu8P2_QM&amp;guid=ON&amp;script=0"/>
+              </div>
+            </noscript>
+          
+        
+      
+    
+        
+  </body>
+</html>

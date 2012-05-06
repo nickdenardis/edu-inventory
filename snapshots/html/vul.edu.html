@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Virginia University of Lynchburg</title>
+<meta name="description" content="Welcome to Virginia University of Lynchburg. Inside the walls of this institution, you will find a wealth of history and inside the classrooms, you will find some of the finest educators in the country. VUL is proud to offer higher education to students who may not have the chance to attend larger traditional universities. " /><meta name="keywords" content="black college, how to get in college, historic black colleges, cheap college, black universities, inexpensive online college, affordable college, university lynchburg, black college sports" />
+<link rel="stylesheet" href="http://www.vul.edu/wp-content/themes/TheSource/style.css" type="text/css" media="screen" />
+<link rel="alternate" type="application/rss+xml" title="Virginia University of Lynchburg RSS Feed" href="http://www.vul.edu/feed/" />
+<link rel="alternate" type="application/atom+xml" title="Virginia University of Lynchburg Atom Feed" href="http://www.vul.edu/feed/atom/" />
+<link rel="pingback" href="http://www.vul.edu/xmlrpc.php" />
+
+<!--[if lt IE 7]>
+	<link rel="stylesheet" type="text/css" href="http://www.vul.edu/wp-content/themes/TheSource/css/ie6style.css" />
+	<script type="text/javascript" src="http://www.vul.edu/wp-content/themes/TheSource/js/DD_belatedPNG_0.0.8a-min.js"></script>
+	<script type="text/javascript">DD_belatedPNG.fix('img#logo, #cat-nav-left, #cat-nav-right, #search-form, #cat-nav-content, div.top-overlay, .slide .description, div.overlay, a#prevlink, a#nextlink, .slide a.readmore, .slide a.readmore span, .recent-cat .entry .title, #recent-posts .entry p.date, .footer-widget ul li, #tabbed-area ul#tab_controls li span');</script>
+<![endif]-->
+<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="http://www.vul.edu/wp-content/themes/TheSource/css/ie7style.css" />
+<![endif]-->
+<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="http://www.vul.edu/wp-content/themes/TheSource/css/ie8style.css" />
+<![endif]-->
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<meta content="TheSource v.2.2" name="generator"/><link media="screen" type="text/css" href="http://www.vul.edu/wp-content/themes/TheSource/epanel/page_templates/js/fancybox/jquery.fancybox-1.2.6.css" rel="stylesheet" />
+<link media="screen" type="text/css" href="http://www.vul.edu/wp-content/themes/TheSource/epanel/page_templates/page_templates.css" rel="stylesheet" /><link rel='stylesheet' id='shortcodesStyleSheets-css'  href='http://www.vul.edu/wp-content/themes/TheSource/epanel/shortcodes/shortcodes.css?ver=3.3.1' type='text/css' media='all' />
+<script type='text/javascript' src='http://www.vul.edu/wp-includes/js/jquery/jquery.js?ver=1.7.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.vul.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.vul.edu/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.3.1" />
+	<script type='text/javascript'>
+	// <![CDATA[
+	
+		<!---- et_switcher plugin v2 ---->
+		(function($)
+		{
+			$.fn.et_shortcodes_switcher = function(options)
+			{
+				var defaults =
+				{
+				   slides: '>div',
+				   activeClass: 'active',
+				   linksNav: '',
+				   findParent: true, //use parent elements to define active states
+				   lengthElement: 'li', //parent element, used only if findParent is set to true
+				   useArrows: false,
+				   arrowLeft: 'a#prev-arrow',
+				   arrowRight: 'a#next-arrow',
+				   auto: false,
+				   autoSpeed: 5000,
+				   slidePadding: '',
+				   pauseOnHover: true,
+				   fx: 'fade',
+				   sliderType: ''
+				};
+
+				var options = $.extend(defaults, options);
+
+				return this.each(function()
+				{
+									
+					var slidesContainer = jQuery(this).parent().css('position','relative'),
+						$slides = jQuery(this).css({'overflow':'hidden','position':'relative'}),
+						$slide = $slides.find(options.slides).css({'opacity':'1','position':'absolute','top':'0px','left':'0px','display':'none'}),
+						slidesNum = $slide.length,
+						zIndex = slidesNum,
+						currentPosition = 1,
+						slideHeight = 0,
+						$activeSlide,
+						$nextSlide;
+					
+					if (options.fx === 'slide') {
+						$slide.css({'opacity':'0','position':'absolute','top':'0px','left':'0px','display':'block'});
+					} else {
+						$slide.filter(':first').css({'display':'block'});
+					}
+					
+					if (options.slidePadding != '') $slide.css('padding',options.slidePadding);
+					
+					$slide.each(function(){
+						jQuery(this).css('z-index',zIndex).addClass('clearfix');
+						if (options.fx === 'slide') zIndex--;
+						
+						slideH = jQuery(this).innerHeight();
+						if (slideH > slideHeight) slideHeight = slideH;
+					});
+					$slides.css('height', slideHeight);
+					$slides.css('width', $slides.width());
+									
+					var slideWidth = $slide.width(),
+						slideOuterWidth = $slide.outerWidth();
+					
+					$slide.css('width',slideWidth);
+					
+					$slide.filter(':first').css('opacity','1');
+					
+					if (options.sliderType != '') {
+						if (options.sliderType === 'images') {
+							controllersHtml = '<div class="controllers-wrapper"><div class="controllers"><a href="#" class="left-arrow">Previous</a>';
+							for ($i=1; $i<=slidesNum; $i++) {
+								controllersHtml += '<a class="switch" href="#">'+$i+'</a>';
+							}
+							controllersHtml += '<a href="#" class="right-arrow">Next</a></div><div class="controllers-right"></div></div>';		
+							$controllersWrap = jQuery(controllersHtml).prependTo($slides.parent());
+							jQuery('.controllers-wrapper .controllers').css('width', 65 + 18*slidesNum);
+						}
+						
+						var etimage_width = $slide.width();
+			
+						slidesContainer.css({'width':etimage_width});
+						$slides.css({'width':etimage_width});
+						
+						if (options.sliderType === 'images') {
+							slidesContainer.css({'height':$slide.height()});
+							$slides.css({'height':$slide.height()});
+							
+							var controllers_width = $controllersWrap.width(),
+							leftPosition = Math.round((etimage_width - controllers_width) / 2);
+						
+							$controllersWrap.css({left: leftPosition});
+						}	
+					}
+					
+					
+					if (options.linksNav != '') {
+						var linkSwitcher = jQuery(options.linksNav);
+						
+						var linkSwitcherTab = '';
+						if (options.findParent) linkSwitcherTab = linkSwitcher.parent();
+						else linkSwitcherTab = linkSwitcher;
+						
+						if (!linkSwitcherTab.filter('.active').length) linkSwitcherTab.filter(':first').addClass('active');
+										
+						linkSwitcher.click(function(){
+							
+							var targetElement;
+
+							if (options.findParent) targetElement = jQuery(this).parent();
+							else targetElement = jQuery(this);
+							
+							var orderNum = targetElement.prevAll(options.lengthElement).length+1;
+							
+							if (orderNum > currentPosition) gotoSlide(orderNum, 1);
+							else gotoSlide(orderNum, -1); 
+							
+							return false;
+						});
+					}
+					
+					
+					if (options.useArrows) {
+						var $right_arrow = jQuery(options.arrowRight),
+							$left_arrow = jQuery(options.arrowLeft);
+											
+						$right_arrow.click(function(){				
+							if (currentPosition === slidesNum) 
+								gotoSlide(1,1);
+							else 
+								gotoSlide(currentPosition+1),1;
+							
+							if (options.linksNav != '') changeTab();
+													
+							return false;
+						});
+						
+						$left_arrow.click(function(){
+							if (currentPosition === 1)
+								gotoSlide(slidesNum,-1);
+							else 
+								gotoSlide(currentPosition-1,-1);
+							
+							if (options.linksNav != '') changeTab();
+							
+							return false;
+						});
+						
+					}
+					
+									
+					function changeTab(){
+						if (linkSwitcherTab != '') { 
+							linkSwitcherTab.siblings().removeClass('active');
+							linkSwitcherTab.filter(':eq('+(currentPosition-1)+')').addClass('active');
+						}
+					}
+					
+					function gotoSlide(slideNumber,dir){
+						if ($slide.filter(':animated').length) return;
+					
+						$slide.css('opacity','0');
+																			
+						$activeSlide = $slide.filter(':eq('+(currentPosition-1)+')').css('opacity','1');
+										
+						if (currentPosition === slideNumber) return;
+										
+						$nextSlide = $slide.filter(':eq('+(slideNumber-1)+')').css('opacity','1');
+										
+						if ((currentPosition > slideNumber || currentPosition === 1) && (dir === -1)) {
+							if (options.fx === 'slide') slideBack(500);
+							if (options.fx === 'fade') slideFade(500);
+						} else {
+							if (options.fx === 'slide') slideForward(500);
+							if (options.fx === 'fade') slideFade(500);
+						}
+						
+						currentPosition = $nextSlide.prevAll().length + 1;
+						
+						if (options.linksNav != '') changeTab();
+						
+						if (typeof interval != 'undefined' && options.auto) {
+							clearInterval(interval);
+							auto_rotate();
+						}
+											
+						return false;
+					}
+					
+					
+					if (options.auto) {
+						auto_rotate();
+						var pauseSlider = false;
+					}
+					
+					if (options.pauseOnHover) { 				
+						slidesContainer.hover(function(){
+							pauseSlider = true;
+						},function(){
+							pauseSlider = false;
+						});
+					}
+					
+					function auto_rotate(){
+						
+						interval = setInterval(function(){
+							if (!pauseSlider) { 
+								if (currentPosition === slidesNum) 
+									gotoSlide(1,1);
+								else 
+									gotoSlide(currentPosition+1),1;
+								
+								if (options.linksNav != '') changeTab();
+							}
+						},options.autoSpeed);
+						
+					}
+					
+					function slideForward(speed){
+						$nextSlide.css('left',slideOuterWidth+'px');
+						$activeSlide.animate({left: '-'+slideOuterWidth},speed);
+						$nextSlide.animate({left: 0},speed);
+					}
+					
+					function slideBack(speed){
+						$nextSlide.css('left','-'+slideOuterWidth+'px');
+						$activeSlide.animate({left: slideOuterWidth},speed);
+						$nextSlide.animate({left: 0},speed);
+					}
+					
+					function slideFade(speed){					
+						$activeSlide.css({zIndex: slidesNum}).fadeOut(700);
+						$nextSlide.css({zIndex: (slidesNum+1)}).fadeIn(700);
+					}
+					
+				});
+			} 
+		})(jQuery);
+		<!---- end et_switcher plugin v2 ---->
+		
+		/////// Shortcodes Javascript ///////
+		
+		/// tooltip ///
+		
+		$et_tooltip = jQuery('.et-tooltip');
+		
+		$et_tooltip.live('mouseover mouseout', function(event){
+			if (event.type == 'mouseover') {
+				jQuery(this).find('.et-tooltip-box').animate({ opacity: 'show', bottom: '25px' }, 300);
+			} else {
+				jQuery(this).find('.et-tooltip-box').animate({ opacity: 'hide', bottom: '35px' }, 300);
+			}
+		});
+		
+		/// learn more ///
+		
+		$et_learn_more = jQuery('.et-learn-more .heading-more');
+		
+		$et_learn_more.live('click', function() {
+			if ( jQuery(this).hasClass('open') ) 
+				jQuery(this).removeClass('open');
+			else 
+				jQuery(this).addClass('open');
+				
+			jQuery(this).parent('.et-learn-more').find('.learn-more-content').animate({ opacity: 'toggle', height: 'toggle' }, 300);
+		});
+	
+	// ]]>
+	</script>
+<link rel="shortcut icon" href="http://sandbox.onlineatvul.com/wp-content/uploads/2011/03/VUL_Favicon.png" />
+</head>
+<body id="home">
+	<div id="header-top" class="clearfix">
+		<div class="container clearfix">
+			<!-- Start Logo -->			
+						
+			<a href="http://www.vul.edu">
+								<img src="http://sandbox.onlineatvul.com/wp-content/uploads/2011/03/VUL_Site_Header.jpg" alt="Logo" id="logo"/>
+			</a>
+			<!-- <p id="slogan">One of the Oldest Black Colleges in America</p> -->
+			<!-- End Logo -->
+			
+			<!-- Start Page-menu
+			<div id="page-menu">
+				<div id="p-menu-left"> </div>
+				<div id="p-menu-content">
+				
+					<ul class="nav clearfix">	<li class="cat-item cat-item-9"><a href="http://www.vul.edu/category/current-events/" title="View all posts filed under Current Events">Current Events</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.vul.edu/category/did-you-know-vul-offers/" title="View all posts filed under Did You Know VUL Offers&#8230;">Did You Know VUL Offers&#8230;</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.vul.edu/category/register-online/" title="View all posts filed under Register Online">Register Online</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.vul.edu/category/vul-news/" title="View all posts filed under VUL News">VUL News</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.vul.edu/category/vuls-affiliations/" title="View all posts filed under VUL&#039;s Affiliations">VUL&#039;s Affiliations</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.vul.edu/category/vullu-meet-greet/" title="View all posts filed under VUL/LU Meet &amp; Greet">VUL/LU Meet &amp; Greet</a>
+</li>
+</ul>				
+				</div>	
+				<div id="p-menu-right"> </div>
+			</div>	end #page-menu
+			End Page-menu -->	
+			
+			<div id="cat-nav" class="clearfix">	
+				<div id="cat-nav-left"> </div>
+				<div id="cat-nav-content"> 
+					
+					<ul class="superfish nav clearfix"> 
+			<li class="current_page_item"><a href="http://www.vul.edu">Home</a></li>
+		<li class="page_item page-item-2"><a href="http://www.vul.edu/about/">About VUL</a>
+<ul class='children'>
+	<li class="page_item page-item-276"><a href="http://www.vul.edu/about/mission/">Mission</a></li>
+	<li class="page_item page-item-272"><a href="http://www.vul.edu/about/doctrinal-position/">Doctrinal Position</a></li>
+	<li class="page_item page-item-658"><a href="http://www.vul.edu/about/location/">Location</a></li>
+	<li class="page_item page-item-689"><a href="http://www.vul.edu/about/accreditation/">Accreditation</a></li>
+</ul>
+</li>
+<li class="page_item page-item-10"><a href="http://www.vul.edu/admission/">Admissions</a>
+<ul class='children'>
+	<li class="page_item page-item-331"><a href="http://www.vul.edu/admission/tuition-fees/">Tuition &#038; Fees</a></li>
+	<li class="page_item page-item-704"><a href="http://www.vul.edu/admission/financial-aid/">Financial Aid</a></li>
+</ul>
+</li>
+<li class="page_item page-item-19"><a href="http://www.vul.edu/academics/">Academics</a>
+<ul class='children'>
+	<li class="page_item page-item-371"><a href="http://www.vul.edu/academics/vul-online/">VUL Online Log In</a></li>
+	<li class="page_item page-item-630"><a href="http://www.vul.edu/academics/school-of-arts-sciences/">School of Arts &#038; Sciences</a></li>
+	<li class="page_item page-item-623"><a href="http://www.vul.edu/academics/school-of-management/">School of Management</a></li>
+	<li class="page_item page-item-628"><a href="http://www.vul.edu/academics/school-of-religion/">School of Religion</a></li>
+	<li class="page_item page-item-636"><a href="http://www.vul.edu/academics/distance-learning-program/">Distance Learning Program</a></li>
+	<li class="page_item page-item-694"><a href="http://www.vul.edu/academics/academic-catalog-and-calendar/">Academic Catalog and Calendar</a></li>
+</ul>
+</li>
+<li class="page_item page-item-22"><a href="http://www.vul.edu/news-events/">News &#038; Events</a></li>
+<li class="page_item page-item-31"><a href="http://www.vul.edu/faculty-staff/">Faculty &#038; Staff</a></li>
+<li class="page_item page-item-33"><a href="http://www.vul.edu/contact-us/">Contact Us</a></li>
+</ul>
+					<!-- Start Searchbox -->
+					<div id="search-form">
+						<form method="get" id="searchform1" action="http://www.vul.edu">
+							<input type="text" value="search..." name="s" id="searchinput" />
+		
+							<input type="image" src="http://www.vul.edu/wp-content/themes/TheSource/images/search_btn.png" id="searchsubmit" />
+						</form>
+					</div>
+				<!-- End Searchbox -->	
+				</div> <!-- end #cat-nav-content -->
+				<div id="cat-nav-right"> </div>
+			</div>	<!-- end #cat-nav -->	
+		</div> 	<!-- end .container -->
+	</div> 	<!-- end #header-top -->
+	
+	
+	
+	<!-- Start Featured -->	
+<div id="featured">
+
+			
+				
+		<div class="slide" style="background: #ffffff url('http://www.vul.edu/wp-content/uploads/2011/05/VUL_SitePic5.jpg') top center no-repeat;">
+			<div class="container clearfix">
+				<div class="description">
+					<h2 class="title"><a href="http://www.vul.edu/about/">About VUL</a></h2>
+					<!-- <p class="tagline">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on Jan 29, 2011</p> -->
+					<p>Welcome from the President
+
+Hello and welcome to Virginia University of Lynchburg. I invite you to explore the unlimited possibilities for you here.
+Inside the walls of this institution, you will find a wealth of history, a history set in motion by the University’s founding fathers...</p>
+					<a href="http://www.vul.edu/about/" class="readmore"><span>Read More</span></a>
+				</div> <!-- end .description -->			
+			</div> 	<!-- end .container -->	
+			
+			<div class="top-overlay"></div>
+			<div class="overlay"></div>
+			
+		</div> <!-- end .slide -->
+		
+			
+				
+		<div class="slide" style="background: #ffffff url('http://www.vul.edu/wp-content/uploads/2011/03/VUL_SitePic2.jpg') top center no-repeat;">
+			<div class="container clearfix">
+				<div class="description">
+					<h2 class="title"><a href="http://www.vul.edu/admission/">Admissions</a></h2>
+					<!-- <p class="tagline">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on Mar 10, 2011</p> -->
+					<p>General Admission to the University
+Students who respond to the challenge of a creative, dedicated life and who are ready to assume significant responsibility for shaping of their academic careers are prepared to begin study at Virginia University of Lynchburg.
+The University seeks to...</p>
+					<a href="http://www.vul.edu/admission/" class="readmore"><span>Read More</span></a>
+				</div> <!-- end .description -->			
+			</div> 	<!-- end .container -->	
+			
+			<div class="top-overlay"></div>
+			<div class="overlay"></div>
+			
+		</div> <!-- end .slide -->
+		
+			
+				
+		<div class="slide" style="background: #ffffff url('http://www.vul.edu/wp-content/uploads/2011/03/VUL_SitePic3.jpg') top center no-repeat;">
+			<div class="container clearfix">
+				<div class="description">
+					<h2 class="title"><a href="http://www.vul.edu/academics/">Academics</a></h2>
+					<!-- <p class="tagline">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on Mar 11, 2011</p> -->
+					<p>Virginia University of Lynchburg (VUL) offers several on-campus and online programs and degrees for students, including: certificate programs, associate, bachelor, master, and doctoral degrees.  Students may select a program according to their interests, abilities, and achievement...</p>
+					<a href="http://www.vul.edu/academics/" class="readmore"><span>Read More</span></a>
+				</div> <!-- end .description -->			
+			</div> 	<!-- end .container -->	
+			
+			<div class="top-overlay"></div>
+			<div class="overlay"></div>
+			
+		</div> <!-- end .slide -->
+		
+			
+				
+		<div class="slide" style="background: #ffffff url('http://www.vul.edu/wp-content/uploads/2011/05/VUL_SitePic6.jpg') top center no-repeat;">
+			<div class="container clearfix">
+				<div class="description">
+					<h2 class="title"><a href="http://www.vul.edu/student-affairs/">Student Affairs</a></h2>
+					<!-- <p class="tagline">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on May 26, 2011</p> -->
+					<p>There’s always something going on at Virginia University of Lynchburg. We have academic organizations, as well as opportunities to volunteer, join a club or get involved with social causes. You’ll stay busy while you&#8217;re here, but make sure to also schedule some time to unwind....</p>
+					<a href="http://www.vul.edu/student-affairs/" class="readmore"><span>Read More</span></a>
+				</div> <!-- end .description -->			
+			</div> 	<!-- end .container -->	
+			
+			<div class="top-overlay"></div>
+			<div class="overlay"></div>
+			
+		</div> <!-- end .slide -->
+		
+			
+</div> <!-- end #featured -->
+<!-- End Featured -->
+
+
+<div id="featured-control">
+	<div class="container">
+		<a id="prevlink" href="#">Previous</a>
+		<a id="nextlink" href="#">Next</a>
+	</div>
+</div> <!-- end #featured-control -->	
+	<div id="content">
+				<div class="container">
+	<div id="from-categories" class="clearfix">
+						<div class="recent-cat first">
+											  <div class="top">
+   <h4 class="title">Did You Know VUL Offers...</h4>
+</div>
+
+
+<img width="140" height="133" src="http://www.vul.edu/wp-content/uploads/2011/05/OnlineDegree2HomePgPic-140x133.jpg" class="thumb wp-post-image" alt="Online Degrees" title="Online Degrees" />
+<div class="entry blue">
+   <div class="title">
+      <h3><a href="http://www.vul.edu/vul-offers-online-degrees/">Online Degrees</a></h3>
+   </div>
+   <!-- <p class="meta-info">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on May 22, 2011</p> -->
+   <p>Virginia University of Lynchburg now offers Online Degree Programs.
+The mission of the Distance Learning Program is to give students who cannot attend classes at one of VUL’s...</p>
+   <a href="http://www.vul.edu/vul-offers-online-degrees/" class="readmore"><span>Read More</span></a>
+</div>					</div> <!-- end .recent-cat-first -->
+		
+				<div class="recent-cat">
+											  <div class="top">
+   <h4 class="title">Current Events</h4>
+</div>
+
+
+<img width="200" height="133" src="http://www.vul.edu/wp-content/uploads/2012/03/VUL-Commencement-Speaker-200x133.jpg" class="thumb wp-post-image" alt="VUL 2012 Commencement" title="VUL 2012 Commencement" />
+<div class="entry blue">
+   <div class="title">
+      <h3><a href="http://www.vul.edu/vul-2012-commencement/">VUL 2012 Commencement</a></h3>
+   </div>
+   <!-- <p class="meta-info">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on Mar 30, 2012</p> -->
+   <p>The Virginia University of Lynchburg Commencement ceremony will be held on Saturday, May 5th at 11:00 AM in Humbles Hall Auditorium.  Commencement Rehearsal will be held at 3:00 PM...</p>
+   <a href="http://www.vul.edu/vul-2012-commencement/" class="readmore"><span>Read More</span></a>
+</div>					</div> <!-- end .recent-cat -->
+		
+				<div class="recent-cat">
+											  <div class="top">
+   <h4 class="title">Register Online</h4>
+</div>
+
+
+<img width="200" height="133" src="http://www.vul.edu/wp-content/uploads/2011/07/register-200x133.jpg" class="thumb wp-post-image" alt="Class Registration- Summer 2012 Online Term 1" title="Class Registration- Summer 2012 Online Term 1" />
+<div class="entry blue">
+   <div class="title">
+      <h3><a href="http://www.vul.edu/sign-up-for-classes-online/">Class Registration- Summer 2012 Online Term 1</a></h3>
+   </div>
+   <!-- <p class="meta-info">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on Jul 15, 2011</p> -->
+   <p> Below are the instructions to register for classes, click the &#8216;Register&#8217; button to begin registration.
+
+Click on the &#8220;Register&#8221; button below
+You will be...</p>
+   <a href="http://www.vul.edu/sign-up-for-classes-online/" class="readmore"><span>Read More</span></a>
+</div>					</div> <!-- end .recent-cat -->
+		
+				<div class="recent-cat last">
+													  <div class="top last">
+   <h4 class="title">VUL/LU Meet &amp; Greet</h4>
+</div>
+
+
+<img width="140" height="133" src="http://www.vul.edu/wp-content/uploads/2011/05/Agreement2HomePgPic-140x133.jpg" class="thumb wp-post-image" alt="Articulation Agreement" title="Articulation Agreement" />
+<div class="entry blue">
+   <div class="title">
+      <h3><a href="http://www.vul.edu/articulation-agreement-with-lu/">Articulation Agreement</a></h3>
+   </div>
+   <!-- <p class="meta-info">Posted by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a> on May 22, 2011</p> -->
+   <p>The Virginia University of Lynchburg entered into an articulation agreement with Liberty University. The agreement, signed by VUL President Ralph Reavis and Dr. Ronald Godwin,...</p>
+   <a href="http://www.vul.edu/articulation-agreement-with-lu/" class="readmore"><span>Read More</span></a>
+</div>							
+		</div> <!-- end .recent-cat -->
+	</div> <!-- end #from-categories -->
+
+<div id="main-content-wrap">
+	<div id="main-content" class="clearfix">
+		<div id="recent-posts" class="clearfix">
+			<h4 class="title">Recent Posts</h4>
+			
+										
+<div class="entry clearfix" >
+	<h2 class="title"><a href="http://www.vul.edu/vul-2012-commencement/">VUL 2012 Commencement</a></h2>
+	
+	<div class="entry-content clearfix">
+					<a href="http://www.vul.edu/vul-2012-commencement/">
+				<img width="200" height="304" src="http://www.vul.edu/wp-content/uploads/2012/03/VUL-Commencement-Speaker.jpg" class="thumb alignleft wp-post-image" alt="VUL 2012 Commencement" title="VUL 2012 Commencement" />			</a>
+			
+												<p class="date"><span>03/2012</span></p>
+											
+					<p>The Virginia University of Lynchburg Commencement ceremony will be held on Saturday, May 5th at 11:00 AM in Humbles Hall Auditorium.  Commencement Rehearsal will be held at 3:00 PM on Friday, May 4th.
+Raymond H. Boone, founder, editor and publisher of the Richmond Free Press, a progressive, prize-winning weekly newspaper will be the commencement speaker.
+The...</p>
+				
+	</div> <!-- end .entry-content -->
+	
+	<div class="post-meta clearfix">
+					<p class="meta-info">Posted  by <a href="http://www.vul.edu/author/Admin/" title="Posts by Admin" rel="author">Admin</a>   in <a href="http://www.vul.edu/category/current-events/" title="View all posts in Current Events" rel="category tag">Current Events</a> | <a href="http://www.vul.edu/vul-2012-commencement/#respond" title="Comment on VUL 2012 Commencement">0 comments</a></p>
+			
+		<a href="http://www.vul.edu/vul-2012-commencement/" class="readmore"><span>Read More</span></a>
+	</div>
+</div> <!-- end .entry -->			
+								     <div class="pagination">
+	<div class="alignleft"><a href="http://www.vul.edu/page/2/" >&laquo; Older Entries</a></div>
+	<div class="alignright"></div>
+</div>								
+						
+			
+		</div> <!-- end #recent-posts -->
+
+		<div id="sidebar">
+		
+			<div id="firstcol">
+			<div id="text-7" class="widget widget_text"><h4 class="widgettitle"><span>VUL Online</span></h4><div class="widgetcontent">			<div class="textwidget"><p style="text-align:center;"><a href="http://moodle.vul.edu"><img src="http://www.vul.edu/wp-content/uploads/2011/05/StudentLogin_TALL.jpg"/></a></p></div>
+		</div><!-- end .widget-content --></div> <!-- end .widget -->		</div> <!-- end #firstcol -->
+		
+		<div id="secondcol">
+			<div id="text-9" class="widget widget_text"><h4 class="widgettitle"><span>Accreditation</span></h4><div class="widgetcontent">			<div class="textwidget"><p><strong><class="5">Accreditation</strong></class></p>
+<font size="1">Virginia University of Lynchburg is a member of the Transnational Association of Christian Colleges and Schools (TRACS) [15935 Forest Road, Forest, VA 24551; Telephone: 434.525.9539; e-mail: info@tracs.org] having been awarded Reaffirmed status as a Category IV institution by TRACS’ Accreditation Commission on 2010; this status is effective for a period of ten years.</font></div>
+		</div><!-- end .widget-content --></div> <!-- end .widget -->		</div> <!-- end #secondcol -->
+		
+</div> <!-- end sidebar -->		
+
+			</div> <!-- end #main-content -->
+		</div> <!-- end #main-content-wrap -->
+	</div> 	<!-- end .container -->
+</div> <!-- end #content -->
+
+<div id="content-bottom">
+	<div class="container"></div>
+</div>
+	
+<div id="footer">
+	<div class="container clearfix">
+		
+		 
+				<div class="clear"></div>
+
+	</div> <!--end .container -->
+</div> <!-- end #footer -->
+
+<div id="footer-bottom">
+	<div class="container clearfix">
+		<!-- 		
+		<ul class="bottom-nav">	<li class="cat-item cat-item-9"><a href="http://www.vul.edu/category/current-events/" title="View all posts filed under Current Events">Current Events</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.vul.edu/category/did-you-know-vul-offers/" title="View all posts filed under Did You Know VUL Offers&#8230;">Did You Know VUL Offers&#8230;</a>
+</li>
+	<li class="cat-item cat-item-7"><a href="http://www.vul.edu/category/register-online/" title="View all posts filed under Register Online">Register Online</a>
+</li>
+	<li class="cat-item cat-item-11"><a href="http://www.vul.edu/category/vul-news/" title="View all posts filed under VUL News">VUL News</a>
+</li>
+	<li class="cat-item cat-item-8"><a href="http://www.vul.edu/category/vuls-affiliations/" title="View all posts filed under VUL&#039;s Affiliations">VUL&#039;s Affiliations</a>
+</li>
+	<li class="cat-item cat-item-12"><a href="http://www.vul.edu/category/vullu-meet-greet/" title="View all posts filed under VUL/LU Meet &amp; Greet">VUL/LU Meet &amp; Greet</a>
+</li>
+</ul> -->
+
+<ul class="bottom-nav" style="font-family: Arial, sans-serif; font-size:12px;">
+	<li><a href="http://www.vul.edu/student-affairs/" style="color: #ffffff;">Student Affairs</a></li>
+	<li><a href="http://www.vul.edu/about/doctrinal-position/" style="color: #ffffff;">Doctrinal Position</a></li>
+	<li><a href="http://www.vul.edu/teaching-locations/" style="color: #ffffff;">Teaching Locations</a></li>
+	<li><a href="http://www.vul.edu/employment-opportunities/" style="color: #ffffff;">Employment Opportunities</a></li>
+	<li><a href="http://www.vul.edu/alumni/" style="color: #ffffff;">Alumni</a></li>
+	<li><a href="http://www.vul.edu/tuition-fees/" style="color: #ffffff;">Tuition &#38; Fees</a></li>
+	<li><a href="http://testing.onlineatvul.com" style="color: #ffffff;">Placement Testing</a></li>
+	<li><a href="http://www.vulathletics.com" style="color: #ffffff;">Athletics</a></li>
+</ul>
+<div class="clearfix"></div>
+<div>&copy;2012 Virginia University of Lynchburg</div>
+<div>2058 Garfield Avenue Lynchburg, Virginia 24501</div>
+<div>Phone: 434.528.5276</div>
+		<p id="copyright">Designed by  <a href="http://www.elegantthemes.com" title="Elegant Themes">Elegant Themes</a> | Powered by  <a href="http://www.wordpress.org">Wordpress</a></p>
+	</div> <!--end .container -->
+</div> <!-- end #footer-bottom -->
+
+
+		<script type="text/javascript" src="http://www.vul.edu/wp-content/themes/TheSource/js/superfish.js"></script>	
+	<script type="text/javascript">
+	//<![CDATA[
+		jQuery.noConflict();
+	
+		jQuery('ul.superfish, #page-menu ul.nav').superfish({ 
+			delay:       200,                            // one second delay on mouseout 
+			animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation 
+			speed:       'fast',                          // faster animation speed 
+			autoArrows:  true,                           // disable generation of arrow mark-up 
+			dropShadows: false                            // disable drop shadows 
+		});
+		
+		jQuery('ul.nav > li > a.sf-with-ul').parent('li').addClass('sf-ul'); 
+		
+		et_search_bar();
+		et_footer_improvements('#footer .footer-widget');
+		
+		<!---- et_switcher plugin v1.3 ---->
+		(function($)
+		{
+			$.fn.et_switcher = function(options)
+			{
+				var defaults =
+				{
+				   slides: '>div',
+				   activeClass: 'active',
+				   linksNav: '',
+				   findParent: true, //use parent elements in defining lengths
+				   lengthElement: 'li', //parent element, used only if findParent is set to true
+				   useArrows: false,
+				   arrowLeft: 'prevlink',
+				   arrowRight: 'nextlink',
+				   auto: false,
+				   autoSpeed: 5000
+				};
+
+				var options = $.extend(defaults, options);
+
+				return this.each(function()
+				{
+					var slidesContainer = jQuery(this);
+					slidesContainer.find(options.slides).hide().end().find(options.slides).filter(':first').css('display','block');
+			 
+					if (options.linksNav != '') { 
+						var linkSwitcher = jQuery(options.linksNav);
+										
+						linkSwitcher.click(function(){
+							var targetElement;
+
+							if (options.findParent) targetElement = jQuery(this).parent();
+							else targetElement = jQuery(this);
+
+							if (targetElement.hasClass('active')) return false;
+
+							targetElement.siblings().removeClass('active').end().addClass('active');
+
+							var ordernum = targetElement.prevAll(options.lengthElement).length;
+											
+							slidesContainer.find(options.slides).filter(':visible').hide().end().end().find(options.slides).filter(':eq('+ordernum+')').stop().fadeIn(700);
+							return false;
+						});
+					};
+					
+					jQuery('#'+options.arrowRight+', #'+options.arrowLeft).click(function(){
+					  
+						var slideActive = slidesContainer.find(options.slides).filter(":visible"),
+							nextSlide = slideActive.next(),
+							prevSlide = slideActive.prev();
+
+						if (jQuery(this).attr("id") == options.arrowRight) {
+							if (nextSlide.length) {
+								var ordernum = nextSlide.prevAll().length;                        
+							} else { var ordernum = 0; }
+						};
+
+						if (jQuery(this).attr("id") == options.arrowLeft) {
+							if (prevSlide.length) {
+								var ordernum = prevSlide.prevAll().length;                  
+							} else { var ordernum = slidesContainer.find(options.slides).length-1; }
+						};
+
+						slidesContainer.find(options.slides).filter(':visible').hide().end().end().find(options.slides).filter(':eq('+ordernum+')').stop().fadeIn(700);
+
+						if (typeof interval != 'undefined') {
+							clearInterval(interval);
+							auto_rotate();
+						};
+
+						return false;
+					});   
+
+					if (options.auto) {
+						auto_rotate();
+					};
+					
+					function auto_rotate(){
+						interval = setInterval(function(){
+							var slideActive = slidesContainer.find(options.slides).filter(":visible"),
+								nextSlide = slideActive.next();
+						 
+							if (nextSlide.length) {
+								var ordernum = nextSlide.prevAll().length;                        
+							} else { var ordernum = 0; }
+						 
+							if (options.linksNav === '') 
+								jQuery('#'+options.arrowRight).trigger("click");
+							else 		 		
+								linkSwitcher.filter(':eq('+ordernum+')').trigger("click");
+						},options.autoSpeed);
+					};
+				});
+			}
+		})(jQuery);
+		
+		
+		var $featuredArea = jQuery('#featured'),
+			$all_tabs = jQuery('#all_tabs');
+		
+		if ($featuredArea.length) {
+			$featuredArea.et_switcher({
+				useArrows: true ,
+										auto: true,
+										autoSpeed: 8000										
+			});
+		};
+				
+		if ($all_tabs.length) {
+			$all_tabs.et_switcher({
+				linksNav: 'ul#tab_controls li a'
+			});
+		}; 
+
+				
+		<!---- Footer Improvements ---->
+		function et_footer_improvements($selector){
+			var $footer_widget = jQuery($selector);
+		
+			if (!($footer_widget.length == 0)) {
+				$footer_widget.each(function (index, domEle) {
+					if ((index+1)%4 == 0) jQuery(domEle).addClass("last").after("<div class='clear'></div>");
+				});
+			};
+		};
+		
+		<!---- Search Bar Improvements ---->
+		function et_search_bar(){
+			var $searchform = jQuery('#cat-nav div#search-form'),
+				$searchinput = $searchform.find("input#searchinput"),
+				searchvalue = $searchinput.val();
+				
+			$searchinput.focus(function(){
+				if (jQuery(this).val() === searchvalue) jQuery(this).val("");
+			}).blur(function(){
+				if (jQuery(this).val() === "") jQuery(this).val(searchvalue);
+			});
+		};
+		
+	//]]>	
+	</script>
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30129104-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script><script type='text/javascript' src='http://www.vul.edu/wp-content/themes/TheSource/epanel/page_templates/js/fancybox/jquery.fancybox-1.2.6.pack.js?ver=1.3.2'></script>
+<script type='text/javascript' src='http://www.vul.edu/wp-content/themes/TheSource/epanel/page_templates/js/et-ptemplates-frontend.js?ver=1.1'></script>
+                                                                                                                                                                                                                                        
+</body>
+</html>

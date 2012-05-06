@@ -1,0 +1,775 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head id="Head1"><link href="/layouts/System/VisitorIdentification.aspx" rel="stylesheet" type="text/css" /><title>
+	Missouri College
+</title>
+            <meta name="description" content="" />
+            <meta name="keywords" content="" />
+            <meta charset="utf-8" /><meta name="robots" content="index,follow" /><link rel="shortcut icon" href="/images/MOCO/MOCO.ico" /><link href="/~/media/MOCO/Files/CSS/main.css" media="all" type="text/css" rel="stylesheet" />
+    <!--[if IE 8]><link href="/~/media/MOCO/Files/CSS/IE8_site_f8x.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+    <!--[if IE 7]><link href="/~/media/MOCO/Files/CSS/IE7_site_fix.css" type="text/css" rel="stylesheet" media="screen" /><![endif]-->
+    <script type="text/javascript" language="javascript"> 
+ if (typeof(lpUnit)=='undefined') var lpUnit ='moco-general'; 
+ if (typeof(lpLanguage)=='undefined') var lpLanguage='english'; 
+ if (typeof(lpButtonName)=='undefined') var lpButtonName=lpUnit; 
+ </script>
+    <script src="~/media/Global/Files/mtagconfig.js" type="text/javascript"></script>
+    <script src="/Scripts/Global/swfobject.js" type="text/javascript"></script>
+    <script src="/Scripts/Global/jquery.js" type="text/javascript"></script>
+	<script src="/Scripts/Global/jquery.cycle.all.min.js" type="text/javascript"></script>
+    <script src="/Scripts/Global/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+    <script type="text/javascript">
+			$(document).ready(function(){
+				// Slideshow //
+				$('#hp_slideshow')
+				.after('<div id="hp_slideshow_nav">')
+				.cycle({
+					fx:     'fade', 
+					speed:   800, 
+					timeout: 5000, 
+					pause: 1,
+					pager:  '#hp_slideshow_nav'
+				});
+				//Tabed Section//
+				//Default Action
+				$(".tab_content").hide(); //Hide all content
+				$("#tabs ul li:first").addClass("active").show(); //Activate first tab
+				$(".tab_content:first").show(); //Show first tab content
+				//On Click Event
+				$("#tabs ul li").click(function() {
+					$("#tabs ul li").removeClass("active"); //Remove any "active" class
+					$(this).addClass("active"); //Add "active" class to selected tab
+					$(".tab_content").hide(); //Hide all tab content
+					var activeTab = $(this).find("a").attr("href"); //Find the rel attribute value to identify the active tab + content
+					$(activeTab).fadeIn(); //Fade in the active content
+					return false;
+				});
+			});
+	</script> 
+    <!-- Accordian Scrips Need to load after slideshow to function -->
+	<script src="/Scripts/Global/jquery.easing.js" type="text/javascript"></script>
+	<script src="/Scripts/Global/jquery.dimensions.js" type="text/javascript"></script>
+	<script src="/Scripts/Global/jquery.accordion.js" type="text/javascript"></script>	
+	<script type="text/javascript">
+			$().ready(function(){
+				// second simple accordion with special markup
+				$('#navigation').accordion({
+					active: false,
+					header: '.head',
+					active: '.selected',
+					navigation: true,
+					fillSpace: true
+					//animated: 'easeslide'
+				});
+				// bind to change event of select to control first and seconds accordion
+				// similar to tab's plugin triggerTab(), without an extra method
+				var accordions = $('#navigation');
+				$('#switch select').change(function() {
+					accordions.accordion("activate", this.selectedIndex-1 );
+				});
+				$('#close').click(function() {
+					accordions.accordion("activate", -1);
+				});
+				$('#switch2').change(function() {
+					accordions.accordion("activate", this.value);
+				});
+				$('#enable').click(function() {
+					accordions.accordion("enable");
+				});
+				$('#disable').click(function() {
+					accordions.accordion("disable");
+				});
+				$('#remove').click(function() {
+					accordions.accordion("destroy");
+					wizardButtons.unbind("click");
+				});
+			});
+	</script>
+    <script src="/Scripts/MOCO/main.js" type="text/javascript"></script>
+	<style type="text/css">
+div#press{display:none}
+</style><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(
+  ['_setAccount', 'UA-16243325-1'],
+  ['_setDomainName', 'missouricollege.edu'],
+  ['_setAllowHash', 'false'],
+  ['_trackPageview'],
+  ['cec._setAccount', 'UA-11922702-1'],
+  ['cec._setDomainName', 'none'],
+  ['cec._setAllowLinker', true],
+  ['cec._setAllowHash', false],
+  ['cec._trackPageview']
+);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script></head>
+<body id="htmlBody" class="home">
+    <form name="aspnetForm" method="post" action="/" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQzMDU0MDU2OA9kFgQCAQ9kFgICDA8WAh4EVGV4dAWDAjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBsYW5ndWFnZT0iamF2YXNjcmlwdCI+IAogaWYgKHR5cGVvZihscFVuaXQpPT0ndW5kZWZpbmVkJykgdmFyIGxwVW5pdCA9J21vY28tZ2VuZXJhbCc7IAogaWYgKHR5cGVvZihscExhbmd1YWdlKT09J3VuZGVmaW5lZCcpIHZhciBscExhbmd1YWdlPSdlbmdsaXNoJzsgCiBpZiAodHlwZW9mKGxwQnV0dG9uTmFtZSk9PSd1bmRlZmluZWQnKSB2YXIgbHBCdXR0b25OYW1lPWxwVW5pdDsgCiA8L3NjcmlwdD5kAgMPZBYCAgEQZGQWCAIFD2QWAmYPZBYCZg9kFgYCBQ8QDxYCHgdWaXNpYmxlaGRkFgBkAgcPZBYCAgEPD2QWBB4Hb25mb2N1cwU5aWYodGhpcy52YWx1ZS50b0xvd2VyQ2FzZSgpID09ICdzZWFyY2gnKSB0aGlzLnZhbHVlID0gJyc7HgZvbmJsdXIFOWlmKHRoaXMudmFsdWUudG9Mb3dlckNhc2UoKSA9PSAnJykgdGhpcy52YWx1ZSA9ICdTZWFyY2gnO2QCEQ8WAh8BaGQCBw9kFgJmD2QWAmYPZBYCZg8WAh8ABYUrPHVsIGlkPSJuYXYiPg0KPGxpPg0KICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZSI+QWJvdXQgTWlzc291cmkgQ29sbGVnZTwvYT4NCiAgPGRpdiBjbGFzcz0ic3ViIj4NCiAgPHVsPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZS9XZWxjb21lLWZyb20tdGhlLVByZXNpZGVudCI+V2VsY29tZSBmcm9tIHRoZSBQcmVzaWRlbnQ8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvSGlzdG9yeS1vZi1NaXNzb3VyaS1Db2xsZWdlIj5IaXN0b3J5IG9mIE1pc3NvdXJpIENvbGxlZ2U8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvTWlzc2lvbi1hbmQtT2JqZWN0aXZlcyI+TWlzc2lvbiBhbmQgT2JqZWN0aXZlczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZS9BY2NyZWRpdGF0aW9uLWFuZC1BZmZpbGlhdGlvbnMiPkFjY3JlZGl0YXRpb24gYW5kIEFmZmlsaWF0aW9uczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZS9GYWN1bHR5LWFuZC1TdGFmZiI+RmFjdWx0eSAmIFN0YWZmPC9hPg0KICAgIDwvbGk+DQogIDwvdWw+DQogIDx1bD4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvRXhwbG9yZS1TdC1Mb3VpcyI+RXhwbG9yZSBTdC4gTG91aXM8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvV2h5LVN0dWRlbnRzLUNob29zZS1NaXNzb3VyaS1Db2xsZWdlIj5XaHkgQ2hvb3NlIE1pc3NvdXJpIENvbGxlZ2U8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvQ2FtcHVzLVRvdXIiPkNhbXB1cyBUb3VyPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9BYm91dC1NaXNzb3VyaS1Db2xsZWdlL0hvdXJzLW9mLU9wZXJhdGlvbiI+SG91cnMgb2YgT3BlcmF0aW9uPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Imh0dHA6Ly9tYXBzLmdvb2dsZS5jb20vbWFwcz92aWV3PW1hcCZjaWQ9MTU1Nzc1OTA4MjM4ODM2NDkyNjIiPk1hcCAmIERpcmVjdGlvbnM8L2E+DQogICAgPC9saT4NCiAgPC91bD4NCiAgPHVsPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvU3R1ZGVudC1MaWZlL0Jsb2ciPk1pc3NvdXJpIENvbGxlZ2UgTmV3czwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZS9FdmVudHMiPkV2ZW50czwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWJvdXQtTWlzc291cmktQ29sbGVnZS9QcmVzcy1Sb29tIj5QcmVzcyBSb29tPC9hPg0KICAgIDwvbGk+DQogIDwvdWw+DQogIDwvZGl2Pg0KPC9saT4NCjxsaT4NCiAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcyI+RGVncmVlIFByb2dyYW1zPC9hPg0KICA8ZGl2IGNsYXNzPSJzdWIiPg0KICA8dWw+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9EZWdyZWUtUHJvZ3JhbXMvRGlwbG9tYS1Qcm9ncmFtcyI+RGlwbG9tYSBQcm9ncmFtczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvRGVncmVlLVByb2dyYW1zL0Fzc29jaWF0ZXMtRGVncmVlcyI+QXNzb2NpYXRlJ3MgRGVncmVlczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvRGVncmVlLVByb2dyYW1zL0JhY2hlbG9yLURlZ3JlZXMiPkJhY2hlbG9yJ3MgRGVncmVlczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvRGVncmVlLVByb2dyYW1zL0FsbGllZC1IZWFsdGgiPkFsbGllZCBIZWFsdGg8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcy9CdXNpbmVzcyI+QnVzaW5lc3MgQWRtaW5pc3RyYXRpb248L2E+DQogICAgPC9saT4NCiAgPC91bD4NCiAgPHVsPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvRGVncmVlLVByb2dyYW1zL0RlbnRhbC1Bc3Npc3RhbnQiPkRlbnRhbCBBc3Npc3RhbnQ8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcy9EZW50YWwtSHlnaWVuZSI+RGVudGFsIEh5Z2llbmU8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcy9GaXRuZXNzIj5GaXRuZXNzIFRyYWluZXI8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcy9IZWFsdGgtSW5mb3JtYXRpb24tVGVjaG5vbG9neSI+SGVhbHRoIEluZm9ybWF0aW9uIFRlY2hub2xvZ3k8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0RlZ3JlZS1Qcm9ncmFtcy9IZWFsdGhjYXJlLU1hbmFnZW1lbnQiPkhlYWx0aGNhcmUgTWFuYWdlbWVudDwvYT4NCiAgICA8L2xpPg0KICA8L3VsPg0KICA8dWw+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9EZWdyZWUtUHJvZ3JhbXMvSHVtYW4tUmVzb3VyY2UtTWFuYWdlbWVudCI+SHVtYW4gUmVzb3VyY2UgTWFuYWdlbWVudDwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvRGVncmVlLVByb2dyYW1zL01hc3NhZ2UtVGhlcmFweSI+TWFzc2FnZSBUaGVyYXB5PC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9EZWdyZWUtUHJvZ3JhbXMvTWVkaWNhbC1Bc3Npc3RhbnQiPk1lZGljYWwgQXNzaXN0YW50PC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9EZWdyZWUtUHJvZ3JhbXMvTWVkaWNhbC1CaWxsaW5nLUFkbWluaXN0cmF0aXZlLVNwZWNpYWxpc3QiPk1lZGljYWwgQmlsbGluZyBBZG1pbmlzdHJhdGl2ZSBTcGVjaWFsaXN0PC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9EZWdyZWUtUHJvZ3JhbXMvU2ltcHJvLVZpcnR1YWwtVHJhaW5lciI+U2ltcHJvIFZpcnR1YWwgVHJhaW5lcjwvYT4NCiAgICA8L2xpPg0KICA8L3VsPg0KICA8L2Rpdj4NCjwvbGk+DQo8bGk+DQogIDxhIGhyZWY9Ii9BZG1pc3Npb25zIj5BZG1pc3Npb25zPC9hPg0KICA8ZGl2IGNsYXNzPSJzdWIiPg0KICA8dWw+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9BZG1pc3Npb25zL1VuZGVyZ3JhZHVhdGUtQWRtaXNzaW9ucyI+VW5kZXJncmFkdWF0ZSBBZG1pc3Npb25zPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9BZG1pc3Npb25zL0ludGVybmF0aW9uYWwtU3R1ZGVudC1BZG1pc3Npb25zIj5JbnRlcm5hdGlvbmFsIFN0dWRlbnQgQWRtaXNzaW9uczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvQWRtaXNzaW9ucy9IaWdoLVNjaG9vbC1TdHVkZW50cyI+SGlnaCBTY2hvb2wgU3R1ZGVudHM8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL0FkbWlzc2lvbnMvQ2FuZGlkYXRlLUZvci1BY2NlcHRhbmNlIj5JcyBNaXNzb3VyaSBDb2xsZWdlIFJpZ2h0IEZvciBZb3U/PC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9BZG1pc3Npb25zL0RvY3VtZW50cy1hbmQtUmVzb3VyY2VzIj5Eb2N1bWVudHMgYW5kIFJlc291cmNlczwvYT4NCiAgICA8L2xpPg0KICA8L3VsPg0KICA8L2Rpdj4NCjwvbGk+DQo8bGk+DQogIDxhIGhyZWY9Ii9UdWl0aW9uLWFuZC1GaW5hbmNpYWwtQWlkIj5UdWl0aW9uICYgRmluYW5jaWFsIEFpZDwvYT4NCiAgPGRpdiBjbGFzcz0ic3ViIj4NCiAgPHVsPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvVHVpdGlvbi1hbmQtRmluYW5jaWFsLUFpZC9GaW5hbmNpYWwtQWlkLVRvb2xzL05ldC1QcmljZS1DYWxjdWxhdG9yIj5OZXQgUHJpY2UgQ2FsY3VsYXRvcjwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvVHVpdGlvbi1hbmQtRmluYW5jaWFsLUFpZC9Nb25leS1NYXR0ZXJzIj5Nb25leSBNYXR0ZXJzPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9UdWl0aW9uLWFuZC1GaW5hbmNpYWwtQWlkL0hvdy10by1BcHBseSI+SG93IHRvIEFwcGx5PC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9UdWl0aW9uLWFuZC1GaW5hbmNpYWwtQWlkL0ludGVybmF0aW9uYWwtU3R1ZGVudC1GaW5hbmNpYWwtQWlkLVByb2Nlc3MiPkludGVybmF0aW9uYWwgU3R1ZGVudHM8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL1R1aXRpb24tYW5kLUZpbmFuY2lhbC1BaWQvRmluYW5jaW5nLU9wdGlvbnMtZm9yLVlvdXItRWR1Y2F0aW9uIj5GaW5hbmNpbmcgT3B0aW9uczwvYT4NCiAgICA8L2xpPg0KICA8L3VsPg0KICA8dWw+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9UdWl0aW9uLWFuZC1GaW5hbmNpYWwtQWlkL0ZpbmFuY2lhbC1BaWQtRkFRcyI+RmluYW5jaWFsIEFpZCBGQVFzPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9UdWl0aW9uLWFuZC1GaW5hbmNpYWwtQWlkL0ZpbmFuY2lhbC1BaWQtVG9vbHMiPkZpbmFuY2lhbCBBaWQgVG9vbHM8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL1R1aXRpb24tYW5kLUZpbmFuY2lhbC1BaWQvQ29kZS1vZi1Db25kdWN0Ij5Db2RlIG9mIENvbmR1Y3Q8L2E+DQogICAgPC9saT4NCiAgPC91bD4NCiAgPC9kaXY+DQo8L2xpPg0KPGxpPg0KICA8YSBocmVmPSIvU3R1ZGVudC1MaWZlIj5TdHVkZW50IExpZmU8L2E+DQogIDxkaXYgY2xhc3M9InN1YiI+DQogIDx1bD4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL1N0dWRlbnQtTGlmZS9Tb2NpYWwtTmV0d29ya3MiPlNvY2lhbCBOZXR3b3JrczwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvU3R1ZGVudC1MaWZlL0Jsb2ciPk1pc3NvdXJpIENvbGxlZ2UgTmV3czwvYT4NCiAgICA8L2xpPg0KICAgIDxsaT4NCiAgICA8YSBocmVmPSIvU3R1ZGVudC1MaWZlL0FsdW1uaSI+QWx1bW5pPC9hPg0KICAgIDwvbGk+DQogICAgPGxpPg0KICAgIDxhIGhyZWY9Ii9TdHVkZW50LUxpZmUvQ2FyZWVyLVNlcnZpY2VzIj5DYXJlZXIgU2VydmljZXM8L2E+DQogICAgPC9saT4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL1N0dWRlbnQtTGlmZS9MaWJyYXJ5Ij5MaWJyYXJ5PC9hPg0KICAgIDwvbGk+DQogIDwvdWw+DQogIDx1bD4NCiAgICA8bGk+DQogICAgPGEgaHJlZj0iL1N0dWRlbnQtTGlmZS9SZWZlci1hLUZyaWVuZCI+UmVmZXIgYSBGcmllbmQ8L2E+DQogICAgPC9saT4NCiAgPC91bD4NCiAgPC9kaXY+DQo8L2xpPg0KPGxpPg0KICA8YSBocmVmPSIvUmVxdWVzdC1JbmZvIj5SZXF1ZXN0IEluZm88L2E+PC9saT4NCjxsaT4NCiAgPGEgaHJlZj0iL0FwcGx5LU9ubGluZSI+QXBwbHkgT25saW5lPC9hPjwvbGk+DQo8L3VsPmQCDw9kFgZmD2QWAmYPZBYCZg8WAh4LXyFJdGVtQ291bnQCAxYGAgEPZBYCAgMPFQEvL1N0dWRlbnQtTGlmZS9CbG9nL01hcmNoLTIwMTIvU3R1ZGVudC1TcG90bGlnaHRkAgIPZBYCAgMPFQEyL1N0dWRlbnQtTGlmZS9CbG9nL0RlY2VtYmVyLTIwMTEvQWRhLVN0ZXAtT3V0LVdhbGtkAgMPZBYCAgMPFQFHL1N0dWRlbnQtTGlmZS9CbG9nL05vdmVtYmVyLTIwMTEvTWlzc291cmktQ29sbGVnZS1Ub3ktRHJpdmUtQ29tcGV0aXRpb25kAgEPZBYCZg9kFgJmDxYCHwQCARYCAgEPZBYCAgYPFQEyL0Fib3V0LU1pc3NvdXJpLUNvbGxlZ2UvRXZlbnRzL01heS0yMDEyLU9wZW4tSG91c2VkAgIPZBYCZg9kFgJmDxYCHwFoZAIfDxYCHwAFhAIKPHNjcmlwdCBsYW5ndWFnZT0iamF2YXNjcmlwdCIgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4gCmxwQWRkVmFycygicGFnZSIsIlNlY3Rpb24iLCJtYXJrZXRpbmciKTsgCmxwQWRkVmFycygic2Vzc2lvbiIsIkNhbXBhaWduSUQiLCIiKTsgCmxwQWRkVmFycygic2Vzc2lvbiIsIkRlZ3JlZSIsIiIpOyAKbHBBZGRWYXJzKCJzZXNzaW9uIiwiUHJvZ3JhbSIsIiIpOyAKbHBBZGRWYXJzKCJzZXNzaW9uIiwiQ29uY2VudHJhdGlvbiIsIiIpOyAKPC9zY3JpcHQ+CmRkZvFor0Ne0zMzImgNDJRjnDJiMX4=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=rUcjSl9LAxk_bc2CtPfxO-Qk8CJ7bZkRYlDzThXOmuJBvBc_Uh3aDZZpfmOK2ZBuhqGNj-I0_aA2iduMSs5nI0B6lfw1&amp;t=634214967456546454" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=jEtquGWbyXhjo103ZNwXWa1qlv2x_GJsdNU6-GuqPpn284DP-MZrB5V9QUjaFC3r0uLykaMzb1917r7Kg0vb9SKuNTUAg-1pQ2nLNF2Z0vVQu6lBaaoJZjZ3jLiI2_Fr5dbtP7FwBTNqbj7PD3YKJeGk8IA1&amp;t=597f02f4" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=bt426cvDprzZHHJ8VI_7ZfVudgXdfyPhkYRcohiL1eCT9uO-blSTAgfA51O908RPyw8l4Z45jro_HrQGiMji6SIPjw-QuYDN44klSrw3nOb-jlJQZUCW7tzZMcpJFmaEwTl3nE9o2ZjJsXF7Q4yw9IBMj2IOGYB_X9Q0nZA2HbN6KvFM0&amp;t=597f02f4" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwKWh46xCQK26LbaDALku+uWDD1xJiQZ6Rz3TKlHtt2Gz2yrTdeS" />
+</div>
+    <div style="display:none;"></div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('scm1', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+    <div id="wrapper">
+        <div class="container clearfix">
+            <!-- Masthead -->
+            <div id="masthead">
+                
+<header role="banner">
+    <div class="top">
+        <p>
+            TOLL FREE: <span>1-888-704-1333</span>
+        </p>
+        
+        <span id="header_0_virtualLinkButton" class="virtualLink"><a href="https://my.missouricollege.com/mycampus/index.aspx" target="_blank">Student Portal Login</a> </span>
+
+        
+        
+        <div id="header_0_pnlSearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'header_0_lnkSearch')">
+	
+            <div id="search" role="search">
+                <fieldset>
+                    <label for="header_0$txtSearch">Search</label>
+                    <input name="header_0$txtSearch" type="text" vcard_name="search" value="Search" id="header_0_txtSearch" class="search_field" onfocus="if(this.value.toLowerCase() == 'search') this.value = '';" onblur="if(this.value.toLowerCase() == '') this.value = 'Search';" />
+                    <a id="header_0_lnkSearch" href="javascript:__doPostBack('header_0$lnkSearch','')"><img src="~/media/MOCO/Images/Banners_Buttons/btn_search_go.ashx" class="search_btn" alt="Go" width="18" height="18" /></a>
+                </fieldset>
+            </div>
+        
+</div>
+    </div>
+    
+		<a id="logo" href="/">
+      <img width="354" height="50" alt="Missour College" src="~/media/MOCO/Images/Logos/logo.ashx?w=354&amp;h=50&amp;as=1" />
+    </a>
+
+    <ul id="action_items">
+        <li id="request">
+            
+		<a href="/Request-Info">
+      <img width="144" height="26" alt="Request more information" src="~/media/MOCO/Images/Banners_Buttons/request.ashx?w=144&amp;h=26&amp;as=1" />
+    </a>
+
+        </li>
+        <li id="apply">
+            
+		<a href="/Apply-Online">
+      <img width="144" height="26" alt="Apply Now" src="~/media/MOCO/Images/Banners_Buttons/apply.ashx?w=144&amp;h=26&amp;as=1" />
+    </a>
+
+        </li>
+        <li id="chat">
+            
+    
+<div class="text-wrapper">
+    <div id="lpButton" onclick="return OmnitureTracking_LiveChatClick('caredumiss');_gaq.push (['_trackEvent', 'Visitor Action', 'Header Click', 'Chat Live']);"></div>
+</div>
+
+        </li>
+    </ul>
+    
+    <script language="javascript" type="text/javascript">
+        function openVC(theDropdown) {
+            var selInd = theDropdown.selectedIndex;
+            var selVal = theDropdown.options[selInd].value;
+            if (selVal != '') {
+                window.open(selVal, 'google', '');
+            }
+        }
+    </script>
+</header>
+                <!-- Nav -->
+                <ul id="nav">
+<li>
+  <a href="/About-Missouri-College">About Missouri College</a>
+  <div class="sub">
+  <ul>
+    <li>
+    <a href="/About-Missouri-College/Welcome-from-the-President">Welcome from the President</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/History-of-Missouri-College">History of Missouri College</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Mission-and-Objectives">Mission and Objectives</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Accreditation-and-Affiliations">Accreditation and Affiliations</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Faculty-and-Staff">Faculty & Staff</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/About-Missouri-College/Explore-St-Louis">Explore St. Louis</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Why-Students-Choose-Missouri-College">Why Choose Missouri College</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Campus-Tour">Campus Tour</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Hours-of-Operation">Hours of Operation</a>
+    </li>
+    <li>
+    <a href="http://maps.google.com/maps?view=map&cid=15577590823883649262">Map & Directions</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/Student-Life/Blog">Missouri College News</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Events">Events</a>
+    </li>
+    <li>
+    <a href="/About-Missouri-College/Press-Room">Press Room</a>
+    </li>
+  </ul>
+  </div>
+</li>
+<li>
+  <a href="/Degree-Programs">Degree Programs</a>
+  <div class="sub">
+  <ul>
+    <li>
+    <a href="/Degree-Programs/Diploma-Programs">Diploma Programs</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Associates-Degrees">Associate's Degrees</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Bachelor-Degrees">Bachelor's Degrees</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Allied-Health">Allied Health</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Business">Business Administration</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/Degree-Programs/Dental-Assistant">Dental Assistant</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Dental-Hygiene">Dental Hygiene</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Fitness">Fitness Trainer</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Health-Information-Technology">Health Information Technology</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Healthcare-Management">Healthcare Management</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/Degree-Programs/Human-Resource-Management">Human Resource Management</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Massage-Therapy">Massage Therapy</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Medical-Assistant">Medical Assistant</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Medical-Billing-Administrative-Specialist">Medical Billing Administrative Specialist</a>
+    </li>
+    <li>
+    <a href="/Degree-Programs/Simpro-Virtual-Trainer">Simpro Virtual Trainer</a>
+    </li>
+  </ul>
+  </div>
+</li>
+<li>
+  <a href="/Admissions">Admissions</a>
+  <div class="sub">
+  <ul>
+    <li>
+    <a href="/Admissions/Undergraduate-Admissions">Undergraduate Admissions</a>
+    </li>
+    <li>
+    <a href="/Admissions/International-Student-Admissions">International Student Admissions</a>
+    </li>
+    <li>
+    <a href="/Admissions/High-School-Students">High School Students</a>
+    </li>
+    <li>
+    <a href="/Admissions/Candidate-For-Acceptance">Is Missouri College Right For You?</a>
+    </li>
+    <li>
+    <a href="/Admissions/Documents-and-Resources">Documents and Resources</a>
+    </li>
+  </ul>
+  </div>
+</li>
+<li>
+  <a href="/Tuition-and-Financial-Aid">Tuition & Financial Aid</a>
+  <div class="sub">
+  <ul>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Financial-Aid-Tools/Net-Price-Calculator">Net Price Calculator</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Money-Matters">Money Matters</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/How-to-Apply">How to Apply</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/International-Student-Financial-Aid-Process">International Students</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Financing-Options-for-Your-Education">Financing Options</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Financial-Aid-FAQs">Financial Aid FAQs</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Financial-Aid-Tools">Financial Aid Tools</a>
+    </li>
+    <li>
+    <a href="/Tuition-and-Financial-Aid/Code-of-Conduct">Code of Conduct</a>
+    </li>
+  </ul>
+  </div>
+</li>
+<li>
+  <a href="/Student-Life">Student Life</a>
+  <div class="sub">
+  <ul>
+    <li>
+    <a href="/Student-Life/Social-Networks">Social Networks</a>
+    </li>
+    <li>
+    <a href="/Student-Life/Blog">Missouri College News</a>
+    </li>
+    <li>
+    <a href="/Student-Life/Alumni">Alumni</a>
+    </li>
+    <li>
+    <a href="/Student-Life/Career-Services">Career Services</a>
+    </li>
+    <li>
+    <a href="/Student-Life/Library">Library</a>
+    </li>
+  </ul>
+  <ul>
+    <li>
+    <a href="/Student-Life/Refer-a-Friend">Refer a Friend</a>
+    </li>
+  </ul>
+  </div>
+</li>
+<li>
+  <a href="/Request-Info">Request Info</a></li>
+<li>
+  <a href="/Apply-Online">Apply Online</a></li>
+</ul>
+
+                <!-- /Nav -->
+            </div>
+            <!-- /Masthead -->	
+            <!--Slideshow,Accordian, and popular topics-->
+                
+		<div id="featured-content" class="clearfix">
+	<!-- Popular Topics List -->
+	<div id="top_topics">
+		<dl>
+			<dt>Popular Topics:</dt>
+			<dd><a href="/Degree-Programs">Degree Programs</a> | </dd>
+			<dd><a href="/Tuition-and-Financial-Aid">Financial Aid</a> | </dd>
+			<dd><a href="/Admissions">Admissions</a> </dd>
+		</dl>
+	</div>
+	<!-- /Popular Topics List -->
+	<!-- Accordian -->
+	<div id="accordian" style="height:250px;margin-bottom:1em;">
+		<ul id="navigation">
+			<li class="first">
+				<a class="head selected" href="?p=1.1.1">Find your Program</a>
+				<div>
+					<p>Which program is right for you?</p>
+					<a href="/Degree-Programs/Business.aspx">Business Administration »</a>
+					<a href="/Degree-Programs/Dental-Assistant.aspx">Dental Assistant »</a>
+					<a href="/Degree-Programs/Dental-Hygiene.aspx">Dental Hygiene »</a>
+					<a href="/Degree-Programs/Fitness.aspx">Fitness Trainer »</a>
+					<a href="/Degree-Programs/Health-Information-Technology.aspx">Health Information Technology »</a>
+					<a href="/Degree-Programs/Massage-Therapy.aspx">Massage Therapy »</a>
+					<a href="/Degree-Programs/Medical-Assistant.aspx">Medical Assistant »</a>
+					<a href="/Degree-Programs/Medical-Billing-Administrative-Specialist.aspx">Medical Billing/Administrative Specialist »</a>
+					<a href="/Degree-Programs.aspx">More Programs »</a>
+				</div> 
+			</li>
+			<li>
+				<a class="head" href="?p=1.1.3">Financing Your Education</a>
+				<div style="display:none">
+					<p>Need helpful information on how to pay for school?</p>
+					<a href="/Tuition-and-Financial-Aid">Learn more about Financial Aid options »</a>
+					<p>Want to know the cost of a program?</p>
+					<a href="/Admissions/Documents-and-Resources">Get Tuition &amp; Fees Information »</a>
+					<p>Get a quick estimate of the financial aid you may be eligible to receive.</p>
+					<a href="/Tuition-and-Financial-Aid/Financial-Aid-Tools/Net-Price-Calculator.aspx">Missouri College's Net Price Calculator »</a>
+				</div>
+			</li>
+			<li class="last">
+				<a class="head" href="?p=1.1.5">How to Apply</a>
+				<div style="display:none">
+					<p>Want to understand the steps to apply?</p>
+					<a href="/Admissions">Learn more about applying for admission »</a>
+					<p>Have questions &amp; need to speak to an Advisor?</p>
+					<a href="/Request-Info">Request Information »</a>
+					<p>Ready to apply for admission now?</p>
+					<a href="/Apply-Online">Get started at Missouri College's Online<br />Admissions Center »</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<!-- /Accordian -->
+	<!-- Slideshow -->
+	<div id="hp_slideshow">
+		<div class="slide">
+			<div class="slide-info">
+				<h2>Degree Programs</h2>
+				<p>Missouri College offers training in some of today's most dynamic areas... <a href="/Degree-Programs">More »</a></p>
+			</div>
+			<img width="600" height="260" alt="Missouri College Degree Programs" src="~/media/MOCO/Images/Slides/slide-degree-programs.ashx?w=600&amp;h=260&amp;as=1" />
+		</div>
+		<div class="slide" style="display:none">
+			<div class="slide-info">
+				<h2>Admissions</h2>
+				<p>Our streamlined admissions process and numerous start dates... <a href="/Admissions">More »</a></p>
+			</div>
+			<img width="600" height="260" alt="Apply Now" src="~/media/MOCO/Images/Slides/slide-apply-now.ashx?w=600&amp;h=260&amp;as=1" />
+		</div>
+		<div class="slide" style="display:none">
+			<div class="slide-info">
+				<h2>Clinics</h2>
+				<p>Missouri College maintains dental hygiene and massage therapy clinics... <a href="/Degree-Programs/Dental-Hygiene">More »</a></p>
+			</div>
+			<img width="600" height="260" alt="Missouri College Dental Hygiene Program" src="~/media/MOCO/Images/Slides/slide-dental-hygiene.ashx?w=600&amp;h=260&amp;as=1" />
+		</div>
+		<div class="slide" style="display:none">
+			<div class="slide-info">
+				<h2>Campus Tour</h2>
+				<p>At Missouri College we believe the best way to prepare for a career in a... <a href="/About-Missouri-College/Campus-Tour">More »</a></p>
+			</div>
+			<img width="600" height="260" alt="Campus Tour of Missouri College" src="~/media/MOCO/Images/Slides/slide-2.ashx?w=600&amp;h=260&amp;as=1" /> 
+		</div>
+	</div>
+	<!-- /Slideshow -->
+</div>
+
+            <!-- /Slideshow,Accordian, and popular topics -->
+            <div id="tabs" role="navigation">
+                
+		<ul>
+<li><a id="tab-1" href="#tab_1">Welcome</a></li>
+<li><a id="tab-2" href="#tab_2">Financial Aid</a></li>
+<li><a id="tab-3" href="#tab_3">Career Services</a></li>
+<li><a id="tab-4" href="#tab_4">Simpro</a></li>
+</ul>
+
+            </div>
+            <div id="content_wrapper" class="clearfix">
+                <!-- Left Column -->
+                <div class="col_260" role="complimentary">
+                    
+                    <div id="news-events">
+                        
+<div id="blogs" class="content-list">
+    
+            <h3 id="blog"><span><a href="/Student-Life/Blog">News</a></span></h3>
+            <ul>
+        
+            <li>
+            	<span><em>March 18, 2012<label id="phnewsevents_0_rptBlogs_ctl01_lblBlogLocation"> - Alumni ... </label></em></span>
+                <a href="/Student-Life/Blog/March-2012/Student-Spotlight">Student Spotlight - Karoline Vaz</a>
+             </li>
+        
+            <li>
+            	<span><em>December 6, 2011<label id="phnewsevents_0_rptBlogs_ctl02_lblBlogLocation"> - General</label></em></span>
+                <a href="/Student-Life/Blog/December-2011/Ada-Step-Out-Walk">ADA Step-Out Walk</a>
+             </li>
+        
+            <li>
+            	<span><em>November 23, 2011<label id="phnewsevents_0_rptBlogs_ctl03_lblBlogLocation"> - General</label></em></span>
+                <a href="/Student-Life/Blog/November-2011/Missouri-College-Toy-Drive-Competition">Missouri College Toy Drive Competition</a>
+             </li>
+        
+            </ul>
+             <p class="more"><a href="/Student-Life/Blog">More</a></p>
+        
+</div>
+
+
+<div id="events" class="content-list">
+    
+            <h3 id="events"><span><a href="/About-Missouri-College/Events">Events</a></span></h3>
+            <ul>
+        
+            <li itemscope itemtype="http://data-vocabulary.org/Event">
+            	<span><em><time itemprop="startDate" datetime='2012-05-17'>May 17, 2012
+                </time><label id="phnewsevents_1_rptEvents_ctl01_lblEventLocation"></label></em></span>
+                    <a href="/About-Missouri-College/Events/May-2012-Open-House" itemprop="url">
+                    <strong itemprop="summary">Missouri College - Open House Event - May 17</strong>
+                    </a>
+            </li>
+        
+            </ul>
+             <p class="more"><a href="/About-Missouri-College/Events">More</a></p>
+        
+</div>
+
+<div id="press" class="content-list">
+    
+</div>
+
+                    </div>
+                </div>
+                <!-- /Left Column -->
+                <!-- Content -->
+                <div class="col_690 content clearfix" role="main">
+                    
+		<div class="tab_content" id="tab_1">
+      <h2>At Missouri College, We're Focused On Your Future</h2>
+      <p>In today's society, healthcare is important; a large industry requiring a wide range of educated and trained practitioners, technical workers and business professionals to keep up with a growing demand for services. In fact, ten of the fastest growing occupations are healthcare related.* This has created opportunities for motivated individuals focused on a future helping others. </p>
+	  
+      <p>At Missouri College, we have been offering quality career training for over 45 years, introducing thousands of professionally focused students to exciting, challenging roles and responsibilities. Our programs in the fields of Business Administration, Healthcare, Dental and Massage Therapy are designed to help students gain relevant career and life skills. </p>
+	  
+      <p>Missouri College wants you to be successful in your chosen profession, so from the day you start classes, you'll be treated like a professional. You'll study in professional environments that replicate the modern workplace. You can learn from instructors with relevant experience and applicable, first-hand perspectives on what you can expect in your chosen field. You can gain confidence from the support and encouragement you receive from our collaborative community as you acquire the knowledge and skills to pursue your personal and professional goals. </p>
+	  
+      <p>We teach professional development. We encourage personal growth. Welcome to Missouri College. </p>
+      <p>To learn more about Missouri College, our programs or how to apply for admission, <a href="/Request-Info">please contact us</a> for more information. </p>
+      <p class="disclaimer" style="MARGIN-TOP: 25px">*Source: http://www.bls.gov/oco/cg/cgs035.htm (visited August 15. 2011)</p>
+    </div>
+    <div class="tab_content" id="tab_2">
+      <h2>At Missouri College, We're Here to help You Sort It All Out Anytime</h2>
+	  <!--
+	  <img width="310" height="190" class="right" alt="Tuition and financial aid" src="~/media/MOCO/Images/Content/Tuition-and-Financial-Aid/Tuition-and-FA.ashx?w=310&h=190&as=1" />
+	  -->
+      <p>How to pay for an education is one of the first and foremost considerations any student must make, and the financial aid process can seem overwhelming and stressful to many. At Missouri College, we want you to be excited about going to school; not stressed out about completing all the right paperwork. That's why we have an experienced staff of Financial Aid representatives, ready to help you with everything from tuition planning to any questions that you may have. </p>
+      <p>At Missouri College, your education is a collaborative effort, from the time you enroll through the day you graduate, and beyond. Our Financial Aid representatives are ready to do what they do best so you can get on with what you do best... preparing for an exciting future in business or healthcare. </p>
+      <p><a href="/Tuition-and-Financial-Aid">Learn more about Financial Aid</a> </p>
+    </div>
+    <div class="tab_content" id="tab_3">
+      <h2>At Missouri College, You'll Get the Support You Need</h2>
+	  <!--
+	  <img width="310" height="190" class="right"  alt="Career Services" src="~/media/MOCO/Images/Content/Degree-Programs/Medical Billing.ashx?w=310&h=190&as=1" />
+	  -->
+      <p>The Career Services Department at Missouri College functions as a liaison between students and employers. From the day you begin classes, you will be supported and mentored by a team of dedicated professionals focused on your future after graduation. </p>
+      <p>The Missouri College Career Services staff can help you with every aspect of your career search. Our Career Services team is ready, willing and able to help you prepare for professional career opportunities in healthcare and other exciting industries. </p>
+      <p>Visit Missouri College <a href="/Student-Life/Career-Services">Career Services</a> </p>
+    </div>
+    <div class="tab_content" id="tab_4">
+      <h2>At Missouri College, Virtual Training Helps Prepare You For Real-World Situations</h2>
+      <p>Many of today's professional opportunities in healthcare involve everyday interaction with patients. To help prepare for the roles and responsibilities in your chosen field, Missouri College employs the use of the Simpro Virtual Trainer. </p>
+      <p>As you complete your core curriculum coursework in your chosen area of healthcare training, your studies will be enhanced by interactive components designed to replicate situations you are likely to encounter in the real world.  From streaming video to 3-D anatomy renderings and clinical simulations, it's virtually amazing! </p>
+      <p><a href="/Degree-Programs/Simpro-Virtual-Trainer">Learn More About Simpro</a> </p></div>
+                    <div class="col_33" role="">
+                        <div class="feature">
+                            
+		<h4>Alumni</h4>
+<a href="/Student-Life/Alumni"><img width="208" height="137" alt="Missouri College Alumni" src="~/media/MOCO/Images/Content/Featured-alumni.ashx?w=208&amp;h=137&amp;as=1" /></a>
+<p>The Missouri College community extends well beyond the boundaries of graduation to offer you ongoing professional collaboration and support!<br /><a href="/Student-Life/Alumni">Learn More »</a></p>
+                        </div>
+                    </div>
+                    <div class="col_33">
+                        <div class="feature">
+                            
+		<h4>Faculty</h4>
+<a href="/About-Missouri-College/Faculty-and-Staff"> <img width="208" height="137" alt="Missouri College Faculty" src="~/media/MOCO/Images/Content/Featured-faculty.ashx?w=208&amp;h=137&amp;as=1" /></a>
+<p>Meet some of the Missouri College instructors, many with experience in the fields that they teach!<br />
+<a href="/About-Missouri-College/Faculty-and-Staff">Learn More »</a></p>
+                        </div>
+                    </div>
+                    <div class="col_33 right_0">
+                        <div class="feature">
+                            
+		<h4>Are We Right for you?</h4>
+<a href="/Admissions/Candidate-For-Acceptance"><img width="208" height="137" alt="Candidate for Acceptance into Missouri College?" src="~/media/CTU/Images/Content_Images/CTU_Home/CTU-Graduate-Programs.ashx?w=208&amp;h=137&amp;as=1" /></a>
+ <p>It only takes a minute to find out if Missouri College is the right school for you.<br />
+<a href="/Admissions/Candidate-For-Acceptance">Learn More »</a></p>
+                        </div>
+                    </div>
+                    
+		<div id="CTU_info" class="clearfix">
+      <div class="col_50 left_0">
+        <h4>Social Networks</h4>
+        <a href="http://www.facebook.com/missouricollege" target="_blank">
+          <img width="24" height="24" alt="" src="~/media/CTU/Images/Icons/icon_facebook.ashx?w=24&amp;h=24&amp;as=1" /> </a>
+        <a href="http://www.linkedin.com/company/missouri-college" target="_blank">
+          <img width="24" height="24" alt="" src="~/media/CTU/Images/Icons/icon_linkedin.ashx?w=24&amp;h=24&amp;as=1" />
+        </a> 
+        <a href="http://www.youtube.com/MissouriCollege " target="_blank">
+          <img width="24" height="24" alt="" src="~/media/CTU/Images/Icons/icon_youtube.ashx?w=24&amp;h=24&amp;as=1" /></a>
+        <p id="communities">We're over 32,000 strong, all leveraging social media to create a dynamic, immersive experience. <a href="/Student-Life/Social-Networks">Join the conversation »</a></p></div>
+      <div class="col_50 right_0"><a href="/Disclosures"><img width="335" height="114" alt="Student Disclosures" src="~/media/MOCO/Images/Banners_Buttons/student_disclosures.ashx?w=335&amp;h=114&amp;as=1" />
+</a></div>
+    </div>
+
+                </div>
+        		<!-- /Content -->
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="container">
+            
+		<div class="footer-content">
+	<ul id="footer-headers">
+		<li><a href="/About-Missouri-College">About Missouri College</a> </li>
+		<li><a href="/Degree-Programs">Degree Programs</a> </li>
+		<li><a href="/Admissions">Admissions</a> </li>
+		<li><a href="/Tuition-and-Financial-Aid">Tuition &amp; Financial Aid</a> </li>
+		<li><a href="/Student-Life">Student Life</a> </li>
+	</ul>
+	<div id="footer-links">
+		<ul>
+			<li><a href="/About-Missouri-College/Accreditation-and-Affiliations">Accreditation</a> </li>
+			<li><a href="http://maps.google.com/maps?view=map&amp;cid=15577590823883649262" target="_blank">Map &amp; Directions</a> </li>
+			<li><a href="/About-Missouri-College/Events">Events</a> </li>
+		</ul>
+		<ul>
+			<li><a href="http://catalog.careered.com/catalogs/53/catalog.pdf" target="_blank">Catalog</a> </li>
+			<li><a href="/Degree-Programs/Diploma-Programs">Diplomas</a> </li>
+			<li><a href="/Degree-Programs/Associates-Degrees">Associate's Degrees</a> </li>
+			<li><a href="/Degree-Programs/Bachelor-Degrees">Bachelor's Degrees</a> </li>
+		</ul>
+		<ul>
+			<li><a href="/Admissions/Undergraduate-Admissions">Undergraduate Admissions</a> </li>
+			<li><a href="/Admissions/International-Student-Admissions">International Students</a> </li>
+			<li><a href="/Admissions/Documents-and-Resources">Documents &amp; Resources</a> </li>
+		</ul>
+		<ul>
+			<li><a href="/Tuition-and-Financial-Aid/Financial-Aid-Tools/Net-Price-Calculator">Net Price Calculator</a> </li>
+			<li><a href="/Tuition-and-Financial-Aid/How-to-Apply">How To Apply</a> </li>
+			<li><a href="/Tuition-and-Financial-Aid/International-Student-Financial-Aid-Process">International Students</a> </li>
+			<li><a href="/Tuition-and-Financial-Aid/Financing-Options-for-Your-Education">Financial Aid Options</a> </li>
+			<li><a href="/Tuition-and-Financial-Aid/Financial-Aid-FAQs">Financial Aid FAQs</a> </li>
+		</ul>
+		<ul>
+			<li><a href="/Student-Life/Alumni/Transcript-Requests">Transcript Request</a> </li>
+			<li><a href="/Student-Life/Social-Networks">Social Networks</a>  </li>
+			<li><a href="https://my.missouricollege.com/mycampus/index.aspx" target="_blank">Student Portal Login</a> </li>
+			<li><a href="/Student-Life/Blog">MOCO Blog</a> </li>
+			<li><a href="/Student-Life/Alumni">Alumni</a> </li>
+		</ul>
+	</div>
+</div>
+
+
+		<div id="footer_txt">
+      <p>Copyright © 2001-2011 Missouri College. All rights reserved. No information may be duplicated without Missouri College's permission.</p>
+      <p>The Missouri College logo is a registered trademark of Career Education Corporation. Missouri College cannot guarantee employment or salary.</p>
+      <p>
+        <a href="/Privacy">Privacy Statement</a> | <a href="/Terms">Legal Terms and Conditions</a> | <a href="/Disclosures">Student Outcomes/Disclosures</a> | <a href="/Sitemap">Sitemap</a></p>
+    </div>
+
+
+        </div>
+        <!-- dropshadow element -->
+         <span id="dropshadow">&nbsp;</span>
+        <!-- End drop shadow element -->
+    </div>
+    <!-- SiteCatalyst code version: H.23.8.
+Copyright 1996-2011 Adobe, Inc. All Rights Reserved
+More info available at http://www.omniture.com -->
+<script language="JavaScript" type="text/javascript">
+var s_account = "caredumiss"
+var pageName
+ var vlinkInternalFilters = "javascript:,missouricollege,missouri-college,moco,mocollege,atumminaro-dev,sales.liveperson.net,cmsmaster.careered.com,vm-cmsweb,edc-cmscontent1,sitecorewcms"
+</script>
+<script language="JavaScript" type="text/javascript" src="~/media/Global/Files/s_code.js"></script>
+<script language="JavaScript" type="text/javascript">
+s.pageName=document.location.toString().split("?")[0];
+s.prop38 = document.location;
+s.server=window.location.hostname;
+s.channel="Home";
+if(s.channel=='') { s.channel='unknown'; }
+s.pageType="";
+s.linkTrackVars = "events";
+s.linkTrackEvents = "event8";
+s.events = "event8";
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+<script language="JavaScript" type="text/javascript"><!--
+if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+//--></script><noscript><img src="http://careereducationcorp.112.2o7.net/b/ss/caredumiss/1/H.23.8--NS/0"
+height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+<!-- End SiteCatalyst code version: H.23.8. -->
+    
+<script language="javascript" type="text/javascript"> 
+lpAddVars("page","Section","marketing"); 
+lpAddVars("session","CampaignID",""); 
+lpAddVars("session","Degree",""); 
+lpAddVars("session","Program",""); 
+lpAddVars("session","Concentration",""); 
+</script>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+var b = document.getElementById('header_0_lnkSearch');if (b && typeof(b.click) == 'undefined') {b.click = function() {  var result = true;if (b.onclick) result = b.onclick();if (typeof(result) == 'undefined' || result) {eval(b.getAttribute('href'));}}}
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>

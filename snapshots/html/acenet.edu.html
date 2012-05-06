@@ -1,0 +1,1042 @@
+<!-- Source Code Copyright © 2001 Active Matter, Inc. www.activematter.com -->
+
+
+<!-- Source Code Copyright © 2001 Active Matter, Inc. www.activematter.com -->
+
+  <html>
+  <head>
+  <meta name="google-site-verification" content="FzknygSSLCUPCbOGPrQrldD95a11RnIU5Qh5pVVMAGY" />
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <LINK REL="StyleSheet" HREF="/AM/Styles/styles.css" type="text/css">
+  
+    <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+    <!--
+      
+var varBrowser = "Other";
+if(navigator.appName.indexOf("Netscape",0) == 0)
+  {varBrowser = "Netscape";
+}else{
+  if((navigator.appName.indexOf("Microsoft",0) == 0) || (navigator.appName.indexOf("MS",0) == 0))
+  {varBrowser = "MSIE";}
+}
+
+if(document.images) {
+  this[1] = new Image();
+  this[1].src = "/AM/Templates/Graphics/AboutACE_on.gif";
+  this[2] = new Image();
+  this[2].src = "/AM/Templates/Graphics/GovernmentRelations_on.gif";
+  this[3] = new Image();
+  this[3].src = "/AM/Templates/Graphics/NewsRoom_on.gif";
+  this[4] = new Image();
+  this[4].src = "/AM/Templates/Graphics/ProgramsServices_on1.gif";
+  this[5] = new Image();
+  this[5].src = "/AM/Templates/Graphics/Membership_on11.gif";
+  this[6] = new Image();
+  this[6].src = "/AM/Templates/Graphics/OnlineResources_on.gif";
+}
+
+function swapIt(imgName,imgType,imgAction) {
+      if (document.images) {
+        if (imgAction == 1) {
+          switch(imgType){
+            case "About_ACE": newSrc="/AM/Templates/Graphics/AboutACE_on.gif"; break
+          case "Government_Relations_and_Public_Policy": newSrc="/AM/Templates/Graphics/GovernmentRelations_on.gif"; break
+          case "News_Room": newSrc="/AM/Templates/Graphics/NewsRoom_on.gif"; break
+          case "Programs_and_Services": newSrc="/AM/Templates/Graphics/ProgramsServices_on1.gif"; break
+          case "Membership": newSrc="/AM/Templates/Graphics/Membership_on11.gif"; break
+          case "Online_Resources": newSrc="/AM/Templates/Graphics/OnlineResources_on.gif"; break
+        }
+        }
+        else {
+          switch(imgType){
+            case "About_ACE": newSrc="/AM/Templates/Graphics/AboutACE_off.gif"; break
+          case "Government_Relations_and_Public_Policy": newSrc="/AM/Templates/Graphics/GovernmentRelations_off.gif"; break
+          case "News_Room": newSrc="/AM/Templates/Graphics/NewsRoom_off.gif"; break
+          case "Programs_and_Services": newSrc="/AM/Templates/Graphics/ProgramsServices_off.gif"; break
+          case "Membership": newSrc="/AM/Templates/Graphics/Membership_off11.gif"; break
+          case "Online_Resources": newSrc="/AM/Templates/Graphics/OnlineResources_off.gif"; break
+        }
+        }
+        document.images[imgName].src = newSrc;
+      }
+    }
+    //-->
+    </SCRIPT>
+  
+    <LINK REL="StyleSheet" HREF="/AM/Styles/Client.css" type="text/css">
+  
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+MM_preloadImages('/AM/graphics/template/ACE_6_interior_off_gifs/images/Home_on.jpg','/AM/graphics/template/ACE_6_home_on_gifs/images/Events_on.jpg','/AM/graphics/template/ACE_6_home_on_gifs/images/SiteMap_on.jpg','/AM/graphics/template/ACE_6_home_on_gifs/images/ContactUs_on.jpg','/AM/graphics/template/ACE_6_home_on_gifs/images/PublicaitonsProducts_on.jpg');
+ /*V.Binjoo 11/19/2004 Code taken from ANA site*/
+ /* E. Rasul 05/26/2004:  CUSTOMIZATION START */
+    	/* E. Rasul 05/26/2004:  this code here determines where the drop-down menu should appear underneath a roll-over image. 
+    	                         this function is actually called and written into the JS code in /HierMenu/HM_Arrays.cfm
+    													 Deals with center-aligned menus */
+    	 
+      function getXYcoord ( nvn, coord ) {  
+    	   var elm = document.images[nvn];
+    	   var rd = { x:0 ,y:0 };
+    		 var pos_value = 0;
+    	   if ( document.layers ) {  // NS4 images contain x and y values
+    	     rd.x = document.images[nvn].x;
+    	     rd.y = document.images[nvn].y + document.images[nvn].height;	 
+    	  }          
+    		else{ 
+    		   var width= elm.offsetWidth;
+           var height = elm.offsetHeight;
+    		   do { rd.x += parseInt( elm.offsetLeft );
+    		        rd.y += parseInt( elm.offsetTop );
+    		        elm = elm.offsetParent;
+    		   } while ( elm );
+           rd.y = rd.y + height;
+    		}	
+    		
+    		if (coord == 'X')	{
+          pos_value = rd.x - 1;
+    		}  	
+    		if (coord == 'Y')	{ 	  
+    			pos_value = rd.y ;
+    		}		
+    		
+    		return pos_value;
+    	  
+    	}; //end getXYcoord ( string ) -> object{x,y}
+    	/* E. Rasul 05/26/2004:    CUSTOMIZATION END */
+      
+     /* E. Rasul 01/10/2005: added the showSelect JS function so that the SELECT boxes can be hidden on the
+        home page when the DHTML menu is made  */      
+      function showSelect(isOn,divName) {
+         var theSelect = null;
+         if(document.getElementById) {
+            theSelect=document.getElementById(divName);
+            if(theSelect) theSelect.style.visibility = isOn ? "visible" : "hidden";
+         } else if (document.all) {
+            theSelect=document.all(divName);
+            if(theSelect) theSelect.style.visibility = isOn ? "visible" : "hidden";
+         } else if (document.layers) {
+            theSelect=document[divName];
+            if(theSelect) theSelect.visibility = isOn ? "show" : "hide";
+         }
+      } 
+	   
+
+     function HM_f_ToggleElementList(show,elList,toggleBy) {
+		 
+	      if(!(HM_DOM||HM_IE||HM_NS4)) return true;
+	
+	      if(HM_NS4&&(toggleBy=="tag")) return true;
+	
+	      for(var i=0; i<elList.length; i++) {
+	         var ElementsToToggle = [];
+	         switch(toggleBy) {
+	            case "tag":
+	               ElementsToToggle = 
+	     (HM_DOM) ? document.getElementsByTagName(elList[i]) :
+	     document.all.tags(elList[i]);
+	               break;
+	            case "id":
+	               ElementsToToggle[0] = 
+	     (HM_DOM) ? document.getElementById(elList[i]) :
+	     (HM_IE) ? document.all(elList[i]) : 
+	     document.layers[elList[i]];
+	               break;
+	         }
+	         for(var j=0; j<ElementsToToggle.length; j++) {
+	            var theElement = ElementsToToggle[j];
+	            if(!theElement) continue;
+	            if(HM_DOM||HM_IE) {
+	               theElement.style.visibility = 
+	                  show ? "inherit" : "hidden";
+	            } else {
+	               theElement.visibility = 
+	                  show ? "inherit" : "hide";
+	            }
+	         }
+	      }
+	      return true;
+	   }           
+//-->
+</script>
+
+
+
+
+
+  <SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+  <!--
+  //Redirects to URL in the value attribute of the select box clicked
+  function jumpBox(selectBoxObj) {
+    if (selectBoxObj.options[selectBoxObj.selectedIndex].value != "") {
+      location.href = selectBoxObj.options[selectBoxObj.selectedIndex].value;
+    }
+  }
+  //-->
+  </SCRIPT>
+<title>ACE | Home</title></head>
+<!-- Google Analytics Async tracking code - Provided 2/6/2012 by Ironworks-->
+<!-- Place this code on every page immediately before the closing </head> tag -->
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+
+<!-- Code for ACEnet.edu GA account -->
+_gaq.push(
+	['_setAccount', 'UA-549644-1'],
+	['_setDomainName', 'acenet.edu'],
+	['_addIgnoredRef', '.acenet.edu'],
+	['_addIgnoredRef', '.gedtest.org'],
+	['_trackPageview']
+);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+  <body leftmargin=0 topmargin=0 marginwidth=0 marginheight=0> 
+<!-- Source Code Copyright © 2003 Active Matter, Inc. www.activematter.com -->
+
+
+
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+<!--
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+popUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+//-->
+</SCRIPT>
+
+
+<SCRIPT LANGUAGE="JavaScript1.2" TYPE="text/javascript">
+<!--
+isMac = (navigator.appVersion.indexOf("Mac") != -1);
+HM_PG_MenuWidth = 90;
+HM_PG_FontFamily = "Helvetica,Arial";
+if(isMac){HM_PG_FontSize = 9;}
+     else{HM_PG_FontSize = 9 - 2;}
+HM_PG_FontBold = 0;
+HM_PG_FontItalic = 0;
+HM_PG_FontColor = "#2859A6";
+HM_PG_FontColorOver = "#2859A6";
+HM_PG_BGColor = "#EEEEEE";
+HM_PG_BGColorOver = "#FFFFFF";
+HM_PG_ItemPadding = 3;
+
+HM_PG_BorderWidth = 1;
+HM_PG_BorderColor = "black";
+HM_PG_BorderStyle = "solid";
+HM_PG_SeparatorSize = 1;
+HM_PG_SeparatorColor = "black";
+
+HM_PG_ImageSrc = "";
+HM_PG_ImageSrcLeft = "";
+HM_PG_ImageSrcOver = "";
+HM_PG_ImageSrcLeftOver = "";
+HM_PG_ImageSize = 5;
+HM_PG_ImageHorizSpace = 0;
+HM_PG_ImageVertSpace = 2;
+
+HM_PG_KeepHilite = 1; 
+HM_PG_ClickStart = 0;
+HM_PG_ClickKill = false;
+HM_PG_ChildOverlap = 20;
+HM_PG_ChildOffset = 10;
+HM_PG_ChildPerCentOver = null;
+HM_PG_TopSecondsVisible = .5;
+HM_PG_StatusDisplayBuild =0;
+HM_PG_StatusDisplayLink = 0;
+
+HM_PG_UponDisplay = null;
+HM_PG_UponHide = null;
+//HM_PG_UponDisplay = "HM_f_ToggleElementList(false,['HowDoI'],'id')";
+//HM_PG_UponHide = "HM_f_ToggleElementList(1,['HowDoI'],'id')";
+
+HM_PG_RightToLeft = 0;
+
+HM_PG_CreateTopOnly = 1;
+HM_PG_ShowLinkCursor = 1;
+HM_PG_NSFontOver = true;
+
+HM_PG_ScrollEnabled = true;
+HM_PG_ScrollBarHeight = 14;
+HM_PG_ScrollBarColor = "lightgrey";
+HM_PG_ScrollImgSrcTop = "";
+HM_PG_ScrollImgSrcBot = "";
+HM_PG_ScrollImgWidth = 9;
+HM_PG_ScrollImgHeight = 5;
+
+HM_PG_ScrollBothBars = true;
+
+HM_PG_HoverTimeTop  = 1000;
+HM_PG_HoverTimeTree = 1000;
+
+//HM_a_TreesToBuild = [2,3]
+
+//=============================================================
+/*
+ * Original Script: HM_Loader.js
+ * Original script copyright © 2003 Peter Belesis.
+ * http://www.webreference.com/dhtml/
+ * All rights reserved.
+ * Used under license.
+ * All modifications Copyright © 2003 Active Matter, Inc. www.activematter.com 
+ * Copyright (c) 2003 Peter Belesis. All Rights Reserved.
+*/
+
+HM_DOM = (document.getElementById) ? true : false;
+HM_NS4 = (document.layers) ? true : false;
+HM_IE = (document.all) ? true : false;
+HM_IE4 = HM_IE && !HM_DOM;
+HM_Mac = (navigator.appVersion.indexOf("Mac") != -1);
+HM_IE4M = HM_IE4 && HM_Mac;
+HM_Opera = (navigator.userAgent.indexOf("Opera")!=-1);
+HM_Konqueror = (navigator.userAgent.indexOf("Konqueror")!=-1);
+
+HM_IsMenu = !HM_Opera && !HM_IE4M && (HM_DOM || HM_NS4 || HM_IE4 || HM_Konqueror);
+
+HM_BrowserString = HM_NS4 ? "NS4" : HM_DOM ? "DOM" : "IE4";
+
+if(window.event + "" == "undefined") event = null;
+function HM_f_PopUp(){return false};
+function HM_f_PopDown(){return false};
+popUp = HM_f_PopUp;
+popDown = HM_f_PopDown;
+
+
+HM_GL_MenuWidth          = 150;
+HM_GL_FontFamily         = "Arial,sans-serif";
+HM_GL_FontSize           = 10;
+HM_GL_FontBold           = true;
+HM_GL_FontItalic         = false;
+HM_GL_FontColor          = "black";
+HM_GL_FontColorOver      = "white";
+HM_GL_BGColor            = "transparent";
+HM_GL_BGColorOver        = "transparent";
+HM_GL_ItemPadding        = 3;
+
+HM_GL_BorderWidth        = 2;
+HM_GL_BorderColor        = "red";
+HM_GL_BorderStyle        = "solid";
+HM_GL_SeparatorSize      = 2;
+HM_GL_SeparatorColor     = "yellow";
+
+HM_GL_ImageSrc = "";
+HM_GL_ImageSrcLeft = "";
+
+HM_GL_ImageSrcOver = "";
+HM_GL_ImageSrcLeftOver = "";
+
+HM_GL_ImageSize          = 5;
+HM_GL_ImageHorizSpace    = 5;
+HM_GL_ImageVertSpace     = 5;
+
+HM_GL_KeepHilite         = false;
+HM_GL_ClickStart         = false;
+HM_GL_ClickKill          = 0;
+HM_GL_ChildOverlap       = 40;
+HM_GL_ChildOffset        = 10;
+HM_GL_ChildPerCentOver   = null;
+HM_GL_TopSecondsVisible  = .5;
+HM_GL_ChildSecondsVisible = .3;
+HM_GL_StatusDisplayBuild = 0;
+HM_GL_StatusDisplayLink  = 1;
+HM_GL_UponDisplay        = null;
+HM_GL_UponHide           = null;
+
+HM_GL_RightToLeft      = false;
+HM_GL_CreateTopOnly      = HM_NS4 ? true : false;
+HM_GL_ShowLinkCursor     = true;
+
+HM_GL_ScrollEnabled = false;
+HM_GL_ScrollBarHeight = 14;
+HM_GL_ScrollBarColor = "lightgrey";
+HM_GL_ScrollImgSrcTop = "";
+HM_GL_ScrollImgSrcBot = "";
+HM_GL_ScrollImgWidth = 9;
+HM_GL_ScrollImgHeight = 5;
+HM_GL_ScrollBothBars = false;
+
+HM_GL_HoverTimeTop  = 1000;
+HM_GL_HoverTimeTree = 1000;
+
+// the following function is included to illustrate the improved JS expression handling of
+// the left_position and top_position parameters introduced in 4.0.9
+// and modified in 4.1.3 to account for IE6 standards-compliance mode
+// you may delete if you have no use for it
+
+function HM_f_CenterMenu(topmenuid) {
+	var MinimumPixelLeft = 0;
+	var TheMenu = HM_DOM ? document.getElementById(topmenuid) : window[topmenuid];
+	var TheMenuWidth = HM_DOM ? parseInt(TheMenu.style.width) : HM_IE4 ? TheMenu.style.pixelWidth : TheMenu.clip.width;
+	var TheWindowWidth = HM_IE ? (HM_DOM ? HM_Canvas.clientWidth : document.body.clientWidth) : window.innerWidth;
+	return Math.max(parseInt((TheWindowWidth-TheMenuWidth) / 2),MinimumPixelLeft);
+}
+
+if(HM_IsMenu) {
+	HM_Array1 =  [[680,"getXYcoord('i_About_ACE','X')","getXYcoord('i_About_ACE','Y')",,,,,,,,,,,,,"showSelect(false,'mySelect')","showSelect(true,'mySelect')",,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>President\'s Welcome<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/PresidentsWelcome/Welcome_to_the_Ameri.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Strategic Plan<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/plan/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Annual Report<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/AnnualReport/2010.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Board of Directors<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/ACEBoard/board.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Commissions<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/Commissions/ACE_Commissions1.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Washington Higher Education Secretariat<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/WashingtonHigherEducationSecretariat/whes.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Advancement<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/Advancement/aceadvance.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Ethics Reportline<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/EthicsReportline/Ethics_Reportline.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Employment at ACE<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/Jobs/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Location and Directions<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/About/LocationandDirections/ACELocation.htm",1,0,0]];
+HM_Array2 =  [[680,"getXYcoord('i_Government_Relations_and_Public_Policy','X')","getXYcoord('i_Government_Relations_and_Public_Policy','Y')",,,,,,,,,,,,,"showSelect(false,'mySelect')","showSelect(true,'mySelect')",,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Government Relations & Public Policy<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu//AM/Template.cfm?Section=Government_Relations_and_Public_Policy",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>President to President Weekly Update<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/GovernmentRelationsPublicPolicy/PresidenttoPresident/P2P_042012.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Higher Education & National Affairs Online News<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=HENA&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=96&ContentID=37216",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Legal Issues and Policy Briefs<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Legal_Issues_and_Policy_Briefs2&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=21&ContentID=8089",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Letters to Congress and the Administration<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=LettersGovt&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=119&ContentID=44279",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Papers, Publications & Proposals<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Papers_Publications&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=9&ContentID=8223",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Useful Policy & News Links<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/GovernmentRelationsPublicPolicy/UsefulPolicyNewsLinks/links_policy_news.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Government and Public Affairs Staff Directory<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/GovernmentRelationsPublicPolicy/GovernmentandPublicAffairsStaffDirectory/DGPA_Staff_Director.htm",1,0,0]];
+HM_Array3 =  [[680,"getXYcoord('i_News_Room','X')","getXYcoord('i_News_Room','Y')",,,,,,,,,,,,,,,,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>News Room<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=News_Room&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=65&ContentID=6415",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>ACE Experts<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/NewsRoom/ACEExpertsList/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>News Releases<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Press_Releases2&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=12&ContentID=38951",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Higher Education & National Affairs Online News<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=HENA",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>ACE in the News<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/NewsRoom/ACEintheNews/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Public Affairs Staff Directory<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/NewsRoom/PublicAffairsStaffDirectory/PAStaff.htm",1,0,0]];
+HM_Array4 =  [[680,"getXYcoord('i_Programs_and_Services','X')","getXYcoord('i_Programs_and_Services','Y')",,,,,,,,,,,,,,,,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>ACE Annual Meeting<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","javascript:window.open('http://www.acenet.edu/links/am2012/dd.html')",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Center for Advancement of Racial and Ethnic Equity<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/CAREE/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Center for Effective Leadership<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/CEL/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Center for Lifelong Learning<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/CLLL/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Center for Policy Analysis<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/CPA/policy_analysis.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>College Credit Recommendation Service (CREDIT)<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/CCRS/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Fellows Program<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/FellowsProgram/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>GED Testing Service<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=GED_TS",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Higher Education for Development<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/ALO/hed_link.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>International Initiatives<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/cii/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Leadership<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/Leadership/Leadership_ACE.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Military Programs<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/MilitaryPrograms/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Office of Institutional Initiatives<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/oii/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Office of Women in Higher Education<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/OWHE/OWHE_main1.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Publishing<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/Publications/Pubs_Staff.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Resources for Adult Learners<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/ProgramsServices/Adults/adults11.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Transcript Services<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Transcript_Services1&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=50&ContentID=37307",1,0,0]];
+HM_Array5 =  [[680,"getXYcoord('i_Membership','X')","getXYcoord('i_Membership','Y')",,,,,,,,,,,,,,,,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Why Join ACE?<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Membership",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Benefits and Services<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/BenefitsandServices/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>How to Become a Member<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/Become/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Community Colleges<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/CommunityColleges/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Membership FAQs<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/MembershipFAQs/Membership_FAQs.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Members and Associates Directory<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www2.acenet.edu/resources/memberdirectory/",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Mailing List<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/MailingList/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>The Alliance Program<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/TAP/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Executive Search Roundtable<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/Membership/Roundtable/ESR22.htm",1,0,0]];
+HM_Array6 =  [[680,"getXYcoord('i_Online_Resources','X')","getXYcoord('i_Online_Resources','Y')",,,,,,,,,,,,,,,,,1,1],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>ACE Webinar Series<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=ACE_Webinar_Series&TEMPLATE=/CM/HTMLDisplay.cfm&CONTENTID=42544",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Bookstore<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://store.acenet.edu",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Online Information Center<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/OnlineResources/InfoCenter/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Accountability and Higher Education Outcomes<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/Content/NavigationMenu/OnlineResources/Accountability/index.htm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Policy and Research Links<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www2.acenet.edu/resources/policy-research/index.cfm",1,0,0],["<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>Forum for the Future<img src='/AM/Graphics/Spacer.gif' width='20' height='1' alt='' border='0'>","http://www.acenet.edu/AM/Template.cfm?Section=Forum&TEMPLATE=/CM/HTMLDisplay.cfm&CONTENTID=43636",1,0,0]];
+
+  document.write("<SCR" + "IPT LANGUAGE='JavaScript1.2' SRC='/AM/HierMenu/HM_Script"+ HM_BrowserString +".js' TYPE='text/javascript'><\/SCR" + "IPT>");
+}
+//end
+//-->
+</SCRIPT>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#D7D49F">
+<tr> 
+  <td background="/AM/graphics/template/ACE_6_home_off_gifs/images/sliver_top.JPG" align="center" style="background-repeat : repeat-x;"> 
+    <table width="760" border="0" cellspacing="0" cellpadding="0" >
+      <tr>
+        <td><a href="http://www.acenet.edu/"><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/ACE_logo.jpg" width="221" height="136" ALT="" border="0"></a></td>
+        
+        <td valign="top"><img src="/AM/Images/HeadingImages\OLD.jpg" border="0"></td>
+        <td valign="Top">
+          <img src="/AM/graphics/template/ACE_6_home_on_gifs/images/spacer.gif" height="9" ALT="" border="0"><br><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/home_blank.jpg" width=172 height="16" ALT="" border="0"><br>
+          <a href="/AM/Template.cfm?Section=Events2" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','/AM/graphics/template/ACE_6_home_on_gifs/images/Events_on.jpg',1)"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/Events_off.jpg" name="Image2" width="172" height="16" border="0"></a><br>
+          <a href="/AM/Template.cfm?Section=Site_Map" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','/AM/graphics/template/ACE_6_home_on_gifs/images/sitemap_on.jpg',1)"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/SiteMap_off.jpg" name="Image3" width="172" height="16" border="0"></a><br>
+          <a href="/AM/Template.cfm?Section=Contact_Us" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','/AM/graphics/template/ACE_6_home_on_gifs/images/ContactUs_on.jpg',1)"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ContactUs_off.jpg" name="Image4" width="172" height="16" border="0"></a><br>
+          <a href="/AM/Template.cfm?Section=Publications_and_Products" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','/AM/graphics/template/ACE_6_home_on_gifs/images/PublicationsProducts_on.jpg',1)"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/PublicationsProducts_off.jpg" name="Image5" width="172" height="16" border="0"></a>
+          <table border="0" cellspacing="0" cellpadding="0">
+            <form action="/AM/Template.cfm?Section=Search" method="post" name="SearchForm" id="SearchForm">
+            <tr><td colspan="2" valign="top"><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/spacer.gif" width="10" height="7"></td></tr>
+            <tr>
+              <td valign="top"><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/spacer.gif" width="5" height="1"><input type="text" name="Criteria" value="search" size="24" maxlength="50" onFocus="this.value='';" style="height:17px;font-family:arial;font-size:10px; color:black;width:124px;"></td>
+              <td valign="top"><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/spacer.gif" width="6" height="1"><input type="image" src="/AM/graphics/template/ACE_6_home_off_gifs/images/Go.jpg"></td>
+            </tr>
+            </form>
+            <tr><td colspan=2 align="right"><a href="/AM/Template.cfm?Section=Advance_Search" class="AdvanceSearchtext">Advanced Search</a></td></tr>
+          </table>
+        </td>
+      </tr>		
+      <tr>
+        <td colspan="3">
+          <table cellspacing="0" cellpadding="0" width="100%"> 
+            <tr>
+              <td valign="top"><table id="tblTopNav" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=About_ACE"  onFocus="swapIt('i_About_ACE','About_ACE',1);" onMouseOver="swapIt('i_About_ACE','About_ACE',1);  popUp('HM_Menu1',event);" onBlur="swapIt('i_About_ACE', 'About_ACE', 0);" onMouseOut="swapIt('i_About_ACE', 'About_ACE', 0); popDown('HM_Menu1',event);"><img name="i_About_ACE" src="/AM/Templates/Graphics/AboutACE_off.gif" width="84" height="28" alt="About ACE" border="0"></a></td><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=Government_Relations_and_Public_Policy"  onFocus="swapIt('i_Government_Relations_and_Public_Policy','Government_Relations_and_Public_Policy',1);" onMouseOver="swapIt('i_Government_Relations_and_Public_Policy','Government_Relations_and_Public_Policy',1);  popUp('HM_Menu2',event);" onBlur="swapIt('i_Government_Relations_and_Public_Policy', 'Government_Relations_and_Public_Policy', 0);" onMouseOut="swapIt('i_Government_Relations_and_Public_Policy', 'Government_Relations_and_Public_Policy', 0); popDown('HM_Menu2',event);"><img name="i_Government_Relations_and_Public_Policy" src="/AM/Templates/Graphics/GovernmentRelations_off.gif" width="220" height="28" alt="Government Relations & Public Policy" border="0"></a></td><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=News_Room&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=65&ContentID=37301"  onFocus="swapIt('i_News_Room','News_Room',1);" onMouseOver="swapIt('i_News_Room','News_Room',1);  popUp('HM_Menu3',event);" onBlur="swapIt('i_News_Room', 'News_Room', 0);" onMouseOut="swapIt('i_News_Room', 'News_Room', 0); popDown('HM_Menu3',event);"><img name="i_News_Room" src="/AM/Templates/Graphics/NewsRoom_off.gif" width="93" height="28" alt="News Room" border="0"></a></td><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=Programs_and_Services"  onFocus="swapIt('i_Programs_and_Services','Programs_and_Services',1);" onMouseOver="swapIt('i_Programs_and_Services','Programs_and_Services',1);  popUp('HM_Menu4',event);" onBlur="swapIt('i_Programs_and_Services', 'Programs_and_Services', 0);" onMouseOut="swapIt('i_Programs_and_Services', 'Programs_and_Services', 0); popDown('HM_Menu4',event);"><img name="i_Programs_and_Services" src="/AM/Templates/Graphics/ProgramsServices_off.gif" width="138" height="28" alt="Programs & Services" border="0"></a></td><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=Membership"  onFocus="swapIt('i_Membership','Membership',1);" onMouseOver="swapIt('i_Membership','Membership',1);  popUp('HM_Menu5',event);" onBlur="swapIt('i_Membership', 'Membership', 0);" onMouseOut="swapIt('i_Membership', 'Membership', 0); popDown('HM_Menu5',event);"><img name="i_Membership" src="/AM/Templates/Graphics/Membership_off11.gif" width="96" height="28" alt="Membership" border="0"></a></td><td align="center" ><a class="TopNav" href="http://www.acenet.edu/AM/Template.cfm?Section=Online_Resources"  onFocus="swapIt('i_Online_Resources','Online_Resources',1);" onMouseOver="swapIt('i_Online_Resources','Online_Resources',1);  popUp('HM_Menu6',event);" onBlur="swapIt('i_Online_Resources', 'Online_Resources', 0);" onMouseOut="swapIt('i_Online_Resources', 'Online_Resources', 0); popDown('HM_Menu6',event);"><img name="i_Online_Resources" src="/AM/Templates/Graphics/OnlineResources_off.gif" width="116" height="28" alt="Online Resources" border="0"></a></td></tr></tr></table></td>
+              <td width="13" valign="top"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="13" height="5" ALT=""></td>
+           </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center" valign="top">
+          <!-- Source Code Copyright © 2001 Active Matter, Inc. www.activematter.com -->
+
+<table cellpadding="0" cellspacing="0" border="0" width="760"> 
+  <tr>
+    <td valign="top">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr><td><img src="/AM/graphics/template/ACE_6_home_on_gifs/images/topcap_federalfocus.jpg" width="214" height="48" alt=""></td></tr>        
+        </table>
+                
+        <div id="mySelect">       
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      
+        <tr>
+          <td height="25"><img height="25" alt="" src="/AM/graphics/template/ACE_6_home_off_gifs/images/ProgramorService.gif" width="214" /></td>
+        </tr>
+        <tr>
+          <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="5" height="4" alt=""><br><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="5" height="5" alt="">
+              <select id="ACEPrograms" name="ACEPrograms" style="width:188px;" onChange="jumpBox(this);">
+                <option value="">Select a program</option>
+                
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17027">ACE Fellows Program 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=16460">Adult Learner Programs 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=43840">Center for Internationalization and Global Engagement 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17028">Center for Lifelong Learning 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17021">Center for Policy Analysis 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=30660">College Credit Recommendation Service 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17023">Executive Search Roundtable 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17025">Leadership Programs 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17000">Membership in ACE 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17001">Military Programs 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=15810">Online Information Center 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17501">Publications & Products 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=21405">Publishing Department 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=30887">Serving Those Who Serve 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=19106">Sloan Awards for Faculty Career Flexibility 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17004">Transcript Services 
+              </select>        
+          </td> 
+        </tr>
+      
+        <tr><td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/topic.gif" width="214" height="25" alt=""></td></tr>
+        <tr>
+          <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="5" height="4" alt=""><br>
+              <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="5" height="5" alt="">
+              <select id="ACEEvents" name="ACEEvents" style="width:188px;" onChange="jumpBox(this);">
+                <option>Select a topic</option>
+                
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=18350">Access & Equity 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=12355">Accreditation & College Credit 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=17066">Campus Leadership 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=12359">College Administration 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=32617">Finance & Student Aid 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=12348">International Education 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=16993">Lifelong Learning 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=12344">Representation 
+                  <option value="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=12338">Students & Society                 
+              </select>        
+          </td> 
+        </tr>
+      
+        </table>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">        
+        <tr><td class="TDExpertsatACE"><a href="/AM/Template.cfm?Section=ACE_Experts_List" class="ExpertsatACE">Experts at ACE</a></td></tr>
+        <tr><td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/Informationfor.gif" width="214" height="30" alt=""></td></tr>
+        <tr><td background="/AM/graphics/template/ACE_6_home_off_gifs/images/sliver_informationfor.gif"><table cellspacing="0" cellpadding="2" width="100%" border="0">
+<tbody>
+<tr>
+<td>
+<p><img height="4" alt="" src="/AM/Images/spacer.gif" width="1" 
+border="0" /></p>
+</td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=CEOs&Template=/TaggedPage/TaggedPageDisplay.cfm&TPLID=132&ContentID=37231">Presidents 
+&amp; Chancellors</a></td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=Sr_Campus&amp;Template=/TaggedPage/TaggedPageDisplay.cfm&amp;TPLID=24&amp;ContentID=8706">Senior 
+Campus Administrators</a></td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=Campus&amp;Template=/TaggedPage/TaggedPageDisplay.cfm&amp;TPLID=24&amp;ContentID=8705">Campus 
+Community</a></td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=Adults1&amp;Template=/TaggedPage/TaggedPageDisplay.cfm&amp;TPLID=24&amp;ContentID=8704">Adult 
+Learners</a></td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=Corporate1&amp;Template=/TaggedPage/TaggedPageDisplay.cfm&amp;TPLID=24&amp;ContentID=24046">Corporate 
+Community</a></td>
+</tr>
+
+<tr>
+<td class="TDACEInformaiton"><a class="ACEInformaitonLink" 
+href="/AM/Template.cfm?Section=Media1&amp;Template=/TaggedPage/TaggedPageDisplay.cfm&amp;TPLID=24&amp;ContentID=8703">Media</a></td>
+</tr>
+</tbody>
+</table>
+</td></tr>
+        <tr><td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/bottomcap_Informationfor.gif" width="214" height="12" alt=""></td></tr>
+        <tr><td>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr><td colspan="2"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="10" height="5" alt=""></tr>
+              <tr>
+                <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="10" height="1" alt="">
+
+<!-- OLD CoDE: 
+<td class="Copyrighttext"><p><br>
+The <a href="http://www.acenet.edu/AM/Template.cfm?Section=About1">American Council on 
+Education</a>, the major coordinating body for all the nation's higher 
+education institutions, seeks to provide leadership and a unifying voice 
+on key higher education issues and to influence public policy through 
+advocacy, research, and program initiatives.<br>
+<br>
+ALL RIGHTS RESERVED. ACE is a federally registered trademark of the 
+American Council on Education and may not be used or reproduced without 
+the express written permission of the American Council on Education. <a 
+href="http://www.acenet.edu/Content/NavigationMenu/ContactUs/TermsConditions.htm">Terms 
+and Conditions</a>.<br>
+<br>
+<a 
+href="http://www.acenet.edu/Content/NavigationMenu/ContactUs/Privacy_Policy.htm" 
+target="_blank">ACE's Online Privacy Notice</a><br>
+<br>
+&#169; 2010<br>
+American Council on Education<br>
+One Dupont Circle NW<br>
+Washington DC, 20036<br>
+Phone: (202) 939-9300<br>
+E-mail: <a 
+href="mailto:comments@ace.nche.edu">comments@ace.nche.edu</a><br>
+<br>
+</p></td>
+
+--->
+
+								
+									<td class="HomePageLowerLeftArea"><p><br />
+<img height="10" alt="" src="/AM/Images/spacer.gif" width="1" /><br />
+<a href="http://www.acenet.edu/links/ged/HomeLink.html" 
+target="_blank"><img src="/AM/Images/HomeMainContent/leftbanner_ged.jpg" 
+
+
+border="0" /></a><br />
+<img height="10" alt="" src="/AM/Images/spacer.gif" width="1" /><br />
+<a href="http://www.todaysgibill.org/" target="_blank"><img 
+src="/AM/Images/HomeMainContent/gi_banner_180w50h.jpg" border="0" 
+/></a><br />
+<img height="10" alt="" src="/AM/Images/spacer.gif" width="1" /><br />
+<a href="http://www.knowhow2go.org/" target="_blank"><img 
+src="/AM/Images/HomeMainContent/leftbanner_kh2g.gif" border="0" 
+/></a><br />
+<img height="10" alt="" src="/AM/Images/spacer.gif" width="1" /><br />
+<a href="http://twitter.com/ACEducation" target="_blank"><img 
+alt="Follow us on Twitter" 
+src="/AM/Images/HomeMainContent/leftbanner_twitter.jpg" border="0" 
+/></a></p>
+</td>
+								
+
+              </tr>
+            </table>
+        </td></tr>
+      </table>
+    </td>
+    <td valign="top">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+          <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/topcap_body.jpg" width="363" height="48" alt=""></td>
+          <td colspan="2"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/topcap_federalfocus-24.gif" width="183" height="48" alt=""></td>
+        </tr>
+        <tr>
+          <td background="/AM/graphics/template/ACE_6_home_off_gifs/images/sliver_home_body.jpg" valign="top">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="30" height="1" alt="" ></td>
+                <td valign="top"><table width="100%">
+<tbody>
+<tr>
+<td valign="top">
+<p><a 
+href="http://www.acenet.edu/links/military/VetToolkit_March2012_mf.html" 
+
+
+target="_blank"><img alt="Image" 
+src="/AM/Images/HomeMainContent/VetToolkit_main.jpg" align="left" 
+border="0"></a><a 
+
+
+href="http://www.acenet.edu/links/military/VetToolkit_March2012_mf.html"></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+href="http://www.acenet.edu/links/military/VetToolkit_March2012_mf.html" 
+
+
+target="_blank">Toolkit for Veteran Friendly Institutions</a><br>
+An online resource to help colleges and universities build effective 
+programs for student veterans</p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+                <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="50" height="1" alt=""></td>
+              </tr>  
+              <tr>
+                <td colspan="3">
+                  <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="1" height="25" alt="">
+                  <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/divider_dotted.jpg" width="363" height="9" alt="">
+                  <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="1" height="25" alt="">
+                </td>
+              </tr>
+              <tr>
+                <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="30" height="1" alt="" ></td>
+                <td valign="top"><table width="100%">
+<tbody>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/EmergingLeadersGroup/programs/academy.htm"><img 
+
+
+alt="" src="/AM/Images/HomeMainContent/emerging_sec.jpg" align="left" 
+border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/EmergingLeadersGroup/programs/academy.htm">ACE 
+
+
+Leadership Academy for Department Chairs</a><br />
+Interactive two-day workshop will explore best practices for leading 
+departments in times of change.</p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/InclusiveExcellenceGroup/Programs/National_Leadership.htm"><img 
+
+
+alt="" src="/AM/Images/HomeMainContent/nlf_sec.jpg" align="left" 
+border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/InclusiveExcellenceGroup/Programs/National_Leadership.htm">National 
+
+
+Leadership Forum</a><br />
+Now accepting nominations for the June 20&#8211;22 Forum for women. 
+Nominations must be received by May 11.</p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/atp.htm"><img 
+
+
+alt="" src="/AM/Images/HomeMainContent/advancing_sec.jpg" align="left" 
+border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/atp.htm">Advancing 
+
+
+to the Presidency</a><br />
+Apply now for our workshop on successful presidential search and 
+transition.</p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/ACE_INP.htm"><img 
+
+
+alt="image" src="/AM/Images/HomeMainContent/inp_sec.jpg" align="left" 
+border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/ACE_INP.htm">ACE 
+
+
+Institute for New Presidents</a><br />
+A leadership development program for leaders in their first two years as 
+
+
+president.</p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/cao_institute.htm"><img 
+
+
+alt="Webinar" src="/AM/Images/HomeMainContent/caocompas_sec.gif" 
+align="left" border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/Content/NavigationMenu/ProgramsServices/Leadership/ExecutiveLeadershipGroup/Programs/cao_institute.htm">ACE 
+
+
+Institute for New Chief Academic Officers</a><br />
+Practical executive leadership development for CAOs.</p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a href="http://www.acenet.edu/links/am2012/highlights_sf.html"><img 
+alt="image" src="/AM/Images/HomeMainContent/AM2012_sec.jpg" align="left" 
+
+
+border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+href="http://www.acenet.edu/links/am2012/highlights_sf.html">Highlights 
+and Presentations from our 2012 Annual Meeting</a></p>
+</td>
+</tr>
+
+<tr>
+<td colspan="3" height="10">
+<p>&#160;</p>
+</td>
+</tr>
+
+<tr>
+<td valign="top">
+<p><a 
+
+
+href="/AM/Template.cfm?Section=Press_Releases2&amp;CONTENTID=44469&amp;TEMPLATE=/CM/ContentDisplay.cfm"><img 
+
+
+alt="image" src="/AM/Images/HomeMainContent/acp_2012_sec.jpg" 
+align="left" border="0" /></a></p>
+</td>
+<td valign="top">
+<p>&#160;</p>
+</td>
+<td valign="top">
+<p><a 
+
+
+href="/AM/Template.cfm?Section=Press_Releases2&amp;CONTENTID=44469&amp;TEMPLATE=/CM/ContentDisplay.cfm">Leading 
+
+
+Demographic Portrait of College Presidents Reveals Ongoing Challenges in 
+
+
+Diversity, Aging</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+                <td><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="50" height="1" alt=""></td>
+              </tr>
+            </table>
+          </td>
+          <td valign="top" bgcolor="#7FB3CB">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+              <tr>
+                <td width="170" bgcolor="#7FB3CB" valign="top">
+                  <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/FederalFocus_off.jpg" width="161" height="28" alt=""><br>
+                  
+                  
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+                    
+                      <tr>
+                        <td valign="top" class="TDACEFederalFocus" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px"></td>
+                        <td valign="top" class="TDACEFederalFocus"><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=44937"  class="ACEFederalFocus">House Approves Bill to Freeze Student Loan Interest Rate; Senate to Take Up Issue Next Week</a><br><DIV class="HomePageFederalFocusText">April 30, 2012 | The House of Representatives on Friday approved a bill (H.R. 4628) that would freeze the interest rate on new subsidized Stafford student loans at 3.4 percent for one year. The vote was 215-195.</DIV></td>
+                      </tr>
+                    
+                      <tr>
+                        <td valign="top" class="TDACEFederalFocus" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px"></td>
+                        <td valign="top" class="TDACEFederalFocus"><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=44927"  class="ACEFederalFocus">FRIDAY BUZZ: Executive Order Targets Deceptive College Recruiting Practices Aimed at Veterans</a><br><DIV class="HomePageFederalFocusText">April 27, 2012 | President Obama’s executive order aiming to protect veterans from deceptive recruiting practices the White House charges are employed by some for-profit colleges generated a slew of headlines today. Click here for full coverage.</DIV></td>
+                      </tr>
+                    
+                      <tr>
+                        <td colspan="2" class="TDACEMore" align="right"><a href="Template.cfm?Section=HENA" class="ACEMoreLink">More Focus</a></td>
+                      <tr>
+                    </table>
+                  
+                  
+                  <img src="/AM/graphics/template/ACE_6_home_off_gifs/images/Events_off-45.jpg" width="161" height="28" ALT="">
+                  
+                  
+                    <table cellpadding="0" cellspacing="0" border="0" width="100%"> 
+                    
+                    
+                      <tr>
+                        <td valign="top" class="TDACEEvents" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px" border="0"></td>
+                        <td valign="top" class="TDACEEvents"><DIV valign="top" class="HomePageEventsDate">June 2, 2012</a></DIV><br><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=44206" class="ACEEvents">2012 Council of Fellows Weekend</td>
+                      </tr>
+                    
+                      <tr>
+                        <td valign="top" class="TDACEEvents" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px" border="0"></td>
+                        <td valign="top" class="TDACEEvents"><DIV valign="top" class="HomePageEventsDate">June 14, 2012</a></DIV><br><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=43704" class="ACEEvents">ACE Institute for New Chief Academic Officers</td>
+                      </tr>
+                    
+                      <tr>
+                        <td valign="top" class="TDACEEvents" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px" border="0"></td>
+                        <td valign="top" class="TDACEEvents"><DIV valign="top" class="HomePageEventsDate">June 15, 2012</a></DIV><br><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=44201" class="ACEEvents">ACE Institute for New Chief Academic Officers Alumni Meeting</td>
+                      </tr>
+                    
+                      <tr>
+                        <td valign="top" class="TDACEEvents" width="6%"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACE_06_33.jpg" width="4" height="8" alt="" style="margin-top:2px" border="0"></td>
+                        <td valign="top" class="TDACEEvents"><DIV valign="top" class="HomePageEventsDate">June 20, 2012</a></DIV><br><a href="/AM/Template.cfm?Template=/CM/ContentDisplay.cfm&ContentID=43697" class="ACEEvents">National Leadership Forum</td>
+                      </tr>
+                    
+                      <tr>
+                        <td colspan="2" class="TDACEMore" align="right"><a href="Template.cfm?Section=Events2" class="ACEMoreLink">More Events</a></td>
+                      <tr>
+                    </table>
+                  
+                  
+                  <!--a href="/AM/Template.cfm?Section=ACEArchives"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/ACEArchives_off.jpg" width=161 height=28 alt="" BORDER="0"></a--><br><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="161" height="61" alt="">
+                </td>  
+              </tr>
+            </table>        
+          </td>
+          <td bgcolor="#D7D4A1"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/spacer.gif" width="13" height="5" alt=""></td>
+        </tr>
+      </table>
+    </td>
+   </tr>
+   <tr><td colspan="2" valign="top"><img src="/AM/graphics/template/ACE_6_home_off_gifs/images/bottomcap_1.gif" width="760" alt=""></td></tr>
+</table>
+<!-- Source Code Copyright © 2003 Active Matter, Inc. www.activematter.com -->
+<!-- Source Code Copyright © 2002 Active Matter, Inc. www.activematter.com -->
+
+         
+    </td></tr></table>
+  </td>
+</tr>
+<tr>
+  <td height="100" background="/AM/graphics/template/ACE_6_home_off_gifs/images/sliver_bottom.jpg" class="Copyrighttext">
+	<p align="center"><a 
+
+
+href="http://www.acenet.edu/AM/Template.cfm?Section=Contact_Us">Contact</a> 
+
+
+| <a 
+href="http://www.acenet.edu/AM/Template.cfm?Section=About_ACE">About 
+ACE</a> | <a 
+
+
+href="http://www.acenet.edu/Content/NavigationMenu/ContactUs/TermsConditions.htm">Terms 
+
+
+of Use</a> | <a 
+
+
+href="http://www.acenet.edu/Content/NavigationMenu/ContactUs/Privacy_Policy.htm">Privacy 
+
+
+Policy</a><br>
+&#169; 2012 American Council on Education &#183; One Dupont Circle NW 
+&#183; Washington, DC 20036 &#183; (202) 939-9300</p>
+
+	</td>
+</tr>
+</table>
+
+<!-- Begin: www.iperceptions.com -->
+<script src="http://ips-invite.iperceptions.com/webValidator.aspx?sdfc=53a7d075-106534-a5c7fb28-72de-4288-ad7a-08d55a1b27da&lID=1&loc=STUDY&cD=90&rF=False&iType=1&domainname=0" type="text/javascript" defer="defer" ></script>
+<!-- End: www.iperceptions.com -->
+</body>
+  </html>
+<!-- saved from url=(0022)http://internet.e-mail -->
+<!-- Source Code Copyright © 2003 Active Matter, Inc. www.activematter.com -->
+<script src="/js/jquery-1.6.2.min.js"></script>
+
+<script language="javascript" type="text/javascript">
+/* 3/22/2012 Bob Chang - Removed pageTracker code so the new Google Analytics code will work properly 
+
+JQuery code to capture the search keyword submission.*/
+$(document).ready(function() {
+	$('#SearchForm').submit(function(){
+		var keyword = $("input[name='Criteria']").val();
+		//pageTracker._initData();
+		//pageTracker._trackEvent('Search', 'Keyword', keyword);
+		//pageTracker._trackPageview('/AM/Template.cfm?Section=Search&q='+keyword); 
+
+		$('#SearchForm').attr('action','/AM/Template.cfm?Section=Search&q='+keyword);
+	});
+});
+
+</script>

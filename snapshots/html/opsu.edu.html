@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<!-- Mimic Internet Explorer 7 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+		<title></title>
+		<style type="text/css">
+			@import "../js/dojotoolkit/dojo/resources/dojo.css?2-4.01_224507";
+			@import "../js/dojotoolkit/dijit/themes/dijit.css?2-4.01_224507";
+			@import "../js/dojotoolkit/dijit/themes/tundra/tundra.css?2-4.01_224507";
+			@import "../js/dojotoolkit/dojox/form/resources/DropDownSelect.css?2-4.01_224507";
+		</style>
+		<link rel="stylesheet" href="css/login.css?2-4.01_224507" type="text/css"/>
+		<script type="text/javascript">
+			var djConfig= {
+				cacheBust: "2-4.01_224507",
+				isDebug:false,
+				parseOnLoad:true
+			};
+
+			(function() {
+				function getParameter(paramName) {
+					paramName += "=";
+					var queryString = window.location.search;
+					var strBegin = queryString.indexOf(paramName);
+					if (strBegin==-1){
+						strBegin = queryString.length;
+					}
+					else {
+						strBegin += paramName.length;
+					}
+					var strEnd = queryString.indexOf("&",strBegin);
+
+					if (strEnd==-1){
+						strEnd = queryString.length;
+					}
+
+					return queryString.substring(strBegin,strEnd);
+				}
+
+				var locale = getParameter("lang");
+				if (locale.length > 0){
+					djConfig.locale = locale.toLowerCase();
+				}
+				if (locale == "ar" || locale == "iw") {
+					djConfig.direction = document.getElementsByTagName("html")[0].dir = "rtl";
+				}
+			})()
+		</script>
+
+		<script type="text/javascript" src="../js/dojotoolkit/dojo/dojo.js?2-4.01_224507"></script>
+		<script type="text/javascript">
+			dojo.registerModulePath("iwc", "../../iwc");
+			dojo.requireLocalization("iwc.i18n","resources");
+			iwc.l10n = dojo.i18n.getLocalization("iwc.i18n", "resources");
+			dojo.require("iwc.login");
+			dojo.require("dijit.form.Button");
+			dojo.require("dojox.form.DropDownSelect");
+
+			dojo.addOnLoad(function(){
+				iwc.login.setFocus();
+				iwc.login.doI18N();
+				document.getElementById('picCache').src='imageList.html?'+djConfig.cacheBust;
+				//var lang = langLblMapping[djConfig.locale.toLowerCase()]?langLblMapping[djConfig.locale.toLowerCase()]:langLblMapping['en-us'];
+				var lang = "en_us";
+				if(djConfig && djConfig.locale) {
+					lang = djConfig.locale.toLowerCase();
+				}
+				dijit.byId('langButton').attr("value", lang);
+				dojo.connect(dijit.byId("langButton"), "onChange", function(lang) {
+					var loginUrl = window.location;
+
+                    if(window.location.search!=""&&window.location.search.indexOf('lang=')>-1)
+                        loginUrl = loginUrl.href.replace('lang='+iwc.login.getParameter('lang'),'lang='+lang);
+                    else
+                        loginUrl = loginUrl+"?lang="+lang
+
+                    if(window.location.search.indexOf("u=1")==-1)
+                        loginUrl=loginUrl+'&u=1';
+                    
+					window.location = loginUrl;
+					return false;
+				});
+			});
+
+			function login() {
+				return iwc.login.checkName();
+			}
+		</script>
+	</head>
+
+    <body>
+        <div class="Convergence-Login">
+			<div class="Convergence-Login-Border">
+				<div class="Convergence-Login-Banner">
+					<div  class="Convergence-Login-Logo" wairole="presentation"></div>
+					<div id="welcomeMsg" class="Convergence-Login-WelcomeMsg"></div>
+				</div>
+
+				<div class="Convergence-Login-Notification" id="alertMsg"></div>
+
+				<form action="/iwc/signin" method="post" onSubmit="return login();">
+
+					<div>
+						<div class="Convergence-Login-Form">
+							<div class="Convergence-Login-FormRow">
+								<label id="usernameLabelID" for="username">Username:</label>
+								<input id="username" name="username" type="text"/>
+							</div>
+							<div class="Convergence-Login-FormRow">
+								<label id="passwordLabelID" for="password">Password:</label>
+								<input id="password" name="password" type="password"/>
+							</div>
+							<div class="Convergence-Login-FormRow tundra">
+
+								<div class="Convergence-Login-SelectLang">
+									<select dojoType="dojox.form.DropDownSelect"
+											class="dojoxDropDownSelectFixedWidth"
+											id="langButton">
+										<option value="en-us">English</option>
+										<option value="zh-cn">简体中文</option>
+										<option value="zh-tw">繁體中文</option>
+										<option value="fr">Français</option>
+										<option value="fr-ca">Français Canadien</option>
+										<option value="de">Deutsch</option>
+										<option value="ja">日本語</option>
+										<option value="es">Español</option>
+										<option value="ko">한국어</option>
+									</select>
+								</div>
+								<div class="Convergence-Login-FormButton" id="buttonContainer">
+									<div>
+										<div dojoType="dijit.form.Button"
+											 id="signin"
+											 type="submit"
+											 dojoAttachEvent="onClick: login"></div>
+									</div>
+								</div>
+								<div style="clear: both"></div>
+							</div>
+
+						</div>
+
+					</div>
+					<div style="clear: both"></div>
+				</form>
+
+				<div class="Convergence-Login-RedBand"></div>
+				<div id="copyright" class="Convergence-Login-Copyright"></div>
+			</div>
+		</div>
+
+		<div id="overlay" class="login">
+			<div class="centered">
+				<div class="logo"></div>
+				<div id="progress"></div>
+			</div>
+		</div>
+
+		<iframe name="picCache" id="picCache" src="" width=0 height=0 frameborder=0></iframe>
+    </body>
+</html>

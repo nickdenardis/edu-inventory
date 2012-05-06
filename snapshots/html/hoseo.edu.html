@@ -1,0 +1,128 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<link rel="stylesheet" type="text/css" href="gw_login.css" />
+<script language=javascript >
+var szAction = "Login";
+var szBIntra = "1" ;
+var szLogInProcessMessage = "로그인중입니다.\r잠시 기다려 주십시요." ;
+var szNoName = "이름이 없습니다." ;
+</script>
+<script language=javascript src='/js/LOGINSCRIPT2.JS'></script>
+<script language=javascript src='/js/trustsite.js'></script>
+
+
+<title>호서대학교 그룹웨어</title>
+<LINK rel="stylesheet" type="text/css" href="/css/BASIC.CSS">
+
+</head>
+
+<body>
+<div id="wrap">
+  <div id="header"> 
+    <!-- 로고 -->
+    <ul class="logo">
+      <li><a href="http://www.hoseo.ac.kr/main.do"><img src="images2/logo01.gif" width="150" height="37" alt="호서대학교홈페이지" /></a></li>
+      <li><a href="http://office.hoseo.ac.kr/index.html"><img src="images2/logo02.gif" width="90" height="37" alt="호서대학교그룹웨어" /></a></li>
+    </ul>
+    <!-- /로고 끝 --> 
+  </div>
+  <div id="container"> 
+    <!-- 로그인 박스 -->
+    <table class="login" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="4" height="20">&nbsp;</td>
+      </tr>
+      <tr>
+        <td width="19">&nbsp;</td>
+        <td colspan="3" valign="top" height="32"><img src="images2/tit_login.png" width="115" height="18" alt="members Login" /></td>
+      </tr>
+      <tr>
+	   <td>&nbsp;</td>
+        <td width="50" height="26"><label for="sc_num"><img src="images2/school_num.png" width="21" height="18" alt="교번" /></label></td>
+		<!--  onkeydown="FORM1.Name.value=FORM3.Name2.value;" -->
+	        <td width="128"><form name="FORM1" method="post" action="JAVASCRIPT:NameCheck()"><input type="text" class="input" id="Name" name="Name" style="ime-mode:inactive;" tabindex="1" /></form></td>
+       
+     
+	 <form name="FORM3" method="post" action="JAVASCRIPT:NameCheck()">
+		<td rowspan="2"><a href="javascript:NameCheck()"><img src="images2/btn_login.png" width="72" height="46" alt="로그인"  tabindex="3"/></a></td>
+  	</form>
+
+	  </tr>	  
+
+	<form name="FORM2" method="post" action="JAVASCRIPT:NameCheck()">
+
+      <tr>
+        <td>&nbsp;</td>
+        <td height="26"><label for="pw"><img src="images2/pw.png" width="42" height="18" alt="비밀번호" /></label></td>
+        <td><input type="password" class="input" id="Password" name="Password" tabindex="2"/></td>
+    </form>
+	  </tr>
+  <form name="FORM5" method="post" action="JAVASCRIPT:NameCheck()">
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><input type="checkbox" class="check" id="idsave" name="idsave" />
+          <label for="check_id" class="check_text">아이디 저장하기</label></td>
+        <td>&nbsp;</td>
+	  </tr>
+  </form>
+  <form name="FORM4" target="_top" method="post" action="JAVASCRIPT:NameCheck()" >
+			
+                  <input type="checkbox" name="AliasName" checked style='display:none'>
+                
+			</form>
+	  <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+    </table>
+    <!-- /로그인박스 끝 --> 
+    <!-- 왼쪽배너 -->
+    <ul class="banner">
+      <li><a href="/hsdata/HANDYGroupware_ActiveX_6758.exe"><img src="images2/ban01.png" width="128" height="106" alt="그룹웨어 사용을 위한 ActiveX설치" /></a></li>
+      <li><a href="/hsdata/HANDYGroupware_6_7_5_0821.exe"><img src="images2/ban02.png" width="128" height="106" alt="전자결재프로그램" /></a></li>
+    </ul>
+    <!-- 왼쪽배너 끝 --> 
+  </div>
+  <div id="copy"><img src="images2/copy_text.gif" width="729" height="11" alt="아산캠퍼스 충청남도 아산시 배방면 세출리 165 Tel. 041)540-5114 ㅣ 천안캠퍼스 충청남도 천안시 안서동 268 Tel. 041) 560-8114 ㅣ 전산운영팀 담당자 (041) 540-5179" /></div>
+</div>
+<FORM TARGET=_top NAME="LoginMenu" METHOD="POST">
+    <INPUT TYPE="HIDDEN" NAME="Name">
+    <INPUT TYPE="HIDDEN" NAME="Password">
+    <INPUT TYPE="HIDDEN" NAME="AliasName" value="1">
+	<INPUT TYPE="HIDDEN" NAME="UserID">
+	<INPUT TYPE="HIDDEN" NAME="INTRA" >
+	<INPUT TYPE="HIDDEN" NAME="CommunityID" >
+</FORM>
+<div id=tempwin>
+<FORM name="ActiveCheckWindow" method="Post">
+</form>
+
+</div>
+<iframe NAME="LoginFrame" src="" frameborder="0" border='0' width='0' height='0' ></iframe>
+<object id='KebiInstaller' name='KebiInstaller' classid='clsid:E986BA49-C761-4E8F-B1A8-7F3CBE402683' width='0' height='0' codebase='http://mail.hoseo.edu/nara/activeX/KebiInstaller.cab#version=1,0,0,34'>
+<param name='INIURL' value='http://mail.hoseo.edu/nara/activeX/KebiUpdate/KebiInstaller.ini'>
+<param name='Language' value='kor'>
+<param name='InstallerSetupURL' value='http://mail.hoseo.edu/nara/activeX/KebiInstaller.exe'>
+<param name='Encrypt' value=false>
+<param name='CallEncrypt' value=true>
+</object>
+
+<OBJECT ID="hsnotifyapp1" CLASSID="CLSID:E9FD51D0-DC39-4f93-A67D-CC2F3A8B3B91"
+	codebase ="/hsnotifyapp.cab#version=3,6,2,2" STYLE='display:none'></OBJECT>
+<object id="hshell" classid="clsid:AA4372DE-FBA7-4DF1-B213-A3E17859B6E7" codebase="hshell.cab#version=1,6,0,9" width="1" height="1" viewastext></object>
+<object id="hwebui" classid="clsid:dc7b937a-d34d-4d1c-be8d-3ec82f55892b" codebase="/hwebui.cab" width="1" height="1" viewastext></object>
+<object classid='clsid:AA4372DE-FBA7-4DF1-B213-A3E17859B6E7' codebase='/hshell.cab#version=1,6,0,9' id='WShell' style='display:none;'></object>
+<object ID="HWPFilterupdate" WIDTH=0 HEIGHT=0
+CLASSID="CLSID:ADEE463E-9A41-46CB-8055-ADB2CA58E974"
+CODEBASE="HWPFilterupdate.cab#version=1,0,0,42">
+</object>
+<script language=javascript src='/js/checkActiveX.js'></script>
+<script language=javascript>
+Init();
+</script>
+</body>
+</html>

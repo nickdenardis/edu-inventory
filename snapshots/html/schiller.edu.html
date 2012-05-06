@@ -1,0 +1,820 @@
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<head>
+<meta name="y_key" content="bc9283040ef6a395" />
+<meta name="google-site-verification" content="XqKQwdhMyr66zeEOqPUZ_YormP-xel2xWbdZo7zQ3zM" />
+<meta name="msvalidate.01" content="4830B773DC82342725D258203749470B" />
+	<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" href="http://www.schiller.edu/css/jquery-ui.css" type="text/css" media="all">
+<link rel="stylesheet" href="http://www.schiller.edu/css/style.css" type="text/css" media="all">
+    <script type="text/javascript" src="http://www.schiller.edu/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.schiller.edu/javascript/jquery-ui.js"></script>
+    <script type="text/javascript" src="http://www.schiller.edu/javascript/validator.js"></script>
+    <script type="text/javascript" src="http://www.schiller.edu/javascript/masked_input.js"></script>
+    <script type="text/javascript" src="http://www.schiller.edu/javascript/jquery-menu.js"></script>
+    <title>Schiller International University | Largo FL | Heidelberg | Paris | Madrid</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">    
+    <meta name="description" content="Schiller International University offers Associate, Bachelor, Graduate degrees and an online MBA program in high demand fields including: medical assisting, paralegal studies, pharmacy tech training, international business, economics, online MBAs and more">
+    <meta name="keywords" content="Schiller International University, SIU, international university, online mba, medical assisting programs, paralegal studies, pharmacy tech training business degree, criminal justice degree, education degree, college classes, online classes, training">
+
+    <style type="text/css">
+        #request_information label {  }
+        input.error { border:1px solid red !important; } 
+        select.error { border:1px solid red !important; } 
+    </style> 
+    <script type="text/javascript">
+    // initialise plugins
+      $(document).ready(function() {
+        $('ul.sf-menu').sooperfish();
+      });
+    </script>
+    <script type="text/javascript">
+      $.validator.setDefaults({
+        submitHandler: function() {  
+            form.submit(); 
+        }
+    });       
+    </script>
+    <script type="text/javascript">
+
+
+      $.validator.setDefaults({
+        submitHandler: function() {  
+            form.submit(); 
+        }
+    });       
+
+    $(document).ready(function() {   
+        $("#request_information").validate({  
+            rules: {
+                fname: "required",
+                lname: "required",
+                campus: "required",
+                program: "required",
+                gradyear: "required",
+                country_of_citizenship: "required",
+                referral: "required",
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone_day: {
+                    required: true
+                }                                           
+            },
+            messages: {
+                fname: "",
+                lname: "",
+                campus: "",
+                program: "",
+                gradyear: "",
+                referral: "",
+                country_of_citizenship: "",
+                email: "",
+                phone_day: ""
+            }
+        });  
+        
+        $("#campus").change(function () {
+             $.ajax({
+                type: "POST",
+                url: "/contact-us/swap-campuses",
+                data: "campus_name=" + document.getElementById("campus").value,
+                success: function(html){ 
+  
+                        $("#programSwap").html(html);
+                  }
+             });               
+        });
+		
+    }); 
+</script>
+</head><script language="JavaScript" type="text/javascript" src="/javascript/AC_RunActiveContent.js"></script>
+<script language="JavaScript" type="text/javascript" src="/javascript/AC_ActiveX.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+    var version;
+    var axo;
+    var e;
+    // NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+    try {
+        // version will be set for 7.X or greater players
+        axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+        version = axo.GetVariable("$version");
+    } catch (e) {
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 6.X players only
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+            
+            // installed player is some revision of 6.0
+            // GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+            // so we have to be careful. 
+            
+            // default to the first public version
+            version = "WIN 6,0,21,0";
+            // throws if AllowScripAccess does not exist (introduced in 6.0r47)        
+            axo.AllowScriptAccess = "always";
+            // safe to call for 6.0r47 or greater
+            version = axo.GetVariable("$version");
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 4.X or 5.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+            version = axo.GetVariable("$version");
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 3.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+            version = "WIN 3,0,18,0";
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 2.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+            version = "WIN 2,0,0,11";
+        } catch (e) {
+            version = -1;
+        }
+    }
+    
+    return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+    // NS/Opera version >= 3 check for Flash plugin in plugin array
+    var flashVer = -1;
+    
+    if (navigator.plugins != null && navigator.plugins.length > 0) {
+        if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+            var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+            var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+            var descArray = flashDescription.split(" ");
+            var tempArrayMajor = descArray[2].split(".");            
+            var versionMajor = tempArrayMajor[0];
+            var versionMinor = tempArrayMajor[1];
+            var versionRevision = descArray[3];
+            if (versionRevision == "") {
+                versionRevision = descArray[4];
+            }
+            if (versionRevision[0] == "d") {
+                versionRevision = versionRevision.substring(1);
+            } else if (versionRevision[0] == "r") {
+                versionRevision = versionRevision.substring(1);
+                if (versionRevision.indexOf("d") > 0) {
+                    versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+                }
+            }
+            var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+        }
+    }
+    // MSN/WebTV 2.6 supports Flash 4
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+    // WebTV 2.5 supports Flash 3
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+    // older WebTV supports Flash 2
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+    else if ( isIE && isWin && !isOpera ) {
+        flashVer = ControlVersion();
+    }    
+    return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+    versionStr = GetSwfVer();
+    if (versionStr == -1 ) {
+        return false;
+    } else if (versionStr != 0) {
+        if(isIE && isWin && !isOpera) {
+            // Given "WIN 2,0,0,11"
+            tempArray         = versionStr.split(" ");     // ["WIN", "2,0,0,11"]
+            tempString        = tempArray[1];            // "2,0,0,11"
+            versionArray      = tempString.split(",");    // ['2', '0', '0', '11']
+        } else {
+            versionArray      = versionStr.split(".");
+        }
+        var versionMajor      = versionArray[0];
+        var versionMinor      = versionArray[1];
+        var versionRevision   = versionArray[2];
+            // is the major.revision >= requested major.revision AND the minor version >= requested minor
+        if (versionMajor > parseFloat(reqMajorVer)) {
+            return true;
+        } else if (versionMajor == parseFloat(reqMajorVer)) {
+            if (versionMinor > parseFloat(reqMinorVer))
+                return true;
+            else if (versionMinor == parseFloat(reqMinorVer)) {
+                if (versionRevision >= parseFloat(reqRevision))
+                    return true;
+            }
+        }
+        return false;
+    }
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){    
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":    
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+<script type="text/javascript" src="/javascript/activeX.js"> </script>
+<script type="text/javascript">
+window.onload = activateActiveX;
+</script>
+</head>
+<body>
+    <div id="wrapper">
+
+    <a href="/index"><img style="border: none;" src="http://www.schiller.edu/images/schiller_header_logo.jpg" alt="Salem International University" style="float:left; "></a>
+<div id="header">
+    <div id="header_links">
+        <p class="green_text">
+            <a href="http://www.schiller.edu/contact-us">Contact Us</a> | 
+            <a href="http://www.schiller.edu/student-services/download-center">Download Center</a> | 
+            <a href="https://schiller.campusnet.net/" target="_blank">Student Portal</a>        
+        </p>
+    </div>
+    
+    <!--
+    <div id="header_phone" style="text-align:center;">
+        <h1 style="font-family:Arial; font-size:14px;"><a href="http://www.schiller.edu/campuses/largo-florida" title="Schiller International University's main campus in Largo Florida">USA</a>: <span style="font-family:Arial; color:black;">800-261-9751</span></h1>
+        <div style="font-size:14px; text-align:left; color:black; margin-top:5px;">
+            <table cellpadding="0" cellspacing="0" width="450">
+                <tr>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/london-england" title="An American University in London">London</a></td>
+                    <td width="10"></td> 
+                    <td>+44 0-20-7928-1372</td>
+                    <td width="25"></td>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/paris-france" title="An American University in Paris">Paris</a></td>
+                    <td width="10"></td> 
+                    <td>+33 1-45-38-56-01</td>
+                </tr>
+                <tr>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/heidelberg-germany" title="An American University in Heidelberg">Heidelberg</a></td>
+                    <td width="10"></td> 
+                    <td>+49 0-6221/4581-0</td>       
+                    <td width="25"></td>     
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/madrid-spain" title="An American University in Madrid">Madrid</a></td>
+                    <td width="10"></td> 
+                    <td>+34 91-448-24-88</td>
+                </tr>            
+            </table>
+        </div>
+    </div>     -->
+    
+     <div id="header_phone" style="text-align:center;">
+
+        <div style="font-size:14px; text-align:left; color:black; margin-top:5px;">
+            <table cellpadding="0" cellspacing="0" width="450">
+                <tr>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/largo-florida" title="An American University in Florida">Largo, FL</a></td>
+                    <td width="10"></td> 
+                    <td>800-261-9751</td>
+                    <td width="25"></td>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/paris-france" title="An American University in Paris">Paris</a></td>
+                    <td width="10"></td> 
+                    <td>+33 1-45-38-56-01</td> 
+                </tr>
+                <tr>
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/heidelberg-germany" title="An American University in Heidelberg">Heidelberg</a></td>
+                    <td width="10"></td> 
+                    <td>+49 0-6221/4581-0</td>       
+                    <td width="25"></td>     
+                    <td style="color:#840025;"><a href="http://www.schiller.edu/campuses/madrid-spain" title="An American University in Madrid">Madrid</a></td>
+                    <td width="10"></td> 
+                    <td>+34 91-448-24-88</td>
+                </tr>
+                <tr>
+                    <td colspan="7" style="text-align:right;">
+                    <!-- Embedded WhosOn By Gragg Advertising: Insert the script below at the point on your page where you want the Click To Chat link to appear -->
+<script type='text/javascript' src='http://graggadvertising.whoson.com/include.js?domain=www.schiller.edu'></script>
+<script type='text/javascript' >
+if(typeof sWOTrackPage=='function')sWOTrackPage();
+</script>
+<!-- End of embedded WhosOn By Gragg Advertising -->
+
+                    </td>
+                </tr>
+
+                
+            </table>
+        </div>
+    </div>
+</div>    <div id="nav"> 
+<div id="nav_links">
+        <ul class="sf-menu" id="theme4">
+            <li>
+                <a title="Online MBA" href="http://www.schiller.edu/index">Home</a>
+                <ul>
+                    <li><a title="About" href="http://www.schiller.edu/index/about">About</a></li>
+                    <li><a title="Accreditation" href="http://www.schiller.edu/index/accreditation">Accreditation</a></li>
+                </ul>
+            <li>
+                <a title="Future Students" href="http://www.schiller.edu/future-students">Future Students</a>
+                <ul>
+                    <li>
+                        <a title="Admissions" href="http://www.schiller.edu/future-students/admissions">Admissions</a>                      
+                    </li>                                      
+                    <li>
+                        <a title="Academic Calendar" href="http://www.schiller.edu/future-students/academic-calendar">Academic Calendar</a>                      
+                    </li>
+                    <li>
+                        <a title="Financial Aid" href="http://www.schiller.edu/future-students/financial-aid">Financial Aid</a>                                          
+                         <ul>
+                            <li>
+                                <a title="Financial Aid Forms" href="http://www.schiller.edu/future-students/financial-aid-forms">Financial Aid Forms</a>                      
+                            </li>                      
+                            <li>
+                                <a title="FAQ" href="http://www.schiller.edu/future-students/faq">FAQ</a>                      
+                            </li> 
+<!--                            <li>
+                                <a href="http://www.schiller.edu/future-students/lender-list">Lender List</a>                      
+                            </li>-->
+                        </ul>                   
+                    </li>
+
+                    <li>
+                        <a title="Academics" href="http://www.schiller.edu/programs">Academics</a>                      
+                    
+                        <ul>
+                            <li>
+                                <a href="http://www.schiller.edu/future-students/associate-degrees">Associate Degrees</a>
+                                <ul>
+                                    <li><a title="Nursing" href="http://www.schiller.edu/programs/nursing">Nursing</a></li>
+                                    <li><a title="General Studies Associate" href="http://www.schiller.edu/programs/general-studies-associate">General Studies</a></li>
+                                    <li><a title="Medical Assistant Associate" href="http://www.schiller.edu/programs/medical-assistant-associate">Medical Assistant</a></li>
+                                    <li><a title="Paralegal Studies Associate" href="http://www.schiller.edu/programs/paralegal-studies-associate">Paralegal Studies</a></li>
+                                    <li><a title="Criminal Justice Associate" href="http://www.schiller.edu/programs/criminal-justice-associate">Criminal Justice</a></li>
+                                    <li><a title="Pharmacy Technician Associate" href="http://www.schiller.edu/programs/pharmacy-technician-associate">Pharmacy Technician</a></li>
+                                    <li><a title="International Hospitality & Tourism Associate" href="http://www.schiller.edu/programs/international-hospitality-and-tourism-associate">International Hospitality & Tourism</a></li>      
+                                    <li><a title="International Business Associate" href="http://www.schiller.edu/programs/international-business-associate">International Business</a></li>
+                                                                  
+                                </ul>                        
+                            </li>
+                            <li>
+                                <a title="Bachelor Degrees" href="http://www.schiller.edu/future-students/bachelor-degrees">Bachelor Degrees</a>
+                                <ul>
+                                    <li><a title="International Business Bachelor Degree" href="http://www.schiller.edu/programs/international-business-bachelor">International Business</a></li>
+                                    <li><a title="International Economics Bachelor Degree" href="http://www.schiller.edu/programs/international-economics-bachelor">International Economics</a></li>
+                                    <li><a title="International Hospitality & Tourism Bachelor Degree" href="http://www.schiller.edu/programs/international-hospitality-and-tourism-bachelor">International Hospitality & Tourism</a></li>
+                                    <li><a title="International Relations & Diplomacy Bachelor Degree" href="http://www.schiller.edu/programs/international-relations-and-diplomacy-bachelor">International Relations & Diplomacy</a></li>
+                                    <li><a title="Interdisciplinary Studies Bachelor Degree" href="http://www.schiller.edu/programs/interdisciplinary-studies-bachelor">Interdisciplinary Studies</a></li>
+                                </ul>                        
+                            </li>
+                            <li>
+                                <a title="Master Degrees" href="http://www.schiller.edu/future-students/master-degrees">Master Degrees</a>
+                                <ul>
+                                     <li><a title="Business Administration Master Degree" href="http://www.schiller.edu/programs/business-administration-master">Business Administration</a></li>
+                                     <li><a title="International Business Master Degree" href="http://www.schiller.edu/programs/international-business-master">International Business</a></li>
+                                     <li><a title="International Hospitality & Tourism Master Degree" href="http://www.schiller.edu/programs/international-hospitality-and-tourism-management-master">International Hospitality & Tourism</a></li>
+                                     <li><a title="Management of Information Technology Master Degree" href="http://www.schiller.edu/programs/management-of-information-technology-master">Management of Information Technology</a></li>
+                                     <li><a title="Financial Planning Master Degree" href="http://www.schiller.edu/programs/financial-planning-master">Financial Planning</a></li>
+                                     <li><a title="International Management Master Degree" href="http://www.schiller.edu/programs/international-management-master">International Management</a></li>
+                                     <li><a title="International Relations & Diplomacy Master Degree" href="http://www.schiller.edu/programs/international-relations-and-diplomacy-master">International Relations & Diplomacy</a></li>
+                                </ul>                        
+                            </li>                              
+                        </ul>
+                    </li>                                                                                                                                                     
+                </ul>            
+            </li>
+
+            <li>
+                <a title="Student Services" href="http://www.schiller.edu/student-services/">Student Services</a>
+                <ul>
+                    <li>
+                        <a title="Graduate Services" href="http://www.schiller.edu/student-services/career-services">Graduate Services</a>                    
+                    </li>
+                    <li>
+                        <a title="Download Centers" href="http://www.schiller.edu/student-services/download-center">Download Center</a>                    
+                    </li> 
+                    <li>
+                        <a title="Technical Requirements" href="http://www.schiller.edu/student-services/tech-requirements">Technical Requirements</a>                    
+                    </li>  
+                    <li>
+                        <a title="Campus Crime Report" href="http://www.schiller.edu/pdf/campus-crime-report-2010.pdf" target="_blank">Campus Crime Report</a>
+                    </li> 
+                    <li>
+                        <a title="Blackboard" href="http://schilleronline.blackboard.com" target="_blank">Schiller Blackboard</a>
+                    </li>                                                                                                        
+                </ul>
+            </li>
+
+            <li>
+                <a title="Campuses" href="http://www.schiller.edu/campuses/">Campuses</a>
+                <ul>
+                    <li>
+                        <a title="Largo, Florida" href="http://www.schiller.edu/campuses/largo-florida">Largo, Florida</a>
+                    </li>
+                    <li>
+                        <a title="Heidelberg, Germany" href="http://www.schiller.edu/campuses/heidelberg-germany">Heidelberg, Germany</a>                      
+                    </li> 
+                 <!--   <li>
+                        <a title="London, England" href="http://www.schiller.edu/campuses/london-england">London, England</a>
+                    </li>-->
+                    <li>
+                        <a title="Madrid, Spain" href="http://www.schiller.edu/campuses/madrid-spain">Madrid, Spain</a>                      
+                    </li>
+                    <li>
+                        <a title="Paris, France" href="http://www.schiller.edu/campuses/paris-france">Paris, France</a>
+                    </li>
+                    <li>
+                        <a title="Online" href="http://www.schiller.edu/campuses/online">Online</a>                 
+                    </li>                                                               
+                </ul>
+            </li>
+            <li>
+                <a title="Contact Us" href="http://www.schiller.edu/contact-us/">Contact Us</a>
+            </li>
+            <li>
+                <a title="Apply Online" href="http://www.schiller.edu/apply-online/">Apply Online</a>                
+            </li>
+            <li>
+                <a title="Student Portal" href="https://schiller.campusnet.net/" target="_blank">Student Portal</a>
+            </li>
+            <li>
+                <a title="Download Center" href="http://www.schiller.edu/student-services/download-center">Download Center</a>
+            </li>
+
+        </ul>
+</div>
+</div>
+    <div id="slideshow">
+        <script language="JavaScript" type="text/javascript">
+            if (AC_FL_RunContent == 0) {
+            alert("This page requires AC_RunActiveContent.js.");
+            } else {            
+            AC_FL_RunContent(
+                'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0',
+                'width', '960',
+                'height', '399',
+                'src', '/flash/slideshow',
+                'quality', 'high',
+                'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+                'align', 'middle',
+                'play', 'true',
+                'loop', 'true',
+                'scale', 'showall',
+                'wmode', 'transparent',
+                'devicefont', 'false',
+                'id', 'slideshow',
+                'bgcolor', '#ffffff',
+                'name', 'slideshow',
+                'menu', 'true',
+                'allowFullScreen', 'false',
+                'allowScriptAccess','sameDomain',
+                'movie', '/flash/slideshow',
+                'salign', ''
+                ); //end AC code
+            }
+        </script>
+        <noscript>
+            <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="960" height="399" id="slideshow" align="middle">
+            <param name="allowScriptAccess" value="sameDomain" />
+            <param name="allowFullScreen" value="false" />
+            <param name="movie" value="/flash/slideshow.swf" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#ffffff" /> 
+            <param name="wmode" value="Transparent"/>               
+            <embed src="/flash/slideshow.swf" quality="high" bgcolor="#ffffff" width="960" height="399" name="slideshow" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+            </object>
+        </noscript>        
+    </div>
+    <div id="content_container">
+        <h1>Welcome to Schiller International University!</h1>
+<div class="content_node">
+<p><img style="margin-right: 10px;" src="/images/home.png" alt="Home Icon Graphic Number One" /> Founded in 1964 by Dr. Walter Leibrecht, Schiller International University was created as a private American University dedicated to the active         development and encouragement of international understanding. As a philosophy professor in the United States, Dr. Leibrecht was so impressed with the         personalized instruction in the American college system that he sought to create something similar back in Europe.</p>
+</div>
+<div class="content_node">
+<p><img style="margin-right: 10px;" src="/images/home_icon_2.jpg" alt="Home Icon Graphic Number Two" /> Schiller International University offers Associate, Bachelor and Master's degrees in high demand fields including: Business, International Diplomacy, Financial Planning, Hospitality and more. Schiller International University also offers online courses that are the perfect fit for busy working         adults, including <a title="Online MBA programs" href="http://www.schiller.edu/programs/business-administration-master">online MBA</a>.</p>
+</div>  
+                <div class="wrapper fb-posts" style="overflow:hidden;">
+                <h3>Schiller University <a style="color: #c9d59e;" href="https://www.facebook.com/schillerinternationaluniversity"><img src="/images/facebook2.png" border="0" alt="Schiller on Facebook" style="float:right;" /></a></h3>  
+                <div class="feed clear" style="overflow:hidden;">
+                    
+                    <h4><img src="/images/schiller_fb_logo.jpg" alt="schilleruniversity" /> <strong>Schiller on Facebook</strong> <br/>
+                    <iframe src="http://www.facebook.com/plugins/like.php?href=http://www.facebook.com/schillerinternationaluniversity" scrolling="no" frameborder="0" style="border:none; width:320px; height:40px; padding-top:5px;"></iframe>
+                    </h4>
+                    
+                    <ul style="overflow:hidden; font-size:8px; line-height:8px;">
+                      <li><img align="absmiddle" class="fb-wall-avatar" src="https://graph.facebook.com/753579020/picture?type=square" style="float:left; margin-right:7px; margin-bottom:5px; width:25px; height:25px;" /> <a href="http://www.facebook.com/126520724033062/posts/10150755662279021" target="_blank">Largo, Florida Campus
+"Key West" Student Trip!!!</a></li><li><img align="absmiddle" class="fb-wall-avatar" src="https://graph.facebook.com/126520724033062/picture?type=square" style="float:left; margin-right:7px; margin-bottom:5px; width:25px; height:25px;" /> <a href="http://www.facebook.com/126520724033062/posts/421719071179891" target="_blank">We hope everyone has a great weekend! "If you set a goal for yourself and are able to achieve it, you have won your race. Your goal can be to come in first, to improve your performance, or just to finish the race - it's up to you." Dave Scott</a></li><li><img align="absmiddle" class="fb-wall-avatar" src="https://graph.facebook.com/126520724033062/picture?type=square" style="float:left; margin-right:7px; margin-bottom:5px; width:25px; height:25px;" /> <a href="http://www.facebook.com/126520724033062/posts/135984963199895" target="_blank">Following up on an interview is a critical part of the job search process. Here is some advice on how to follow up after a job interview.</a></li><li><img align="absmiddle" class="fb-wall-avatar" src="https://graph.facebook.com/100003792662001/picture?type=square" style="float:left; margin-right:7px; margin-bottom:5px; width:25px; height:25px;" /> <a href="http://www.facebook.com/126520724033062/posts/420017928016672" target="_blank">Can someone from this university studying international relations and diplomacy share with me his experience in this field of study?  </a></li>      
+                   </ul>
+              </div><!-- /feed -->  
+            <div style="padding:5px;">
+                <a href="http://www.facebook.com/schillerinternationaluniversity" title="Become a facebook fan"><img src="/images/button_facebook-black.png" alt="become a fan" border="0" /></a>
+            </div>
+        </div><!-- /fb-feed-wrapper sj-->
+        <div style="clear:both;"></div>        
+    <div id="apply_online">
+        <h1>Apply Online</h1>
+        <div id="apply_online_bkg">
+            <img src="http://www.schiller.edu/images/apply_online_img.jpg" alt="Apply Online">
+            <p class="">            
+                Enrolling at Schiller International University is easy! Once you <a href="http://www.schiller.edu/contact-us" title="Online Application">fill out our application</a>, Schiller International University will contact you about enrolling on our focused career programs.<br/> 
+                
+            </p>                
+        </div>
+    </div> 
+        
+    </div>
+    <div id="sidenav_container">
+            <div class="sidenav_node" style="cursor:pointer;" onclick="location.href='http://www.schiller.edu/future-students/european-scholarships'">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <img src="http://www.schiller.edu/images/snav_person_4.jpg" alt="European Scholarships" class="gray_border">
+                </td>
+                <td width="10"></td>
+                <td>
+                    <div id="red_tiger">
+                        <h1 title="Schiller European Scholarships">European Scholarships</h1> 
+                            <p>
+                               Schiller International University offers limited financial scholarships in Europe to new students. Learn more about eligibility and applying here.
+                            </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div> 
+
+
+
+    <div class="sidenav_node" style="cursor:pointer;" onclick="location.href='http://www.schiller.edu/student-services/download-center'">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <img src="http://www.schiller.edu/images/snav_person_1.jpg" alt="Schiller Download Center" class="gray_border">
+                </td>
+                <td width="10"></td>
+                <td>
+                    <div id="green_tiger">
+                        <h1 title="Salem Athletics">Download Center</h1>   
+                            <p>
+                                Find all the documents you need in one easy location. Admissions forms, financial aid information, transcripts and more can all be easily found here.
+                            </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="sidenav_node" style="cursor:pointer;" onclick="location.href='http://www.schiller.edu/future-students/academic-calendar'">
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td>
+                    <img src="http://www.schiller.edu/images/snav_person_2.jpg" alt="Schiller Student Calendar"class="gray_border">
+                </td>
+                <td width="10"></td>
+                <td>
+                    <div id="blue_tiger">
+                        <h1 title="Schiller Student Calendar">Student Calendar</h1>
+                            <p>
+                                Quite a bit goes on at our international campuses and online. Stay up-to-date on Schiller events here!
+                            </p>
+                    </div>                
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+     <div class="sidenav_node" title="Florida colleges and universities in Tampa, Florida and Largo, Florida">
+        <strong>Main Campus</strong>
+        <br>
+        8560 Ulmerton Road
+        <br> 
+        Largo, Florida 33771
+        <br>
+        (800) 261-9751
+     </div>
+            
+    </div>
+
+    <div id="footer_border"></div>
+<div id="footer">
+    <p>
+        &copy; 2010 Schiller International University | In the US call toll-free 800-261-9751 | Outside of the US call 727-474-4080 | <a style="padding:0; margin:0;" href="http://www.facebook.com/SchillerInternationalUniversity" target="_blank"><img src="/images/facebook.png"/ style="float:none; margin:0; padding:0; padding-right:5px; vertical-align:-3px;"></a> <a href="http://www.facebook.com/SchillerInternationalUniversity" target="_blank">Join us on FaceBook!</a>     
+    </p>
+    <p class="green_text nowrap">
+        <a href="/index">Home</a> <a href="/future-students">Future Students</a> <a href="/student-services">Student Services</a> 
+        <a href="/campuses">Campuses</a> <a href="/contact-us">Contact Us</a> <a href="/online-interview/forms">Apply Online</a>    
+        <a href="https://schiller.campusnet.net/" target="_blank">Student Portal</a> <a href="/student-services/download-center">Download Center</a>
+        <br />    
+        <a href="/index/sitemap">Sitemap</a>
+        <a href="/disclosures" target="_blank" rel="nofollow">Disclosures</a> 
+        <a href="/achievement-disclosures">Student Achievement Disclosures</a>
+        <a href="/calculator" rel="nofollow">Net Price Calculator</a>
+	</p>
+</div>
+
+
+
+<div id="footer">
+<table align="center">
+    <tr>
+        <td>
+        <strong>Schiller International University in Florida</strong>
+        <br>
+        <a href="/campuses/largo-florida" title="Tampa colleges and  universities in Florida">Campus Information</a>
+        </td>
+        
+        <td>
+        <strong>Schiller International University in Heidelberg</strong>
+        <br>
+        <a href="/campuses/heidelberg-germany" title="Heidelberg, Germany American colleges and  universities in Germany">Campus Information</a>
+        </td>
+        
+   <!--     <td>
+        <strong>Schiller International University in London</strong>
+        <br>
+        <a href="/campuses/london-england" title="London, England American colleges and  universities in England">Campus Information</a>
+        </td>       -->
+        
+        <td>
+        <strong>Schiller International University in Madrid</strong>
+        <br>
+        <a href="/campuses/madrid-spain" title="Madrid, Spain American colleges and  universities in Spain">Campus Information</a>
+        </td>
+        
+        <td>
+        <strong>Schiller International University in Paris</strong>
+        <br>
+        <a href="/campuses/paris-france" title="Paris, France American colleges and  universities in France">Campus Information</a>
+        </td>
+        
+        <td>
+        <strong>Schiller International University Online</strong>
+        <br>
+        <a href="/campuses/online" title="Online International colleges and  universities Online">Campus Information</a>
+        </td>
+    </tr>
+</table>
+</div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6113535-17']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+ 
+    </div>
+</body>
+</html>     

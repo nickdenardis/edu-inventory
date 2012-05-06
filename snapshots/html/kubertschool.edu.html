@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0  Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+      <head>
+          <meta  http-equiv="Content-Type" content="text/html;  charset=UTF-8" />
+    
+    <link type="text/css" href="css/fg.menu.css" media="screen" rel="stylesheet" />
+          <link type="text/css" href="/css/custom-theme/jquery-ui-1.8.6.custom.css" rel="Stylesheet" />
+					
+          <link rel="stylesheet"  type="text/css" href="/css/style2.css" media="screen"  />
+          <link rel="stylesheet"  type="text/css" href="/css/nivo-slider.css" media="screen"  />
+          <link rel="stylesheet"  type="text/css" href="/css/jquery.lightbox-0.5.css" media="screen"  />
+					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+					<script type="text/javascript" src="/js/preloadCssImages.jQuery_v5.js"></script>
+					<script type="text/javascript" src="/js/jquery.cycle.all.min.js"></script>
+					<script type="text/javascript" src="/js/jquery.validVal-1.2.0.js"></script>
+					<script type="text/javascript" src="/js/jquery.lightbox-0.5.min.js"></script>
+					<script type="text/javascript" src="js/fg.menu.js"></script>
+					<script type="text/javascript" src="js/jquery-ui-timepicker-addon.js"></script>
+					
+					<meta name="description" content="The Kubert School, based in Dover, NJ offers students a high quality and challenging education in Cartooning and Graphic Art.">
+          <title>The Kubert School</title>
+      </head>
+      <body>
+	<script>
+	$(function() {
+		$.preloadCssImages();
+		var icons = {
+			header: "ui-icon-circle-triangle-w",
+			headerSelected: "ui-icon-circle-triangle-s"
+		};
+		
+	});
+$(document).ready(function() {
+$("#newsletter_signup h1").hover(function(){
+		$( "#newsletter_signup input#name").focus();
+	})
+  $("a[href^=http]").each(
+    function(){
+    
+	    if(this.href.indexOf(location.hostname) == -1) {
+        $(this).attr('target', '_blank');
+        //console.log(this.href);
+      }
+    }
+  )
+});
+	</script>
+<script>
+$(document).ready(function() {
+$("#a1_content").addClass("ui-accordion ui-accordion-icons ui-widget ui-helper-reset")
+  .find("h3")
+    .addClass("ui-accordion-header ui-helper-reset ui-state-default ui-corner-top ui-corner-bottom")
+    .hover(function() { $(this).toggleClass("ui-state-hover"); })
+    .prepend('<span class="ui-icon ui-icon-circle-triangle-w"></span>')
+    .click(function() {
+      $(this)
+        .toggleClass("ui-accordion-header-active ui-state-active ui-state-default ui-corner-bottom")
+        .find("> .ui-icon").toggleClass("ui-icon-circle-triangle-w ui-icon-circle-triangle-s").end()
+        .next().toggleClass("ui-accordion-content-active").slideToggle();
+      return false;
+    })
+    .next()
+      .addClass("ui-accordion-content  ui-helper-reset ui-widget-content ui-corner-bottom")
+      .hide();
+})
+
+
+
+</script>
+<style>
+
+</style>
+      <div id="header_wrap">
+      	<div id="header">
+        	<h1><a href="/index.html">THEKUBERTSCHOOL</a></h1>
+					<ul><li><a href="/contact.html" >CONTACT</a></li><li><a href="/media-press.html" >MEDIA & PRESS</a></li><li><a href="/art-store.html" >ART STORE</a></li><li><a href="/correspondence-courses.html" >CORRESPONDENCE COURSES</a></li><li><a href="/index.html" class="active">HOME</a></li></ul><ul style="padding-right:64px;"><li><a href="/about.html" >ABOUT</a></li><li><a href="/faculty.html" >FACULTY</a></li><li><a href="/alumni.html" >ALUMNI</a></li><li><a href="/gallery.html" >GALLERY</a></li><li><a href="/news.html" >NEWS</a></li></ul>	
+         </div><!--end header-->
+          </div>
+         <div id="sub_header">
+         	<ul>
+         		         			<li ><a href="/admissions.html" >ADMISSIONS</a></li>
+         			         		         			<li ><a href="/curriculum.html" >CURRICULUM</a></li>
+         			         		         			<li ><a href="/programs.html" >PROGRAMS</a></li>
+         			         		         			<li ><a href="/student-life.html" >STUDENT LIFE</a></li>
+         			         		         			<li ><a href="/events.html" >EVENTS</a></li>
+         			         		         			<li class="last"><a href="/graduating-class.html" >GRADUATING CLASS</a></li>
+         			         							</ul>
+					      					      <div style="clear:both;"></div>
+
+         </div><!--end sub_header-->
+       
+<div id="wrap"> 
+      	<div id="body">
+
+<script>
+$(function() {
+    $("#slider").cycle({
+       fx: 'fade',
+       next:   '#home_slide_next',
+    	 prev:   '#home_slide_prev',
+    	 pager: '#slider_nav',
+        pagerAnchorBuilder: pagerFactory
+    });
+
+    function pagerFactory(idx, slide) {
+        var s = idx > 2 ? ' style=""' : '';
+        return '<li'+s+'><a href="#">'+(idx+1)+'</a></li>';
+    };
+
+
+
+var ajax_form = $( "#newsletter_signup" ).validVal();
+$( "#newsletter_signup input:submit" ).click(function( event ) {
+	event.preventDefault();
+
+	form_data = ajax_form.submitform();
+	if ( form_data ) {
+		$.ajax({
+			type: "POST",
+			url: "submit_newsletter_signup.php",
+			data: form_data,
+			success: function( msg ) {
+				alert( msg );
+				ajax_form.resetform();
+			}
+		});
+	}
+});
+
+
+});
+</script>
+<style>
+#home_content .info_box {
+    background-color: #F2F2F2;
+    height:180px;
+    font-family: verdana,arial,sans-serif;
+    margin-top: 6px;
+    padding-bottom: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+
+
+input[type='text'], textarea, select { 
+	border: solid 1px #999;
+}
+input[type='text'].focus, textarea.focus, select.focus { 
+	border-color: #000 !important; 
+}
+input[type='text'].invalid, textarea.invalid, select.invalid { 
+	border-color: red;
+}
+input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive { 
+	color: #999;
+	font-style: italic;
+}
+input[type='text'].required, textarea.required { 
+	background: url(required-input.png) right 5px no-repeat;
+}
+</style>
+      		<div id="left_hand_nav">
+							<ul class="image_nav">
+								<li class="apply"><a href="application.html">APPLY TO THE KUBERT SCHOOL</a></li>
+								<!--<li class="current_events"><a href="/events.html">CURRENT EVENTS</a></li>-->
+								<li class="weather_announcements"><a href="/student-life/weather-announcements.html">WEATHER ANNOUNCEMNTS</a></li>
+								<li class="video"><a href="/about/kubert-school-video.html">KUBERT SCHOOL VIDEO</a></li>
+								<li class="catalog"><a href="/admissions/catalog.html">CATALOG</a></li>
+								<li class="contact_us"><a href="/contact.html">CONTACT US</a></li>
+								<!--<li class="follow_us_on_facebook"><a href="">FOLLOW US ON FACEBOOK</a></li>-->
+							</ul>
+							<div id="newsletter_signup">
+								<h1>SIGN UP FOR OUR NEWSLETTER</h1>
+								<!--<h4>OR REQUEST A CATALOG TO ARRIVE BY MAIL</h4>-->
+								<input type="text" id="name" name="name" >
+								<label>name</label>
+								<input id="email" name="email" class="required email" type="text">
+								<!--
+								<label>address</label>
+								<input type="text">
+								-->
+								<label>email* (required)</label>
+								<!--
+								<br/>
+								<input type="checkbox" name="group1" style="margin-top:14px;"> catalog<br/>
+								<input type="checkbox" name="group1"> newsletter 
+								-->
+								<br/>
+								<input type="submit" value="submit" style="margin-top:14px;">
+							</div>
+								
+						</div><!-- end of left hand nav -->
+	<style>
+	#slider_controls li {
+		display:inline;
+		float: right;
+		padding-right:16px;
+		vertical-align: middle;
+		text-align: center;
+	}
+	#slider_controls a {
+		color: black;
+	}
+	#slider img { display: none }
+	#slider img.first { display: block;}
+	
+	#slider_controls ul {
+		display:inline;
+	}
+	</style>	
+	<style type="text/css">
+#slider_nav { 
+	margin: 10px -10px 10px 10px; 
+	position: relative; 
+}
+#slider_nav li { 
+	float: left; 
+	list-style: none;
+	margin-top:7px;
+}
+#slider_nav a { 
+	text-decoration: none ;
+	background: url(../images/slideshow_index.jpg) 0 0 no-repeat;
+	position:relative;
+  width: 4px;
+  height: 4px; 
+  text-indent: -9999px;
+  color: transparent;
+  	font-size: 0; 
+display:block; 
+line-height: 0;
+}
+#slider_nav a:hover {
+	background: url(../images/slideshow_index_hover.jpg) 0 0 no-repeat;
+}
+#slider_nav li.activeSlide{
+	margin-top:5px!important;
+}
+#slider_nav li.activeSlide a{ 
+	background: url(../images/slideshow_index_active.jpg) 0 0 no-repeat;
+	width: 8px;
+  height: 8px;
+}
+#slider_nav a:focus { outline: none; }
+</style>
+
+					
+						<div id="main_content">
+							<div id="image_holder">	
+								<div id="slider">
+																			<img src="/images/header_images/1291858549_thekubertschool_mediapress.jpg" />
+																			<img src="/images/header_images/1291858558_thekubertschool_contact.jpg" />
+																			<img src="/images/header_images/1291858562_thekubertschool_admissions.jpg" />
+																			<img src="/images/header_images/1292455722_the_kubert_school_header6.jpg" />
+																			<img src="/images/header_images/1293571681_TheKubertSchool_img6.jpg" />
+																			<img src="/images/header_images/1298488745_joe_art07.jpg" />
+																			<img src="/images/header_images/1298488762_joe_art03.jpg" />
+																	</div>	
+								<div id="slider_controls" class="clearfix" style="margin-top:10px;float:right;">					
+										<ul>
+											<li style="width:16px;padding-right:0px;"><a id="home_slide_next" href="#">Next</a></li>
+											<li style="width:16px;"><a id="home_slide_prev" href="#">Prev</a></li>
+										</ul>
+									<ul id="slider_nav">
+									</ul>
+								</div>
+				
+							</div><!--end of image_holder-->
+							
+							<div id="home_content">
+															<div class="column ">
+									<a href="http://www.kubertschool.edu/admissions/open-house.html"><img src="/images/homepage/1318519515_openhousemain.jpg" width="200px"/></a>
+									<div class="info_box">
+										<a href="http://www.kubertschool.edu/admissions/open-house.html"><h3>Open House - April 2012</h3></a>
+										<p>Attending an Open House is a great way to find out everything you want to know about The Kubert School.</p>
+										<a href="http://www.kubertschool.edu/admissions/open-house.html"><b>Details</b></a>
+									</div>
+								</div>
+															<div class="column ">
+									<a href="alumni/alumni-spotlight/Rob_Tornoe.html"><img src="/images/homepage/1333542860_1333480018_homepagetemplateTornoe.jpg" width="200px"/></a>
+									<div class="info_box">
+										<a href="alumni/alumni-spotlight/Rob_Tornoe.html"><h3>Alumni Spotlight</h3></a>
+										<p>Rob Tornoe is a 2006 graduate of The Kubert School. Since leaving school, Rob has been honing his chops while busting those of politicians and sports figures.</p>
+										<a href="alumni/alumni-spotlight/Rob_Tornoe.html"><b>Full profile</b></a>
+									</div>
+								</div>
+															<div class="column last">
+									<a href="programs.html/"><img src="/images/homepage/1311880415_doneyclasshome2.JPG" width="200px"/></a>
+									<div class="info_box">
+										<a href="programs.html/"><h3>Programs</h3></a>
+										<p>Learn the secrets of cartooning from comic book professionals, join us for: 
+<br>
+-<a href=/programs/evening-classes.html><b>Evening Classes</b><br>
+-<a href=/programs/saturday-classes.html><b>Saturday Classes</b></a><br>
+-<A href=/programs/summer-sessions.html><b>Summer Sessions</b></a></p>
+										<a href="programs.html/">Details</a>
+									</div>
+								</div>
+														<!--
+								<div class="column">
+									<img src="images/home_column_2.jpg" width="200px"/>
+									<div class="info_box">
+										<h3>Open House</h3>
+										<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+										<a href="#">Register Now</a>
+									</div>
+								</div>
+								
+								<div class="column last">
+									<img src="images/home_column_3.jpg" width="200px"/>
+									<div class="info_box">
+										<h3>In the News</h3>
+										<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+										<a href="#">Register Now</a>
+									</div>
+								</div>
+							-->
+
+							</div>
+							
+						</div><!-- end of main content -->
+<div style="clear:both;"></div>
+						<div id="footer_icons">
+							<div class="left_icons">
+								<a href="http://www.facebook.com/pages/Joe-Kubert-School-of-Cartoon-and-Graphic-Art-Inc/347486152377?v=app_2344061033#!/pages/Joe-Kubert-School-of-Cartoon-and-Graphic-Art-Inc/347486152377?v=wall" target=_blank><img src="/images/facebook_icon.jpg"></a>
+								<a href="http://twitter.com/TheKubertSchool" target=_blank><img src="/images/twitter_icon.jpg"></a>
+								<a href="http://the-kubert-school.deviantart.com/" target=_blank><img src="/images/deviant_icon.gif"></a>
+							</div>
+							<div class="right_icons">
+								<a href="#" target=_blank><img src="/images/tor_icon.jpg"></a>
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+						<div id="footer">
+							<span class="left_footer">
+								&#169;2012. The Kubert School. All rights reserved.
+							</span>
+							
+							<span class="right_footer">
+								<a href="/privacy_policy.html">Privacy Policy</a> | <a href="/sitemap.html">Site Map</a> | <a href="http://www.jhchoi.com/" target=_blank>Design jhchoi</a>
+							</span>
+
+						</div>
+      	</div> <!-- end of body div-->
+      </div> <!--end of wrap div -->
+      
+      <div style="clear:both;"></div>
+      <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21673816-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      </body>
+   </html>

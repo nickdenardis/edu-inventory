@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><title>
+	UMass Lowell
+</title><link type="text/css" rel="Stylesheet" href="/system/includes/css/reset.css?v=100" /><link type="text/css" rel="Stylesheet" href="/system/includes/css/globalnav.css?v=100" /><link rel="Stylesheet" href="/system/includes/css/jquery-ui.css?v=100" type="text/css" />
+    <script type="text/javascript" src="/system/includes/js/jquery.min.js?v=100"></script>
+    <script type="text/javascript" src="/system/includes/js/jquery-ui.min.js?v=100"></script>
+    <script type="text/javascript" src="/system/includes/js/uml.js?v=100"></script>
+<script type="text/javascript" src="/system/includes/js/features.js?v=100"></script>
+    
+    
+    <link type="text/css" rel="Stylesheet" href="/system/includes/css/frontpage.css?v=100" />
+    <!--[if lte IE 7]>
+    <link type="text/css" rel="Stylesheet" href="/system/includes/css/globalnav-ie.css?v=100" />
+    <link type="text/css" rel="Stylesheet" href="/system/includes/css/frontpage-ie.css?v=100" />
+    <![endif]-->
+<link type="text/css" rel="Stylesheet" href="/system/includes/css/features-frontpage.css?v=100" />
+
+<link type="text/css" rel="Stylesheet" href="/system/includes/css/dynamicnews.css?v=100" /><link type="text/css" rel="Stylesheet" href="/system/includes/css/footer.css?v=100" /><link rel="stylesheet" type="text/css" media="print" href="/system/includes/css/print.css?v=100" />
+    <script type="text/javascript" src="/system/includes/js/jquery.curvycorners.source.js?v=100" ></script>
+    <script type="text/javascript">
+    //<![CDATA[
+
+        $(document).ready(function () {
+            //this doesn't work when in external js file
+             $("#newsdisplay").dialog({
+                autoOpen: false,
+                modal: true,
+                resizable: false,
+                width: 'auto'
+            });
+
+    $("#newsloader").dialog({
+        autoOpen: false,
+        modal: true,
+        resizable: false,
+        width: 'auto'
+    });
+
+            
+ 
+        });
+
+    //]]>
+    </script>          
+	</head>
+    <body>
+
+   
+
+   
+
+<!-- GLOBAL NAV BEGIN -->
+<form id="globalSearch" name="globalSearch"  action="/search.aspx" onsubmit="return globalNavSearchSubmit()" onkeypress="globalNavSearchKeypress(event)">
+<div id="gn">
+<div id="gnTop">
+        <div class="content">
+
+
+<ul class="nav"><li><a href="/default.aspx"  title="" class="" ><span>Home</span></a></li><li><a href="/Directory/default.aspx"  title="" class="" ><span>Directory</span></a></li><li><a href="http://www.uml.edu/calendar/" title="" class=""><span>Calendar</span></a></li><li><a href="http://libweb.uml.edu/" title="" class=""><span>Libraries</span></a></li><li><a href="/About/office-services.aspx"  title="" class="" ><span>Offices/Services</span></a></li><li><a href="http://www.uml.edu/maps/" title="" class=""><span>Maps/Directions</span></a></li><li><a href="http://www.uml.edu/events/" title="" class=""><span>Plan an Event</span></a></li><li><a href="http://www.uml.edu/hr/jobpostings/index.html" title="" class=""><span>Jobs</span></a></li></ul>
+
+
+
+            <div id="gn_emailButton" class="button"><a href="/student-Life/email.aspx">Email</a></div>
+            <div id="gn_isisButton" class="button"><a href="http://www.uml.edu/enrollment/isis/default.aspx">iSiS Login</a></div>
+        </div>
+    </div>
+    <div id="gnBottom">
+        <div class="content">
+            <a href="/default.aspx"><img id="gnLogo" src="/system/includes/images/logo.png" alt="UMass Lowell Logo" /></a>
+
+
+
+
+<ul class="nav"><li><a href="/Admissions-Aid/default.aspx"  title="" class="" ><span>Prospective Students </span></a></li><li><a href="/Student-Life/default.aspx"  title="" class="" ><span>Current Students </span></a></li><li><a href="/Faculty-Staff/default.aspx"  title="" class="" ><span>Faculty/Staff </span></a></li><li><a href="http://www.alumniconnections.com/olc/pub/UMCL/cpages/homepage/home.jsp " title="" class="" target="_blank"><span>Alumni/Friends </span></a></li><li><a href="http://www.uml.edu/community/" title="" class=""><span>Community</span></a></li><li><a href="/Pressroom/default.aspx"  title="" class="" ><span>Media</span></a></li><li><a href="http://www.uml.edu/advancement/give/default.html" title="" class=""><span>Support UML</span></a></li></ul>
+
+             <div id="gnSearchBoxContainer"><label style="text-indent: -9999px; position: absolute;" for="gnSearchBox">Search</label><input name="q" id="gnSearchBox" value="" type="text"><input type="submit" id="gnSearchButton" />
+            </div>
+</div>
+    </div>
+    <div id="gnSearchBoxBottom">
+        <div class="content">
+            <div id="gnRadios">
+                <input name="searchType" type="radio" value="website" checked="checked" id="radio1" /><label for="radio1">website</label>
+                <input name="searchType" type="radio" value="people" id="radio2" /><label for="radio2">people</label>
+            </div>
+        </div>            
+    </div>
+</div>
+</form>
+<div style="display:none;"><form id="peopleSearch" name="peopleSearch" method="post" action="/directory/people.aspx"><input type="hidden" name="q" value=""></form></div>
+<div style="display:none;"><form id="webSearch" name="webSearch" method="get" action="/search.aspx"><input type="hidden" name="q" value=""></form></div>
+<!-- GLOBAL NAV END -->   
+<form method="post" action="" id="theForm" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTAyNTA0MDU2Nw9kFgJmD2QWAmYPZBYCAgkPZBYCAgEPZBYCAgMPZBYCAhEPZBYCZg9kFggCAQ8QZA8WFgIBAgICAwIEAgUCBgIHAggCCQIKAgsCDAINAg4CDwIQAhECEgITAhQCFQIWFhYQBQhBY2FkZW1pYwUIQWNhZGVtaWNnEAUKQWRtaXNzaW9ucwUKQWRtaXNzaW9uc2cQBQZBbHVtbmkFBkFsdW1uaWcQBQxBcnRzICYgTXVzaWMFDEFydHMgJiBNdXNpY2cQBQlBdGhsZXRpY3MFCUF0aGxldGljc2cQBQZDYW1wdXMFBkNhbXB1c2cQBRRDb21tdW5pdHkgJiBPdXRyZWFjaAUUQ29tbXVuaXR5ICYgT3V0cmVhY2hnEAUHQ3VsdHVyZQUHQ3VsdHVyZWcQBQlFZHVjYXRpb24FCUVkdWNhdGlvbmcQBQtFbmdpbmVlcmluZwULRW5naW5lZXJpbmdnEAUPRmFjdWx0eSAmIFN0YWZmBQ9GYWN1bHR5ICYgU3RhZmZnEAUTRnVuZHJhaXNpbmcgJiBHaWZ0cwUTRnVuZHJhaXNpbmcgJiBHaWZ0c2cQBRRIZWFsdGggJiBFbnZpcm9ubWVudAUUSGVhbHRoICYgRW52aXJvbm1lbnRnEAUKSHVtYW5pdGllcwUKSHVtYW5pdGllc2cQBQ1JbnRlcm5hdGlvbmFsBQ1JbnRlcm5hdGlvbmFsZxAFCk1hbmFnZW1lbnQFCk1hbmFnZW1lbnRnEAUIUmVzZWFyY2gFCFJlc2VhcmNoZxAFCFNjaWVuY2VzBQhTY2llbmNlc2cQBQ9Tb2NpYWwgU2NpZW5jZXMFD1NvY2lhbCBTY2llbmNlc2cQBQxTdHVkZW50IExpZmUFDFN0dWRlbnQgTGlmZWcQBQhOZXdzbGluZQUITmV3c2xpbmVnEAUVRXhwZXJpZW50aWFsIExlYXJuaW5nBRVFeHBlcmllbnRpYWwgTGVhcm5pbmdnFgFmZAIDDxBkDxYEAgECAgIDAgQWBBAFBWVOZXdzBQVlTmV3c2cQBQtJbiBUaGUgTmV3cwULSW4gVGhlIE5ld3NnEAUNUHJlc3MgUmVsZWFzZQUNUHJlc3MgUmVsZWFzZWcQBQpOZXdzbGV0dGVyBQpOZXdzbGV0dGVyZxYBZmQCBQ8QZGQWAWZkAgcPEGQPFgtmAgECAgIDAgQCBQIGAgcCCAIJAgoWCxAFBDIwMDIFBDIwMDJnEAUEMjAwMwUEMjAwM2cQBQQyMDA0BQQyMDA0ZxAFBDIwMDUFBDIwMDVnEAUEMjAwNgUEMjAwNmcQBQQyMDA3BQQyMDA3ZxAFBDIwMDgFBDIwMDhnEAUEMjAwOQUEMjAwOWcQBQQyMDEwBQQyMDEwZxAFBDIwMTEFBDIwMTFnEAUEMjAxMgUEMjAxMmcWAQIKZGQ1oSWM4HhqBOxW3pGTlZCYOrKslLPBS5OPjpevCi6rCw==" />
+</div>
+
+<div id="mainContainer">
+    
+    <div id="watermark"></div>
+    <div id="topNav"><ul><li class="about"><a href="/About/default.aspx">ABOUT</a></li><li class="academics"><a href="/Academics/default.aspx">ACADEMICS</a></li><li class="research"><a href="/Research/default.aspx">RESEARCH</a></li><li class="admissions"><a href="/Admissions-Aid/default.aspx">ADMISSIONS &amp; AID</a></li><li class="studentlife"><a href="/Student-Life/default.aspx">STUDENT LIFE</a></li><li class="athletics"><a href="/Athletics-Recreation/default.aspx">ATHLETICS &amp; RECREATION</a></li></ul></div><div id="megamenu"><div id="mm_top"></div><div id="mm_body"><div id="mm_aboutColum"><ul><li><a href="/About/default.aspx">About UMass Lowell</a></li><li><a href="/Chancellor/Welcome.aspx">Chancellor's Welcome</a></li><li><a href="/About/quick-facts.aspx">Quick Facts</a></li><li><a href="/About/leadership/campus-leadership.aspx">Campus Leadership</a></li><li><a href="/About/about-lowell/default.aspx">About Lowell</a></li></ul></div><div id="mm_academicsColumn"><ul><li><a href="/Academics/provost-office/default.aspx">Office of the Provost</a></li><li><a href="/Academics/undergraduate-programs/default.aspx">Undergraduate Programs</a></li><li><a href="/Academics/Graduate-programs/default.aspx">Graduate Programs</a></li><li><a href="http://www.uml.edu/registrar/">Registrar's Office</a></li><li><a href="/Academics/colleges.aspx">Colleges &amp; Schools</a></li><li><a href="http://continuinged.uml.edu/">Online Learning</a></li><li><a href="/Experiential-Learning/default.aspx">Coop Program</a></li><li><a href="/CLASS/Tutoring/default.aspx">Tutoring</a></li><li><a href="/CLASS/Advising-Center/Advising-Center.aspx">Advising</a></li><li><a href="/Academics/Policies-Services/default.aspx">Academic Policies &amp; Services</a></li><li><a href="http://www.uml.edu/catalog/">Catalog</a></li></ul></div><div id="mm_researchColumn"><ul><li><a href="/Research/centers/default.aspx">Major Research Areas</a></li><li><a href="/Research/ORA/default.aspx">Research Administration</a></li><li><a href="/Research/OIC/default.aspx">Institutional Compliance</a></li><li><a href="/Research/cvip/default.aspx">Industry Collaboration (CVIP)</a></li><li><a href="/Research/ORA/policies.aspx">Research Policies and Guidelines</a></li></ul></div><div id="mm_admissionsColumn"><ul><li><a href="/admissions/default.aspx">Undergraduate</a></li><li><a href="/Grad/default.aspx">Graduate</a></li><li><a href="http://continuinged.uml.edu/">Continuing Education</a></li><li><a href="/admissions/information-for/transfers/default.aspx">Transfer Students</a></li><li><a href="/International-applicants/default.aspx">International Applicants</a></li><li><a href="/FinancialAid/default.aspx">Financial Aid</a></li><li><a href="/FinancialAid/scholarships/default.aspx">Scholarships/Fellowships</a></li><li><a href="http://www.uml.edu/ADMIN/AR/tuition.html">Tuition &amp; Fees</a></li><li><a href="/FinancialAid/info-for/graduate/Assistantships.aspx">Research &amp; Teaching Assistantships</a></li></ul></div><div id="mm_studentLifeColumn"><ul><li><a href="http://www-umlcal.umassadmin.net/wv331L2/wv3_servlet/urd/run/wv_event.DayList?evfilter=191808">Events Calendar</a></li><li><a href="http://www.uml.edu/student-services/reslife">Housing</a></li><li><a href="http://www.campusdish.com/en-us/CSNE/UMassLowell">Dining Services</a></li><li><a href="/About/facilities.aspx">Facilities on Campus</a></li><li><a href="http://www.uml.edu/student-services/student_activities/default.html">Student Clubs &amp; Activities</a></li><li><a href="http://www.uml.edu/student-services/">Student Services</a></li><li><a href="/Student-Life/Forms.aspx">Forms for Students</a></li><li><a href="/About/about-lowell/default.aspx">Life Outside Campus</a></li></ul></div><div id="mm_athleticsColumn"><ul><li><a href="http://www.uml.edu/campusrecreation/">Campus Recreation Center</a></li><li><a href="http://www.goriverhawks.com/">River Hawk Athletics</a></li><li><a href="http://www.goriverhawks.com/tickets/uml_student_season.html">Blue Fan Group</a></li><li><a href="http://www.goriverhawks.com/tickets/masl-tickets.html">Tickets</a></li><li><a href="http://www.uml.edu/campusrecreation/Intramurals/Intramurals.html">Intramural Sports</a></li><li><a href="http://www.uml.edu/campusrecreation/Group-Fitness/GroupFitness.html">Fitness Classes</a></li><li><a href="http://www.uml.edu/campusrecreation/Facilities/Facilities.html">Facilities</a></li></ul></div></div><div id="mm_bottom"></div></div>
+   <div id="mainBody">
+    
+       <div id="leftColumn-shadow"></div>
+        <div style="display:table-cell">
+            <div id="topContent">
+                <div id="leftNav">
+                    <div id="leftNav-row">
+                        <div id="leftNav-left"></div>
+                        <div id="leftNav-content">
+                            <img id="spotlight" src="/system/includes/images/spotlight.png" alt="Spotlight" />
+				
+									
+                            
+						
+					
+						
+					
+						
+							<ul><li><a href="http://www.uml.edu/facilities/Capital-Improvements/default.html" title="Building Progress" class=""><span>Building Progress</span></a></li><li><a href="http://www.uml.edu/Commencement/default.aspx" title="" class=""><span>Commencement 2012</span></a></li><li><a href="http://www.uml.edu/Academics/Explore.aspx" title="" class=""><span>Explore UMass Lowell</span></a></li></ul>						
+					
+						
+					
+						
+					
+						
+					
+						
+					
+                            <img id="fastfacts" src="/system/includes/images/fast-facts-home.png" alt="Fast Facts" />
+		<p>
+<div id="fastFacts"><p>The University is made up of three campus clusters </p></div></p>	
+                        </div>
+                        <div id="leftNav-right"></div>
+                    </div>            
+                    <div id="leftNav-bottom"></div>
+                </div>        
+ 
+<div id="featuresContainer">
+<div id="features">
+<div class="feature">
+  <div class="featureText">The Engineering Building – for 60 years a center for scientific discovery – finally has a name, thanks to distinguished alum and generous benefactor Barry Perry '68. <a href="/system/aspx/redirect.aspx?compURI=tcm:18-48607" title="Perry-Hall-Dedication">Learn more</a>. <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/hall-of-fame_tcm18-49113.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src=""><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/hall-of-fame-text_tcm18-49114.png" Alt="Hall of Fame"></div>
+</div>
+<div class="feature">
+  <div class="featureText">Thanks to a $1.6 million grant by the state, UMass Lowell's UTeach Program is preparing a new generation of science, technology, engineering and mathematics teachers. <a href="http://www.uml.edu/Academics/undergraduate-programs/UTeach/Default.aspx">Read more</a>. <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/uteach-bg_tcm18-48568.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src="/Images/uteach_tcm18-48569.png"><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/uteach-text_tcm18-48567.png" Alt="STEMming the Tide"></div>
+</div>
+<div class="feature">
+  <div class="featureText">Join Commencement speaker U.S. Secretary of the Interior Kenneth Salazar, other honorary degree recipients and special guests at the Commencement Eve scholarship fundraiser.  <a href="http://www.uml.edu/Commencement/Commencement-Weekend/Commencement-Eve.aspx">Learn more</a> <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/comm-eve-bg_tcm18-49300.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src="/Images/comm-eve_tcm18-49301.png"><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/comm-eve-text_tcm18-49299.png" Alt="Tribute to Commitment and Possibility"></div>
+</div>
+<div class="feature">
+  <div class="featureText"><p>Obama Cabinet member, Secretary of the Interior Kenneth Salazar, will address UMass Lowell's largest graduating class at Commencement on May 26. <a href="http://www.uml.edu/commencement">Learn more.</a></p> <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/salazar-bg_tcm18-47265.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src="/Images/salazar_tcm18-47266.png"><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/speaker-heading_tcm18-47267.png" Alt="Commencement Speaker"></div>
+</div>
+<div class="feature">
+  <div class="featureText">A $10M grant from the Massachusetts Life Sciences Center will help equip the new Emerging Technologies and Innovation Center with clean rooms for nano-fabrication. <a href="http://www.uml.edu/News/stories/2011-12/ETICupdate.aspx">Learn more</a>. <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/clean-start_tcm18-49327.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src=""><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/clean-start-text_tcm18-49326.png" Alt="Clean Start"></div>
+</div>
+<div class="feature">
+  <div class="featureText">The world premiere of Jack Kerouac's only play, "The Beat Generation," will be presented by UMass Lowell and Merrimack Repertory Theatre Oct. 10-14. <a href="http://www.uml.edu/kerouacplay">Learn more</a>. <a href=""></a></div>
+  <div class="primaryImage"><img src="/Images/beat-goes-on_tcm18-44022.jpg"><div id="featuresOverlayRight"></div>
+  </div>
+  <div class="secondaryImage"><img src="/Images/beat-goes-on_tcm18-44023.png"><div id="featuresOverlayBottom"></div>
+  </div>
+  <div class="headerImage"><img src="/Images/beat-goes-on-text_tcm18-44021.png" Alt="Beat Goes On"></div>
+</div>
+</div>
+</div>
+             
+      <div id="supportUml"><a href="http://www.uml.edu/advancement/give/default.html">Support UML</a></div>
+			
+				
+			
+				
+					<div id="socialIcons"><a href="/Social-Media/RSS.aspx"  title="" class="" ><span><img alt="RSS" src="/Images/rss_tcm18-20793.png" /></span></a><a href="http://www.facebook.com/umlowell" title="" class="" target="_blank"><span><img alt="facebook" src="/Images/facebook_tcm18-20794.png" /></span></a><a href=" http://www.youtube.com/umasslowell" title="" class="" target="_blank"><span><img alt="Youtube" src="/Images/youtube_tcm18-20791.png" /></span></a><a href="http://twitter.com/#!/umasslowell" title="" class="" target="_blank"><span><img alt="twitter" src="/Images/twitter_tcm18-20790.png" /></span></a><a href="http://www.linkedin.com/groups?gid=88968" title="" class="" target="_blank"><span><img alt="linkedin" src="/Images/linkedin_tcm18-20792.png" /></span></a><br /></div>				
+			
+				
+			
+				
+					<div id="studentLife" style="background-image:url(/Images/home-pic_tcm18-20797.png);"><h3 style="&#xD;&#xA;left:225px;&#xD;&#xA;"><a href="http://www.uml.edu/Experiential-Learning/default.aspx">Co-op: A Competitive Edge</a></h3><p>Our co-op students are ready for work, for life and for the world.</p></div>				
+			
+				
+			
+				
+			
+				
+										
+            </div>
+            <div id="bottomContent">
+<div id="headerBar">
+                    <div id="headerAdmissions"><h2><a href="/Admissions-Aid/default.aspx">ADMISSIONS</a></h2></div>
+                    <div id="headerEvents"><h2><a href="http://www.uml.edu/calendar/">EVENTS</a></h2> </div>
+                    <div id="headerNews"><h2><a href="/news/default.aspx">NEWS</a></h2> <a href="/system/aspx/feedpublisher.aspx?colleges=&departments=&newstypes=eNews|In%20The%20News|Newsletter|Press%20Release&maintopics=&length=50"><img alt="news rss" src="/system/includes/images/rss.png"></a></div>
+</div>
+		
+			
+				<div id="admissionsColumn"><div class="item"><a href="/admissions/default.aspx"  title="Get ready for the work place or graduate school with opportunities to learn through experience in almost every major. " class="" ><span><img alt="Undergraduate" src="/Images/undergrad-button_tcm18-20030.png" /></span></a><h3><div class="spacer"><!--empty div for formatting--></div><a href="/admissions/default.aspx"  title="Get ready for the work place or graduate school with opportunities to learn through experience in almost every major. " class="" ><span>Undergraduate</span></a></h3><p>Get ready for the work place or graduate school with opportunities to learn through experience in almost every major. </p></div><div class="item"><a href="/Grad/default.aspx"  title="Learn about the wide range of graduate choices that will get you ready for your next career move." class="" ><span><img alt="Graduate" src="/Images/graduate-button_tcm18-20029.png" /></span></a><h3><div class="spacer"><!--empty div for formatting--></div><a href="/Grad/default.aspx"  title="Learn about the wide range of graduate choices that will get you ready for your next career move." class="" ><span>Graduate</span></a></h3><p>Learn about the wide range of graduate choices that will get you ready for your next career move.</p></div><div class="item"><a href="http://continuinged.uml.edu/" title="Earn an undergraduate or graduate degree part-time, online and on campus. Customized corporate training programs available. " class=""><span><img alt="Online &amp; Continuing Education" src="/Images/cscde-button_tcm18-20858.png" /></span></a><h3><div class="spacer"><!--empty div for formatting--></div><a href="http://continuinged.uml.edu/" title="Earn an undergraduate or graduate degree part-time, online and on campus. Customized corporate training programs available. " class=""><span>Online &amp; Continuing Education</span></a></h3><p>Earn an undergraduate or graduate degree part-time, online and on campus. Customized corporate training programs available. </p></div></div>			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+			
+		
+                <div id="eventsNewsColumn">
+                    <div id="eventsColumn">
+	
+		<div class='content'><div class='events'><script type="text/javascript">
+            function rsrvInfo(rsrvID) {
+                var winName = '';
+   	            var winParams = 'height=450,width=550,toolbar=no,menubar=no,resizable=yes,scrollbars=yes';
+   	            var sURL = 'http://www-umlcal.umassadmin.net/wv331L2/wv3_servlet/urd/run/wv_event.Detail?id=' + rsrvID;
+		        if (rsrvID == -2) {
+			        // Blackout
+			        alert('This location is unavailable.');
+		        }else if ((rsrvID == -1) || (rsrvID == "")) {
+			        alert('You do not have security access to view details for this event.');
+		        }else{
+			        open(sURL, winName, winParams);
+		        }
+
+            }</script><div class="item"><div class="date"><div class="month">MAY</div><div class="day">07</div></div><p><a href="javascript:rsrvInfo('7378039');">Climate Change Event</a></p></div><div class="item"><div class="date"><div class="month">MAY</div><div class="day">07</div></div><p><a href="javascript:rsrvInfo('7373158');">Climate Change Event</a></p></div><div class="item"><div class="date"><div class="month">MAY</div><div class="day">08</div></div><p><a href="javascript:rsrvInfo('7338691');">Stress Relief Day</a></p></div><div class="item"><div class="date"><div class="month">MAY</div><div class="day">08</div></div><p><a href="javascript:rsrvInfo('7338693');">Stress Relief Day</a></p></div><div class="item"><div class="date"><div class="month">MAY</div><div class="day">08</div></div><p><a href="javascript:rsrvInfo('5135630');">River Hawks Excellence Awards Night</a></p></div></div></div>
+	                		
+                    </div>
+                    <div id="newsColumn">
+	
+		<div class="content">
+<div class="news">
+
+<div class="item">
+  <div class="photoBorder"><a href="/News/news-articles/2012/ETIC-Sun.aspx"><img src="/Images/thumbETIC-sun-350_tcm18-49283.jpg" alt="Kenneth J. Grizzell Leed, AP, project manager for the new UMass Lowell Emerging Technologies Building, shows different plumbing and duct work above the &quot;clean room&quot; to Julie Chen, Ph.D., vice provost for research."></a></div>
+  <p>Lowell Sun:
+				<a href="/News/news-articles/2012/ETIC-Sun.aspx">UMass Lowell 'Cleaning Up' on Nano-Tech Center</a></p>
+</div><div class="item">
+  <div class="photoBorder"><a href="/News/news-articles/2012/Sandbox-Sun.aspx"><img src="/Images/thumbsandbox-sun-350_tcm18-48910.jpg" alt="Desh Deshpande, far left, meets with local leaders at a Merrimack Valley Sandbox event yesterday. From left are Deshpande, Sandbox Executive Director Todd Fry, Director of Innovation and Entrepreneurship Nish Acharya, and keynote speaker and president of Harrow College, Tony Medhurst."></a></div>
+  <p>Lowell Sun:
+				<a href="/News/news-articles/2012/Sandbox-Sun.aspx">Pitch Your Idea at Sandbox's Latest Program</a></p>
+</div><div class="item">
+  <div class="photoBorder"><a href="/News/news-articles/2012/EPA-sun.aspx"><img src="/Images/thumbEPA-sun-350_tcm18-48869.jpg" alt="Those honored by EPA include, from left, Project Director Paul Morse; Marketing and Outreach Coordinator Therese O'Donnell; New England Regional Administrator Curt Spalding; UMass Lowell Professor Dr. Kenneth Geiser; principal Investigator of consortium, UMass Lowell professor Craig Slatin; and Training Manager David Coffey."></a></div>
+  <p>Lowell Sun:
+				<a href="/News/news-articles/2012/EPA-sun.aspx">EPA Honors UML Faculty for Protecting Others</a></p>
+</div><div class="item">
+  <div class="photoBorder"><a href="/News/news-articles/2012/Jarvis-Sun.aspx"><img src="/Images/jarvis-sun-tn_tcm18-48754.jpg" alt=""></a></div>
+  <p>Lowell Sun:
+				<a href="/News/news-articles/2012/Jarvis-Sun.aspx">Third Career a Charm for Outstanding Alum</a></p>
+</div>
+
+</div>
+
+<a href="http://www.uml.edu/news/?colleges=&departments=&newstypes=eNews|In The News|Newsletter|Press Release&maintopics=">More News</a>
+
+</div>	                		
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contentBody-shadow"><div id="hideShadow"></div></div>
+
+   </div> 
+ <div id="mainBody-bottom"></div>
+
+    
+    <div id="footer">
+        
+
+
+  <p>One University Avenue . Lowell, MA 01854 . 978-934-4000 - <br /><strong>Admissions</strong> - 883 Broadway Street, Dugan Hall, Lowell, MA 01854
+<br /></p>
+  <p>
+    <a href="http://www.umassonline.net" target="_blank">UMassOnline</a> | <a href="http://www.umassclub.com" target="_blank">UMass Club</a> | <a href="http://www.massachusetts.edu" target="_blank">UMass System</a></p>
+
+<!--SITE_EDIT_INIT-->
+
+
+    </div>
+<div id="newsdisplay" style="display:none;">
+<div id="container"></div>
+</div>
+<div id="newsloader" style="display:none;">
+<img src="/system/includes/images/uml_logo_stacked.jpg" alt="Loading" />
+</div>
+</div>         
+</form>
+</body>
+</html>

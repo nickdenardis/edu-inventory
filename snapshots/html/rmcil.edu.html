@@ -1,0 +1,396 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="keywords" content="Robert Morris University, RMU, Accelerated, Private, Accredited, Diverse, NAIA, CCAC, Business, Health, Computer, Art and Design, Fitness, Culinary Applied Education, College, Robert Morris University, RMU, Athletics, College Sports, Chicago, Orland Park, DuPage, Bensenville, Springfield, Peoria, Lake County, Colleges in Chicago, Business schools in Chicago" />
+<meta name="description" content="Official Website of Robert Morris University is a private not for profit, associate degree. bachelor degree, and graduate degree granting university. RMU serves students interested in getting an education that meets the demands of today's business, graphic arts, health care, culinary and technical world at its main campus in Chicago as well as at locations in Arlington Heights, Bensenville, DuPage (Aurora), Elgin, Lake County, Orland Park, Peoria, Schaumburg, and Springfield." />
+<link rel="apple-touch-icon" href="/images/rmu-logo.png">
+<title>Robert Morris University  - RMU</title>
+<link rel="stylesheet" type="text/css" href="/rmc_header.css" />
+<script type="text/javascript" src="/js/swfobject1-4/swfobject.js"></script>
+<script src="/js/jquery.js" type="text/javascript"></script>
+<script type="text/javascript">
+   <!-- Hide from older browsers.
+
+   
+	
+	 onreallife = new Image();
+     onreallife.src = "/images/home_real_life_over.gif";
+
+     offreallife = new Image();
+     offreallife.src = "/images/home_real_life.gif";
+
+     onchat = new Image();
+     onchat.src = "/images/home_chat_over.gif";
+
+     offchat = new Image();
+     offchat.src = "/images/home_chat.gif";
+	 
+     onchoose = new Image();
+     onchoose.src = "/images/home_choose_your_major_over.jpg";
+	 
+     offchoose = new Image();
+     offchoose.src = "/images/home_choose_your_major.jpg";
+	 
+     onnursing = new Image();
+     onnursing.src = "/images/home_nursing_button_over.gif";
+	 
+     offnursing = new Image();
+     offnursing.src = "/images/home_nursing_button.gif";
+	 
+     on2d4y = new Image();
+     on2d4y.src = "/images/home_2d4y_over.gif";
+	 
+     off2d4y = new Image();
+     off2d4y.src = "/images/home_2d4y.gif";
+	 
+     onrsvp = new Image();
+     onrsvp.src = "/images/RSVP-button-Rollover.gif";
+	 
+     offrsvp = new Image();
+     offrsvp.src = "/images/RSVP-button.gif";
+	 
+     function donothing() {}
+	 
+	 
+   // End hiding. -->
+   
+	 
+   // End hiding. -->
+
+var images = new Object();
+images["Regional-University-Web-Banner.jpg"] = { nextimg: "footballslideshowfootball-slide-_5.gif", href: "/experience" };
+images["footballslideshowfootball-slide-_5.gif"] = { nextimg: "CAD_slide.jpg", href: "http://www.robertmorris.edu/athletics/mensfootball/" };
+images["CAD_slide.jpg"] = { nextimg: "writingslide.jpg", href: "http://www.robertmorris.edu/artanddesign/cad/" };
+images["writingslide.jpg"] = { nextimg: "ExerciseHomepageSlide.jpg", href: "http://www.robertmorris.edu/rsvp/workshop2" };
+images["ExerciseHomepageSlide.jpg"] = { nextimg: "EyrieHomepageSlide.gif", href: "/healthstudies/fitness/" };
+images["EyrieHomepageSlide.gif"] = { nextimg: "TopWorkplaces2011.gif", href: "/eyrie" };
+images["TopWorkplaces2011.gif"] = { nextimg: "TransferTues_HomepageSlide.gif", href: "http://www.chicagotribune.com/business/careers/topworkplaces2011/" };
+images["TransferTues_HomepageSlide.gif"] = { nextimg: "Copy of Regional-University-Web-Banner.jpg", href: "http://www.robertmorris.edu/rsvp/openhouse" };
+images["Copy of Regional-University-Web-Banner.jpg"] = { nextimg: "EyrieHomepageSlide2.gif", href: "/experience" };
+images["EyrieHomepageSlide2.gif"] = { nextimg: "slideshow2Blog-Slide-2.png", href: "" };
+images["slideshow2Blog-Slide-2.png"] = { nextimg: "EyrieHomepageSlide3.gif", href: "http://www.robertmorris.edu/blogs/" };
+images["EyrieHomepageSlide3.gif"] = { nextimg: "passportchicago.gif", href: "" };
+images["passportchicago.gif"] = { nextimg: "MilitarySalute.gif", href: "/passportchicago" };
+images["MilitarySalute.gif"] = { nextimg: "EyrieHomepageSlide4.gif", href: "/military" };
+images["EyrieHomepageSlide4.gif"] = { nextimg: "Copy (2) of Regional-University-Web-Banner.jpg", href: "/eyrie" };
+images["Copy (2) of Regional-University-Web-Banner.jpg"] = { nextimg: "TransferTuesslide.gif", href: "/experience" };
+images["TransferTuesslide.gif"] = { nextimg: "EyrieHomepageSlide5.gif", href: "http://www.robertmorris.edu/rsvp/openhouse" };
+images["EyrieHomepageSlide5.gif"] = { nextimg: "Scholarship-Slideshow-2.gif", href: "" };
+images["Scholarship-Slideshow-2.gif"] = { nextimg: "Transfer-Slide-2010.jpg", href: "/scholarships" };
+images["Transfer-Slide-2010.jpg"] = { nextimg: "Regional-University-Web-Banner.jpg", href: "http://www.robertmorris.edu/transfer/#aa" };
+
+var interval = 4000;
+
+var slideimgs = [ {id: "slideshow",  current: true }, { id: "slideshow2",  current: false} ]
+$(function() {
+	var src = $("#slideshow").attr("src");
+	setTimeout("nextSlide('" + src + "')", interval);
+})
+
+function nextSlide(src) {
+	var nextSrc = images[src].nextimg;
+	for(var i =0; i < slideimgs.length; i++) {
+		if(slideimgs[i].current) {
+			$("#" + slideimgs[i].id + ":first").fadeOut("normal", function() { $(this).attr("src",images[nextSrc].nextimg) });
+			slideimgs[i].current = false;
+			if(i == (slideimgs.length -1)) {
+				var next = slideimgs[0];
+			} else {
+				var next = slideimgs[i+1];
+			}
+			next.current = true;
+				
+			$("#" + next.id + ":first").fadeIn().parent("#slideshowlink").attr("href", images[nextSrc].href);
+			break;
+		} 
+	}
+	setTimeout("nextSlide('" + nextSrc + "')", interval);
+	
+}
+   
+</script>
+
+<script type="text/javascript">
+function setBG(el, hex) {
+
+	el.style.backgroundColor = hex;
+}
+
+var searchCleared = 0;
+function clearSearch() {
+    if (searchCleared == 0) {
+        document.searchForm.keywords.value = "";
+        searchCleared = 1;
+    }
+}
+function goURL(selEl) { 
+	
+	if(selEl.value.length)
+		window.top.location.href = selEl.value;
+}
+</script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20899020-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+</head>
+
+<body class="homepage">
+
+
+
+<div align="center">
+  <div align="left" class="main">
+<!-- Begin Global Header -->
+	<div class="header"> 
+		<table width="710">
+		<tbody>
+			<tr>
+				<td width="710">
+					<a href="/"><img src="/images/CircleTop.png" border="0" alt="" class="png" /></a>
+					<table width="565"><tbody><tr><td>
+					<div class="rightbar">
+					<form method="get" action="/search/" name="searchForm" id="searchForm">
+								<input type="text" name="keywords" value="Search" size="15" class="searchField" onfocus="clearSearch();" />
+								<input type="submit" name="submit" class="searchSubmit" value="go" />
+								<select name="quickLinks" id="quickLinks" onchange="goURL(this);">
+									<option value="">Quick Links</option>
+?quicklinks?%							<option value=""> - - - - - - -</option>
+?quicklinks?%							<option value="http://rmuapp.robertmorris.edu/rmulogin/">MyRMU Portal</option>
+?quicklinks?%							<option value="http://mail.robertmorris.edu/">Email</option>
+?quicklinks?%							<option value="http://blackboard.robertmorris.edu/webapps/login/">Blackboard</option>
+?quicklinks?%							<option value="/icenter">ICenter Project Board</option>
+?quicklinks?%							<option value="/library">Library</option>
+?quicklinks?%							<option value="/studentrecords/transcripts">Transcript Request</option>
+?quicklinks?%							<option value="/currentstudents/taxforms/">Tax Form Request</option>
+?quicklinks?%							<option value=""> - - - - - - -</option>
+?quicklinks?%							<option value="/payment">Tuition Online Payment</option>
+?quicklinks?%							<option value="/admission/housing/payment">Housing Online Deposit</option>
+?quicklinks?%							<option value="/healthstudies/payment">Program Online Deposit</option>
+?quicklinks?%							<option value="">- - - - - - -</option>
+?quicklinks?%							<option value="/admission/housing">Housing</option>
+?quicklinks?%							<option value="/passportchicago">Passport Chicago</option>
+?quicklinks?%							<option value="/academicprograms">Academic Programs</option>
+?quicklinks?%							<option value="/coursecatalog">Course Catalog</option>
+?quicklinks?%							<option value="/studenthandbook">Student Handbook</option>
+?quicklinks?%							<option value="/masters/admission">Graduate Admissions</option>
+?quicklinks?%							<option value="/admission">Undergraduate Admissions</option>
+?quicklinks?%							<option value="/financialaid">Financial Aid</option>
+?quicklinks?%							<option value="/scholarships">Scholarships</option>
+?quicklinks?%							<option value="/financialaid/tuition">Tuition &amp; Fees</option>
+?quicklinks?%							<option value="http://ebookstore.robertmorris.edu">eBookstore</option>
+?quicklinks?%							<option value=""> - - - - - - -</option>
+?quicklinks?%							<option value="/careerservices">Career Services</option>
+?quicklinks?%							<option value="/alumnidevelopment/">Alumni &amp; Friends</option>
+?quicklinks?%							<option value=""> - - - - - - -</option>
+?quicklinks?%							<option value="/about/contactfaculty">Contact Faculty</option>
+?quicklinks?%							<option value="/faculty">Faculty &amp; Staff</option>
+?quicklinks?%							<option value=""> - - - - - - -</option>
+?quicklinks?%							<option value="/about/accreditation/">Accreditation</option>
+?quicklinks?%							<option value="/about/consumerinfo">Consumer Information</option>
+?quicklinks?%							<option value="/hr">Employment Opportunities</option>
+								</select>
+					</form>
+					</div>
+					</td></tr>
+					<tr><td>
+					<div class="nav_icon first">
+						<a href="http://www.facebook.com/RMUIllinois" target="_blank"><img src="/images/icon-facebook.gif" alt="" border="0" /></a><br />
+						<a href="http://www.facebook.com/RMUIllinois" target="_blank">Facebook</a>
+					</div>
+					<div class="nav_icon" onclick="location.href='http://rmuapp.robertmorris.edu/rmulogin/';">
+						<img src="/images/icon-myrmu.png" height='30' alt="" /><br />
+						<a href="http://rmuapp.robertmorris.edu/rmulogin/">My RMU</a>
+					</div>
+					
+					<div class="nav_icon" onclick="location.href='/rmcchat/';">
+						<img src="/images/icon-live-chat.gif" alt="" /><br />
+						<a href="/rmcchat/">Live Chat</a>
+					</div>
+					<div class="nav_icon" onclick="location.href='/contactus/';">
+						<img src="/images/icon-contact-us.gif" alt="" /><br />
+						<a href="/contactus/ ">Contact Us </a>
+					</div>
+					<div class="nav_icon" onclick="location.href='/apply';">
+						<img src="/images/icon-apply-online.gif" alt="Apply Online" /><br />
+						<a href="/apply/">Apply Online</a>
+					</div>
+					<div class="nav_icon" onclick="location.href='https://www.applyweb.com/public/inquiry?s=RMCINQ';">
+						<img src="/images/icon-request-info.gif" alt="" /><br />
+						<a href="https://www.applyweb.com/public/inquiry?s=RMCINQ">Request Info</a>
+					</div>
+					<div class="nav_icon" onclick="location.href='/visit/';">
+						<img src="/images/icon-visit-rmu.gif" alt="Visit RMU"/><br />
+						<a href="/visit/">Visit RMU</a>
+					</div>
+					</td></tr>
+					</tbody></table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="main_links"> 
+					<a href="/generalstudies/">College <em>of</em> Liberal Arts</a><br />
+					<a href="/healthstudies/">College <em>of</em> Nursing &amp; Health Studies</a><br />
+					<a href="/artanddesign/">Institute <em>of</em> Art &amp; Design</a><br />
+					<a href="/culinary/">Institute <em>of</em> Culinary Arts</a><br />
+					<a href="/cs/">Institute <em>of</em> Technology &amp; Media</a><br />
+					<a href="/business/">School <em>of</em> Business Administration</a><br />
+					<a href="/experiential/">Institute <em>for</em> Experiential Learning</a><br />
+					<a href="/masters/">Morris Graduate School <em>of</em> Management</a><br />
+					</div>
+					<div class="animation" style="position: relative;height: 148px;">
+<a id="slideshowlink" href="/experience">
+<img src="Regional-University-Web-Banner.jpg" border="0" id="slideshow" style="position: absolute; right:0px;"/>
+<img src="footballslideshowfootball-slide-_5.gif" border="0" id="slideshow2" style="display: none; position: absolute; right:0px;"/>
+</a>					</div>
+				</td>
+			</tr>
+		</tbody>
+		</table>
+		<div class="mainnav">
+			<a href="/about/">About <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/futurestudents/">Future Students <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/transfer">Adult & Transfer Students <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/currentstudents/">Current Students <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/athletics/">Athletics <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/campuses">Locations <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+			<a href="/news">Publications <img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+		</div>
+	</div>
+<!-- End Global Header -->
+<!--	<div class="homeheader" style="height: 193px; overflow: hidden;">
+	</div> 
+	<div class="mainnav">
+		<a href="/news/">News &amp; Events
+		<img src="/images/yellow_arrow.gif" border="0" alt="" /></a>
+	</div> -->
+	<div class="content">
+		<div class="homecomments">
+
+	<p style="text-align: right"><a href="/returning">Returning Students</a></p>
+	<p style="text-align: right"><a href="/eyrie">Eyrie Restaurant</a></p>
+	<p style="text-align: right"><a href="http://www.robertmorris.edu/eaglesportsnetwork/video/">Athletics - Live Streaming Video</a></p>
+	<p style="text-align: right"><a href="/icenter">ICenter</a></p>
+	<p style="text-align: right"><a href="/passportchicago">Passport Chicago</a></p>
+	<p style="text-align: right"><a target="_blank" href="/performingarts">Center for Performing Arts</a></p>
+	<p style="text-align: right"><a href="/military">Veterans</a></p>
+	<p style="text-align: right"><a href="/videocontest/winners">Student Experiences</a></p>
+	<p style="text-align: right"><a href="/blogs">Student Blogs</a></p>
+	<p style="text-align: right"><a target="_blank" href="https://www.applyweb.com/public/inquiry?s=RMCINQ">Request Information</a></p>
+	<p style="text-align: right"><a target="" href="/emergency">Emergency Information</a></p>
+	<p style="text-align: right"><a target="" href="/healthtips">RMU's Health Tips</a></p>
+		</div>
+		<div class="homecenter">
+			<div class="event">
+<!-- PageWiz links to staged news stories -->
+
+<div class="shownews-homepage">
+<!-- tso news stories pending approval -->
+
+<!-- regular news stories -->
+
+<script src="/news/shownews.cfm/n.js?cats=homepage,&amp;maxnews=18" type="text/javascript"></script>
+
+</div>
+
+			</div>
+
+<div class="homelinks"><br />
+
+			<div class="exp-link">
+				<img src="/images/ExperienceWebIcon.jpg" border="0" />
+				<div align="center"><a href="http://itunes.apple.com/us/app/id457620022?mt=8&ign-mpt=uo%3D4" target="_blank" class="homelnk">iPhone</a> <a href="http://itunes.apple.com/us/app/rmu-experience/id445901945?mt=8" target="_blank" class="homelnk">iPad</a></div>
+			</div>
+			<br />
+			<a onmouseover="iRoll.src=onrsvp.src"
+			onmouseout="iRoll.src=offrsvp.src"
+			href="/rsvp/openhouse/" title="RSVP Open House"><img 
+			alt="RSVP Open House" src="/images/RSVP-button.gif" border="0" 
+			name="iRoll" /></a>
+			
+
+            
+       
+            
+			<a onmouseover="lRoll.src=onchoose.src"
+			onmouseout="lRoll.src=offchoose.src" 
+			href="/futureaheadbook/" title="Choose Your Major"><img
+			alt="" src="/images/home_choose_your_major.jpg" border="0"
+			name="lRoll" /></a>
+            
+			<a onmouseover="mRoll.src=onnursing.src"
+			onmouseout="mRoll.src=offnursing.src" 
+			href="/healthstudies/nursing/presentation/" title="Nursing Presentation"><img
+			alt="" src="/images/home_nursing_button.gif" border="0"
+			name="mRoll" /></a>
+            
+         
+            
+
+		</div>
+		</div>
+
+
+	</div>
+
+
+</div>
+<!-- Begin Global Footer -->
+<div align="center">
+
+	<div class="footer">
+
+		<div class="contact">
+			800.762.5960 &bull; <script type="text/javascript" language="JavaScript">
+			<!--
+			var varPer = unescape("%2e");
+			var varCol = unescape("%3a");
+			var varAtSym = unescape("%40");
+			document.write('<a href="mail' + 'to' + varCol + 'enroll' + varAtSym +
+				'robertmorris' + varPer + 'edu">enroll' + varAtSym + 'robertmorris' + varPer + 'edu</a>');
+				-->
+			</script> &bull; 401 S. State Street, Chicago, IL  60605
+		</div>
+		<div align="center">
+		 <div class="footertext">
+		Robert Morris University is a private not-for-profit, associate, baccalaureate, and master's degree-granting institution, accredited by the Higher Learning Commission of the North Central Association of Colleges and Schools. RMU serves over 7000 students interested in getting an education that meets the demands of today's business, graphic arts, health care, culinary and technical world at its main campus in Chicago as well as at locations in Arlington Heights, DuPage, Elgin, Orland Park, Bensenville, Schaumburg, Springfield, Peoria and Lake County.
+		 </div>
+	</div>
+	</div>
+</div>
+<!-- End Global Footer -->
+
+
+</div>
+<script language="JavaScript1.1" type="text/javascript">
+    var CQK="FA8CAE1D" ;
+    var CQP=(("https:" == document.location.protocol) ? "https://" : "http://") ;
+    document.write(unescape("%3Cscript language=\"JavaScript1.1\" type=\"text/javascript\" src=\""+CQP+"js.clickequations.net/CLEQ_"+CQK+".js\" %3E%3C/script%3E" ));
+</script>
+<script type='text/javascript'>
+// Conversion Name: RMU Homepage
+var ebSession = '[SessionID]';
+var ebRand = Math.random()+'';
+ebRand = ebRand * 1000000;
+//<![CDATA[ 
+document.write('<scr'+'ipt src="HTTP://bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&amp;ActivityID=71525&amp;rnd=' + ebRand + '&amp;Session='+ebSession+'"></scr' + 'ipt>');
+//]]>
+</script>
+<noscript>
+<img width="1" height="1" style="border:0" src="HTTP://bs.serving-sys.com/BurstingPipe/ActivityServer.bs?cn=as&amp;ActivityID=71525&amp;Session=[SessionID]&amp;ns=1"/>
+</noscript>
+
+</body>
+</html>

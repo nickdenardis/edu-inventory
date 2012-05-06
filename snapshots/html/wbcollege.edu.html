@@ -1,0 +1,749 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Everest College in Portland | Formerly Western Business College (WBC)</title>
+<meta name="robots" content="index,follow, noodp" />
+<meta name="description" content="Western Business College has changed names to Everest College. Same great instructors, staff and classes, now with a nationally recognized name!" />
+<meta name="keywords" content="" />
+<meta name="author" content="Everest Colleges, Institutes and Universities" />
+
+<link type="text/css" rel="stylesheet" media="all" href="http://wbcollege.edu/themes/nclp_theme_2010/namechanged.css" />
+
+<!--[if lt IE 7]>
+<style type="text/css">
+
+#clip{
+	display:none
+}
+
+</style>
+<![endif]-->
+
+
+<script type="text/javascript">if (!(window.Prototype && window.Prototype.Version)){ document.write('<scrip' + 't type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6/prototype.js"></scrip' + 't>'); }</script>
+
+<script type="text/javascript" src="http://www.cci.edu/js/shadowbox/shadowbox.js"></script>
+<link rel="stylesheet" href="http://www.cci.edu/js/shadowbox/shadowbox.css" type="text/css" media="screen" />
+  <script type="text/javascript">Shadowbox.init({
+   skipSetup: true,
+   language: "en",
+   overlayOpacity: 0.6,
+   players: ["iframe"]
+  });
+  </script>
+<script type="text/javascript">
+	var isOpen = false;
+	function $Radio(name) {
+		var radios = $$('input[type=radio][name=' + name + ']');
+		if(radios.length > 0) {
+			for(var i=0; i<radios.length; i++) {
+				if($(radios[i]).checked) {
+					return $(radios[i]).value;
+				}
+			}
+		}
+		return null;
+	}
+	Element.addMethods(['select'], {
+		addOption: function(element, value, name) {
+			var option = document.createElement('option');
+			option.text = name;
+			if(value != "undfined")
+				option.value = value;
+			try{
+				$(element).add(option, null);
+			} catch(ex) {
+				$(element).add(option);
+			}
+		},
+		addOptions: function(element, options) {
+			var count = 0;
+			for(var i in options) {
+				count++;
+				$(element).addOption(i, options[i]);
+			}
+			return count;
+		},
+		selectIndex: function(element, value) {
+			if(value == null || value == "")
+				return;
+			for(var i=0; i<$(element).length; i++)
+			{
+				if($(element).options[i].value == value) {
+					$(element).selectedIndex = i;
+					return;
+				}
+			}
+		}
+	});
+	document.observe('dom:loaded', function(e){
+		if($('zipcode')) {
+			if($F('zipcode') != '') {
+				$('zipcode').fire('leadform:zipchange', {selectedProgram: ''});
+			}
+			$('zipcode').observe('blur', function(e){
+				$('zipcode').fire('leadform:zipchange');
+			});
+		}
+
+		if($('email')) {
+			$('email').observe('blur', function(e){
+				$('email').fire('leadform:emailblur');
+			});
+		}
+
+		if(Prototype.Browser.IE && $('program') && $('program').tagName == 'SELECT') {
+			$('program').observe('mouseover', function(e){
+				if($('program').options.length == 1) {
+					return;
+				}
+				var dimensions = e.target.getDimensions();
+				e.target.absolutize();
+				e.target.setStyle({'width': 'auto', 'height': dimensions.height});
+				if(dimensions.width > e.target.getDimensions().width){e.target.setStyle({'width' : dimensions.width});}
+				if(e.target.readAttribute('title') == "") {
+					e.target.writeAttribute({'title': dimensions.width});
+				}
+				e.target.fire('leadform:dropdownpositioned');
+			});
+			$('program').observe('blur', function(e){
+				if($('program').options.length == 1) {
+					return;
+				}
+				e.target.setStyle({'width': e.target.readAttribute('title') + 'px'});
+				e.target.undoPositioned();
+				isOpen = false;
+			});
+			$('program').observe('click', function(e){
+				isOpen = true;
+			});
+
+			$('program').observe('mouseout', function(e){
+				if($('program').options.length == 1) {
+					return;
+				}
+				if(!isOpen) {
+					e.target.setStyle({'width': e.target.readAttribute('title') + 'px'});
+					e.target.undoPositioned();
+					isOpen = false;
+				}
+			});
+		}
+	});
+	document.observe('leadform:zipchange', function(e){
+		if($F('zipcode').blank()) {
+			return;
+		}
+		$('zipcode').fire('leadform:startziplookup');
+		var program_type = '';
+		if($$('input[name="program_type"]').length > 0) {
+			if($$('input[name="program_type"]')[0].type == 'radio') {
+				program_type = '&program_type=' + $Radio('program_type');
+			} else {
+				program_type = '&program_type=' + $$('input[name="program_type"]')[0].value;
+			}
+		}
+		new Ajax.Request('/themes/_leadform/ziplookup.php?zipcode=' + $F('zipcode') + program_type, {
+			onComplete: function(req, json) {
+				if(json.programs && $('program') && $('program').tagName == 'SELECT') {
+					$('program').fire('leadform:programupdate');
+					// Bug fix. It will normally loop over the methods of the object.
+					var count = 0;
+					for(var i in json.programs) {
+						if(typeof(json.programs[i]) == 'function') {
+							continue;
+						}
+						count++;
+					}
+					if(count > 0) {
+						$('program').length = 0;
+						$('program').addOption('', '-- Select a Program --');
+						if($('custom_programs') && !$F('custom_programs').blank()) {
+							var custom_programs = $F('custom_programs').toUpperCase().split(/[^\w]+/);
+							for(var i in json.programs) {
+								if(i.match(/OL$/)) {
+									continue;
+								}
+								if(custom_programs.indexOf(i.toUpperCase()) == -1) {
+									delete json.programs[i];
+								}
+							}
+						}
+						$('program').addOptions(json.programs);
+						if(this.selectedProgram) {
+							$('program').selectIndex(this.selectedProgram);
+						}
+						if(json.online == true) {
+							$('program').fire('leadform:onlinenotice');
+						} else {
+							$('program').fire('leadform:groundnotice');
+						}
+					} else {
+						$('program').length = 0;
+						$('program').addOption('', 'No Programs in Your Area');
+					}
+
+					$('program').fire('leadform:programupdated');
+				}
+				if(json.location) {
+					if($('city') && json.location.city) {
+						$('city').value = json.location.city;
+						$('city').fire('leadform:cityupdate');
+					}
+					if($('state') && json.location.city) {
+						$('state').selectIndex(json.location.state);
+						$('state').fire('leadform:stateupdate');
+					}
+					if($('country') && json.location.city) {
+						$('country').selectIndex(json.location.country);
+						$('country').fire('leadform:countryupdate');
+					}
+				}
+				$('zipcode').fire('leadform:endziplookup');
+			}.bind({'selectedProgram': e.memo.selectedProgram})
+		});
+	});
+	$(document).observe('leadform:onlinenotice', function(e){
+		if(!$('program')) {
+			return;
+		}
+		if($('leadform-nocampuses') && $$('input[name=program_type]').length == 0) {
+			$('leadform-nocampuses').show();
+			return;
+		}
+		$(document.body).insert(new Element('div', {id: 'leadform-nocampuses'}).setStyle({position: 'absolute'}).hide().update('Unfortunately, there is no Everest campus currently in your area.  We suggest you consider one of our many online programs.').insert({top: new Element('span')}));
+		$('leadform-nocampuses').clonePosition($('program'), {setWidth: false, setHeight: false, offsetTop: -1 * ($('leadform-nocampuses').getHeight() / 2) + ($('program').getHeight() / 2), offsetLeft: $('program').getWidth() + 12});
+		if($$('input[name=program_type]').length == 0) {
+			$('leadform-nocampuses').show();
+		}
+	});
+	$(document).observe('leadform:groundnotice', function(e){
+		if($('leadform-nocampuses')) {
+			$('leadform-nocampuses').hide();
+		}
+	});
+</script>
+<style type="text/css">
+#leadform-nocampuses{
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: bold;
+	border: 2px solid #a7d4fc;
+	padding: 10px;
+	padding-left: 46px;
+	background: url(http://www.cci.edu/images/ppc/ppc_nocampuses_info.png) no-repeat 5px 50% #dbf6ff;
+	background: url(http://www.cci.edu/images/ppc/ppc_nocampuses_info.png) no-repeat 5px 50%,
+		-webkit-gradient(linear, left bottom, left top, color-stop(0, #dbf6ff), color-stop(0.65, #FFFFFF));
+	background: url(http://www.cci.edu/images/ppc/ppc_nocampuses_info.png) no-repeat 5px 50%,
+		-moz-linear-gradient(center bottom, #dbf6ff 0%, #FFFFFF 65%);
+	color: #333;
+	width: 200px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 2px 2px 1px #666;
+	-webkit-box-shadow: 2px 2px 1px #666;
+	box-shadow: 2px 2px 1px #666;
+}
+
+#leadform-nocampuses span{
+	width: 10px;
+	height: 19px;
+	background: url(http://www.cci.edu/images/ppc/ppc_nocampuses_arrow.png) no-repeat;
+	position: absolute;
+	left: -12px;
+	top: 50%;
+	margin-top: -10px;
+}
+</style>
+<script type="text/javascript">
+        document.observe('dom:loaded', function(e){
+			if(Shadowbox) {
+				Shadowbox.setup("a[href$=privacy.html]:not([rel*=shadowbox]),a.ppc-shadowbox:not([rel*=shadowbox])", {
+					player: 'iframe',
+					width:	500,
+					height: 500
+				});
+			}                if($('fname')) {
+                        document.observe('leadform:fnameupdate', function(e){
+
+				var id = $('fname').readAttribute('id');
+				if(!$F('fname').match(/^.{2,150}$/)) {
+					$('fname').addClassName('error');
+					$('fname').fire('leadform:haserror', {error_field: id});
+					$('fname').fire('leadform:' + id + '-haserror');
+				} else {
+					$('fname').removeClassName('error');
+					$('fname').fire('leadform:noerror', {error_field: id});
+					$('fname').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('lname')) {
+                        document.observe('leadform:lnameupdate', function(e){
+
+				var id = $('lname').readAttribute('id');
+				if(!$F('lname').match(/^.{2,150}$/)) {
+					$('lname').addClassName('error');
+					$('lname').fire('leadform:haserror', {error_field: id});
+					$('lname').fire('leadform:' + id + '-haserror');
+				} else {
+					$('lname').removeClassName('error');
+					$('lname').fire('leadform:noerror', {error_field: id});
+					$('lname').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('email')) {
+                        document.observe('leadform:emailupdate', function(e){
+
+				var id = $('email').readAttribute('id');
+				if(!$F('email').match(/^((?:(?:(?:[a-zA-Z0-9\-\+_][\.]?)*)[a-zA-Z0-9\-\+_])+)\@((?:(?:(?:[a-zA-Z0-9][\.\-_]?){0,62})[a-zA-Z0-9])+)\.([a-zA-Z0-9]{2,6})$/)) {
+					$('email').addClassName('error');
+					$('email').fire('leadform:haserror', {error_field: id});
+					$('email').fire('leadform:' + id + '-haserror');
+				} else {
+					$('email').removeClassName('error');
+					$('email').fire('leadform:noerror', {error_field: id});
+					$('email').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('zipcode')) {
+                        document.observe('leadform:zipcodeupdate', function(e){
+
+				var id = $('zipcode').readAttribute('id');
+				if(!$F('zipcode').match(/^(\d{5}(\-\d{4})?|[a-zA-Z]\d[a-zA-Z](\s\d[a-zA-Z]\d)?)$/)) {
+					$('zipcode').addClassName('error');
+					$('zipcode').fire('leadform:haserror', {error_field: id});
+					$('zipcode').fire('leadform:' + id + '-haserror');
+				} else {
+					$('zipcode').removeClassName('error');
+					$('zipcode').fire('leadform:noerror', {error_field: id});
+					$('zipcode').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('phone_area')) {
+                        document.observe('leadform:phone_areaupdate', function(e){
+
+				var id = $('phone_area').readAttribute('id');
+				if(!$F('phone_area').match(/^(\d{3}|\(?[1]?[-. ]?[0-9]{3}\)?[-. ]?[0-9]{3}[-. ]?[0-9]{4})$/)) {
+					$('phone_area').addClassName('error');
+					$('phone_area').fire('leadform:haserror', {error_field: id});
+					$('phone_area').fire('leadform:' + id + '-haserror');
+				} else {
+					$('phone_area').removeClassName('error');
+					$('phone_area').fire('leadform:noerror', {error_field: id});
+					$('phone_area').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('phone_pre')) {
+                        document.observe('leadform:phone_preupdate', function(e){
+
+				var id = $('phone_pre').readAttribute('id');
+				if(!$F('phone_pre').match(/^\d{3}$/)) {
+					$('phone_pre').addClassName('error');
+					$('phone_pre').fire('leadform:haserror', {error_field: id});
+					$('phone_pre').fire('leadform:' + id + '-haserror');
+				} else {
+					$('phone_pre').removeClassName('error');
+					$('phone_pre').fire('leadform:noerror', {error_field: id});
+					$('phone_pre').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('phone_suf')) {
+                        document.observe('leadform:phone_sufupdate', function(e){
+
+				var id = $('phone_suf').readAttribute('id');
+				if(!$F('phone_suf').match(/^\d{4}$/)) {
+					$('phone_suf').addClassName('error');
+					$('phone_suf').fire('leadform:haserror', {error_field: id});
+					$('phone_suf').fire('leadform:' + id + '-haserror');
+				} else {
+					$('phone_suf').removeClassName('error');
+					$('phone_suf').fire('leadform:noerror', {error_field: id});
+					$('phone_suf').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('address')) {
+                        document.observe('leadform:addressupdate', function(e){
+
+				var id = $('address').readAttribute('id');
+				if(!$F('address').match(/^.{2,300}$/)) {
+					$('address').addClassName('error');
+					$('address').fire('leadform:haserror', {error_field: id});
+					$('address').fire('leadform:' + id + '-haserror');
+				} else {
+					$('address').removeClassName('error');
+					$('address').fire('leadform:noerror', {error_field: id});
+					$('address').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('graddate')) {
+                        document.observe('leadform:graddateupdate', function(e){
+
+				var id = $('graddate').readAttribute('id');
+				if(!$F('graddate').match(/^((19|20)\d\d|[A-Z]+)$/)) {
+					$('graddate').addClassName('error');
+					$('graddate').fire('leadform:haserror', {error_field: id});
+					$('graddate').fire('leadform:' + id + '-haserror');
+				} else {
+					$('graddate').removeClassName('error');
+					$('graddate').fire('leadform:noerror', {error_field: id});
+					$('graddate').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('city')) {
+                        document.observe('leadform:cityupdate', function(e){
+
+				var id = $('city').readAttribute('id');
+				if(!$F('city').match(/^[^$]/)) {
+					$('city').addClassName('error');
+					$('city').fire('leadform:haserror', {error_field: id});
+					$('city').fire('leadform:' + id + '-haserror');
+				} else {
+					$('city').removeClassName('error');
+					$('city').fire('leadform:noerror', {error_field: id});
+					$('city').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}                if($('state')) {
+                        document.observe('leadform:stateupdate', function(e){
+
+				var id = $('state').readAttribute('id');
+				if(!$F('state').match(/^[^$]/)) {
+					$('state').addClassName('error');
+					$('state').fire('leadform:haserror', {error_field: id});
+					$('state').fire('leadform:' + id + '-haserror');
+				} else {
+					$('state').removeClassName('error');
+					$('state').fire('leadform:noerror', {error_field: id});
+					$('state').fire('leadform:' + id + '-noerror');
+				}
+			});
+		}		if($('phone_area')) {
+			$('phone_area').observe('change', function(e){
+				new Ajax.Request(document.location.pathname + '?EXPRESS-CONSENT-CHECK=' + $F('phone_area'), {onComplete: function(req, json){
+					if(!$('Express_consent')) {
+						var el = new Element('input', {type: 'hidden', name: 'Express_consent', value: '', id: 'Express_consent'});
+						$('phone_area').insert({after: el});
+					}
+					if(json === true) {
+						var name = document.location.hostname.match(/wyo/i) ? 'WyoTech' : (document.location.hostname.match(/heald/i) ? 'Heald' : 'Everest');
+						var conf = confirm('By selecting "OK", you give ' + name + ' express consent to contact you at the phone number(s) provided for the purposes of servicing this inquiry, contacting you in the future and removal of this number(s) from ' + name + '\'s Do Not Call list.');
+						if(conf) {
+							$('Express_consent').value = 'Y';
+						} else {
+							$('Express_consent').value = 'N';
+						}
+					} else {
+						$('Express_consent').value = '';
+					}
+				}});
+			});
+		}
+		if($('phone_area')) {
+			document.observe('leadform:phone_areaupdate-submit', function(e){
+			    if(!$('phone_pre')) {
+			        var value = $F('phone_area').replace(/[^\d]/g, '');
+			        var matches = [/9999999$/, /8888888$/, /7777777$/, /6666666$/, /5555555$/, /4444444$/, /3333333$/, /2222222$/, /2345678$/, /3456789$/, /4567890$/, /5551234$/, /5551212$/, /5555551234$/, /5555551212$/, /2223334444$/, /3334445555$/, /4445556666$/, /5556667777$/, /6667778888$/, /8889990000$/];
+
+			        for(var i=0; i<matches.length; i++) {
+			            if(value.match(matches[i])) {
+			                $('phone_area').addClassName('error');
+			                $('phone_area').fire('leadform:haserror', {error_field: 'phone_area'});
+			                $('phone_area').fire('leadform:phone_area-haserror');
+			                return;
+			            }
+			        }
+			    }
+			});
+		}
+		if($('fname')) {
+			document.observe('leadform:fnameupdate-submit', function(e){
+				if($F('fname').match(/[bcdfghjklmnpqrstvwxz]{6,}/i) || $F('fname').match(/^\d+$/) || $F('fname').match(/^asdf/i)) {
+					$('fname').addClassName('error');
+			        $('fname').fire('leadform:haserror', {error_field: 'fname'});
+			        $('fname').fire('leadform:fname-haserror');
+			        return;
+				}
+			});
+		}
+		if($('lname')) {
+			document.observe('leadform:lnameupdate-submit', function(e){
+				if($F('lname').match(/[bcdfghjklmnpqrstvwxz]{6,}/i) || $F('lname').match(/^\d+$/) || $F('lname').match(/^asdf/i)) {
+					$('lname').addClassName('error');
+			        $('lname').fire('leadform:haserror', {error_field: 'lname'});
+			        $('lname').fire('leadform:fname-haserror');
+			        return;
+				}
+			});
+		}
+		if($('fname') && $('lname')) {
+			document.observe('leadform:lasterrors', function(e){
+				var name = $F('fname') + ' ' + $F('lname');
+				var fullnames = [/john doe/i, /jane doe/i];
+				for(var i=0; i<fullnames.length; i++) {
+					if(name.match(fullnames[i])) {
+						$('lname').addClassName('error');
+				        $('lname').fire('leadform:haserror', {error_field: 'lname'});
+				        $('lname').fire('leadform:fname-haserror');
+						$('fname').addClassName('error');
+				        $('fname').fire('leadform:haserror', {error_field: 'lname'});
+				        $('fname').fire('leadform:fname-haserror');
+				        return;
+					}
+				}
+			});
+		}
+		if($('useragree')) {
+			document.observe('leadform:useragree-submit', function(e){
+				if($('useragree').checked == false) {
+					$('useragree').addClassName('error');
+					$('useragree').up(0).addClassName('error');
+			        $('useragree').fire('leadform:haserror', {error_field: 'useragree'});
+			        $('useragree').fire('leadform:useragree-haserror');
+			        return;
+				} else {
+					$('useragree').removeClassName('error');
+					$('useragree').up(0).removeClassName('error');
+			        $('useragree').fire('leadform:noerror', {error_field: 'useragree'});
+			        $('useragree').fire('leadform:useragree-noerror');
+			        return;
+				}
+			});
+		}
+		if($('email')) {
+			document.observe('leadform:emailblur', function(e){
+				var replacements =[{"find":"\/\\@yahoo\\.co$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.cm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.con$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.om$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.comm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.ocm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.coom$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahhoo\\.com$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.cpm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.vom$\/i","replace":"@yahoo.com"},{"find":"\/\\@yagoo\\.com$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.cpr$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.comn$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahyoo\\.com$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.copm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.come$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.comk$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.cok$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.ccom$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.conm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahooc\\.om$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.como$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.comj$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.cocm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahoo\\.colm$\/i","replace":"@yahoo.com"},{"find":"\/\\@yahii\\.com$\/i","replace":"@yahoo.com"},{"find":"\/\\@hotmai\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@homail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmial\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.co$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmal\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.om$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.con$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmaill\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotamil\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@homtail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hoymail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.ocm$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotnail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.net$\/i","replace":"@hotmail.com"},{"find":"\/\\@hottmail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.comm$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmailc\\.om$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotamail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmmail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hormail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.coml$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.cpm$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmaail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hootmail\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmail\\.coom$\/i","replace":"@hotmail.com"},{"find":"\/\\@hotmaol\\.com$\/i","replace":"@hotmail.com"},{"find":"\/\\@gmial\\.com$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.co$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.con$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.ca$\/i","replace":"@gmail.com"},{"find":"\/\\@gmaill\\.com$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.om$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.cm$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.cxom$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.cim$\/i","replace":"@gmail.com"},{"find":"\/\\@gmale\\.com$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.ocm$\/i","replace":"@gmail.com"},{"find":"\/\\@gmail\\.cpm$\/i","replace":"@gmail.com"},{"find":"\/\\@aol\\.con$\/i","replace":"@aol.com"},{"find":"\/\\@aol\\.om$\/i","replace":"@aol.com"},{"find":"\/\\@aol\\.co$\/i","replace":"@aol.com"},{"find":"\/\\@aool\\.com$\/i","replace":"@aol.com"},{"find":"\/\\@aol\\.xom$\/i","replace":"@aol.com"},{"find":"\/\\@live\\.om$\/i","replace":"@live.com"},{"find":"\/\\@live\\.con$\/i","replace":"@live.com"},{"find":"\/\\@ymail\\.cpr$\/i","replace":"@ymail.com"},{"find":"\/\\@ymail\\.om$\/i","replace":"@ymail.com"},{"find":"\/\\@comcat\\.net$\/i","replace":"@comcast.net"},{"find":"\/\\@msn\\.con$\/i","replace":"@msn.com"},{"find":"\/\\@msn\\.co$\/i","replace":"@msn.com"},{"find":"\/\\@msn\\.comm$\/i","replace":"@msn.com"},{"find":"\/\\@sbcglobal\\.com$\/i","replace":"@sbcglobal.net"},{"find":"\/\\@sbcglbal\\.net$\/i","replace":"@sbcglobal.net"},{"find":"\/\\@sbglobal\\.net$\/i","replace":"@sbcglobal.net"}];				for(var i in replacements) {
+					if(replacements[i].find) {
+						replacements[i].find = eval(replacements[i].find);
+						$('email').value = $F('email').replace(replacements[i].find, replacements[i].replace);
+					}
+				}
+			});
+		}
+		if($('zipcode')) {
+			document.observe('leadform:zipcodeupdate-submit', function(e){
+				var badzips = [/^0{5}/, /^1{5}/, /^3{5}/, /^6{5}/, /^7{5}/, /^8{5}/, /^9{5}/];
+				for(var i=0; i<badzips.length; i++) {
+					if($F('zipcode').match(badzips[i])) {
+						$('zipcode').addClassName('error');
+				        $('zipcode').fire('leadform:haserror', {error_field: 'zipcode'});
+				        $('zipcode').fire('leadform:zipcode-haserror');
+				        return;
+					}
+				}
+			});
+		}
+		if($('form1')) {
+			$('form1').observe('submit', function(e){
+				e.stop();
+				e.target.fire('leadform:formsubmitted');
+				$('form1').fire('leadform:fnameupdate');
+				$('form1').fire('leadform:fnameupdate-submit');				$('form1').fire('leadform:lnameupdate');
+				$('form1').fire('leadform:lnameupdate-submit');				$('form1').fire('leadform:emailupdate');
+				$('form1').fire('leadform:emailupdate-submit');				$('form1').fire('leadform:zipcodeupdate');
+				$('form1').fire('leadform:zipcodeupdate-submit');				$('form1').fire('leadform:phone_areaupdate');
+				$('form1').fire('leadform:phone_areaupdate-submit');				$('form1').fire('leadform:phone_preupdate');
+				$('form1').fire('leadform:phone_preupdate-submit');				$('form1').fire('leadform:phone_sufupdate');
+				$('form1').fire('leadform:phone_sufupdate-submit');				$('form1').fire('leadform:addressupdate');
+				$('form1').fire('leadform:addressupdate-submit');				$('form1').fire('leadform:graddateupdate');
+				$('form1').fire('leadform:graddateupdate-submit');				$('form1').fire('leadform:cityupdate');
+				$('form1').fire('leadform:cityupdate-submit');				$('form1').fire('leadform:stateupdate');
+				$('form1').fire('leadform:stateupdate-submit');			$('form1').fire('leadform:useragree-submit');				$('form1').fire('leadform:lasterrors');
+				var errors = $('form1').select('input.error,select.error')
+				if(errors.length > 0) {
+					e.target.fire('leadform:formhaserrors');
+					errors[0].activate();
+				} else {
+					e.target.fire('leadform:submittingform');
+					$('form1').submit();
+				}
+			});
+			$(document).observe('leadform:submittingform', function(e){
+				var submit_button = $$('#form1 input[type=submit]'), count = 0;
+				if(submit_button.length > 0) {
+					submit_button = submit_button[0];
+					submit_button.disable();
+					submit_button.addClassName('disabled');
+					window.setInterval(function(){
+						var dots = '.';
+						if(count == 1) {
+							dots = '..';
+						}
+						if(count == 2) {
+							dots = '...';
+							count = -1;
+						}
+						count++;
+						submit_button.value = 'Submitting' + dots;
+					}, 750);
+				}
+			});
+		}
+	});
+</script>
+<link rel="canonical" href="http://wbcollege.edu/" />
+</head>
+
+<body>
+
+<div id="wrapper">
+
+<div id="header">
+	<h3><a href="http://www.everest.edu"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/western_business_college.gif" alt="Western Business College is now Everest College" /></a></h3>
+</div><!-- end header -->
+
+<div id="body" class="clearfix">
+
+    <div id="main">
+
+<h1>Western Busines College (WBC) Is Now Everest</h1>
+<h2>Everest College in Portland &ndash; Formerly Western Business College</h2>
+<p>&nbsp;</p>
+<p><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/image5.jpg" alt="Everest Students " /></p>
+<p>Are you ready to invest in a bright future and start training for a  new career?&nbsp; Everest College in Portland, formerly Western Business  College, continues to uphold the same high-quality instruction given by  knowledgeable instructors and staff along with interactive classes.  While the school's location hasn't changed, students can now experience  the benefits of attending a nationally recognized institution such as  Everest College.</p>
+<h3><strong>Programs Offered at the Everest College Campus in Portland</strong></h3>
+<p>The Portland campus offers students a wide range of business,  computer information science, legal and health care programs from which  to choose, and includes:</p>
+<ul>
+<li><a href="http://accounting.everestcollege.edu/accounting-programs">Accounting Program</a></li>
+<li>Administrative Medical Assistant</li>
+<li>Business</li>
+<li>Business Accounting</li>
+<li>Computer Information Science</li>
+<li><a href="http://criminaljustice.everestcollege.edu/">Criminal Justice</a></li>
+<li>Legal Administrative Assistant</li>
+<li><a href="http://medicalassistant.everestcollege.edu/">Medical Assistant</a></li>
+<li><a href="http://medicalbilling.everestcollege.edu/">Medical Insurance Billing and Coding</a></li>
+<li>Network and Internet Security Specialist</li>
+<li>Paralegal/Legal Assistant</li>
+<li><a href="http://pharmacytechnician.everestcollege.edu/">Pharmacy Technician</a></li>
+</ul>
+<h3><strong>Realizing the Benefits of an Education at Everest</strong></h3>
+<p>Everest College programs offer a variety of benefits designed to  provide students with the hands-on training and classroom knowledge that  can help them become a success in their field.</p>
+<p>Our training benefits  include:</p>
+<ul>
+<li>Student support at every level</li>
+<li>Hands-on learning experiences</li>
+<li>Professional instructors with real-world knowledge </li>
+<li>Flexible class schedules</li>
+<li>And more</li>
+</ul>
+<p>Formerly Western Business College, the Portland campus has served  Portland's educational needs for the past 50 years. 30,000 square feet  of space in two buildings gives students plenty of room to learn and  build upon their future career possibilities.</p>
+<p>Centrally located near the TriMet Max Light Rail service, bus routes  and Pioneer Square, the campus provides a number of activities to assist  new students and those already enrolled.</p>
+<p>Request more information today and start training for a new and exciting career.</p>
+<p><strong>Visit Everest Colleges&rsquo;s campus in Portland:</strong></p>
+<div class="vcard">
+<blockquote>
+<h3><strong><a href="http://www.everest.edu/campus/portland"><span class="fn org">Portland Campus</span></a></strong></h3>
+</blockquote>
+<div class="adr">
+<blockquote>
+<p><em>425 SW Washington Street</em><br /> <em>Portland, OR 97204</em><br /> Phone: (503) 222-3225<br /> Fax: (503) 228-6926<br /> <a href="http://maps.google.com/maps?f=q&amp;hl=en&amp;q=425+SW+Washington+Street,Portland,OR,97204%20%28Everest+College+-+Portland%29&amp;ie=UTF8&amp;z=16&amp;om=1&amp;iwloc=addr" target="_blank">MAP &gt;</a></p>
+</blockquote>
+</div>
+</div>
+<h3>Western Business College Alumni</h3>
+<p>Are you alumni looking to find former classmates? We welcome you to  join other Western Business College Alumni on our Social Networks.  Connect with your friends, network for career advancement, and meet  other WBC  graduates.</p>
+<p><a href="http://www.facebook.com/Everest">Find us on Facebook!</a></p>
+
+    </div>
+
+
+	<div id="form">
+    <h3>Find out More!</h3>
+
+    <form id="form1" action="/" method="post">
+
+    <p><label for="fname">First Name: </label><input type="text" class="text" id="fname" name="fname"  /></p>
+    <p><label for="lname">Last Name: </label><input type="text" class="text" id="lname" name="lname" /></p>
+    <p><label for="address">Address: </label><input type="text" class="text" id="address" name="address"  /></p>
+    <p><label for="zipcode">Zip: </label><input type="text" class="text" id="zipcode" name="zipcode" /></p>
+    <p><label for="city">City: </label><input type="text" class="text" id="city" name="city" /></p>
+
+<p><label>State: </label> <select id="state" name="state">
+     <option value="">Select a State</option>
+     <option value="AL"  >Alabama</option><option value="AK"  >Alaska</option><option value="AB"  >Alberta</option><option value="AZ"  >Arizona</option><option value="AR"  >Arkansas</option><option value="BC"  >British Columbia</option><option value="CA"  >California</option><option value="CO"  >Colorado</option><option value="CT"  >Connecticut</option><option value="DE"  >Delaware</option><option value="DC"  >District of Columbia</option><option value="FL"  >Florida</option><option value="GA"  >Georgia</option><option value="GU"  >Guam</option><option value="HI"  >Hawaii</option><option value="ID"  >Idaho</option><option value="IL"  >Illinois</option><option value="IN"  >Indiana</option><option value="IA"  >Iowa</option><option value="KS"  >Kansas</option><option value="KY"  >Kentucky</option><option value="LA"  >Louisiana</option><option value="ME"  >Maine</option><option value="MB"  >Manitoba</option><option value="MH"  >Marshall Islands</option><option value="MD"  >Maryland</option><option value="MA"  >Massachusetts</option><option value="MI"  >Michigan</option><option value="MN"  >Minnesota</option><option value="MS"  >Mississippi</option><option value="MO"  >Missouri</option><option value="MT"  >Montana</option><option value="NE"  >Nebraska</option><option value="NV"  >Nevada</option><option value="NH"  >New Hampshire</option><option value="NJ"  >New Jersey</option><option value="NM"  >New Mexico</option><option value="NY"  >New York</option><option value="NC"  >North Carolina</option><option value="ND"  >North Dakota</option><option value="NP"  >Northern Mariana Islands</option><option value="NS"  >Nova Scotia</option><option value="OH"  >Ohio</option><option value="OK"  >Oklahoma</option><option value="ON"  >Ontario</option><option value="OR"  >Oregon</option><option value="PW"  >Palau</option><option value="PA"  >Pennsylvania</option><option value="PR"  >Puerto Rico</option><option value="QC"  >Qu&eacute;bec</option><option value="RI"  >Rhode Island</option><option value="SK"  >Saskatchewan</option><option value="SC"  >South Carolina</option><option value="SD"  >South Dakota</option><option value="TN"  >Tennessee</option><option value="TX"  >Texas</option><option value="UT"  >Utah</option><option value="VT"  >Vermont</option><option value="VI"  >Virgin Islands</option><option value="VA"  >Virginia</option><option value="WA"  >Washington</option><option value="WV"  >West Virginia</option><option value="WI"  >Wisconsin</option><option value="WY"  >Wyoming</option>    </select></p>
+
+    <p><label for="phone_area">Phone: </label><input type="text" class="text" id="phone_area" name="phone_area"  /></p>
+    <p><label for="email">Email: </label><input type="text" class="text" id="email" name="email" /></p>
+	<input type="image" src="http://wbcollege.edu/themes/nclp_theme_2010/images/form-btn2.gif" class="form-btn" />
+	<input type="hidden" name="adkey" value="IFENC001" />
+    </form>
+    <br />
+    <p class="privacy"><span>We value your Privacy</span><br />
+We do not share or sell your information!</p>
+    <p class="disclaimer">Your information will only be used by Everest. We do not and will not sell your information to any other party. By giving us your phone number, you are granting us permission for the possible use of prerecorded/artificial voice or text messages and/or automated dialing systems to contact you or deliver your requested information, as the law allows. And you agree that we may use any telephone number you provide, even if it is a mobile telephone number that may result in charges to you.</p>
+    <div id="clip"></div>
+  </div>
+
+
+</div><!-- end body -->
+
+
+</div><!-- end wrapper -->
+
+<div id="footer">
+	<div id="footer-content" class="clearfix">
+    <p id="copyright">&copy; 2012 Corinthian Colleges Inc.</p>
+    <div id="social">
+    	<ul>
+        <li><a href="http://www.facebook.com/Everest"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/social-icons-24/facebook.png" alt="Everest College Facebook Page" name="Everest College Facebook Page" /></a></li>
+        <li><a href="http://twitter.com/everest_college"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/social-icons-24/twitter.png" alt="Everest College Twitter Page" name="Everest College Twitter Page" /></a></li>
+        <li><a href="http://www.myspace.com/everestcolleges"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/social-icons-24/myspace.png" alt="Everest College Myspace Page" name="Everest College Myspace Page" /></a></li>
+        <li><a href="http://www.youtube.com/Everest"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/social-icons-24/youtube.png" alt="Everest College YouTube Page" name="Everest College YouTube Page" /></a></li>
+        <li><a href="http://everestcollege.wordpress.com"><img src="http://wbcollege.edu/themes/nclp_theme_2010/images/social-icons-24/wordpress.png" alt="Everest College Wordpress Blog" name="Everest College Wordpress Blog" /></a></li>
+        </ul>
+    </div>
+    
+    <div id="resources">
+    <h4>Resources</h4>
+    	<ul>
+        <li><a href="http://www.everest.edu">Official Everest Website</a></li>
+        <li><a href="http://info.everest.edu/?">Request Everest Information</a></li>
+        <li><a href="http://www.everest-college.com">Everest Directory</a></li>
+        <li><a href="http://resources.everest.edu">Everest College Resources</a></li>
+        <li><a href="http://www.medicalbillingcareer.org">Medical Insurance Billing Coding Resource</a></li>
+        </ul>
+    </div>
+    
+      <div id="programs">
+      <h4>Programs Offered</h4>
+    	<ul>
+        <li><a href="http://medicalassistant.everestcollege.edu/">Medical Assistant</a></li>
+        <li><a href="http://paralegal.everestcollege.edu/">Paralegal</a></li>
+        <li><a href="http://business.everestcollege.edu/">Business Administration</a></li>
+        <li><a href="http://criminaljustice.everestcollege.edu/">Criminal Justice</a></li>
+        <li><a href="http://pharmacytechnician.everestcollege.edu/">Pharmacy Technician Training</a></li>
+        </ul>
+    </div>
+
+    </div>
+
+</div><!-- end footer -->
+
+
+<img src="//cci.edu/c.gif" alt="tr p" />
+<div id="cci-disclosure-disclaimer" style="background: #cecece; color: #444; padding: 15px; margin:0; font-family: Arial, sans-serif; font-size: 13px; text-align: center; clear: both; overflow: hidden;">For more information about our graduation rates, the median debt of students who completed a program, and other important information, please visit our website at <a href="http://www.everest.edu/disclosures?dmredirect=IFENC001" target="_blank" rel="nofollow">http://www.everest.edu/disclosures</a>.</div>
+<!-- Omniture Begin -->
+<script type="text/javascript">var s_account = 'ccinclpwbcollegeedu,ccinamechangelandingpage';</script>
+<script type="text/javascript" src="http://cci.edu/om.js"></script>
+<script type="text/javascript">
+	s.pageName = 'wbcollege.edu - Home';
+	s.server = 'wbcollege.edu';
+	s.eVar3 = 'wbcollege.edu';
+	s.campaign = 'IFENC001';
+	s.linkInternalFilters = 'wbcollege.edu';
+	s.eVar5 = 'ccinclpwbcollegeedu,ccinamechangelandingpage';
+	var s_code=s.t();
+	if(s_code) {
+		document.write(s_code);
+	}
+</script>
+<noscript><a href="http://www.omniture.com" title="Web Analytics"><img src="http://ccippc.112.2O7.net/b/ss/ccinclpwbcollegeedu,ccinamechangelandingpage/1/H.20.3--NS/0" height="1" width="1" border="0" alt="" /></a></noscript>
+<!-- Omniture End -->
+
+</body>
+</html>
+
+<!-- 12 in 0.981339 -->

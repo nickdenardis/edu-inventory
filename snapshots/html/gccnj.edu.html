@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Gloucester County College</title>
+
+<!-- Head References -->
+<!-- This file contains HEAD javascript and references specifically for the Home Page -->
+
+<!-- Day and Date Function -->
+<script language="Javascript">
+<!-- Gracefully hide from old browsers
+var this_weekday_name_array = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")	//predefine weekday names
+var this_month_name_array = new Array("January","February","March","April","May","June","July","August","September","October","November","December")	//predefine month names
+
+var this_date_timestamp=new Date()	//get current day-time stamp
+
+var this_weekday = this_date_timestamp.getDay()	//extract weekday
+var this_date = this_date_timestamp.getDate()	//extract day of month
+var this_month = this_date_timestamp.getMonth()	//extract month
+var this_year = this_date_timestamp.getYear()	//extract year
+
+if (this_year < 1000)
+	this_year+= 1900;	//fix Y2K problem
+if (this_year==101)
+	this_year=2001;		//fix Netscape browsers - it displays the year as being the year 101!
+
+var this_date_string = this_weekday_name_array[this_weekday] + ", " + this_month_name_array[this_month] + " " + this_date + ", " + this_year	//concat long date string
+// -->
+</script>
+
+
+<!-- Rollover Image Javascript -->
+<script type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+
+
+<!-- Home Page Slideshow Javascript -->
+<script type="text/javascript">
+      
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+
+
+fadeimages[0]=["http://www.gccnj.edu/_images/ads/9.jpg", "http://www.gccnj.edu/courier/index-summer.cfm", "_new"]
+fadeimages[1]=["http://www.gccnj.edu/_images/ads/4.jpg", "http://www.gccnj.edu/announcements/militaryfriendly.cfm", "_new"]
+fadeimages[2]=["http://www.gccnj.edu/_images/ads/1.jpg", "http://www.gccnj.edu/announcements/vanguardveteranbooks.cfm", "_new"]
+fadeimages[3]=["http://www.gccnj.edu/_images/ads/5.jpg", "http://www.gccnj.edu/announcements/CitizensCampaign.cfm", "_new"]
+fadeimages[4]=["http://www.gccnj.edu/_images/ads/2.jpg", "http://www.gccnj.edu/announcements/2012foundationgolf.cfm", "_new"]
+fadeimages[5]=["http://www.gccnj.edu/_images/ads/6.jpg", "http://www.gccnj.edu/about_gcc/news_releases/pages/Fiscal11-12/PR072.cfm", "_new"]
+fadeimages[6]=["http://www.gccnj.edu/_images/ads/3.jpg", "http://www.gccnj.edu/athletics/mens_sports/baseball/BSB2012MediaGudie.cfm", "_new"]
+fadeimages[7]=["http://www.gccnj.edu/_images/ads/7.jpg", "http://www.gccnj.edu/announcements/pit.cfm", "_new"]
+
+
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</script>
+
+
+<!-- Portal Javascript -->
+<SCRIPT LANGUAGE="JavaScript" SRC="https://portal.gccnj.edu/js/clientsniffer.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="https://portal.gccnj.edu/js/util.js"></SCRIPT>
+<SCRIPT LANGUAGE="javascript1.1">
+<!-- (hide from old browsers)
+var userpwdFocus = false;
+function hadFocus(set)
+{
+    if (set) userpwdFocus = true;
+    return userpwdFocus;
+}
+function getCookie(name) {
+        var search = name + "="
+        if (document.cookie.length > 0) {
+                offset = document.cookie.indexOf(search)
+                if (offset != -1) { 
+                offset += search.length 
+                end = document.cookie.indexOf(";", offset) 
+                if (end == -1)
+                        end = document.cookie.length
+                return unescape(document.cookie.substring(offset, end))
+                }
+        }
+}
+function clearCache()
+{
+     var name="usid"
+     var value="chocolate-chip-cookies"
+     cookie= name + "=" + value + "; path=/cp; domain=.gccnj.edu; expires=" +
+        (new Date(0)).toGMTString();
+     if (getCookie (name) != value) document.cookie = cookie;
+     doCancel();
+}
+function doCancel()
+{
+     document.userid.user.value='';
+     document.cplogin.user.value='';
+     document.cplogin.pass.value='';
+}
+function OpenWin(w)
+{
+  var unDefined;
+  if (w == "help")
+  {
+    stats='resizable=yes,toolbar=no,location=no,directories=no,status=yes,menubar=no,'
+    stats += 'scrollbars=yes,width=650,height=475';
+    helpWindow = window.open ("http://portal.gccnj.edu/cp/site/loginhelp.html","helpWindow",stats)
+    setTimeout ("helpWindow.focus ()", 500);
+  }
+}
+function xferFocus()
+{
+   document.cplogin.pass.focus();
+}
+function login()
+{
+   setQueryAsCookie();
+   document.cplogin.user.value=document.userid.user.value;
+   document.cplogin.submit();
+}
+function setQueryAsCookie()
+{
+   var query = document.location.search;
+   if (query.length > 1) {
+      document.cookie = "query=" + escape(query) + "; path=/cp; domain=.gccnj.edu;"
+   } else {
+      document.cookie = "query=; path=/cp; domain=.gccnj.edu; expires=" +
+        (new Date(0)).toGMTString();
+   }
+}
+var size = "15";
+if ( ( is_nav4up || is_ie4up ) && is_mac ) { size = "12"; }
+else if ( is_nav4_7up) { size = "10"; }
+function OpenNotice()
+{
+                stats='resizable=no,scrollbars=no,toolbar=no,location=no,directories=no,status=no,menubar=no,';
+                stats += 'width=600,height=400';
+                noticeWindow = window.open ( /*URL*/ "/misc/tmNotice.html","tmNotice",stats)
+                setTimeout ("noticeWindow.focus ()", 500);
+}
+
+//-->
+</SCRIPT>
+<!-- This file contains HEAD javascript and references that are standard for all web pages -->
+
+<!-- GCC Favorites Icon or URL Icon -->
+<link rel="SHORTCUT ICON" href="http://www.gccnj.edu/_images/gccfavicon.ico">
+
+<!-- Default CSS -->
+<link href="http://www.gccnj.edu/_css/css_main.css" rel="stylesheet" type="text/css" />
+
+
+<!-- Top Navigation CSS -->
+<link href="http://www.gccnj.edu/_css/p7_cssexpress/p7exp/p7exp.css" rel="stylesheet" type="text/css">
+
+
+<!-- Top Navigation Javascript -->
+<script type="text/javascript" src="http://www.gccnj.edu/_css/p7_cssexpress/p7exp/p7exp.js"></script>
+<!--[if lte IE 7]>
+<style>
+#menuwrapper, #p7menubar ul a {height: 1%;}
+a:active {width: auto;}
+</style>
+<![endif]-->
+
+
+<!-- Google Site Tracker Javascript -->
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-188280-1";
+_udn="gccnj.edu";
+urchinTracker();
+</script>
+
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onload="P7_ExpMenu()";>
+
+<!-- <body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" onload=";deleteCookie(); if (!hadFocus(false)) document.userid.user.focus(); logoutBanner(); P7_ExpMenu();";> -->
+
+  <table align="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="20" bgcolor="#29568f"></td>
+    <td align="center" bgcolor="#29568f">&nbsp;</td>
+    <td bgcolor="#29568f"></td>
+  </tr>
+  <tr>
+    <td width="50%" height="70" bgcolor="#29568f"></td>
+    <td width="780" align="center" bgcolor="#29568f"><table width="780" border="0" cellpadding="0" cellspacing="0">
+      
+      <tr>
+        <td width="486" rowspan="2" align="left" valign="top"><a href="http://www.gccnj.edu"><img src="http://www.gccnj.edu/_images/logo_all_gcc2.jpg" width="479" height="49" border="0" /></a></td>
+        <td width="294" height="25" align="right" valign="top" class="header_main_links"><table width="250" border="0" cellspacing="0" cellpadding="0" class="header_main_links">
+          <tr>
+            <td width="49" align="left" valign="top"><a href="http://www.gccnj.edu">Home</a></td>
+            <td width="138" align="center" valign="top"><a href="http://www.gccnj.edu/about_gcc/personnel_directory.cfm">Personnel Directory</a></td>
+            <td width="63" align="right" valign="top"><a href="http://www.gccnj.edu/site_map.cfm">Site Map</a></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td valign="bottom" align="right">
+            <!-- Google CSE Search Box Begins  -->
+            <form action="http://www.gccnj.edu/google_search_results.cfm" id="searchbox_014181884290216960342:umhuw3dosdq">
+                <input type="hidden" name="cx" value="014181884290216960342:umhuw3dosdq" />
+                <input type="hidden" name="cof" value="FORID:11" />
+                <input type="text" name="q" size="25" />
+                <input type="submit" name="sa" value="Search" />
+            </td></form>
+          <script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=searchbox_014181884290216960342%3Aumhuw3dosdq&amp;lang=en">	
+			</script>
+            <!-- Google CSE Search Box Ends -->
+      </tr>      
+    </table></td>
+    <td width="50%" bgcolor="#29568f"></td>
+  </tr>
+  <tr>
+    <td height="20" bgcolor="#29568f"></td>
+    <td align="center" bgcolor="#29568f">&nbsp;</td>
+    <td bgcolor="#29568f"></td>
+  </tr>
+</table>
+</td>
+    </tr>
+    <tr>
+      <td><div style="position:relative; z-index:100"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+      <td width="50%"><img src="http://www.gccnj.edu/_images/nav_top_bkgd_line.jpg" width="100%" height="1" /></td>
+      <td><img src="http://www.gccnj.edu/_images/nav_top_bkgd_line.jpg" width="780" height="1" /></td>
+      <td width="50%"><img src="http://www.gccnj.edu/_images/nav_top_bkgd_line.jpg" width="100%" height="1" /></td>
+    </tr>
+
+    <tr>
+      <td width="50%" align="left" valign="top" background="http://www.gccnj.edu/_css/p7_cssexpress/p7exp/images/p7exp_mbar.jpg">&nbsp;</td>
+      <td width="780" align="left" valign="top"><div id="menuwrapper">
+<ul id="p7menubar">
+	<li><a class="trigger" href="http://www.gccnj.edu/about_gcc/collegeoverview/index.cfm">ABOUT GCC</a>
+		<ul>
+		<li><a href="http://www.gccnj.edu/security/">Campus Security</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/collegeoverview/">College Overview</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/contact_us.cfm">Contact Us</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/directions.cfm">Directions</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/employment.cfm">Employment</a></li>
+		<li><a href="http://www.gccnjfoundation.org/">Foundation &amp; Alumni</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/news_releases/index.cfm">News Releases</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/personnel_directory.cfm">Personnel Directory</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/press_room.cfm">Pressroom</a></li>
+		<li><a href="http://www.gccnj.edu/RPA/index.cfm">Research, Planning &amp; Assessment</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/StudentRightoKnow/index.cfm">Student Right to Know</a></li>
+		<li><a href="http://www.gccnj.edu/about_gcc/vendors.cfm">Vendors</a></li>
+		</ul>
+	</li>
+	<li><a class="trigger" href="http://www.gccnj.edu/courier/academics/">ACADEMICS</a>
+		<ul>
+		<li><a href="http://www.gccnj.edu/academics/academic_calendar.cfm">Academic Calendar</a></li>
+		<li><a href="http://www.gccnj.edu/academics/academic_policies.cfm">Academic Policies</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/student_development/advisement.cfm">Advisement</a></li>
+		<li><a href="http://www.gccnj.edu/certificates/">Certificate Programs</a></li>
+		<li><a href="http://commencement.gccnj.edu/">Commencement</a></li>
+		<li><a href="http://www.gccnj.edu/academics/divisions_and_programs.cfm">Divisions &amp; Programs</a></li>
+		<li><a href="http://www.gccnj.edu/academics/faculty_and_staff.cfm">Faculty &amp; Staff</a></li>
+		<li><a href="http://www.gccnj.edu/library/index.cfm">Library</a></li>
+	    <li><a href="http://www.gccnj.edu/academics/student_success_center/">Testing Services</a></li>
+	    <li><a href="http://www.gccnj.edu/tutoring/">Tutoring Services</a></li>
+		</ul>
+	</li>
+	<li><a class="trigger" href="http://www.gccnj.edu/courier/admissions/apply.cfm">ADMISSIONS</a>
+	  <ul>
+		<li><a href="http://www.gccnj.edu/prospective/apply_now.cfm">Apply Now</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/academics/coursecatalog.cfm">Catalogs & Couriers</a></li>
+		<li><a href="http://www.gccnj.edu/courier/">Course Offerings</a></li>
+		<li><a href="http://www.gccnj.edu/admissions/withdrawal_dates.cfm">Drop &amp; Withdrawal Deadlines</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/getstarted.cfm">Getting Started</a></li>
+		<li><a href="http://orientation.gccnj.edu/">New Student Orientation</a></li>
+		<li><a href="http://www.gccnj.edu/admissions/nj_stars.cfm">NJ STARS</a></li>
+		<li><a href="http://orientation.gccnj.edu/placement_test/">Placement Test</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/">Prospective Students</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/registration.cfm">Registration</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/selectiveadmissions.cfm">Selective Admissions</a></li>
+		<li><a href="http://www.gccnj.edu/prospective/transfer.cfm">Transferring to GCC</a></li>
+		<li><a href="http://www.gccnj.edu/admissions/tuition_and_fees.cfm">Tuition &amp; Fees</a></li>
+		</ul>
+	</li>
+	<li><a class="trigger" href="http://www.gccnj.edu/student_services/index.cfm">STUDENT SERVICES</a>
+		<ul>
+		<li><a href="http://www.gccnj.edu/student_services/BusinessOffice/index.cfm">Business Office</a></li>
+		<li><a href="http://www.gccnj.edu/it/index.cfm">Campus Technology</a></li>
+		<li><a href="http://www.gccnj.edu/cap/">Career &amp; Academic Planning (CAP) Center</a></li>
+		<li><a href="http://www.gccnj.edu/ce/ecec/">Childcare / ECEC</a></li>
+		<li><a href="http://www.gccnj.edu/eof/">Educational Opportunity Fund (EOF)</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/financial_aid/index.cfm">Financial Aid</a></li>
+        <li><a href="http://www.gccnj.edu/student_services/the_hub.cfm">Information Center</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/people_in_transition/index.cfm">People in Transition</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/special_needs/index.cfm">Special Services</a></li>
+		<li><a href="http://www.gccnj.edu/sac/">Student Assistance Center (SAC)</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/student_development/index.cfm">Student Development</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/student_activities/index.cfm">Student Life</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/student_records.cfm">Student Records</a></li>
+        
+		</ul>
+	</li>
+	<li><a class="trigger" href="#">QUICK LINKS</a>
+	  <ul>
+		<li><a href="http://www.gccnj.edu/athletics/index.cfm">Athletics</a></li>
+		<li><a href="http://gloucestercc.bncollege.com">Bookstore</a></li>
+		<li><a href="http://www.gccnj.edu/chick-fil-a/">Chick-fil-A</a></li>
+		<li><a href="http://www.gccnj.edu/ce/">Continuing Education</a></li>
+		<li><a href="http://www.gccnj.edu/admissions/course_offerings.cfm">Course Offerings</a></li>
+		<li><a href="http://www.gccnj.edu/student_services/people_in_transition/index.cfm">Displaced Homemakers</a> </li>
+		<li><a href="http://elearning.gccnj.edu">Distance Learning</a></li>
+		<li><a href="http://fireacademy.gccnj.edu/">Fire Academy</a></li>
+		<li><a href="http://www.gccnj.edu/library/index.cfm">Library</a></li>
+		<li><a href="http://orientation.gccnj.edu/">New Student Orientation</a></li>
+		<li><a href="http://www.gccnj.edu/PoliceAcademy/">Police Academy</a></li>
+		<li><a href="http://www.gccnj.edu/roadrunnercafe/">Roadrunner Cafe</a></li>
+	    <li><a href="http://www.gccnj.edu/Testing/">Testing Services</a></li>
+	    <li><a href="http://www.gccnj.edu/tutoring/">Tutoring Services</a></li>
+	  </ul>
+	</li>
+</ul>
+<br class="clearit">
+</div></td>
+      <td width="50%" align="left" valign="top" background="http://www.gccnj.edu/_css/p7_cssexpress/p7exp/images/p7exp_mbar.jpg">&nbsp;</td>
+    </tr>
+</table> </div></td>
+    </tr>    
+    <tr>
+      <td><div style="position:static; z-index:99"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+  <tr>
+    <td width="50%" height="230" align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="27%" align="left" valign="middle"><table width="210" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25" align="center" valign="top" class="portal_login_header1">GCC PORTAL</td>
+          </tr>
+          <tr>
+            <td><style type="text/css">
+<!--
+.style1 {font-size: 10px}
+-->
+</style>
+<table width="210" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ede7d0">
+  <tr>
+    <td rowspan="3"><img src="_images/boxes/box_portal/box_portal_left.jpg" width="10" height="100"/></td>
+    <td><img src="_images/boxes/box_portal/box_portal_top.jpg" width="187" height="1" /></td>
+    <td rowspan="3"><img src="_images/boxes/box_portal/box_portal_right.jpg" width="13" height="100"/></td>
+  </tr>
+  <tr>
+    <td><table width="187" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="75" height="27" align="right" valign="middle" class="portal_login_text1">User Name: </td>
+        <td width="12">&nbsp;</td>
+        <td colspan="2" valign="top">
+			<form name="userid" onSubmit="xferFocus(this); return false;">          
+			  <input name="user" type="text" style="position:absolute; width:90px;" tabindex="1" onFocus="hadFocus(true)" />
+			</form>		</td>
+      </tr>
+      <tr>
+        <td height="26" align="right" valign="middle" class="portal_login_text1">Password:</td>
+        <td>&nbsp;</td>
+        <td colspan="2" valign="top">
+			<form name="cplogin" action="https://portal.gccnj.edu/cp/home/login" onSubmit="login(); return false;" method="post">
+			  <input name="pass" type="password" style="position:absolute; width:90px;" tabindex="2" onFocus="hadFocus(true)" />
+			  </script><input type="hidden" name="user" value="" /> <input type="hidden" name="uuid" value="0xACA021"/>
+            </form>		</td>
+      </tr>
+      <tr>
+        <td colspan="2" align="right" valign="middle" class="portal_login_links">
+			<a href="https://portal.gccnj.edu/cp/myqa/answer/start" class="style1">Forgot Password?</a></td>
+        <td width="95" align="right" valign="middle"><a href="javascript:login();" onMouseover="window.status=''; return true;">
+			<img src="_images/boxes/box_portal/box_portal_btn_login.jpg"
+			title="Login" border="0" width="51" height="20" tabindex="3" onLoad="clearCache()"></a>		</td>
+        <td width="5" align="right" valign="middle">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="bottom"><img src="_images/boxes/box_portal/box_portal_bottom.jpg" width="187" height="5" /></td>
+  </tr>
+</table>
+</td>
+          </tr>
+          <tr>
+            <td height="19">&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="19" align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center"><a href="http://www.gccnj.edu/prospective/apply_now.cfm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Apply','','_images/buttons/btn_portal/btn_portal_apply2.jpg',1)"><img src="_images/buttons/btn_portal/btn_portal_apply1.jpg" name="Apply" width="60" height="48" border="0" id="Apply" /></a></td>
+    <td align="center"><a href="http://elearning.gccnj.edu" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('eLearning','','_images/buttons/btn_portal/btn_portal_elearning2.jpg',1)"><img src="_images/buttons/btn_portal/btn_portal_elearning1.jpg" name="eLearning" width="60" height="48" border="0" id="eLearning" /></a></td>
+    <td align="center"><a href="http://www.gccnj.edu/courier" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Register','','_images/buttons/btn_portal/btn_portal_register2.jpg',1)"><img src="_images/buttons/btn_portal/btn_portal_register1.jpg" name="Register" width="60" height="48" border="0" id="Register" /></a></td>
+  </tr>
+</table>
+</td>
+          </tr>
+        </table></td>
+        <td width="73%" height="230" align="right" valign="middle"><!-- Change pictures for the slideshow by modifying javascript in "home.html" under the "_head" folder -->
+
+<script type="text/javascript">
+		
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+new fadeshow(fadeimages, 525, 200, 0, 5000, 0)
+
+</script>		</td>
+      </tr>
+    </table></td>
+    <td width="50%" align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="3" height="25" align="left" valign="top" bgcolor="#595959">
+		  
+		
+		<!-- Display Message -->
+		
+			
+		
+		  
+		
+		
+		<!-- Display Message -->
+		
+			</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+    <td align="left" valign="top" bgcolor="#ede7d0"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      
+      <tr>
+        <td bgcolor="#ebebeb">&nbsp;</td>
+      </tr>
+      <tr>
+        <td><table width="780" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="200" align="left" valign="top" bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><span class="category_header_standard">W</span><span class="category_header_standard2">ELCOME</span><br />
+            <img src="_images/line_category_headers.jpg" width="100%" height="1" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td width="195" height="90" valign="bottom" class="left_nav_home_page_links"><a href="http://www.gccnj.edu/prospective/">Prospective Students</a><br />
+            <a href="current_students/index.cfm">Current Students</a><br />
+            <a href="http://www.gccnjfoundation.org/">Foundation &amp; Alumni</a><br />
+    <a href="student_services/special_needs/index.cfm">Special Services </a></td>
+    <td width="5">&nbsp;</td>
+  </tr>
+  <tr>
+    <td height="25">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="category_header_standard">L</span><span class="category_header_standard2">EARN MORE </span><br />
+            <img src="_images/line_category_headers.jpg" width="100%" height="1" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  
+  <tr>
+    <td height="170" valign="bottom" class="left_nav_home_page_links"><a href="athletics/index.cfm">Athletics</a><br />
+      <a href="http://www.gccnj.edu/ce/">Continuing Education</a><br />
+            <a href="course_offerings/index.cfm">Course Offerings</a><br />
+            <a href="http://elearning.gccnj.edu">Distance Learning</a><br />
+            <a href="http://www.gccnj.edu/fire_academy/">Fire Academy</a><br />
+            <a href="library/index.cfm">Library</a><br />
+            <a href="http://www.gccnj.edu/PoliceAcademy/">Police Academy</a><br />
+            <a href="http://www.gccnj.edu/security/">Safety &amp; Security</a><br />
+    		<a href="http://www.gccnj.edu/testing/">Testing</a><br />
+    		<a href="http://www.gccnj.edu/tutoring/">Tutoring</a>
+            </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</td>
+            <td width="5" rowspan="2" align="right" valign="top" bgcolor="#ebebeb"></td>
+            <td width="10" align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td width="360" align="left" valign="top" bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="360" align="left" valign="top"><span class="category_header_standard">N</span><span class="category_header_standard2">EWS &amp; EVENTS</span><br />
+        <img src="_images/line_category_headers.jpg" width="100%" height="1" /></td>
+    <td width="5" align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><!-- Default CSS -->
+<link href="http://www.gccnj.edu/_css/css_main.css" rel="stylesheet" type="text/css" /><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top"><a href="http://www.gccnj.edu/student_services/financial_aid/LoanExitCounseling.cfm"><img src="http://www.gccnj.edu/_images/news_icons/DollarSigns.jpg" alt="Dollar signs" width="65" height="65" border="0" /></a></td>
+    <td align="left" valign="top"></td>
+    <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="left" valign="top" class="news_icon_links"><a href="http://www.gccnj.edu/student_services/financial_aid/LoanExitCounseling.cfm">Loan Exit Counseling</a></td>
+        </tr>
+      <tr>
+        <td align="left" valign="top" class="news_icon_text">Attention Graduates who received a federal loan - you  must complete an exit exam to receive your diploma.<a href="http://www.gccnj.edu/student_services/financial_aid/LoanExitCounseling.cfm"> More...</a></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="66" align="left" valign="top"><a href="http://www.gccnj.edu/admissions/nj_stars.cfm"></a><a href="http://www.gccnj.edu/courier/"><img src="http://www.gccnj.edu/_images/news_icons/courier.jpg" alt="Course Registration Information" width="65" height="65" border="0" /></a><a href="http://www.gccnj.edu/continuing_education/camps_and_student_programs/index.cfm"></a></td>
+    <td width="10" align="left" valign="top">&nbsp;</td>
+    <td width="896" align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="left" valign="top"><span class="news_icon_links"><a href="http://www.gccnj.edu/courier/" target="_parent">Course Registration Information</a></span></td>
+            </tr>
+          <tr>
+            <td align="left" valign="top" class="news_icon_text">Click <a href="http://www.gccnj.edu/courier/">HERE</a> to visit the Course Registration Information site to view  Summer  &amp; Fall 2012 classes and information.</td>
+            </tr>
+          </table></td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top" class="news_icon_text">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><a href="http://www.gccnj.edu"></a><a href="http://commencement.gccnj.edu/"></a><a href="http://www.gccnj.edu/ce/summercamp/"><img src="http://www.gccnj.edu/_images/news_icons/summercamp2012.jpg" alt="Summer camp kids" width="65" height="65" border="0" /></a></td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top" class="news_icon_text"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="left" valign="top"><a href="http://www.gccnj.edu/ce/summercamp/" target="_parent" class="news_icon_links">Summer Camp 2012</a><a href="http://www.gccnj.edu/announcements/CapWorkshop4-12.cfm" target="_parent" class="news_icon_links"></a></td>
+        </tr>
+      <tr>
+        <td align="left" valign="top" class="news_icon_text">Look what's happening at GCC Summer Camps! Click <a href="http://www.gccnj.edu/ce/summercamp/">HERE</a> to register online.</td>
+        </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top" class="news_icon_text">&nbsp;</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><a href="http://www.gccnj.edu/admissions/nj_stars.cfm"></a><a href="http://www.gccnj.edu/continuing_education/camps_and_student_programs/index.cfm"></a><a href="http://www.gccnj.edu/admissions/registration_dates.cfm"></a><a href="http://www.gccnj.edu/news_and_alerts/rotating_ads/facebook.cfm" target="_parent"></a><a href="http://commencement.gccnj.edu/" target="_parent"><img src="http://www.gccnj.edu/_images/news_icons/commencement2.jpg" alt="Commencement" width="65" height="65" border="0" /></a></td>
+    <td align="left" valign="top">&nbsp;</td>
+    <td align="left" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="left" valign="top"><span class="news_icon_links"><a href="http://commencement.gccnj.edu/">GCC Commencement 2012</a></span></td>
+        </tr>
+        <tr>
+          <td align="left" valign="top" class="news_icon_text">Click <a href="http://commencement.gccnj.edu/">HERE</a> for  Commencement details and additional ceremonies (GED, Nursing Program Pinning Ceremony, etc.).</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+
+</td>
+    <td align="left" valign="top">&nbsp;</td>
+  </tr>
+</table>
+</td>
+            <td width="5" rowspan="2" align="right" valign="top" bgcolor="#ebebeb"></td>
+            <td width="10" align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td width="190" align="left" valign="top" bgcolor="#ebebeb"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="left" valign="top"><span class="category_header_standard">S</span><span class="category_header_standard2">TUDENT ALERTS</span></td>
+  </tr>
+  
+  <tr>
+    <td align="left" valign="top" class="gcc_today_links"><img src="_images/line_category_headers.jpg" width="100%" height="1" /></td>
+  </tr>
+  
+  <tr>
+    <td height="110" align="left" valign="bottom" class="student_alert_links"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  
+  <tr>
+    <td align="left" valign="top" class="student_alert_links"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><a href="http://www.gccnj.edu/testing/ExemptionCriteria.cfm">New Placement Test Exemption Criteria</a><br />
+             <a href="http://www.gccnj.edu/news_and_alerts/student_alerts/financial_aid_unemployment.cfm">Unemployment Registration Dates</a><br />
+            <a href="http://www.gccnj.edu/news_and_alerts/student_alerts/VA_BookVoucher.cfm">VA Ch 33/Post 9-11 GI Bill  Recipients</a><br />
+            <a href="http://www.gccnj.edu/admissions/withdrawal_dates.cfm">Drop, Withdrawal,  Audit Dates</a><br />
+            <a href="http://www.gccnj.edu/prospective/selectiveadmissions.cfm">LPN-RN Track  Information</a><br />
+            <a href="http://www.gccnj.edu/prospective/selectiveadmissions.cfm">Nursing &amp;  Allied Health Info</a><br />
+            <a href="http://www.gccnj.edu/prospective/selectiveadmissions.cfm">Automotive Technology Information</a><br />
+		</td>
+      </tr>
+    </table>      </td>
+  </tr>
+  
+</table>
+</td>
+  </tr>
+  <tr>
+    <td height="20" align="left" valign="middle" class="gcc_today_links"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><span class="category_header_standard">F</span><span class="category_header_standard2">EATURED LINKS</span></td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><img src="_images/line_category_headers.jpg" width="100%" height="1" /></td>
+  </tr>
+  
+  <tr>
+    <td align="left" valign="top" class="gcc_today_links"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="140"><a href="academics/academic_calendar.cfm">Academic Calendar</a><br />
+          <a href="about_gcc/college_officials/index.cfm">College Officials</a><br />
+          <a href="about_gcc/news_releases/index.cfm">News Releases</a><br />
+          <a href="news_and_alerts/rotating_ads/ross_beitzel_art_gallery.cfm">Permanent Art Collection</a><br />
+          <a href="student_services/financial_aid/scholarships.cfm">Scholarships</a><br />
+          <a href="http://www.gccnj.edu/news_and_alerts/school_closing_and_text_alerts.cfm">School Closing / Text Alerts</a>
+          <a href="http://www.gloucestercountyvolunteers.org/">Volunteer Center of GC</a><br />
+          </td>
+      </tr>
+    </table></td>
+  </tr>
+  
+</table>
+</td>
+          </tr>
+          <tr>
+            <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+            <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td bgcolor="#ebebeb"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>GCC Communications</title>
+<!-- Default CSS -->
+<link href="http://www.gccnj.edu/_css/css_main.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<table width="780" border="0" cellspacing="0" cellpadding="3" class="gcc_today_links">
+  <tr>
+    <td width="23"><a href="http://www.facebook.com/gccnj" target="_parent"><img src="http://www.gccnj.edu/_images/facebook_icon_small.jpg" alt="GCC on Facebook" width="23" height="25" border="0" /></a></td>
+    <td width="167" height="40"><a href="http://www.facebook.com/gccnj" target="_parent">GCC on Facebook</a></td>
+    <td width="23"><a href="http://orientation.gccnj.edu/" target="_parent"><img src="http://www.gccnj.edu/_images/nso_icon.jpg" alt="GCC on Facebook" width="23" height="25" border="0" /></a></td>
+    <td width="199"><a href="http://orientation.gccnj.edu/" target="_parent">New Student Orientation</a></td>
+    <td width="23"><a href="http://orientation.gccnj.edu/campus_technology/gloucester_alert.cfm" target="_parent"><img src="http://www.gccnj.edu/_images/gloucester_alert_icon.jpg" alt="GCC on Facebook" width="23" height="25" border="0" /></a></td>
+    <td width="156"><a href="http://orientation.gccnj.edu/campus_technology/gloucester_alert.cfm" target="_parent">Gloucester Alert</a></td>
+    <td width="23"><a href="http://www.youtube.com/gccnj" target="_parent"><img src="http://www.gccnj.edu/_images/youtube_icon.jpg" alt="GCC on Facebook" width="23" height="25" border="0" /></a></td>
+    <td width="118"><a href="http://www.youtube.com/gccnj" target="_parent">GCC on YouTube</a></td>
+  </tr>
+</table>
+</body>
+</html>
+</td>
+      </tr>
+    </table></td>
+    <td align="left" valign="top" bgcolor="#ebebeb">&nbsp;</td>
+  </tr>
+</table>
+ </div></td>
+    </tr>
+    <tr>
+      <td></style>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td width="50%" height="3" valign="top" bgcolor="#29568f"><img src="http://www.gccnj.edu/_images/line_grey_bottom.jpg" width="100%" height="3" /></td>
+      <td valign="top" bgcolor="#29568f"><img src="http://www.gccnj.edu/_images/line_grey_bottom.jpg" width="780" height="3" /></td>
+      <td width="50%" valign="top" bgcolor="#29568f"><img src="http://www.gccnj.edu/_images/line_grey_bottom.jpg" width="100%" height="3" /></td>
+    </tr>
+    <tr>
+      <td bgcolor="#29568f">&nbsp;</td>
+      <td bgcolor="#29568f">&nbsp;</td>
+      <td bgcolor="#29568f">&nbsp;</td>
+    </tr>
+    <tr>
+      <td bgcolor="#29568f"><span class="style2"></span></td>
+      <td bgcolor="#29568f" align="center" class="footer_main_links">
+      <a href="http://www.gccnj.edu/about_gcc/contact_us.cfm">CONTACT US</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.gccnj.edu/about_gcc/directions.cfm">DIRECTIONS</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.gccnj.edu/about_gcc/employment.cfm">EMPLOYMENT</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.gccnj.edu/about_gcc/press_room.cfm">PRESSROOM</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www.gccnj.edu/about_gcc/vendors.cfm">VENDORS</a>      </td>
+      <td bgcolor="#29568f"></td>
+    </tr>
+    
+    <tr>
+      <td height="24" bgcolor="#29568f">&nbsp;</td>
+      <td align="center" valign="bottom" bgcolor="#29568f" class="footer_main_text_faded">Gloucester County College &nbsp;&nbsp;&middot;&nbsp;&nbsp; 1400 Tanyard Road &nbsp;&nbsp;&middot;&nbsp;&nbsp; Sewell, NJ 08080 &nbsp;&nbsp;&middot;&nbsp;&nbsp; Phone: (856) 468-5000</td>
+      <td bgcolor="#29568f">&nbsp;</td>
+    </tr>
+    <tr>
+      <td height="28" bgcolor="#29568f">&nbsp;</td>
+      <td align="center" bgcolor="#29568f" class="footer_small_links"><a href="http://www.gccnj.edu/information/equal_opportunity.cfm">Equal Opportunity</a> | <a href="http://www.gccnj.edu/information/economic_impact.cfm">Economic Impact Study</a></td>
+      <td bgcolor="#29568f">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3" bgcolor="#29568f">&nbsp;</td>
+    </tr>
+  </table>
+</td>
+    </tr>
+  </table>
+</body>
+</html>

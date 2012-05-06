@@ -1,0 +1,968 @@
+﻿
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="description" content="WesternU is one of the largest graduate schools for the health professions in California. Alumni rank among the very top leaders in health care and medicine throughout the country and the world."/>
+<meta name="Keywords" content="Graduate Nursing, Osteopathic Medicine, Optometry, Dentistry, Veterinary, Podiatry, Pharmacy, Allied Health, Physician Assistant, Physical Therapy"/>
+<meta name="robots" content="all"/>
+<title>Western University of Health Sciences Graduate Health Professions Studies</title>
+<link rel="shortcut icon" type="image/x-icon" href="http://www.westernu.edu/graphics/wu-favicon.ico">
+<link rel="stylesheet" type="text/css" href="http://www.westernu.edu/css/wu7.css"/>
+<script type="text/javascript" src="http://www.westernu.edu/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.westernu.edu/js/westernu_ga.js"></script>
+<script type="text/javascript" src="http://www.westernu.edu/js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="http://www.westernu.edu/js/v3-css_change.js"></script>
+
+<script type="text/javascript" src="http://www.westernu.edu/js/tabcontent.js"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.westernu.edu/js/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- DB select -->
+<script src="js/flowplayer-3.2.6.min.js"></script>
+<script src="js/flowplayer.ipad-3.2.2.min.js"></script>
+
+<script type="text/javascript">
+//Play video
+function playvideo(str)
+{
+	/*
+	var d = new Date()
+	$.ajax({
+	   type: "POST",
+	   url: "stp/data2.php",
+	   data: "q="+str+"&action=vidplay&t="+d.getTime(),
+	   success: function(msg){
+		 
+		 document.getElementById("videoPlayer").innerHTML = msg;
+		 
+	   }
+	 });
+	 */
+	 
+	 $.ajax({
+		  url: "http://360.sorensonmedia.com/a88f9544-8324-11e0-a181-123138018491/embedv2.js",
+		  dataType: 'script',
+	   success: function(msg){
+		 
+		 document.getElementById("vPjs").innerHTML = msg;
+		 
+	   }
+		});
+
+	 
+}
+
+//Get video list according to category
+function getVideoList(listCat, qid)
+{
+
+	var d = new Date();
+	
+	$.ajax({
+	   type: "POST",
+	   url: "stp/data2.php",
+	   cache: false,
+	   data: "action=makelist&do=getlist&cat="+listCat+"&q="+qid+"&t="+d.getTime(),
+   	   loading:    $('.loading').html(""),
+	   success:    function(html) {
+///						document.getElementById("txtVidDetail").innerHTML = '';
+						$(".queryResults").html(html);
+						//window.alert('this');
+						
+						//Load first LI element as default video to play
+						//Find the first LI
+						var firstLi = $(".srnsnvid li:first").find("a[href]").attr('href');
+						
+					//	firstLi = firstLi.substring(-36);
+						var base = window.location.href.substring(0, window.location.href.lastIndexOf("/") + 1);
+						
+						//IE HREF fix
+						firstLi = firstLi.replace(base, ''); 
+
+						//alert (firstLi);
+						$("#player").html(firstLi);
+
+						//Load carousel
+						jQuery('#mycarousel-2').jcarousel({
+						vertical: true,
+						scroll: 1
+						});
+						
+						//On load
+						$("#videoPlayer").load("stp/jsloadvideo.php?qq="+firstLi+"");
+						
+						//On click
+						    $('a.vidDisplay').bind('click', function(event) {
+							event.preventDefault();
+							
+							//IE FIX#2
+							//Create Array of all LI HREFS
+							
+							myvid = $(this).attr("href");
+							myvid = myvid.replace(base, ''); 
+							$("#videoPlayer").load("stp/jsloadvideo.php?qq="+myvid+"");
+							var arr = jQuery.makeArray($('a.vidDisplay')); 
+
+							setTimeout(function() {
+								$.each(arr, function(index, value) { 								
+								///////ARRAY VALUE
+								//alert(value);
+								});
+							},500);
+							
+								
+							});//A LI click
+						
+					}   
+	 });
+
+	 
+} 
+
+
+
+</script>
+
+<!-- //DB select -->
+<style>
+a.activeVid{
+	color: #000000 !important;
+	text-decoration: none !important;
+	
+}
+ .readLink { color: #000000 !important; }
+
+</style>
+<script type="text/javascript">
+		$(document).ready(function(){ 
+		
+		//Ajax
+		 getVideoList('hpvid', '2');	
+
+
+		
+		
+	 	jQuery('#mycarousel-1').jcarousel({
+        vertical: true,
+        scroll: 1
+  		});
+		
+
+
+		/*
+		//Bind Ajax loaded data
+		$("#t1-rightmenu-list a").live("click", function(event)
+		{
+		
+		  event.preventDefault();		  
+		  
+		  var href = $(this).attr('href');
+		  
+		  alert(href);
+		  
+		  $("#player").html(href);
+		
+		});
+		*/
+		
+		});
+</script>
+    <!-- Feedback -->
+    <script type="text/javascript" src="http://www.westernu.edu/js/greybox.js"></script>
+
+    <link href="http://www.westernu.edu/css/greybox.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="http://www.westernu.edu/js/greybox-controls.js"></script>
+    <!-- Feedback -->     
+              
+</head>
+
+<body>
+
+
+<!-- *****//START Global frame container********************************** -->	                
+<!-- START global-frame-container -->
+<div id="global-frame-container"> 
+
+    <!-- *****//START Global Top headder********************************** -->	                
+
+
+
+
+
+
+
+
+
+            <!-- *****//START AJS control ********************************** -->	                
+<!-- 
+-->
+<!-- *****//END AJS control ********************************** -->	                
+
+    <!-- *****//START Global Top headder********************************** -->	                
+<div id="global-header-container">
+    <div id="global-header-left"><a href="http://www.westernu.edu"><img src="http://www.westernu.edu/graphics/global-header-WU-logo.png" class="floatleft" alt=""/></a></div>
+    <div id="global-header-right">
+        <ul>
+            <li><a href="http://www.westernu.edu/phone" title="WesternU Directory">Directory</a></li>
+            <li><a href="http://www.westernu.edu/communications-calendar" title="WesternU Calendar">Calendar</a></li>
+            <li><a href="http://www.westernu.edu/registrar-catalog" title="WesternU Catalog">Catalog</a></li>
+            <li><a href="http://www.westernu.edu/university-contact-us" title="WesternU Contact">Contact</a></li>                                         
+        </ul>
+<!-- AddThis Button BEGIN -->
+	<div id="global-addthis">
+		<div class="addthis_toolbox addthis_default_style">
+		<span id="addthisText">Share:</span><a class="addthis_button_facebook"></a><a class="addthis_button_email"></a><a class="addthis_button_favorites"></a><a class="addthis_button_print"></a>
+		</div>
+	<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=wuaddthis"></script>
+	</div>
+<!-- AddThis Button END -->
+<!-- AJ search        
+<form id="ajaxSearch_form" action="search-js-api" method="post">
+    <fieldset>
+    <input type="hidden" name="advsearch" value="allwords" />
+    <label>
+      <input id="ajaxSearch_input" class="cleardefault" type="text" name="search" value="Search here..." onfocus="this.value=(this.value=='Search here...')? '' : this.value ;" />
+    </label>
+    
+        <label>
+            <input id="ajaxSearch_submit" type="submit" name="sub" value="Go!" />
+        </label>
+    
+    </fieldset>
+</form>
+
+
+ -->
+<form method="post" action="search">
+      <input type="text" size="30" name="search" class="cleardefault" id="ajaxSearch_input">&nbsp;<input type="submit" class="submit" id="ajaxSearch_submit" value="Search">
+</form>
+    </div> 
+</div>
+    <!-- *****END Global Top headder********************************** -->	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- *****END Global Top headder********************************** -->	            
+    
+    
+    
+    <!-- *****//START Global navigation bar (navbar)********************************** -->	                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- START Global-navbar-container -->
+    <div id="global-navbar-container">
+    <!-- START navbar-line2 -->
+        <div id="global-navbar-line1">
+                <div class="topnav-container">
+				<ul id="topnav1a">
+                    <li><img src="http://www.westernu.edu/graphics/global-navbar-L1-DIV.png" /><a href="http://prospective.westernu.edu" class="navtabs" target="_blank">Prospective Students </a></li>
+                    <li><img src="http://www.westernu.edu/graphics/global-navbar-L1-DIV.png" /><a href="http://www.westernu.edu/students-explore" class="navtabs">Current Students </a></li>  
+                    <li><img src="http://www.westernu.edu/graphics/global-navbar-L1-DIV.png" /><a href="http://www.westernu.edu/hr-explore" class="navtabs">Faculty & Staff</a></li>                      
+                    <li><img src="http://www.westernu.edu/graphics/global-navbar-L1-DIV.png" /><a href="http://www.westernu.edu/university-explore" class="navtabs">Visitors</a></li>                      
+                    <li><img src="http://www.westernu.edu/graphics/global-navbar-L1-DIV.png" /><a href="http://www.westernu.edu/alumni-welcome" class="navtabs">Alumni</a></li>                      
+                 </ul> 	
+							                    
+                </div><!-- END line 1 container -->
+        </div><!-- END global-navbar-line1 -->
+    
+     <!-- START navbar-line2 -->
+        <div id="global-navbar-line2">
+                <div class="topnav-container"><!-- START line 2 container -->        
+                		<ul id="topnav2">
+                                <li><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" /><a href="http://www.westernu.edu" class="navtabs">Home</a></li>
+                                <li><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" /><a href="#" class="navtabs">Colleges</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />            
+                              <div class="sub colleges">                
+                                    <ul>            
+                                        <li><h2>Osteopathic Medicine (COMP)</h2></li>
+                                        <li><a href="http://www.westernu.edu/osteopathy-deans_philosophy">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/osteopathy-about">About the Program</a></li>
+                                        <li><a href="http://www.westernu.edu/osteopathy-faculty">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/osteopathy-deans_philosophy" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Allied Health - PT, PA, MSHS (CAHP)</h2></li>
+                                        <li><a href="http://www.westernu.edu/allied-health-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/allied-health-about">About the College</a></li>
+                                        <li><a href="http://www.westernu.edu/allied-health-faculty">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/allied-health-welcome" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Pharmacy (COP)</h2></li>
+                                        <li><a href="http://www.westernu.edu/pharmacy-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/pharmacy-mission">Mission & Goals</a></li>
+                                        <li><a href="http://www.westernu.edu/pharmacy-adminstaff">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/pharmacy-welcome" class="txt_more">More...</a></li> 
+                                    </ul>  
+                                    <ul>            
+                                        <li><h2>Graduate Nursing (CGN)</h2></li>
+                                        <li><a href="http://www.westernu.edu/nursing-visitor">CGN Home Page</a></li>
+                                        <li><a href="http://www.westernu.edu/nursing-cogn_welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/nursing-cogn_faculty">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/nursing-visitor" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Veterinary Medicine (CVM)</h2></li>
+                                        <li><a href="http://www.westernu.edu/veterinary-about">CVM Home Page</a></li>
+                                        <li><a href="http://www.westernu.edu/veterinary-message">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/veterinary-staff">Administration & Faculty</a></li>
+                                        <li><br /><a href="http://www.westernu.edu/veterinary-about" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Dental Medicine(CDM)</h2></li>
+                                        <li><a href="http://www.westernu.edu/dentistry-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/dentistry-about">About the Program</a></li>
+                                        <li><a href="http://www.westernu.edu/dentistry-admin">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/dentistry-welcome" class="txt_more">More...</a></li> 
+                                    </ul>    
+                                    <ul>            
+                                        <li><h2>Optometry (CO)</h2></li>
+                                        <li><a href="http://www.westernu.edu/optometry-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/optometry-about">About the Program</a></li>
+                                        <li><a href="http://www.westernu.edu/optometry-administration">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/optometry-welcome" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Podiatric Medicine(CPM)</h2></li>
+                                        <li><a href="http://www.westernu.edu/podiatry-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/podiatry-about">About the Program</a></li>
+                                        <li><a href="http://www.westernu.edu/podiatry-administration">Administration & Faculty</a></li>
+                                        <li><br /><a href="http://www.westernu.edu/podiatry-welcome" class="txt_more">More...</a></li> 
+                                        
+                                        <li><h2>Biomedical Sciences(GCBS)</h2></li>
+                                        <li><a href="http://www.westernu.edu/biomedical-sciences-welcome">Message from the Dean</a></li>
+                                        <li><a href="http://www.westernu.edu/biomedical-sciences-mission">Mission & Goals</a></li>
+                                        <li><a href="http://www.westernu.edu/biomedical-sciences-administration">Administration & Faculty</a></li>
+                                        <li><a href="http://www.westernu.edu/biomedical-sciences-welcome" class="txt_more">More...</a></li> 
+                                    </ul>                                                              
+                                </div>                       
+                                </li>
+                                <li><a href="http://prospective.westernu.edu" target="_blank" class="navtabs">Programs</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />
+                                <!--<div class="sub programs">                
+                                <ul>
+                                <li><h2>Programs</h2></li>                    
+                                <li><a href="#" class="programs">Podiatric Medicine (DPM)</a></li>
+                                <li><a href="#" class="programs">Optometry (OD)</a></li>
+                                <li><a href="#" class="programs">Dental Medicine (DMD)</a></li>
+                                <li><a href="#" class="programs">Physical Therapy Entry (DPT)</a></li>
+                                <li><a href="#" class="programs">Physical Therapy Adv (DPT)</a></li>
+                                
+                                
+                                <li><a href="#" class="programs">Physician Assistant (MSPA)</a></li>
+                                <li><a href="#" class="programs">Osteopathic Medicine (DO)</a></li>
+                                <li><a href="#" class="programs">Osteopathic Med-NW Track (DO)</a></li>
+                                <li><a href="#" class="programs">Nursing (Various Degrees)</a></li>
+                                <li><a href="#" class="programs">Pharmacy (PharmD)</a></li>
+                                
+                                <li><a href="#" class="programs">Pharmacy-Int'l (PharmD)</a></li>
+                                <li><a href="#" class="programs">Pharmaceutical Sciences (MS)</a></li>
+                                <li><a href="#" class="programs">Biomedical Sciences (MS)</a></li>
+                                <li><a href="#" class="programs">Medical Sciences (MS)</a></li>
+                                <li><a href="#" class="programs">Health Sciences (MS)</a></li>
+                                <li><a href="#" class="programs">Veterinary Medicine (DVM)  </a></li>
+                                </ul>                            
+                                
+                                </div>-->
+                                </li>
+                                <li><a href="#" class="navtabs">Centers</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />
+                                <div class="sub centers">                
+                                
+                                <ul>            
+                                <li><h2>Alumni</h2><br /></li>
+                                <li><a href="http://www.westernu.edu/alumni-services">Services</a></li>
+                                <li><a href="http://www.westernu.edu/alumni-career-center">Career Center</a></li>
+                                <li><a href="http://www.westernu.edu/alumni-newsletter">Newsletter</a></li>
+                                <li><a href="http://www.westernu.edu/alumni-welcome" class="txt_more">More...</a></li> 
+                                
+                                <li><h2>Faculty Development (CAPE)</h2></li>
+                                <li><a href="http://www.westernu.edu/cape-welcome">Welcome Message</a></li>
+                                <li><a href="http://www.westernu.edu/virtual-teaching-academy/" target="_blank">Virtual Teaching Academy</a></li>
+                                <li><a href="http://wsprod.westernu.edu/wu/cape_training/index.jsp" target="_blank">Workshop Registration</a></li>
+                                <li><a href="http://www.westernu.edu/cape-welcome" class="txt_more">More...</a></li> 
+                                </ul>  
+
+                                <ul> 
+ 
+                                <li><h2>Center for Advancement of Drug Research & Evaluation (CADRE)</h2></li>
+                                <li><a href="http://www.westernu.edu/cadre-about">About CADRE</a></li>
+                                <li><a href="http://www.westernu.edu/cadre-goals">Research Focus & Goals</a></li>
+                                <li><a href="http://www.westernu.edu/cadre-structure">How CADRE is Structured</a></li>
+                                <li><a href="http://www.westernu.edu/cadre-about" class="txt_more">More...</a></li>  
+          
+                                <li><h2>Interprofessional Education</h2></li>
+                                <li><a href="http://www.westernu.edu/interprofessional-about">About IPE</a></li>
+                                <li><a href="http://www.westernu.edu/interprofessional-mission">Mission & Outcomes</a></li>
+                                <li><a href="http://www.westernu.edu/interprofessional-model">IPE Model</a></li>
+                                <li><a href="http://www.westernu.edu/interprofessional-about" class="txt_more">More...</a></li> 
+                                </ul>  
+
+                                <ul>
+                                
+                                <li><h2>Center for Disability Issues & the Health Professions (CDHP)</h2></li>
+                                <li><a href="http://www.westernu.edu/cdhp-about">About CDHP</a></li>
+                                <li><a href="http://www.westernu.edu/cdhp-mission">Mission & Goals</a></li>
+                                <li><a href="http://www.westernu.edu/cdhp-aarc-welcome">AARC</a></li>
+                                <li><a href="http://www.westernu.edu/cdhp-about" class="txt_more">More...</a></li>
+ 
+                                <li><h2>Patient Care Center</h2></li>
+                                <li><a href="http://www.westernupcc.com/index.html" target="_blank">PCC Home</a></li>
+                                <li><a href="http://www.westernupcc.com/about.html" target="_blank">About the PCC</a></li>
+                                <li><a href="http://www.westernupcc.com/contact.html" target="_blank">Contact the PCC</a></li>
+                                <li><a href="http://www.westernupcc.com/index.html" target="_blank" class="txt_more">More...</a></li> 
+                                </ul>    
+                                
+                                </div>
+                                </li>
+
+                                <li>
+                                <a href="#" class="navtabs">Administration</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />
+                                <div class="sub admin">                
+                                <ul>
+                                <li><h2>Administration</h2></li>
+                                <li><a href="http://www.westernu.edu/university-presidents-message">President's Message</a></li>
+                                <li><a href="http://www.westernu.edu/university-benchmarks">Benchmarks of Value</a></li>
+                                <li><a href="http://www.westernu.edu/university-administration">University Administration</a></li>
+                                <li><a href="http://www.westernu.edu/university-trustees">Board of Trustees</a></li>
+                                <li><a href="http://www.westernu.edu/hr-about">Human Resources</a></li>
+                                <li><a href="http://www.westernu.edu/business-about">Business Office</a></li>
+                                <li><a href="http://www.westernu.edu/bursar-about">Bursar</a></li>
+                                </ul>           
+                                </div>            
+                                </li>
+                                <li>
+                                <a href="#" class="navtabs">Jobs</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />
+                                <div class="sub jobs">                
+                                <ul>
+                                <li><h2>Jobs</h2></li>
+                                <li><a href="http://www.westernu.edu/hr-about">Human Resources</a></li>
+                                <li><a href="http://jobs.westernu.edu" target="_blank">Job Openings</a></li>
+                                </ul>           
+                                </div>            
+                                </li>
+                                <li>
+                                <a href="http://www.westernu.edu/research-welcome" class="navtabs">Research</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />         
+								<div class="sub research">                
+                                <ul>
+                                <li><h2>Research</h2></li>
+                                <li><a href="http://www.westernu.edu/research-welcome">Research Home</a></li>
+                                <li><a href="http://www.westernu.edu/research-events">Research Events</a></li>
+                                </ul>           
+                                </div>  
+                                </li>
+                                <li >
+                                <a href="#" class="navtabs">Quick Links</a><img src="http://www.westernu.edu/graphics/global-navbar-L2-DIV.png" />
+                                <div class="sub qlinks">
+                                <ul>
+                                <li><h2>Quick Links</h2></li>
+                                <li><a href="http://www.westernu.edu/university-presidents-message" class="quicklinks">About WesternU</a></li>
+                                <li><a href="https://bb.westernu.edu/" target="_blank" class="quicklinks">Blackboard</a></li>
+                                <li><a href="https://banapps.westernu.edu:4443/pls/live8/twbkwbis.P_GenMenu?name=homepage" target="_blank" class="quicklinks">Self-Service (BanWeb)</a></li>
+                                <li><a href="http://www.webmedbooks.com/westernu/default2.aspx" target="_blank" class="quicklinks">Bookstore</a></li>
+                                <li><a href="http://www.westernu.edu/registrar-catalog" class="quicklinks">Catalog</a></li>
+                                <li><a href="http://wsprod.westernu.edu/itdl/directory/dept_index.jsp" class="quicklinks">Campus Directory</a></li>
+                                <li><a href="http://www.westernu.edu/campus-map" class="quicklinks">Campus Map & Directions</a></li>
+                                <li><a href="http://www.westernu.edu/computing-about" class="quicklinks">Computing Resources</a></li>
+                                <li><a href="http://jobs.westernu.edu" target="_blank" class="quicklinks">Current Job Openings</a></li>
+                                <li><a href="http://www.westernu.edu/financial-about" class="quicklinks">Financial Aid</a></li>
+                                <li><a href="http://www.westernu.edu/library-home" class="quicklinks">Pumerantz Library</a></li>
+                                <li><a href="http://www.westernu.edu/advancement-give" class="quicklinks">Support WesternU</a></li>
+                                <li><a href="http://www.westernu.edu/westernu-sitemap" class="quicklinks">Web Site Map</a></li>
+                                <li><a href="http://wsprod.westernu.edu/news/newsMainPage.jsp?groupname=AllNews" class="quicklinks">WesternU News</a></li>
+                                </ul>                            
+                                </div>                                
+                                </li> 
+                                 <!--  
+                                <li>
+                               <p class="header_temp"> / &deg;F &deg;C<img src="" width="25px"/> </p>
+                                </li>    -->                                
+                		</ul>      
+                </div><!-- END line 2 container -->
+        </div><!-- END global-navbar-line2 -->
+    </div><!-- END global-frame-container -->
+    <!-- *****END Global navigation bar (navbar)********************************** -->	
+    
+
+
+    <!-- *****Start Left menu container********************************** -->	
+    <div id="T1-sidemenu-container">               
+        <div class="T1-sidemenu-title">
+
+        	<h2>Highlights</h2>
+        </div>
+		<div class="T1-sidemenu-body">
+            <div id="t1-leftmenu-list">
+                     <ul id="mycarousel-1" class="jcarousel jcarousel-skin-tango">				
+
+
+
+
+
+
+
+
+
+
+                     <li><a href="oir-charts" ><img src="../images/t1-icon-academicoutcome.png"><br/>Academic Outcomes</a></li><li><a href="http://www.westernupcc.com" target="blank"><img src="../images/t1-icon-PCC.png"><br/>
+Patient Care Center</a></li><li><a href="http://www.westernu.edu/commencement/" target="blank"><img src="../images/t1-icon-class-2012.png"><br/>
+Commencement 2012</a></li><li><a href="http://www.westernu.edu/golf/" target="blank"><img src="../images/t1-icon-golf.png"><br/>
+Towne &amp; Gown Golf Classic 2012</a></li><li><a href="http://ws.westernu.edu/WesternU-News/strategic-planning/strategic-planning.html" target="blank"><img src="../images/t1-icon-strategic-planning.jpg"><br/>
+Strategic Planning</a></li><li><a href="northwest-about" ><img src="../images/t1-icon-comp-NW.png"><br/>
+COMP-Northwest</a></li><li><a href="http://www.westernu.edu/ladder/index.html" target="blank"><img src="../images/t1-icon-HCL.png"><br/>
+Pomona Health Career Ladder</a></li><li><a href="interprofessional-about" ><img src="../images/t1-icon-IPE.png"><br/>
+Inter-professional Education</a></li><li><a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=9742&groupname=PeopleatWU" target="blank"><img src="../images/t1-icon-comp-CP.png"><br/>
+Capital Campaign</a></li><li><a href="http://www.youtube.com/watch?v=aHSbeTJUcCM&feature=related" target="blank"><img src="../images/t1-icon-podiatrist.png"><br/>
+Today's Podiatrist Does It All</a></li><li><a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=10782" target="blank"><img src="../images/t1-icon-preview-day.png"><br/>
+Preview Day</a></li>
+                     <li><a href="/communications-media" target="blank"><img src="../images/t1-icon-wu-view-winter2010.png"><br/>WesternU View</a></li>
+                    </ul>
+
+            </div>
+            <div class="T1-leftmenu-sub">
+                <img src="graphics/T1-sidemenu-sub-head.png" />
+                <ul>
+
+
+
+
+
+                    <li><a href="staticpages/paper_whywesternu.php"class="letter">Why WesternU?</a></li><li><a href="staticpages/paper_humanismmatters.php"class="letter">
+Humanism Matters</a></li><li><a href="university-benchmarks">
+Benchmarks of Value</a></li><li><a href="staticpages/giving.php"class="giving">
+Giving to WesternU</a></li>
+                </ul>
+       		 </div>
+       <br />
+    	</div>
+	</div>
+    <!-- *****END Left container// ********************************** -->	 	  
+           
+                
+    <!-- *****//START T1 content container********************************** -->	
+        <div id="T1-content-body">
+            <!-- START - content - Video -->
+                <div class="T1-content-body-video">
+<!--
+   			<div id="player" style="z-index: 2">
+			
+			<a href="#" onclick="return(false);" rel="videoGUID=8850e30a-b231-11e0-88b7-12313804de72&" style="display:block;width:515px;height:353px" id="8850e30a-b231-11e0-88b7-12313804de72" width="515" height="353">Making A Difference</a> <script type="text/javascript" src="http://360.sorensonmedia.com/8850e30a-b231-11e0-88b7-12313804de72/embedv2.js"></script> 
+			
+			
+			</div>
+			-->
+			<div id="videoPlayer"><img src="graphics/t1-videoplayer-bg.png"></div>
+			
+    </div> 
+           <!--     <div class="T1-content-body-video">
+   			<div id="player" style="z-index: 2"></div>
+    </div>  -->
+            <!-- END - content - Video -->
+            <!-- START - content - Tabs -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div id="T1-tabs-framework">               
+                <div class="T1-tabs-title">
+                    <ul id="t1tabnavi" class="T1-navi-tabs">
+                    <li><a href="#" rel="tab1" class="selected" title="Alum Named CMO">Alum Named<br />CMO</a></li>					
+                    <li><a href="#" rel="tab2" title="Medication Management">Medication<br />Management</a></li>            
+                    <li><a href="#" rel="tab3" title="Clinician Ceremony">Clinician<br />Ceremony</a></li>   
+                    <li><a href="#" rel="tab4" title="More News">More<br />News</a></li>
+                    </ul>
+                </div>
+              
+			<div class="T1-tabs-body">  
+			
+                <div id="tab1">
+                <a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13825" target="_blank" title="Alum Named CMO"><img src="http://ws.westernu.edu/WesternU-News/center-thumb-imgs/WU-News-hmpg-news-thumb.jpg" height="70px" alt="Alum Named CMO" /><h1>WesternU alum named chief medical officer at Long Beach Memorial<span id="titledate"><br />Pomona, CA - 4/26/2012 --</span></h1></a>
+                <p>Susan Melvin, DO, a 1984 graduate of the College of Osteopathic Medicine of the Pacific at Western University of Health Sciences, has been named the Chief Medical Officer at Long Beach
+	<a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13825" target="_blank" title="More information about this story (Opens in new window)">More...</a></p>
+                </div>			
+
+                <div id="tab2">
+                <a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13846" target="_blank" title="Medication Management"><img src="http://ws.westernu.edu/WesternU-News/center-thumb-imgs/mtm-hm-pg-thmb.jpg" height="70px" alt="Medication Management" /><h1>Family Practice Medication Therapeutic Management Collaborative Program is first of its kind in the U.S.<span id="titledate"><br />Pomona, CA - 4/30/2012 --</span></h1></a>
+                <p>Doctors and pharmacists can learn a lot from each other, especially when it comes to managing patient medications and
+	<a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13846" target="_blank" title="More information about this story (Opens in new window)">More...</a></p>
+                </div>
+                					
+                <div id="tab3">
+                <a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13886" target="_blank" title="Clinician Ceremony"><img src="http://ws.westernu.edu/WesternU-News/center-thumb-imgs/2012-cscc-hm-pg-thmb.jpg" height="70px" alt="Clinician Ceremony" /><h1>COMP students celebrate start of clinical training<span id="titledate"><br />Pomona, CA - 5/1/2012 --</span></h1></a>
+                <p>The College of Osteopathic Medicine of the Pacific (COMP) Class of 2014 celebrated its transition from the classroom to the clinic. The first COMP Student Clinician Ceremony, held April 30, 2012 
+	<a href="http://wsprod.westernu.edu/news/nr_detail.jsp?id=13886" target="_blank" title="More information about this story (Opens in new window)">More...</a></p>
+                </div>
+			
+                <div id="tab4">
+               <a href="http://wsprod.westernu.edu/news/newsMainPage.jsp?groupname=AllNews" target="_blank" title="List of recent WesternU news stories (Opens in new window)"><img src="http://ws.westernu.edu/WesternU-News/center-thumb-imgs/WU-News-hmpg-news-thumb.jpg" height="70px" alt="More News..."  /><h1>More News...<span id="titledate"><br /></span></h1></a>
+                </p>
+                <p><br />&nbsp; &nbsp; &nbsp; <a href="http://wsprod.westernu.edu/news/newsMainPage.jsp?groupname=AllNews" target="_blank" title="List of recent WesternU news stories (Opens in new window)">Click here to view the list of WesternU News stories</a>
+                </div>
+                
+
+            </div>
+            
+				<script type="text/javascript">                
+                var countries=new ddtabcontent("t1tabnavi")
+                countries.setpersist(true)
+                countries.setselectedClassTarget("link") //"link" or "linkparent"
+                countries.init()                
+                </script>     
+                         
+            </div>
+            <!-- END - content - Tabs -->    
+        </div>
+    <!-- *****//END T1 content container********************************** -->	
+
+
+
+    <!-- *****//START T1 right menu container********************************** -->	                     
+        <div id="T1-sidemenu-container">               
+    <div class="T1-sidemenu-title">
+
+        <h2>Videos</h2>
+    </div>
+    <div class="T1-sidemenu-body">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- Makelist -->
+
+		<div id="t1-rightmenu-list" class="queryResults srnsnvid"></div>		
+		<!-- //Makelist -->
+		
+    <div><a href="http://prospective.westernu.edu" target="_blank"><img src="../images/t1-icon-prospective.png" /></a></div>
+    </div>
+</div>       
+<!-- *****END T1 right menu container// ********************************** -->	  
+
+
+     <!-- *****//START Global footer container********************************** -->	
+        <!-- Container - Global - footer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               <!-- *****//START Global footer container********************************** -->	
+        <!-- Container - Global - footer -->
+             <!-- Container - Global - footer******  -->
+    <div id="global-footer-container">                     
+			<img id="global-footer-left" src="http://www.westernu.edu/graphics/global-footer-Lt.png" alt="" />
+			<img  id="global-footer-right" src="http://www.westernu.edu/graphics/global-footer-Rt.png" alt="" />	
+        <div id="global-footer-body">
+          <p class="line1">(C) 2012 Western University of Health Sciences.  All Rights Reserved | 309 E. Second St. Pomona, CA 91766-1854 | (909) 623-6116</p>
+          <p class="line2"><a href="http://www.westernu.edu/westernu-policy-copyright" title="Western University of Health Sciences - Copyright Policy">Copyright Policy</a> | <a href="http://www.westernu.edu/westernu-policy-privacy" title="Western University of Health Sciences - Privacy Policy">Privacy Policy</a> | <a href="http://www.westernu.edu/westernu-policy-accessibility" title="Western University of Health Sciences - Web Accessibility">Web Accessibility</a> | <a href="http://www.westernu.edu/westernu-maintenance-schedule" title="Western University of Health Sciences - Maintenance Schedule">Maintenance Schedule</a> | <a href="http://www.westernu.edu/safety-security-about" title="Western University of Health Sciences - Campus Safety">Campus Safety</a> | <a href="http://www.westernu.edu/westernu-sitemap" title="Western University of Health Sciences - Site map">Site Map</a></p>
+        </div>
+       
+<!--Sub footer-->
+<div id="global-footer-sub-container">
+        <div id="global-footer-sub">
+			<img id="global-footer-left" src="http://www.westernu.edu/graphics/global-footer-sub-Lt.png" alt="" />
+			<img  id="global-footer-right" src="http://www.westernu.edu/graphics/global-footer-sub-Rt.png" alt="" />		
+			<p><a href="http://www.facebook.com/WesternUniversityofHealthSciences" target="_blank" title="Western University of Health Sciences - Facebook connect"><img src="http://www.westernu.edu/graphics/global-footer-sub-fbconnect.png" alt="Western University of Health Sciences - Facebook connect" title="Western University of Health Sciences - Facebook connect"/>Facebook connect</a>
+			<a class="split" href="http://www.aahcdc.org/" target="_blank" title="Association of Academic Health Centers (AAHC) (Opens in new window)"><img src="http://www.westernu.edu/graphics/global-footer-sub-aahc.png" alt="Association of Academic Health Centers (AAHC)" title="Association of Academic Health Centers (AAHC)"/>Association of Academic Health Centers</a>
+			<a href="http://www.westernu.edu/staticpages/feedback_validation.php" class="feedback" title="Western University of Health Sciences - Site feedback"><img src="http://www.westernu.edu/graphics/global-footer-sub-wulogo.png" alt="Western University of Health Sciences - Site feedback" title="Western University of Health Sciences - Site feedback"/>Your Feedback</a></p>		   
+        </div> 
+        </div> 
+<!-- END sub footer --> 	   
+	   
+    </div>
+<!-- END global-footer -->
+    <!-- *****//END T3 content container********************************** -->	
+
+               
+
+</div><!-- END Global-frame-container -->
+
+
+<!-- End ALL -->
+
+</body>
+</html>

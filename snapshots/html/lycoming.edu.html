@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head><title>
+	Lycoming College
+</title><link type="text/css" rel="stylesheet" href="/styles2011/lyco.css" /><link type="text/css" rel="stylesheet" href="/styles2011/anythingslider.css" />
+		<script type="text/javascript" src="/scripts2011/jquery-1.5.1.min.js"></script>
+		<script type="text/javascript" src="/scripts2011/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="/scripts2011/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="/scripts2011/jquery.ui.accordion.js"></script>
+		<script type="text/javascript" src="/scripts2011/jquery.hoverIntent.min.js"></script>    
+		<script type="text/javascript" src="/scripts2011/jquery.easing.1.3.js"></script>    
+		<script type="text/javascript" src="/scripts2011/jquery.timers-1.1.2.js"></script>    
+		<script type="text/javascript" src="/scripts2011/uiIndex.js"></script>
+		<script type="text/javascript" src="/scripts2011/konami.js"></script>  
+        <script type="text/javascript" src="/scripts2011/googleAnalytics.js"></script>  
+        <script type="text/javascript" src="/scripts2011/swfobject.js"></script>
+        <script type="text/javascript" src="/scripts2011/jquery.anythingslider.min.js"></script>
+        <script type="text/javascript" src="/scripts2011/jquery.anythingslider.video.js"></script>
+        <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />        
+        <!--[if lte IE 7]>
+            <link rel="stylesheet" href="/styles2011/anythingslider-ie.css" type="text/css" media="screen" />
+        <![endif]-->
+        <script>
+            $(function () { $("#accordion").accordion({ autoHeight: false, clearStyle: true }); });
+
+            var theImages = new Array()
+
+            //Random-loading images
+            theImages[0] = 'images/videoWhyLycoming.jpg' // replace with names of images
+            theImages[1] = 'images/videoUnofficialTour.jpg' // replace with names of images
+            theImages[2] = 'images/videoAmyCline.jpg' // replace with names of images
+
+            var j = 0
+            var p = theImages.length;
+            var preBuffer = new Array()
+
+            for (i = 0; i < p; i++) {
+                preBuffer[i] = new Image()
+                preBuffer[i].src = theImages[i]
+            }
+            var whichImage = Math.round(Math.random() * (p - 1));
+
+            function showImage() {if (whichImage == 0) {document.write('<a href ="/videos/"><img class="box" src="' + theImages[whichImage] + '"></a>');}
+                else if (whichImage == 1) {document.write('<a href ="/videos/"><img class="box" src="' + theImages[whichImage] + '"></a>');}
+                else if (whichImage == 2) {document.write('<a href ="/videos/"><img class="box" src="' + theImages[whichImage] + '"></a>');}
+            }
+        </script>
+        <!-- start Mixpanel --><script type="text/javascript">            (function (d, c) {
+                var a, b, g, e; a = d.createElement("script"); a.type = "text/javascript"; a.async = !0; a.src = ("https:" === d.location.protocol ? "https:" : "http:") + '//api.mixpanel.com/site_media/js/api/mixpanel.2.js'; b = d.getElementsByTagName("script")[0]; b.parentNode.insertBefore(a, b); c._i = []; c.init = function (a, d, f) {
+                    var b = c; "undefined" !== typeof f ? b = c[f] = [] : f = "mixpanel"; g = "disable track track_links track_forms register register_once unregister identify name_tag set_config".split(" "); for (e = 0; e <
+g.length; e++)(function (a){ b[a] = function (){ b.push([a].concat(Array.prototype.slice.call(arguments, 0))) } })(g[e]); c._i.push([a, d, f])
+                }; window.mixpanel = c
+            })(document, []);
+            mixpanel.init("2f41aa3d44c9d70eaf2a6f5a8271c4df");</script><!-- end Mixpanel -->
+        
+<script>
+	$(function () {
+	    $('#slider').anythingSlider({toggleControls: false, width: 800, easing: 'easeInQuad', autoPlay: true, delay: 4000, vertical: true, navigationFormatter: function (i, panel) {
+	            return '<img width="85px" height="55px" src="/includes/bannerPhoto.ashx?id=' + ['657', '654', '663', '633', '651', '660',][i - 1] + ' ">';
+	        }
+	    })
+        .find('.panel').find('div[class*=caption]').css({ position: 'absolute' }).end()
+	});
+</script>
+
+
+
+        <style>
+            #weather{height: 64px; width: 210px; display: block; z-index: 9999; position: absolute; margin: 10px 0 0 -39px; display: none;}
+            #footer{height: 280px;}
+        </style>
+
+    </head>
+    <body>
+        <form name="form1" method="post" action="default.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQxNzc2NDc5OQ9kFgQCAQ9kFgICCA8WAh4EVGV4dAXqAw0KPHNjcmlwdD4NCgkkKGZ1bmN0aW9uICgpIHsNCgkgICAgJCgnI3NsaWRlcicpLmFueXRoaW5nU2xpZGVyKHt0b2dnbGVDb250cm9sczogZmFsc2UsIHdpZHRoOiA4MDAsIGVhc2luZzogJ2Vhc2VJblF1YWQnLCBhdXRvUGxheTogdHJ1ZSwgZGVsYXk6IDQwMDAsIHZlcnRpY2FsOiB0cnVlLCBuYXZpZ2F0aW9uRm9ybWF0dGVyOiBmdW5jdGlvbiAoaSwgcGFuZWwpIHsNCgkgICAgICAgICAgICByZXR1cm4gJzxpbWcgd2lkdGg9Ijg1cHgiIGhlaWdodD0iNTVweCIgc3JjPSIvaW5jbHVkZXMvYmFubmVyUGhvdG8uYXNoeD9pZD0nICsgWyc2NTcnLCAnNjU0JywgJzY2MycsICc2MzMnLCAnNjUxJywgJzY2MCcsXVtpIC0gMV0gKyAnICI+JzsNCgkgICAgICAgIH0NCgkgICAgfSkNCiAgICAgICAgLmZpbmQoJy5wYW5lbCcpLmZpbmQoJ2RpdltjbGFzcyo9Y2FwdGlvbl0nKS5jc3MoeyBwb3NpdGlvbjogJ2Fic29sdXRlJyB9KS5lbmQoKQ0KCX0pOw0KPC9zY3JpcHQ+DQpkAgMPZBYIAgMPFgIfAAWeFyA8bGk+DQogICAgIDxhIGhyZWY9Ii9seWNvbWluZ1N0b3JpZXMvdmlld1N0b3J5LmFzcHg/aWQ9NzcmdGl0bGU9U3R1ZGVudHNfbWFrZV9pdF9lYXNpZXJfYmVpbmdfZ3JlZW4iPjxpbWcgd2lkdGg9IjY5NHB4IiBoZWlnaHQ9IjQyMnB4IiBzcmM9Ii9pbmNsdWRlcy9iYW5uZXJQaG90by5hc2h4P2lkPTY1NSIgLz48L2E+DQogICAgIDxkaXYgY2xhc3M9ImNhcHRpb24tcmlnaHQiPg0KICAgICAgICAgPGEgaHJlZj0iL2x5Y29taW5nU3Rvcmllcy92aWV3U3RvcnkuYXNweD9pZD03NyZ0aXRsZT1TdHVkZW50c19tYWtlX2l0X2Vhc2llcl9iZWluZ19ncmVlbiI+PGgyPlN0dWRlbnRzIG1ha2UgaXQgZWFzaWVyIGJlaW5nIGdyZWVuPC9oMj48c3Bhbj5SRUFEIE1PUkU8L3NwYW4+PC9hPg0KICAgICA8L2Rpdj4NCiA8L2xpPg0KIDxsaT4NCiAgICAgPGEgaHJlZj0iL2x5Y29taW5nU3Rvcmllcy92aWV3U3RvcnkuYXNweD9pZD03NiZ0aXRsZT1XaGVuX2luX1JvbWUiPjxpbWcgd2lkdGg9IjY5NHB4IiBoZWlnaHQ9IjQyMnB4IiBzcmM9Ii9pbmNsdWRlcy9iYW5uZXJQaG90by5hc2h4P2lkPTY1MiIgLz48L2E+DQogICAgIDxkaXYgY2xhc3M9ImNhcHRpb24tcmlnaHQiPg0KICAgICAgICAgPGEgaHJlZj0iL2x5Y29taW5nU3Rvcmllcy92aWV3U3RvcnkuYXNweD9pZD03NiZ0aXRsZT1XaGVuX2luX1JvbWUiPjxoMj5XaGVuIGluIFJvbWU8L2gyPjxzcGFuPlJFQUQgTU9SRTwvc3Bhbj48L2E+DQogICAgIDwvZGl2Pg0KIDwvbGk+DQogPGxpPg0KICAgICA8YSBocmVmPSIvbHljb21pbmdTdG9yaWVzL3ZpZXdTdG9yeS5hc3B4P2lkPTc5JnRpdGxlPUJlYXRpbmdfdGhlX29kZHMJIj48aW1nIHdpZHRoPSI2OTRweCIgaGVpZ2h0PSI0MjJweCIgc3JjPSIvaW5jbHVkZXMvYmFubmVyUGhvdG8uYXNoeD9pZD02NjEiIC8+PC9hPg0KICAgICA8ZGl2IGNsYXNzPSJjYXB0aW9uLXJpZ2h0Ij4NCiAgICAgICAgIDxhIGhyZWY9Ii9seWNvbWluZ1N0b3JpZXMvdmlld1N0b3J5LmFzcHg/aWQ9NzkmdGl0bGU9QmVhdGluZ190aGVfb2RkcwkiPjxoMj5CZWF0aW5nIHRoZSBvZGRzCTwvaDI+PHNwYW4+UkVBRCBNT1JFPC9zcGFuPjwvYT4NCiAgICAgPC9kaXY+DQogPC9saT4NCiA8bGk+DQogICAgIDxhIGhyZWY9Imh0dHA6Ly93d3cubHljb21pbmcuZWR1L2FsdW1uaS9hbHVtbmlXZWVrZW5kLyI+PGltZyB3aWR0aD0iNjk0cHgiIGhlaWdodD0iNDIycHgiIHNyYz0iL2luY2x1ZGVzL2Jhbm5lclBob3RvLmFzaHg/aWQ9NjMxIiAvPjwvYT4NCiAgICAgPGRpdiBjbGFzcz0iY2FwdGlvbi1yaWdodCI+DQogICAgICAgICA8YSBocmVmPSJodHRwOi8vd3d3Lmx5Y29taW5nLmVkdS9hbHVtbmkvYWx1bW5pV2Vla2VuZC8iPjxoMj5CZSBhIHBhcnQgb2YgdGhlIGhpc3Rvcnk8L2gyPjxzcGFuPlJFQUQgTU9SRTwvc3Bhbj48L2E+DQogICAgIDwvZGl2Pg0KIDwvbGk+DQogPGxpPg0KICAgICA8ZGl2IHN0eWxlPSJ3aWR0aDogNjk0cHg7IGhlaWdodDogNDIycHg7IG92ZXJmbG93OiBoaWRkZW47Ij4NCiAgICAgICAgIDxkaXYgb25jbGljaz0idGhpcy5uZXh0U2libGluZy5zdHlsZS5kaXNwbGF5PSdibG9jayc7IHRoaXMuc3R5bGUuZGlzcGxheT0nbm9uZSciPjxpbWcgc3JjPSIvaW1hZ2VzL3lvdVR1YmVQbGF5Mi5wbmciIHN0eWxlPSJ3aWR0aDogODBweDsgaGVpZ2h0OiA4MHB4OyBjdXJzb3I6IHBvaW50ZXI7IHBvc2l0aW9uOiBhYnNvbHV0ZTsgbWFyZ2luOiAxNDBweCAwIDAgMzA3cHg7IiAvPjxpbWcgc3JjPSIvaW5jbHVkZXMvYmFubmVyUGhvdG8uYXNoeD9pZD02NDkiIHN0eWxlPSJjdXJzb3I6cG9pbnRlciIgLz48L2Rpdj48ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmUiPg0KICAgICAgICAgPG9iamVjdCB3aWR0aD0iNjk0IiBoZWlnaHQ9IjQyMiI+DQogICAgICAgICAgICAgPHBhcmFtIG5hbWU9Im1vdmllIiB2YWx1ZT0iaHR0cDovL3d3dy55b3V0dWJlLmNvbS92L2Q4VkZwMUpENXdnJmFtcDtobD1lbl9VUyZhbXA7ZnM9MSZjb250cm9scz0wJnNob3dpbmZvPTAmYXV0b3BsYXk9MSI+PC9wYXJhbT4NCiAgICAgICAgICAgICA8cGFyYW0gbmFtZT0iYWxsb3dGdWxsU2NyZWVuIiB2YWx1ZT0idHJ1ZSI+PC9wYXJhbT4NCiAgICAgICAgICAgICA8cGFyYW0gbmFtZT0iYWxsb3dzY3JpcHRhY2Nlc3MiIHZhbHVlPSJhbHdheXMiPjwvcGFyYW0+DQogICAgICAgICAgICAgPGVtYmVkIHNyYz0iaHR0cDovL3d3dy55b3V0dWJlLmNvbS92L2Q4VkZwMUpENXdnJmFtcDtobD1lbl9VUyZhbXA7ZnM9MSZjb250cm9scz0wJnNob3dpbmZvPTAmYXV0b3BsYXk9MSIgdHlwZT0iYXBwbGljYXRpb24veC1zaG9ja3dhdmUtZmxhc2giIGFsbG93c2NyaXB0YWNjZXNzPSJhbHdheXMiIGFsbG93ZnVsbHNjcmVlbj0idHJ1ZSIgd2lkdGg9IjY5NCIgaGVpZ2h0PSI0MjIiPjwvZW1iZWQ+DQogICAgICAgICA8L29iamVjdD4NCiAgICAgPC9kaXY+DQogICAgIDxkaXYgY2xhc3M9ImNhcHRpb24tcmlnaHQiIHN0eWxlPSJtYXJnaW4tdG9wOiAwcHg7Ij4NCiAgICAgICAgIDxhIGhyZWY9Ii92aWRlb3MvIj48aDI+V2h5IEkgdGVhY2ggYXQgTHljb21pbmc8L2gyPjxzcGFuPldBVENIIE1PUkU8L3NwYW4+PC9hPg0KICAgICA8L2Rpdj4NCiA8L2xpPg0KIDxsaT4NCiAgICAgPGEgaHJlZj0iaHR0cDovL3d3dy5seWNvbWluZy5lZHUvYWRtaXNzaW9ucy9vcGVuaG91c2Uvc3ByaW5ncHJldmlldy5hc3B4Ij48aW1nIHdpZHRoPSI2OTRweCIgaGVpZ2h0PSI0MjJweCIgc3JjPSIvaW5jbHVkZXMvYmFubmVyUGhvdG8uYXNoeD9pZD02NTgiIC8+PC9hPg0KICAgICA8ZGl2IGNsYXNzPSJjYXB0aW9uLXJpZ2h0Ij4NCiAgICAgICAgIDxhIGhyZWY9Imh0dHA6Ly93d3cubHljb21pbmcuZWR1L2FkbWlzc2lvbnMvb3BlbmhvdXNlL3NwcmluZ3ByZXZpZXcuYXNweCI+PGgyPkFkbWlzc2lvbnMgU3ByaW5nIFByZXZpZXc8L2gyPjxzcGFuPlJFQUQgTU9SRTwvc3Bhbj48L2E+DQogICAgIDwvZGl2Pg0KIDwvbGk+DQpkAgUPFgIfAAWhKTxoMyBjbGFzcz0idGl0bGUiIHN0eWxlPSIiPjxhIGhyZWY9IiMiPkJhY2NhbGF1cmVhdGUgYW5kIGNvbW1lbmNlbWVudCBNYXkgNS02PC9hPjwvaDM+DQo8ZGl2IHN0eWxlPSJtYXJnaW46IDA7IHBhZGRpbmc6IDAgMCA1cHggMDsiPg0KICAgPGRpdiBzdHlsZT0iZmxvYXQ6IHJpZ2h0OyBwYWRkaW5nOiAycHg7IGJvcmRlcjogMXB4IHNvbGlkICNDQ0M7IG1hcmdpbjogMCAwIDAgNXB4OyI+DQogICAgICAgPGRpdiBzdHlsZT0id2lkdGg6IDEwMHB4OyBoZWlnaHQ6IDY2cHg7IG92ZXJmbG93OiBoaWRkZW47IHBhZGRpbmc6IDA7Ij4NCiAgICAgICAgICAgPGltZyBzcmM9Ii9pbmNsdWRlcy9zdG9yeVBob3RvLmFzaHg/aWQ9NDA1JndpZHRoPTEwMCI+DQogICAgICAgPC9kaXY+DQogICA8L2Rpdj4NCiAgIDxwIGNsYXNzPSJzdG9yeSI+IEx5Y29taW5nIENvbGxlZ2Ugd2lsbCBob2xkIGl0cyBDbGFzcyBvZiAyMDEyIGdyYWR1YXRpb24gZXhlcmNpc2VzIE1heSA1LTYuIEFwcHJveGltYXRlbHkgMjkwIHN0dWRlbnRzIHdpIC4uLjwvcD4NCiAgIDxwIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyI+PGEgY2xhc3M9InJlYWRNb3JlIiBocmVmPSIvbmV3cy9zdG9yeS5hc3B4P2lkPTM2NSZ0aXRsZT1CYWNjYWxhdXJlYXRlX2FuZF9jb21tZW5jZW1lbnRfTWF5XzUtNiI+UmVhZCBtb3JlPC9hPjwvcD4NCiAgIDxkaXYgY2xhc3M9ImNsZWFyIj48L2Rpdj4NCjwvZGl2Pg0KPGgzIGNsYXNzPSJ0aXRsZSIgc3R5bGU9ImJvcmRlci10b3A6IDFweCBzb2xpZCAjRUVFOyI+PGEgaHJlZj0iIyI+UHJlc2lkZW50IERvdXRoYXQgdG8gcmV0aXJlIGluIEp1bmUgMjAxMyA8L2E+PC9oMz4NCjxkaXYgc3R5bGU9Im1hcmdpbjogMDsgcGFkZGluZzogMCAwIDVweCAwOyI+DQogICA8ZGl2IHN0eWxlPSJmbG9hdDogcmlnaHQ7IHBhZGRpbmc6IDJweDsgYm9yZGVyOiAxcHggc29saWQgI0NDQzsgbWFyZ2luOiAwIDAgMCA1cHg7Ij4NCiAgICAgICA8ZGl2IHN0eWxlPSJ3aWR0aDogMTAwcHg7IGhlaWdodDogNjZweDsgb3ZlcmZsb3c6IGhpZGRlbjsgcGFkZGluZzogMDsiPg0KICAgICAgICAgICA8aW1nIHNyYz0iL2luY2x1ZGVzL3N0b3J5UGhvdG8uYXNoeD9pZD0zNjEmd2lkdGg9MTAwIj4NCiAgICAgICA8L2Rpdj4NCiAgIDwvZGl2Pg0KICAgPHAgY2xhc3M9InN0b3J5Ij5XSUxMSUFNU1BPUlQsIFBhLiAmbmRhc2g7IERyLiBKYW1lcyBFLiBEb3V0aGF0LCB0aGUgdGhpcmQgbG9uZ2VzdCBzZXJ2aW5nIHByZXNpZGVudCBpbiBMeWNvbWluZyBDb2xsZWdlIGggLi4uPC9wPg0KICAgPHAgc3R5bGU9InRleHQtYWxpZ246IGxlZnQ7Ij48YSBjbGFzcz0icmVhZE1vcmUiIGhyZWY9Ii9uZXdzL3N0b3J5LmFzcHg/aWQ9MzMyJnRpdGxlPVByZXNpZGVudF9Eb3V0aGF0X3RvX3JldGlyZV9pbl9KdW5lXzIwMTNfIj5SZWFkIG1vcmU8L2E+PC9wPg0KICAgPGRpdiBjbGFzcz0iY2xlYXIiPjwvZGl2Pg0KPC9kaXY+DQo8aDMgY2xhc3M9InRpdGxlIiBzdHlsZT0iYm9yZGVyLXRvcDogMXB4IHNvbGlkICNFRUU7Ij48YSBocmVmPSIjIj5GYWN1bHR5IGFuZCBzdGFmZiByZWNvZ25pemVkIGF0IEhvbm9ycyBDb252b2NhdGlvbjwvYT48L2gzPg0KPGRpdiBzdHlsZT0ibWFyZ2luOiAwOyBwYWRkaW5nOiAwIDAgNXB4IDA7Ij4NCiAgIDxkaXYgc3R5bGU9ImZsb2F0OiByaWdodDsgcGFkZGluZzogMnB4OyBib3JkZXI6IDFweCBzb2xpZCAjQ0NDOyBtYXJnaW46IDAgMCAwIDVweDsiPg0KICAgICAgIDxkaXYgc3R5bGU9IndpZHRoOiAxMDBweDsgaGVpZ2h0OiA2NnB4OyBvdmVyZmxvdzogaGlkZGVuOyBwYWRkaW5nOiAwOyI+DQogICAgICAgICAgIDxpbWcgc3JjPSIvaW5jbHVkZXMvc3RvcnlQaG90by5hc2h4P2lkPTM4MyZ3aWR0aD0xMDAiPg0KICAgICAgIDwvZGl2Pg0KICAgPC9kaXY+DQogICA8cCBjbGFzcz0ic3RvcnkiPlRocmVlIEx5Y29taW5nIENvbGxlZ2UgZmFjdWx0eSBhbmQgc3RhZmYgbWVtYmVycyB3ZXJlIGhvbm9yZWQgd2l0aCB0ZWFjaGluZyBhbmQgc2VydmljZSBhd2FyZHMgYXQgdGhlIENvbCAuLi48L3A+DQogICA8cCBzdHlsZT0idGV4dC1hbGlnbjogbGVmdDsiPjxhIGNsYXNzPSJyZWFkTW9yZSIgaHJlZj0iL25ld3Mvc3RvcnkuYXNweD9pZD0zNjAmdGl0bGU9RmFjdWx0eV9hbmRfc3RhZmZfcmVjb2duaXplZF9hdF9Ib25vcnNfQ29udm9jYXRpb24iPlJlYWQgbW9yZTwvYT48L3A+DQogICA8ZGl2IGNsYXNzPSJjbGVhciI+PC9kaXY+DQo8L2Rpdj4NCjxoMyBjbGFzcz0idGl0bGUiIHN0eWxlPSJib3JkZXItdG9wOiAxcHggc29saWQgI0VFRTsiPjxhIGhyZWY9IiMiPkNoaWVmdGFpbiBBd2FyZCBwcmVzZW50ZWQgdG8gQW5kcmllPC9hPjwvaDM+DQo8ZGl2IHN0eWxlPSJtYXJnaW46IDA7IHBhZGRpbmc6IDAgMCA1cHggMDsiPg0KICAgPGRpdiBzdHlsZT0iZmxvYXQ6IHJpZ2h0OyBwYWRkaW5nOiAycHg7IGJvcmRlcjogMXB4IHNvbGlkICNDQ0M7IG1hcmdpbjogMCAwIDAgNXB4OyI+DQogICAgICAgPGRpdiBzdHlsZT0id2lkdGg6IDEwMHB4OyBoZWlnaHQ6IDY2cHg7IG92ZXJmbG93OiBoaWRkZW47IHBhZGRpbmc6IDA7Ij4NCiAgICAgICAgICAgPGltZyBzcmM9Ii9pbmNsdWRlcy9zdG9yeVBob3RvLmFzaHg/aWQ9MzgyJndpZHRoPTEwMCI+DQogICAgICAgPC9kaXY+DQogICA8L2Rpdj4NCiAgIDxwIGNsYXNzPSJzdG9yeSI+IEpvc2VwaCBBbmRyaWUgb2YgUmVlZHN2aWxsZSwgUGEuLCB3YXMgcHJlc2VudGVkIHdpdGggTHljb21pbmcgQ29sbGVnZSdzIENoaWVmdGFpbiBBd2FyZCBkdXJpbmcgSG9ub3JzIENvIC4uLjwvcD4NCiAgIDxwIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyI+PGEgY2xhc3M9InJlYWRNb3JlIiBocmVmPSIvbmV3cy9zdG9yeS5hc3B4P2lkPTM1OSZ0aXRsZT1DaGllZnRhaW5fQXdhcmRfcHJlc2VudGVkX3RvX0FuZHJpZSI+UmVhZCBtb3JlPC9hPjwvcD4NCiAgIDxkaXYgY2xhc3M9ImNsZWFyIj48L2Rpdj4NCjwvZGl2Pg0KPGgzIGNsYXNzPSJ0aXRsZSIgc3R5bGU9ImJvcmRlci10b3A6IDFweCBzb2xpZCAjRUVFOyI+PGEgaHJlZj0iIyI+QWxkZW4gVHJ1c3QgZ3JhbnQgYmVuZWZpdHMgcGh5c2ljcyBhbmQgcHN5Y2hvbG9neTwvYT48L2gzPg0KPGRpdiBzdHlsZT0ibWFyZ2luOiAwOyBwYWRkaW5nOiAwIDAgNXB4IDA7Ij4NCiAgIDxkaXYgc3R5bGU9ImZsb2F0OiByaWdodDsgcGFkZGluZzogMnB4OyBib3JkZXI6IDFweCBzb2xpZCAjQ0NDOyBtYXJnaW46IDAgMCAwIDVweDsiPg0KICAgICAgIDxkaXYgc3R5bGU9IndpZHRoOiAxMDBweDsgaGVpZ2h0OiA2NnB4OyBvdmVyZmxvdzogaGlkZGVuOyBwYWRkaW5nOiAwOyI+DQogICAgICAgICAgIDxpbWcgc3JjPSIvaW5jbHVkZXMvc3RvcnlQaG90by5hc2h4P2lkPTM4NCZ3aWR0aD0xMDAiPg0KICAgICAgIDwvZGl2Pg0KICAgPC9kaXY+DQogICA8cCBjbGFzcz0ic3RvcnkiPiBMeWNvbWluZyBDb2xsZWdlJ3MgcGh5c2ljcyBhbmQgcHN5Y2hvbG9neSBkZXBhcnRtZW50cyB3aWxsIGJlbmVmaXQgZnJvbSBhICQxMDAsMDAwIGdyYW50IGZyb20gdGhlIEdlb3JnZSAuLi48L3A+DQogICA8cCBzdHlsZT0idGV4dC1hbGlnbjogbGVmdDsiPjxhIGNsYXNzPSJyZWFkTW9yZSIgaHJlZj0iL25ld3Mvc3RvcnkuYXNweD9pZD0zNjEmdGl0bGU9QWxkZW5fVHJ1c3RfZ3JhbnRfYmVuZWZpdHNfcGh5c2ljc19hbmRfcHN5Y2hvbG9neSI+UmVhZCBtb3JlPC9hPjwvcD4NCiAgIDxkaXYgY2xhc3M9ImNsZWFyIj48L2Rpdj4NCjwvZGl2Pg0KPGgzIGNsYXNzPSJ0aXRsZSIgc3R5bGU9ImJvcmRlci10b3A6IDFweCBzb2xpZCAjRUVFOyI+PGEgaHJlZj0iIyI+Q29sbGVnZSBwYXJ0bmVycyB3aXRoIENBUFBBIGZvciBlLXJlYWRlciBwcm9ncmFtPC9hPjwvaDM+DQo8ZGl2IHN0eWxlPSJtYXJnaW46IDA7IHBhZGRpbmc6IDAgMCA1cHggMDsiPg0KICAgPGRpdiBzdHlsZT0iZmxvYXQ6IHJpZ2h0OyBwYWRkaW5nOiAycHg7IGJvcmRlcjogMXB4IHNvbGlkICNDQ0M7IG1hcmdpbjogMCAwIDAgNXB4OyI+DQogICAgICAgPGRpdiBzdHlsZT0id2lkdGg6IDEwMHB4OyBoZWlnaHQ6IDY2cHg7IG92ZXJmbG93OiBoaWRkZW47IHBhZGRpbmc6IDA7Ij4NCiAgICAgICAgICAgPGltZyBzcmM9Ii9pbmNsdWRlcy9zdG9yeVBob3RvLmFzaHg/aWQ9NDEwJndpZHRoPTEwMCI+DQogICAgICAgPC9kaXY+DQogICA8L2Rpdj4NCiAgIDxwIGNsYXNzPSJzdG9yeSI+IFRoZSBMeWNvbWluZyBDb2xsZWdlIGNoYXB0ZXIgb2YgdGhlIEhvbm9yIFNvY2lldHkgb2YgUGhpIEthcHBhIFBoaSByZWNlbnRseSBkb25hdGVkIGVpZ2h0IE5PT0sgY29sb3IgZS1yIC4uLjwvcD4NCiAgIDxwIHN0eWxlPSJ0ZXh0LWFsaWduOiBsZWZ0OyI+PGEgY2xhc3M9InJlYWRNb3JlIiBocmVmPSIvbmV3cy9zdG9yeS5hc3B4P2lkPTM2NiZ0aXRsZT1Db2xsZWdlX3BhcnRuZXJzX3dpdGhfQ0FQUEFfZm9yX2UtcmVhZGVyX3Byb2dyYW0iPlJlYWQgbW9yZTwvYT48L3A+DQogICA8ZGl2IGNsYXNzPSJjbGVhciI+PC9kaXY+DQo8L2Rpdj4NCjxoMyBjbGFzcz0ic3BvdExpZ2h0Ij5JbiBUaGUgU3BvdGxpZ2h0PC9oMz48ZGl2IHN0eWxlPSJoZWlnaHQ6IDBweDsiPjwvZGl2PjxoMyBjbGFzcz0idGl0bGUiIHN0eWxlPSIiPjxhIGhyZWY9IiMiPkdpcmFyZGkgYW5kIFdoaXRlaGlsbCBhcmUgbWVtYmVycyBvZiBpbmF1Z3VyYWwgaGFsbCBvZiBmYW1lIGNsYXNzPC9hPjwvaDM+DQo8ZGl2IHN0eWxlPSJtYXJnaW46IDA7IHBhZGRpbmc6IDAgMCA1cHggMDsiPg0KICAgPHAgY2xhc3M9InN0b3J5Ij48YSBjbGFzcz0icmVhZE1vcmUiIGhyZWY9Imh0dHA6Ly9hdGhsZXRpY3MubHljb21pbmcuZWR1L25ld3MvMjAxMi81LzEvR0VOXzA1MDExMjUwMjkuYXNweCIgdGFyZ2V0PSJfYmxhbmsiPkNvbnRpbnVlIHJlYWRpbmcgdGhlIHN0b3J5IGF0IEx5Y29taW5nIENvbGxlZ2UgQXRobGV0aWNzPC9hPjwvcD4NCjwvZGl2Pg0KPGgzIGNsYXNzPSJ0aXRsZSIgc3R5bGU9ImJvcmRlci10b3A6IDFweCBzb2xpZCAjRUVFOyI+PGEgaHJlZj0iIyI+THljb21pbmcgcmVjb2duaXplZCBmb3IgaGlnaCBncmFkdWF0aW9uIHJhdGU8L2E+PC9oMz4NCjxkaXYgc3R5bGU9Im1hcmdpbjogMDsgcGFkZGluZzogMCAwIDVweCAwOyI+DQogICA8cCBjbGFzcz0ic3RvcnkiPjxhIGNsYXNzPSJyZWFkTW9yZSIgaHJlZj0iaHR0cDovL3d3dy5seWNvbWluZy5lZHUvbHljb21pbmdTdG9yaWVzL3ZpZXdTdG9yeS8yOC9XaGF0X2FuX2hvbm9yIS8iIHRhcmdldD0iX2JsYW5rIj5Db250aW51ZSByZWFkaW5nIHRoZSBzdG9yeSBhdCA8L2E+PC9wPg0KPC9kaXY+DQpkAgcPFgIfAAW0AjxkaXYgY2xhc3M9ImV2ZW50SW5mbyI+PGRpdiBjbGFzcz0iZGF0ZVN0YW1wIj48ZGl2IGNsYXNzPSJ0b3AiIHN0eWxlPSJiYWNrZ3JvdW5kLXBvc2l0aW9uOiAtMTQ4cHggMHB4OyI+PC9kaXY+DQo8ZGl2IGNsYXNzPSJib3R0b20iIHN0eWxlPSJiYWNrZ3JvdW5kLXBvc2l0aW9uOiAtNDA3cHggLTE2cHg7Ij48L2Rpdj4NCjwvZGl2Pg0KPGEgaHJlZj0iaHR0cDovL3d3dy5seWNvbWluZy5lZHUvYWRtaXNzaW9ucy9vcGVuaG91c2Uvc3ByaW5ncHJldmlldy5hc3B4Ij5BZG1pc3Npb25zIFNwcmluZyBQcmV2aWV3PC9hPjxiciAvPg0KPC9kaXY+ZAIJDxYCHwAFzQM8ZGl2IGNsYXNzPSJldmVudEluZm8iPjxkaXYgY2xhc3M9ImRhdGVTdGFtcCI+PGRpdiBjbGFzcz0idG9wIiBzdHlsZT0iYmFja2dyb3VuZC1wb3NpdGlvbjogLTE0OHB4IDBweDsiPjwvZGl2Pg0KPGRpdiBjbGFzcz0iYm90dG9tIiBzdHlsZT0iYmFja2dyb3VuZC1wb3NpdGlvbjogLTIyMnB4IC0xNnB4OyI+PC9kaXY+DQo8L2Rpdj4NCjxwPk1heSBUZXJtIGJlZ2luczwvcD4NCjxkaXYgY2xhc3M9ImNsZWFyIj48L2Rpdj48L2Rpdj48ZGl2IGNsYXNzPSJldmVudEluZm8iPjxkaXYgY2xhc3M9ImRhdGVTdGFtcCI+PGRpdiBjbGFzcz0idG9wIiBzdHlsZT0iYmFja2dyb3VuZC1wb3NpdGlvbjogLTE0OHB4IDBweDsiPjwvZGl2Pg0KPGRpdiBjbGFzcz0iYm90dG9tIiBzdHlsZT0iYmFja2dyb3VuZC1wb3NpdGlvbjogLTcwM3B4IC0xNnB4OyI+PC9kaXY+DQo8L2Rpdj4NCjxwPkFJRFMgV2FsazwvcD4NCjwvZGl2PmRki4O5I3CE1nyPjj8t+OlhlSZKFpg=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=RIhuFdrmooJxjf-Jo_nK2ZmGezolI48hmfly5enviTEYV8kHtNcStl0I4wGMntG4rfgJP3KZZ6Tx_bJeSWInQWhBiLE1&amp;t=634604245351482412" type="text/javascript"></script>
+
+<div>
+
+	<input type="hidden" name="__SCROLLPOSITIONX" id="__SCROLLPOSITIONX" value="0" />
+	<input type="hidden" name="__SCROLLPOSITIONY" id="__SCROLLPOSITIONY" value="0" />
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+</div>
+            
+
+<div id="header">
+    <div id="headerContent">
+        <div id="lycoTitle"><a style="display: block; width: 100%; height: 100%" href="/"></a></div>
+        <div id="bicentennialLogo"><a style="display: block; width: 100%; height: 100%" href="/bicentennial/"></a></div>
+        <div id="globalNav">
+            <ul>
+				<li><a href="http://mylyco.lycoming.edu">myLyco</a></li><li class="globalNavSecondChild"><a href="/admissions/infoAndVisitRequest.aspx">Request Info</a></li><li class="globalNavThirdChild"><a href="/search/">Directories</a></li>
+            </ul>
+            <div class="clear"><!----></div>
+            <div id="ctl06_pnlglobalSearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl06_btnSearch')">
+	<input name="ctl06$txtQuery" type="text" id="ctl06_txtQuery" type="text" /><input type="submit" name="ctl06$btnSearch" value="" id="ctl06_btnSearch" value="" />
+</div>
+        </div>
+        <div class="clear"><!----></div>
+        <ul id="audience">
+            <li>
+                <a href="/admissions/">Prospective Students</a>
+                <div class="dropDown" style="width: 500px; float: left;">
+                    <div style="width: 300px; float: left;">
+                        <h2>Admissions</h2>
+                        <ul style="width: 150px;">    
+                            <li><a href="/admissions/howToApply/">How to Apply</a></li>
+                            <li><a href="/admissions/acceptedStudents.aspx">Accepted Students</a></li>
+                            <li><a href="/admissions/parents.aspx">For Parents</a></li>
+                            <li><a href="/admissions/ourCampus/">Visit Campus</a></li>
+                        </ul>
+                        <ul style="width: 150px;">            
+                            <li><a href="/financialAid/">Financial Aid</a></li>
+                            <li><a href="/admissions/requestInfo.aspx">Request Information</a></li>
+                            <li><a href="/admissions/lycomingFAQ.aspx">Lycoming FAQ</a></li>
+                        </ul>                
+                        <div class="clear"></div>        
+                    </div>
+                    <div style="width: 200px; float: left;">
+                        <h2>Student Life</h2>
+                        <ul style="width: 200px;">
+                            <li><a href="/studentPrograms/clubs.aspx">Clubs &amp; Organizations</a></li>  
+                            <li><a href="/studentPrograms/fraternity.aspx">Fraternity &amp; Sorority Life</a></li>
+                            <li><a href="/studentPrograms/leadership.aspx">Leadership Development</a></li>
+                            <li><a href="/residentialLife/residences/">Campus Housing</a></li>      
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <div style="width: 30%; float: left;"><center><p style="width: 150px;"><a href="/admissions/" class="button gray">View All</a></p></center></div>
+                    <div style="width: 70%; float: right;"><p style="float: right;"><a href="/admissions/howToApply/onlineApplication.aspx" class="button green" >Apply Now!</a></p></div>
+                </div>          
+            </li>
+            <li>
+                <a href="/currentStudents/">Current Students</a>
+                <div class="dropDown" style="width: 525px; float: left; margin-left: -0;">
+                    <div style="width: 175px; float: left;">
+                        <h2>Academic Services</h2>
+                        <ul style="width: 175px;">    
+                            <li><a href="/academicResourceCenter/">Academic Resource Center</a></li>
+                            <li><a href="/catalog/">College Catalog</a></li>
+                            <li><a href="http://lycoapp01.lycoming.edu/WebAdvisor/WebAdvisor?&CONSTITUENCY=WBCE&type=P&pid=ST-XWESTS12A" target="_blank">Course Schedule</a></li>
+                            <li><a href="/library/">Library</a></li>
+                            <li><a href="/registrar/">Registrar</a></li>
+                        </ul>
+                    </div>
+                    <div style="width: 175px; float: left;">
+                        <h2>Student Services</h2>
+                        <ul style="width: 175px;">    
+                            <li><a href="/residentialLife/">Residential Life</a></li>
+                            <li><a href="/careerServices/">Career Services</a></li>
+                            <li><a href="/counseling/">Counseling Services</a></li>
+                            <li><a href="/healthServices/">Health Services</a></li>
+                            <li><a href="/safetyAndSecurity/">Safety &amp; Security</a></li>
+                        </ul>
+                    </div>
+                    <div style="width: 175px; float: left;">
+                        <h2>Student Life</h2>
+                        <ul style="width: 175px;">
+                            <li><a href="/athletics/">Athletics</a></li>  
+                            <li><a href="/studentPrograms/fraternity.aspx">Fraternity &amp; Sorority Life</a></li>
+                            <li><a href="/studentPrograms/leadership.aspx">Leadership Development</a></li>
+                            <li><a href="/studentPrograms/clubs.aspx">Clubs &amp; Organizations</a></li>  
+                            <li><a href="/recreationAndIntramurals/">Recreation &amp; Intramurals</a></li>       
+                            <li><a href="/unitedCampusMinistry/">Campus Ministry</a></li>      
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <a href="http://webadvisor.lycoming.edu" style="background: none; padding: 0; float: right;" target="_blank"><img src="/images/webAdvisorStudent5.png" alt="WebAdvisor" /></a>
+                    <a href="http://mail.lycoming.edu" style="background: none; padding: 0; float: right; margin-right:10px;"  target="_blank"><img src="/images/outlook.png" alt="Oulook Web App" /></a>
+                    <a href="http://moodle.lycoming.edu" style="background: none; padding: 0; float: right; margin-right:10px;"  target="_blank"><img src="/images/moodle.png" alt="Moodle" /></a>
+                    <p style="text-align: center;"><a href="/currentStudents/" class="button gray">View All</a></p>
+                </div>                       
+            </li>
+            <li>
+                <a href="/aboutLycoming/">About Lycoming</a>
+                <div class="dropDown" style="width: 300px; float: left;">
+                    <div style="width: 300px; float: left;">
+                        <h2>About Lycoming</h2>
+                        <ul style="width: 175px;">    
+                            <li><a href="/aboutLycoming/history.aspx">Lycoming College History</a></li>
+                            <li><a href="/aboutLycoming/mission.aspx">Mission</a></li>
+                            <li><a href="/aboutLycoming/magazine/">Lycoming Magazine</a></li>
+                            <li><a href="/aboutLycoming/williamsport.aspx">Williamsport &amp; the Area</a></li>
+                        </ul>
+                        <ul style="width: 125px;">            
+                            <li><a href="/virtualTour/">Virtual Tour</a></li>
+                            <li><a href="/admissions/ourCampus/campusMap.aspx">Map &amp; Directions</a></li>
+                        </ul>                
+                        <div class="clear"></div>        
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <div style="width: 30%; float: left;"><center><p style="width: 150px;"><a href="/admissions/" class="button gray">View All</a></p></center></div>
+                </div>      
+            </li>
+            <li><a href="/academics/">Academics</a>
+                <div class="dropDown" style="width: 400px; float: left; margin-left: -185px;">
+                    <div style="width: 200px; float: left;">
+                        <h2>Academics</h2>
+                        <ul style="width: 200px;">    
+                            <li><a href="/academics/">Majors, Minors, &amp; Programs</a></li>
+    				       <li><a href="/politicalScience/polling.aspx">Center for the Study of Community &amp; Economy</a></li>
+                            <li><a href="/cwi/">Clean Water Institute</a></li>
+                            <li><a href="/careerServices/studyAbroad/">International Study</a></li>
+                            <li><a href="/careerServices/internships/">Internship Opportunities</a></li>
+                            <li><a href="/ims/">Institute for Management Studies</a></li>
+                            <li><a href="/scholarsProgram/">Lycoming Scholars Program</a></li>
+                            <li><a href="/catalog/military.aspx">Military Science(ROTC)</a></li>
+                        </ul>
+                    </div>
+                    <div style="width: 200px; float: left;">
+                        <h2>Related Pages</h2>
+                        <ul style="width: 200px;">
+                            <li><a href="/catalog/">College Catalog</a></li>
+                            <li><a href="/library/">Library</a></li>
+                            <li><a href="/provost/">Provost's Office</a></li>
+                            <li><a href="/registrar/">Registrar</a></li>
+                            <li><a href="/teachingEffectiveness/">Teaching Effectiveness</a></li>
+                            <li><a href="/its/">Technology Services</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <p style="text-align: center;"><a href="/academics/" class="button gray">View All</a></p>
+                </div>  
+            </li>
+            <li><a href="/alumni/">Alumni</a>
+                <div class="dropDown" style="width: 200px; float: left;">
+                    <div style="width: 200px; float: left;">
+                        <h2>Alumni</h2>
+                        <ul style="width: 200px;">    
+                            <li><a href="/alumni/">Alumni Relations</a></li>
+                            <li><a href="/alumni/support.aspx">Support Lycoming</a></li>
+                            <li><a href="/collegeRelations/">College Relations</a></li>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <p style="text-align: center;"><a href="/alumni/" class="button gray">View All</a></p>
+                </div>                       
+            </li>
+            <li><a href="/offices/">Offices</a>
+                <div class="dropDown" style="width: 200px; float: left; margin-left: -85px;">
+                    <div style="width: 200px; float: left;">
+                        <h2>Offices</h2>
+                        <ul style="width: 200px;">    
+                            <li><a href="/offices/">Office Listings</a></li>
+                            <li><a href="/search/">Search/Directories</a></li>      
+                            <li><a href="/studentprograms/events.aspx">Scheduled Facilities</a></li>      
+                            <li><a href="/humanResources/">Employment Opportunities</a></li>      
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <p style="text-align: center;"><a href="/offices/" class="button gray">View All</a></p>
+                </div>  
+</li>
+            <li><a href="/athletics/">Athletics</a>
+                <div class="dropDown" style="width: 200px; float: left; margin-left: -171px;">
+                    <div style="width: 200px; float: left;">
+                        <h2>Athletics</h2>
+                        <ul style="width: 200px;">    
+                            <li><a href="/athletics/">Warrior Athletics</a></li>
+                            <li><a href="/recreationAndIntramurals/">Recreation &amp; Intramurals</a></li>      
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="margin: 10px 0; height: 1px; border-top: 1px dashed #CCC;"></div>
+                    <p style="text-align: center;"><a href="/athletics/" class="button gray">View All</a></p>
+                </div>                       
+            </li>
+        </ul>
+    </div>
+</div> 
+            <div id="main">
+                <div id="content">
+                    <div id="weather"><a href="/inclementWeather/"><img src="/images/inclementWeatherBanner.png" border="0" /></a></div>
+                    <div id="slideshow">
+                        <ul id="slider">
+                             <li>
+     <a href="/lycomingStories/viewStory/77/Students_make_it_easier_being_green/"><img width="694px" height="422px" src="/includes/bannerPhoto.ashx?id=655" /></a>
+     <div class="caption-right">
+         <a href="/lycomingStories/viewStory/77/Students_make_it_easier_being_green/"><h2>Students make it easier being green</h2><span>READ MORE</span></a>
+     </div>
+ </li>
+ <li>
+     <a href="/lycomingStories/viewStory/76/When_in_Rome/"><img width="694px" height="422px" src="/includes/bannerPhoto.ashx?id=652" /></a>
+     <div class="caption-right">
+         <a href="/lycomingStories/viewStory/76/When_in_Rome/"><h2>When in Rome</h2><span>READ MORE</span></a>
+     </div>
+ </li>
+ <li>
+     <a href="/lycomingStories/viewStory/79/Beating_the_odds	/"><img width="694px" height="422px" src="/includes/bannerPhoto.ashx?id=661" /></a>
+     <div class="caption-right">
+         <a href="/lycomingStories/viewStory/79/Beating_the_odds	/"><h2>Beating the odds	</h2><span>READ MORE</span></a>
+     </div>
+ </li>
+ <li>
+     <a href="http://www.lycoming.edu/alumni/alumniWeekend/"><img width="694px" height="422px" src="/includes/bannerPhoto.ashx?id=631" /></a>
+     <div class="caption-right">
+         <a href="http://www.lycoming.edu/alumni/alumniWeekend/"><h2>Be a part of the history</h2><span>READ MORE</span></a>
+     </div>
+ </li>
+ <li>
+     <div style="width: 694px; height: 422px; overflow: hidden;">
+         <div onclick="this.nextSibling.style.display='block'; this.style.display='none'"><img src="/images/youTubePlay2.png" style="width: 80px; height: 80px; cursor: pointer; position: absolute; margin: 140px 0 0 307px;" /><img src="/includes/bannerPhoto.ashx?id=649" style="cursor:pointer" /></div><div style="display:none">
+         <object width="694" height="422">
+             <param name="movie" value="http://www.youtube.com/v/d8VFp1JD5wg&amp;hl=en_US&amp;fs=1&controls=0&showinfo=0&autoplay=1"></param>
+             <param name="allowFullScreen" value="true"></param>
+             <param name="allowscriptaccess" value="always"></param>
+             <embed src="http://www.youtube.com/v/d8VFp1JD5wg&amp;hl=en_US&amp;fs=1&controls=0&showinfo=0&autoplay=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="694" height="422"></embed>
+         </object>
+     </div>
+     <div class="caption-right" style="margin-top: 0px;">
+         <a href="/videos/"><h2>Why I teach at Lycoming</h2><span>WATCH MORE</span></a>
+     </div>
+ </li>
+ <li>
+     <a href="http://www.lycoming.edu/admissions/openhouse/springpreview.aspx"><img width="694px" height="422px" src="/includes/bannerPhoto.ashx?id=658" /></a>
+     <div class="caption-right">
+         <a href="http://www.lycoming.edu/admissions/openhouse/springpreview.aspx"><h2>Admissions Spring Preview</h2><span>READ MORE</span></a>
+     </div>
+ </li>
+
+                        </ul>
+                    </div>
+                    <div id="newEvents"> 
+                        <div class="container">
+                            <ul class="tabs">
+                                <li><a href="#news">News</a></li>
+                                <li><a href="#events">Events</a></li>
+                            </ul>
+                            <div class="clear"></div>
+                            <div class="tab_container">
+                                <div id="news" class="tab_content">
+                                    <div id="accordion"><h3 class="title" style=""><a href="#">Baccalaureate and commencement May 5-6</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=405&width=100">
+       </div>
+   </div>
+   <p class="story"> Lycoming College will hold its Class of 2012 graduation exercises May 5-6. Approximately 290 students wi ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/365/Baccalaureate_and_commencement_May_5-6/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">President Douthat to retire in June 2013 </a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=361&width=100">
+       </div>
+   </div>
+   <p class="story">WILLIAMSPORT, Pa. &ndash; Dr. James E. Douthat, the third longest serving president in Lycoming College h ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/332/President_Douthat_to_retire_in_June_2013_/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">Faculty and staff recognized at Honors Convocation</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=383&width=100">
+       </div>
+   </div>
+   <p class="story">Three Lycoming College faculty and staff members were honored with teaching and service awards at the Col ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/360/Faculty_and_staff_recognized_at_Honors_Convocation/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">Chieftain Award presented to Andrie</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=382&width=100">
+       </div>
+   </div>
+   <p class="story"> Joseph Andrie of Reedsville, Pa., was presented with Lycoming College's Chieftain Award during Honors Co ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/359/Chieftain_Award_presented_to_Andrie/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">Alden Trust grant benefits physics and psychology</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=384&width=100">
+       </div>
+   </div>
+   <p class="story"> Lycoming College's physics and psychology departments will benefit from a $100,000 grant from the George ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/361/Alden_Trust_grant_benefits_physics_and_psychology/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">College partners with CAPPA for e-reader program</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <div style="float: right; padding: 2px; border: 1px solid #CCC; margin: 0 0 0 5px;">
+       <div style="width: 100px; height: 66px; overflow: hidden; padding: 0;">
+           <img src="/includes/storyPhoto.ashx?id=410&width=100">
+       </div>
+   </div>
+   <p class="story"> The Lycoming College chapter of the Honor Society of Phi Kappa Phi recently donated eight NOOK color e-r ...</p>
+   <p style="text-align: left;"><a class="readMore" href="/news/story/366/College_partners_with_CAPPA_for_e-reader_program/">Read more</a></p>
+   <div class="clear"></div>
+</div>
+<h3 class="spotLight">In The Spotlight</h3><div style="height: 0px;"></div><h3 class="title" style=""><a href="#">Girardi and Whitehill are members of inaugural hall of fame class</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <p class="story"><a class="readMore" href="http://athletics.lycoming.edu/news/2012/5/1/GEN_0501125029.aspx" target="_blank">Continue reading the story at Lycoming College Athletics</a></p>
+</div>
+<h3 class="title" style="border-top: 1px solid #EEE;"><a href="#">Lycoming recognized for high graduation rate</a></h3>
+<div style="margin: 0; padding: 0 0 5px 0;">
+   <p class="story"><a class="readMore" href="http://www.lycoming.edu/lycomingStories/viewStory/28/What_an_honor!/" target="_blank">Continue reading the story at </a></p>
+</div>
+</div>
+                                    <div style="border-top: 1px solid #EEE; width: 100%; margin-bottom: 5px;"></div>
+                                    <p style="width: 35%; float: left;"><strong><a href="/news/">More News</a></strong></p>                                    
+                                </div>
+                                <div id="events" class="tab_content">
+                                    <h4>Featured Events</h4>
+                                    <div class="eventInfo"><div class="dateStamp"><div class="top" style="background-position: -148px 0px;"></div>
+<div class="bottom" style="background-position: -407px -16px;"></div>
+</div>
+<a href="http://www.lycoming.edu/admissions/openhouse/springpreview.aspx">Admissions Spring Preview</a><br />
+</div>
+                                    <h4>What's Happening</h4>
+                                    <div class="eventInfo"><div class="dateStamp"><div class="top" style="background-position: -148px 0px;"></div>
+<div class="bottom" style="background-position: -222px -16px;"></div>
+</div>
+<p>May Term begins</p>
+<div class="clear"></div></div><div class="eventInfo"><div class="dateStamp"><div class="top" style="background-position: -148px 0px;"></div>
+<div class="bottom" style="background-position: -703px -16px;"></div>
+</div>
+<p>AIDS Walk</p>
+</div>
+                                    <p style="text-align: center; width: 50%; float: left;"><strong><a href="/calendar/">More Events</a></strong></p>
+                                </div>
+                            </div>
+                        </div>            
+                    </div>
+
+                    <div class="clear"></div>
+                    <div id="boxesWrap">
+                        <div id="boxes">
+            	            <a href="/profile/"><img class="box" src="/images/box1-2.jpg" /></a>
+            	            <script>showImage();</script>
+            	            <a href="/commencement/"><img class="box" src="/images/boxCommencement.jpg" /></a>
+            	            <a href="/connect/"><img class="box" src="/images/box4-2.jpg" /></a>
+            	            <a href="/admissions/ourCampus/directionsToCampus.aspx"><img class="box" style="margin: 0;" src="/images/box5-2.jpg" /></a>
+                            <div class="clear"></div>
+                        </div>
+                    </div>     
+                    <div style="height: 175px;"></div>
+                </div>                         
+            </div>        
+            
+        <div id="footer">
+        	<div style="width: 1000px; margin: 0 auto;">
+            	<div style="width: 650px; float: left;">
+                    <h3>Quick Links</h3>
+                	<div id="quickLinks" style="position:relative; z-index:999">
+                        <ul>
+                            <li><a href="http://ems.lycoming.edu/MasterCalendar.aspx">Academic Calendar</a></li>
+                            <li><a href="/admissions/ourCampus/campusMap.aspx">Campus Map</a></li>
+                            <li><a href="http://bookstoreonline.lycoming.edu">Campus Store</a></li>
+                            <li><a href="http://lycoapp01.lycoming.edu/WebAdvisor/WebAdvisor?&CONSTITUENCY=WBCE&type=P&pid=ST-XWESTS12A">Course Schedule</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/financialAid/">Financial Aid</a></li>
+                            <li><a href="/its/">Information Technology</a></li>
+                            <li><a href="/humanResources/">Job Openings</a></li>
+                            <li><a href="/library/">Library</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="/aboutLycoming/magazine/">Lycoming Magazine</a></li>
+                            <li><a href="/registrar/">Registrar</a></li>
+                            <li><a href="/search/">Search/Directories</a></li>
+                            <li><a href="/admissions/ourCampus/Default.aspx">Visit Lycoming</a></li>   
+                            <li>&nbsp;</li>            
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                    <div style="height: 1px; border-top: 1px dashed #6f6f6f; width: 100%; margin: 20px 0;"></div>
+
+                    <div class="footerLink" style="background: url(/images/iconApply.png) top left no-repeat;">
+                    	<h5><a href="/admissions/howToApply/onlineApplication.aspx">Apply Now</a></h5>
+                    </div>
+                    <div class="footerLink" style="background: url(/images/iconMap.png) top left no-repeat;">
+                    	<h5><a href="/virtualTour/">Virtual Tour</a></h5>
+                    </div>
+                    <div class="footerLink" style="background: url(/images/iconGift.png) top left no-repeat; margin-right: 0;">
+                    	<h5><a href="/development/givingOnline.aspx">Make a Gift</a></h5>
+                    </div>
+                    <div class="footerLink" style="background: url(/images/iconStayConnected.png) top left no-repeat; margin-right: 0;">
+                    	<h5><a href="/connect/">Stay Connected</a></h5>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            	<div style="width: 350px; float: left; background: url(/images/footerSeal.png) 74px 35px no-repeat; padding: 30px 0 0 0; ">
+                    <div>
+                        <h3 style="text-align: right; font-family: Times New Roman;">Lycoming College</h3>
+                        <p>700 College Place</p>
+                        <p>Williamsport, PA 17701</p>
+                        <p>(570) 321-4000</p>
+                        <p><a href="mailto:webmaster@lycoming.edu">webmaster@lycoming.edu</a></p>
+                    </div>
+                    <p style="color: #8e8e8e; margin: 10px 0 0 0;">Copyright &copy; 2011 Lycoming College</p>
+                </div>
+            </div>
+        </div>    
+        
+
+<script type="text/javascript">
+//<![CDATA[
+
+theForm.oldSubmit = theForm.submit;
+theForm.submit = WebForm_SaveScrollPositionSubmit;
+
+theForm.oldOnSubmit = theForm.onsubmit;
+theForm.onsubmit = WebForm_SaveScrollPositionOnSubmit;
+//]]>
+</script>
+</form>
+    </body>
+</html>

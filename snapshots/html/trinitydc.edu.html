@@ -1,0 +1,1244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Located in Washington, DC, Trinity offers undergraduate and graduate programs for men and women, including business, communication and nursing degrees. Many programs offered by the university have flexible schedules for students who work during the day.">
+<meta name="keywords" content="MBA, MSA, Trinity, Trinity College, University, College, Washington DC, Undergraduate, Graduate, Women's School, Degree">
+<meta name="google-site-verification" content="xcbEZ8d4qwOxmVyxsI3LDnXb4YhVfD9liVjHC9aX0sM" />
+<meta property="og:image" content="http://statictwu.us/img/sheild.jpg"/> 
+<title>Trinity Washington University	</title>
+ 
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+<link rel="stylesheet" type="text/css" media="all" href="http://statictwu.us/css/style_and_jquery-ui.css?20120430a" />
+
+<link rel="shortcut icon: href="/favicon.ico" />
+<link rel="pingback" href="http://www.trinitydc.edu/xmlrpc.php" />
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAVN1Z5Z9DNm1p5LoiTS1FmhQzIBTygZFwNO27a2TM-TrwnAuBRRQNUzY5kgK_y8aZTfux_9HefyegOQ"></script>
+<script type="text/javascript" src="http://statictwu.us/js/jquery_and_helpers.min.js?20101109"></script>
+<script type="text/javascript" src="http://api.recaptcha.net/js/recaptcha_ajax.js"></script>
+<script type="text/javascript" src="http://use.typekit.com/odf8hax.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+<script type="text/javascript">
+google.load('search', '1');
+
+
+var opts = { labels:'bc',size:50,duration:200}
+
+
+function doNav(mytab,mypanel,myheight) {
+	$('#nav_links .school-programs').remove()
+	if ($(mytab).attr('class').indexOf('isopennav') > -1) {
+	//this panel is open, so close it up
+	
+		$('#nav a').addClass('notopennav').removeClass('isopennav');
+		$('#nav a.currentnav').addClass('current').removeClass('currentnav');
+		$('#nav_links').slideUp(300);
+		$('.panel').css('display', 'none');
+		$('#pagetitle').css('border-top', 'none');
+	
+	} else {
+	// this panel NOT open
+	
+		//set the proper tab, unsetting others	
+		$('#nav a.current').removeClass('current').addClass('currentnav');
+		$('#nav a').removeClass('isopennav').addClass('notopennav');
+		$(mytab).removeClass('notopennav').addClass('isopennav');
+		$('#pagetitle').css('border-top', 'solid 2px #ffd451');
+		
+		if ($('#nav_links').css('display') == 'none')  {
+		// all panels are closed, so load our content then open it
+			
+			$('#nav_links').html($(mypanel).html());
+            $('#nav_links').height(myheight+20);
+			$('#nav_links').slideDown(300);
+		
+		} else {
+		// a panel is open, so fade its contents, load the new content as hidden, slide to its size, then fade in the new content
+			$('#nav a').addClass('notopennav').removeClass('isopennav');
+			$(mytab).removeClass('notopennav').addClass('isopennav');
+            $('#nav_links').css('height', $('#nav_links').height());
+			$('#nav_links div.panelcontents').fadeOut(300, function () {
+				$('#nav_links').animate({height: myheight+20},300, function () {
+					$('#nav_links').html($(mypanel).html());
+				});
+			});	
+		}			
+	}
+}
+function searchFocus(field) {
+	if (field.value.indexOf('Enter search terms') > -1) field.value = '';
+	}
+function searchBlur(field) {
+	if (field.value=='') field.value = 'Enter search terms';
+	}
+function saveEmail() {	
+	var system = $('input:radio[name=emailsystem]:checked').val();
+	if ($('#rememberemail').attr('checked')) {
+		$.cookie("email", system, { expires: 365 });
+	}
+	gotoEmail(system);
+}
+function gotoEmail(system) {
+	if (system == 'student') {
+		window.location = "http://gmail.trinitydc.edu";
+	} else {
+		window.location = "https://webmail.trinitydc.edu";	
+	}
+}
+function checkEmail() {
+	if ($.cookie("email")) {
+		gotoEmail($.cookie("email"));
+	} else {
+		$('#email').dialog({modal: true, width: 350});
+	}
+}
+
+function PopUp(url) { 	newwindow=window.open(url,'name','toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=1,width=825,height=600,left=590,top=275'); }
+
+function showPrograms(school, link) {
+    $('.progbutton').css('visibility','visible');
+    $(link).css('visibility','hidden');
+    $('.nav-school').removeClass('openschool');
+    $('#nav_links .school-programs').remove()
+    $('#'+school).addClass('openschool');
+	$('#nav_links').append('<div class="school-programs">' + $('#'+school+'-programs').html() + '</div>');
+
+}
+
+
+jQuery(document).ready(function(){
+	$('#footernav h1').remove();
+    $('#footernav div.panel').each(function() {
+    	$('#nav').append('<a href="javascript:;" onclick="doNav(this,\'#' + $(this).attr('id') + '\',' + $(this).height() +');">' + $(this).attr('id').replace(/_/g,' ').replace('and','&amp;') + '</a>');
+    });
+    $('.nav-school').each(function() {
+    	$(this).append('<br /><a href="javascript:;" class="progbutton" id="' + $(this).attr('id') + '-button" onClick="showPrograms(\'' + $(this).attr('id') + '\', this);">View Programs</a>');
+     });
+    $('#footernav').css('display','none');
+    $('.school-programs').css('display','none');
+  	//Google search integration
+	$("#search_button").click(function () {
+		if (document.getElementById("search_field").value == "Enter search terms") {
+			return false;
+		} else {
+			doSearch();
+		}
+	});
+	
+	$('#search_field').keyup(function(e) {
+		if(e.keyCode == 13) {
+			doSearch();
+		}
+	});
+	
+	$('#home-news1').mouseenter(function() {$('#home-news1detail').css('display', 'block'); $('#home-news2detail').css('display', 'none'); $('#home-news3detail').css('display', 'none'); });
+	$('#home-news1detail').mouseleave(function() {$('#home-news1detail').css('display', 'none'); });
+	$('#home-news2').mouseenter(function() {$('#home-news2detail').css('display', 'block'); $('#home-news1detail').css('display', 'none'); $('#home-news3detail').css('display', 'none'); })
+	$('#home-news2detail').mouseleave(function() {$('#home-news2detail').css('display', 'none'); });
+	$('#home-news3').mouseenter(function() {$('#home-news3detail').css('display', 'block'); $('#home-news1detail').css('display', 'none'); $('#home-news2detail').css('display', 'none'); });
+	$('#home-news3detail').mouseleave(function() {$('#home-news3detail').css('display', 'none');  });
+
+$('#logoprotect').bind("contextmenu",function(e){
+              return false;
+       }); 
+$('#logoprotect').mousedown(function(event) {
+    switch (event.which) {
+        case 3:
+        if (confirm("Want to download the Trinity logo?\nClick OK for a high-quality version!")) {
+			window.location = "http://www.trinitydc.edu/media/style-guides/#logo";
+		} else {
+			return false;
+		}
+        break;
+        default:
+        return false;
+    }
+});
+
+
+
+// DIRECTORY
+	// tabs and controls
+	$(function() { $("#tabs").tabs(); });
+	$("#loctab").click(function() { tabIni('location');	});
+	$("#ppltab").click(function() {	tabIni('employee'); });
+	$("#sttab").click(function() { tabIni('student'); });
+	$(".search").keyup(function(event){	if (event.keyCode == 8 || event.keyCode == 46) { $(".result").slideUp(); }});
+	$(".search").mouseup(function(){ $(".result").slideUp(); });
+	$(".close").mouseup(function() { toggleDir(); });
+	
+	// employee search	
+	$("#employee").keyup().autocomplete("/interactive/directory/search.php", {
+		minChars: 2,
+		width: 400,
+		highlight: false,
+		autoFill: false,
+		formatItem: function(data, i, n, value) { return formatEmp(data,i,n,value); },
+		formatResult: function(data, i, n) { return empFillResult(data,i,n); },
+		extraParams: {by: function() { return $("#pplby").val(); }
+		}
+	});
+	$("#pplby").change(function() { changeSearchType("employee"); });	
+	$("#employee").result(function(event, data, formatted) { empResult(event,data,formatted); });
+
+	// student search
+	$("#student").keyup().autocomplete("/interactive/directory/studentsearch.php", {
+		minChars: 2,
+		width: 400,
+		highlight: false,
+		autoFill: false,
+		formatItem: function(data, i, n, value) { return formatStudent(data,i,n,value); },
+		formatResult: function(data, i, n) { return stFillResult(data,i,n);	},
+		extraParams: {by: function() { return $("#stby").val() }
+		}
+	});
+	$("#stby").change(function() { changeSearchType("student"); });
+	$("#student").result(function(event, data, formatted) { stResult(event,data,formatted);	});
+
+	// location search
+	$("#location").keyup().autocomplete("/interactive/directory/locationsearch.php", {
+		minChars: 2,
+		width: 400,
+		highlight: false,
+		autoFill: false,
+		formatItem: function(data, i, n, value) { return locItem(data,i,n,value); }
+	});
+	$("#location").result(function(event, data, formatted) { locResult(event,data,formatted); });
+// END DIRECTORY 
+
+
+	
+	//Load the dock
+	$('#dock').jqDock(opts);
+
+	//Load the accordion
+	$("#menu-accordion").accordion({ 
+    	autoHeight: false,
+		navigation: true,
+		collapsible: true,
+		clearStyle: false,
+		active: false	});
+	//open the first accordion on the homepage
+		
+	
+	//Close the accordion when the home link is clicked
+	$('#homelink').click(function() {
+			$("#menu-accordion").accordion("activate", false);
+		});
+	//set up the nav actions	
+	$(".program").live('mouseover', function () { 
+			$(this).find(".links").css('visibility', 'visible');
+			$(this).addClass("highlight");
+		});
+	$(".program").live('mouseout', function () { 
+			$(this).find(".links").css('visibility', 'hidden'); 
+			$(this).removeClass("highlight");
+		});
+	
+
+	//external attribute
+	$('a[href^="http://"]').each(
+    	function(){
+      		if(this.href.indexOf('trinitydc.edu') == -1) {
+        		$(this).attr('target', '_blank');
+				$(this).addClass('external');
+      		}
+    	}
+  	)
+	
+	$('a[href$=".pdf"]').addClass('pdflink').attr('target', '_blank');
+
+});
+
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="Trinity Washington University &raquo; Feed" href="http://www.trinitydc.edu/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Trinity Washington University &raquo; Comments Feed" href="http://www.trinitydc.edu/comments/feed/" />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.trinitydc.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.trinitydc.edu/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.3.1" />
+</head>
+
+<body class="blog">
+
+<!--dialog boxes-->
+
+<div id="search_results" title="Search Results" style="display: none"><div id="results"></div></div>
+<div id="email" title="Are you a Student or Employee?" style="display: none">
+<p>Trinity has separate email systems for students and employees. Please identify yourself.</p>
+<blockquote>
+<p><input type="radio" name="emailsystem" value="student" onclick="$('#emailbtn').removeAttr('disabled');" /> I am a <strong>student</strong> at Trinity.</p>
+<p><input type="radio" name="emailsystem" value="employee" onclick="$('#emailbtn').removeAttr('disabled');" /> I am a Trinity <strong>employee</strong>.</p>
+</blockquote>
+<p><input type="checkbox" checked="checked" id="rememberemail" value="1" />Remember my choice on this computer.</p>
+<p align="center"><button disabled="disabled" id="emailbtn" onClick="saveEmail();">Let me into my email already!</button></p>
+</div>
+
+<!--/dialog boxes-->
+    <div id="wrapper" class="hfeed"><!-- closed in footer.php -->
+    	<div id="printhead">
+        	<img src="http://statictwu.us/img/logoprint.png" title="Header-Print" alt="Trinity Logo" />
+        </div>    
+        <div id="aud_tabs"> 
+            <a class="aud_tab" href="/students/">Students</a>&nbsp;
+            <a class="aud_tab" href="/alums/">Alumnae/i</a>&nbsp;
+            <a class="aud_tab" href="/facultystaff/">Faculty/Staff</a> 
+        </div>
+        
+        <div id="header">
+        <a href="/" id="logoprotect"></a>
+            <div id="dock"> 
+                <a href="/"><img src="http://statictwu.us/img/home.png" title="Home" alt="Home" /></a>
+                <a href="javascript:;" onclick="checkEmail();"><img src="http://statictwu.us/img/email.png" title="Email"  alt="Email" /></a>
+                <a href="http://moodle.trinitydc.edu" target="_blank"><img src="http://statictwu.us/img/moodle.png" title="&nbsp;&nbsp;Moodle"  alt="Moodle" /></a>
+                <a href="http://selfservice.trinitydc.edu" target="_blank"><img src="http://statictwu.us/img/cart.png" title="Self&#8209;Service" alt="Self-Service" /></a>
+                <a href="javascript:;" onclick="toggleDir();"><img src="http://statictwu.us/img/directory.png" title="Campus&nbsp;Directory" alt="Campus Directory" /></a>
+            </div><!-- #dock -->
+        </div><!-- #header -->
+        
+        <div id="nav"> 
+            <div id="search">
+            	<form action="http://www.trinitydc.edu/search/" method="get" style="margin:0;padding:0;"><input id="search_field" type="text" name="q" size="20" value="Enter search terms" onFocus="searchFocus(this);" onBlur="searchBlur(this);" style="line-height: 14px; outline: none" /><input id="search_button" type="submit" value=" " /></form>
+			</div><!-- #search -->
+            
+            <a href="http://www.trinitydc.edu/admissions/">Admissions</a> 
+           
+        </div><!-- #nav -->
+        
+        <div id="nav_links">            
+        </div><!-- #nav_links -->
+        <div id="container"><!-- closed in footer.php --><div class="cleardiv" style="position: relative">
+<div id="home-banner" style="position: relative">
+<img src="http://statictwu.us/img/jasmin.jpg" width="970" height="300" border="0" usemap="#Map7"  alt="Banner Image of Jasmin Modi '09"/>
+<map name="Map7" id="Map7">
+      <area shape="rect" coords="9,222,213,247" href="http://www.trinitydc.edu/admissions/contact.html" alt="Request Admissions Information" />
+      <area shape="rect" coords="227,227,378,245" href="http://www.trinitydc.edu/profile-jasmin-modi/" alt="Read a Profile of Jasmin" />
+    </map>
+	</div>
+<div id="home-divider"></div>
+<div id="home-content">
+	<div id="home-events">
+
+<!--
+        <h1 style="margin-top: -10px">Admissions Events</h1>
+        
+        <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">3</div>
+            </div>
+            <div class="event-description">
+            Instant Decision Day - <a href="http://www.trinitydc.edu/admissions/edu/events/EDU_Open_House_May_3.html">RSVP now!</a><br/>
+            School of Education<br/>
+            For students interested in graduate education programs
+            </div> 
+            <div class="cleardiv"></div>
+        </div> 
+      
+-->
+        
+        <h1 style="margin-top: -10px">Campus Events</h1> 
+
+       <div class="event-highlight">
+            <div class="event-date" >
+                <div class="event-month">Apr</div>
+                <div class="event-day">30</div>
+            </div>
+            <div class="event-description">
+                Final Exam Week - CAS, NHP, EDU<br/>
+                <strong>Through May 5</strong><br />
+                <a href="http://www.trinitydc.edu/enrollment/spring-2012-final-exam-schedule-cas/">Final Exam Schedule for CAS</a>
+            </div> 
+            <div class="cleardiv"></div>
+        </div>
+        
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">5</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/67/smart-board-overview/">SMART Board Overview</a></strong><br />
+                Moodle Support<br/>
+                2:00pm @ Library ETLI Lab
+                </div> 
+            <div class="cleardiv"></div>
+        </div> 
+
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">7</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/69/smart-board-overview/">SMART Board Overview</a></strong><br />
+                Moodle Support<br/>
+                3:00pm @ Main 238
+                </div> 
+            <div class="cleardiv"></div>
+        </div> 
+
+         <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">7</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/sps/events/146/alpha-sigma-lambda-induction-ceremony/">Alpha Sigma Lambda Induction Ceremony</a></strong><br />
+                School of Professional Studies<br/>
+                6:00pm @ Rose Parlor<br/>
+                <a href="http://www.trinitydc.edu/sps/events/146/alpha-sigma-lambda-induction-ceremony/">RSVP Requested</a>
+            </div> 
+            <div class="cleardiv"></div>
+        </div>   
+
+
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">10</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/nursing-health/vents/?event_id=14">Nursing Pinning Ceremony</a></strong><br />
+                School of Nursing &amp; Health Professions<br/>
+                5:00pm @ Social Hall
+                </div> 
+            <div class="cleardiv"></div>
+        </div>
+
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">10</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/68/smart-board-overview/">SMART Board Overview</a></strong><br />
+                Moodle Support<br/>
+                6:30pm @ Library ETLI Lab
+                </div> 
+            <div class="cleardiv"></div>
+        </div> 
+
+        
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">14</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/61/moodle-gradebook-essentials/">Moodle Gradebook Essentials</a></strong><br />
+                Moodle Support<br/>
+                2:00pm @ Main 242
+                </div> 
+            <div class="cleardiv"></div>
+        </div>             
+
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">14</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/65/using-forums-journals-and-quizzes-in-moodle/">Using Forums, Journals, And Quizzes in Moodle</a></strong><br />
+                Moodle Support<br/>
+                6:00pm @ Main 242
+                </div> 
+            <div class="cleardiv"></div>
+        </div> 
+<!--
+       <div class="event">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">15</div>
+            </div>
+            <div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/moodle/events/66/using-forums-journals-and-quizzes-in-moodle/">Using Forums, Journals, And Quizzes in Moodle</a></strong><br />
+                Moodle Support<br/>
+                1:00pm @ Main 242
+                </div> 
+            <div class="cleardiv"></div>
+        </div> 
+
+       <div class="event-highlight">
+            <div class="event-date" >
+                <div class="event-month">May</div>
+                <div class="event-day">17</div>
+            </div>
+            <div class="event-description">
+                <strong>Commencement Rehearsal</strong><br />
+                Congratulations!
+            </div> 
+            <div class="cleardiv"></div>
+        </div>
+
+-->
+         
+<div class="event-description">
+                <strong><a href="http://www.trinitydc.edu/calendar/">More Events Happening at Trinity</a></strong></div> 
+            <div class="cleardiv"></div>
+<style type="text/css">
+a.home-news, .avatar {
+	background: url(http://statictwu.us/sprites/features_avatars_120430b.jpg);
+}
+</style>
+<a href="/go/facebook/" id="facebook"></a>
+</div><!--home-events-->
+    <a href="http://www.trinitydc.edu/media/2012/04/12/sr-teresita-weind-radical-gratitude/" id="home-news1" class="home-news"><span class="home-newstag">Sr. Teresita - "Radical Gratitude"</span></a>
+	<div id="home-news1detail" class="home-newsdetail">
+		Sr. Teresita Weind, SND, reflected on the links between education, self-giving and unity in her address to the Trinity community, "Radical Gratitude". Watch the highlights of her remarks. 
+        <a href="http://www.trinitydc.edu/media/2012/04/12/sr-teresita-weind-radical-gratitude/">More...</a>
+    </div>
+    <a href="http://www.trinitydc.edu/commencement/" id="home-news2" class="home-news"><span class="home-newstag">May Commencement 2012</span></a>
+	<div id="home-news2detail" class="home-newsdetail" >
+		Congratulations to all our graduates! Trinity will celebrate Commencement on Sunday, May 20, 2012, at 11:00am on the Sister Helen Sheehan Library Terrace. <a href="http://www.trinitydc.edu/commencement/">More...</a>
+    </div>
+    <a href="http://www.trinitydc.edu/academiccenter/" id="home-news3" class="home-news"><span class="home-newstag">New Academic Center</span></a>
+	<div id="home-news3detail" class="home-newsdetail">
+		Featuring 24 new classrooms, a 400-seat auditorium, and cutting-edge laboratory technologies, the Trinity Academic Center will be a symbol of Trinity's intellectual values. 
+        <a href="http://www.trinitydc.edu/academiccenter/">More...</a>
+    </div>
+<a href="/trinity-center/" id="tc_promo"></a>
+<div id="home-development" style="height: 103px; width: 697px; position: relative; padding: 0px"><a name="thanks"></a><img src="http://statictwu.us/img/microscope.png" width="117" height="103" alt="Science Programs"  style="position: absolute; top: 0px; left: 580px;"/>
+<div style="position: absolute; top: 13px; left: 10px;z-index: 999; width: 560px"><h2 style="font-size: 24px; clear: none; padding-top:0px; margin-top: 0px; margin-bottom: 8px;">Giving is Powerful</h2>
+Your generous support of the Trinity Annual Fund transforms the lives of students, enhancing Trinity's resources and strengthening education. A gift of any amount helps to build the long-term future of Trinity. <a href="https://npo.networkforgood.org/Donate/Donate.aspx?npoSubscriptionId=1000503">Give&nbsp;to&nbsp;the&nbsp;2011-2012 Trinity Annual Fund today!</a>
+
+</div>
+
+</div>
+<div id="home-lower">
+        <div id="home-blogs">
+            <h1>Latest Blog Posts</h1>
+                        <a href="http://www.trinitydc.edu/president/blog-recent-posts/" class="avatar president" ></a>
+            <div class="blogpost">
+                <a href="http://www.trinitydc.edu/president/blog-recent-posts/">President's Blog: Voices of Trinity:  Alumnae President Elizabeth Palmer '92 on Religious Women</a><br />
+Alumnae Association President Elizabeth Palmer '92 speaks out on the importance of religious women in our lives and in the world.            </div>
+            
+           
+            
+                <a href="http://www.trinitydc.edu/sps/2012/04/13/alpha-sigma-lambda-2012-inductees/" class="avatar spsdean"></a>
+            <div class="blogpost">
+                <a href="http://www.trinitydc.edu/sps/2012/04/13/alpha-sigma-lambda-2012-inductees/">SPS Dean: Alpha Sigma Lambda</a><br />
+               Congratulations to the 2012 Inductees into Alpha Sigma Lambda! Trinity's Beta Epsilon chapter sets high standards for membership.</div>
+            
+                <a href="http://www.trinitydc.edu/continuing-education/2012/04/19/what-d-c-arts-historical-centers-can-teach-you-2/" class="avatar conted"></a>
+            <div class="blogpost">
+                <a href="http://www.trinitydc.edu/continuing-education/2012/04/19/what-d-c-arts-historical-centers-can-teach-you-2/">What DC Arts &amp; Historical Centers Can Teach You</a><br />
+              Ford's Theatre and the NMWA share their inspiring techniques to introduce culture and arts through professional development.
+            </div> 
+
+         
+            	<a href="http://blogs.trinitydc.edu/webteam/2012/04/17/super-shuttle/" class="avatar webteam"></a>
+            <div class="blogpost">
+                <a href="http://blogs.trinitydc.edu/webteam/2012/04/17/super-shuttle/">'Super' Shuttle</a><br />
+                Did you see it?! The Space Shuttle Discovery just cruised over DC...and I have the blurry, poorly lit photo to prove it!
+            </div>
+
+<!--  
+                <a href="http://athletics.trinitydc.edu/?p=2614" class="avatar athletics"></a>
+            <div class="blogpost">
+                <a href="http://athletics.trinitydc.edu/?p=2614">Athletics: Tennis nets first win of season</a><br />
+  				The Trinity Tigers tennis team won their first match of the season Tuesday afternoon beating the College of Notre Dame 7-2. 
+            </div> 
+            
+                <a href="http://www.trinitydc.edu/library/2012/01/17/the-day-the-wikipedia-died/" class="avatar library"></a>
+            <div class="blogpost">
+                <a href="http://www.trinitydc.edu/library/2012/01/17/the-day-the-wikipedia-died/">The Day the Wikipedia Died</a><br />
+                Don't panic, but on Wednesday, January 18th, 2012, Wikipedia will be offline. Why? Because of something called SOPA.
+            </div>
+-->
+
+        </div>
+        
+     <div id="home-profile">
+                <h1>Meet Jasmine Cosby '12</h1>
+            <p><img src="/wp-content/themes/trinityv3/images/homepage/profile-cosby.jpg" width="100" height="130" alt="Jasmine Cosby '12" class="home-portrait" />Jasmine Cosby '12 is majoring in nursing. Deciding to become a nurse was almost second nature to Jasmine because she has other health care professionals in her immediate family.</p>
+	<p>While a student at Largo (Maryland) High School, she considered other area universities, but was concerned about the costs and did not want to begin her career in debt. She was also apprehensive about the large classes and being known as "a number" in a large school. <a href="http://www.trinitydc.edu/profile-jasmine-cosby/">Read more...</a></p>            <p id="home-nomination">
+            Students and Alumnae/i: Want to be featured here? <br />
+            <a href="http://blogs.trinitydc.edu/webteam/2010/08/19/we-want-to-feature-you-on-the-trinity-website/">Tell us about yourself, or nominate a friend!</a>
+            </p> 
+        </div> 
+<!--    <div id="home-profile">
+        <h1>Thank you!</h1>
+        <iframe title="YouTube video player" width="310" height="263" src="http://www.youtube.com/embed/tJjiJaNNBfc" frameborder="0" allowfullscreen></iframe>
+        </div> 
+    </div> --> <!-- #homelower -->
+    <div class="cleardiv"></div>
+</div><!-- #homecontent -->
+</div>
+<div class="cleardiv"></div>
+	</div><!-- #container -->
+    <style type="text/css">
+	#footernav {
+		background-color: #4d3069;
+		font-family:Trebuchet MS, Arial, Helvetica, sans-serif;
+		font-size:11px;
+		padding:10px;
+		margin-top: 0px;
+	}
+	#footernav .panel {
+		display: block !important;
+	}
+	#footernav h1 {
+		color: #4d3069;
+		background-color: #fff;
+		font-family: myriad-pro, "Trebuchet MS", Arial, Helvetica, sans-serif;
+		font-size: 18px;
+		padding: 3px;
+	}
+	#footernav a {
+		color:#fff;
+		text-decoration: none;
+	}
+	#footernav h2 {
+		border-bottom:solid 1px #ffd451;
+		clear:both;
+		color:#ffd451;
+		font-family:Trebuchet MS, Arial, Helvetica, sans-serif;
+		font-size:16px;
+		font-weight:400;
+		margin-top:0;
+		padding-bottom:0;
+		padding-left:3px;
+		padding-top:3px
+	}
+	#footernav .highlight {
+		background-color:#4d3069
+	}
+	#footernav .program {
+		float:left;
+		list-style:none;
+		margin:0 0 2px;
+		padding:2px 3px;
+		text-decoration:none;
+		width:175px
+	}
+	#footernav.links a {
+		color:#b29ec6;
+		font-weight:400
+	}
+	#footernav .links {
+		color:#b29ec6;
+		font-size:10px;
+		margin:0;
+		padding:0;
+		visibility:hidden
+	}
+	#footernav .cl {
+		clear:left
+	}
+    </style><div id="footernav" style="padding: 0px !important">
+<style>
+#nav_links {
+	padding: 10px 0px 0px 0px !important;
+}
+h1.sub {
+	padding: 5px 5px !important;
+	font-size: 13px !important;
+	background-color: #c4acd9 !important;
+}
+.nav-school, .specialprogs {
+	float: left;
+	padding: 10px 7px 10px 7px;
+	color: #bb99da;
+	width: 177px;
+}
+.openschool {
+	background: url(http://statictwu.us/css/images/gradient.png) repeat-x bottom;
+}
+.closedschool {
+	background: none;
+}
+.school-programs {
+	background-color: #7e5a9c;
+	padding: 10px 7px;
+	position: relative;
+	z-index: 10000 !important;
+}
+.school-programs .program {
+	width: 188px !important;
+	padding-left: 0px !important;
+}
+.nav-school a, .specialprogs a {
+	text-decoration: none;
+}
+.nav-school a:hover, .specialprogs a:hover {
+	text-decoration: underline;
+}
+
+
+h2.schoolname{
+	border-bottom: none !important;
+	font-size:12px !important;
+	width: 177px !important;
+	overflow: hidden;
+	font-weight: bold !important;
+}
+.cas {
+	background: url(http://statictwu.us/sprites/no-repeat.png?20120203a) no-repeat 0px -147px;
+	padding: 80px 0px 0px 0px !important;
+	
+}
+.edu {
+	background: url(http://statictwu.us/sprites/no-repeat.png?20120203a) no-repeat -354px -147px;
+	padding: 80px 0px 0px 0px !important;
+}
+.nhp {
+	background: url(http://statictwu.us/sprites/no-repeat.png?20120203a) no-repeat -531px -147px;
+	padding: 80px 0px 0px 0px !important;
+}
+.sps {
+	background: url(http://statictwu.us/sprites/no-repeat.png?20120203a) no-repeat -177px -147px;
+	padding: 80px 0px 0px 0px !important;
+}
+.specialprogs {
+	width: 180px;
+	padding: 2px 0px 0px 10px;
+}
+.specialprogs h2 {
+	position: relative;
+	left: -3px;
+}
+</style>
+
+  <h1>About Trinity</h1>
+  <div class="panel" style="width: 945px; padding-top: 10px; " id="About_Trinity">
+    <div class="panelcontents">
+      <div style="width: 360px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Essentials</h2>
+        
+        <div style="width: 180px; float: left">
+            <p class="program cl"><a href="http://www.trinitydc.edu/mission/">Mission Statement</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/accreditation/">Accreditation</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/enrollment/tuition/">Tuition, Fees &amp; Financial Aid</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/policies/">Policies</a></p>
+        </div>
+        
+        <div style="width: 180px; float: left">
+            <p class="program cl"><a href="http://www.trinitydc.edu/board-of-trustees/">Board of Trustees</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/president/">President McGuire</a></p>
+        	<p class="program cl"><a href="http://www.trinitydc.edu/academic-affairs/">Provost/Academic Affairs</a></p>
+        </div>
+        
+      </div>
+      
+      <div style="width: 180px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Getting Around</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/campus-map/">Campus Map</a></p>
+        <p class="program cl"><a href="javascript:;" onClick="toggleDir();">Campus Directory</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/directions/">Directions</a></p>
+        
+      </div>
+      
+      <div style="width: 180px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Trinity Today</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/calendar/">Calendar of Events</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/media/current-news/">Press Releases</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/media/">Media Relations</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/alums/trinity-magazine/">TRINITY Magazine</a></p>
+      </div>
+      <div style="width: 160px; margin-left: 15px; float: left;">
+        <h2>Facts About Trinity</h2>
+ 		       
+        <p class="program cl"><a href="http://www.trinitydc.edu/2011-annual-report-on-service-in-the-city/">Service to Washington, DC</a>
+        <p class="program cl"><a href="http://www.trinitydc.edu/finances/">Financial FAQ</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/strategic-plan/">Strategic Plan</a></p>
+      </div>
+      <div class="cleardiv"></div>
+    </div>
+  </div>
+  <!-- end about_trinity -->
+  <h1>Visit</h1>
+  <div class="panel" style="width: 945px; padding-top: 10px; " id="Visit">
+    <div class="panelcontents">
+      <div style="width: 223px; float: left; margin-left: 10px; overflow: hidden">
+        <h2>Getting to Campus</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/directions/">Directions to Campus</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/safety/parking">Parking on Campus</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/campus-map/">Campus Map</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/safety/metro-shuttle/">Shuttle from Brookland Metro</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/hotels/">Hotels</a></p>
+      </div>
+      <div style="width: 223px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Campus Tours &amp; Open Houses</h2>
+        <p class="program" style="clear: left; color: #c2afd8;">Prospective students can request a campus tour by calling 800-492-6882. <a href="http://www.trinitydc.edu/admissions/contact.html">Learn More</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/visit/campus-map/">Online Campus Tour</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/admissions/">Office of Admissions</a></p>
+      </div>
+      <div style="width: 223px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Events at Trinity</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/special-events/">Meeting &amp; Conference Rentals</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/special-events/single-rooms/">Room Rentals</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/special-events/trinity-center-for-women-girls-in-sports/">Trinity Center</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/calendar/">Calendar of Events</a></p>
+      </div>
+      <div style="width: 220px; float: left; margin-left: 15px;">
+        <h2>Fitness Center</h2>
+        <p class="program" style="clear: left; color: #c2afd8;"> Brookland residents: learn about <a href="http://www.trinitydc.edu/trinity-center/memberships/">discounted memberships</a> at the <a href="http://www.trinitydc.edu/trinity-center/">Trinity Center</a>.</p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/trinity-center/classes/">&nbsp;-&nbsp;Current Fitness Classes</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/trinity-center/facilities/">&nbsp;-&nbsp;Facilities</a></p>
+      </div>
+      <div class="cleardiv"></div>
+    </div>
+  </div>
+  <!-- end visiting -->
+ 
+
+  <h1>Schools</h1>
+  <div class="panel" style="padding-top: 10px;" id="Schools_and_Programs">
+    <div class="panelcontents">
+    
+        <div class="nav-school" id="cas">
+       		<a href="http://www.trinitydc.edu/cas/"><h2 class="schoolname cas">College of Arts &amp; Sciences</h2></a>
+            Offering undergraduate degrees 
+			to women since 1897<br />
+
+			<a href="http://www.trinitydc.edu/cas/">CAS Homepage</a>
+    	</div>
+        
+        <div class="nav-school" id="edu">
+       		<a href="http://www.trinitydc.edu/education/"><h2 class="schoolname edu">School of Education</h2></a>
+            Degree and licensure programs in
+            education, counseling & advocacy<br />
+
+            <a href="http://www.trinitydc.edu/education/">EDU Homepage</a>
+    	</div>
+        
+        <div class="nav-school" id="nhp">
+       		<a href="http://www.trinitydc.edu/nursing-health/"><h2 class="schoolname nhp">Nursing &amp; Health Professions</h2></a>
+            Nursing and exercise science degree programs<br />
+
+            <a href="http://www.trinitydc.edu/nursing-health/">NHP Homepage</a>
+	
+    	</div>
+        
+        <div class="nav-school" id="sps">
+       		<a href="http://www.trinitydc.edu/sps/"><h2 class="schoolname sps">School of Professional Studies</h2></a>
+            Evening and weekend degree 
+            programs for men and women<br />
+
+            <a href="http://www.trinitydc.edu/sps/">SPS Homepage</a>
+    	</div>
+        
+        <div class="specialprogs">
+       		<h2 class="schoolname">Special Programs</h2>
+            <a href="http://www.trinitydc.edu/continuing-education/" style="font-weight: bold !important">Continuing Education</a><br />
+            Professional development courses for educators<br />
+<br />
+			<a href="http://www.trinitydc.edu/thearc/" style="font-weight: bold !important">Trinity at THEARC</a><br />
+			Earn your Associate's Degree in southeast Washington, DC<br />
+<br />
+			<!--<a href="/all-programs/" style="font-weight: bold">All Trinity Degree Programs A-Z</a>-->
+    	</div>
+ 
+      <div class="cleardiv"></div>
+      
+    </div>
+  </div>
+	<h1 class="sub">CAS Programs</h1>
+  		<div id="cas-programs" class="schools-programs">
+        	<h2>Academic Programs</h2>
+        <!-- CAS -->
+        <div style="width: 192px; float: left">
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/biochemistry.html">Biochemistry (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/biochemistry.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/chem-biochemistry">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/biology.html">Biology (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/biology.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/biology/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/business.html">Business Administration (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/business.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/business-administration-cas/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/chemistry.html">Chemistry (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/chemistry.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/chem-biochemistry/">Requirements/Courses</a></div>
+            </div>
+        
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/communication.html">Communication (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/communication.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/communication-cas">Requirements/Courses</a></div>
+            </div>
+        </div>
+        <div style="width: 192px; float: left">
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/crim_justice.html">Criminal Justice (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/crim_justice.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/criminal-justice-cas">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/economics.html">Economics (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/economics.html?showform=trueform">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/economics/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html">Education (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/education-undergrad/">Requirements/Courses</a></div>
+            </div>
+        
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/english.html">English (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/english.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/english/">Requirements/Courses</a></div>
+            </div>
+            
+            <div class="program"><a href="http://www.trinitydc.edu/nursing-health/exercise-science/">Exercise Science (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/exercise-science.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/nursing-health/exercise-science/#major">Requirements/Courses</a></div>
+            </div>
+            
+           
+        </div>
+        <div style="width: 192px; float: left">
+        	<div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/finearts.html">Fine Arts</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/finearts.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/fine-arts">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/history.html">History (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/history.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/history/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/humanrel.html">Human Relations (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/humanrel.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/human-relations-cas/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/intaffairs.html">International Affairs (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/intaffairs.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/international-affairs/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/langculture.html">Lang. &amp; Cultural Studies (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/langculture.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/language-and-cultural-studies/">Requirements/Courses</a></div>
+            </div>
+            
+        </div>
+        <div style="width: 192px; float: left">
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/math.html">Mathematics (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/math.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/mathematics">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/nursing/">Nursing (B.S.N.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/nursing.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/nursing-bsn-cas">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/philosophy.html">Philosophy</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/philosophy.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/philosophy/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/polisci.html">Political Science (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/polisci.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/political-science">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/pre-law.html">Pre-Law</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/pre-law.html?showform=true#form">Request Info</a></div>
+            </div>
+            
+		</div>
+        <div style="width: 180px; float: left">            
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/pre-med.html">Pre-Med./Pre-Veterinary</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/pre-med.html?showform=true#form">Request Info</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/psychology.html">Psychology (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/psychology.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/psychology/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/religion.html">Religious Studies &amp; Theology</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/religion.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/religious-studies/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/sociology.html">Sociology (B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/sociology.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/sociology/">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/admissions/cas/programs/womens-studies.html">Women's Studies</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/womens-studies.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/womens-studies/">Requirements/Courses</a></div>
+            </div>
+        </div>
+        <div class="cleardiv"></div>
+        </div>
+        <!-- end CAS Programs -->
+<h1 class="sub">EDU Programs</h1>
+      <div id="edu-programs" class="school-programs">
+      <div style="float: left; width: 559px"><h2>Graduate Programs</h2>
+          <div style="float: left; width: 264px; overflow: hidden">
+                <div class="program" style="width: 264px !important;"><a href="http://www.trinitydc.edu/admissions/edu/programs/counseling.html">Master of Arts in Counseling (M.A.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/edu/programs/counseling.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/counseling/">Requirements/Courses</a></div>
+                </div>
+                <div class="program" style="width: 264px !important;"><a href="http://www.trinitydc.edu/admissions/edu/programs/edad.html">Master of Science in Administration (M.S.A)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/edu/programs/edad.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/educational-admin/">Requirements/Courses</a></div>
+                </div>
+          </div>
+          <div style="float: left; width: 264px; margin-left: 15px; overflow: hidden">
+          		<div class="program" style="width: 264px !important;"><a href="http://www.trinitydc.edu/admissions/edu/programs/med.html">Master of Education (M.Ed.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/edu/programs/med.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/curriculum-masters/">Requirements/Courses</a></div>
+                </div>
+                
+                
+                <div class="program" style="width: 264px !important;"><a href="http://www.trinitydc.edu/admissions/edu/programs/mat.html">Master of Arts in Teaching (M.A.T.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/edu/programs/mat.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/programs/education-masters/">Requirements/Courses</a></div>
+                </div>
+       
+          </div>
+      </div>
+      <div style="width: 180px; float: left; margin-left: 15px">
+      <h2>Undergrad Programs</h2>
+      		<div class="program" style="width: 180px !important"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html">Education (B.A.)</a>
+          		<div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/education-undergrad/">Requirements/Courses</a></div>
+        	</div>
+            <div class="program" style="width: 180px !important"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html">Education (B.A./M.A.T.)</a>
+          		<div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/education.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/education-undergrad/">Requirements/Courses</a></div>
+        	</div>
+       
+      </div>
+      <div style="width: 180px; float: left; margin-left: 15px; color: #b89cd1;">
+      <h2>Certificate Programs</h2>
+            Trinity offers Professional Development courses for current teachers.
+            <a style="text-decoration: none" href="http://www.trinitydc.edu/academic-catalog/certification-edu/">More Info</a>
+      </div>
+      <div style="clear: both;"></div>
+      
+      </div>
+  <!-- end EDU programs -->
+  <h1 class="sub">NHP Programs</h1>
+  		<div id="nhp-programs" class="schools-programs">
+        	<h2>Academic Programs</h2>
+        	 <div class="program"><a href="http://www.trinitydc.edu/nursing-health/exercise-science/">Exercise Science (B.S.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/exercise-science.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/nursing-health/exercise-science/#major">Requirements/Courses</a></div>
+            </div>
+             
+             <div class="program"><a href="http://www.trinitydc.edu/nursing/">Pre-licensure Nursing (B.S.N.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/nursing.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/nursing-bsn-cas">Requirements/Courses</a></div>
+            </div>
+            <div class="program"><a href="http://www.trinitydc.edu/nursing/">Nursing (R.N. to B.S.N.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/cas/programs/nursing.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/nursing-rn-to-bsn/">Requirements/Courses</a></div>
+            </div>
+        <div class="cleardiv"></div>
+        </div>
+  <!-- end NHP Programs -->
+   <h1 class="sub">SPS Programs</h1>
+  		<div id="sps-programs" class="schools-programs">
+        <div style="width: 559px; float: left">
+            <h2>Undergraduate Programs</h2>
+            <!-- SPS UG -->
+            <div style="width: 192px; float: left">
+                <div class="program"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/aa_thearc.html">Associate of Arts at THEARC</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/aa_thearc.html?showform=true#form">Request Info</a></div>
+                </div>
+                <div class="program"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/business.html">Business Administration (B.S.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/business.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/business-administration-sps/">Requirements/Courses</a></div>
+                </div>
+                <div class="program"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/communication.html">Communication (B.A.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/communication.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/communication-sps/">Requirements/Courses</a></div>
+                </div>
+                  
+            </div>
+            <div style="width: 192px; float: left">          
+                <div class="program"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/crimjustice.html">Criminal Justice (B.S.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/crimjustice.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/criminal-justice-sps/">Requirements/Courses</a></div>
+                </div>
+           
+                <div class="program" style="width: 177px !important"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/genstudies.html">General Studies (B.A.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/genstudies.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/general-studies/">Requirements/Courses</a></div>
+                </div>
+                 
+            </div>
+            <div style="width: 170px; float: left">
+                <div class="program" style="width: 170px !important"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/humanrel.html">Human Relations (B.A.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/humanrel.html">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/human-relations-sps/">Requirements/Courses</a></div>
+                </div>
+            
+                <div class="program" style="width: 170px !important"><a href="http://www.trinitydc.edu/nursing/">Nursing (B.S.N.)</a>
+                  <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/undergrad/programs/nursing.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/nursing-bsn-sps">Requirements/Courses</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-left: 15px; width: 375px; float: left">
+            <h2>Graduate Programs</h2>
+            
+            <div class="program" style="width: 180px !important"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/mba.html">Business Administration (M.B.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/mba.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/business-admin-mba/">Requirements/Courses</a></div>
+            </div>
+            <div class="program" style="width: 188px !important"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/maiss.html">Internat'l Security Studies (M.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/maiss.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/iss">Requirements/Courses</a></div>
+            </div>
+            <div class="program" style="width: 180px !important"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/comm.html">Communication (M.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/comm.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/communication-masters/">Requirements/Courses</a></div>
+            </div>
+            
+            <div class="program" style="width: 188px !important"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/msa.html">Organizational Management (M.S.A.)</a>
+              <div class="links"><a href="http://www.trinitydc.edu/admissions/sps/grad/programs/msa.html?showform=true#form">Request Info</a>&nbsp;|&nbsp;<a href="http://www.trinitydc.edu/academic-catalog/organizational-management/">Requirements/Courses</a></div>
+            </div>
+		</div>        
+        <div class="cleardiv"></div>
+        </div>
+  <!-- end NHP Programs -->
+  
+   <h1>Academic Life</h1>
+  <div class="panel" style="width: 945px; padding-top: 10px; padding-bottom: 10px" id="Academic_Life">
+    <div class="panelcontents">
+      <div style="width: 223px; float: left; margin-left: 10px;; overflow: hidden">
+        <h2>Learning Essentials</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/library/">Library</a></p>
+        <p class="program cl"><a href="http://trinitydc.bncollege.com/">Bookstore</a></p>
+        <p class="program cl"><a target="_blank" href="https://moodle.trinitydc.edu">Access Your Classes (Moodle)</a></p>
+      </div>
+      <div style="width: 223px; float: left; margin-left: 15px;; overflow: hidden">
+        <h2>Academic Basics</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/academic-affairs/academic-calendar/">Academic Calendar</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/academic-catalog/">Academic Catalog</a></p>
+        <br />
+        <p class="program cl"><a href="http://www.trinitydc.edu/academic-affairs/files/2010/09/TrinityClassSchedule0312V4.pdf">Course Schedule</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/policies/files/2010/09/Student-Handbook-2010-2011.pdf">Student Handbook</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/policies/">Honor Code &amp; Policies</a></p>
+      </div>
+      <div style="width: 223px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Academic Services</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/writing/">Writing Center</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/academic-services/tutoring/">Tutoring</a></p>
+        <p class="program" style="clear: left; width: 233px"><a href="http://www.trinitydc.edu/cas-advising/">Advising (CAS)</a></p>
+        <p class="program" style="clear: left; width: 233px"><a href="http://www.trinitydc.edu/career/">Career Services</a></p>
+        <p class="program" style="clear: left; width: 233px"><a href="http://www.trinitydc.edu/academic-affairs/">Provost/Academic Affairs</a></p>
+      </div>
+      <div style="width: 220px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Registration</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/enrollment/">Enrollment Services</a></p>
+        <p class="program" style="clear: left; width: 243px;"><a target="_blank" href="https://selfservice.trinitydc.edu">Online Registration &amp; Grades</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/enrollment/transcripts/">Transcript Requests</a></p>
+      </div>
+      <div class="cleardiv"></div>
+    </div>
+  </div>
+  <!-- end academic_life -->
+  
+  <h1>Offices</h1>
+  <div class="panel" style="width: 945px; padding-top: 10px; padding-bottom: 10px" id="Offices">
+    <div class="panelcontents">
+      <div style="width: 360px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Student Services</h2>
+        <div style="width: 180px; float: left">
+            <p class="program cl"><a href="http://www.trinitydc.edu/academic-services/">Academic Services &amp; Tutoring</a></p>
+            <p class="program cl"><a href="http://trinitydc.bncollege.com/">Bookstore</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/ministry/">Campus Ministry</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/career/">Career Services</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/disability/">Disability Services</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/enrollment/">Enrollment Services</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/enrollment/financial-aid/">Financial Aid</a></p>
+        </div>
+        <div style="width: 180px; float: left">
+            <p class="program cl"><a href="http://www.trinitydc.edu/health/">Health &amp; Wellness Center</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/international/">International Services</a></p>
+            <p class="program cl"><a href="https://selfservice.trinitydc.edu">Registration &amp; Online Payment</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/student-housing/">Student Housing</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/student-services/">Student Services</a></p>
+            <p class="program cl"><a href="http://www.trinitydc.edu/writing/">Writing Center</a></p>
+        </div>
+      </div>
+      <div style="width: 180px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Campus Services</h2>
+        
+        <p class="program cl"><a href="http://www.trinitydcdining.com/">Dining Services</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/facilities/">Facilities</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/special-events/">Rental &amp; Conference Services</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/safety/">Security &amp; Public Safety</a></p>
+        
+        <p class="program cl"><a href="http://www.trinitydc.edu/it/">Technology Services</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/trinity-center/">Trinity Center</a></p>
+      </div>
+      <div style="width: 180px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Administrative Offices</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/alums/">Alumnae/i Affairs</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/business/">Business Office</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/development/">Development</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/hr/">Human Resources</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/media/">Media Relations</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/president/">President's Office</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/academic-affairs/">Provost/Academic Affairs</a></p>
+      </div>
+      <div class="cleardiv"></div>
+    </div>
+  </div>
+  <!-- end services_offices -->
+  <h1>Student Life</h1>
+  <div class="panel" style="width: 945px; padding-top: 10px; padding-bottom: 10px" id="Student_Life">
+    <div class="panelcontents">
+      <div style="width: 190px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Today at Trinity</h2>
+        <p class="program" style="clear: left; width: 223px"><a href="http://www.trinitydc.edu/calendar/">Calendar of Events</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/students/#menu">Today's Dining Hall Menu</a></p>
+        <h2>Resources</h2>
+        <p class="program cl"><a href="http://www.trinitydc.edu/safety/">Campus Security &amp; Public Safety</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/student-services/">Dean of Student Services</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/student-housing/">Housing &amp; Residential Life</a></p>
+        <p class="program cl"><a href="http://www.trinitydc.edu/health/">Health &amp; Wellness Center</a></p>
+        
+      </div>
+      <div style="width: 140px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Athletics</h2>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/">Athletics Home</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=7">Basketball</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=22">Lacrosse</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=36">Soccer</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=50">Tennis</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=64">Volleyball</a></p>
+        <p class="program cl"><a href="http://athletics.trinitydc.edu/?page_id=97">Recruiting</a></p>
+      </div>
+      <div style="width: 170px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Student Government</h2>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/sga/" target="_blank">CAS Student Government</a></p>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/spssga/" target="_blank">SPS Student Government</a></p>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/red/" target="_blank">Red Class: 2012</a></p>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/blue/" target="_blank">Blue Class: 2013</a></p>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/green/" target="_blank">Green Class: 2014</a></p>
+        <p class="program cl"><a href="http://blogs.trinitydc.edu/gold/" target="_blank">Gold Class: 2015</a></p>
+       
+      </div>
+      <div style="width: 380px; float: left; margin-left: 15px; overflow: hidden">
+        <h2>Student Organizations</h2>
+        <div style="width: 180px; float: left">
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/activities/" target="_blank">Campus Activities Association</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/cheer/" target="_blank">Cheerleading</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/chess/" target="_blank">Chess Club</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/dems/" target="_blank">College Democrats</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/communication/" target="_blank">Communications Club</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/cspc/" target="_blank">Community Service &amp; Philanthropy</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/justice/" target="_blank">Criminal Justice Club</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/dance/" target="_blank">Dance Club</a></p>
+        </div>
+        <div style="width: 180px; float: left; margin-left: 20px">
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/lilac/" target="_blank">Lilac Club</a></p>
+        	<p class="program cl"><a href="http://blogs.trinitydc.edu/naacp/" target="_blank">NAACP</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/performingarts/" target="_blank">Performing Arts Club</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/pride/" target="_blank">P.R.I.D.E.</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/psych/" target="_blank">Psychology Club</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/therecord/" target="_blank">The Record</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/sfer/" target="_blank">Students for Env. Responsibility</a></p>
+            <p class="program cl"><a href="http://blogs.trinitydc.edu/wsac/" target="_blank">Women's Student Action Coalition</a></p>
+        </div>
+      </div>
+    <div class="cleardiv"></div>
+    </div>
+  </div>
+  <!-- end campus_life -->
+  <div class="cleardiv"></div>
+</div>
+	<div id="footer">
+    
+    	<div id="footer-links">
+            <a href="/" rel="home">University Home</a>
+            |
+            <a href="/hr/current/">Careers at Trinity</a>
+            |
+            <a href="/media/">Media Relations</a>
+            |
+            <a href="/policies/">Policies</a>
+            |
+            <a href="/go/feedback" target="_blank">Website Feedback</a>
+            <br /><br />
+            <div id="loginout">
+				 
+				<a href="http://www.trinitydc.edu/wp-login.php">Log in</a>           	</div>
+        </div><!-- #footer-links -->
+    
+    	<div id="contactinfo">
+            <strong>&copy; 2012 Trinity Washington University<br /></strong>
+            125 Michigan Ave. NE, Washington, DC 20017<br />
+            202-884-9000 <a href="/contact/">Online Contact Form</a>&nbsp;&nbsp;&nbsp;<a href="#" onclick="scroll(0,0);toggleDir();">Campus Directory</a>
+        </div><!-- #contactinfo -->
+           
+	</div><!-- #footer -->
+</div><!-- #wrapper -->
+<div id="directory" title="Campus Directory"><div id="tabs"> <ul>  <li><a href="#tabs-1" id="ppltab">&nbsp;&nbsp;&nbsp;Faculty/Staff&nbsp;&nbsp;&nbsp;</a></li> <li><a href="#tabs-2" id="loctab">&nbsp;&nbsp;&nbsp;Offices/Locations&nbsp;&nbsp;&nbsp;</a></li>  </ul> <div id="tabs-1"> <div id="pplsearch" class="searchbox">  <select id="pplby" name="pplby" class="by">  <option value="last name">Last Name:</option> <option value="first name">First Name:</option> <option value="department">Department:</option> </select> <input type="text" id="employee" class="search" />  <div id="pplerror" class="error">Enter the first few letters of what you are looking for.</div> </div> <div id="pplresult" class="result"> </div> <div class="tools"></div> </div> <div id="tabs-2">  <div id="locsearch" class="searchbox"> <label>Office:</label> <input type="text" id="location" class="search" />  <div id="locerror" class="error">Enter the first few letters of what you are looking for.</div> </div> <div id="locresult" class="result"> </div> <div class="tools"></div> </div>  </div></div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19582002-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>
+ 
+

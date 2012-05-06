@@ -1,0 +1,576 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+    <meta http-equiv="keywords" content="" />
+    
+    <meta name="description" content="Simon Fraser University &ndash; Three campuses, three semesters; you set the pace for your degree: The Canadian university that is Engaging the World." />
+     
+
+    <title>
+        SFU Home Page
+         - SFU
+        - Simon Fraser University
+    </title> 
+   
+    
+    
+    <link rel="stylesheet" href="/etc/clientlibs/foundation/main.css" type="text/css">
+
+    <link href="/etc/designs/sfu/static.css" media="screen" rel="stylesheet" type="text/css"/>  
+<!--[if IE 6]>
+    <link media="screen" href="/etc/designs/sfu/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+    <link rel="stylesheet" href="/etc/designs/sfu/clientlibs/components.css" type="text/css">
+
+    
+
+    <link href="/etc/designs/sfu/css/common.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="/etc/designs/sfu/css/print.css" media="print" rel="stylesheet" type="text/css"/>
+    <link href="/etc/designs/sfu/css/thickbox.css" media="screen" rel="stylesheet" type="text/css"/>
+    
+<link rel="stylesheet" type="text/css" href="/content/dam/sfu/www/css/mainpages.css"/>
+
+<script type="text/javascript" src="/etc/clientlibs/foundation/jquery.js"></script>
+
+<script type="text/javascript" src="/etc/designs/sfu/clientlibs/components.js"></script>
+
+</head>
+
+<body>
+<div id="container">
+        <div id="banner">
+        <a href="//www.sfu.ca">Simon Fraser University</a>
+    </div>
+
+    <div id="globalNav">
+        <ul id="campuses">
+            <li class="sfu"><a href="//www.sfu.ca">sfu.ca</a></li>
+            <li><a href="http://www.burnaby.sfu.ca">Burnaby</a></li>
+            <li><a href="http://www.surrey.sfu.ca/">Surrey</a></li>
+            <li class="last"><a href="http://www.vancouver.sfu.ca/">Vancouver</a></li>               
+        </ul>
+        
+        <ul id="services">
+            <li class="dropdown" id="online">
+                <a class="tabs" href="//www.sfu.ca/onlineservices/">SFU Online</a>
+            </li>
+            <li class="dropdown" id="directory">
+                <a class="tabs" href="//www.sfu.ca/dir/">A-Z Links</a>
+            </li>
+            <li class="last" id="search">
+              <form action="//www.sfu.ca/search.html" class="search" method="GET">
+                    <input id="s" name="q" type="text" value="Search sfu.ca"/>
+                    <span class="button"><input id="submit" type="submit" value="Search"/></span>
+              </form>
+            </li>
+        </ul>
+    </div>
+
+    <div id="homeTop2t">
+        <div class="parsys homePhoto"><div class="parbase list section featuredNewsCarousel">
+
+<script type="text/javascript" src="/etc/designs/sfu/clientlibs/featuredNews.js"></script>
+<link rel="stylesheet" href="/etc/designs/sfu/clientlibs/featuredNews.css" type="text/css">
+
+
+<div class="featuredNewsCarousel">
+	
+		
+		
+		
+		
+		
+		
+		
+
+		
+
+		<div id="fnc_carousel_content"></div>
+		<script type="text/javascript">
+			var fnc_data = '';
+			var fnc_data_length = 0;
+			var fnc_timeout_id;
+			var fnc_number_of_items = 3;
+
+			jQuery.getJSON('/content/sfu/www/index/jcr:content/homePhoto/featurednewscarousel.featuredNewsFeed.json', function(data) {
+				fnc_data = data;
+				fnc_data_length = $(fnc_data).length;
+				if (fnc_data_length <= fnc_number_of_items) fnc_number_of_items = fnc_data_length - 1;
+				fnc_next_slide();
+			});
+
+			function fnc_next_slide() {
+				clearTimeout(fnc_timeout_id);
+				var index = jQuery.cookie('featuredNewsCarouselIndex') || 0;
+				if (++index >= fnc_data_length) index = 0;
+				jQuery.cookie('featuredNewsCarouselIndex', index);
+				fnc_update_carousel(index);
+			}
+
+			function fnc_previous_slide() {
+				clearTimeout(fnc_timeout_id);
+				var index = jQuery.cookie('featuredNewsCarouselIndex') || 0;
+				if (--index < 0) index = fnc_data_length;
+				jQuery.cookie('featuredNewsCarouselIndex', index);
+				fnc_update_carousel(index);
+			}
+
+			function fnc_update_carousel(index) {
+				var item = fnc_data[index];
+				var photoTag = '<img id="fnc_carousel_content_photo" src="'+item.photo+'" alt="'+item.headline+'" width="590" height="243" />';
+				var caption = item.caption ? '<span class="caption">' + item.caption + '</span>' : "";
+				var learn_more_link = item.url ? '&nbsp;[&nbsp;<a href="' + item.url + '">learn&nbsp;more</a>&nbsp;]' : "";
+				var previous_item = '<a class="previousItemIcon" href="#" onclick="fnc_previous_slide();"></a>';
+				var next_item = '<a class="nextItemIcon" href="#" onclick="fnc_next_slide();"></a>';
+				var content = jQuery('#fnc_carousel_content').empty();
+				content.append('<div>'+photoTag+'</div>');
+				content.append('<div class="caption">'+caption+learn_more_link+'</div>');
+				content.append('<div class="controls">'+previous_item+next_item+'</div>');
+
+				var child_items = [];
+				for (var i = 0; i < fnc_number_of_items; i++) {
+					if (--index < 0) index = fnc_data_length - 1;
+					child_items.push(fnc_data[index]);
+				}
+
+				jQuery.publish("featuredNews", [child_items]);
+				fnc_timeout_id = setTimeout(fnc_next_slide, 45000);
+			}
+		</script>
+	
+
+	
+</div>
+</div>
+</div>
+
+        <div class="parsys homeSubTop"><div class="parbase html section">
+
+<div id="audience_nav">
+			<ul>
+				<li class="audience"><a href="http://www.sfu.ca/swipe/allstudents/">Students</a>
+					<ul>
+						<li><a href="http://www.sfu.ca/swipe/allstudents/">All Students</a></li>
+						<li><a href="http://students.sfu.ca/">Undergraduate Students</a>
+							<ul>
+								<li><a href="http://www.sfu.ca/prospectiveundergrads/">Prospective</a></li>
+								<li><a href="http://www.sfu.ca/applicantundergrads/">Applicant</a></li>
+								<li><a href="http://www.sfu.ca/newundergrads/">New</a></li>
+								<li><a href="http://students.sfu.ca/">Current</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.sfu.ca/gradstudents/index.html">Graduate Students</a>
+
+							<ul>
+								<li><a href="http://www.sfu.ca/gradstudents/prospective/index.html">Prospective</a></li>
+								<li><a href="http://www.sfu.ca/gradstudents/applicants/index.html">Applicant</a></li>
+								<li><a href="http://www.sfu.ca/gradstudents/new/index.html">New</a></li>
+								<li><a href="http://www.sfu.ca/dean-gradstudies/current/index.html">Current</a></li>
+							</ul>
+						</li>
+
+						<li><a href="http://www.sfu.ca/cstudies/">Continuing Studies</a></li>
+						<li><a href="http://www.sfu.ca/cde/">Distance Education</a></li>
+						<li><a href="http://www.sfu.ca/help/">Help</a></li>
+					</ul>
+				</li>
+				<li class="audience"><a href="http://www.sfu.ca/sub/people.html">Faculty &amp; Staff</a>
+
+					<ul>
+						<li><a href="http://www.apsacentral.ca/">APSA</a></li>
+						<li><a href="http://www.3338.cupe.ca/">CUPE</a></li>
+						<li><a href="https://aisg.sfu.ca/CV/">CV System</a></li>
+						<li><a href="https://fins.sfu.ca">FINS</a></li>
+						<li><a href="http://www.sfu.ca/vpacademic/Faculty_Openings/">Faculty Openings</a></li>
+
+						<li><a href="http://www.sfu.ca/human-resources/">Human Resources</a></li>
+						<li><a href="http://www.sfufa.ca/">SFUFA</a></li>
+						<li><a href="https://myinfo.sfu.ca">myINFO</a></li>
+						<li><a href="http://www.sfu.ca/hr/jobpostings.html">Staff Positions</a></li>
+						<li><a href="http://www.ehs.sfu.ca/">Environmental Health &amp; Safety</a></li>
+
+					</ul>
+				</li>
+	
+				<li class="audience"><a href="http://www.sfu.ca/alumni.html">Alumni</a>
+					<ul>
+						<li><a href="http://www.sfu.ca/alumni/address-update.html">Address update</a></li>
+						<li><a href="http://www.sfu.ca/alumni/benefits.html/">Benefits &amp; Services</a></li>
+
+						<li><a href="http://www.sfu.ca/alumni/alumni-association.html">Alumni Association</a></li>
+						<li><a href="http://www.sfu.ca/alumni/news/updates.htm">E-Newsletter</a></li>
+						<li><a href="http://www.sfu.ca/alumni/events/">Alumni Events</a></li>
+						<li><a href="http://www.sfu.ca/alumni/our-alumni.html">Alumni Facts</a></li>
+						<li><a href="http://www.sfu.ca/aq/">aq Magazine</a></li>
+					</ul>
+
+				</li>
+	
+				<li class="audience"><a href="http://students.sfu.ca/forparents/index.html">Parents</a>
+					<ul>
+						<li><a href="http://www.sfu.ca/studentlife/parents/">Parent Information</a></li>
+						<li><a href="/about/maps.html">Campus Maps</a></li>
+						<li><a href="http://www.sfu.ca/convocation/">Convocation</a></li>
+						<li><a href="http://www.sfu.ca/security/Parking/visitor.html">Parking</a></li>
+
+						<li><a href="/about/index.html">About SFU</a></li>
+					</ul>
+				</li>
+	
+				<li class="audience"><a href="http://www.sfu.ca/wil/employers/">Employers</a>
+					<ul>
+						<li><a href="http://www.sfu.ca/coop/employers/post">Post with us</a></li>
+						<li><a href="http://www.sfu.ca/coop/employers/work-term.html">About Co-op</a></li>
+
+						<li><a href="http://www.sfu.ca/career/employers/recruit/options.html">Recruitment on Campus</a></li>
+						<li><a href="http://www.sfu.ca/coop/employers.html">Co-op Employers</a></li>
+						<li><a href="http://www.sfu.ca/wil/employers/">Work Integrated Learning</a></li>
+					</ul>
+				</li>
+<li class="audience"><a href="http://www.sfu.ca/pamr">Media &amp; Public</a><ul><li><a href="http://www.sfu.ca/about/index.html">About SFU</a>
+	<ul>
+		<li><a href="http://www.sfuexperts.ca">Directory of Experts</a></li>
+		<li><a href="http://www.sfu.ca/pamr/issues-experts.html">Issues and Experts</a></li>
+		<li><a href="http://www.sfu.ca/pamr/sfu-photos.html">SFU Photographs</a></li>
+		<li><a href="http://www.sfu.ca/pamr.html">Public Affairs &amp; Media Relations</a></li>
+		<li><a href="http://www.sfu.ca/security/Parking/visitor.html">Parking</a></li>
+		<li><a href="http://www.sfu.ca/facts/">SFU Facts</a></li>
+		<li><a href="http://www.sfu.ca/sfunews.html">SFU News</a></li>
+		<li><a href="http://www.sfu.ca/pamr/media-releases.html">SFU News Releases</a></li>
+	</ul>
+</ul>
+</li>
+<li class="audience_"><a href="http://www.sfu.ca/engage"><span style="color: #A6192E;"><strong>SFU</strong></span> Strategic Vision</a></li>
+</ul>
+</div>
+</div>
+<div class="parbase image section"><a href="http://www.bceqa.ca"><img title="BC EQA" alt="BC EQA" class="cq-dd-image" src="/content/sfu/www/index/_jcr_content/homeSubTop/image.img.png/1326820377945.png"></a><br></div>
+<div class="parbase html section">
+
+<div class="quicklinks">
+	<h4>Quicklinks</h4>
+	<div class="social_media">
+		<ul>
+			<li class="facebook"><a href="http://www.sfu.ca/sub/about/follow-sfu.html">Like us on Facebook</a></li>
+			<li class="twitter"><a href="http://www.sfu.ca/sub/about/follow-sfu/twitter.html" class="twitter">Follow us on Twitter</a></li>
+			<li class="youtube"><a href="http://www.sfu.ca/sub/about/follow-sfu/youtube.html">Watch us on YouTube</a></li>
+		</ul>
+	</div>
+	<form class="bookmarks" action="">
+		<select id="bmSelect" onchange="launchBookmark()" name="bm_urls">
+			<option value="">Select Destination</option>
+			<option value="#">--Faculties--</option>
+			<option value="http://fas.sfu.ca/">Faculty of Applied Sciences</option>
+			<option value="http://www.sfu.ca/arts/">Faculty of Arts &amp; Social Sciences</option>
+			<option value="http://www.sfu.ca/sfubusiness/">Faculty of Business Administration</option>
+			<option value="http://www.fcat.sfu.ca/">Faculty of Communication, Art and Technology</option>
+			<option value="http://www.educ.sfu.ca/">Faculty of Education</option>
+			<option value="http://www.fenv.sfu.ca/">Faculty of Environment</option>
+			<option value="http://www.fhs.sfu.ca/">Faculty of Health Sciences</option>
+			<option value="http://www.sfu.ca/science/">Faculty of Science</option>
+			<option value="#">--Schools--</option>
+			<option value="http://www.sfu.ca/communication/">Communication</option>
+			<option value="http://www.cs.sfu.ca/">Computing Science</option>
+			<option value="http://www.sfu.ca/sca/">Contemporary Arts</option>
+			<option value="http://www.sfu.ca/criminology/">Criminology</option>
+			<option value="http://www.ensc.sfu.ca/">Engineering Science</option>
+			<option value="http://www.sfu.ca/internationalstudies/">International Studies</option>
+			<option value="http://cgi.sfu.ca/~surreywb/cgi-bin/students/index.php?q=p_students/learn/programs&p=iat_grad">Interactive Arts &amp; Technology</option>
+			<option value="http://www.rem.sfu.ca/">Resource and Environmental Management</option>
+			<option value="http://www.sfubusiness.ca/programs/segal/">Segal Graduate School of Business</option>
+			<option value="#">--Miscellaneous--</option>
+			<option value="http://www.sfu.ca/bookstore/">Bookstore</option>
+			<option value="http://www.microstore.sfu.ca">Microcomputer Store</option>
+			<option value="http://www.sfu.ca/human-resources/">Human Resources</option>
+			<option value="http://www.sfu.ca/icat/">Institutional, Collaborative and Academic Technologies (ICat)</option>
+			<option value="http://www.sfu.ca/itservices/">IT Services</option>
+			<option value="http://www.ehs.sfu.ca/">Environmental Health and Safety</option>
+			<option value="https://fins.sfu.ca/">FINS - Travel &amp; Expenses</option>
+			<option value="#">--Events--</option>
+			<option value="http://students.sfu.ca/calendar/">Academic Calendar</option>
+			<option value="https://events.sfu.ca/ViewCal.html?=1&calendar_id=4">Academic Dates, Holidays and Closures</option>
+			<option value="http://www.sfu.ca/convocation/">Convocation</option>
+			<option value="https://events.sfu.ca">Campus Events</option>
+			<option value="http://athletics.sfu.ca/">Athletics Events</option>
+			<option value="#">--Getting to SFU--</option>
+			<option value="http://www.sfu.ca/about/maps.html">Maps &amp; Directions</option>
+			<option value="http://students.sfu.ca/upass/">U-Pass</option>
+			<option value="http://www.sfu.ca/security/Parking/">Parking</option>
+			<option value="http://www.sfu.ca/security/">Security</option>
+			<option value="#">--Directories--</option>
+			<option value="http://www.sfu.ca/phonebook/">Phone Book</option>
+			<option value="http://www.sfu.ca/sfuds/">Email Directory</option>
+			<option value="#">--WebCT--</option>
+			<option value="http://webct.sfu.ca/">WebCT Login</option>
+			<option value="http://wiki.sfu.ca/webct">WebCT Help for Instructions</option>
+			<option value="toolkit.sfu.ca/webct/courseRequest">WebCT course request form</option>
+			<option value="#">--Road Conditions and Parking--</option>
+			<option value="http://www.sfu.ca/security/sfuroadconditions/">Burnaby Road Conditions</option>
+			<option value="http://www.sfu.ca/security/Parking/">Parking Permits</option>
+		</select>
+	</form>
+</div>
+</div>
+</div>
+   
+        <div class="parsys main_nav"><div class="parbase html section">
+
+<ul>
+<li><a href="http://www.sfu.ca/sub/about.html">About SFU</a></li>
+<li><a href="http://www.sfu.ca/sub/academic.html">Academic Programs</a></li>
+<li><a href="http://www.sfu.ca/teachlearn/">Teaching &amp; Learning</a></li>
+<li><a href="http://www.sfu.ca/vpresearch/">Research</a></li>
+<li class="rule"></li>
+<li><a href="http://www.sfu.ca/sub/administration.html">Administration</a></li>
+<li><a href="http://www.sfu.ca/sub/jobs.html">Employment</a></li>
+<li><a href="http://www.sfu.ca/meetandstay/index.htm">Facilities Rental</a></li>
+<li><a href="http://www.sfu.ca/sub/athletics-recreation.html">Athletics &amp; Recreation</a></li>
+<li><a href="http://www.lib.sfu.ca/">Library Services</a></li>
+<li><a href="https://events.sfu.ca/">Events Calendar</a></li>
+<li><a href="http://www.sfu.ca/sub/news-events.html">News &amp; Events</a></li>
+<li class="rule"></li>
+<li><a href="http://www.univercity.ca/">UniverCity</a></li>
+<li><a href="http://www.sfu.ca/advancement/">Give to SFU</a></li>
+</ul>
+</div>
+</div>
+  
+    </div>
+    
+    <div id="homeBottom2t">
+        <div id="main_content_wrapper">
+            <div class="parsys main_content"><div class="parsys_column cq-colctrl-lt0"><div class="parsys_column cq-colctrl-lt0-c0"><div class="parbase section headertext">
+
+<div class="headerText titlebar"><p>News around campus<br>
+</p>
+</div>
+</div>
+<div class="text parbase section">
+<div class="text newsHighlight">
+<ul>
+<li><b>Memorial fund: </b>Friends and family have established at SFU a scholarship fund in memory of Lenami Godinez-Avila, the SFU alumna who died in a tragic hang-gliding accident April 28. You can make a gift <a href="https://secure.e2rm.com/registrant/startup.aspx?eventid=92669" target="_blank">here</a>. <br>
+</li>
+</ul>
+
+</div></div>
+<div class="parbase list section">
+    
+    <ul class="default"><li>
+    <p>
+        <a href="/pamr/media-releases/2012/pipers-and-drummers-teach-success-strategies-in-nyc.html" title="Pipers and drummers teach success strategies in NYC">Pipers and drummers teach success strategies in NYC</a>
+    </p>
+</li><li>
+    <p>
+        <a href="/pamr/media-releases/2012/sfu-pipes-and-drums-wow-nyc.html" title="SFU pipes and drums wow NYC">SFU pipes and drums wow NYC</a>
+    </p>
+</li><li>
+    <p>
+        <a href="/pamr/media-releases/2012/sfu-bolsters-educational-partnerships-with-chile.html" title="SFU bolsters educational partnerships with Chile">SFU bolsters educational partnerships with Chile</a>
+    </p>
+</li><li>
+    <p>
+        <a href="/pamr/media-releases/2012/sfu-receives-fair-trade-campus-designation.html" title="SFU receives Fair Trade Campus designation">SFU receives Fair Trade Campus designation</a>
+    </p>
+</li></ul><br class="clearList" />
+</div>
+</div><div class="parsys_column cq-colctrl-lt0-c1"><div class="parbase section featuredNews">
+
+
+<div class="featuredNews">
+	
+		
+		
+		
+		
+
+		<div class="titleBar">
+			<span class="title">Special features</span>
+		</div>
+
+		<div id="fnc_content"></div>
+
+		<script type="text/javascript">
+			function fnc_updateNewsItem(fnc_items) {
+				var template = '<div class="item"><div class="headline"><a href="{url}">{headline}</a></div><p>{description}</p></div>';
+				var htmlOut = [];
+				jQuery.each(fnc_items, function(i, item) {
+					var itemHtml = template;
+					jQuery.each(item, function(key, val) {
+						itemHtml = itemHtml.replace("{" + key + "}", val);
+					});
+					htmlOut.push(itemHtml);
+				});
+				jQuery("#fnc_content").html(htmlOut.join(""));
+			}
+
+			jQuery.subscribe("featuredNews", fnc_updateNewsItem);
+
+//			call the update function in the master component
+//			fnc_next_slide();
+		</script>
+	
+
+	
+</div>
+</div>
+</div></div><div style="clear:both"></div></div>
+
+        </div>
+        <div id="sub_content_wrapper">
+            <div class="parsys sub_content"><div class="parsys_column cq-colctrl-lt0"><div class="parsys_column cq-colctrl-lt0-c0"><div class="parbase externalFeed section">
+
+
+
+<script type="text/javascript" src="/etc/clientlibs/foundation/main.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/foundation/shared.js"></script>
+<script type="text/javascript" src="/etc/designs/sfu/clientlibs/commons.js"></script>
+
+<script type="text/javascript" src="/etc/designs/sfu/clientlibs/externalFeed.js"></script>
+<link rel="stylesheet" href="/etc/designs/sfu/clientlibs/externalFeed.css" type="text/css">
+
+
+
+
+
+
+
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function () {
+        $('#results_050c7600-d7b2-4285-ab64-bbc8d904c244').rssfeed('https://events.sfu.ca/rss/calendar_id/2.xml', {
+            header: false,
+            content: false,
+            snippet: false,
+            displayLimit: 5,  
+            linktarget: '_blank',      
+            filterAction1: 'hideAny',
+            filterField1: '',
+            filterValue1: '',
+            filterAction2: 'hideAny',
+            filterField2: '',
+            filterValue2: '',
+            filterAction3: 'hideAny',
+            filterField3: '',
+            filterValue3: '',                
+            windowWidth: 680,          
+            windowHeight: 575                     
+        });
+    });
+})(jQuery);
+</script>
+
+<div class="externalFeed ">
+    
+    <h3>Events</h3>
+    
+    <div id="results_050c7600-d7b2-4285-ab64-bbc8d904c244">
+    </div>
+</div>
+</div>
+<div class="text parbase section">
+<div class="text ">
+<p><a href="http://events.sfu.ca/">More SFU events</a><br>
+</p>
+
+</div></div>
+</div><div class="parsys_column cq-colctrl-lt0-c1"><div class="parbase motd section">
+
+<link rel="stylesheet" href="/etc/designs/sfu/clientlibs/motd.css" type="text/css">
+
+
+<div class="motd">
+	
+		
+		
+		
+
+		<div class="titleBar">
+			<h3>SFU Facts</h3>
+		</div>
+
+		<div id="motd_content"></div>
+		<script type="text/javascript">
+			jQuery.getJSON('/content/sfu/www/index/jcr:content/sub_content/motd.motdFeed.json', function(motd_data) {
+				var motd_record;
+				if (motd_data instanceof Array) {
+					var motd_data_length = $(motd_data).length;
+					var motd_message_num = Math.floor(Math.random() * motd_data_length);	// zero base
+					motd_record = motd_data[motd_message_num];
+				} else {
+					motd_record = motd_data;
+				}
+
+				var content = $('#motd_content').empty();
+				if (motd_record['title']) {
+					content.append('<div class="messageTitle">' + motd_record['title'] + '</div>');
+				}
+				content.append('<div class="message">' + motd_record['content'] + '</div>');
+				if (motd_record['url']) {
+					content.append('<div class="url"><a href="' + motd_record['url'] + '">Find&nbsp;out&nbsp;more</a></div>');
+				}
+			});
+		</script>
+	
+
+	
+</div>
+</div>
+</div></div><div style="clear:both"></div></div>
+
+        </div>
+    </div>
+</div>
+
+
+    <div id="footer">
+        <ul>
+            <li>8888 University Drive, Burnaby, B.C. Canada V5A 1S6</li>
+            <li><a href="//www.sfu.ca/webmaster/terms.html">Terms / Privacy</a></li>
+            <li><a href="//www.sfu.ca/contact/index.html">Contact SFU</a></li>
+            <li><a href="//www.sfu.ca/about/sitemap.html">SiteMap</a></li>
+            <li><a href="//www.sfu.ca/security/sfuroadconditions/">Road Conditions</a></li>
+            <li>&copy; Simon Fraser University</li>
+        </ul>
+    </div>
+
+<style type="text/css">#banner a { background-image: url("/content/sfu/www/siteconfig/jcr:content/main_content/bannerconfig/leftImage.img.png/1329748546945.png") } </style>
+
+
+
+<script type="text/javascript" src="/etc/designs/sfu/clientlibs/main.js"></script>
+
+
+<script src="/etc/designs/sfu/js/scripts.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="/content/dam/sfu/www/js/bookmarks.js"></script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2520725-16']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

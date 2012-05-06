@@ -1,0 +1,820 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="MainHead"><meta http-equiv="X-UA-Compatible" content="IE=8" /><title>
+	Our Lady of the Lake University - Our Lady of the Lake University, a Catholic university in San Antonio, Texas
+</title><link id="MainStyle" rel="stylesheet" type="text/css" HREF="style.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="ie6style.css" /><![endif]-->
+
+<script type="text/javascript">
+	function openChat(sURL, sTitle, iWidth, iHeight) { 
+	  window.open(sURL,sTitle,'width=' + iWidth + ',height=' + iHeight + ',directories=no,location=no,menubar=no,scrollbars=no,status=yes,toolbar=no,resizable=no'); 
+	  } 
+	  
+	if (!document.getElementById) {
+		 top.location.replace('/browser_check.html');
+	}
+</script>
+
+<!-- Flash -->
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+	var version;
+	var axo;
+	var e;
+	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+	try {
+		// version will be set for 7.X or greater players
+		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+		version = axo.GetVariable("$version");
+	} catch (e) {
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 6.X players only
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+			
+			// installed player is some revision of 6.0
+			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+			// so we have to be careful. 
+			
+			// default to the first public version
+			version = "WIN 6,0,21,0";
+			// throws if AllowScripAccess does not exist (introduced in 6.0r47)		
+			axo.AllowScriptAccess = "always";
+			// safe to call for 6.0r47 or greater
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 4.X or 5.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 3.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = "WIN 3,0,18,0";
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 2.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+			version = "WIN 2,0,0,11";
+		} catch (e) {
+			version = -1;
+		}
+	}
+	
+	return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	var flashVer = -1;
+	
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			var descArray = flashDescription.split(" ");
+			var tempArrayMajor = descArray[2].split(".");			
+			var versionMajor = tempArrayMajor[0];
+			var versionMinor = tempArrayMajor[1];
+			var versionRevision = descArray[3];
+			if (versionRevision == "") {
+				versionRevision = descArray[4];
+			}
+			if (versionRevision[0] == "d") {
+				versionRevision = versionRevision.substring(1);
+			} else if (versionRevision[0] == "r") {
+				versionRevision = versionRevision.substring(1);
+				if (versionRevision.indexOf("d") > 0) {
+					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+				}
+			}
+			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	else if ( isIE && isWin && !isOpera ) {
+		flashVer = ControlVersion();
+	}	
+	return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+	versionStr = GetSwfVer();
+	if (versionStr == -1 ) {
+		return false;
+	} else if (versionStr != 0) {
+		if(isIE && isWin && !isOpera) {
+			// Given "WIN 2,0,0,11"
+			tempArray         = versionStr.split(" "); 	// ["WIN", "2,0,0,11"]
+			tempString        = tempArray[1];			// "2,0,0,11"
+			versionArray      = tempString.split(",");	// ['2', '0', '0', '11']
+		} else {
+			versionArray      = versionStr.split(".");
+		}
+		var versionMajor      = versionArray[0];
+		var versionMinor      = versionArray[1];
+		var versionRevision   = versionArray[2];
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+		if (versionMajor > parseFloat(reqMajorVer)) {
+			return true;
+		} else if (versionMajor == parseFloat(reqMajorVer)) {
+			if (versionMinor > parseFloat(reqMinorVer))
+				return true;
+			else if (versionMinor == parseFloat(reqMinorVer)) {
+				if (versionRevision >= parseFloat(reqRevision))
+					return true;
+			}
+		}
+		return false;
+	}
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){	
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":	
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+<!-- End Flash -->
+
+<!-- SV: A~1IMODWEB01_VM#Re // -->
+<script id="MainScript" language="javascript"></script><link rel="stylesheet" type="text/css" href="/calendar.css" /><link rel="stylesheet" type="text/css" href="/aspnet_client/PetersDatePackage/Appearance/StyleSheet1.css" />
+<meta name="keywords" content="Our Lady of the Lake University, a private, Catholic, liberal arts university in San Antonio, Texas, offering bachelor's degrees, master's and doctoral degrees and accredited by the Southern Association of Colleges and Schools.">
+<meta name="description" content="Our Lady of the Lake University is a Catholic, private university in San Antonio, Texas, offering bachelor's, master's and doctoral degrees and is accredited by the Southern Association of Colleges and Schools."><link id="cssFile1" rel="stylesheet" type="text/css" href="/admin/navigation.css" /><link id="cssFile2" rel="stylesheet" type="text/css" href="/controls/ImageRotatorViewer/anythingslider.css" /><link id="cssFile3" rel="stylesheet" type="text/css" href="/controls/ImageRotatorViewer/anythingslider-ie.css" />
+						<style type='text/css'>
+							div.grippie {
+								background:#EEEEEE no-repeat scroll center 2px;
+								border-color:#DDDDDD;
+								border-style:solid;
+								border-width:0pt 1px 1px;
+								cursor:s-resize;
+								height:9px;
+								overflow:hidden;
+							}
+						</style>
+<!-- Image Rotator Styles -->
+<style>
+#slider6486 {
+width: 248px; 
+height: 178px; 
+list-style: none; 
+overflow-y: auto; 
+overflow-x: hidden;
+}
+</style>
+<!-- End Image Rotator Styles -->
+</head>
+<body id="MainBody" class="IMOD408 start">
+<form name="MainForm" method="post" action="start.aspx" id="MainForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE5Mjk1MzI5MjQPZBYCAgMPFgIeBWNsYXNzBQ1JTU9ENDA4IHN0YXJ0FgICAQ9kFhACAg8WAh4HVmlzaWJsZWcWAmYPDxYCHwFoZBYCAgIPZBYCAgEPZBYCAgEPZBYEAgEPZBYCZg8UKwACFCsAAmQQFgJmAgEWAhQrAAIPFgYeBFRleHQFCURhc2hib2FyZB4LTmF2aWdhdGVVcmwFZ2h0dHBzOi8vYWRtaW4uaW1vZHVsZXMuY29tL2FkbWluL2luZGV4LmFzcHg/c2lkPTExOTAmZ2lkPTEmcGdpZD01MDYzJmRvY3R5cGU9eGh0bWwmY2lkPSZicGlkPTUwNjMmbXVpZD0eBVZhbHVlBQljbGlja2FibGUWAh4Fc3R5bGUFD2N1cnNvcjpwb2ludGVyO2QUKwACDxYGHwIFB0NvbnRlbnQfAwUkaHR0cDovL3d3dy5vbGx1c2EuZWR1P3NpZD0xMTkwJmdpZD0xHwQFCWNsaWNrYWJsZRYCHwUFD2N1cnNvcjpwb2ludGVyO2QPFgJmZhYBBXRUZWxlcmlrLldlYi5VSS5SYWRNZW51SXRlbSwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMC4zLjExMDkuMzUsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49MTIxZmFlNzgxNjViYTNkNGQWBGYPDxYGHwIFCURhc2hib2FyZB8DBWdodHRwczovL2FkbWluLmltb2R1bGVzLmNvbS9hZG1pbi9pbmRleC5hc3B4P3NpZD0xMTkwJmdpZD0xJnBnaWQ9NTA2MyZkb2N0eXBlPXhodG1sJmNpZD0mYnBpZD01MDYzJm11aWQ9HwQFCWNsaWNrYWJsZRYCHwUFD2N1cnNvcjpwb2ludGVyO2QCAQ8PFgYfAgUHQ29udGVudB8DBSRodHRwOi8vd3d3Lm9sbHVzYS5lZHU/c2lkPTExOTAmZ2lkPTEfBAUJY2xpY2thYmxlFgIfBQUPY3Vyc29yOnBvaW50ZXI7ZAIDD2QWAmYPFCsAAhQrAAIPFgIeC18hRGF0YUJvdW5kZ2QQFgNmAgECAhYDFCsAAg8WAh4LSXNTZXBhcmF0b3JnZGQUKwACDxYCHwIFMjxpbWcgc3JjPSIvaW1hZ2VzL2ljb25zL3YyL2hlbHAucG5nIiBhbHQ9IkhlbHAiIC8+ZBAWAWYWARQrAAJkZA8WAWYWAQV0VGVsZXJpay5XZWIuVUkuUmFkTWVudUl0ZW0sIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTAuMy4xMTA5LjM1LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQUKwACDxYCHwIFRzxpbWcgc3JjPSIvaW1hZ2VzL2ljb25zL3YyL3VzZXJfZ3JlZW4ucG5nIiBhbHQ9IkFjY291bnQgSW5mb3JtYXRpb24iIC8+ZBAWAWYWARQrAAJkZA8WAWYWAQV0VGVsZXJpay5XZWIuVUkuUmFkTWVudUl0ZW0sIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTAuMy4xMTA5LjM1LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDQPFgNmZmYWAQV0VGVsZXJpay5XZWIuVUkuUmFkTWVudUl0ZW0sIFRlbGVyaWsuV2ViLlVJLCBWZXJzaW9uPTIwMTAuMy4xMTA5LjM1LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTEyMWZhZTc4MTY1YmEzZDRkFgZmDw8WAh8HZ2RkAgEPDxYCHwIFMjxpbWcgc3JjPSIvaW1hZ2VzL2ljb25zL3YyL2hlbHAucG5nIiBhbHQ9IkhlbHAiIC8+ZGQCAg8PFgIfAgVHPGltZyBzcmM9Ii9pbWFnZXMvaWNvbnMvdjIvdXNlcl9ncmVlbi5wbmciIGFsdD0iQWNjb3VudCBJbmZvcm1hdGlvbiIgLz5kZAIEDxYCHwFnZAIID2QWAmYPZBYEAgIPDxYCHwJlZGQCBw8WAh8CBcsCPHNjcmlwdD52YXIgSW1hZ2VSb3RhdG9yVmlld2VyQVNDWCA9IHt9O0ltYWdlUm90YXRvclZpZXdlckFTQ1guT3BlbldpbmRvdyA9IGZ1bmN0aW9uKHNQcm1VcmwsIHcsIGgsIHNQcm1Qcm9wZXJ0aWVzLCBpUHJtQ2VudGVyTW9kZSkge2lmICh3aW5kb3cuQ21zTWVudUJhciAhPSBudWxsKXsJQ21zTWVudUJhci5PcGVuU3ViV2luZG93KHNQcm1VcmwsIHcsIGgpOwoJQ21zV2luTWFuLlJlZ2lzdGVyQ2xvc2VIYW5kbGVyKFJlbG9hZFBhZ2UpOwp9ZWxzZXtpbW9kX09wZW5XaW5kb3coc1BybVVybCwgdywgaCwgc1BybVByb3BlcnRpZXMsIGlQcm1DZW50ZXJNb2RlKTt9fTwvc2NyaXB0PmQCEA9kFgJmD2QWAgICD2QWDgICDw8WBB8CZR4TQXNzb2NpYXRlZENvbnRyb2xJRAUIdGJTZWFyY2hkZAIEDw8WBB4IQ3NzQ2xhc3MFCHNlYXJjaGJ4HgRfIVNCAgJkZAIGDxYIHglpbm5lcmh0bWwFAkdvHgV0aXRsZQUCR28eB29uQ2xpY2sFInJldHVybiBjaWRfODEzX2hidG5TZWFyY2hfQ2xpY2soKTsfAWhkAgcPFgYfBQUYY3Vyc29yOnBvaW50ZXI7ZGlzcGxheTo7Hw0FInJldHVybiBjaWRfODEzX2hidG5TZWFyY2hfQ2xpY2soKTseA3NyYwVIL3MvMTE5MC9SZXNvdXJjZXMvU2VhcmNoQnV0dG9ucy9jMjNlYmEzNy04MTA2LTRmNGUtYmJkMy01MjMzOGU1ZmJkYTAuZ2lmZAIIDw8WAh8CBQJHb2RkAgkPDxYCHghJbWFnZVVybAVIL3MvMTE5MC9SZXNvdXJjZXMvU2VhcmNoQnV0dG9ucy9jMjNlYmEzNy04MTA2LTRmNGUtYmJkMy01MjMzOGU1ZmJkYTAuZ2lmZGQCCw9kFgJmDxYCHwIFpgRpbW9kJCgnY2lkXzgxM190YlNlYXJjaCcpLm9ua2V5cHJlc3M9U2VhcmNoS2V5Q2hlY2s4MTM7ZnVuY3Rpb24gU2VhcmNoS2V5Q2hlY2s4MTMoZSl7CWlmKHdpbmRvdy5ldmVudCAhPSBudWxsKQl7CQllID0gd2luZG93LmV2ZW50Owl9CWlmKGUua2V5Q29kZSA9PSAxMykJewkJY2lkXzgxM19oYnRuU2VhcmNoX0NsaWNrKCk7CQlyZXR1cm4gZmFsc2U7CX19CWZ1bmN0aW9uIGNpZF84MTNfaGJ0blNlYXJjaF9DbGljaygpCXsJCXZhciBTZWFyY2hQYXJhbSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjaWRfODEzX3RiU2VhcmNoJyk7CQlpZihTZWFyY2hQYXJhbS52YWx1ZS5sZW5ndGggPiAwKQkJewkJCXdpbmRvdy5sb2NhdGlvbiA9ICJodHRwOi8vd3d3Lm9sbHVzYS5lZHU/c2lkPTExOTAmZ2lkPTEmcGFnZV9pZD00MDgmcGdpZD0yNzgmY2lkPTgwNSZlY2lkPTgxMyZzZWFyY2g9IiArIGVzY2FwZShTZWFyY2hQYXJhbS52YWx1ZSk7CQl9CQllbHNlCQl7CQkJU2VhcmNoUGFyYW0uc3R5bGVbJ2JhY2tncm91bmQnXSA9ICdyZWQnOwkJfQkJcmV0dXJuIGZhbHNlOwl9ZAISD2QWAmYPZBYCAgMPZBYCAgMPFgIfAWhkAhQPZBYCZg9kFgICAw9kFgICAw8WAh8BaGQCFg9kFgJmD2QWAgIDD2QWAgIDDxYCHwFoZAIaD2QWAmYPZBYEAgIPDxYCHwJlZGQCBw8WAh8CBcsCPHNjcmlwdD52YXIgSW1hZ2VSb3RhdG9yVmlld2VyQVNDWCA9IHt9O0ltYWdlUm90YXRvclZpZXdlckFTQ1guT3BlbldpbmRvdyA9IGZ1bmN0aW9uKHNQcm1VcmwsIHcsIGgsIHNQcm1Qcm9wZXJ0aWVzLCBpUHJtQ2VudGVyTW9kZSkge2lmICh3aW5kb3cuQ21zTWVudUJhciAhPSBudWxsKXsJQ21zTWVudUJhci5PcGVuU3ViV2luZG93KHNQcm1VcmwsIHcsIGgpOwoJQ21zV2luTWFuLlJlZ2lzdGVyQ2xvc2VIYW5kbGVyKFJlbG9hZFBhZ2UpOwp9ZWxzZXtpbW9kX09wZW5XaW5kb3coc1BybVVybCwgdywgaCwgc1BybVByb3BlcnRpZXMsIGlQcm1DZW50ZXJNb2RlKTt9fTwvc2NyaXB0PmRk/xeFJmTTT38QLywTNkCVGbRM0XA=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['MainForm'];
+if (!theForm) {
+    theForm = document.MainForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=zetnWu5-zDNUkB4GY_-Pm9ucZn-m5yc3Lmz7hDjXZazSwWOZtxG6AljkRvNrNne6vpby__F6oUBcdSehUKu3M2frq001&amp;t=634604209351482412" type="text/javascript"></script>
+
+
+<script src="http://www.ollusa.edu/scripts/imodules_common_1_0_2.js?jsversion=28.0.0" type="text/javascript"></script><script>function RadCalendar6940_OnDateSelecting(renderDay, isSelected){	return false;}</script><script>function RadCalendar6947_OnDateSelecting(renderDay, isSelected){	return false;}</script><script>function RadCalendar6948_OnDateSelecting(renderDay, isSelected){	return false;}</script>
+<script src="/scripts/jquery/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="../../scripts/jquery/plugins/anythingslider/jquery.anythingslider.min.js" type="text/javascript"></script>
+<script src="../../scripts/jquery/plugins/anythingslider/jquery.anythingslider.fx.min.js" type="text/javascript"></script>
+<script src="../../scripts/jquery/plugins/anythingslider/jquery.easing.1.2.js" type="text/javascript"></script>
+<script src="../../scripts/jquery/plugins/jquery.textarearesizer.compressed.js" type="text/javascript"></script>
+						<script type='text/javascript'>
+							/* jQuery textarea resizer plugin usage */
+							jQuery(document).ready(function() {{
+								jQuery('textarea:not(.processed):visible').TextAreaResizer();
+								}});
+						</script>
+<script src="http://www.ollusa.edu/scripts/imod_FloaterDiv.js?jsversion=28.0.0" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=HXMl4DSw_JU9nae0_kGbG9qe8MMtGJfE9cYi1QmVNIO1BFvkhRy5FkVmhdr3M7OJn-dZYdV_MTtCZuE98oAozwNXK2J33lkPcpiuB-LM6_aCDxmWRHLzErBDUrDPnWB8fhvh3Z35O0lwedKCX_hhtaQDyxPc_fT76hpw-FgQn5wRqRak0&amp;t=ffffffffb868b5f4" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ijYciLQfDGqUQvBYKE2ED8fKV1VrdmMNMiU0RaabTIWcrsEa29guvh2YIBivPJdg97yeZkG-BjjbmhqhkcTLW_BpQw1PCSaYg0mWVG_isYVWDBSULZULnIEeO7dFbzBOiqh-FPGS2QYB2uFtSVTz5XbcHpL6e-zGwPEmom50kbqbPJXi0&amp;t=ffffffffb868b5f4" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBQKYrtXCDALH9JuiAwL108iuAgLFwK+OAgLNzJv4DvH0cnLeGLstF5n8o9ncb/5TU6Q2" />
+</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl01', document.getElementById('MainForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+  
+  
+  <!-- <script>imod.dom.AddHandler(window, "load", function()  
+		  {  
+			   javascript:preloader()
+		  } 
+); 
+</script> -->
+  
+  <!-- **************************************************************** -->
+  
+<div id="structWrapper">
+    <div id="structContainer">
+        <div id="structHeader">
+            <div id="ContentstructLogo">
+<a href="http://ollu-redesign.imodules.com/s/1190/start.aspx?sid=1190&gid=1&pgid=408"><img border="0" src="/s/1190/images/ImageLibrary/SlideShowSafe/0a0bd081-ac75-4449-a61c-77b99277164e.gif" width="602" height="56" /></a>
+
+<script>var ImageRotatorViewerASCX = {};ImageRotatorViewerASCX.OpenWindow = function(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode) {if (window.CmsMenuBar != null){	CmsMenuBar.OpenSubWindow(sPrmUrl, w, h);
+	CmsWinMan.RegisterCloseHandler(ReloadPage);
+}else{imod_OpenWindow(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode);}}</script></div>
+            <div id="ContentMyLogo"><a href="https://myollu.ollusa.edu"><img alt="" style="border: 0px solid;" src="images/myollu1.gif" /></a>&nbsp;
+<p style="text-align: center;">Current Students, <br />
+Faculty, Staff:<br />
+<a href="https://myollu.ollusa.edu"><strong>myOLLU</strong> <br />
+</a>online resources&nbsp;&nbsp;<br />
+<a href="/s/1190/ollu.aspx?sid=1190&amp;gid=1&amp;pgid=6114" target="_blank">More Information</a></p></div>
+        </div><!-- End structHeader -->
+<!-- **************************************************************** -->
+        <div id="ContentApplyOnline"><a href="/s/1190/ollu.aspx?sid=1190&amp;gid=1&amp;pgid=257">Apply Online</a></div>
+        <div id="TopNavWrapper">
+            <div id="ContentToplinks"> <ul id="nav3">  <li class="style="width:104px;"" id="Academics"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=866">Academics</a></li>  <li class="style="width:98px;"" id="Admissions"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=902">Admissions</a></li>  <li class="style="width:107px;"" id="StudentLife"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=867">Student Life</a></li>  <li class="" id="AboutOLLU"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=869">About OLLU</a></li>  </ul> </div><!-- End ContentToplinks -->
+            <div id="ContentSearch">
+
+	<!--<table border="0" cellspacing="0" callpadding="0">
+		<tr>
+			<td valign="middle">-->				
+				<label for="cid_813_tbSearch" id="cid_813_litSearch"></label>
+			<!--</td>
+			<td valign="middle">-->
+				<input name="cid_813$tbSearch" type="text" size="10" id="cid_813_tbSearch" class="searchbx" /><span class="SearchModuleSpacer">&nbsp;</span>
+			<!--</td>
+			<td valign="middle">-->
+				<img src="/s/1190/Resources/SearchButtons/c23eba37-8106-4f4e-bbd3-52338e5fbda0.gif" id="cid_813_imgbtnSearch" border="0" style="cursor:pointer;display:;" align="absbottom" onClick="return cid_813_hbtnSearch_Click();" />
+			<!--</td>
+		</tr>
+	</table>-->
+
+	
+
+
+
+
+
+
+
+</div>
+        </div>
+<!-- **************************************************************** -->
+
+        	
+            <div id="structColumn1">
+                <div class="accordion">
+                    <h3 class="numOne">Academic Highlights</h3>
+                    <div id="ContentFirstTextXY" class="DV">
+<script>
+var CalendarControlASCX = {};
+CalendarControlASCX.OpenWindow = function(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode) {
+	if (window.CmsMenuBar != null)
+		CmsMenuBar.OpenSubWindow(sPrmUrl, w, h);
+	else
+		imod_OpenWindow(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode);
+}
+</script>
+
+<style>
+	.xFloaterDivTitle{background-color: steelblue;text-align:center;font-weight:bold;color:black;border: black 1px solid;border-bottom:none;}
+	.xFloaterDivText{background-color: beige;font-color: darkblue;border: black 1px solid;padding: 2px;}
+	.TestCal{background-color: black;}
+</style>
+
+<script>
+var fd = new imod_FloaterDiv("FloaterDivTitle", "FloaterDivText",'','true','','');
+fd.Width = 400;
+fd.Height = 200;
+</script>
+<div id="imodcmscalendar6948" class="imodcmscalendar" style="width:100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><div style="text-align:left;"></div></td></tr><tr><td	style="width: 100%" valign="top"><div style = "clear:both;"><p><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9798&ecid=9798&crid=0&calpgid=408&calcid=6948">Seven McNair Scholars ready for Spring Commencement</a></p><p><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9787&ecid=9787&crid=0&calpgid=408&calcid=6948">Faculty Spotlight: Mariachi Maestro Juan B. Ortiz</a></p><p><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9771&ecid=9771&crid=0&calpgid=408&calcid=6948">OLLU re-designated as a Natonal Center of Academic Excellence</a></p></div></td></tr></table></div><input name="cid_6948$hidSelectedDate" type="hidden" id="cid_6948_hidSelectedDate" />
+<script>
+	
+	/*var spanCalFix = document.getElementById("spanCalFix");
+	if(spanCalFix != null)
+		spanCalFix.style.display = "";*/
+</script>
+<a href="/s/1190/ollu.aspx?sid=1190&gid=1&pgid=5360"><font size="1"><strong>View all highlights>></strong></font></a></div>
+                    <h3>Event Calendar</h3>
+                    <div id="ContentSecondTextXY" class="DV">
+<script>
+var CalendarControlASCX = {};
+CalendarControlASCX.OpenWindow = function(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode) {
+	if (window.CmsMenuBar != null)
+		CmsMenuBar.OpenSubWindow(sPrmUrl, w, h);
+	else
+		imod_OpenWindow(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode);
+}
+</script>
+
+<style>
+	.xFloaterDivTitle{background-color: steelblue;text-align:center;font-weight:bold;color:black;border: black 1px solid;border-bottom:none;}
+	.xFloaterDivText{background-color: beige;font-color: darkblue;border: black 1px solid;padding: 2px;}
+	.TestCal{background-color: black;}
+</style>
+
+<script>
+var fd = new imod_FloaterDiv("FloaterDivTitle", "FloaterDivText",'','true','','');
+fd.Width = 400;
+fd.Height = 200;
+</script>
+<div id="imodcmscalendar6947" class="imodcmscalendar" style="width:100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><div style="text-align:left;"></div></td></tr><tr><td	style="width: 100%" valign="top"><div style = "clear:both;"><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9765&ecid=9765&crid=0&calpgid=408&calcid=6947">Best of the West</a><font size="1"><span> <a href="/controls/cms_v2/Components/iCalendar/iCalendar.aspx?sid=1190&contentid=9005&ciid=78068&crid=0&type_alias=[event]"><img src="/images/icons/v2/common/outlook.GIF" title="Add to Outlook" border="0"></a></span></font><br><br><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9780&ecid=9780&crid=0&calpgid=408&calcid=6947">Transfer Student Information Session</a><font size="1"><span> <a href="/controls/cms_v2/Components/iCalendar/iCalendar.aspx?sid=1190&contentid=9018&ciid=78196&crid=0&type_alias=[event]"><img src="/images/icons/v2/common/outlook.GIF" title="Add to Outlook" border="0"></a></span></font><br><br><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9782&ecid=9782&crid=0&calpgid=408&calcid=6947">Graduate Student Information Session</a><font size="1"><span> <a href="/controls/cms_v2/Components/iCalendar/iCalendar.aspx?sid=1190&contentid=9020&ciid=78201&crid=0&type_alias=[event]"><img src="/images/icons/v2/common/outlook.GIF" title="Add to Outlook" border="0"></a></span></font><br><br></div></td></tr></table></div><input name="cid_6947$hidSelectedDate" type="hidden" id="cid_6947_hidSelectedDate" />
+<script>
+	
+	/*var spanCalFix = document.getElementById("spanCalFix");
+	if(spanCalFix != null)
+		spanCalFix.style.display = "";*/
+</script>
+<a href="/s/1190/ollu.aspx?sid=1190&gid=1&pgid=923"><font size="1"><strong>View all events>></strong></font></a></div>
+                    <h3>News</h3>
+                    <div id="ContentThirdTextXY" class="DV">
+<script>
+var CalendarControlASCX = {};
+CalendarControlASCX.OpenWindow = function(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode) {
+	if (window.CmsMenuBar != null)
+		CmsMenuBar.OpenSubWindow(sPrmUrl, w, h);
+	else
+		imod_OpenWindow(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode);
+}
+</script>
+
+<style>
+	.xFloaterDivTitle{background-color: steelblue;text-align:center;font-weight:bold;color:black;border: black 1px solid;border-bottom:none;}
+	.xFloaterDivText{background-color: beige;font-color: darkblue;border: black 1px solid;padding: 2px;}
+	.TestCal{background-color: black;}
+</style>
+
+<script>
+var fd = new imod_FloaterDiv("FloaterDivTitle", "FloaterDivText",'','true','','');
+fd.Width = 400;
+fd.Height = 200;
+</script>
+<div id="imodcmscalendar6940" class="imodcmscalendar" style="width:100%;"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tr><td><div style="text-align:left;"></div></td></tr><tr><td	style="width: 100%" valign="top"><div style = "clear:both;"><p><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9799&ecid=9799&crid=0&calpgid=408&calcid=6940">Sheryl Sculley will serve as commencement speaker</a><span style="font-size: 10px;"></span></p><p><a href="http://www.ollusa.edu/s/1190/ollu.aspx?sid=1190&gid=1&pgid=5995&cid=8364&ecid=8364&crid=0&calpgid=408&calcid=6948" target="_blank">OLLU names 'Outstanding Bilingual Students'</a><span style="font-size: 10px;"></span></p><p><a href = "http://www.ollusa.edu?sid=1190&gid=1&pgid=277&cid=9741&ecid=9741&crid=0&calpgid=408&calcid=6940">OLLU recognized by San Antonio Conservation Society</a><span style="font-size: 10px;"></span></p><a href="http://www.ollusa.edu/s/1190/ollu.aspx?pgid=922&amp;gid=1&amp;cid=1625"><strong><span style="font-size: 10px;">View all news<br />
+</span></strong></a></div></td></tr></table></div><input name="cid_6940$hidSelectedDate" type="hidden" id="cid_6940_hidSelectedDate" />
+<script>
+	
+	/*var spanCalFix = document.getElementById("spanCalFix");
+	if(spanCalFix != null)
+		spanCalFix.style.display = "";*/
+</script>
+</div>
+                    <h3>Athletics</h3>
+                    <div id="ContentFourthTextXY" class="DV"><div><span class="style57" style="font-size: 10px;">
+<div class="newsTitle" id="news_574">
+<div class="newsTitle" id="news_573">
+<div class="newsTitle" id="news_572">
+<div class="newsTitle" id="news_571">
+<div class="newsTitle" id="news_713"><span style="font-family: verdana; font-size: 13px;">
+<div class="newsTitle" id="news_790"></div>
+</span>
+<div class="newsTitle" id="news_790"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</span>
+<div class="newsTitle" id="news_574">
+<div class="newsTitle" id="news_573">
+<div class="newsTitle" id="news_572">
+<div class="newsTitle" id="news_571">
+<div class="newsTitle" id="news_713">
+<div class="newsTitle" id="news_790"><span class="Apple-style-span" style="font-family: verdana; font-size: 13px;"><a href="http://www.ollusaintsathletics.com/article/852.php" target="_blank">Softball finishes second in conference</a><br />
+</span>
+<br />
+<span class="Apple-style-span" style="font-family: verdana;"><a href="http://www.ollusaintsathletics.com/article/850.php" target="_blank">Men's tennis defeated in NAIA Regional Conference Semifinals</a><br />
+</span>
+<br />
+<span class="Apple-style-span" style="font-family: verdana;"><a href="http://www.ollusaintsathletics.com/article/846.php" target="_blank">Cross-country team participated in conference championship meet</a></span><a href="http://www.ollusaintsathletics.com/article/828.php" target="_blank"><span style="font-family: verdana;"><br />
+</span></a><br />
+<a href="http://www.ollusaintsathletics.com/index.php"><strong><span style="font-family: verdana; font-size: 10px;">View all athletics news &gt;</span></strong></a><span style="font-family: verdana; font-size: 10px;"> </span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+
+				</div>
+                <div id="ContentLeftRotator">
+<table cellpadding="0" cellspacing="0" width="100%"><tr><td width="100%" id="divSS" align="center">
+
+<!-- AnythingSlider #6486 -->
+		<ul id="slider6486" style="margin-left: 0px;">
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/3f591808-b93d-408d-8fcd-604c16bab000.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/f0f01521-5138-4023-b9bf-07779e416943.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/5e45a668-0269-4015-9174-b6e15bab269f.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/61c5501b-9742-4a24-b4c9-2e9d948d1efd.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/479ce6f7-e30e-4af0-821d-a394723e5742.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/f33dd6a9-c5b5-4077-9cba-bfa3fddd28e1.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/a2b96280-f1e5-4bd8-8d4e-0a6320e25e37.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/62c72e8e-dda4-4b2e-8154-b50e5afe924e.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/e4bcb7f3-141f-49c4-b7cc-372dcc537287.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/f144a9fa-f5f1-415e-b2ab-2c667f44ead9.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/81e4cbf2-b740-4fc6-bcde-ada0cf82ecd9.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/25e2133d-2042-4fb3-a1c8-0e3b303ce662.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/4a5c9377-869a-4082-85a7-7068777a2378.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/97694a34-22fc-4b04-ab8f-d1acf9d57b8f.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/b1b2e992-e6fd-4077-82b4-a889501d90a7.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/9e304ed6-b5a3-427c-a6fb-1df47a6274a5.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/726a1673-6210-4516-8c61-c1a8d91d66b5.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/b2f14c98-d5d6-4023-a634-ae3ae5298ad9.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/db026fd5-b2d7-4be5-9ccb-cecca96967a6.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/378f7d7f-987a-49e8-9f07-29ae71438679.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/e28e94f1-04e5-4545-b787-5eb5337c42eb.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/9607187a-f7d9-4de1-86e1-291a4d240ff5.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/e76c04a7-8b5c-4240-a8c6-ef3f3f13de60.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/717691c0-341d-45bc-8593-9ab454ffba58.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/b5c7aeba-ed49-4383-8ec3-74a0ff43ecb0.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/f031dd00-de17-4cc8-9e5d-7f508eb26994.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/d9b39d1c-2133-48bf-a700-418f0e783caa.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/cc4f24f2-0358-42d6-8494-9b5feecfd916.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/eb3053a8-5684-4255-a771-b563422d0ce1.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/d645a950-327f-4e0b-b6e4-79d1a65299bb.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/3b60826e-c03c-42d2-bd83-5d620df6928c.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/c983afbf-c6a9-4d6a-acbc-524017ded4e9.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/0c607a8a-52ac-454e-912d-80b98a2690cd.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/ef7f5441-e9b0-40ec-b9c1-d6955503be8c.jpg' alt />
+			</li>
+			<li>
+				<img src='/s/1190/images/ImageLibrary/SlideShowSafe/8eb04de1-51c0-42fe-87b1-345cbc4655aa.jpg' alt />
+			</li>
+		</ul>
+<!-- END AnythingSlider #6486 --></td></tr></table>
+
+
+<script>var ImageRotatorViewerASCX = {};ImageRotatorViewerASCX.OpenWindow = function(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode) {if (window.CmsMenuBar != null){	CmsMenuBar.OpenSubWindow(sPrmUrl, w, h);
+	CmsWinMan.RegisterCloseHandler(ReloadPage);
+}else{imod_OpenWindow(sPrmUrl, w, h, sPrmProperties, iPrmCenterMode);}}</script></div>
+
+</div>
+<div id="structColumn2">
+                <div id="ContentFlash">
+                <script language="JavaScript" type="text/javascript">
+	AC_FL_RunContent( 'codebase','http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0','width','656','height','450','id','frontPage','align','middle','src','frontPage','quality','high','bgcolor','#015581','name','frontPage','allowscriptaccess','sameDomain','allowfullscreen','false','pluginspage','http://www.adobe.com/go/getflashplayer','movie','frontPage' ); //end AC code
+</script>
+<noscript>
+	<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" width="656" height="450" id="frontPage" align="middle">
+	<param name="allowScriptAccess" value="sameDomain" />
+	<param name="allowFullScreen" value="false" />
+	<param name="movie" value="frontPage.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#015581" />	<embed src="frontPage.swf" quality="high" bgcolor="#015581" width="656" height="450" name="frontPage" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+	</object>
+</noscript>
+                <!--<img src="images/OLLU-SITE-Final-BG-sliced_13.gif" width="660" height="465">-->
+</div>
+                <!--<div id="ContentMiddle"></div>-->
+            </div><!-- End structColumn2 -->
+        <div class="cleaR"></div>
+        <div id="ContentBox1"><h3><a href="/s/1190/ollu.aspx?sid=1190&gid=1&pgid=902">Future Students</a></h3>
+<p><font size=1><strong>Weekday, Evening, Weekend</strong> or <strong>Online.</strong> Discover if OLLU <br>is a right fit for you.</font></p></div>
+            <div id="ContentBox2" class="boxSet"><h3><a href="/s/1190/ollu.aspx?sid=1190&gid=1&pgid=5119">Family & Visitors</a></h3>
+<p><font size=1>Learn about the <br><strong><font color=#00457c>OLLU experience.</font></strong><br>Discover how we <br>serve the community.</font></p></div>
+            <div id="ContentBox3" class="boxSet"><h3><a href="/s/1190/ollu.aspx?sid=1190&gid=1&pgid=5121">Donor Support</a></h3>
+<p><font size=1>Help us <strong>fulfill the vision </strong>of OLLU's founders. Assist students to achieve success.</font></p></div>
+            <div id="ContentBox4" class="boxSet"><h3><a href="http://www.ollualumni.com">Alumni</a></h3>
+<p><font size=1><strong>Connect</strong> with <br>classmates, friends&nbsp;<br>and your alma mater.</font></p></div>
+<!-- **************************************************************** -->
+        <div id="structFooterWrapper">
+            <h2 id="OLLULogo"><a href="http://www.ollusa.edu/s/1190/start.aspx?sid=1190&gid=1&pgid=408">Our lady of the Lake University</a></h2>
+            <div id="ContentFooter"> <ul id="nav3">  <li class="" id="Home"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=408">Home </a></li>  <li class="" id="Apply"><a href="/s/1190/ollu.aspx?sid=346&gid=1&pgid=257">Apply</a></li>  <li class="" id="VisitUs"><a href="/s/1190/ollu-3-column-noads.aspx?sid=1190&gid=1&pgid=912">Visit Us</a></li>  <li class="" id="ContactUs"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=5137">Contact Us</a></li>  <li class="" id="CampusMap"><a href="/s/1190/ollu-map.aspx?sid=1190&gid=1&pgid=5394">Campus Map</a></li>  <li class="" id="CampusDirectory"><a target="_blank" href="http://unet.ollusa.edu/directory/ ">Campus Directory</a></li>  <li class="" id="Copyright&Policies"><a href="/s/1190/start.aspx?sid=1190&gid=1&pgid=5141">Copyright & Policies</a></li>  </ul> <div class="address">&#169; Copyright 2010, Our Lady of the Lake University, 411 S.W. 24th St., San Antonio, TX 78207 | Tele: 210-434-6711</div></div>
+            <div id="ContentOLLUAlert"><a href="/s/1190/ollu-3-column-noads.aspx?sid=1190&gid=1&pgid=4653">Ollu Alert</a></div>
+        </div><!-- End structFooterWrapper -->
+    </div><!-- End structContainer -->
+</div><!-- End structWrapper -->
+<!--<script language="JavaScript" type="text/javascript" src="scripts/more-show-hide.js"></script>-->
+<script type="text/javascript">
+
+/*jQuery(document).ready(function(){
+	
+	jQuery(".accordion2 h3").eq(2).addClass("active");
+	jQuery(".accordion2 p").eq(2).show();
+
+	jQuery(".accordion2 h3").click(function(){
+		jQuery(this).next("p").slideToggle("slow")
+		.siblings("p:visible").slideUp("slow");
+		jQuery(this).toggleClass("active");
+		jQuery(this).siblings("h3").removeClass("active");
+	});
+
+});*/
+/*jQuery(document).ready(function(){
+	
+	jQuery(".accordion h3:first").addClass("active");
+	jQuery(".accordion p:not(:first)").hide();
+
+	jQuery(".accordion h3").click(function(){
+		jQuery(this).next("p").slideToggle("slow")
+		.siblings("p:visible").slideUp("slow");
+		jQuery(this).toggleClass("active");
+		jQuery(this).siblings("h3").removeClass("active");
+	});
+
+});*/
+
+</script>
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+if (window.CmsMenuBar) {CmsMenuBar.LogoutUrl = 'http://www.ollusa.edu/?sid=1190&gid=1&pgid=408&logout=1&muid=';}
+if (window.CmsMenuBar) {CmsMenuBar.AuthenticationTicket = '';}
+if (window.CmsMenuBar) {CmsMenuBar.SiteId = '1190';}
+if (window.CmsMenuBar) {CmsMenuBar.GroupId = '1';}
+if (window.CmsMenuBar) {CmsMenuBar.EnableMemberSessions = false;}
+
+//]]>
+</script>
+<script>if (window.CmsMenuBar != null) CmsMenuBar.CommunityEnabled = false;</script><script>if (window.CmsMenuBar != null) CmsMenuBar.ConstituentsEnabled = false;</script><script>if (window.CmsMenuBar != null) CmsMenuBar.ContentEnabled = false;</script><script>if (window.CmsMenuBar != null) { CmsMenuBar.UseNewAdminTemplate=true; CmsMenuBar.DefaultMenu = "none"; CmsMenuBar.divCmsTopTabNavCurrent = imod$(""); }</script>
+<script type="text/javascript">
+//<![CDATA[
+
+				jQuery('#slider6486').iModAnythingSlider({
+					autoPlay: true,                 // This turns off the entire FUNCTIONALY, not just if it starts running or not.
+					delay: 9000,                    // How long between slide transitions in AutoPlay mode
+					buildNavigation: false,         // If true, builds and list of anchor links to link to each slide
+					buildArrows: false,
+					buildStartStop: false,          // If true, builds the start/stop button and adds slideshow functionality
+					pauseOnHover: false,            // If true, and autoPlay is enabled, the show will pause on hover
+					animationTime: 10 // zero time between slide transitions
+}).iModAnythingSliderFx({
+  '.panel' : [ 'fade', '', 10, 'easeOutCirc' ] // target the entire panel and fade will take 1000ms
+ });if (typeof IModController != 'undefined' && typeof IModController.init == 'function') { IModController.init(1190,1,false);}//]]>
+</script>
+
+<script type='text/javascript'>
+imod$('cid_813_tbSearch').onkeypress=SearchKeyCheck813;function SearchKeyCheck813(e){	if(window.event != null)	{		e = window.event;	}	if(e.keyCode == 13)	{		cid_813_hbtnSearch_Click();		return false;	}}	function cid_813_hbtnSearch_Click()	{		var SearchParam = document.getElementById('cid_813_tbSearch');		if(SearchParam.value.length > 0)		{			window.location = "http://www.ollusa.edu?sid=1190&gid=1&page_id=408&pgid=278&cid=805&ecid=813&search=" + escape(SearchParam.value);		}		else		{			SearchParam.style['background'] = 'red';		}		return false;	}
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+ <script type='text/javascript'>
+    jQuery(document).ready(function() {
+      // accordion effect
+      jQuery(".accordion div").hide();
+	  jQuery(".accordion div div").show();
+      jQuery(".accordion div:first").show();
+      jQuery(".accordion div:first").addClass("active");
+      jQuery(".accordion h3").click(function() {
+		//jQuery(".accordion h3").addClass("active");
+        jQuery(".accordion div.active").slideUp(1200);
+        jQuery(this).next().slideDown(1200);
+        jQuery(this).next().addClass("active");
+        return false;
+      });
+    });
+  </script>
+  <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-2783530-1";
+urchinTracker();
+</script>
+</body>
+</html>

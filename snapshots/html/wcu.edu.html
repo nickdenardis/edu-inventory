@@ -1,0 +1,535 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head><!-- PageID 883 - published by Open Text Web Solutions 10.1 - 10.1.2.321 - 32366 -->
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta name="verify-v1" content="vKrSyiIjfo6cGsVkt0wabsmstk527fvBqRKOFavp1Hw=" />
+
+
+  
+  <title>Western Carolina University - Home</title>
+
+
+<link type="text/css" href="styles.css" rel="stylesheet" title="wcu standard" />
+
+
+<link type="text/css" href="text.css" title="wcu text only" rel="alternate stylesheet" />
+<link type="text/css" href="yellowblack.css" title="yellowblack" rel="alternate stylesheet" />
+<link type="text/css" href="creamblack.css" title="creamblack" rel="alternate stylesheet" />
+
+
+
+<script language="javascript" type="text/javascript" src="styleswitcher.js"></script><style>
+
+  
+
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+    var version;
+    var axo;
+    var e;
+    // NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+    try {
+        // version will be set for 7.X or greater players
+        axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+        version = axo.GetVariable("$version");
+    } catch (e) {
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 6.X players only
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+            
+            // installed player is some revision of 6.0
+            // GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+            // so we have to be careful. 
+            
+            // default to the first public version
+            version = "WIN 6,0,21,0";
+            // throws if AllowScripAccess does not exist (introduced in 6.0r47)        
+            axo.AllowScriptAccess = "always";
+            // safe to call for 6.0r47 or greater
+            version = axo.GetVariable("$version");
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 4.X or 5.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+            version = axo.GetVariable("$version");
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 3.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+            version = "WIN 3,0,18,0";
+        } catch (e) {
+        }
+    }
+    if (!version)
+    {
+        try {
+            // version will be set for 2.X player
+            axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+            version = "WIN 2,0,0,11";
+        } catch (e) {
+            version = -1;
+        }
+    }
+    
+    return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+    // NS/Opera version >= 3 check for Flash plugin in plugin array
+    var flashVer = -1;
+    
+    if (navigator.plugins != null && navigator.plugins.length > 0) {
+        if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+            var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+            var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+            var descArray = flashDescription.split(" ");
+            var tempArrayMajor = descArray[2].split(".");            
+            var versionMajor = tempArrayMajor[0];
+            var versionMinor = tempArrayMajor[1];
+            var versionRevision = descArray[3];
+            if (versionRevision == "") {
+                versionRevision = descArray[4];
+            }
+            if (versionRevision[0] == "d") {
+                versionRevision = versionRevision.substring(1);
+            } else if (versionRevision[0] == "r") {
+                versionRevision = versionRevision.substring(1);
+                if (versionRevision.indexOf("d") > 0) {
+                    versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+                }
+            }
+            var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+        }
+    }
+    // MSN/WebTV 2.6 supports Flash 4
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+    // WebTV 2.5 supports Flash 3
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+    // older WebTV supports Flash 2
+    else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+    else if ( isIE && isWin && !isOpera ) {
+        flashVer = ControlVersion();
+    }    
+    return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+    versionStr = GetSwfVer();
+    if (versionStr == -1 ) {
+        return false;
+    } else if (versionStr != 0) {
+        if(isIE && isWin && !isOpera) {
+            // Given "WIN 2,0,0,11"
+            tempArray         = versionStr.split(" ");     // ["WIN", "2,0,0,11"]
+            tempString        = tempArray[1];            // "2,0,0,11"
+            versionArray      = tempString.split(",");    // ['2', '0', '0', '11']
+        } else {
+            versionArray      = versionStr.split(".");
+        }
+        var versionMajor      = versionArray[0];
+        var versionMinor      = versionArray[1];
+        var versionRevision   = versionArray[2];
+            // is the major.revision >= requested major.revision AND the minor version >= requested minor
+        if (versionMajor > parseFloat(reqMajorVer)) {
+            return true;
+        } else if (versionMajor == parseFloat(reqMajorVer)) {
+            if (versionMinor > parseFloat(reqMinorVer))
+                return true;
+            else if (versionMinor == parseFloat(reqMinorVer)) {
+                if (versionRevision >= parseFloat(reqRevision))
+                    return true;
+            }
+        }
+        return false;
+    }
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){    
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":    
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+
+</head>
+
+<body>
+<!--google.asp-->
+<!--BEGIN MAIN-->
+<!--BEGIN MAIN-->
+<div class="backgroundShadow">
+    <div class="topContainer"></div>
+<div class="headerContainer">
+    <div class="pageHeaderContainer">
+        <div class="headerWidthContainer">        
+            <a href="#main"><img src="WebFiles/spacer.png" width="1" height="1" alt="Skip Navigation"></a><a href="index.asp"><img alt="Western Carolina University" class="logo" src="WebGraphics/Display/logo.jpg" /><div id="hiddentext"><span><h1>Western Carolina University</h1></span></div></a>
+            <A onclick="setActiveStyleSheet('wcu text only'); return false;" href="#" style="visibility:hidden">change style to text</A>
+<div class="righSideHeader">
+            
+   
+                    <div class="rightHeaderSearchBox">
+
+<form name="searchForm" id="searchForm" action="http://www.wcu.edu/google.asp" method="get" style="margin: 0px; padding: 0px;">
+<input onfocus="if (this.value=='Search'){this.value=''}" onblur="if (this.value==''){this.value='Search'}" type="edit" name="q" value="Search" maxlength="200"/><a onclick="document.searchForm.submit();"><img style="cursor: pointer;" class="go" alt="Submit Search" src="WebGraphics/Display/go.jpg"></a>
+<div style="display:none">
+<input name="btnG" type="hidden" value="Search" />
+<input name="entqr" type="hidden" value="0" />
+<input name="default_collection" type="hidden" value="" />
+<input name="output" type="hidden" value="xml_no_dtd" />
+<input name="sort" type="hidden" value="date%3AD%3AL%3Ad1" />
+<input name="ud" type="hidden" value="1" />
+<input name="client" type="hidden" value="wcu" />
+<input name="oe" type="hidden" value="UTF-8" />
+<input name="ie" type="hidden" value="UTF-8" />
+<input name="proxystylesheet" type="hidden" value="wcu" />
+</div>
+</form>
+</div>
+                       <ul class="navigationTacticalDown"> 
+<li><a href="3417.asp">A to Z Index</a></li>
+<li><a href="sitemap.asp">Site Map</a></li>
+<li><a href="https://catamount4.wcu.edu/cp/home/displaylogin">My Cat</a></li>
+<li><a href="https://wcu.blackboard.com/" target="_blank">Blackboard</a></li>
+<li><a href="9.asp">Contact WCU</a></li>
+                                            </ul>
+            </div>            
+        </div>
+    </div>
+</div>
+    <div style="clear: both" ></div>
+    <div class="centerContainer">
+        <div class="mainContainer">
+            <div class="mainContent">
+                <div class="navigationPrimarySub">
+                               
+                        <a href="10.asp" onmouseover="document.rollover1.src='WebGraphics/Buttons/aboutOver.gif'" onmouseout="document.rollover1.src='WebGraphics/Buttons/aboutOff.gif'"><img name="rollover1" src="WebGraphics/Buttons/aboutOff.gif" alt="About WCU"/><div id="hiddentext"><span>About WCU</span></div></a>
+                    
+                    
+                        <a href="15.asp" onmouseover="document.rollover2.src='WebGraphics/Buttons/admissionOver.gif'" onmouseout="document.rollover2.src='WebGraphics/Buttons/admissionOff.gif'"><img name="rollover2" src="WebGraphics/Buttons/admissionOff.gif" alt="Admissions"/><div id="hiddentext"><span>Admissions</span></div></a>
+                    
+                    
+                        <a href="14.asp" onmouseover="document.rollover3.src='WebGraphics/Buttons/academicsOver.gif'" onmouseout="document.rollover3.src='WebGraphics/Buttons/academicsOff.gif'"><img name="rollover3" src="WebGraphics/Buttons/academicsOff.gif" alt="Academics"/><div id="hiddentext"><span>Academics</span></div></a>
+                    
+                    
+                        <a href="404.asp" onmouseover="document.rollover4.src='WebGraphics/Buttons/libraryOver.gif'" onmouseout="document.rollover4.src='WebGraphics/Buttons/libraryOff.gif'"><img name="rollover4" src="WebGraphics/Buttons/libraryOff.gif" alt="Hunter Library"/><div id="hiddentext"><span>Hunter Library</span></div></a>
+                    
+                    
+                        <a href="12.asp" onmouseover="document.rollover5.src='WebGraphics/Buttons/studentLifeOver.gif'" onmouseout="document.rollover5.src='WebGraphics/Buttons/studentLifeOff.gif'"><img name="rollover5" src="WebGraphics/Buttons/studentLifeOff.gif" alt="Student Life"/><div id="hiddentext"><span>Student Life</span></div></a>
+                    
+                    
+                        <a href="http://catamountsports.cstv.com/
+" onmouseover="document.rollover6.src='WebGraphics/Buttons/athleticsOver.gif'" onmouseout="document.rollover6.src='WebGraphics/Buttons/athleticsOff.gif'"><img name="rollover6" src="WebGraphics/Buttons/athleticsOff.gif" alt="Athletics"/><div id="hiddentext"><span>Athletics</span></div></a>
+                    
+                    
+                        <a href="401.asp" onmouseover="document.rollover7.src='WebGraphics/Buttons/newsOver.gif'" onmouseout="document.rollover7.src='WebGraphics/Buttons/newsOff.gif'"><img name="rollover7" src="WebGraphics/Buttons/newsOff.gif" alt="News &amp; Events"/><div id="hiddentext"><span>News &amp; Events</span></div></a>
+                    
+                    
+                        <a href="11570.asp" onmouseover="document.rollover8.src='WebGraphics/Buttons/eventsOver.gif'" onmouseout="document.rollover8.src='WebGraphics/Buttons/eventsOff.gif'"><img name="rollover8" src="WebGraphics/Buttons/eventsOff.gif" alt="Event Calendar"/><div id="hiddentext"><span>Event Calendar</span></div></a>
+                    
+                    
+                        <a href="11.asp" onmouseover="document.rollover9.src='WebGraphics/Buttons/givingOver.gif'" onmouseout="document.rollover9.src='WebGraphics/Buttons/givingOff.gif'"><img name="rollover9" src="WebGraphics/Buttons/givingOff.gif" alt="Giving to WCU"/><div id="hiddentext"><span>Giving to WCU</span></div></a>
+                    
+</div>
+                <!IoRangePreExecute>
+  
+
+
+<div id="hiddentextonly"><span>
+<script language="JavaScript" type="text/javascript">
+ AC_FL_RunContent(
+        'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+        'width', '760',
+        'height', '255',
+        'src', 'http://webmedia.wcu.edu/wcu/featureShow/web/homeFeatureShow-WCU',
+        'quality', 'high',
+        'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+        'align', 'middle',
+        'play', 'true',
+        'loop', 'true',
+        'scale', 'showall',
+        'wmode', 'window',
+        'devicefont', 'false',
+        'id', 'homeFeatureShow-WCU',
+        'bgcolor', '#ffffff',
+        'name', 'homeFeatureShow-WCU',
+        'menu', 'true',
+        'allowFullScreen', 'false',
+        'allowScriptAccess','always',
+        'movie', 'http://webmedia.wcu.edu/wcu/featureShow/web/homeFeatureShow-WCU',
+        'base', 'http://webmedia.wcu.edu/wcu/featureShow/web/',
+        'salign', ''
+        ); //end AC code
+</script>
+<noscript>
+    <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="760" height="255" id="homeFeatureShow-WCU" align="middle">
+    <param name="allowScriptAccess" value="always" />
+    <param name="allowFullScreen" value="false" />
+    <param name="movie" value="http://webmedia.wcu.edu/wcu/featureShow/web/homeFeatureShow-WCU.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" />    <embed src="http://webmedia.wcu.edu/wcu/featureShow/web/homeFeatureShow-WCU.swf" quality="high" bgcolor="#ffffff" width="760" height="255" name="homeFeatureShow-WCU" align="middle" allowScriptAccess="always" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer" />
+    </object>
+</noscript>
+</span></div>
+   
+
+
+<div class="horizontalBar">
+            <ul class="navigationTacticalUp">
+                <li><a href="260.asp">Current Students</a></li> <li><a href="257.asp">Recently Accepted Students</a></li> <li><a href="252.asp">Community</a></li> <li><a href="http://alumni.wcu.edu" target="_blank">Alumni</a></li> <li><a href="254.asp">Counselors</a></li> <li><a href="255.asp">Parents</a></li> <li><a href="258.asp">Faculty &amp; Staff</a></li>                                                               
+            </ul>
+</div>
+
+<div class="homeContainer">
+    <div class="leftHomeContainer">
+<div class="homepagenewslist">
+<div class="homepageheadline">
+University News
+</div>
+<div class="homepagenewsrss">
+<a href="http://news-prod.wcu.edu/" style="text-decoration:none">MORE NEWS</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://news-prod.wcu.edu/feed" class="rssicon"><img src="WebGraphics/Display/rss_icon.jpg"></a>
+</div>
+</div>
+<div class="leftHomeColumn">
+
+<div class='leftHomeNewsOne'><a href="http://news-prod.wcu.edu/2012/03/installation-week-offers-array-of-special-events/?utm_source=rss&utm_medium=rss&utm_campaign=installation-week-offers-array-of-special-events" title="David Belcher takes oath of office as WCU’s 11th chancellor"> 
+        <img src="http://news-prod.wcu.edu/wp-content/uploads/2012/01/Homepg1_installation1.png" class="homepagethumbnailone"/>
+</a><p><b><a href="http://news-prod.wcu.edu/2012/03/installation-week-offers-array-of-special-events/?utm_source=rss&utm_medium=rss&utm_campaign=installation-week-offers-array-of-special-events" style="font-size:12px">David Belcher takes oath of office as WCU’s 11th chancellor</a></b></p>        <a href="http://www.wcu.edu/installation/"><strong>Watch the video and see images from installation week activities.</strong></a>
+
+                </div><div class='leftHomeNewsTwo'><a href="http://news-prod.wcu.edu/2012/05/commencements-held-for-undergrads-2/?utm_source=rss&utm_medium=rss&utm_campaign=commencements-held-for-undergrads-2" title="Commencements held for undergrads">        <img src="http://news-prod.wcu.edu/wp-content/uploads/2012/05/Homepg2or3_-female-grad-outside.jpg" align="left" class="homepagethumbnailtwo"/>
+</a><b><a href="http://news-prod.wcu.edu/2012/05/commencements-held-for-undergrads-2/?utm_source=rss&utm_medium=rss&utm_campaign=commencements-held-for-undergrads-2">Commencements held for undergrads</a></b><br>        WCU held two Saturday ceremonies to salute undergraduates in the spring class, while also taking time out to present an honorary doctorate to retired judge Lacy Thornburg.                <br><br></div><div class='leftHomeNewsThree'><a href="http://news-prod.wcu.edu/2012/05/graduate-students-honored-at-ceremony-2/?utm_source=rss&utm_medium=rss&utm_campaign=graduate-students-honored-at-ceremony-2" title="Graduate students honored at ceremony">        <img src="http://news-prod.wcu.edu/wp-content/uploads/2012/05/Homepg2or3_-grad-thumbs-up.jpg" align="left" class="homepagethumbnailtwo" />
+</a><b><a href="http://news-prod.wcu.edu/2012/05/graduate-students-honored-at-ceremony-2/?utm_source=rss&utm_medium=rss&utm_campaign=graduate-students-honored-at-ceremony-2">Graduate students honored at ceremony</a></b><br>        Faculty member Lisa Briggs delivered the primary address Friday as commencement exercises were held to recognize the academic accomplishments of WCU’s graduate students.                <br><br></div><div class='leftHomeNewsMicro'><ul><li><b><a href="http://news-prod.wcu.edu/2012/05/up-program-honorees-celebrate-accomplishments/?utm_source=rss&utm_medium=rss&utm_campaign=up-program-honorees-celebrate-accomplishments">UP Program honorees celebrate accomplishments</a></b></li><li><b><a href="http://news-prod.wcu.edu/2012/04/registration-under-way-for-wcus-bob-buckner-endowment-golf-tourney/?utm_source=rss&utm_medium=rss&utm_campaign=registration-under-way-for-wcus-bob-buckner-endowment-golf-tourney">Registration under way for Buckner golf tournament</a></b></li></ul></div>
+
+    </div>    
+    </div>
+
+
+
+<div class="rightHomeContainer" style="float:left;">
+<div class="homepagenewslist">
+<div class="homepageheadline">
+Connect Online
+</div>
+</div>
+<div class='rightColumnContent'>
+<ul class="homeSocialIcons">
+<li><a href=http://itunes.wcu.edu/ target="_blank"><img src="WebGraphics/Display/itunes-25.png"></a></li>
+<li><a href="http://www.facebook.com/WesternCarolinaUniversity" target="_blank"><img src="WebGraphics/Display/facebook-25.png"></a></li>
+<li><a href="http://www.flickr.com/photos/33403317@N00/" target="_blank"><img src="WebGraphics/Display/flickr-25.png"></a></li>
+<li><a href="http://twitter.com/WCU" target="_blank"> <img src="WebGraphics/Display/twitter-25.png"></a></li>
+<li><a href="http://www.youtube.com/WesternCarolinaU" target="_blank"><img src="WebGraphics/Display/youtube-25.png"></a></li>
+</ul>
+</div>
+<div class="homepagenewslist2">
+<div class="homepageheadline">
+Join Us
+</div>
+<div class="homepagenewsrss">
+<a href="http://www.wcu.edu/11570.asp" style="text-decoration:none">EVENT CALENDAR</a>&nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://25livepub.collegenet.com/calendars/main-event-calendar.rss" class="rssicon"><img src="WebGraphics/Display/rss_icon.jpg"></a>
+</div>
+</div>
+
+<div class='rightColumnContent'>
+<script type="text/javascript" src="http://25livepub.collegenet.com/scripts/spuds.js"></script>
+<script type="text/javascript">
+$Trumba.addSpud({
+webName: "main-event-calendar",
+spudType : "upcomingdatetable" ,
+teaserBase : "http://www.wcu.edu/11570.asp" });
+</script>
+<noscript>Your browser must support JavaScript to view this content. 
+Please enable JavaScript in your browser settings then try again. 
+</noscript>
+
+</div>
+               
+<br />
+        </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+
+var siteTracker = _gat._getTracker("UA-4006031-14");
+siteTracker._trackPageview("892");
+} catch(err) {}</script>
+    <div style="clear: both;"></div>
+</div>
+
+
+
+
+
+
+
+            </div>
+            <div class="clearDiv">
+    <div class="bottomBar">
+    </div>
+
+    <div class="footerContainer">
+        <div class="footerText">
+            <P><A href="948.asp">Copyright 2012</A>&nbsp;by Western Carolina University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp; Cullowhee, NC 28723&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A href="9.asp">Contact WCU</A><BR>Maintained by the Office of Web Services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A href="545.asp">Directions</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A href="546.asp">Campus Map</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A href="http://news-prod.wcu.edu/emergency-information/">Emergency Information</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; •&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <A onclick="setActiveStyleSheet('wcu text only'); return false;" href="#">Text-Only</A> </P>
+<DIV id=hiddentext><SPAN><A onclick="setActiveStyleSheet('wcu standard'); return false;" href="#">Return to Original Version of This Page</A></SPAN></DIV>
+<DIV id=hiddentext><SPAN><A onclick="setActiveStyleSheet('yellowblack'); return false;" href="#">Change color to Yellow Text on Black Background</A></SPAN></DIV>
+<DIV id=hiddentext><SPAN><A onclick="setActiveStyleSheet('creamblack'); return false;" href="#">Change color to Black Text on Cream Background</A></SPAN></DIV>
+        </div>
+    </div>
+ </div>
+        </div>
+    </div>
+</div>
+<!---->
+<!/IoRangePreExecute>
+
+</body>
+</html>

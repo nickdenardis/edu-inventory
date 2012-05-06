@@ -1,0 +1,889 @@
+
+
+<script language="javascript">
+//This grabs the data on the URL
+	function getURLVar(urlVarName) {
+		//divide the URL in half at the '?' 
+		var urlHalves = String(document.location).split('?');
+		var urlVarValue = '';
+		if(urlHalves[1]){
+			//load all the name/value pairs into an array 
+			var urlVars = urlHalves[1].split('&');
+			//loop over the list, and find the specified url variable 
+			for(i=0; i<=(urlVars.length); i++){
+				if(urlVars[i]){
+					//load the name/value pair into an array 
+					var urlVarPair = urlVars[i].split('=');
+					if (urlVarPair[0] && urlVarPair[0] == urlVarName) {
+						//I found a variable that matches, load it's value into the return variable 
+						urlVarValue = urlVarPair[1];
+					}
+				}
+			}
+		}
+		return urlVarValue;   
+	}
+
+//this grabs the page data
+	var p = getURLVar('p');
+	if (p != '') p = p + '/';
+	var t = "bodytext";//t is the holder of the file name for each zone
+	function showedit(){
+		tinyMCE.activeEditor.setContent(document.getElementById(t).innerHTML);
+		document.getElementById("word").style.visibility = "visible";
+		document.getElementById("scrolling").style.visibility = "hidden"
+		document.getElementById("successflash").style.visibility = "hidden"
+	}
+	// these are the controls for updating data in each zone.
+	function editbodytext(){
+		t = "bodytext";
+		document.getElementById("filen").value = p + t + ".html";
+		showedit();
+	}
+	function editbodytext2(){
+		t = "bodytext2";
+		document.getElementById("filen").value = p + t + ".html";
+		showedit();
+	}
+	function editscrolltext(){
+		t = "dynofiles/files/scroll.txt";
+		document.getElementById("filen").value = t;
+		t = "scroll";
+		showedit();
+	}
+	function editsidetext(){
+		t = "sidetext";
+		document.getElementById("filen").value = p + t + ".html";
+		showedit();
+	}
+	function editquicklinks(){
+		t = "quicklinks";
+		document.getElementById("filen").value = t + ".html";
+		showedit();
+	}
+	function editbottomtext(){
+		t = "bottomtext";
+		document.getElementById("filen").value = p + t + ".html";
+		showedit();
+	}
+	function hideedit(){
+		document.getElementById("word").style.visibility = "hidden";
+		document.getElementById("scrolling").style.visibility = "visible"
+		document.getElementById("successflash").style.visibility = "visible"
+	}
+	function settxt(){
+		hideedit();
+		document.getElementById(t).innerHTML=tinyMCE.activeEditor.getContent();
+	}
+
+	function managefiles(){
+		document.getElementById("scrolling").style.visibility = "hidden"
+		document.getElementById("successflash").style.visibility = "hidden"
+		document.getElementById("filemanager").style.visibility="visible";
+	}
+	function hidemanagefiles(){
+		document.getElementById("filemanager").style.visibility="hidden";
+		document.getElementById("scrolling").style.visibility = "visible"
+		document.getElementById("successflash").style.visibility = "visible"
+	}
+</script>
+
+
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html> -->
+
+<head>
+<title>SWTC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- mike stuff -->
+
+
+
+<!-- <link href="css/swtc.css" rel="stylesheet" type="text/css" /> -->
+
+
+	
+
+<style>
+
+
+body {
+	background-color: #DCDCDC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	line-height: 1em;
+	color: #000;
+	background-image: url(dynofiles/files/bg.jpg);
+	background-repeat: no-repeat;
+	margin-left: 0px;
+	margin-top: 0px;
+	background-position: 0px 1px;
+	}
+
+p {margin:0; padding:0;}
+
+A:link {text-decoration: underline; color: #832932; border:none;}
+A:visited {text-decoration: underline; color: #832932; border:none;}
+A:active {text-decoration: underline; color: #832932; border:none;}
+A:hover {text-decoration: underline; color: #5C532C; border:none;}
+
+img {
+	border:none;
+}
+
+td {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+pre {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.example1 {
+	font-weight: bold;
+	font-size: 14px
+}
+
+.example2 {
+	font-weight: bold;
+	font-size: 12px;
+	color: #FF0000
+}
+
+.tablerow1 {
+	background-color: #BBBBBB;
+}
+
+thead {
+	background-color: #FFBBBB;
+}
+
+tfoot {
+	background-color: #BBBBFF;
+}
+
+th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+#dby {
+	top:1221px;
+	position: absolute;
+	left: 315px;
+}
+#dby A:link {
+	text-decoration: underline;
+	color: #CAA;
+	border:none;
+}
+#dby A:visited {text-decoration: underline; color: #CAA; border:none;}
+#dby A:active {text-decoration: underline; color: #CAA; border:none;}
+#dby A:hover {text-decoration: underline; color: #CAA; border:none;}
+
+#logo {
+	position:absolute;
+	top: 0px;
+	left: 55px;
+	width: 193px;
+	height: 261px;
+}
+
+
+#tadrot {
+	position:absolute;
+	left:260px;
+	top:4px;
+	width:615px;
+	height:255px;
+	border:hidden;
+}
+
+#tadrot #topftp {
+	position: absolute;
+	top: 30px;
+	left: 80px;
+	width:150px;
+	height:200px;
+	border:none;
+}
+#tadrot #topftpol {
+	position: absolute;
+	top: 15px;
+	left: 65px;
+	width:180px;
+	height:230px;
+	border:none;
+}
+
+#tadrot #topstc {
+	position: absolute;
+	top: 30px;
+	left: 260px;
+	width:150px;
+	height:200px;
+	border:none;
+}
+#tadrot #topstcol {
+	position: absolute;
+	top: 15px;
+	left: 245px;
+	width:180px;
+	height:230px;
+	border:none;
+}
+#tadrot #topbai {
+	position: absolute;
+	top: 30px;
+	left: 440px;
+	width:150px;
+	height:200px;
+	border:none;
+}
+#tadrot #topbaiol {
+	position: absolute;
+	top: 15px;
+	left: 425px;
+	width:180px;
+	height:230px;
+	border:none;
+}
+
+#scrolling {
+	position:absolute;
+	top:311px;
+	left:255px;
+	width:638px;
+	height:30px;
+	padding:0;
+	z-index:-99;
+	overflow:hidden;
+	padding-top:8px;
+	font-weight:bold;
+	text-shadow:#555 5px 5px 5px;;
+
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#editscrollBut {
+	position: absolute;
+	top:311px;
+	left:895px;
+}
+
+#util{
+	position:absolute;
+	top:266px;
+	left:254px;
+	width:638px;
+	height:40px;
+	overflow:hidden;
+}
+
+#tabs, #tabs2, #tabs3 {
+	position:absolute;
+	top:266px;
+	left:254px;
+	width:638px;
+	height:40px;
+	border: thin solid #000;
+	overflow:hidden;
+	background-color:#000;
+}
+
+#tabs2 {
+	height:70px;
+}
+
+#tabs3 {
+	height:70px;
+}
+
+#tabs a:link ,#tabs div    {
+	position:relative;
+	height:40px;
+	/*width:300px; */
+	width:91px;
+	background-color:#5C532C/*#5C532C*/;
+	color:#000000/*#000*/;
+	border-color:#000000/*#000*/;
+	border:thin solid;
+	vertical-align:middle;
+	display: table-cell;
+	text-align:center;
+	font-size:10px;
+	font-weight:bold;
+	font:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding: 5px;
+	padding-bottom:5px;
+	padding-top:5px;
+	
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+
+	}
+#tabs a:visited {
+		background-color:#5C532C/*#5C532C*/;
+	color:#000000/*#000*/;
+	border-color:#000000/*#000*/;
+}
+#tabs a:hover{
+	border-color:#000000/*#000*/;
+	color:#9AC66A/*#9AC66A*/;
+	background-color:#5C532C/*#5C532C*/;
+	}
+#tabs div    {
+	background-color:#000000/*#5C532C*/;
+	border-color:#000000/*#000*/;
+	color:#D3CAA3/*#9AC66A*/;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#9AC66A'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#9AC66A)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #000000,  #9AC66A); /* for firefox 3.6+ */ 
+	}
+
+
+
+#tabs2 a:link ,#tabs2 div    {
+	position:relative;
+	height:35px;
+	/*width:300px; */
+	width:105px;
+	background-color:#5C532C/*#5C532C*/;
+	color:#000000/*#000*/;
+	border-color:#000000/*#000*/;
+	border:thin solid;
+	vertical-align:middle;
+	display: table-cell;
+	text-align:center;
+	font-size:10px;
+	line-height:9px;
+	font-weight:bold;
+	font:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding: 5px;
+	padding-bottom:2px;
+	padding-top:2px;
+
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	}
+#tabs2 a:visited {
+		background-color:#5C532C/*#5C532C*/;
+	color:#000000/*#000*/;
+	border-color:#000000/*#000*/;
+	}
+#tabs2 a:hover{
+	border-color:#000000/*#000*/;
+	color:#9AC66A/*#9AC66A*/;
+	background-color:#5C532C/*#5C532C*/;
+	}
+#tabs2 div    {
+	border-color:#000000/*#000*/;
+	color:#D3CAA3/*#9AC66A*/;
+
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#9AC66A'); /* for IE */
+background: -webkit-gradient(linear, left top, left bottom, from(#000000), to(#9AC66A)); /* for webkit browsers */
+background: -moz-linear-gradient(top,  #000000,  #9AC66A); /* for firefox 3.6+ */ 
+	}
+
+
+#bodytext {
+	position:absolute;
+	left:255px;
+	top: 346px;
+	width:413px;
+	height:574px;
+	border: thin solid #000;
+	overflow:auto;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#bodytextBut {
+	position: absolute;
+	left:255px;
+	top: 902px;
+}
+
+#bodytext2 {
+	position:absolute;
+	left:255px;
+	top: 311px;
+	width:413px;
+	height:759px;
+	border: thin solid #000;
+	overflow:auto;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#bodytext2But {
+	position: absolute;
+	left:255px;
+	top: 1117px;
+}
+
+#bodytext3 {
+	position:absolute;
+	left:255px;
+	top: 346px;
+	width:630px;
+	height:574px;
+	border: thin solid #000;
+	overflow:auto;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#bodytext3But {
+	position: absolute;
+	left:255px;
+	top: 902px;
+}
+
+#sidetext {
+	position:absolute;
+	left:680px;
+	top: 346px;
+	width:205px;
+	height:342px;
+	border: thin solid #000;
+	overflow:hidden;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+}
+#sidetextBut {
+	position: absolute;
+	left:680px;
+	top: 670px;
+}
+
+#quicklinks {
+	position:absolute;
+	left:680px;
+	top: 700px;
+	width:205px;
+	height:435px;
+	border: thin solid #000;
+	overflow:auto;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#quicklinksBut {
+	position: absolute;
+	left:680px;
+	top: 1117px;
+}
+
+
+#bottomtext {
+	position:absolute;
+	left:55px;
+	top: 935px;
+	width:613px;
+	height:200px;
+	border: thin solid #000;
+	overflow:auto;
+	padding:3;
+	
+background: rgba(255, 255, 255, 0.3);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#66ffffff, endColorstr=#66ffffff)";
+	
+}
+#bottomtextBut {
+	position: absolute;
+	left:110px;
+	top: 1117px;
+}
+
+#successflash {
+	position:absolute;
+	top: 680px;
+	left: 63px;
+	width: 175px;
+	height: 180px;
+	font-size: 12px;
+	font-weight: bold;
+	border: thin solid #000;
+	z-index:-10;
+}
+
+#tlnav {
+	position:absolute;
+	top: 285px;
+	left: 63px;
+	width: 178px;
+	height: 132px;
+	font-size: 12px;
+	font-weight: bold;
+	/*border: thin solid #000;*/
+}
+#tlnav a:link    {
+	position:relative;
+	/*height:49px;*/
+	width:178px; 
+	background-color:#DDDDDD/*#F6C14F*/;	color:#000000/*#000*/;	border-color:#000000/*#000*/;
+	border:thin solid;
+	vertical-align:middle;
+	display: table-cell;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	font:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding: 5px;
+	padding-bottom:10px;
+	padding-top:10px;
+	}
+#tlnav a:visited {	background-color:#DDDDDD/*#F6C14F*/;	color:#000000/*#000*/;	border-color:#000000/*#000*/;
+} 
+#tlnav a:hover   {
+	border:thin solid;
+	border-color:#000000/*#000*/;	color:#9AC66A/*#E8B950*/;	background-color:#5C532C/*#5F4205*/;
+	}
+#tlnav #clked {
+	border-color:#000000/*#000*/;	color:#9AC66A/*#E8B950*/;	background-color:#5C532C/*#5F4205*/;
+}
+
+#lmnav {
+	position:absolute;
+	top: 428px;
+	left: 63px;
+	width: 178px;
+	height: 132px;
+	font-size: 12px;
+	font-weight: bold;
+	/*border: thin solid #000;*/
+}
+#lmnav a:link    {
+	position:relative;
+	/*height:49px;*/
+	width:178px; 
+	background-color:#DDDDDD/*#D3CAA3*/;	color:#000000/*#000*/;	border-color:#000000/*#000*/;
+	border:thin solid;
+	vertical-align:middle;
+	display: table-cell;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	font:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding: 5px;
+	padding-bottom:10px;
+	padding-top:10px;
+	}
+#lmnav a:visited {	background-color:#DDDDDD/*#D3CAA3*/;	color:#000000/*#000*/;	border-color:#000000/*#000*/;
+}
+#lmnav a:hover   {
+	border:thin solid;
+	border-color:#000000/*#000*/;	color:#9AC66A/*#9AC66A*/;	background-color:#5C532C/*#5C532C*/;
+	}
+#lmnav #clked {
+	border-color:#000000/*#000*/;	color:#9AC66A/*#9AC66A*/;	background-color:#5C532C/*#5C532C*/;
+}
+
+
+#bnav {
+	position:absolute;
+	top: 1167px;
+	left: 50px;
+	width: 767px;
+	height: 44px;
+	font-size: 12px;
+	font-weight: bold;
+	background-color:#D3CAA3;
+	/*border: thin solid #000;*/
+	overflow:hidden;
+	vertical-align:middle;
+}
+#bnav a:link    {
+	position:relative;
+	height: 44px;
+	width: 256px;
+	background-color:#D3CAA3/*#D3CAA3*/;	color:#000000/*#000*/;	border-color:#000000/*#000*/;
+	border:none;
+	vertical-align:middle;
+	display: table-cell;
+	text-align:center;
+	font-size:12px;
+	font-weight:bold;
+	font:Arial, Helvetica, sans-serif;
+	text-decoration:none;
+	padding: 5px;
+	}
+#bnav a:visited {color:#000;}
+#bnav a:hover   {
+	border:none;
+	border-color:#000000/*#000*/;	color:#9AC66A/*#9AC66A*/;	background-color:#5C532C/*#5C532C*/;
+	}
+
+
+#managefilesBut {
+	position: absolute;
+	left:5px;
+	top: 5px;
+}
+
+/*...........................................*/
+
+#word {
+	position: absolute;
+	top:100px;
+	left:40px;
+	height: 400px;
+	width: 800px;
+	z-index:9999;
+	background-color:#cccccc;
+	border:thin solid #000000;
+}
+
+
+#filemanager{
+	position:absolute;
+	top:100px;
+	left:60px;
+	width:500px;
+	height:400px;
+	z-index:9998;
+	background-color:#FF9966;
+}
+
+</style>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-24823072-1");
+pageTracker._trackPageview();
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-24823072-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
+
+</head>
+
+<body bgcolor="#ffffff">
+
+<div id="logo">
+	<a href="http://www.swtech.edu"><img src="dynofiles/files/logo.png" width="193" height="261"  style="outline:none; border:none;" /></a>
+</div>
+
+<div id="tadrot">
+	<!-- aspx -->
+
+
+<img id="topftp" src="dynofiles/files/ft_03_Page1.png" border="0" width="150" height="200" />
+<img id="topstc" src="dynofiles/files/st_03_Page2.png" border="0" width="150" height="200" />
+<img id="topbai" src="dynofiles/files/bi_01_Page3.png" border="0" width="150" height="200" />
+
+<a id="topftpol" href="?p=fulltimeprograms"><img src="dynofiles/files/over3ft.png" border="0" width="180" height="230" /></a>
+<a id="topstcol" href="?p=shorttermclasses"><img src="dynofiles/files/over3st.png" border="0" width="180" height="230" /></a>
+<a id="topbaiol" href="?p=businessandindustry"><img src="dynofiles/files/over3ba.png" border="0" width="180" height="230" /></a>
+
+</div>
+
+<div id="successflash">
+	<style>
+		#Slideshow1 img {height:180px; width:175px}
+	</style> 
+	<script type="text/javascript" src="slideshowmerge.js"></script> 
+	<script>
+		var imgArray = new Array();
+		imgArray[0] = 'dynofiles/files/sc_01_Anatomy.jpg';
+imgArray[1] = 'dynofiles/files/sc_02_Automotive.jpg';
+imgArray[2] = 'dynofiles/files/sc_03_Aviation.jpg';
+imgArray[3] = 'dynofiles/files/sc_04_BCT.jpg';
+imgArray[4] = 'dynofiles/files/sc_05_BCT_Med.jpg';
+imgArray[5] = 'dynofiles/files/sc_06_Clock-in.jpg';
+imgArray[6] = 'dynofiles/files/sc_07_computer.jpg';
+imgArray[7] = 'dynofiles/files/sc_08_Construction.jpg';
+imgArray[8] = 'dynofiles/files/sc_09_Cosmo.jpg';
+imgArray[9] = 'dynofiles/files/sc_10_CPR.jpg';
+imgArray[10] = 'dynofiles/files/sc_11_Electronics_Sim.jpg';
+imgArray[11] = 'dynofiles/files/sc_12_LPN_Lab.jpg';
+imgArray[12] = 'dynofiles/files/sc_13_Mechatronics.jpg';
+imgArray[13] = 'dynofiles/files/sc_14_Nails.jpg';
+imgArray[14] = 'dynofiles/files/sc_15_Service_Careers_Mower.jpg';
+
+		slideshowMerge('Slideshow1','',imgArray,20,5000);
+</script>
+</div>
+
+
+
+<div id="tlnav">
+	
+<table border="0" cellpadding="0" cellspacing="0" width="178">
+
+
+	<tr><td><a href="?p=fulltimeprograms">FULL TIME PROGRAMS</a></td>  </tr>
+
+	<tr><td><a href="?p=shorttermclasses">SHORT TERM CLASSES</a></td>  </tr>
+
+	<tr><td><a href="?p=businessandindustry">BUSINESS AND INDUSTRY</a></td>  </tr>
+
+
+</table>
+
+</div>
+
+<div id="lmnav">
+	
+
+<table border="0" cellpadding="0" cellspacing="0" width="178">
+
+  <tr><td><a href="http://www.swtech.edu">HOME</a></td>  </tr>
+
+
+	<tr><td><a href="?p=admissions">ADMISSIONS</a></td>  </tr>
+
+  <tr><td><a href="?p=studentservices">STUDENT SERVICES</a></td>  </tr>
+
+  <tr><td><a href="?p=information">INFORMATION CENTER</a></td>  </tr>
+
+  <tr><td><a href="?p=inthenews">IN THE NEWS</a></td></tr>
+
+  <tr><td><a href="?p=contactinfo">CONTACT INFORMATION</a></td></tr>
+
+
+</table>
+
+
+</div>
+
+<div id="bnav">
+	<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+   <td><a href="Http://www.swtech.edu/policies/swtcpolicy-toc.htm">POLICY BOOK</a></td>
+   <td><a href="http://www.swtech.edu/policies/Non_Discrimination_Statement.html">STATEMENT OF NON DISCRIMINATION</a></td>
+   <td><a href="Http://www.swtech.edu/dist_data/distdatamenuf.htm">DISTRICT DATA</a></td>
+  </tr>
+  
+</table>
+
+
+</div>
+
+<div id='quicklinks'><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;"><a href="index.aspx?p=information/quicklinks">Quicklinks Page</a></span></span></span></span></span></span></address><address><address></address><address></address><address></address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;">*</span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;"><a href="dynofiles/files/High_School_Catalog.pdf" target="_blank"><span style="font-size: x-small;">Catalog for High School Students</span></a></span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;">&nbsp;*</span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;"><a href="dynofiles/files/2011-2012_Fulltime_Catalog_website.pdf" target="_blank">Full Time and Short-Term&nbsp;Catalog&nbsp;for Adults</a></span></span></span></span></span></span></address><address></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*</span></span></span></span></span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><a href="dynofiles/files/BIS_Mailer_website.pdf" target="_blank">Short Term Catalog</a></span></span></span></span></span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span></address><address><a href="http://www.ed2go.com/swtc/" target="_blank"><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">SWTC Online Classes/ED2GO</span></span></span></span></span></span></span></span></span></span></a></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><a href="facility_form.aspx" target="_blank"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">Facility Use</span></span></span></span></a></span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span></address><address><span style="font-size: x-small;"><a href="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=711+W.+Tamarack+Rd.+Altus+OK&amp;sll=37.0625,-95.677068&amp;sspn=28.749334,50.185547&amp;ie=UTF8&amp;hq=&amp;hnear=711+W+Tamarack+Rd,+Altus,+Jackson,+Oklahoma+73521&amp;ll=34.660887,-99.321556&amp;spn=0.058173,0.098019&amp;z=13" target="_blank"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">Map/Driving Directions</span></span></span></span></span></span></span></span></span></a></span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span><span style="font-size: x-small;">&nbsp;</span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-family: georgia,palatino;"><a href="Https://servicelink.oesc.state.ok.us/ada/default.cfm" target="_blank"><span style="font-size: x-small;">Oklahoma JobLink</span></a></span></span></span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span></address><address><span style="font-size: x-small;"><a href="http://www.ok.gov/" target="_blank"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">State of Oklahoma</span></span></span></span></span></span></span></span></span></a></span></address><address><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">*&nbsp;</span></span></span></address><address><span style="font-size: x-small;"><a href="http://www.lsb.state.ok.us/" target="_blank"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-family: georgia,palatino;"><span style="font-size: x-small;"><span style="color: #000000;"><span style="font-size: x-small;">Oklahoma Legislature</span></span></span></span></span></span></a></span></address><address></address><address></address><address></address><address><span style="font-size: x-small;"><address></address><address></address><address></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;">*</span></span></span></span></span></span></address><address><span style="font-size: x-small;"><span style="font-family: georgia,palatino;"><span style="color: #993300;"><span style="font-size: small;"><span style="color: #000000;"><span style="font-size: x-small;"><a href="http://www.msdsxchange.com/english/xchange_productname.cfm?alpha=K" target="_blank">MSDS Search </a></span></span></span></span></span></span></address></span></address><address><span style="font-size: x-small;">*&nbsp;</span></address><address><span style="font-size: x-small;"><a href="http://www.cityofaltus.org/" target="_blank">City of Altus</a></span></address><address><span style="font-size: x-small;">*</span></address><address><span style="font-size: x-small;"><a href="http://www.jacksoncountyok.com/" target="_blank">Jackson County Courthouse</a><br /></span></address></div>
+	<div id="scrolling">
+        <marquee direction="left" behavior="scroll" scrollamount="2" scrolldelay="0"><p>Now taking adult enrollment for all full-time programs that start in August</p></marquee>
+	</div>
+	<div id="scroll" style="visibility:hidden"> <p>Now taking adult enrollment for all full-time programs that start in August</p></div>
+    <div id='util'>
+<table width="100%"><tr>
+<td>
+</td>
+    <td> </td>
+    <td>
+    <!-- Google SafeSearch -->
+<center>
+
+<FORM method=GET action="http://www.google.com/search" target="_blank">
+<input type=hidden name=ie value=UTF-8>
+<input type=hidden name=oe value=UTF-8>
+<!--<TABLE bgcolor="#FFFFFF"><tr><td> -->
+
+<A HREF="http://www.google.com/search?safe=vss" target="_blank">
+<IMG style="vertical-align:top" SRC="images/GoogleSafeSearch.png" border="0" ALT="Google" width="89" height="30" align="absmiddle">
+</A>
+
+<INPUT TYPE=text name=q size=25 maxlength=255 value="">
+<INPUT type=hidden name=safe value=strict>
+<INPUT type=submit name=sa value="Google Search">
+<!-- </td></tr></TABLE> -->
+</FORM>
+</center>
+</td>
+
+<td>
+<a href="http://www.facebook.com/pages/Altus-OK/Southwest-Technology-Center/240757577611" target="_blank"><img title="SWTC on Facebook" src="images/facebook.gif" alt="SWTC on Facebook" width="30" height="30" /></a>
+</td>
+
+<td>
+<a href="http://www.youtube.com/SWTechnologyCenter" target="_blank"><img title="SWTC on YouTube" src="images/youtube-icon-PNG.png" alt="SWTC on YouTube" width="30" height="30" /></a>
+</td>
+
+<td>
+<a href="https://twitter.com/#!/Southwest_Tech" target="_blank"><img title="SWTC on Twitter" src="images/twitter.png" alt="SWTC on Twitter" width="30" height="30" /></a>
+</td>
+
+</tr></table>
+<!-- Google SafeSearch -->
+
+</div><div id='bodytext'><h1 style="text-align: center;"><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">At Southwest Technology Center we are Changing Lives One Career at a Time</span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;">&nbsp;</span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;">&nbsp;</span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;">&nbsp;</span></span></span></h1>
+<h2 style="text-align: center;"><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;">&nbsp;</span></span></span></h2>
+<h2 style="text-align: center;"><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;">&nbsp;<img title="1.jpg" src="dynofiles/files/1.jpg" alt="1.jpg" width="300" height="165" /></span></span></span></h2>
+<h2 style="text-align: left;"><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #993300;"><span style="text-decoration: underline;"><span style="color: #000000;">VISION</span></span></span></span></span></h2>
+<h2 style="text-align: left;"><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">&nbsp;We are dedicated to quality and committed to helping people become successful.</span></span></span></h2>
+<h2><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;"><span style="text-decoration: underline;">MISSION&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></h2>
+<h2><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">We serve individuals, business and industry through flexible, quality training, thus enhancing the economy and quality of life in </span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">our communities.</span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">&nbsp;</span></span></span><span style="font-family: georgia,palatino;"><span style="font-size: small;"><span style="color: #000000;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span></h2></div><div id='sidetext'><p><a href="dynofiles/files/save the date 2012.pdf"><span style="font-family: georgia,palatino; font-size: small;">Register for the 2012 AAFB Vendor Fair </span></a></p></div><div id='bottomtext'><p style="text-align: center;">&nbsp;<span style="font-size: large;"><span style="font-family: arial black,avant garde;">Partners in Education<span style="font-size: x-small;">&nbsp;</span></span></span></p>
+<p style="text-align: center;"><span style="font-size: large;"><span style="font-family: arial black,avant garde;"><span style="font-size: x-small;">&nbsp;</span></span></span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a title="Altus Public School" href="http://www.altusschools.k12.ok.us/schoolsites/ahs/" target="_blank"><img title="Altus Public School" src="images/AHS_Bulldog.png" alt="Altus Public School" width="75" height="63" /></a>&nbsp; <a title="Blair Public School" href="http://www.blairschool.org/" target="_blank"><img title="Blair Public School" src="images/BHS_Bronc.png" alt="Blair Public School" width="75" height="63" /></a>&nbsp; <a title="Duke Public School" href="http://www.dukeschools.com/" target="_blank"><img title="Duke Public School" src="images/DHS_Tiger.png" alt="Duke Public School" width="75" height="63" /></a>&nbsp; <a title="Eldorado Public School" href="http://www.eldorado.k12.ok.us/" target="_blank"><img title="Eldorado Public School" src="images/EHS_Panther.png" alt="Eldorado Public School" width="75" height="63" /></a>&nbsp; <a title="Granite Public School" href="http://www.granite.k12.ok.us/" target="_blank"><img title="Granite Public School" src="images/GHS_Panther.png" alt="Granite Public School" width="75" height="63" /></a>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a title="Navajo Public School" href="http://www.navajo.k12.ok.us/" target="_blank"><img title="Navajo Public School" src="images/NHS_Indian.png" alt="Navajo Public School" width="75" height="63" /></a>&nbsp; <a title="Olustee Public School" href="http://www.olustee.k12.ok.us/" target="_blank"><img title="Olustee Public School" src="images/OHS_Eagle.png" alt="Olustee Public School" width="75" height="63" /></a>&nbsp; <a title="Western Oklahoma State College" href="http://www.wosc.edu/" target="_blank"><img title="Western Oklahoma State College" src="images/WOSC_logo.png" alt="Western Oklahoma State College" width="75" height="63" /></a>&nbsp;&nbsp;<a href="http://www.okcareertech.org" target="_blank"><img title="Oklahoma Dept. Of Career Tech" src="images/career_tech_100.jpg" alt="Oklahoma Dept. Of Career Tech" width="75" height="63" /></a>&nbsp;&nbsp;<a title="Oklahoma Dept. of Education" href="http://www.sde.state.ok.us/" target="_blank"><img title="State Dept. of Education" src="images/SDE Logo.jpg" alt="State Dept. of Education" width="75" height="63" /></a></p></div>
+
+
+<!---->
+<div id="dby"><table><tr><td><a href="swli.aspx?p=">SWTC</a></td><td width="50px">&nbsp;</td><td><a target="_blank" href="http://www.redmuddesign.com">Designed by RedMud Design</a></td></tr></table> <p>&nbsp; </p></div>
+
+</body>
+</html>

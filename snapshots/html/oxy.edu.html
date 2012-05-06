@@ -1,0 +1,696 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="google-site-verification" content="FlObU9fNagpIaIZlx1bcGCv8Xd1uYPnk6_f0gvRk9o4" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+                    djConfig = {
+                    baseScriptUri:"http://www.oxy.edu/prebuilt/dojo/"
+                    };
+                </script>
+<script type="text/javascript" src="prebuilt/dojo/dojo.js"></script>
+<script type="text/javascript" src="prebuilt/js/jquery-1.3.2.min.js"></script>
+<script type="text/javascript" src="prebuilt/js/jquery.easing.js"></script>
+<script language="javascript">AC_FL_RunContent = 0;</script>
+<script src="prebuilt/js/AC_RunActiveContent.js" language="javascript"></script>
+<title>
+                            Occidental College :: Liberal Arts College in Los Angeles, California</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta content="Welcome to Occidental College's homepage. Occidental College is a top-tier liberal arts college located in Los Angeles, Calif." name="description" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="robots" content=""></meta>
+<meta name="description" content="Welcome to Occidental College's homepage. Occidental College is a top-tier liberal arts college located in Los Angeles, Calif." />
+<link href="prebuilt/css/screen.css" type="text/css" rel="stylesheet" />
+<link href="prebuilt/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<script type="text/javascript" language="javascript">
+                    var carousel = {
+	isReady: true,
+	isPlaying: false,
+	captionTimer: null,
+	slideTimer: null,
+	resumePlayTimer: null,
+	lastIndex: 0,
+	visibleIndex: 0,
+	data: null,
+	thumbs: [],
+	slideDuration: 6500,
+	init: function(defaultIndex){
+	
+		if (defaultIndex >= $('#carousel .thumbs .item').length) defaultIndex = 1;
+		
+		// Bind carousel mouse movements
+		$('#carousel').bind('mouseout', function(){
+			if (!carousel.isPlaying) carousel.resumePlayTimer = setTimeout(carousel.play, 1500);
+		});
+		$('#carousel').bind('mouseover', function(){
+			clearTimeout(carousel.resumePlayTimer);
+		});	
+		
+		// Bind previous/next controls
+		$('#carousel .previous img').bind('mouseover', function(){
+			$('#carousel .previous img').attr('src', $('#carousel .previous img').get(0).src.replace('.gif', '-over.gif'));
+		});
+		$('#carousel .previous img').bind('mouseout', function(){
+			$('#carousel .previous img').attr('src', $('#carousel .previous img').get(0).src.replace('-over.gif', '.gif'));
+		});
+		$('#carousel .next img').bind('mouseover', function(){
+			$('#carousel .next img').attr('src', $('#carousel .next img').get(0).src.replace('.gif', '-over.gif'));
+		});
+		$('#carousel .next img').bind('mouseout', function(){
+			$('#carousel .next img').attr('src', $('#carousel .next img').get(0).src.replace('-over.gif', '.gif'));
+		});						
+		$('#carousel .previous').bind('click', function(){
+			carousel.pause();
+			carousel.scrollLeft();
+		});
+		$('#carousel .next').bind('click', function(){
+			carousel.pause();
+			carousel.scrollRight();
+		});		
+		
+		// Bind thumbs
+		carousel.bindThumbs();
+		
+		// Bind caption mouse movements
+		$('#carousel .content').bind('mouseenter', carousel.showCaption);
+		$('#carousel .content').bind('mouseleave', function(){
+			carousel.captionTimer = setTimeout(carousel.hideCaption, 250);
+		});
+				
+		$('#featureMap area').eq(0).bind('click', function(){
+			if ($(this).attr('href') == '') return false;
+		});
+		
+		// Hide all photos
+		$('#carousel .feature .photo').hide();
+
+		// Show first item
+		carousel.showItem($('#carousel .thumbs .item').eq(defaultIndex));
+		
+		// Pause for a moment to give the browser a chance to catch up (smoother animation)
+		setTimeout(function(){
+			carousel.play();
+		}, 500);
+		
+		carousel.lastIndex = defaultIndex;
+	},
+	showItem: function(thumb){
+		index = carousel.parseIndex(thumb);
+		visibleIndex = carousel.getVisibleIndex(thumb);
+		carousel.setContent(index);
+		$('#carousel .feature .photo').fadeOut(1000);
+		$('#carousel .feature .photo').eq(index).fadeIn(1000);
+		$('#carousel .thumbs .item').removeClass('active');
+		thumb.addClass('active');
+		if (visibleIndex > 6) {
+			carousel.scrollRight(visibleIndex);
+			carousel.lastIndex = 0;
+		} else {
+			carousel.lastIndex = visibleIndex;
+		}
+		
+	},	
+	showCaption: function(){
+		clearTimeout(carousel.captionTimer);
+		$('#carousel .caption').show(250);
+		$('#carousel .feature .control img').attr('src', $('#carousel .feature .control img').get(0).src.replace('up.gif', 'down.gif'));
+	},
+	hideCaption: function(){
+		$('#carousel .caption').hide(250);
+		$('#carousel .feature .control img').attr('src', $('#carousel .feature .control img').get(0).src.replace('down.gif', 'up.gif'));
+	},	
+	scrollRight: function(count){
+		if (typeof(count) == 'undefined') count = 7;
+		if (carousel.isReady == true) {
+			carousel.isReady = false;
+			for (i=0;i<count;i++){
+				$('#carousel .thumbs .item').eq(i).clone(true).appendTo('#carousel .thumbs');
+			}		
+			$('#carousel .thumbs').animate({left: '-' + (5 + (57 * count))}, 750, 'easeInOutQuad', function(){
+				for (i=(count-1);i>-1;i--){
+					$('#carousel .thumbs .item').eq(i).remove();
+				}
+				$('#carousel .thumbs').css('left', '-5px');
+				carousel.bindThumbs();
+				carousel.isReady = true;
+			});
+		}
+	},
+	scrollLeft: function(count){
+		if (typeof(count) == 'undefined') count = 7;
+		if (carousel.isReady == true) {
+			carousel.isReady = false;	
+			n = $('#carousel .thumbs .item').length -1;
+			for (i=0;i<count;i++){
+				$('#carousel .thumbs .item').eq(n).clone(true).prependTo('#carousel .thumbs');
+			}	
+			$('#carousel .thumbs').css('left', '-' + (5 + (57 * count)) + 'px');
+			$('#carousel .thumbs').animate({left: -5}, 750, 'easeInOutQuad', function(){
+				for (i=(n+count);i>n;i--){
+					$('#carousel .thumbs .item').eq(i).remove();
+				}		
+				carousel.lastIndex = 0;
+				carousel.bindThumbs();
+				carousel.isReady = true;
+			});
+		}
+	},	
+	pause: function(){
+		clearInterval(carousel.slideTimer);
+		carousel.isPlaying = false;
+	},
+	play: function(){
+		carousel.isPlaying = true;
+		carousel.slideTimer = setInterval(function(){
+			visibleIndex = carousel.getVisibleIndex($('#carousel .thumbs .active'))
+			if (($('#carousel .feature .photo').length - 1) == visibleIndex) {
+				index = 0;
+			} else {
+				index = visibleIndex + 1;
+			}
+			carousel.showItem($('#carousel .thumbs .item').eq(index));
+		}, carousel.slideDuration);
+	},
+	setContent: function(index){
+		// Hide the caption box if there is no title or caption
+		if (carousel.data[index].title == '' && carousel.data[index].caption == '') {
+			$('#carousel .feature .content').fadeOut();
+		} else {
+			$('#carousel .feature .content').fadeIn();
+		}
+		if (carousel.data[index].link == '') {
+			$('#carousel .feature .title').html(carousel.data[index].title + ' ');
+		} else if(carousel.data[index].link != '' && carousel.data[index].target != ''){
+			$('#carousel .feature .title').html('<a href="' + carousel.data[index].link + '" target="' + carousel.data[index].target + ' ">' + carousel.data[index].title + '</a>');
+		}
+		else
+		{
+			$('#carousel .feature .title').html('<a href="' + carousel.data[index].link + '">' + carousel.data[index].title + '</a>');
+		}
+		$('#carousel .feature .caption').html(carousel.data[index].caption);
+		$('#featureMap area').eq(0).attr('href', carousel.data[index].link);
+		//alert(carousel.data[index].target);
+	},
+	bindThumbs: function(){
+		$('#carousel .thumbs .item').unbind('click').bind('click', function(){
+			carousel.pause();
+			carousel.showItem($(this));
+		});
+	},
+	parseIndex: function(obj) {
+		for (i=0;i<$('#carousel .thumbs .item').length;i++) {
+			if (obj.hasClass('i' + i)) return i;
+		}
+		return -1;
+	},
+	getVisibleIndex: function(obj) {
+		return obj.position().left / 57;
+	}
+};
+
+                            carousel.data = [
+                            
+                    {
+                    title: "12 Programs That Changed the Curriculum",
+                    link: "x12240.xml",
+					target: "",
+                    caption: "Occidental's liberal arts mission has been shaped by presidents, professors, protests, and progress. We look back at a dozen milestone movements. <a href='x12240.xml'>Read more ...</a><br />"
+                    },
+                
+                    {
+                    title: "“Big Love” April 21-May 19",
+                    link: "x12308.xml",
+					target: "",
+                    caption: "In <em>Big Love</em>, 50 young Greek women being forced into marriage agree to slay their husbands on their wedding night. All but one carries out her promise. <a href='x12308.xml'>Read more ...</a>"
+                    },
+                
+                    {
+                    title: "Founders Day Food and Fun",
+                    link: "x12292.xml",
+					target: "",
+                    caption: "Oxy celebrated the 125th anniversary of its founding April 20 with an 1887-style carnival&nbsp;featuring old-fashioned games, food, music, and a 50-foot Ferris wheel. <a href='x12292.xml'>More info ...</a>"
+                    },
+                
+                    {
+                    title: "Oxy125 Panel Discussions",
+                    link: "x12288.xml",
+					target: "",
+                    caption: "<p>A frisson of excitement rippled through the packed room at Mosher Hall yesterday when Octavio Herrera '98 gave this suggestion: Occidental College should offer a computer science degree.&nbsp;<a href='x12288.xml'>Read more ...</a></p> <p>&nbsp;</p> <p>&nbsp;</p>"
+                    },
+                
+                    {
+                    title: "Occidental in Highland Park",
+                    link: "http://www.kcet.org/socal/departures/landofsunshine/history/occidental-college-the-campus-and-the-community.html",
+					target: "",
+                    caption: "<p>Occidental has had three locations: Boyle Heights, Highland Park, and Eagle Rock. In this KCET 'Departures' piece, Oxy professor Jan Lin highlights the College's early history. <a href='http://www.kcet.org/socal/departures/landofsunshine/history/occidental-college-the-campus-and-the-community.html'>Read more ...</a></p>"
+                    },
+                
+                    {
+                    title: "A Big Speech From Veitch",
+                    link: "x12290.xml",
+					target: "",
+                    caption: "President Jonathan Veitch will unveil his ambitious vision for the future of Occidental at a festive Founders Day dinner&nbsp;on April 20. <a href='x12290.xml'>More info ...</a>"
+                    },
+                
+                    {
+                    title: "The House That Jack Built",
+                    link: "x12289.xml",
+					target: "",
+                    caption: "<p>Occidental's new Samuelson Alumni Center was unveiled Friday with a gala ribbon-cutting ceremony. <a href='x12289.xml'>Read more ....</a></p>"
+                    },
+                
+                    {
+                    title: "What Can You Do With A Liberal Arts Degree?",
+                    link: "x12066.xml",
+					target: "",
+                    caption: "After four years of critical thinking, interdisciplinary study, and teamwork, Occidental graduates leave Eagle Rock ready to take on the world. But what awaits them? <em><a href='x12066.xml'>Read More...</a></em><br />"
+                    },
+                
+                    ];
+
+                    $(function(){
+
+                    carousel.init(Math.floor(Math.random()*carousel.data.length));
+
+                    // OIN rollovers
+                    $('.inAction .items a').bind('mouseenter', function(){
+                    $(this).find('img').toggle();
+                    });
+                    $('.inAction .items a').bind('mouseleave', function(){
+                    $(this).find('img').toggle();
+                    });
+                    });
+
+                </script>
+<!--[if lt IE 7]>
+			<style type="text/css">#carousel .feature .content {bottom: -1px;}</style>
+		<![endif]-->
+</head>
+<body class="home">
+<script type="text/javascript" language="javascript">
+                    /*
+                    dojo.require("dojo.widget.ContentPane");
+                    */
+                </script>
+<div id="master">
+<div id="header">
+<a href="x13.xml">
+<img src="prebuilt/images/xsl/home_occidental-college.gif" alt="Occidental College" width="364" height="40" />
+</a>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td>
+<ul xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns" xmlns="">
+<li>
+<a href="x119.xml">Maps &amp; Directions</a></li>
+<li>
+<a href="x6060.xml">Calendars</a></li>
+<li>
+<a href="http://classic.oxy.edu/community/directory/index.html">Campus Directory</a></li>
+<li>
+<a href="http://classic.oxy.edu/welcome/tour/index.htm">Campus Tour</a></li>
+<li>
+<a href="x142.xml">Contact Us</a></li>
+</ul>
+</td>
+<td align="right" width="130">
+<form method="get" action="http://www.google.com/search">
+<label for="search_field_main">
+<input type="text" name="q" size="12" maxlength="255" value="Search" id="search_field_main" />
+</label>
+<label for="search_button">
+<input type="image" src="prebuilt/images/xsl/include_common-searchbutton.jpg" name="Search" value="Search" id="search_button" />
+</label>
+<input type="hidden" name="as_sitesearch" value="oxy.edu" />
+</form>
+</td>
+</tr>
+</table>
+<div class="links">
+<a class="myOxy" href="http://my.oxy.edu">
+<img src="prebuilt/images/xsl/home_my-oxy.gif" alt="My Oxy" width="72" height="15" />
+</a>
+<select class="quickLinks" name="quicklinks" id="quicklinks" onChange="quickLinks(this,this.options[this.selectedIndex].target);" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns" xmlns="">
+<option value="#">Quick Links</option>
+<option value="x91.xml" target="">Administration</option>
+<option value="http://departments.oxy.edu/bookstore" target="">Bookstore</option>
+<option value="x111.xml" target="">Campus Safety</option>
+<option value="x2356.xml" target="">Fast Facts</option>
+<option value="x1830.xml" target="">Financial Aid</option>
+<option value="x2990.xml" target="">Mission</option>
+<option value="x2964.xml" target="">Offices</option>
+<option value="x6620.xml" target="">WASC Accreditation</option>
+</select>
+<script type="text/javascript" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns" xmlns="">
+		function quickLinks(currSelect,target)
+		{
+			if(target == '_blank')
+			{
+				var newWindow = window.open(currSelect.options[currSelect.selectedIndex].value, 'newWindow');
+				newWindow.focus();
+			}
+			else
+			{
+				window.location = currSelect.options[currSelect.selectedIndex].value;
+			}
+		}
+		</script>
+</div>
+<div class="clearBoth"> </div>
+</div>
+<div id="body">
+<div id="homeWrapper">
+<div id="home">
+<div id="nav">
+<ul>
+<li xmlns="">
+<a href="x92.xml">About</a>
+</li>
+<li xmlns="">
+<a href="x89.xml">Academics</a>
+</li>
+<li xmlns="">
+<a href="x109.xml">Admission</a>
+</li>
+<li xmlns="">
+<a href="x75.xml">Campus Life</a>
+</li>
+<li xmlns="">
+<a href="http://www.oxyathletics.com">Athletics</a>
+</li>
+<li xmlns="">
+<a href="x5676.xml">Arts</a>
+</li>
+<li xmlns="">
+<a href="http://departments.oxy.edu/library">Library</a>
+</li>
+<li xmlns="">
+<a href="x18.xml">Support Oxy</a>
+</li>
+</ul>
+<div class="clearBoth"> </div>
+</div>
+<div class="header">
+<div class="features">
+<div id="carousel">
+<div class="feature">
+<div class="photo">
+<img src="Images/Managed/home_slideshow/Curriculum_rotation.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/0412_biglove.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/0412_ferriswheel.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/NewHerrera for rotation.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/Founders Day rotation_1.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/0412_jonathan.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/0412_alumnicenter.jpg" alt="" width="450" height="325" />
+</div>
+<div class="photo" style="display: none;">
+<img src="Images/Managed/home_slideshow/0112_liberalartsdegree.jpg" alt="" width="450" height="325" />
+</div>
+<div class="content">
+<div class="title">
+<a href="#"></a>
+</div>
+<div class="control">
+<a href="javascript:void(0);">
+<img src="prebuilt/images/xsl/home_arrow-up.gif" alt="" width="14" height="13" />
+</a>
+</div>
+<div class="clearBoth"> </div>
+<div class="caption" style="display: none;"></div>
+</div>
+</div>
+<div class="navContainer">
+<div class="control previous">
+<a href="javascript:void(0);">
+<img src="prebuilt/images/xsl/home_arrow-left.gif" alt="" width="10" height="28" />
+</a>
+</div>
+<div class="nav">
+<div class="thumbs">
+<div class="item i0">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/Curriculum tiny.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i1">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/0412_biglove_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i2">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/0412_ferriswheel_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i3">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/herrera_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i4">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/Founders montage_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i5">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/0412_jonathan_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i6">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/0412_alumnicenter_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+<div class="item i7">
+<a href="javascript:void(0);">
+<img src="Images/Managed/home_slideshow/0112_liberalartsdegree_t.jpg" alt="" width="45" height="30" />
+</a>
+</div>
+</div>
+</div>
+<div class="control next">
+<a href="javascript:void(0);">
+<img src="prebuilt/images/xsl/home_arrow-right.gif" alt="" width="10" height="28" />
+</a>
+</div>
+<div class="clear"> </div>
+</div>
+</div>
+</div>
+<div class="right">
+<div class="tagCloud" style="background: #DDE9FF url(images/Managed/home_themecloud/background_mission.jpg) scroll left top repeat;">
+<script language="javascript">
+                                                if (AC_FL_RunContent == 0) {
+                                                alert("This page requires AC_RunActiveContent.js.");
+                                                } else {
+                                                AC_FL_RunContent(
+                                                'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0',
+                                                'width', '326',
+                                                'height', '194',
+                                                'src', 'media/home.swf',
+                                                'quality', 'high',
+                                                'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+                                                'align', 'middle',
+                                                'play', 'true',
+                                                'loop', 'true',
+                                                'scale', 'showall',
+                                                'devicefont', 'false',
+                                                'id', 'OXY_Animation5',
+                                                'name', 'Home',
+                                                'menu', 'true',
+                                                'FlashVars', 'xmlFile=x9079.xml',
+                                                'allowFullScreen', 'false',
+                                                'allowScriptAccess','sameDomain',
+                                                'movie', 'media/home.swf',
+								'wmode', 'transparent',
+                                                'salign', ''
+                                                ); //end AC code
+                                                }
+                                            </script>
+<noscript>
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="327" height="194" id="OXY_Animation5" align="middle">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="allowFullScreen" value="false" />
+<param name="movie" value="media/home.swf" />
+<param name="quality" value="high" />
+<param name="FlashVars" value="xmlFile=x9079.xml" />
+<param name="wmode" value="transparent" />
+<embed src="media/home.swf" quality="high" wmode="transparent" width="327" height="194" name="OXY_Animation5" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" FlashVars="xmlFile=x9079.xml" />
+</object>
+</noscript>
+</div>
+<div class="inAction">
+<img class="header" src="prebuilt/images/xsl/home_oin-header.gif" alt="" width="327" height="39" />
+<div class="items">
+<div class="item" xmlns="">
+<a href="x11972.xml">
+<img src="images/oxyinaction/thumb_saramcknight.jpg" alt="" width="109" height="89" />
+<img src="images/oxyinaction/thumb_saramcknight_o.jpg" alt="" width="109" height="89" style="display: none;" />
+</a>
+</div>
+<div class="item" xmlns="">
+<a href="x11970.xml">
+<img src="images/oxyinaction/thumb_reneehytha.jpg" alt="" width="109" height="89" />
+<img src="images/oxyinaction/thumb_reneehytha_o.jpg" alt="" width="109" height="89" style="display: none;" />
+</a>
+</div>
+<div class="item" xmlns="">
+<a href="x11825.xml">
+<img src="images/OxyInAction/thumb_mirandasieg.jpg" alt="" width="109" height="89" />
+<img src="images/OxyInAction/thumb_mirandasieg_o.jpg" alt="" width="109" height="89" style="display: none;" />
+</a>
+</div>
+</div>
+<div class="shadow"> </div>
+</div>
+<div class="FlexArea"><ul>
+<li><a href="http://www.facebook.com/occidental" target="_blank"><img alt="Facebook" height="19" src="Images/Managed/home_flexarea/facebook.gif" style="vertical-align: middle;" width="19" /> <span>Facebook</span></a> </li>
+<li><a href="http://www.twitter.com/oxynews" target="_blank"><img alt="Twitter" height="19" src="Images/Managed/home_flexarea/twitter.gif" style="vertical-align: middle;" width="19" /> <span>Twitter</span></a></li>
+<li><a href="http://www.flickr.com/oxyphotos" target="_blank"><img alt="Flickr" height="19" src="Images/Managed/home_flexarea/flickr.gif" style="vertical-align: middle;" width="19" /> <span>Flickr</span></a></li>
+<li><a href="http://www.youtube.com/occidentalcollege" target="_blank"><img alt="YouTube" height="19" src="Images/Managed/home_flexarea/youtube.gif" style="vertical-align: middle;" width="19" /> <span>YouTube</span></a></li>
+</ul></div>
+</div>
+<div class="clearBoth"> </div>
+</div>
+<div class="sidebar">
+<div class="nav" xmlns="">
+<img class="heading" src="prebuilt/images/xsl/home_information-for.gif" alt="Information for:" width="154" height="20" />
+<ul style="* margin-top:-4px;">
+<li>
+<a href="http://alumni.oxy.edu" style="height:19px;">
+<span>Alumni</span>
+</a>
+</li>
+<li>
+<a href="x300.xml" style="height:19px;">
+<span>Current Students</span>
+</a>
+</li>
+<li>
+<a href="x298.xml" style="height:19px;">
+<span>Faculty</span>
+</a>
+</li>
+<li>
+<a href="x261.xml" style="height:19px;">
+<span>Parents</span>
+</a>
+</li>
+<li>
+<a href="x299.xml" style="height:19px;">
+<span>Staff</span>
+</a>
+</li>
+</ul>
+</div>
+<img src="images/Managed/a_right_column_spacer.GIF" alt="" xmlns="" />
+</div>
+<div class="body">
+<div id="homeMiddle">
+<img class="heading" src="prebuilt/images/xsl/home_news.gif" alt="News" width="270" height="20" usemap="#newsRss" />
+<map id="newsRss" name="newsRss">
+<area shape="rect" coords="-10,-6,100,19" href="http://www.oxy.edu/x154.xml" />
+<area coords="250,0,270,16" href="http://www.oxy.edu/x6540.xml" alt="News RSS" />
+</map>
+<div class="news">
+<div class="newsItem">
+<a class="thumb" href="x12355.xml">
+<img src="Images/News/F2PS_Logo_Web_05_t.jpg" alt="Farm to Preschool Honored by Michelle Obama’s Healthy Kids Campaign" width="45" height="45" />
+</a>
+<a class="link" href="x12355.xml">Farm to Preschool Honored by Michelle Obama’s Healthy Kids Campaign</a>
+<div class="clearBoth"> </div>
+</div>
+<div class="newsItem">
+<a class="thumb" href="x12356.xml">
+<img src="Images/News/kieftthumb.jpg" alt="Occidental Librarian Wins Award for Excellence" width="45" height="45" />
+</a>
+<a class="link" href="x12356.xml">Occidental Librarian Wins Award for Excellence</a>
+<div class="clearBoth"> </div>
+</div>
+<div class="newsItem">
+<a class="thumb" href="x12318.xml">
+<img src="Images/News/gottliebthumb.jpg" alt="Occidental Professor Receives Calif. Activist Award" width="45" height="45" />
+</a>
+<a class="link" href="x12318.xml">Occidental Professor Receives Calif. Activist Award</a>
+<div class="clearBoth"> </div>
+</div>
+<div class="newsItem">
+<a class="thumb" href="x12292.xml">
+<img src="Images/News/042012_Ferris-thumb.jpg" alt="Oxy Kicks Off 125th Anniversary" width="45" height="45" />
+</a>
+<a class="link" href="x12292.xml">Oxy Kicks Off 125th Anniversary</a>
+<div class="clearBoth"> </div>
+</div>
+<div class="newsItem">
+<a class="thumb noBorder" href="x12266.xml">
+<img src="Images/Managed/news_defaultseal.gif" alt="Six Students Land Research Internships with JPL " width="45" />
+</a>
+<a class="link" href="x12266.xml">Six Students Land Research Internships with JPL</a>
+<div class="clearBoth"> </div>
+</div>
+</div>
+<img class="heading" src="prebuilt/images/xsl/home_events.gif" alt="Events" border="0" width="270" height="20" usemap="#eventlink" /><map name="eventlink" id="eventlink"><area shape="rect" coords="-10,-6,100,19" href="http://webapps.oxy.edu/PROD/oncacms/event/event.asp" target="_blank" /></map>
+<div class="events">
+<div class="eventItem" xmlns="">
+<span>5/7/2012<br />8:30 AM</span>
+<a href="http://webapps.oxy.edu/PROD/oncacms/event/event.asp?action=detail&amp;eventid=98993">Final Exams</a>
+<div class="clearBoth"> </div>
+</div>
+<div class="eventItem" xmlns="">
+<span>5/20/2012<br />10:00 AM</span>
+<a href="http://webapps.oxy.edu/PROD/oncacms/event/event.asp?action=detail&amp;eventid=100180">2012 Commencement</a>
+<div class="clearBoth"> </div>
+</div>
+</div>
+</div>
+<div id="homeRight"><p><a href="http://oxy125.org"><img alt="125th Anniversary Website" height="100" src="Images/Managed/home_rightcolumn/OXY125-horizontal_03.gif" style="margin: 0px;" title="125th Anniversary Website" width="300" /></a></p><div style="padding-bottom:20px;"></div><a href="http://www.oxy.edu/commencement.xml"><img alt="Commencement 2012" height="81" src="Images/Managed/home_rightcolumn/commencement_2012.jpg" style="float: left; margin-right: 8px;padding-bottom:5px;" width="125" /></a><span style="font-family: Arial, Verdana, sans-serif;"><span style="font-size: 11px;">Commencement Weekend is May 17-20. Visit the <a href="http://www.oxy.edu/commencement.xml">commencement website</a> for the schedule and more information. </span></span> <br style="clear: both;" /><div style="padding-bottom:20px;"></div>The mission of Occidental College is to provide a gifted and diverse group of students with a total educational experience of the highest quality -- one that prepares them for leadership in an increasingly complex, interdependent and pluralistic world. The distinctive interdisciplinary and multicultural focus of the College's academic program seeks to foster both the fulfillment of individual aspirations and a deeply rooted commitment to the public good.<br /><div style="padding-bottom:20px;"></div>
+</div>
+<div class="clearBoth"> </div>
+</div>
+<div class="clearBoth"> </div>
+</div>
+</div>
+<div id="footer" xmlns="">
+<ul xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">
+<li>
+<a href="x6182.xml">About This Site</a>|</li>
+<li>
+<a href="x32.xml">Site Map</a>|</li>
+<li>
+<a href="x160.xml">Health &amp; Safety</a>|</li>
+<li>
+<a href="x3011.xml">Working at Occidental</a>|</li>
+<li>
+<a href="mailto:webmaster@oxy.edu">Contact Webmaster</a>|</li>
+<li>
+<a href="x6540.xml">RSS Feeds</a></li>
+</ul>
+<p>©2011 Occidental College · Los Angeles, CA</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-3793582-3");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</div>
+<div class="clearBoth"> </div>
+</div>
+</div>
+</body>
+</html>

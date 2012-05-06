@@ -1,0 +1,785 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head><title>
+	Al Jamea Tus Saifiyah-A unique Fatemi educational methodology....
+</title><link href="styles.css" rel="stylesheet" type="text/css" /><link href="styleSheet.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="menucaption.js"></script>
+<script language="javascript" type="text/javascript" src="js/imageload.js"></script>
+
+
+<script type="text/javascript">
+        var currentImgId = '~/images/jbig-1.jpg';
+    
+        function onNextImageClick(){
+        
+            switch(currentImgId){
+                case '~/images/jbig-1.jpg':
+                    currentImgId = '~/images/jbig-2.jpg';
+                    break;
+                case '~/images/jbig-2.jpg':
+                    currentImgId = '~/images/jbig-3.jpg';                
+                    break;
+                case '~/images/jbig-3.jpg':
+                    currentImgId = '~/images/jbig-4.jpg';                
+                    break;
+                case '~/images/jbig-4.jpg':
+                    currentImgId = '~/images/jbig-5.jpg';               
+                    break;
+                case 'img05':
+                    currentImgId = 'img01';                
+                    break;     
+                default: 
+                    alert("Unknown image!");                                                                               
+            }
+            
+            togglePopupImage($get(currentImgId));
+        }
+        
+        function onPreviousImageClick(){
+        
+            switch(currentImgId){
+                case 'img01':
+                    currentImgId = 'img05';
+                    break;
+                case 'img02':
+                    currentImgId = 'img01';                
+                    break;
+                case 'img03':
+                    currentImgId = 'img02';                
+                    break;
+                case 'img04':
+                    currentImgId = 'img03';               
+                    break;
+                case 'img05':
+                    currentImgId = 'img04';                
+                    break;     
+                default: 
+                    alert("Unknown image!");                                                                               
+            }
+            
+            togglePopupImage($get(currentImgId));        
+        }
+    
+        function togglePopupImage(thumbnail){
+            
+            $get('imagebig').src = thumbnail.src;             
+        }
+    </script>
+
+
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript1.1">
+<!-- Original:  Martin Webb (martin@irt.org) -->
+
+<!-- This script and many more are available free online at -->
+<!-- The JavaScript Source!! http://javascript.internet.com -->
+
+<!-- Begin
+function right(e) {
+if (navigator.appName == 'Netscape' && 
+(e.which == 3 || e.which == 2))
+return false;
+else if (navigator.appName == 'Microsoft Internet Explorer' && 
+(event.button == 2 || event.button == 3)) {
+alert("© Copyright 2006 Al Jamea tus Saifiyah   All Rights Reserved  WEB MASTER : E-Square Business Solution");
+return false;
+}
+return true;
+}
+
+document.onmousedown=right;
+document.onmouseup=right;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=right;
+window.onmouseup=right;
+//  End -->
+</SCRIPT>
+
+</head>
+<body>
+    <form name="form1" method="post" action="Default.aspx" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMzE5NzI2MTk3DxYEHgZXSW5kZXgFATAeBFdXSUQWFAUCMjgFAjI3BQIyNQUCMjQFAjIzBQIyMgUCMjEFAjE3BQIxNgUCMTUFAjE0BQIxMwUCMTIFAjExBQIxMAUBOQUBOAUBNwUBNgUBNRYCAgMPZBYIAgEPDxYCHgRUZXh0ZWRkAgMPZBYCZg9kFgICAQ88KwAJAQAPFgQeCERhdGFLZXlzFgAeC18hSXRlbUNvdW50AgxkFhhmD2QWAgIBDw8WBB4PQ29tbWFuZEFyZ3VtZW50BRN+L2ltYWdlcy9qYmlnLTEuanBnHghJbWFnZVVybAUVfi9pbWFnZXMvanNtYWxsLTEuanBnZGQCAQ9kFgICAQ8PFgQfBQUTfi9pbWFnZXMvamJpZy0yLmpwZx8GBRV+L2ltYWdlcy9qc21hbGwtMi5qcGdkZAICD2QWAgIBDw8WBB8FBRN+L2ltYWdlcy9qYmlnLTMuanBnHwYFFX4vaW1hZ2VzL2pzbWFsbC0zLmpwZ2RkAgMPZBYCAgEPDxYEHwUFE34vaW1hZ2VzL2piaWctNC5qcGcfBgUVfi9pbWFnZXMvanNtYWxsLTQuanBnZGQCBA9kFgICAQ8PFgQfBQUTfi9pbWFnZXMvamJpZy01LmpwZx8GBRV+L2ltYWdlcy9qc21hbGwtNS5qcGdkZAIFD2QWAgIBDw8WBB8FBRN+L2ltYWdlcy9qYmlnLTYuanBnHwYFFX4vaW1hZ2VzL2pzbWFsbC02LmpwZ2RkAgYPZBYCAgEPDxYEHwUFE34vaW1hZ2VzL2piaWctNy5qcGcfBgUVfi9pbWFnZXMvanNtYWxsLTcuanBnZGQCBw9kFgICAQ8PFgQfBQUTfi9pbWFnZXMvamJpZy04LmpwZx8GBRV+L2ltYWdlcy9qc21hbGwtOC5qcGdkZAIID2QWAgIBDw8WBB8FBRN+L2ltYWdlcy9qYmlnLTkuanBnHwYFFX4vaW1hZ2VzL2pzbWFsbC05LmpwZ2RkAgkPZBYCAgEPDxYEHwUFFH4vaW1hZ2VzL2piaWctMTAuanBnHwYFFn4vaW1hZ2VzL2pzbWFsbC0xMC5qcGdkZAIKD2QWAgIBDw8WBB8FBRR+L2ltYWdlcy9qYmlnLTExLmpwZx8GBRZ+L2ltYWdlcy9qc21hbGwtMTEuanBnZGQCCw9kFgICAQ8PFgQfBQUUfi9pbWFnZXMvamJpZy0xMi5qcGcfBgUWfi9pbWFnZXMvanNtYWxsLTEyLmpwZ2RkAgsPZBYCZg9kFgQCAQ8WAh4JaW5uZXJodG1sBZ8BPHNwYW4gc3R5bGU9ImZvbnQtZmFtaWx5OiBBcmlhbCI+VGhyb3VnaCB0aGUgZ29vZG5lc3Mgb2YgaGlzIGNoYXJhY3RlciwgYSBtYW4gYXR0YWlucyB0aGUgc3RhdHVzIG9mIG9uZSBkZWRpY2F0ZWQgdG8gPGVtPnJvemFoPC9lbT4gYW5kIDxlbT5uYW1hYXo8L2VtPi48L3NwYW4+ZAIDDxYCHwcFggY8c3BhbiBzdHlsZT0iZm9udC1zaXplOiBsYXJnZTsgZm9udC1mYW1pbHk6IFRhaG9tYSI+PHNwYW4gZGlyPSJSVEwiIHN0eWxlPSJjb2xvcjogYmxhY2s7IGxpbmUtaGVpZ2h0OiAxMTUlOyBmb250LWZhbWlseTogVGFoZXJpOyBmb250LXNpemU6IDExcHQ7IG1zby1mYXJlYXN0LWZvbnQtZmFtaWx5OiBDYWxpYnJpOyBtc28tZmFyZWFzdC10aGVtZS1mb250OiBtaW5vci1sYXRpbjsgbXNvLWFuc2ktbGFuZ3VhZ2U6IEVOLVVTOyBtc28tZmFyZWFzdC1sYW5ndWFnZTogRU4tVVM7IG1zby1iaWRpLWxhbmd1YWdlOiBBUi1TQTsgbXNvLWFzY2lpLWZvbnQtZmFtaWx5OiBUYWhvbWE7IG1zby1oYW5zaS1mb250LWZhbWlseTogVGFob21hIj48c3BhbiBkaXI9IlJUTCIgc3R5bGU9ImNvbG9yOiBibGFjazsgbGluZS1oZWlnaHQ6IDExNSU7IGZvbnQtZmFtaWx5OiBUYWhlcmk7IGZvbnQtc2l6ZTogMTZwdDsgbXNvLWZhcmVhc3QtZm9udC1mYW1pbHk6IENhbGlicmk7IG1zby1mYXJlYXN0LXRoZW1lLWZvbnQ6IG1pbm9yLWxhdGluOyBtc28tYW5zaS1sYW5ndWFnZTogRU4tVVM7IG1zby1mYXJlYXN0LWxhbmd1YWdlOiBFTi1VUzsgbXNvLWJpZGktbGFuZ3VhZ2U6IEFSLVNBOyBtc28tYXNjaWktZm9udC1mYW1pbHk6IFRhaG9tYTsgbXNvLWhhbnNpLWZvbnQtZmFtaWx5OiBUYWhvbWEiPtin2YYg2KfZhNi52KjYryDZhNmK2K/YsdmDINio2K3Ys9mGINin2YTYrtmE2YIg2K/Ysdis2Kkg2KfZhNi12KfYptmFINin2YTZgtin2KbZhTwvc3Bhbj48L3NwYW4+PC9zcGFuPmQCDA8PFgIfAgUGMjUwMTMyZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFhYFFmRhdGFsaXN0MSRjdGwwMCRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwMSRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwMiRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwMyRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwNCRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwNSRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwNiRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwNyRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwOCRpYmxlZnQFFmRhdGFsaXN0MSRjdGwwOSRpYmxlZnQFFmRhdGFsaXN0MSRjdGwxMCRpYmxlZnQFFmRhdGFsaXN0MSRjdGwxMSRpYmxlZnQFCGliY2xvc2UxBQZpYmxwcnYFBmlibG54dAUHaWJjbG9zZQUKaW1naWJldmVudAUGaW1ncHJ2BQdpbWduZXh0BQtpYmNoZWNrbWFpbAUGaWJzdWcxBQVpYnJlcY87nO7Z3hpRzfskopez1JjAtaz9" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=hzQhyqbwLRw9RyI9kxcdyT-9gqZayMp-J0V-8RD8jCcyv2BBMhmjSDnXLPc_ogvvL7lpM8ZX_EajmajW_MEa7qsKeks1&amp;t=634697972082564178" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=CJ2zls-aJNom886UXXoOCpwVSVi_t9o9qMh8HqslJoxINuYB59GU-N9Q1qFG_Yuqz7A6t2T6DWIOxFHeekiPZmXvJaBhULAlko8S4kSNmU16NumxyEs2znltYeK2RYVgBgyZnw2&amp;t=634151228835502476" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=aHutyP6csShGLRB1KCssKUQ0IV-jA6dm9jVhLrwzLCZPiSjC5dBPcalNP948rYAMjCONKo99lmXs_PiEM_YsgeVq9YkKGi9WF4EvZcO02daNXmazYuGHcmt2FcphVfg6lD5EVA2&amp;t=634151228835502476" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=NUe4IBf5aAGY6hrYiPUCXCj_QJbzPupcDfh-8oroEcOtrseL_ib2fBz7tBlahlkafUnxThh2lCSen7yahlwJ9gB52P4A5l2iPRGpHDbvzie0ZjXE3X3zMaeyHCkB6_PDw2TSmK4Q-jB4iQ5HSRsZNFDTZTo1&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=B1girQSFWrouSy040HXXeCVo04Wy8deZK43JytgcT25QjiEbWQShT9uuYaaCLLsMLhWHIlG8q-ctumJ_nf5C1OraUOaJCHfe7AXRdGCGv_uayHSfPQydV6RUAB6E_MCqfoohPMtqTQvYqrTSwM9kfXFaLbs1&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8Aw0q90-kxQ0uKg2k9yFjfdiMuGb-CG_LatwprxM1Nah401aVVyOFmegzRKj8N9TJuHljVgA8oIKPDkrh5e7MuL72yZ46BAE4lhgO6wBHe3f0OW2f-IScYARDGTR7WXiFIPpOJkVD4XqhvbolqUGv2EI1woFbeHw6UyP0L3tC2ooWAcf0&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=NL9-Ny4dir10qT26omz-tt8t4woZ20SJ4PzLNrcMomMm_Wh_KZsUjipDSlE0gW7XYMCsRg3RhydIiF4a7axBUcwuSEZFUpRm6vCpBuoHl6jW8u5QSBxsbZtMPFkGCnVRIJx2rt5GVtwA8SovRb3KQbE459E1&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=8YWiMrBDI27OCmiqst-dO9oJsfIcCEtrVEwxU94aWC6hHanjUecqkDTTSjxkkTN0x74XrIZ7ppCLkeQXfJtOfpNo8PQkBPVoGvgWdPum2m88QqIEz1nCd43jswKInARrSXD4Q82aWAbAQYzjxGjCTlo3HZkryw_srL3VOMPzFSzATMcD0&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=e0s-aJ5cMQDrIx1YLg43GLMrPz-Cy0YiwlbAqMvY8EyLIIBZhcUl9GAc-ge4FnPufOzKuFyMyHRwVqDQLLScDncdXQJpCvhi_Wss6Dd8MtaEoGtRbM7AjaExbJsLvayEYTZ0SkjPXOk2cR9lLtND0-3PpzVmSInPIQHjoNX6FDbxooJ60&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=CHeMoWdGmn_xrkIrmHe0N8JOTefZYHHVPMHL3_MXtUFygOXJaMKYjUztLtE9RVRUhHtm9zTu0RGcBkdTSgIMhF9mtu1Y6jLNyuixGc7wmBDXGACBChqJa2J1AiU0bUUDGKksfX2s2mc8jIgiJZxRi_r8eh5DbRaYSAo942v8ZAPyyMlx0&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=_0pUvVBpolg2_5nh5d8Dpc_kpY4Drs8t8kn_aSgwiIy9M5TSJCv8jw31ngDnHEEtHiHY7tHFvr04LHZwEmJQNmaK3J_MfeZSTqwAIPpRAtAN-RIZhnsB4ZRBEDbXaS15rUjNfhNUF0cTNRZuJsa-5xFhbAs1&amp;t=634151228802846226" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=i6rprX8KHXDKhaOZkT0lEKcRQTyDujqj0Dhe-Kz9GZZPHHByKqKRwP2hYEP_Cwa9rP_PQNVeMzoSkL9oTQ4R55YPPD2mtbQSCS4pSkkrOduilNttQVWpQHIo62WY8P_wwAzcsdePVRRL48FXEVuxcCBZ1CsVasXFO_ruKEe0UAKNI_jA0&amp;t=634151228802846226" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__PREVIOUSPAGE" id="__PREVIOUSPAGE" value="x1xTeoOe3f1pv5N1a7hqqT9qwIVzPcQRnepX6Q4v1MYAQeqIyFV0qvey9RYEGOj5BdFfGid1AZsao4oUpn8hHk1JtAA1" />
+</div>
+    <div>
+		<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager1', document.getElementById('form1'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tUpdatePanel1','tUpdatePanel3','tUpdatePanel2'], [], [], 90);
+//]]>
+</script>
+
+		<span id="lblerror" style="color:Red;"></span>
+    <table align="center" cellpadding="0" cellspacing="0" style="width: 850px">
+	<tr>
+		<td>
+		<table cellpadding="0" cellspacing="0" style="width: 100%">
+			<tr>
+				<td>
+				<img alt="" height="34" src="images/index_01.jpg" width="850" /></td>
+			</tr>
+			<tr>
+				<td class="style1">
+				<table cellpadding="0" cellspacing="0" style="width: 100%">
+					<tr>
+						<td style="width: 16px">&nbsp;</td>
+						<td>
+						<table cellpadding="0" cellspacing="0" style="width: 669px">
+							<tr>
+								<td class="style7" style="width: 59px; height: 15px;">
+								<a class="links" href="default.aspx"><script language="javascript" type="text/javascript">document.write(fv1);</script></a></td>
+								<td class="style6" style="height: 15px">
+								<img alt="" class="links" height="15" src="images/menu-spec.jpg" width="24" /></td>
+								<td class="style6" style="width: 117px; height: 15px;">
+								<a href="virtual-tour.htm" class="links"><script language="javascript" type="text/javascript">document.write(fv2);</script></a></td>
+								<td class="style6" style="height: 15px">
+								<img alt="" height="15" src="images/menu-spec.jpg" width="24" /></td>
+								<td class="style7" style="width: 52px; height: 15px;">
+								<a class="links" href="view.aspx"><script language="javascript" type="text/javascript">document.write(fv3);</script></a></td>
+								<td class="style6" style="height: 15px">
+								<img alt="" height="15" src="images/menu-spec.jpg" width="24" /></td>
+								<td class="style6" style="height: 15px"><span class="links">
+								<a class="links" href="contactus.aspx"><script language="javascript" type="text/javascript">document.write(fv4);</script></a></span></td>
+								<td class="style6" style="height: 15px">
+								<img alt="" height="15" src="images/menu-spec.jpg" width="24" /></td>
+								<td class="style6" style="height: 15px"><span class="links">
+								<a class="links" href="aboutus.htm"><script language="javascript" type="text/javascript">document.write(fv5);</script></a></span></td>
+								<td style="height: 15px"></td>
+								<td style="height: 15px"></td>
+								<td style="height: 15px"></td>
+							</tr>
+						</table>
+						</td>
+						<td style="width: 15px">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td class="style1">
+				<table cellpadding="0" cellspacing="0" style="width: 100%">
+					<tr>
+						<td width="668">
+						<img alt="" height="190" src="images/index_03.jpg" width="668" /></td>
+						<td>
+						<object id="flash1" data="tour/logo1.swf" height="190" type="application/x-shockwave-flash" width="170">
+							<param name="movie" value="tour/logo1.swf" />
+							<param name="quality" value="High" />
+							<param name="wmode" value="transparent" />
+						</object>
+						</td>
+					</tr>
+				</table>
+				</td>
+
+			</tr>
+			<tr>
+				<td class="style1">
+				<table cellpadding="0" cellspacing="0" style="width: 100%">
+					<tr>
+						<td style="width: 35px"></td>
+						<td>	<input name="TextBox1" type="text" id="TextBox1" style="border-color:Green;border-width:1px;border-style:Solid;display:none" />	
+<script type="text/javascript">
+
+/***********************************************
+* Memory Scroller script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var memorywidth="800px" //scroller width
+ var memoryheight="20px";
+if(document.getElementById("TextBox1").value=="")
+{
+    var memoryheight="1px"; //scroller height
+}
+
+var memorybgcolor="#fffff" //scroller background
+var memorypadding="2px" //padding applied to the scroller. 0 for non.
+var borderCSS="border: 0px solid black;" //Border CSS, applied to scroller to give border.
+
+var memoryspeed=2 //Scroller speed (larger is faster 1-10)
+var pauseit=1 //Pause scroller onMousever (0=no. 1=yes)?
+
+var persistlastviewedmsg=1 //should scroller's position persist after users navigate away (1=yes, 0=no)?
+var persistmsgbehavior="onload" //set to "onload" or "onclick".
+
+//Specify the scroller's content (don't delete <nobr> tag)
+//Keep all content on ONE line, and backslash any single quotations (ie: that\'s great):
+
+var memorycontent='<nobr><span style="font: bold 13px Verdana" font-color: #585858>' + document.getElementById("TextBox1").value + '</span></nobr>'
+
+
+////NO NEED TO EDIT BELOW THIS LINE////////////
+var combinedcssTable="width:"+(parseInt(memorywidth)+6)+"px;background-color:"+memorybgcolor+";padding:"+memorypadding+";"+borderCSS+";"
+var combinedcss="width:"+memorywidth+";height:"+memoryheight+";"
+
+var divonclick=(persistlastviewedmsg && persistmsgbehavior=="onclick")? 'onClick="savelastmsg()" ' : ''
+memoryspeed=(document.all)? memoryspeed : Math.max(1, memoryspeed-1) //slow speed down by 1 for NS
+var copyspeed=memoryspeed
+var pausespeed=(pauseit==0)? copyspeed: 0
+var iedom=document.all||document.getElementById
+if (iedom)
+document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-10000px">'+memorycontent+'</span>')
+var actualwidth=''
+var memoryscroller
+
+if (window.addEventListener)
+window.addEventListener("load", populatescroller, false)
+else if (window.attachEvent)
+window.attachEvent("onload", populatescroller)
+else if (document.all || document.getElementById)
+window.onload=populatescroller
+
+function populatescroller(){
+memoryscroller=document.getElementById? document.getElementById("memoryscroller") : document.all.memoryscroller
+memoryscroller.style.left=parseInt(memorywidth)+8+"px"
+if (persistlastviewedmsg && get_cookie("lastscrollerpos")!="")
+revivelastmsg()
+memoryscroller.innerHTML=memorycontent
+actualwidth=document.all? temp.offsetWidth : document.getElementById("temp").offsetWidth
+lefttime=setInterval("scrollmarquee()",20)
+}
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = ""
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset)
+if (end == -1)
+end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function savelastmsg(){
+document.cookie="lastscrollerpos="+memoryscroller.style.left
+}
+
+function revivelastmsg(){
+lastscrollerpos=parseInt(get_cookie("lastscrollerpos"))
+memoryscroller.style.left=parseInt(lastscrollerpos)+"px"
+}
+
+if (persistlastviewedmsg && persistmsgbehavior=="onload")
+window.onunload=savelastmsg
+
+function scrollmarquee(){
+if (parseInt(memoryscroller.style.left)>(actualwidth*(-1)+8))
+memoryscroller.style.left=parseInt(memoryscroller.style.left)-copyspeed+"px"
+else
+memoryscroller.style.left=parseInt(memorywidth)+8+"px"
+}
+
+if (iedom){
+with (document){
+document.write('<table border="0" cellspacing="0" cellpadding="0" style="'+combinedcssTable+'"><td>')
+write('<div style="position:relative;overflow:hidden;'+combinedcss+'" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=memoryspeed">')
+write('<div id="memoryscroller" style="position:absolute;left:0px;top:0px;" '+divonclick+'></div>')
+write('</div>')
+document.write('</td></table>')
+}
+}
+</script></td>
+						<td style="width: 35px"></td>
+					</tr>
+				</table>
+</td>
+			</tr>
+			<tr>
+				<td>
+				<table cellpadding="0" cellspacing="0" style="width: 100%">
+					<tr>
+						<td>
+						<img alt="" height="70" src="images/index_05.jpg" width="26" /></td>
+						<td style="width: 256px">
+						<img alt="" height="70" src="images/index_06.jpg" width="256" /></td>
+						<td class="style9" style="width: 373px" valign="top">
+						<script type="text/javascript" src="milonic_src.js"></script>	
+<noscript>
+   <a href="http://www.milonic.com/">DHTML JavaScript Website Pull Down Navigation Menu By Milonic</a></noscript>
+<script type="text/javascript">
+if(ns4)_d.write("<scr"+"ipt type=text/javascript src=mmenuns4.js><\/scr"+"ipt>");		
+  else _d.write("<scr"+"ipt type=text/javascript src=mmenudom.js><\/scr"+"ipt>"); 
+   </script>
+<script type="text/javascript" src="menu_data.js"></script>	
+
+						</td>
+						<td>
+						<img alt="" height="70" src="images/index_10.jpg" width="167" /></td>
+						<td>
+						<img alt="" height="70" src="images/index_11.jpg" width="28" /></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table cellpadding="0" cellspacing="0" style="width: 100%">
+					<tr>
+						<td class="style2" style="width: 26px">
+						&nbsp;</td>
+						<td valign="top">
+						<table cellpadding="0" cellspacing="0" style="width: 100%">
+							<tr>
+								<td>
+								<img alt="" height="46" src="images/index_13.jpg" width="256" /></td>
+								<td>
+								<img alt="" height="46" src="images/aljamea-head.jpg" width="540" /></td>
+							</tr>
+							<tr>
+								<td class="style4" valign="top" >
+								<table cellpadding="0" cellspacing="0" style="width: 100%">
+									<tr>
+										<td class="style6">
+										<table cellpadding="2" style="width: 100px">
+											<tr>
+												<td>
+													<div id="UpdatePanel1">
+	
+                                                            <div style="text-align: center">
+                                                                <table width="100%">
+                                                                    <tr>
+                                                                        <td align="center" style="padding-left: 15px; padding-right: 15px;">
+                                                
+												<table id="datalist1" title="Select an image to view full image" cellspacing="0" cellpadding="0" align="Center" border="0" style="border-collapse:collapse;">
+		<tr>
+			<td>                                                     
+                                                                    <input type="image" name="datalist1$ctl00$ibleft" id="datalist1_ctl00_ibleft" src="images/jsmall-1.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl01$ibleft" id="datalist1_ctl01_ibleft" src="images/jsmall-2.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl02$ibleft" id="datalist1_ctl02_ibleft" src="images/jsmall-3.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td>
+		</tr><tr>
+			<td>                                                     
+                                                                    <input type="image" name="datalist1$ctl03$ibleft" id="datalist1_ctl03_ibleft" src="images/jsmall-4.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl04$ibleft" id="datalist1_ctl04_ibleft" src="images/jsmall-5.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl05$ibleft" id="datalist1_ctl05_ibleft" src="images/jsmall-6.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td>
+		</tr><tr>
+			<td>                                                     
+                                                                    <input type="image" name="datalist1$ctl06$ibleft" id="datalist1_ctl06_ibleft" src="images/jsmall-7.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl07$ibleft" id="datalist1_ctl07_ibleft" src="images/jsmall-8.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl08$ibleft" id="datalist1_ctl08_ibleft" src="images/jsmall-9.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td>
+		</tr><tr>
+			<td>                                                     
+                                                                    <input type="image" name="datalist1$ctl09$ibleft" id="datalist1_ctl09_ibleft" src="images/jsmall-10.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl10$ibleft" id="datalist1_ctl10_ibleft" src="images/jsmall-11.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td><td>                                                     
+                                                                    <input type="image" name="datalist1$ctl11$ibleft" id="datalist1_ctl11_ibleft" src="images/jsmall-12.jpg" style="height:76px;width:70px;border-width:0px;" />
+                                                    </td>
+		</tr>
+	</table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                            
+                                                            <div id="Panelimgleft" class="confirm" style="display:none">
+		
+                                                            <!--<div id="UpdatePanel3">
+			-->
+            <table cellpadding="0" cellspacing="0">
+            <tr>
+            <td align="right">
+            <input type="image" name="ibclose1" id="ibclose1" src="images/close.jpg" style="border-width:0px;" />
+            </td>
+            </tr>
+                <!--<tr>
+                    <td align="center">
+                    
+                    <input type="image" name="iblprv" id="iblprv" src="images/prew.jpg" style="border-width:0px;" />
+                    <input type="image" name="iblnxt" id="iblnxt" src="images/netx.jpg" onclick="onNextImageClick();" style="border-width:0px;" />
+
+                    </td>
+                    <td align="right">
+                        <input type="image" name="ibclose" id="ibclose" src="images/close.jpg" style="border-width:0px;" />
+                     </td>
+                </tr>-->
+                <tr>
+                    <td align="center" colspan=2>
+                        <img id="imagebig" src="" style="height:438px;width:586px;border-width:0px;" /></td>
+                </tr>
+            </table>
+                                <!--
+		</div>-->       
+        
+	</div>
+        
+        <a id="btnshow" href="javascript:__doPostBack('btnshow','')" style="display:inline-block;color:Transparent;background-color:Transparent;border-color:Transparent;width:0px;"></a>                                            
+        
+                                                       
+</div>       
+                                                  
+                                                    </td>
+											</tr>
+										</table>
+										</td>
+									</tr>
+									<tr>
+										<td>
+										<img alt="" height="54" src="images/index_24.jpg" width="256" /></td>
+									</tr>
+									<tr>
+										<td>
+										<table cellpadding="0" cellspacing="0" style="width: 100%">
+											<tr>
+												<td style="width: 8px">
+												</td>
+												<td style="width: 238px">
+												    
+													<table cellspacing="1" style="width: 100%">
+														<tr>
+															<td class="newstext" style="width: 76px; height: 32px;">
+															EJamaat No :</td>
+															<td style="height: 32px">
+															<input name="txtusername" type="text" id="txtusername" style="border-color:Green;border-width:1px;border-style:Solid;width:147px;" /> 
+															
+															</td>
+														</tr>
+														<tr>
+															<td class="newstext" style="width: 76px; height: 32px;">
+															Password :</td>
+															<td>
+															<input name="txtpwd" type="password" id="txtpwd" style="border-color:Green;border-width:1px;border-style:Solid;width:147px;" />
+															
+															</td>
+														</tr>
+														<tr>
+															<td class="text" colspan="2" align="center">
+															<table id="rbpta" border="0">
+	<tr>
+		<td><input id="rbpta_0" type="radio" name="rbpta" value="P" checked="checked" /><label for="rbpta_0">Parent</label></td><td><input id="rbpta_1" type="radio" name="rbpta" value="T" /><label for="rbpta_1">Teacher</label></td><td><input id="rbpta_2" type="radio" name="rbpta" value="A" /><label for="rbpta_2">Admin</label></td>
+	</tr>
+</table>
+                                                                </td>
+														</tr>
+														<tr>
+															<td class="text" style="width: 76px">
+															</td>
+															<td>
+															<input type="submit" name="btnlogin" value="Login" id="btnlogin" style="background-color: #d8e7d8" />
+															
+															</td>
+														</tr>
+													</table>
+												   
+												</td>
+    
+    
+												<td>&nbsp;</td>
+											</tr>
+										</table>
+										</td>
+									</tr>
+									</table>
+								</td>
+								<td class="style5" valign="top">
+								<table cellpadding="0" cellspacing="0" style="width: 100%">
+									<tr>
+										<td style="width: 8px">&nbsp;</td>
+										<td >
+										<table cellpadding="0" cellspacing="0" style="width: 100%">
+											<tr>
+												<td>
+												<table cellpadding="0" cellspacing="0" style="width: 100%">
+													<tr>
+														<td valign="top">
+														&nbsp;</td>
+														<td valign="top">
+														<table cellpadding="2" style="width: 100%">
+															<tr>
+																<td class="text1">
+																<table cellpadding="0" cellspacing="0" style="width: 100%">
+																	<tr>
+																		<td style="width: 129px">
+																<img alt="" height="149" src="images/01.jpg" width="127" /></td>
+																		<td>Al Jamea Tus 
+																Saifiyah is a 
+																unique seat of 
+																learning 
+																different from 
+																other Muslim 
+																universities for 
+																those wishing to 
+																have advanced 
+																contemporary 
+																Islamic 
+																education&nbsp; &nbsp;It 
+																offers a 
+																holistic 
+																education, based 
+																on 
+																pedagogically-sound, 
+																Islamic 
+																principles and a 
+																unique Fatemi 
+																		educational 
+																		methodology. 
+																		This 
+																		pedagogy 
+																		emphasizes 
+																		a 
+																		systematic&nbsp; 
+																		attempt to 
+																		re-assess 
+																		and 
+																		re-value 
+																		traditional 
+																		branches 
+																		of </td>
+																	</tr>
+																	<tr>
+																		<td colspan="2">study and to 
+																blend modern 
+																knowledge and 
+																experience in 
+																Islamic fabric 
+																so as to 
+																modernize entire 
+																outlook to meet 
+																new needs and 
+																lines of 
+																approach. With 
+																this result Aljamea’s 
+																graduates are 
+																effective and 
+																empathetic 
+																leaders, problem 
+																solvers, 
+																promoters of 
+																human progress 
+																and valuable 
+																members of 
+																society. </td>
+																	</tr>
+																</table>
+																</td>
+															</tr>
+															<tr>
+																<td class="text1">
+																Aljamea is the 
+																apex institute 
+																of the Dawoodi 
+																Bohra community 
+																whose spiritual 
+																leader is His 
+																Holiness Syedna 
+																Mohammad 
+																Burhanuddin.; 
+																the 52nd 
+																incumbent of the 
+																vice Gerency of 
+																the Fatimi 
+																Imam.&nbsp; </td>
+															</tr>
+														</table>
+														</td>
+													</tr>
+												</table>
+												</td>
+											</tr>
+											<tr>
+												<td>
+												<table cellpadding="0" cellspacing="0" style="width: 100%">
+													<tr>
+														<td>
+														<input type="image" name="imgibevent" id="imgibevent" src="images/index_25.jpg" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;imgibevent&quot;, &quot;&quot;, false, &quot;&quot;, &quot;events.aspx&quot;, false, false))" style="height:54px;width:182px;border-width:0px;" />
+														
+														</td>
+														<td>
+														<img id="i1" src="images/index_26.jpg" style="height:54px;width:21px;border-width:0px;" />
+														
+														</td>
+														<td>
+														<img id="Image1" src="images/index_27.jpg" style="height:54px;width:322px;border-width:0px;" />
+														
+														</td>
+													</tr>
+													<tr>
+														<td>
+														<table cellpadding="0" cellspacing="0" style="width: 100%">
+															<tr>
+																<td style="width: 27px">
+																</td>
+																<td class="style6">
+																<object id="flash2" data="tour/events.swf" height="98" type="application/x-shockwave-flash" width="126">
+																	<param name="movie" value="tour/events.swf" />
+																	<param name="quality" value="High" />
+																</object>
+																</td>
+															</tr>
+														</table>
+														</td>
+														<td>
+														<img alt="" height="98" src="images/index_30.jpg" width="21" /></td>
+														<td valign="top">
+														<table cellpadding="0" cellspacing="0">                                                          
+                                                            <tr>
+                                                                <td colspan="2">
+																	<div id="UpdatePanel2">
+	
+                                                                <table cellpadding="2" cellspacing="0" >
+                                                                <tr>
+                                                                <td style="height: 80px" valign="top" >
+                                                                <div id="div1" style="width:150px;"><span style="font-family: Arial">Through the goodness of his character, a man attains the status of one dedicated to <em>rozah</em> and <em>namaaz</em>.</span></div>
+                                                                </td>
+                                                                    <td valign="middle" rowspan="2">
+                                                                        <img alt="" height="98" src="images/index_30.jpg" width="21" /></td>
+                                                                <td style="height: 80px;" valign="top"  >
+                                                                <div id="div2" style="width:126px;text-align:right;margin-right:4px; height: 21px;"><span style="font-size: large; font-family: Tahoma"><span dir="RTL" style="color: black; line-height: 115%; font-family: Taheri; font-size: 11pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-ascii-font-family: Tahoma; mso-hansi-font-family: Tahoma"><span dir="RTL" style="color: black; line-height: 115%; font-family: Taheri; font-size: 16pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA; mso-ascii-font-family: Tahoma; mso-hansi-font-family: Tahoma">ان العبد ليدرك بحسن الخلق درجة الصائم القائم</span></span></span></div>
+                                                                </td>
+                                                                </tr>
+                                                                <tr>
+                                                                <td align="left" valign="bottom">
+                                                                    <input type="image" name="imgprv" id="imgprv" src="images/prew.jpg" style="border-width:0px;" /></td>
+                                                                <td align="right" valign="bottom">
+                                                                    <input type="image" name="imgnext" id="imgnext" src="images/netx.jpg" style="border-width:0px;" /></td>
+                                                                </tr>
+                                                                </table>        
+                                                                        
+</div>
+                                                                    
+                                                                
+                                                                </td>
+                                                            </tr>
+														</table>
+														</td>
+													</tr>
+												</table>
+												</td>
+											</tr>
+											</table>
+										</td>
+										<td style="width: 8px">&nbsp;</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td class="style10" style="font-family: 'Arial Narrow';color:#0f3b18;white-space:nowrap;font-weight:bold" align="center">
+								Hit Counter :&nbsp;<span id="lblhc">250132</span>
+								</td>
+								<td>
+								<img alt="" height="41" src="images/index_33.jpg" width="540" /></td>
+							</tr>
+						</table>
+						</td>
+						<td class="style3" style="width: 28px">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table cellpadding="0" cellspacing="0" style="width: 100%" class="style13">
+					<tr>
+						<td class="style22" width="25">&nbsp;</td>
+						<td>
+						<input type="image" name="ibcheckmail" id="ibcheckmail" src="images/checkmail.jpg" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ibcheckmail&quot;, &quot;&quot;, false, &quot;&quot;, &quot;https://www.google.com/a/jameasaifiyah.edu/ServiceLogin&quot;, false, false))" style="height:67px;width:265px;border-width:0px;" />
+						</td>
+						<td>
+						<input type="image" name="ibsug1" id="ibsug1" src="images/suggestion.jpg" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ibsug1&quot;, &quot;&quot;, false, &quot;&quot;, &quot;reqofjamea.aspx?mType=Suggestion&quot;, false, false))" style="height:67px;width:265px;border-width:0px;" />
+						</td>
+						<td>
+						<input type="image" name="ibreq" id="ibreq" src="images/request.jpg" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ibreq&quot;, &quot;&quot;, false, &quot;&quot;, &quot;reqofjamea.aspx?mType=Req&quot;, false, false))" style="height:67px;width:265px;border-width:0px;" />
+						
+						</td>
+						<td class="style23" style="width: 28px">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<img alt="" height="44" src="images/index_39.jpg" width="850" /></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+    </div>  
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.ModalPopupBehavior, {"BackgroundCssClass":"modalBackground","PopupControlID":"Panelimgleft","dynamicServicePath":"/Default.aspx","id":"ModalPopupExtender1"}, null, null, $get("btnshow"));
+});
+//]]>
+</script>
+</form> 
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct="UA-371552-2";
+urchinTracker();
+</script>     
+ <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct="UA-371552-2";
+urchinTracker();
+</script>     
+</body>
+
+</html>

@@ -1,0 +1,422 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+   
+   <head>
+      <title>Aurora University - Home</title>
+      
+      <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+      <meta content="en" http-equiv="content-language" name="language"/>
+      
+      
+   
+      <link href="http://www.aurora.edu/favicon.ico" rel="shortcut icon"/>
+      <link href="css/zz-newlook/common.css" media="screen" rel="stylesheet" type="text/css"/>
+      <link href="css/zz-newlook/index.css" media="screen" rel="stylesheet" type="text/css"/>
+      <link href="css/zz-newlook/nivo-slider.css" media="screen" rel="stylesheet" type="text/css"/>
+      <link href="css/zz-newlook/nivo-style.css" media="screen" rel="stylesheet" type="text/css"/>
+
+      <script language="javascript" src="javascripts/jquery/jquery-1.6.1.js" type="text/javascript"></script>   
+      <script language="javascript" src="javascripts/jquery/jquery.nivo.slider.pack.js" type="text/javascript"></script>   
+      <script type="text/javascript">
+   /*<![CDATA[*//*---->*/
+   jQuery.noConflict();         
+   jQuery(window).load(function() {
+      jQuery('#slider').nivoSlider({
+         effect: 'fade',
+         pauseOnHover: false,
+         directionNav: false,
+         controlNavThumbs: true,
+         animSpeed: 600,
+         pauseTime: 6000 
+      });
+     
+      jQuery('.news_date').each( function(index) {
+         d = new Date (jQuery(this).text());
+         jQuery(this).text(d.getMonth()+1+'/'+d.getDate()+'/'+d.getFullYear().toString().slice(2));
+      });
+               
+      var df = new Array();
+      jQuery('.featured_item').each( function(index) {
+         df[index] = jQuery(this).height();
+      });
+      
+      var dh = new Array();
+      dh[0] = jQuery('#leftnavbox').height() + 12;
+ dh[1] = jQuery('#news_list').height() + 458;
+ dh[2] = window.innerHeight - 290;
+      dh[2] = Math.max.apply( Math, df ) + 458;
+      
+      var mh = Math.max.apply( Math, dh );
+      
+ var th = new Array();
+ th[0] = mh;
+ th[1] = window.innerHeight - 290;
+ 
+ var wh = Math.max.apply( Math, th );	    	    
+
+ jQuery('#content').css('height', wh);
+ jQuery('#news_list').css('height', mh - 458);
+ jQuery('#featured_list').css('height', mh - 458);
+      jQuery('#footer').css('top', '10px');
+   });
+   /*--*//*]]>*/
+</script>
+      <script language="javascript" src="javascripts/tynt.js" type="text/javascript" xml:space="preserve"></script>
+   </head>
+   <body>
+      <div id="body">
+         
+
+         <div id="header">
+            <div id="header_search">
+<div class="content_width">
+   <!-- Search Form -->
+<div id="search">
+<form action="/search" id="searchform">
+      <input name="cx" type="hidden" value="013791019031236243658:unfexf8ce64"/>
+      <input name="cof" type="hidden" value="FORID:11"/>
+      <input name="ie" type="hidden" value="UTF-8"/>
+      <input class="searchbox" name="q" onclick="this.select();" onfocus="this.select();" title="Search" type="text" value="Search"/>
+      <input class="searchbox_submit" src="images/zz-newlook/search_btn.png" type="image"/>
+      </form>
+   </div>
+<script src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript"></script>
+<!-- Search Nav -->
+  
+<ul>
+<li><a href="azindex.html">A&#8211;Z Index</a> |</li>
+<li><a href="contact-us/index.html">Contact Us</a> |</li>
+<li><a href="academics/library/index.html">Library</a></li>
+</ul>
+</div>
+</div>
+<div id="header_title">
+<div class="content_width">
+<div id="header_logo">
+   <a href="index.html"><img alt="AU Logo" src="images/zz-newlook/aulogo.png"/></a>
+</div>
+<div id="header_text">
+   <a href="index.html"><img alt="AU Logo" src="images/zz-newlook/autext.png"/></a>
+</div>
+</div>
+</div>
+            <div id="header_nav">
+<div class="content_width">
+<div id="hnav_block">
+<a href="about/index.html">
+<span class="hnav_button" id="about_us" style="display: block;">About Us</span>
+</a><a href="admission/index.html">
+<span class="hnav_button" id="admission" style="display: block;">Admission</span>
+</a>
+<a href="academics/index.html">
+<span class="hnav_button" id="academics" style="display: block;">Academics</span>
+</a>
+<a href="student-life/index.html">
+<span class="hnav_button" id="student_life" style="display: block;">Student Life</span>
+</a>
+<a href="athletics/index.html">
+<span class="hnav_button" id="athletics" style="display: block;">Athletics</span>
+</a>
+<a href="http://www.aurora.edu/calendar/main.php?calendarid=default&amp;view=upcoming">
+<span class="hnav_button" id="calendar" style="display: block;">Calendar</span>
+</a>
+</div>
+</div>
+</div>
+         </div>
+         <div id="content">
+            <div id="left_col">
+               <div id="leftnavbox">
+<div class="lnav_a">
+<div class="lnav_button_2">      
+   <a href="admission/more-information.html">
+      <img alt="Request Info" height="38" src="images/zz-newlook/btn_info.png" width="184"/>
+   </a>
+</div>
+<div class="lnav_button_2">
+   <a href="about/visit/index.html">
+      <img alt="Visit" height="38" src="images/zz-newlook/btn_visit.png" width="184"/>
+   </a>
+</div>
+<div class="lnav_button_2">
+   <a href="admission/apply/index.html">   
+      <img alt="Apply" height="38" src="images/zz-newlook/btn_apply.png" width="184"/>
+   </a>
+</div>
+<div class="lnav_button_2">
+   <a href="alumni/support-au/index.html">
+      <img alt="Gift" height="38" src="images/zz-newlook/btn_gift.png" width="184"/>
+   </a>
+</div>
+</div>
+<div class="lnav_b">
+<div class="lnav_button_3">
+   <a href="gwc/index.html">
+      <img alt="George Williams College" height="38" src="images/zz-newlook/btn_gwc.png" width="184"/>
+   </a>
+</div>
+<div class="lnav_button_3">
+   <a href="woodstock/index.html">
+      <img alt="Woodstock Center" height="38" src="images/zz-newlook/btn_wsc.png" width="184"/>
+   </a>
+</div>
+<div class="lnav_button_3">
+   <a href="academics/special-programs/au-global/index.html">
+      <img alt="AU Global" height="38" src="images/zz-newlook/btn_aug.png" width="184"/>
+   </a>
+</div>
+</div>
+<div class="lnav_b">
+<div class="lnav_title"><img alt="Who are you?" height="38" src="images/zz-newlook/txt_who.png" width="184"/></div>
+<a href="prospective/index.html">
+<div class="lnav_button">
+<div class="lnav_text">Prospective Student</div>
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+      <a href="current-students/index.html">
+<div class="lnav_button">
+<div class="lnav_text">Current Student</div>
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+      <a href="parents/index.html">
+<div class="lnav_button">Parent
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+      <a href="alumni/index.html">
+<div class="lnav_button">
+<div class="lnav_text">Alumni</div>
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+      <a href="visitors/index.html">
+<div class="lnav_button">
+<div class="lnav_text">Visitor</div>
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+      <a href="facstaff/index.html">
+<div class="lnav_button">
+<div class="lnav_text">Faculty and Staff</div>
+<div class="lnav_arrow">&#187;</div>
+</div>
+</a>
+   </div>
+</div>
+            </div>
+            <div id="main_col">
+               <div id="image_sec">
+                  
+<div id="slider-wrapper theme-default controlnav-thumbs">
+<div class="nivoSlider" id="slider">
+      <a href="admission/open-houses/index.html">
+         <img height="398" rel="" src="images/zz-newlook/slider/visit.jpg" width="657"/>
+   </a>
+      <a href="commencement/index.html">
+         <img height="398" rel="" src="images/zz-newlook/slider/commence.jpg" width="657"/>
+   </a>
+      <a href="admission/undergraduate/experience.html">
+         <img height="398" rel="" src="images/zz-newlook/slider/welcoming.jpg" width="657"/>
+   </a>
+      <a href="academics/resources/crouse-center/first-year-program/au4u.html">
+         <img height="398" rel="" src="images/zz-newlook/slider/au4u.jpg" width="657"/>
+   </a>
+</div>
+</div>
+               </div>
+               <div id="news_sec">            
+                  
+<div id="news">
+   <div id="news_head">
+      <div class="news_label"><img alt="News" border="0" src="images/zz-newlook/txt_news.png"/></div>
+      <div class="news_links">
+         <a class="news_icon" href="http://www.facebook.com/aurorauniversity" target="blank" title="Facebook"><img alt="Like Us on Facebook" border="0" height="18" src="images/index-slider/icon_facebook.gif" width="18"/></a>
+         <a class="news_icon" href="http://twitter.com/aurorau" target="blank" title="Twitter"><img border="0" height="18" name="Follow Us on Twitter" src="images/index-slider/icon_twitter.gif" width="18"/></a>
+         <a class="news_icon" href="https://plus.google.com/106809982392868251287/?prsrc=3" target="blank" title="Google Plus"><img border="0" height="18" src="https://ssl.gstatic.com/images/icons/gplus-32.png" width="18"/></a>
+         <a class="news_icon" href="http://www.youtube.com/aurorauniversity" target="blank" title="YouTube"><img alt="View Us on YouTube" border="0" height="18" src="images/index-slider/icon_youtube.gif" width="18"/></a>
+      </div>
+   </div>
+   <div id="news_list">
+
+  <div class="news_date">
+    5/3/12  </div>
+  <div class="news_item">
+    <a href="http://news.aurora.edu/commencement-2012-woodstock-mba-program-offered-au-alumnus-reason-to-come-back/?utm_source=rss&utm_medium=rss&utm_campaign=commencement-2012-woodstock-mba-program-offered-au-alumnus-reason-to-come-back">Commencement 2012: Woodstock MBA program offered AU alumna reason to come back</a>
+  </div>  
+ 
+
+  <div class="news_date">
+    5/2/12  </div>
+  <div class="news_item">
+    <a href="http://news.aurora.edu/commencement-2012-getting-involved-shaped-sense-of-purpose-for-au-lincoln-laureate/?utm_source=rss&utm_medium=rss&utm_campaign=commencement-2012-getting-involved-shaped-sense-of-purpose-for-au-lincoln-laureate">Commencement 2012: Getting involved shaped sense of purpose for AU Lincoln Laureate</a>
+  </div>  
+ 
+
+  <div class="news_date">
+    5/2/12  </div>
+  <div class="news_item">
+    <a href="http://news.aurora.edu/first-ever-speech-night-lays-groundwork-for-formal-debate-team/?utm_source=rss&utm_medium=rss&utm_campaign=first-ever-speech-night-lays-groundwork-for-formal-debate-team">First-ever Speech Night lays groundwork for formal Spartan debate team</a>
+  </div>  
+ 
+
+  <div class="news_date">
+    5/1/12  </div>
+  <div class="news_item">
+    <a href="http://news.aurora.edu/commencement-2012-parks-and-recreation-graduate-will-carry-on-gwc-legacy-at-summer-camp/?utm_source=rss&utm_medium=rss&utm_campaign=commencement-2012-parks-and-recreation-graduate-will-carry-on-gwc-legacy-at-summer-camp">Commencement 2012: Parks and recreation graduate will carry on GWC legacy at summer camp</a>
+  </div>  
+ 
+
+   <div class="more">
+      <a href="http://news.aurora.edu/">
+         <div class="arrow">»</div>
+         <div class="more_text">More</div>
+      </a>
+   </div>
+</div>
+
+</div>
+               </div>
+               <div id="featured_sec">
+  <div id="featured_head">
+    <div class="featured_label"><img alt="Featured" border="0" src="images/zz-newlook/txt_featured.png"/></div>
+  </div>
+  <div id="featured_list">
+            
+                
+                          
+                         
+        <div class="featured_item">
+                   <div class="featured_image">
+                         <a href="academics/special-programs/honors/overview.html"><img src="images/home-announcements/honors-feature.jpg"/></a>
+                      </div>
+                          <div class="featured_headline">         
+                      <a class="featured_headline" href="academics/special-programs/honors/overview.html">Honors Program</a>
+                    </div>          
+                
+        <div class="featured_content">             
+           <announcement-content><p>The Honors Program is designed to broaden your perspectives beyond 
+academics through a close-knit community immersed in learning and 
+service.</p></announcement-content>
+        </div>
+        
+        <div class="more">          
+                  <a href="academics/special-programs/honors/overview.html"><div class="arrow">»</div><div class="more_text">More</div></a>
+                </div>
+        </div>        
+                  
+                
+                          
+                         
+        <div class="featured_item">
+                   <div class="featured_image">
+                         <a href="academics/programs-majors/undergraduate/music/index.html"><img src="images/home-announcements/music-feature.jpg"/></a>
+                      </div>
+                          <div class="featured_headline">         
+                      <a class="featured_headline" href="academics/programs-majors/undergraduate/music/index.html">Featured program: Music</a>
+                    </div>          
+                
+        <div class="featured_content">             
+           <announcement-content><p>AU choirs and instrumental ensembles, open to students of any major, 
+offer opportunities to perform for audiences large and small throughout 
+the year.</p></announcement-content>
+        </div>
+        
+        <div class="more">          
+                  <a href="academics/programs-majors/undergraduate/music/index.html"><div class="arrow">»</div><div class="more_text">More</div></a>
+                </div>
+        </div>        
+            </div>
+</div>
+            </div>
+         </div>
+         <div id="footer">
+            <div class="content_width">
+<div id="footerbox">
+<div id="footerlogo"><img alt="AU Logo" height="46" src="images/zz-newlook/aulogo_sm.png" width="44"/></div>
+<div class="fcol">
+         &#169;
+<script type="text/javascript">var d=new Date(); document.write(d.getFullYear());</script>
+<a href="index.html">Aurora University</a><br/>
+         347 S. Gladstone Ave.<br/>
+         Aurora, Illinois<br/>
+         60506-4892<br/>
+         800-742-5281<br/>
+         630-892-6431</div>
+<div class="fcol">
+         Visit our other locations:
+<p>
+         <a href="gwc/index.html">George Williams College</a><br/>
+         <a href="woodstock/index.html">Woodstock Center</a>
+         </p>
+</div>
+<div class="fcolspacer">
+         &#160;
+</div>
+<div class="fcol">
+         <a href="azindex.html">A-Z Index</a><br/>
+         <a href="admission/apply/index.html">Apply</a><br/>
+         <a href="http://aurora.learninghouse.com/">AU Online</a><br/>
+         <a href="bookstore/index.html">Bookstore</a><br/>
+         <a href="http://www.aurora.edu/calendar/main.php?calendarid=default&amp;view=upcoming">Calendar</a><br/>
+         <a href="http://www.aurora.edu/classes/">Class Schedule</a>         
+</div>
+<div class="fcol">
+			<a href="contact-us/index.html">Contact Us</a><br/>
+			<a href="http://www.aurora.edu/dir/staffdir.htm">Directory</a><br/>
+         <a href="http://www.aurora.edu/student-life/resources/its/auwebmail.html">Email</a><br/>
+         <a href="hr/jobs/index.html">Employment</a><br/>
+         <a href="admission/financialaid/index.html">Financial Aid</a><br/>
+         <a href="alumni/support-au/index.html">Give</a>
+         
+</div>
+<div class="fcol">
+			<a href="https://www.aurora.edu/au/">Intranet</a><br/>
+			<a href="student-life/resources/its/index.html">ITS</a><br/>
+         <a href="academics/library/index.html">Library</a><br/>
+         <a href="about/maps-directions/index.html">Maps</a><br/>
+         <a href="http://moodle.aurora.edu/moodle/">Moodle</a><br/>
+         <a href="https://wa3.aurora.edu/WebAdvisor/WebAdvisor">WebAdvisor</a>
+</div>
+<div class="fcol">
+         Stay Connected:
+<div class="flinks">          
+          <a href="http://www.facebook.com/aurorauniversity" target="_blank" title="Facebook"><img alt="Like Us on Facebook" border="0" height="18" src="images/index-slider/icon_facebook.gif" width="18"/></a>
+          <a href="http://twitter.com/aurorau" target="_blank" title="Twitter"><img border="0" height="18" name="Follow Us on Twitter" src="images/index-slider/icon_twitter.gif" width="18"/></a>
+          <a href="https://plus.google.com/106809982392868251287/?prsrc=3" target="_blank" title="Google Plus"><img border="0" height="18" src="https://ssl.gstatic.com/images/icons/gplus-32.png" width="18"/></a>
+          <a href="http://www.youtube.com/aurorauniversity" target="_blank" title="YouTube"><img alt="View Us on YouTube" border="0" height="18" src="images/index-slider/icon_youtube.gif" width="18"/></a>
+</div>
+</div>
+</div>
+</div>
+         </div>
+      </div>
+   
+      <script type="text/javascript">
+         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+         try {
+            var pageTracker = _gat._getTracker("UA-6699251-1");
+            pageTracker._trackPageview();
+         } catch(err) {}
+      </script>
+      <script type="text/javascript">
+         function recordOutboundLink(link, category, action) {
+            try {
+               var pageTracker=_gat._getTracker("UA-6699251-1");
+               pageTracker._trackEvent(category, action);
+               setTimeout('document.location = "' + link.href + '"', 100)
+            }catch(err){}
+         }
+      </script>
+      
+<!-- Begin: 4q.iperceptions.com -->
+<script defer="defer" src="http://4qinvite.4q.iperceptions.com/1.aspx?sdfc=405cadef-40081-cea5d19f-9946-4a3f-a143-41901960f93a&amp;lID=1&amp;loc=4Q-WEB2" type="text/javascript"></script>
+<!-- End: 4q.iperceptions.com -->
+
+   </body>
+</html>

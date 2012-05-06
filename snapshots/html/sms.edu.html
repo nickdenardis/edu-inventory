@@ -1,0 +1,1163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head><meta http-equiv="content-type" content="text/html; charset=iso-8859-1" /><title>
+	Saint Mary's School
+</title>
+<meta name="keywords" content=" " />
+<meta name="description" content=" " />
+
+<!-- SCRIPTING -->
+<script type="text/javascript" language="JavaScript" src="/js/ss_urchin-c.js"></script>
+<script type="text/javascript" language="JavaScript" src="/js/si_behaviors-c.js"></script>
+<script type="text/javascript" language="JavaScript" src="/js/si_onload.js"></script>
+<script type="text/javascript" language="JavaScript" src="/_infrastructure/JavaScript/jQuery.js"></script>
+<script type="text/javascript" language="JavaScript" src="/js/jquery_onload.js"></script>
+<script type="text/javascript" language="JavaScript">
+// <![CDATA[
+favicon = new Image();
+favicon.src="/images/favicon.ico"; 
+// ]]>
+</script>
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<!-- / SCRIPTING -->
+
+<!-- STYLES -->
+<link href="/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<link href="/css/base.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/news.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/calendar.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/gallery.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/academics.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/athletics.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/directory.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/notes.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="/css/module/resource.css" rel="stylesheet" type="text/css" media="screen" />
+
+<link href="/css/home.css" rel="stylesheet" type="text/css" media="screen" />
+
+<style type="text/css" media="screen">
+/* <![CDATA[ */
+/*\*//*/@import "/css/filter/iemac.css";/**/
+/* ]]> */
+</style>
+<!--[if lt IE 7]><link href="/css/filter/iepc.css" rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 7]><link href="/css/filter/ie7.css" rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!--[if IE 8]><link href="/css/filter/ie8.css" rel="stylesheet" type="text/css" media="screen" /><![endif]-->
+<!-- / STYLES -->
+		
+		<script type="text/javascript" src="/_infrastructure/javascript/swfobject.js"></script>
+        <script type="text/javascript" src="/js/jquery.jcarousel.min.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery.group.min.js"></script>
+        <script type="text/javascript" language="javascript" src="/_Infrastructure/JavaScript/jquery.cycle.pack.js"></script>
+        <script type="text/javascript" language="javascript" src="/_infrastructure/JavaScript/jquery.idTabs.min.js"></script>
+        <script type="text/javascript">
+$(document).ready(function() {
+//this is for the button carousel
+	$('#sc-buttons ul').jcarousel({
+        vertical: true,
+		wrap: 'circular',
+		visible: 4,
+		scroll: 4,
+	});
+	
+//this is so the buttons in the carousel open in the same window
+ 	$('.buttons .thumb a').each(function(){
+		$(this).removeAttr('target');
+	});
+		
+//this is for the slideshow				
+	$('#homeslides ul')
+		.cycle({ 
+			fx: 'fade', 
+			speed: 800, 
+			timeout: 7000,
+			pager: '#cycle-pager',
+			prev: '#cycle-prev',
+			next: '#cycle-next'
+		});
+//calendar day output
+//this is so each event gets its own day
+    $('.homepage-events dl dd').each(function () {
+        if($(this).prev().get(0).nodeName != 'DT') {
+            var $date_dt = $(this).closest('dl').find('dt:first').clone();
+            $(this).before($date_dt);
+        }
+    });			
+    $('dl.calendar-day dt')
+        .unwrap()
+        .each(function () {
+            $(this)
+                .add($(this).next())
+            .wrapAll('<dl class="calendar-day"></dl>');
+        });
+		
+	$('dl.calendar-day').group(3, true);
+    $('dl.calendar-day dd').attr('class','');
+
+	// news
+	$('div.news-list.cycle ul') 
+		.after('<span id="cycle-nav">\
+					<span id="cycle-pager2" class="alt" />\
+				</span>') 
+		.find('li')
+			.group(2)
+			.parent()
+				.cycle({ 
+					fx: 'scrollHorz', 
+					speed: 1500, 
+					timeout: 0,
+					pager: '#cycle-pager2'
+				});
+		
+	$('span#cycle-control a:first').live('click', function () {
+		if($(this).hasClass('paused')) {
+			$(this).removeClass('paused');
+			$('div.news-list.cycle ul').cycle('resume');
+			return false;
+		} else {
+			$(this).addClass('paused')
+			$('div.news-list.cycle ul').cycle('pause');
+			return false;
+		}
+	});
+	
+	$('#cycle-prev, #cycle-next').click(function () {
+			return false;
+	});	
+
+});
+
+		
+		</script>
+        <link rel="stylesheet" type="text/css" href="/css/carousel.css" />
+	<style type="text/css">
+	.ctl00_UCHeader_Menu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_UCHeader_Menu1_1 { text-decoration:none; }
+	.ctl00_UCHeader_Menu1_2 {  }
+	.ctl00_UCHeader_ConstituentMenu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.ctl00_UCHeader_ConstituentMenu1_1 { text-decoration:none; }
+	.ctl00_UCHeader_ConstituentMenu1_2 {  }
+	.ctl00_UCFooter_CarouselMenu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+.ctl00_UCFooter_CarouselMenu1_1 { text-decoration:none; }
+.ctl00_UCFooter_CarouselMenu1_2 {  }
+.ctl00_UCFooter_UtilityMenu1_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+.ctl00_UCFooter_UtilityMenu1_1 { text-decoration:none; }
+.ctl00_UCFooter_UtilityMenu1_2 {  }
+
+</style></head>
+
+<body class="tier-2 layout-n0-p1-s1" id="home">
+
+    <div id="container">
+        <div id="inner-container">
+            
+
+			<!-- header --> 
+			<div id="header">
+				<div id="masthead">
+					<h1><a href="/index.aspx">Saint Mary's School</a></h1>
+                    <div id="socialmedia">
+						<a class="facebook" target="_blank" href="http://www.facebook.com/sms.edu">Facebook</a>
+                        <a class="twitter" target="_blank" href="https://twitter.com/#!/SaintMarysNC">Twitter</a>
+                        <a class="youtube" target="_blank" href="http://www.youtube.com/user/SMSRaleigh">YouTube</a>
+                        <a class="cmedia" target="_blank" href="http://www.smsraleigh.com/whats-new">Cast Page</a>
+                    </div>
+				</div>
+
+				<div id="nav">
+					<div class="hidden"><p><a href="#nav-sub">Skip to Section Subnavigation</a> <a href="#primary-content">Skip to Page Content</a></p></div>	
+                    
+                    
+<div class="nav" id="nav-main">
+		<ul>
+			<li class="first-child more" id="nav-li-about_sms">
+				<a id="nav-link-about_sms" href="/about_sms/index.aspx">About SMS<span class="icon"></span></a>
+				<ul>
+					<li class="first-child" id="nav-li-head_of_school">
+						<a id="nav-link-head_of_school" href="/about_sms/head_of_school/index.aspx">Head of School<span class="icon"></span></a>
+					</li>
+					<li class="more" id="nav-li-saint_marys_school_at_a_glance">
+						<a id="nav-link-saint_marys_school_at_a_glance" href="/about_sms/saint_marys_school_at_a_glance/index.aspx">Saint Mary's School at a Glance<span class="icon"></span></a>
+					</li>
+					<li class="more" id="nav-li-visitor_center">
+						<a id="nav-link-visitor_center" href="/about_sms/visitor_center/index.aspx">Visitor Center<span class="icon"></span></a>
+					</li>
+					<li id="nav-li-renting_campus_facilities">
+						<a id="nav-link-renting_campus_facilities" href="/about_sms/renting_campus_facilities/index.aspx">Renting Campus Facilities</a>
+					</li>
+					<li id="nav-li-employment_opportunities">
+						<a id="nav-link-employment_opportunities" href="/about_sms/employment_opportunities/index.aspx">Employment Opportunities</a>
+					</li>
+					<li class="last-child">
+						<a href="/about_sms/head_of_school_search/index.aspx">Head of School Search<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more" id="nav-li-admission">
+				<a id="nav-link-admission" href="/admission/index.aspx">Admission<span class="icon"></span></a>
+				<ul>
+					<li class="first-child" id="nav-li-visit_saint_marys">
+						<a id="nav-link-visit_saint_marys" href="/admission/visit_saint_marys/index.aspx">Visit Saint Mary's<span class="icon"></span></a>
+					</li>
+					<li id="nav-li-how_to_apply">
+						<a id="nav-link-how_to_apply" href="/admission/how_to_apply/index.aspx">How to Apply</a>
+					</li>
+					<li>
+						<a href="https://forms.veracross.com/SMS/Forms/Inquiry/StartNew.aspx" target="_self">Request Information</a>
+					</li>
+					<li id="nav-li-tuition_and_fees">
+						<a id="nav-link-tuition_and_fees" href="/admission/tuition_and_fees/index.aspx">Tuition and Fees</a>
+					</li>
+					<li class="more" id="nav-li-financial_aid">
+						<a id="nav-link-financial_aid" href="/admission/financial_aid/index.aspx">Financial Aid<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="/admission/just_one/index.aspx">Just One</a>
+					</li>
+					<li>
+						<a href="/admission/the_international_experience/index.aspx">The International Experience</a>
+					</li>
+					<li>
+						<a href="/admission/transportation/index.aspx">Transportation</a>
+					</li>
+					<li>
+						<a href="/academics/academic_and_college_counseling/where_are_sms_graduates/index.aspx" target="_self">Where are SMS Graduates</a>
+					</li>
+					<li class="last-child" id="nav-li-meet_the_admission_staff">
+						<a id="nav-link-meet_the_admission_staff" href="/admission/meet_the_admission_staff/index.aspx">Meet the Admission Staff<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more" id="nav-li-academics">
+				<a id="nav-link-academics" href="/academics/index.aspx">Academics<span class="icon"></span></a>
+				<ul>
+					<li class="first-child" id="nav-li-advising__map_program">
+						<a id="nav-link-advising__map_program" href="/academics/advising_map_advising_program/index.aspx">Advising - MAP Advising Program<span class="icon"></span></a>
+					</li>
+					<li class="more" id="nav-li-college_counseling">
+						<a id="nav-link-college_counseling" href="/academics/academic_and_college_counseling/index.aspx">College Counseling<span class="icon"></span></a>
+					</li>
+					<li class="more">
+						<a href="/academics/academic_departments_and_curriculum/index.aspx">Academic Departments and Curriculum<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="/academics/support_for_students_with_special_needs/index.aspx">Support for Students with Special Needs</a>
+					</li>
+					<li id="nav-li-kenan_library">
+						<a id="nav-link-kenan_library" href="/academics/kenan_library/index.aspx">Kenan Library</a>
+					</li>
+					<li class="more" id="nav-li-technology__atlas_program">
+						<a id="nav-link-technology__atlas_program" href="/academics/technology_atlas_program/index.aspx">Technology - ATLAS Program<span class="icon"></span></a>
+					</li>
+					<li class="last-child" id="nav-li-travel">
+						<a id="nav-link-travel" href="/academics/travel/index.aspx">Travel<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more" id="nav-li-athletics">
+				<a id="nav-link-athletics" href="/athletics/index.aspx" target="_self">Athletics<span class="icon"></span></a>
+				<ul>
+					<li class="first-child">
+						<a href="/athletics/teamlist.aspx" target="_self">SMS Teams<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="/athletics/scoreboards.aspx" target="_self">Scoreboards</a>
+					</li>
+					<li id="nav-li-tisacncisaa">
+						<a id="nav-link-tisacncisaa" href="/athletics/tisacncisaa/index.aspx">TISAC/NCISAA</a>
+					</li>
+					<li id="nav-li-plus">
+						<a id="nav-link-plus" href="/athletics/plus/index.aspx">PLUS</a>
+					</li>
+					<li id="nav-li-collegiate_athletes">
+						<a id="nav-link-collegiate_athletes" href="/athletics/collegiate_athletes/index.aspx">SMS Collegiate Athletes</a>
+					</li>
+					<li class="last-child">
+						<a href="/athletics/sms_saints_club/index.aspx">SMS Saints Club<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more" id="nav-li-arts">
+				<a id="nav-link-arts" href="/arts/index.aspx">Arts<span class="icon"></span></a>
+				<ul>
+					<li class="first-child">
+						<a href="/arts/chorale/index.aspx">Chorale<span class="icon"></span></a>
+					</li>
+					<li id="nav-li-dance">
+						<a id="nav-link-dance" href="/arts/dance/index.aspx">Dance</a>
+					</li>
+					<li id="nav-li-drama">
+						<a id="nav-link-drama" href="/arts/drama/index.aspx">Drama</a>
+					</li>
+					<li id="nav-li-music">
+						<a id="nav-link-music" href="/arts/music/index.aspx">Music</a>
+					</li>
+					<li id="nav-li-visual_arts">
+						<a id="nav-link-visual_arts" href="/arts/visual_arts/index.aspx">Visual Arts</a>
+					</li>
+					<li id="nav-li-smedes_parlor_concert_series">
+						<a id="nav-link-smedes_parlor_concert_series" href="/arts/smedes_parlor_concert_series/index.aspx">Smedes Parlor Concert Series</a>
+					</li>
+					<li class="last-child" id="nav-li-community_music_program">
+						<a id="nav-link-community_music_program" href="/arts/community_music_program/index.aspx">Community Music Program<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li id="nav-li-news">
+				<a id="nav-link-news" href="/news/index.aspx" target="_self">News</a>
+			</li>
+			<li class="more" id="nav-li-life_at_saint_marys">
+				<a id="nav-link-life_at_saint_marys" href="/life_at_saint_marys/index.aspx">Life at Saint Mary's<span class="icon"></span></a>
+				<ul>
+					<li class="first-child" id="nav-li-chapel_program">
+						<a id="nav-link-chapel_program" href="/life_at_saint_marys/chapel_program/index.aspx">Chapel Program<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="/life_at_saint_marys/leadership_opportunities/index.aspx">Leadership Opportunities</a>
+					</li>
+					<li id="nav-li-clubs_and_organizations">
+						<a id="nav-link-clubs_and_organizations" href="/life_at_saint_marys/clubs_and_organizations/index.aspx">Clubs and Organizations</a>
+					</li>
+					<li id="nav-li-community_service">
+						<a id="nav-link-community_service" href="/life_at_saint_marys/community_service/index.aspx">Community Service</a>
+					</li>
+					<li id="nav-li-dining_hall">
+						<a id="nav-link-dining_hall" href="/life_at_saint_marys/dining_hall/index.aspx">Dining Hall</a>
+					</li>
+					<li>
+						<a href="/life_at_saint_marys/health_and_wellness/index.aspx">Health and Wellness</a>
+					</li>
+					<li id="nav-li-honorcode">
+						<a id="nav-link-honorcode" href="/life_at_saint_marys/honorcode/index.aspx">Honor Code</a>
+					</li>
+					<li id="nav-li-life_skills__compass_program">
+						<a id="nav-link-life_skills__compass_program" href="/life_at_saint_marys/life_skills_compass_program/index.aspx">Life Skills -  COMPASS Program</a>
+					</li>
+					<li id="nav-li-residential_life">
+						<a id="nav-link-residential_life" href="/life_at_saint_marys/residential_life/index.aspx">Residential Life</a>
+					</li>
+					<li class="last-child">
+						<a href="/life_at_saint_marys/campus_safety/index.aspx">Campus Safety<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="last-child more" id="nav-li-support_sms">
+				<a id="nav-link-support_sms" href="/support_sms/index.aspx">Support SMS<span class="icon"></span></a>
+				<ul>
+					<li class="first-child">
+						<a href="/support_sms/auction_2012/index.aspx">Auction 2012<span class="icon"></span></a>
+					</li>
+					<li id="nav-li-annual_fund">
+						<a id="nav-link-annual_fund" href="/support_sms/annual_fund/index.aspx">Annual Fund</a>
+					</li>
+					<li class="more" id="nav-li-beyond_imagination_capital_campaign">
+						<a id="nav-link-beyond_imagination_capital_campaign" href="/support_sms/beyond_imagination_capital_campaign/index.aspx">Beyond Imagination Capital Campaign<span class="icon"></span></a>
+					</li>
+					<li id="nav-li-ways_of_giving">
+						<a id="nav-link-ways_of_giving" href="/support_sms/ways_of_giving/index.aspx">Ways of Giving</a>
+					</li>
+					<li id="nav-li-planned_giving">
+						<a id="nav-link-planned_giving" href="/support_sms/planned_giving/index.aspx">Planned Giving</a>
+					</li>
+					<li id="nav-li-meet_the_development_staff">
+						<a id="nav-link-meet_the_development_staff" href="/support_sms/meet_the_development_staff/index.aspx">Meet the Development Staff</a>
+					</li>
+					<li>
+						<a href="/support_sms/give-online.aspx" target="_self">Make Your Gift Online</a>
+					</li>
+					<li class="last-child">
+						<a href="http://www.sms.edu/quicklinks/order_a_heritage_walk_brick/index.aspx" target="_self">Order a Heritage Walk Brick<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+</div>
+                    
+                    
+<div class="nav" id="nav-const">
+		<ul>
+			<li class="first-child more" id="nav-li-alumnae">
+				<a id="nav-link-alumnae" href="/alumnae/index.aspx">Alumnae<span class="icon"></span></a>
+				<ul>
+					<li class="first-child">
+						<a href="/forms/dynamic.aspx?action=ShowForm&amp;FormId=15" target="_self">Update My Information<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="/alumnae/alumnae_awards/index.aspx">Alumnae Awards</a>
+					</li>
+					<li>
+						<a href="/alumnae/alumnae_association/index.aspx">Alumnae Association</a>
+					</li>
+					<li>
+						<a href="/alumnae/class_secretaries/index.aspx">Class Secretaries</a>
+					</li>
+					<li>
+						<a href="/support_sms/index.aspx" target="_self">Give to Saint Mary's</a>
+					</li>
+					<li>
+						<a href="/alumnae/granddaughters_club/index.aspx">Granddaughters Club</a>
+					</li>
+					<li>
+						<a href="http://www.sms.edu/about_sms/head_of_school_search/index.aspx" target="_self">Head of School Search</a>
+					</li>
+					<li>
+						<a href="https://identitystores.com/Stores/StoreFront.aspx?StoreId=2225" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Online School Store</a>
+					</li>
+					<li>
+						<a href="/quicklinks/order_a_heritage_walk_brick/index.aspx" target="_self">Order A Heritage Walk Brick</a>
+					</li>
+					<li>
+						<a href="/alumnae/photo_galleries/index.aspx">Photo Galleries</a>
+					</li>
+					<li>
+						<a href="/quicklinks/reunion_weekend/index.aspx" target="_self">Reunion Weekend</a>
+					</li>
+					<li>
+						<a href="/quicklinks/back_to_school_2009/index.aspx" target="_self">Request a Transcript</a>
+					</li>
+					<li class="last-child">
+						<a href="/alumnae/weddings_and_facility_rentals/index.aspx">Weddings and Facility Rentals<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more lock" id="nav-li-faculty_and_staff">
+				<a id="nav-link-faculty_and_staff" href="/facultyandstaff/index.aspx" target="_self">Faculty and Staff<span class="icon"></span></a>
+				<ul>
+					<li class="first-child lock" id="nav-li-curriculum">
+						<a id="nav-link-curriculum" href="/facultyandstaff/curriculum.aspx" target="_self">Curriculum<span class="icon"></span></a>
+					</li>
+					<li class="lock" id="nav-li-directory">
+						<a id="nav-link-directory" href="/facultyandstaff/directory.aspx" target="_self">Directory<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/facultyandstaff/forms_downloads/index.aspx">Forms & Downloads<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://mail2010.sms.edu/owa" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Web Mail<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/login/veracross.aspx" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Veracross<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://succeed.naviance.com/signin.php" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Naviance<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/students/kenan_library_research_page/index.aspx" target="_self">Kenan Library Research Page<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="http://www.myschoolbuilding.com" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Maintenance Requests<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/parents/parent_resource_room/index.aspx" target="_self">Parent Resource Room<span class="icon"></span></a>
+					</li>
+					<li class="last-child lock">
+						<a href="http://www.sms.edu/parents/tutoring_services/index.aspx" target="_self">Tutoring Services<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more lock" id="nav-li-parents">
+				<a id="nav-link-parents" href="/parents/index.aspx" target="_self">Parents<span class="icon"></span></a>
+				<ul>
+					<li class="first-child lock" id="nav-li-curriculum">
+						<a id="nav-link-curriculum" href="/parents/curriculum.aspx" target="_self">Curriculum<span class="icon"></span></a>
+					</li>
+					<li class="lock" id="nav-li-directory">
+						<a id="nav-link-directory" href="/parents/directory.aspx" target="_self">Directory<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/login/veracross.aspx" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Veracross<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://connection.naviance.com/fc/signin.php?hsid=saint-marys" target="_self">Log in to Naviance<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://secure.magnushealthportal.com/?utm_source=nav&amp;utm_medium=web&amp;utm_campaign=ref" target="_self">Log in to Magnus Health<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/parents/parent_resource_room/index.aspx">Parent Resource Room<span class="icon"></span></a>
+					</li>
+					<li class="last-child more lock">
+						<a href="/parents/tutoring_services/index.aspx">Tutoring Services<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="more lock" id="nav-li-students">
+				<a id="nav-link-students" href="/students/index.aspx" target="_self">Students<span class="icon"></span></a>
+				<ul>
+					<li class="first-child lock" id="nav-li-curriculum">
+						<a id="nav-link-curriculum" href="/students/curriculum.aspx" target="_self">Curriculum<span class="icon"></span></a>
+					</li>
+					<li class="lock" id="nav-li-directory">
+						<a id="nav-link-directory" href="/students/directory.aspx" target="_self">Directory<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/students/forms_downloads/index.aspx">Forms & Downloads<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://mail2010.sms.edu/owa" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Web Mail<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/login/veracross.aspx" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Veracross<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="https://connection.naviance.com/fc/signin.php?hsid=saint-marys" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Log in to Naviance<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="/students/kenan_library_research_page/index.aspx">Kenan Library Research Page<span class="icon"></span></a>
+					</li>
+					<li class="lock">
+						<a href="http://www.sms.edu/parents/tutoring_services/index.aspx" target="_self">Tutoring Services<span class="icon"></span></a>
+					</li>
+					<li class="last-child lock">
+						<a href="https://forms.veracross.com/SMS/forms/WeekendPermission/StartNew.aspx" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Weekend Form<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+			<li class="last-child more" id="nav-li-quicklinks">
+				<a id="nav-link-quicklinks" href="/quicklinks/index.aspx" target="_self">Quicklinks<span class="icon"></span></a>
+				<ul>
+					<li class="first-child">
+						<a href="/data/files/gallery/ParentFileGallery/032312_Academic_Calendar_201213.pdf" target="_self">Academic Calendar 2012-13<span class="icon"></span></a>
+					</li>
+					<li>
+						<a href="https://identitystores.com/Stores/StoreFront.aspx?StoreId=2225" onclick="window.open(this.href, '_blank', ''); return false;" onkeypress="window.open(this.href, '_blank', ''); return false;">Online School Store</a>
+					</li>
+					<li>
+						<a href="http://www.sms.edu/summer_programs/index.aspx" target="_self">Summer Programs</a>
+					</li>
+					<li>
+						<a href="http://forms.veracross.com/SMS/Forms/Inquiry/StartNew.aspx" target="_self">Request Information</a>
+					</li>
+					<li>
+						<a href="/quicklinks/reunion_weekend/index.aspx">Reunion Weekend 2012</a>
+					</li>
+					<li>
+						<a href="/about_sms/employment_opportunities/index.aspx" target="_self">Employment Opportunities</a>
+					</li>
+					<li>
+						<a href="/about_sms/visitor_center/directions_to_sms/index.aspx" target="_self">Directions to SMS</a>
+					</li>
+					<li>
+						<a href="/quicklinks/back_to_school_2009/index.aspx">Request a Transcript</a>
+					</li>
+					<li>
+						<a href="/quicklinks/order_a_heritage_walk_brick/index.aspx">Order A Heritage Walk Brick</a>
+					</li>
+					<li class="lock">
+						<a href="/quicklinks/board_meeting_documents/index.aspx">Board Meeting Documents<span class="icon"></span></a>
+					</li>
+					<li class="last-child">
+						<a href="/quicklinks/business_directory/index.aspx">Business Directory<span class="icon"></span></a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+
+</div>
+					<form name="aspnetForm" method="post" action="/" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJLTM1MTc3NTE4ZGSVzbdCHWj/iXNARr5B+wBcyHRSZ9pawQRMsiahDeTK5Q==" />
+</div>
+
+
+<script src="/schoolsuite/js/CSSFriendlyAdapters/AdapterUtils.js" type="text/javascript"></script>
+<script src="/schoolsuite/js/CSSFriendlyAdapters/MenuAdapter.js" type="text/javascript"></script>
+						
+<div class="search">	
+	<input type="hidden" id="cx" value="004242876363109749694:xhpysvvukt8" />
+	<div>
+	    <input type="text" id="q" class="input" value="" />
+	    <input type="image" id="searchButton" title="Search" src="/images/common/search-button.gif" alt="Search" class="submit" onclick="return false;" />
+	</div>
+    <input type="hidden" id="cof" value="FORID:11" />
+</div>
+					
+
+<script type="text/javascript">
+//<![CDATA[
+
+
+                $(function(){
+                    $('input#searchButton').click(function() {
+                        var q = escape($('#q').val());
+                        var cx = escape($('#cx').val());
+                        var cof = escape($('#cof').val());
+
+                        window.location = '/search/index.aspx?q=' + q + '&cx=' + cx + '&cof=' + cof;
+                    });
+
+                    function doSearch(event){
+                      if(event.keyCode == 13){
+                        $('input#searchButton').click();
+                        return false;
+                      }
+                    }
+
+                    $('input#q').keydown(doSearch);
+                });//]]>
+</script>
+</form>
+				</div>
+				<h2 class="section-header"></h2>
+			</div>
+			<!-- //header -->
+			<!-- page content -->
+			<div id="content" class="content clearfix">
+				<div class="hidden"><p><a href="#primary-content">Skip to Page Content</a></p></div>
+				<div id="tertiary-content" class="tc">
+					<div id="nav-sub" class="nav">
+						
+						
+						<h2 class="section"><a href="//index.aspx"></a></h2>
+						
+						
+						
+						
+						
+				        
+
+				        
+				        
+
+				        
+				        
+
+						
+						                    
+						
+						
+						
+						
+						
+						
+
+				    </div>
+					
+					
+				</div>
+
+
+            <div id="primary-content" class="pc">
+                    
+    
+        
+        <div id="homeslides">
+<ul class="file-group">
+
+<li class="first-child"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../11.jpg" alt=""  />
+</li>
+<li class="alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../10.jpg" alt=""  />
+</li>
+<li><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../09.jpg" alt=""  />
+</li>
+<li class="alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../08.jpg" alt=""  />
+</li>
+<li><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../07.jpg" alt=""  />
+</li>
+<li class="alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../06.jpg" alt=""  />
+</li>
+<li><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../05.jpg" alt=""  />
+</li>
+<li class="alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../04.jpg" alt=""  />
+</li>
+<li><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../03.jpg" alt=""  />
+</li>
+<li class="alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../02.jpg" alt=""  />
+</li>
+<li><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../01.jpg" alt=""  />
+</li>
+<li class="last-child alt"><img src="/data/files/gallery/HomepageSlideshowGallery/thumb/../12.jpg" alt=""  />
+</li>
+
+
+</ul>
+</div>
+
+    	
+	
+            </div>
+            <div id="secondary-content" class="sc">
+                
+        <div class="columns">
+            <div class="col1" id="sc-buttons">
+                
+                <div class="module news-list buttons jcarousel-skin-tango">
+<ul class="news">
+<li class="first-child">
+
+				<div class="thumb"><a href="https://forms.veracross.com/SMS/Forms/Application/StartNew.aspx" target="_blank"><img src="/data/files/news/HomepageButtonsNews/thumb/../btnapply.jpg" alt="btnapply.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/interactive/index.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../buttonexperience.jpg" alt="buttonexperience.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/support_sms/give-online.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../btngift.jpg" alt="btngift.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/about_sms/visitor_center/virtual_campus_tour/index.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../btntour.jpg" alt="btntour.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/blog/index.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../btnblog.jpg" alt="btnblog.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/summer_programs/index.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../btnsummer.jpg" alt="btnsummer.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/quicklinks/business_directory/index.aspx"><img src="/data/files/news/HomepageButtonsNews/thumb/../btnbusinessdirectory.jpg" alt="btnbusinessdirectory.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+<li class="last-child alt">
+
+				<div class="thumb"><a href="https://identitystores.com/Stores/StoreFront.aspx?StoreId=2225" target="_blank"><img src="/data/files/news/HomepageButtonsNews/thumb/../btnstore.jpg" alt="btnstore.jpg"  border="0" /></a></div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</li>
+</ul>
+</div>
+
+            </div>
+            <div class="col2">
+                <div class="tab-row">
+                    <ul class="idTabs">
+                        <li class="News"><a href="#tabA">School News</a></li>
+                        <li class="Events"><a href="#tabB">Upcoming Events</a></li>
+                    </ul>
+                </div>
+                    <div id="tabA">
+                        
+                        <div class="module news-list cycle">
+<ul class="news">
+<li class="first-child">
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1519&amp;ModuleID=38&amp;"><img src="/data/files/news/SchoolNews/thumb/tn-NHD_April_2012_Rachel.jpg" alt="Rachel Schwitzgebel '14"  width="70" height="46" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1519&amp;ModuleID=38&amp;&amp;NEWSPID=1">Students place second and third in National History Day state competition</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	Rachel Schwitzgebel &#39;14 placed second in the National History Day state competition, held on Saturday, April 28, for her historical paper, &ldquo;The Revolution Against Galenistic Beliefs and Theories: William Harvey&rsquo;s Circulatory System Research.&rdquo; She will advance to compete in the national contest at the University of Maryland from June 11-14. Mary Stuart Fountain &#39;14 placed third in the state contest.
+</p>
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1518&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-120502_Celebration_of_the_Arts_0018_sm.jpg" alt="Ira David Wood III"  width="70" height="52" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1518&amp;ModuleID=38&amp;NEWSPID=1">Visual and Performing Art students recognized; Ira David Wood III delivers keynote</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	Saint Mary&#39;s School Visual and Performing Art students were recognized for their achievements on Wednesday, May 2, 2012 at the Celebration of the Arts award ceremony held in Pittman Auditorium. Several students were also honored for their recent accomplishments in local and regional competitions. The audience welcomed Theatre in the Park&#39;s Executive and Artistic Director Ira David Wood III to deliver the keynote speech for the occasion.
+</p>
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1517&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-Monica_Gillespie_web.jpg" alt="Dr. Monica M. Gillespie"  width="70" height="88" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1517&amp;ModuleID=38&amp;NEWSPID=1">Saint Mary's School names 13th Head of School</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	The Board of Trustees of Saint Mary&rsquo;s School is pleased to announce the appointment of Dr. Monica M. Gillespie as the 13th Head of School in Saint Mary&rsquo;s 170 year history. Monica brings to Saint Mary&rsquo;s nine years of head of school experience, a passion for educating girls, deep appreciation for the Episcopal heritage of Saint Mary&rsquo;s School, and a distinguished background in education. She will be both an exemplary leader and a remarkable role model for our students.
+</p>
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1516&amp;ModuleID=38"><img src="/data/files/news/AlumniNews/thumb/tn-20120501_7069.JPG" alt="20120501_7069.JPG"  width="70" height="47" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1516&amp;ModuleID=38&amp;NEWSPID=1">Vestry tradition continues with officer induction chapel</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	The new 2012-2013 vestry officers received their official blessing and affirmation during the annual vestry officer induction chapel service, held May 1, 2012, in the historic Saint Mary&rsquo;s Chapel. The vestry, as in all Episcopal parishes, is the lay leadership committee that works with the parish&rsquo;s clergy on the temporal affairs of the parish.
+</p>
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1503&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-New_SGA_20122013.jpg" alt="2012-13 Executive SGA"  width="70" height="47" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1503&amp;ModuleID=38&amp;NEWSPID=1">2012-13 student leaders inducted</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	Congratulations to the Student Government Association (SGA) members, Marshals and Class Officers recently elected or appointed to serve as student leaders in the 2012-13 school year. In a quaint Chapel ceremony on Thursday, April 26, these new leaders were officially inducted into their upcoming roles.
+</p>
+				
+				</li>
+<li class="alt">
+
+				
+				<h4><a href="http://www.sms.edu/summer_programs/leadership_camp/index.aspx" >SUMMER SPOTLIGHT: Leadership Camp</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	We believe every girl has the potential to be a leader. Even with plenty of growing up left to do, girls can and do make a difference in their various communities &ndash; school, family, neighborhood, church, teams and clubs. Girls will be challenged to think about what leadership is and what they, as unique individuals, have to offer. We will help shape their leadership by giving them practical, essential communication skills. Spread the word to family, friends and neighbors about this new camp opportunity that will be offered June 11-15 for girls rising 6th-8th grade. Read more for additional details and registration instructions.
+</p>
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1487&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-20120419_6835.JPG" alt="Students inducted into the French, Latin and Spanish honor societies"  width="70" height="47" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1487&amp;ModuleID=38&amp;NEWSPID=1">World Languages Department inducts new members </a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	On Thursday, April 19, during a special ceremony in Pittman Auditorium, the World Languages Department inducted its newest memebers into the Saint Mary&#39;s School French, Latin and Spanish Honor Societies. In addition to meeting the academic requirements and satisfying other criteria as set forth in the Saint Mary&#39;s handbook, a student must demonstrate good character, citizenship and personal motivation to be considered for induction.
+</p>
+				
+				</li>
+<li class="alt">
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1485&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-P4182348_sm.jpg" alt="P4182348_sm.jpg"  width="70" height="52" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1485&amp;ModuleID=38&amp;NEWSPID=1">Thirteen students inducted into National Art Honor Society</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	On Wednesday, April 18, thirteen students were inducted into the Saint Mary&#39;s National Art Honor Society (NAHS). Several members of the community stopped by Kenan Library to view the inductees artwork and celebrate their accomplishment. NAHS was established by the National Art Education Association in 1978 to promote standards of excellence in visual arts education.
+</p>
+				
+				</li>
+<li>
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1469&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-E3051766_sm.jpg" alt="“In Search of a Damsel,” written by Jacque Blaine '11"  width="70" height="52" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1469&amp;ModuleID=38&amp;NEWSPID=1">Black Curtain Coffeehouse offers student playwrights platform to shine</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	The Black Curtain Coffeehouse was introduced in 2006 by the Visual and Performing Arts Department as one of its two annual drama productions. Five years later, the coffeehouse is the hottest ticket on campus during its annual weekend run, playing to standing room only houses in Chan-Poyner Hall. The last three coffeehouse playbills have featured original plays written by Saint Mary&rsquo;s students.
+</p>
+				
+				</li>
+<li class="last-child alt">
+
+				<div class="thumb"><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1468&amp;ModuleID=38"><img src="/data/files/news/SchoolNews/thumb/tn-Assenzo_Teresa_sm.jpg" alt="Teresa Assenzo, Chair of Visual and Performing Arts"  width="70" height="93" border="0" /></a></div>
+
+				<h4><a href="/news/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=1468&amp;ModuleID=38&amp;NEWSPID=1">Chair of Visual and Performing Arts wins second place for artwork</a></h4>
+				
+				
+				
+				
+				
+				
+				<p>
+	Teresa Assenzo, Chair of Visual and Performing Arts at Saint Mary&#39;s School, won second place for her piece titled &quot;Palimpsest&quot; in <em>Unfettered, </em>a special exhibit at the Visual Art Exchange, a prominent gallery in downtown Raleigh.
+</p>
+				
+				</li>
+</ul>
+<div class="news-paging"><span class="ViewAll"><a href="/news/index.aspx?pageaction=ViewPublic&amp;ModuleID=38">View All News</a></span></div>
+</div>
+
+                    </div>
+                    <div id="tabB">
+                        
+	                    <div class="module calendar-list homepage-events">
+
+	<dl class="calendar-day first-child"><dt><img src="/images/calendars/weekday/Fri.gif" alt="Friday" class="weekday" /><img src="/images/calendars/month/5.gif" alt="May" class="month" /><img src="/images/calendars/day/4.gif" alt="4" class="day" /></dt> 
+		<dd class="only-child">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2546&amp;ModuleID=67&amp;StartDate=5/4/2012">Weekend Activities</a> 
+				 
+				 </h4> 
+				 <h5> 
+				 
+				 <span class="thru"><em>Thru:</em> 5/6/2012</span> 
+				 
+				 </h5> 
+				 </dd>
+</dl>
+	<dl class="calendar-day"><dt><img src="/images/calendars/weekday/Mon.gif" alt="Monday" class="weekday" /><img src="/images/calendars/month/5.gif" alt="May" class="month" /><img src="/images/calendars/day/7.gif" alt="7" class="day" /></dt> 
+		<dd class="first-child">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2073&amp;ModuleID=67&amp;StartDate=5/7/2012">AP Exams</a> 
+				 
+				 </h4> 
+				 <h5> 
+				 
+				 <span class="thru"><em>Thru:</em> 5/16/2012</span> 
+				 
+				 </h5> 
+				 </dd>
+		<dd class="last-child alt">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2550&amp;ModuleID=67&amp;StartDate=5/7/2012">Assembly</a> 
+				 
+				 </h4> 
+				 <h5><span class='location'>Location: Pittman Auditorium</span> 
+				 <span class='time'>Time: 11:35am - 12:05pm</span> 
+				 
+				 
+				 </h5> 
+				 </dd>
+</dl>
+	<dl class="calendar-day"><dt><img src="/images/calendars/weekday/Tue.gif" alt="Tuesday" class="weekday" /><img src="/images/calendars/month/5.gif" alt="May" class="month" /><img src="/images/calendars/day/8.gif" alt="8" class="day" /></dt> 
+		<dd class="only-child">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2548&amp;ModuleID=67&amp;StartDate=5/8/2012">Eucharist Chapel (SAS)</a> 
+				 
+				 </h4> 
+				 <h5><span class='location'>Location: Chapel</span> 
+				 <span class='time'>Time: 11:00am - 12:00pm</span> 
+				 
+				 
+				 </h5> 
+				 </dd>
+</dl>
+	<dl class="calendar-day"><dt><img src="/images/calendars/weekday/Wed.gif" alt="Wednesday" class="weekday" /><img src="/images/calendars/month/5.gif" alt="May" class="month" /><img src="/images/calendars/day/9.gif" alt="9" class="day" /></dt> 
+		<dd class="only-child">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2551&amp;ModuleID=67&amp;StartDate=5/9/2012">Morning Meeting: Tutorial</a> 
+				 
+				 </h4> 
+				 <h5> 
+				 <span class='time'>Time: 8:00am - 8:45am</span> 
+				 
+				 
+				 </h5> 
+				 </dd>
+</dl>
+	<dl class="calendar-day last-child"><dt><img src="/images/calendars/weekday/Thu.gif" alt="Thursday" class="weekday" /><img src="/images/calendars/month/5.gif" alt="May" class="month" /><img src="/images/calendars/day/10.gif" alt="10" class="day" /></dt> 
+		<dd class="only-child">
+				 <h4><a href="/calendars/detail.aspx?pageaction=ViewSinglePublic&amp;LinkID=2552&amp;ModuleID=67&amp;StartDate=5/10/2012">Spring Sports Assembly (SAS)</a> 
+				 
+				 </h4> 
+				 <h5><span class='location'>Location: Pittman Auditorium</span> 
+				 <span class='time'>Time: 11:00am - 12:00pm</span> 
+				 
+				 
+				 </h5> 
+				 </dd>
+</dl><div class="calendar-list-more">
+<p><a href="/calendars/index.aspx?ModuleID=67&StartDate=5/10/2012">View All Events</a></p>
+</div></div>
+
+                    </div>
+            </div>
+        </div>
+	
+            </div>
+        </div> <!--closing content-->
+        </div>
+    </div>
+   
+			<!-- footer -->
+			<div id="footer-container">
+			    <div id="footer">
+                <div id="nav-carousel-div">
+                	
+					
+<div class="nav" id="nav-carousel">
+		<ul>
+			<li class="first-child" id="nav-li-apply_now">
+				<a id="nav-link-apply_now" href="https://forms.veracross.com/SMS/Forms/Application/StartNew.aspx" target="_self">Apply Now<span class="icon"></span></a>
+			</li>
+			<li id="nav-li-experience_sms">
+				<a id="nav-link-experience_sms" href="/interactive/index.aspx" target="_self">Experience SMS</a>
+			</li>
+			<li id="nav-li-virtual_tour">
+				<a id="nav-link-virtual_tour" href="/about_sms/visitor_center/virtual_campus_tour/index.aspx" target="_self">Virtual Tour</a>
+			</li>
+			<li id="nav-li-make_your_gift">
+				<a id="nav-link-make_your_gift" href="/support_sms/give-online.aspx" target="_self">Make Your Gift</a>
+			</li>
+			<li id="nav-li-summer_programs">
+				<a id="nav-link-summer_programs" href="/summer_programs/index.aspx" target="_self">Summer Programs</a>
+			</li>
+			<li id="nav-li-school_store">
+				<a id="nav-link-school_store" href="https://identitystores.com/Stores/StoreFront.aspx?StoreId=2225" target="_self">School Store</a>
+			</li>
+			<li id="nav-li-business_directory">
+				<a id="nav-link-business_directory" href="/quicklinks/business_directory/index.aspx" target="_self">Business Directory</a>
+			</li>
+			<li id="nav-li-technology">
+				<a id="nav-link-technology" href="/technology/index.aspx" target="_self">Technology</a>
+			</li>
+			<li class="last-child" id="nav-li-sms_blog">
+				<a id="nav-link-sms_blog" href="/blog/index.aspx" target="_self">SMS Blog<span class="icon"></span></a>
+			</li>
+		</ul>
+
+</div>
+				</div>	
+                    
+                    
+<div class="nav" id="nav-util">
+		<ul>
+			<li class="first-child" id="nav-li-calendar">
+				<a id="nav-link-calendar" href="/calendars/index.aspx" target="_self">Calendar<span class="icon"></span></a>
+			</li>
+			<li class="contactus" id="nav-li-contact_us">
+				<a id="nav-link-contact_us" href="/contactus/index.aspx">Contact Us<span class="icon"></span></a>
+			</li>
+			<li id="nav-li-site_map">
+				<a id="nav-link-site_map" href="/sitemap/index.aspx" target="_self">Site Map</a>
+			</li>
+			<li class="last-child" id="nav-li-privacy_policy">
+				<a id="nav-link-privacy_policy" href="/privacy_policy/index.aspx">Privacy Policy<span class="icon"></span></a>
+			</li>
+		</ul>
+
+</div>
+				    <address>
+						Saint Mary's School, 900 Hillsborough Street, Raleigh, NC 27603 <span>&bull;</span> 800-948-2557 <span>&bull;</span> 919-424-4000
+					</address>
+			    </div>
+			</div>
+			<!-- //footer -->
+<script type="text/javascript" language="JavaScript">
+	// <![CDATA[
+	// An array of links should never be deHTTPS'd
+	var SI_skipHTTPS = new Array(
+		'/Alumni/$', // $ prevents this from effecting the whole directory
+		'/Alumni/index.aspx',
+		'mail.sms.edu/',
+		'portals.veracross.com/',
+		'succeed.naviance.com/',
+		'connection.naviance.com/',
+		'forms.veracross.com/SMS/forms/WeekendPermission/StartNew.aspx',
+		'identitystores.com/Stores/StoreFront.aspx',
+		'mail2010.sms.edu/owa/'
+		);
+	SI_deHTTPSLinks();
+	// ]]>
+</script>
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17498313-1']);
+  _gaq.push(['_setDomainName', '.sms.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- //Google Analytics -->
+</body>
+</html>
+

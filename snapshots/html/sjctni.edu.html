@@ -1,0 +1,523 @@
+<html class="win firefox firefox9 gecko gecko9" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="description" content="ronaldnisha" />
+	<meta name="keywords" content="Departments" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="SHORTCUT ICON"  HREF="/images/Logo.ico">
+<title>St.Joseph's College (Autonomous), Trichy, Tamilnadu.</title>
+
+<link href="/imagess/style.css" rel="stylesheet" type="text/css">
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+
+<link href="/imagess/newheader.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/imagess/style_banner.css">
+
+<link rel="stylesheet" type="text/css" href="/css/ie.css">
+<link rel="stylesheet" type="text/css" href="/css/ie7.css">
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<center>
+
+
+        <!--for sliding banner text-->
+        <script src="/imagess/jquery_004.js" type="text/javascript"></script>
+        <script src="/imagess/jquery_003.js" type="text/javascript"></script>
+        <script src="/imagess/jquery_002.js" type="text/javascript"></script>
+        <script src="/imagess/jquery.js" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="/imagess/homepage2.css">
+        <script src="/imagess/homepage2.js" type="text/javascript"></script>
+        <!--sliding banner top-->
+		<script type="text/javascript" src="/imagess/jquery_005.js"></script>
+	
+<script>
+// Speed of the automatic slideshow
+var slideshowSpeed = 1000;
+
+// Variable to store the images we need to set as background
+// which also includes some text and url's.
+
+var photos = [ 
+  	
+    {   
+		"title" : "Stairs",
+		"image" : "1.png",
+		"url" : "http://sjctni.edu",
+		"firstline" : "--",
+		"secondline" : "active"
+		
+	},
+		
+    {   
+		"title" : "Stairs",
+		"image" : "2.png",
+		"url" : "http://sjctni.edu",
+		"firstline" : "--",
+		"secondline" : "active"
+		
+	},
+
+    {   
+		"title" : "Stairs",
+		"image" : "3.png",
+		"url" : "http://sjctni.edu/Department/",
+		"firstline" : "--",
+		"secondline" : "active"
+		
+	},
+    {   
+		"title" : "Stairs",
+		"image" : "4.png",
+		"url" : "http://sjctni.edu",
+		"firstline" : "--",
+		"secondline" : "active"
+		
+	},
+    {   
+		"title" : "Stairs",
+		"image" : "5.png",
+		"url" : "http://sjctni.edu",
+		"firstline" : "--",
+		"secondline" : "active"
+		
+	}
+	 
+];
+$(document).ready(function() {
+		
+	// Backwards navigation
+	$("#back").click(function() {
+		stopAnimation();
+		navigate("back");
+	});
+	
+	// Forward navigation
+	$("#next").click(function() {
+		stopAnimation();
+		navigate("next");
+	});
+	
+	var interval;
+	$("#control").toggle(function(){
+		stopAnimation();
+	}, function() {
+		// Change the background image to "pause"
+		$(this).css({ "background-image" : "url(imagess/btn_pause.png)" });
+		
+		// Show the next image
+		navigate("next");
+		
+		// Start playing the animation
+		interval = setInterval(function() {
+			navigate("next");
+		}, slideshowSpeed);
+	});
+	
+	
+	var activeContainer = 1;	
+	var currentImg = 0;
+	var animating = false;
+	var navigate = function(direction) {
+		// Check if no animation is running. If it is, prevent the action
+		if(animating) {
+			return;
+		}
+		
+		// Check which current image we need to show
+		if(direction == "next") {
+			currentImg++;
+			if(currentImg == photos.length + 1) {
+				currentImg = 1;
+			}
+		} else {
+			currentImg--;
+			if(currentImg == 0) {
+				currentImg = photos.length;
+			}
+		}
+		
+		// Check which container we need to use
+		var currentContainer = activeContainer;
+		if(activeContainer == 1) {
+			activeContainer = 2;
+		} else {
+			activeContainer = 1;
+		}
+		
+		showImage(photos[currentImg - 1], currentContainer, activeContainer);
+		
+	};
+	
+	var currentZindex = -1;
+	var showImage = function(photoObject, currentContainer, activeContainer) {
+		animating = true;
+		
+		// Make sure the new container is always on the background
+		currentZindex--;
+		
+		// Set the background image of the new active container
+		    $("#features_panel").wrap('<a href="'+photoObject.url+'"></a>');
+			$("#headerimg" + activeContainer).wrap('<a href="'+photoObject.url+'"></a>');
+		$("#headerimg" + activeContainer).css({
+			"background-image" : "url(/web/slideimage/" + photoObject.image + ")",
+			
+			"display" : "block",
+			"z-index" : currentZindex
+		});
+		
+		// Hide the header text
+		$("#headertxt").css({"display" : "none"});
+		
+		// Set the new header text
+    
+		$("#firstline").html(photoObject.firstline);
+		
+		
+		
+		// Fade out the current container
+		// and display the header text when animation is complete
+		$("#headerimg" + currentContainer).fadeOut(function() {
+			setTimeout(function() {
+				$("#headertxt").css({"display" : "none"});
+				animating = false;
+			}, 500);
+		});
+	};
+	
+	var stopAnimation = function() {
+		// Change the background image to "play"
+		$("#control").css({ "background-image" : "url(imagess/btn_play.png)" });
+		
+		// Clear the interval
+		clearInterval(interval);
+	};
+	
+	// We should statically set the first image
+	navigate("next");
+	
+	// Start playing the animation
+	interval = setInterval(function() {
+		navigate("next");
+	}, slideshowSpeed);
+	
+});
+
+</script>
+<body class="layout-full homepage">
+ 
+<div id="header-wrapper">
+
+<div id="header">
+</center>
+	<div id="headerimgs">
+		<div style="display: block; background-image: url(&quot;web/slideimage/1.png&quot;); z-index: -9;" id="headerimg1" class="headerimg"></div>
+		<div style="background-image: url(&quot;web/slideimage/2.png&quot;); display: block; z-index: -8; opacity: 0.954072;" id="headerimg2" class="headerimg"></div>
+		<div style="display: block; background-image: url(&quot;web/slideimage/3.png&quot;); z-index: -9;" id="headerimg1" class="headerimg"></div>
+		<div style="background-image: url(&quot;web/slideimage/4.png&quot;); display: block; z-index: -8; opacity: 0.954072;" id="headerimg2" class="headerimg"></div>
+	</div>
+
+ 
+<div id="wraper">
+<div id="top">
+
+<div id="logo"><img src="/imagess/logo_new.png" width="555" height="119"></div>
+<div id="topright">
+<div id="topsmlllink">
+<html>
+<HEAD>
+<TITLE>St. Joseph's College (Autonomous), Tiruchirappalli - 620002</TITLE>
+<LINK REL="SHORTCUT ICON"  HREF="/images/Logo.ico">
+</HEAD>
+
+
+
+
+<b> <font size=2pt face="Verdana" color="#1afea0">Today:<b>07-05-2012
+   </font>
+
+	
+
+<br><br>
+<font color="#ffffff">Viewers : 258256</font>
+</div>
+<div class="clear"></div>
+<div id="quicklinks">
+
+<a href="/Library/" target="r">Online Catalogue</a>
+<font color="#fcb146"> | </font>  <a href="/Alumni/" target="r">Alumni</a> <font color="#fcb146"> | </font>   <a href="http://despace.sjctni.edu/" target="r">Digital Library</font></a>  <font color="#fcb146"> | </font>   <a href="http://mail.google.com/a/mail.sjctni.edu" target="r">Web Mail</a></div>
+
+</div>
+</div>
+
+
+<div id="menuandcontent">
+<div id="content">
+
+<script type="text/javascript">
+/* <![CDATA[ */
+var featuresData = {
+feature_link_1: {
+//var linkID = document.getelmentbyid('feastuer_link').value;
+behaviour: showNewsFeature,
+itemclass: 'feature1',
+image: '',
+photo_info_link:'/',
+photo_info_linktext:'test',
+
+stories: [
+{
+url: '/OnLineApp/index.jsp?id=1',headline:'Admission 2012-2013', title: 'Admissions for UG,PG & MCA', img: ''},
+
+
+{url: '',headline:'', title: 'Press Reports', img: ''},
+{url: '/News/index12.jsp',headline:'2012', title: '', img: ''},
+{url: '/News/index11.jsp',headline:'2011', title: '', img: ''}
+]
+},
+
+feature_link_2: {
+behaviour: showNewsFeature,
+itemclass: 'feature1',
+image: '',
+photo_info_link:'',
+photo_info_linktext:'',
+
+stories: [
+{url: '/Staff/Staf_Phd_Guide.jsp',
+ headline: 'Ph.D Guide List'
+},
+{url: '/Staff/Staf_Phd_Proj.jsp',
+ headline: 'Research Projects'
+},
+{url: '/course.jsp',
+ headline:' '
+},
+{url: '/IQAC/',
+ headline: ''
+}
+]
+},
+
+feature_link_3: {
+behaviour: showNewsFeature,
+itemclass: 'feature3',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '',
+stories: [
+
+{
+url: '', headline: 'Arts', title: ''
+},
+{
+url: '', headline: 'Science', title: ''
+},
+
+{
+url: '', headline: 'Physical Education', title: ''
+},
+{
+url: '', headline: '', title: ''
+}
+]
+},
+
+feature_link_4: {
+behaviour: showNewsFeature,
+itemclass: 'feature4',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '',
+stories: [
+
+{
+url: '/coe/ArrearTimeTable_APR11.jsp',
+headline: 'Semester Arrear Examinations Time Table - April 2012', title: ''
+},
+ {
+url: '',
+headline: '', title: ''
+},
+ {
+url: '',
+headline: '', title: ''
+},
+ {
+url: '',
+headline: '', title: ''
+},
+ {
+url: '',
+headline: '', title: ''
+}
+]
+},
+
+feature_link_5: {
+behaviour: showNewsFeature,
+itemclass: 'feature5',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '',
+stories: [
+{
+url: 'http://loyolacollege.edu',
+headline: 'Loyola College, Chennai', title: ''
+},
+ {
+url: 'http://stxavierstn.edu.in',
+headline: 'St.Xavier`s College, Palayamkottai', title: ''
+},
+ {
+url: 'http://aactni.edu.in',
+headline: 'Arul Anandar College, Karumathur, Madurai', title: ''
+},
+ {
+url: 'http://jim.ac.in',
+headline: 'St.Joseph`s Institute of Management', title: 'JIM'
+},
+ {
+url: '',
+headline: '', title: ''
+}
+]
+},
+
+feature_link_6: {
+behaviour: showNewsFeature,
+itemclass: 'feature6',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '',
+stories: [
+{
+
+url: '/adminn.jsp?id=1', headline:'Administrators', title: 'College Council', img: ''},
+ {
+url: '/adminn.jsp?id=10',headline: 'Officials', title: ''
+},
+{
+url: '',headline: '', title: 'Heads of the Departments'
+},
+{
+url: '/adminn.jsp?id=6',headline: 'Shift - I', title: ''
+},
+{
+url: '/adminn.jsp?id=7',headline: 'Shift - II', title: ''
+},
+{
+url: '/adminn.jsp?id=8',headline: 'Shift - II Coordinators', title: ''
+}
+]
+}
+
+}
+
+/* ]]> */
+</script>
+
+
+<div id="features_panel" style="background: url(&quot;/imagess/1.png&quot;) no-repeat scroll 50% 0pt transparent;" class="feature_link_1_selected">
+
+
+<div class="photo_info"><a href="#">test</a></div>
+<ul style="top: 242px;" id="features_menu">
+<li style="width: 102px;" class="feature_1"><h2><a class="current" id="feature_link_1" href="#">News &amp; Events</a></h2></li>
+<li style="width: 102px;" class="feature_2"><h2><a class="" id="feature_link_6" href="#">Administration</a></h2></li>
+<li style="width: 102px;" class="feature_3"><h2><a class="" id="feature_link_2" href="#">Research</a></h2></li>
+
+<li style="width: 102px;" class="feature_4"><h2><a class=""  href="/Department/">Departments</a></h2></li>
+
+<li style="width: 102px;" class="feature_5"><h2><a class="" id="feature_link_5" href="#">Jesuits Colleges</a></h2></li>
+
+<li style="width: 102px;" class="feature_6"><h2><a class="" id="feature_link_4" href="#">COE Alerts</a></h2></li>
+
+
+
+</ul>
+<div style="display: block; top: 0px;" id="features_submenu"><ul class="feature_stories"><li class="feature1"><h3>News   </h3><a href="#"> -</a></li></li></ul></div>
+</div>
+
+</div> 
+
+</div>
+
+<!--main menu end-->
+
+
+
+
+
+<div id="maincontent">
+
+<div id="contentsection" style="margin:13px 10px 0 0;">
+
+<div id="eventsouter">   <div id="eventsleftborder">	<div id="eventsleftmonth"></div> <div id="eventsleftdate"></div>   </div><div id="eventright">  <div align="left"><a href="http://result.sjctni.edu/" target="og">M.Phil Semester Examinations Results - April 2012</a></div><div id="eventrighttime_nxtmnth"></div></div></div>
+
+<div id="eventsouter">   <div id="eventsleftborder">	<div id="eventsleftmonth"></div> <div id="eventsleftdate"></div>   </div><div id="eventright">  <div align="left"><a href="/OnLineApp/index.jsp?id=1">Admissions 2012-2013</a></div><div id="eventrighttime_nxtmnth"></div></div></div>
+
+<div id="eventsouter">   <div id="eventsleftborder">	<div id="eventsleftmonth"></div> <div id="eventsleftdate"></div>   </div><div id="eventright">  <div align="left"><a href="/coe/ArrearTimeTable_APR11.jsp">SEMESTER ARREAR EXAMINATIONS TIME TABLE - APRIL 2012 </a></div><div id="eventrighttime_nxtmnth"></div></div></div>
+<br>
+
+</div>
+
+<div id="homebulletsec">
+<h2>Welcome to Our College</h2><br><br>
+<p align="justify">St.Joseph's College is an affiliated First Grade College of the Bharathidasan University. It was established in 1844 by the Fathers of Society of Jesus (The Jesuits). It was affiliated to the then Madras University in 1869. The College celebrated its centenary in 1944, sesquicentenary in 1995 and acquired the Five Star status, awarded by NAAC in 2000. It was recognised by UGC as a College with Potential for Excellence (CPE) in 2004 and was Reaccredited by NAAC with A+ Grade in 2006. The College is owned by the Society of St.Joseph's, a body registered under Societies Regulation Act(1860), having its office at Tiruchirappalli. This Jesuit college trains young men and women of quality to be leaders in all walks of life so that they may serve the people of the nation in truth, justice and love.<a href="/more.jsp" > <font size=2pt> &#187; </font> More....</a></p>
+</div>
+<div id="bakbulletsec">
+
+
+<link rel="stylesheet" type="text/css" href="/menus/sdmenu.css" />
+
+
+	<script type="text/javascript" src="/menus/sdmenu.js"></script>
+	<script type="text/javascript">
+	// <![CDATA[
+	var myMenu;
+	window.onload = function() {
+		myMenu = new SDMenu("my_menu");
+		myMenu.init();
+	};
+	// ]]>
+	</script>
+ <div style="float: left" id="my_menu" class="sdmenu">
+      <div>
+        <span>Quick Links</span> 
+<a href="/Department/achome.jsp?deptCode=AC&id=1"><font size=2pt> &#187; </font> ACIC </a> 
+<a href="/Attendance/STUD_ATTE_Individual_View.jsp"><font size=2pt> &#187; </font> Attendance </a> 
+<a href="/course.jsp"><font size=2pt> &#187; </font> Courses</a>   
+<a href="/Staff/Staf_List.jsp"><font size=2pt> &#187; </font>Faculty</a>  
+<a href="/Events.jsp" ><font size=2pt> &#187; </font> Events - Gallery   </a> 
+<a href="/jesuits.jsp" ><font size=2pt> &#187; </font> Jesuits   </a> 
+<a href="/Department/jchome.jsp?deptCode=JC" ><font size=2pt> &#187; </font> JCICT   </a>
+<a href="/Hostel/"><font size=2pt> &#187; </font> Hostels   </a> 
+<a href="/Library/"><font size=2pt> &#187; </font> Library  </a>
+<a href="/IQAC/"><font size=2pt> &#187; </font> IQAC</a>        
+<a href="/Contact.jsp" ><font size=2pt> &#187; </font> Contact us  </a>
+	</div>
+     
+     
+    </div>
+
+
+
+    
+</div></div></div></div></div></div>
+<div id="neww">
+		       
+		Copyright &copy; St.Joseph's College, Trichy-02, TamilNadu, India. all rights reserved
+			    
+	     </div>

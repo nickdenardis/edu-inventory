@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<HTML>
+ <HEAD>
+  <TITLE>Beacon College for ADHD Students, LD Students and gifted LD - Colleges for Learning Disabilities </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="College for ADHD students, colleges for learning disability, beacon college">
+  <META NAME="Description" CONTENT="Beacon College in Leesburg, Florida is a college for ADHD students and a college exclusively for students with a learning disability.">
+  <link rel="stylesheet" href="css/styles.css" type="text/css" media="screen">
+  <link rel="canonical" href="http://www.beaconcollege.edu/" />
+  <link rel="shortcut icon" href="images/favicon.ico">
+		
+<script type="text/javascript">
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["slides/home1.jpg", "", ""] //plain image syntax
+fadeimages[1]=["slides/home2.jpg", "", ""] //plain image syntax
+fadeimages[2]=["slides/home3.jpg", "", ""] //plain image syntax
+fadeimages[3]=["slides/home4.jpg", "", ""] //plain image syntax
+fadeimages[4]=["slides/home5.jpg", "", ""] //plain image syntax
+fadeimages[5]=["slides/home6.jpg", "", ""] //plain image syntax
+fadeimages[6]=["slides/home7.jpg", "", ""] //plain image syntax
+fadeimages[7]=["slides/home8.jpg", "", ""] //plain image syntax
+fadeimages[8]=["slides/home9.jpg", "", ""] //plain image syntax
+fadeimages[9]=["slides/home10.jpg", "", ""] //plain image syntax
+
+ 
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><style type="text/css">
+<!--
+.mission {
+	width: 160px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	line-height: 140%;
+	text-decoration: none;
+	color: #EDEDED;
+	padding-left: 15px;
+	padding-top: 20px;
+	font-weight: normal;
+	letter-spacing: 0.05em;
+}
+.video {
+	text-align: right;
+	width: 325px;
+	background-image: url(images/loading.gif);
+	background-repeat: no-repeat;
+	background-position: center center;
+	float: left;
+	padding-top: 10px;
+	z-index: 99;
+}
+.headline {
+	font-size: 120%;
+	font-weight: bold;
+	color: #2F3E5B;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 130%;
+}
+ul {
+	margin: 10px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+}
+.buttons {
+	background-color: #FFF;
+	width: 190px;
+	margin: 0px;
+	height: 210px;
+	float: left;
+	text-align: left;
+	padding-left: 10px;
+}
+#media_container {
+	width: 525px;
+	height: 220px;
+	text-align: right;
+	padding-top: 15px;
+}
+.president {
+	width: 180px;
+	float: right;
+	text-align: right;
+	padding-right: 15px;
+}
+.notice {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 90%;
+	font-weight: bold;
+	color: #900;
+}
+-->
+</style></HEAD>
+
+ <BODY>
+	<center>
+	<div id="header">
+		<a href="index.asp" class="logolink"><img border=0 src="./images/logo.jpg"></a>
+		<ul class="rightlinks">
+			<li class="rightlinks"><a href="http://mail.beaconcollege.edu/Login.aspx" target="new">E-mail Login</a></li>
+			<li class="rightlinks"><a href="calendars.asp">Calendars</a></li>
+			<li class="rightlinks"><a href="https://www.beaconsonisweb.com/studsect.cfm" target="new">Student Portal</a></li>
+  <li class="rightlinks"><a href="https://www.beaconsonisweb.com/facsect.cfm" target="new">Faculty Portal</a></li>
+</ul>
+<!--<div id="nav">
+<a href="index.asp" id="nav_home"></a>
+<a href="aboutus.asp" id="nav_aboutus"></a>
+<a href="admissions.asp" id="nav_admissions"></a>
+<a href="financialaid.asp" id="nav_financialaid"></a>
+<a href="academics.asp" id="nav_academics"></a>
+<a href="campuslife.asp" id="nav_campuslife"></a>
+<a href="studentservices.asp" id="nav_studentservices"></a>
+<a href="library.asp" id="nav_library"></a>
+<a href="contact.asp" id="nav_contact"></a>
+</div>-->
+<ul id="nav">
+	<li><a href="index.asp" id="nav_home"></a></li>
+	<li>
+		<a href="aboutus.asp" id="nav_aboutus"></a>
+		<ul>
+			<li><a href="aboutus.asp">About Us</a></li>
+			<li><a href="fastfacts.asp">Fast Facts</a></li>
+			<li><a href="campusdirectory.asp">Campus Directory</a></li>
+			<li><a href="newsletter.asp">Campus Newsletter</a></li>
+			<li><a href="employment.asp">Employment</a></li>
+			<li><a href="location.asp">Location</a></li>
+			<li><a href="boardmembers.asp">Board Members</a></li>
+			<li><a href="alumniandfriends.asp">Alumni & Friends</a></li>
+			<li><a href="supportbeacon.asp">Support Beacon</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="admissions.asp" id="nav_admissions"></a>
+		<ul>
+			<li><a href="admissions.asp">Admissions</a></li>
+			<li><a href="howtoapply.asp">How to Apply</a></li>
+			<li><a href="tuition.asp">Tuition</a></li>
+			<li><a href="international.asp">International Students Program</a></li>
+			<li><a href="download.asp">College Catalog</a></li>
+			<li><a href="financialaid.asp">Financial Aid</a></li>
+			<li><a href="transferstudents.asp">Transfer Students</a></li>						
+			<li><a href="visitbeacon.asp">Visit Beacon</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="financialaid.asp" id="nav_financialaid"></a>
+		<ul>
+        	<li><a href="financialaid.asp">Financial Aid</a></li>
+			<li><a href="fa2_applicationprocess.asp">Application Process</a></li>
+			<li><a href="fa3_forms.asp">Forms</a></li>
+			<li><a href="fa4_costcalculations.asp">Net Price Calculator</a></li>
+			<li><a href="fa5_academicstandards.asp">Academic Standards</a></li>
+			<li><a href="fa6_faq.asp">Frequently Asked Questions</a></li>
+			<li><a href="fa7_options.asp">Financial Aid Options</a></li>
+			<li><a href="fa8_loanproviders.asp">Loan Providers</a></li>
+			<li><a href="fa9_resourcesservices.asp">Resources & Services</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="academics.asp" id="nav_academics"></a>
+		<ul>
+			<li><a href="academics.asp">Academics</a></li>
+			<li><a href="academicmajors.asp">Academic Majors</a></li>
+			<li><a href="academic_cis.asp">Computer Information Systems Major</a></li>
+			<li><a href="academic_human.asp">Human Services Major</a></li>
+			<li><a href="academic_liberal.asp">Liberal Studies Major</a></li>
+			<li><a href="qualityenhancementplan.asp">Quality Enhancement Plan</a></li>
+			<li><a href="download.asp">College Catalog</a></li>
+			<li><a href="presidentsmessage.asp">President's Message</a></li>
+			<li><a href="educationalsupportservices.asp">Educational Support Services</a></li>
+			<li><a href="transcripts.asp">Ordering Transcripts</a></li>
+			<li><a href="assistivetechnology.asp">Assistive Technology</a></li>
+			<li><a href="fieldplacement.asp">Career Development</a></li>
+			<li><a href="travelabroad.asp">Travel Abroad</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="campuslife.asp" id="nav_campuslife"></a>
+		<ul>
+			<li><a href="campuslife.asp">Campus Life</a></li>
+			<li><a href="calendars.asp">Calendars</a></li>							
+			<li><a href="residentiallife.asp">Residential Life</a></li>
+			<li><a href="webcom.asp">The Beacon Buzz</a></li>
+			<li><a href="organizationsandclubs.asp">Organizations &  Clubs</a></li>
+			<li><a href="activitiesandevents.asp">Activities & Events</a></li>					
+			<li><a href="communityservices.asp">Community Services</a></li>
+			<li><a href="aboutcentralflorida.asp">About Central Florida</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="studentservices.asp" id="nav_studentservices"></a>
+		<ul>
+			<li><a href="studentservices.asp">Student Services</a></li>
+			<li><a href="wellnessprograms.asp">Wellness Programs</a></li>
+			<li><a href="transitionalprograms.asp">Transitional Programs</a></li>
+			<li><a href="counseling.asp">Counseling</a></li>
+			<li><a href="diningservices.asp">Dining Services</a></li>
+			<li><a href="transportation.asp">Transportation</a></li>
+			<li><a href="studenthandbook.asp">Student Handbook</a></li>
+			<li><a href="emergencypreparedness.asp">Emergency Preparedness</a></li>
+		</ul>
+	</li>
+	<li>
+		<a href="library.asp" id="nav_library"></a>
+		<ul>
+			<li><a href="library.asp">Beacon College Library</a></li>						
+			<li><a href="aboutthelibrary.asp">About the Library</a></li>      
+			<li><a href="librarypolicies.asp">Library Policies</a></li>
+      		<li><a href="libraryinstruction.asp">Library Instruction</a></li>      
+			<li><a href="textbookordering.asp">Textbook Ordering</a></li>      
+  			<li><a href="techsupport.asp">Tech Support</a></li>    
+		</ul>
+	</li>
+	<li>
+	<a href="contact.asp" id="nav_contact"></a> </li>
+</ul>
+	</div>
+	<div id="body">
+		<table border=0 cellpadding=0 cellspacing=0 width=752>
+			<tr>
+				<td width=173 bgcolor="#4A79C1" valign=top style="border-bottom: 3px solid #ffffff">
+				<table border=0 cellpadding=0 cellspacing=0 width=180>
+						<tr>
+							<td bgcolor="#607CAB" height=94 valign=top>
+								<table border=0 cellpadding=3 cellspacing=0 width=142 id="leftbar_search">
+	<form action="http://www.beaconcollege.edu/searchresults.asp" id="cse-search-box">
+									<tr>
+										<td colspan=2 align=left><img src="./images/leftbar_search.jpg"></td>
+									</tr>
+									<tr>
+										<td><!--<input type="text" class="search_textbox">-->
+										
+										
+  <div>
+    <input type="hidden" name="cx" value="005177532381812079447:xcxmfdumrvo" />
+    <input type="hidden" name="cof" value="FORID:9" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" class="search_textbox" />
+  </div>
+
+										
+										
+										
+										
+										</td>
+										<td><input type="image" name="sa" value="Search" src="./images/leftbar_go.jpg"></td>
+									</tr>
+									<tr>
+										<td colspan=2 class="links"><a href="siteindex.asp">Site Index</a></td>
+									</tr>
+									
+</form>
+								</table>								
+							</td>
+						</tr>
+						<tr>
+							<td height=1 bgcolor="#ffffff"></td>
+						</tr>
+						<tr>
+						<td height=70 align=center valign=center bgcolor="#4C6995"><div class="mission"> 
+<p>The mission of<br>
+Beacon College<br>
+is to offer academic<br>
+degree programs<br>
+to students with<br>
+learning disabilities.</p>
+<p><span class="leftbar_lowerlinks"><a href="http://www.facebook.com/pages/Leesburg-FL/Beacon-College-Admissions/144106838960439?ref=sgm"><img src="images/facebook_logo.jpg" alt="Find Us On Facebook" width="116" height="33" border="0"></a></span></p>
+</div>
+<p class="leftbar_lowerlinks">&nbsp;</p></td>
+		  </tr>
+						<tr>
+							<td height=2 bgcolor="#ffffff"></td>
+						</tr>
+				</table>
+						
+<ul class="leftbar_lowerlinks">
+<li class="leftbar_lowerlinks"><a href="visitbeacon.asp">Visit Beacon College</a></li>
+<li class="leftbar_lowerlinks"><a href="fastfacts.asp">Fast Facts</a></li>
+<li class="leftbar_lowerlinks"><a href="howtoapply.asp">How To Apply</a></li>
+<li class="leftbar_lowerlinks"><a href="financialaid.asp">Financial Aid</a></li>
+<li class="leftbar_lowerlinks"><a href="educationalsupportservices.asp">Educational Support</a></li>
+<li class="leftbar_lowerlinks"><a href="travelabroad.asp">Travel Abroad</a></li>
+<li class="leftbar_lowerlinks"><a href="http://www.beaconcollege.edu/webcom.asp">The Beacon Buzz</a></li>
+<li class="leftbar_lowerlinks"><a href="http://www.beaconcollege.edu/supportbeacon.asp">Support Beacon College</a></li>
+</ul>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p></td>
+				<td width=3 rowspan=3><p>&nbsp;</p>
+</td>
+			<td valign=top>
+					<!-- Main Body -->
+<span class="cushycms">
+                    
+<table border=0 cellpadding=3 cellspacing=3 class="main_container">
+						<tr>
+							<td height=1></td>
+						</tr>
+      
+      
+
+      
+      
+<tr></tr>
+</table>
+</span>
+<table border=0 cellpadding=3 cellspacing=3 class="main_container">
+<tr>
+<td align="left" class="headline">The Beacon College Difference</td>
+</tr>
+<tr>
+<td align="left" class="main_text"><strong>The only accredited college offering BA and AA degrees exclusively for students with learning disabilities, ADHD, or gifted LD.</strong>
+  <br />
+  <br />
+  At Beacon College, you will come to understand your learning disability in ways you never have before. We will show you how to optimize your academic strengths, and develop effective learning skills to help you achieve your goals. </td>
+</tr>
+
+</table>
+<span class="cushycms">
+<table border=0 cellpadding=3 cellspacing=3 class="main_container">
+<tr>
+<td class="main_text">
+
+<div id="media_container" style="z-index:99;">
+
+<div class="video" style="z-index:99;">
+<object width="302" height="196" style="z-index:99;">
+	<param name="movie" value="http://www.youtube.com/v/AdJ1FH2VgYs?version=3&amp;hl=en_US&amp;rel=0"></param>
+	<param name="wmode" value="transparent"></param>
+	<param name="allowFullScreen" value="true"></param>
+	<param name="allowscriptaccess" value="always"></param>
+	<embed src="http://www.youtube.com/v/AdJ1FH2VgYs?version=3&amp;hl=en_US&amp;rel=0" type="application/x-shockwave-flash" width="302" height="196" wmode="transparent" allowscriptaccess="always" allowfullscreen="true"></embed>
+</object>
+</div>
+
+<div class="buttons"> <img src="images/buttonshome.png" alt="" width="176" height="111" border="0" usemap="#buttons">
+<br />
+&nbsp;&nbsp;
+Beacon accepts student<br>
+&nbsp;&nbsp;
+applications on a rolling <br>
+&nbsp;&nbsp;
+basis, so you can apply<br>
+&nbsp;&nbsp;
+any time of the year. <strong>Call</strong><br>
+&nbsp;&nbsp;
+<strong>Toll-Free: 855-220-5376</strong></div>
+
+</div>
+
+<p>You can earn a BA or AA degree in <a href="academic_liberal.asp">Liberal Studies</a>, <a href="academic_human.asp">Human Services</a>, and <a href="academic_cis.asp">Computer Information Systems</a>. The Computer major offers a choice of two tracks: Information Systems and Web and Digital Media.
+<div class="president">
+<p><a href="presidentsmessage.asp"><img src="images/president.jpg" alt="" width="190" height="209" border="0"></a></div>
+
+
+</p>
+
+
+
+<p><strong>Beacon College serves students with:</strong></p>
+
+<ul>
+<li>ADD/ADHD</li>
+<li>Auditory and visual processing differences</li>
+<li>Dyslexia</li>
+<li>Expressive/receptive language deficits</li>
+<li>Gifted LD</li>
+<li>Language-based learning disabilities</li>
+<li>Reading/writing disabilities</li>
+<li>Math disabilities</li>
+</ul>
+<p>Discover the difference when you attend a college designed exclusively for students with learning disabilities. Success is within your reach!</p>
+<p><strong>News: Thriving Hydroponic Garden at Beacon College</strong></p>
+<p>Chase Richards and James Harris have organized and implemented the Beacon College Hydroponic Garden. The garden currently has peppers, squash, pumpkins, tomatoes, and watermelon  growing amongst the clay rocks and water. The students will soon bottle their own hot sauce brewed from their own vegetables.</p>
+<p><img src="images/pageimages/garden.jpg" width="485" height="325" alt="Hydroponic Garden." /></p>
+<p>Future plans for the garden include the addition of a screened classroom with benches and a solar energy system.</p>
+<p>Chase and James both arrived at Beacon College in January of 2011 and are involved in the Student Government Association, bringing the student body together in this innovative project. Chase and James want to thank all of the students at Beacon College who helped them accomplish the living ecosystem.</p>
+<p>&nbsp;</p></td>
+</tr>
+</table>
+</span>
+	</td>
+			</tr>			
+		</table>
+		
+		
+		
+		<div id="footer" style="background-color:#ADAA8C;">
+		
+		<p class="text" style="display:inline;">&copy; 2012 Beacon College - </p> <h1 class="text" style="display:inline;">College for Learning Disability and ADHD Students</h1> <p class="text" style="postition:relative; top:-5px;">105 East Main Street  &bull;  Leesburg, Florida 34748 &bull;  Phone Toll-Free 855-220-5374  &bull;  Fax: 352-787-0721</p>
+		</div>
+        
+    
+        
+	</div>
+	</center>
+ 
+ <map name="Map">
+   <area shape="rect" coords="154,102,339,137" href="international.asp" alt="Mane Thinking Summer School">
+ </map>
+
+<map name="buttons">
+<area shape="rect" coords="2,2,171,49" href="https://www.beaconsonisweb.com/webiqent.cfm" alt="Send me more information.">
+<area shape="rect" coords="3,55,173,107" href="howtoapply.asp" alt="Apply Now.">
+</map>
+</BODY>
+</HTML>

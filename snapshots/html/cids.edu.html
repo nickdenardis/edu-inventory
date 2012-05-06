@@ -1,0 +1,963 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+
+
+<html>
+<head>
+	<title>Coorg Institute of Dental Sciences</title>
+<link href="mainstyles.css" rel="stylesheet" type="text/css" >	
+
+<script language="JavaScript" type="text/javascript">
+//var IEandLessThan7andMorethan5andahalf=false;
+</script>
+
+<!--[if lt IE 7]>
+<script language="JavaScript" type="text/javascript">
+function correctPNG() // correctly handle PNG transparency in Win IE 5.5 & 6.
+{
+	//alert('less than ie7');
+   var arVersion = navigator.appVersion.split("MSIE")
+   var version = parseFloat(arVersion[1])
+   if ((version >= 5.5) && (document.body.filters)) 
+   {
+   		//IEandLessThan7andMorethan5andahalf=true;
+		//alert(IEandLessThan7andMorethan5andahalf);
+      for(var i=0; i<document.images.length; i++)
+      {
+         var img = document.images[i]
+         var imgName = img.src.toUpperCase()
+         if (imgName.substring(imgName.length-3, imgName.length) == "PNG")
+         {
+            var imgID = (img.id) ? "id='" + img.id + "' " : ""
+            var imgClass = (img.className) ? "class='" + img.className + "' " : ""
+            var imgTitle = (img.title) ? "title='" + img.title + "' " : "title='" + img.alt + "' "
+            var imgStyle = "display:inline-block;" + img.style.cssText 
+            if (img.align == "left") imgStyle = "float:left;" + imgStyle
+            if (img.align == "right") imgStyle = "float:right;" + imgStyle
+            if (img.parentElement.href) imgStyle = "cursor:hand;" + imgStyle
+            var strNewHTML = "<span " + imgID + imgClass + imgTitle
+            + " style=\"" + "width:" + img.width + "px; height:" + img.height + "px;" + imgStyle + ";"
+            + "filter:progid:DXImageTransform.Microsoft.AlphaImageLoader"
+            + "(src=\'" + img.src + "\', sizingMethod='scale');\"></span>" 
+            img.outerHTML = strNewHTML
+            i = i-1
+         }
+      }
+   }    
+}
+
+
+function fnLoadIm(){
+	var sX='<a ID="layExploreBack"  style="display:block;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src=';
+	sX=sX+"'images/frontPage/menu1.png');background-image:url('images/frontPage/menu1.png');border:none;";
+	sX=sX+'"></a>"';
+	document.getElementById("layExplore").innerHTML=sX;
+	//alert(sX);
+}
+
+window.attachEvent("onload", correctPNG);
+window.attachEvent("onload", fnLoadIm);
+</script>
+<![endif]-->
+<script language="JavaScript" type="text/javascript">
+
+//version checking because there is a bug with transparencies on ie5.5 - 6.0
+
+
+
+
+var started=false;
+var currTab="22";
+var mTabs=new Array('05','07','09','12','14','15');
+var myZ=1;
+var myVersion="";
+
+var tickerImagesLoaded=new Array(false,false,false,false,false,false,false);
+
+
+function fnBackC(whOb,backColour,foreColour){
+	//alert(backColour);
+	if (backColour == ""){
+		if (myVersion>=5.5 && myVersion <=6.0){
+			whOb.style.backgroundColor="white";
+		} else {
+			//alert("-"+backColour);
+			whOb.style.backgroundColor="transparent";
+		}
+	} else {
+		whOb.style.backgroundColor=backColour;
+	}
+	whOb.style.color=foreColour;
+}
+
+function pfRTabs(wTab){
+	
+	if (wTab != currTab){
+		document.getElementById("m"+wTab).src="images/frontPage/rollO/_-"+wTab+".jpg";
+	}
+}
+function pfOTabs(wTab){
+	if (wTab != currTab){
+		document.getElementById("m"+wTab).src="images/frontPage/_-"+wTab+".jpg";
+	}
+}
+function pfPTabs(wTab){
+	//alert(mTabs[0]);
+	var wS=document.getElementById("mTextBoxRight");
+	var s="";
+	for (var i=0;i<mTabs.length;i++){
+		//alert(i);
+		if (mTabs[i] != wTab){
+			document.getElementById("m"+mTabs[i]).src="images/frontPage/_-"+mTabs[i]+".jpg";
+		} else {
+			document.getElementById("m"+wTab).src="images/frontPage/onC/_-"+wTab+".jpg";
+			
+		}
+	}
+	if (wTab == "07" && currTab != "07"){
+		s="";
+		//wS.innerHTML=s;
+		document.getElementById("mContactUs").style.display="none";
+		document.getElementById("mAdmissions").style.display="block";
+		document.getElementById("mFacilities").style.display="none";
+		document.getElementById("mCourses").style.display="none";
+		document.getElementById("mLocation").style.display="none";
+		fnPreloading('admissions1');
+	//	document.getElementById('admissions1').style.zIndex=document.getElementById('admissions1').style.zIndex+2;
+		//document.getElementById('ticker1').style.left="414px";
+		//document.getElementById('courses1').style.top="500px";
+		myZ++;
+		document.getElementById('admissions1').style.zIndex=myZ;
+		document.getElementById('myMap').innerHTML="<div style='width: 100%; height: 100%; background: red'>.</div>";
+		fnFadeInOut('admissions1',0,0,1,0.05);
+		
+		//document.getElementById('admissionsDiv').style.visibility="visible";
+	} 
+	if (wTab == "05" && currTab != "05"){
+		s="";
+		//wS.innerHTML=s;
+		document.getElementById("mContactUs").style.display="block";
+		document.getElementById("mAdmissions").style.display="none";
+		document.getElementById("mFacilities").style.display="none";
+		document.getElementById("mCourses").style.display="none";
+		document.getElementById("mLocation").style.display="none";
+		document.getElementById("mAlumni").style.display="none";
+	//	document.getElementById('ticker1').style.zIndex=document.getElementById('ticker1').style.zIndex+2;
+		myZ++;
+		document.getElementById('ticker1').style.zIndex=myZ;
+		document.getElementById('myMap').innerHTML="<div style='width: 100%; height: 100%; background: red'>.</div>";
+		//alert(IEandLessThan7andMorethan5andahalf);
+		//if (IEandLessThan7andMorethan5andahalf==true){
+			document.getElementById('ticker1').style.top="0px";
+		//} else {
+			//fnFadeInOut('ticker1',0,0,1,0.1);
+		//}
+	}
+	if (wTab == "09" && currTab != "09"){
+		s="";
+		document.getElementById("mContactUs").style.display="none";
+		document.getElementById("mAdmissions").style.display="none";
+		document.getElementById("mCourses").style.display="block";
+		document.getElementById("mFacilities").style.display="none";
+		document.getElementById("mAlumni").style.display="none";
+		document.getElementById("mLocation").style.display="none";
+
+		//wS.innerHTML=s;
+		document.getElementById('myMap').innerHTML="<div style='width: 100%; height: 100%; background: red'>.</div>";
+		fnPreloading('courses1');
+		
+	//	document.getElementById('courses1').style.zIndex=document.getElementById('courses1').style.zIndex+2;
+		myZ++;
+		document.getElementById('courses1').style.zIndex=myZ;
+		//document.getElementById('ticker1').style.left="414px";
+		//document.getElementById('admissions1').style.top="500px";
+		document.getElementById('courses1').style.width="490px";
+		document.getElementById('courses1').style.height="316px";
+		fnZoom('courses1',10,-5);
+		fnFadeInOut('courses1',0,0,1,0.05);
+		//document.getElementById('ticker1').style.left="414px";
+		
+	}
+	if (wTab == "12" && currTab != "12"){
+		s="";
+		document.getElementById("mContactUs").style.display="none";
+		document.getElementById("mAdmissions").style.display="none";
+		document.getElementById("mCourses").style.display="none";
+		document.getElementById("mFacilities").style.display="block";
+		document.getElementById("mAlumni").style.display="none";
+		document.getElementById("mLocation").style.display="none";
+		//wS.innerHTML=s;
+		fnPreloading('facilities1');
+	
+		myZ++;
+		document.getElementById('facilities1').style.zIndex=myZ;
+		document.getElementById('myMap').innerHTML="<div style='width: 100%; height: 100%; background: red'>....</div>";
+		fnFadeInOut('facilities1',0,0,1,0.05);
+		
+	} 
+	if (wTab == "14" && currTab != "14"){
+		s="";
+		document.getElementById("mContactUs").style.display="none";
+		document.getElementById("mAdmissions").style.display="none";
+		document.getElementById("mFacilities").style.display="none";
+		document.getElementById("mCourses").style.display="none";
+		document.getElementById("mLocation").style.display="block";
+		document.getElementById("mAlumni").style.display="none";
+		document.getElementById('myMap').innerHTML='<iframe ID="myMap2" style="position: absolute; left: 0px; top: 0px" width="440" height="266" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=virajpet+india&amp;sll=53.370221,-8.481445&amp;sspn=1.278228,3.427734&amp;ie=UTF8&amp;ll=14.944785,77.980957&amp;spn=5.644906,9.667969&amp;z=6&amp;iwloc=A&amp;output=embed"></iframe>';
+	//	document.getElementById('ticker1').style.zIndex=document.getElementById('ticker1').style.zIndex+2;
+		myZ++;
+		document.getElementById('myMap').style.zIndex=myZ;
+		document.getElementById('myMap').style.left="0px";
+		//document.getElementById('courses1').style.top="500px";
+		//document.getElementById('admissions1').style.top="500px";
+		
+		//fnFadeInOut('admissions1',0,1,0,-0.1);
+		//document.getElementById('courses1').style.top="-500px";
+	}
+	if (wTab == "15" && currTab != "15"){
+		s="";
+		document.getElementById("mContactUs").style.display="none";
+		document.getElementById("mAdmissions").style.display="none";
+		document.getElementById("mCourses").style.display="none";
+		document.getElementById("mFacilities").style.display="none";
+		document.getElementById("mAlumni").style.display="block";
+		document.getElementById("mLocation").style.display="none";
+		//wS.innerHTML=s;
+		fnPreloading('facilities1');
+	
+		myZ++;
+		document.getElementById('alumni1').style.zIndex=myZ;
+		document.getElementById('myMap').innerHTML="<div style='width: 100%; height: 100%; background: red'>....</div>";
+		fnFadeInOut('alumni1',0,0,1,0.05);
+		
+	} 
+	//alert(currTab);
+	currTab=wTab;
+	//alert(currTab);
+}
+
+var menu1On=false;
+function fnToggleButt(whichStuff){
+	var wS=document.getElementById("lay"+whichStuff);
+	var wB=document.getElementById("t"+whichStuff);
+	var wIL=document.getElementById("inLay"+whichStuff);
+	var wVB1=document.getElementById("vBar1");
+	var wVB2=document.getElementById("vBar2");
+	if (menu1On==false){
+		
+		wS.style.left=(parseInt(wB.offsetLeft)-475)+"px";
+		wIL.style.left=(parseInt(wB.offsetLeft)-475)+"px";
+		wVB1.style.left=(parseInt(wB.offsetLeft)-342)+"px";
+		wVB2.style.left=(parseInt(wB.offsetLeft)-212)+"px";
+		//wS.focus(); 439
+		wS.style.visibility="visible";
+		fnFadeInOut('layExplore',-5,0,1,0.1);
+		wIL.style.visibility="visible";
+		wVB1.style.visibility="visible";
+		wVB2.style.visibility="visible";
+		fnFadeInOut('inLayExplore',-5,0,1,0.1);
+		fnFadeInOut('vBar1',20,0,1,0.1);
+		fnFadeInOut('vBar2',20,0,1,0.1);
+		//fnFadeInOut('inIn1',-5,0,1,0.1);
+		//fnFadeInOut('inIn2',-5,0,1,0.1);
+		menu1On=true;
+	} else {
+		//var wS=document.getElementById("lay"+whichStuff);
+		wIL.style.visibility="hidden";
+		wVB1.style.visibility="hidden";
+		wVB2.style.visibility="hidden";
+		wS.style.visibility="hidden";
+		menu1On=false;
+	}
+}
+
+function fnClearResize(){
+	document.getElementById("layExplore").style.visibility="hidden";
+	document.getElementById("inLayExplore").style.visibility="hidden";
+	document.getElementById("vBar1").style.visibility="hidden";
+	document.getElementById("vBar2").style.visibility="hidden";
+	menu1On=false;
+}
+
+function fnClearMenu(evt){
+	if (menu1On == true){
+		if (!evt) var evt = window.event;
+		//alert(evt.target.id);
+		if (evt.target) eTar=evt.target.id;
+		else if (evt.srcElement) eTar=evt.srcElement.id;
+		
+		
+		var fMenuClick=false;
+		var fMenu=new Array("tExplore","layExplore","layExploreBack","inLayExplore","inIn1","inIn2","inIn3","l1b","l2b");
+		for (var i=0;i<fMenu.length;i++){
+			if (eTar == fMenu[i]){
+				fMenuClick=true;
+			}
+		}
+		for (i=1;i<17;i++){
+			if (eTar=="l"+i){
+				fMenuClick=true;
+			}
+		}
+		
+		
+		
+		if (fMenuClick==true){
+		
+		} else {
+			document.getElementById("layExplore").style.visibility="hidden";
+			document.getElementById("inLayExplore").style.visibility="hidden";
+			document.getElementById("vBar1").style.visibility="hidden";
+			document.getElementById("vBar2").style.visibility="hidden";
+			menu1On=false;
+		}
+		
+	}
+	//return false;
+}
+
+
+var timer;
+var newX;
+var stuffParams=new Array();
+
+var x=0;
+var tickerPos=new Array(0,-441,-882,-1323,-1764,-2205,-2646);
+var tickerCurrPos=0;
+var tickerCurrPosX=0;
+var tickerGoTo=0;
+var tickerUsed=false;
+var tIS=new Array("01","03","05","07","09","11","13");
+
+function fnTicker(whichPos,whereFrom){
+	if (whereFrom=="click"){
+		tickerUsed=true;
+		//alert(whichPos);
+		if (whichPos==-50){ whichPos=tickerCurrPos -1 }
+		if (whichPos==-51){ whichPos=tickerCurrPos +1 }
+	}
+	if (whereFrom=="timer" && tickerUsed==true){
+		var t=setTimeout(function() {tickerUsed=false;fnTickAlong();fnTicker(tickerCurrPos+1,"timer");}, 20000);
+		return;
+	} else {
+		if (whichPos > 6){
+			whichPos=0;
+		}
+		if (whichPos < 0){
+			whichPos=6;
+		}
+		tickerCurrPos=whichPos;
+		var thisOb=document.getElementById("innerTicker");
+		tickerCurrPosX=parseInt(thisOb.style.left);
+		//document.getElementById("innerTicker").style.left="-" + tickerPos[whichPos]+"px";
+		tickerGoTo=tickerPos[whichPos];
+		fnMoveTo(thisOb,tickerGoTo,40);
+		for (var i=0; i<7; i++){
+			if (whichPos == i){
+			//alert(whichPos+"-"+i);
+				document.getElementById("tI"+i).src="images/frontPage/ticker/interface2/interface2_clicked/_-"+tIS[i]+".gif";
+			} else {
+				document.getElementById("tI"+i).src="images/frontPage/ticker/interface2/_-"+tIS[i]+".gif";
+			}
+		}
+	
+	}
+}
+
+function fnTickAlong(){
+	//alert(tickerUsed);
+	if (tickerUsed==false){
+		var t=setTimeout(function() {fnTickAlong();fnTicker(tickerCurrPos+1,"timer");}, 7000);
+	} 
+	return false;
+}
+
+function fnMoveTo(thisOb,tGT,howMany){
+	oX=parseInt(thisOb.style.left);
+	tX=tGT-oX;
+	tXP=parseInt(tX / howMany);
+	thisOb.style.left=(oX + tXP) +"px";
+	howMany=howMany -1;
+	if (howMany == 0){
+		thisOb.style.left=tGT+"px";
+		return
+	} else {
+		var t=setTimeout(function() {fnMoveTo(thisOb,tGT,howMany);}, 10);
+	}
+}
+
+function fnOrders(whichStuff){
+	
+			fnPreloading('ticker1');
+			fnMoveStuff('ticker1','left',-10,41);
+	
+	
+}
+
+function fnMoveStuff(whichStuff,whichDirection,howFar,howOften){
+
+	
+	var	wS=document.getElementById(whichStuff);
+	
+	fnAnimate(wS,whichDirection,howFar,howOften);
+	
+	
+	return;
+}
+
+function fnFadeInOut(whichPic,wY,begg,endd,incx){
+	
+	document.getElementById(whichPic).style.top=wY+"px";
+	fnRevealPic(whichPic,wY,begg,endd,incx);
+}
+
+function fnRevealPic(whichPic,wY,begg,endd,incx){
+	
+	wS=document.getElementById(whichPic);
+	//deBugger=document.getElementById("debug");
+	//deBugger.innerHTML=""+begg;
+  
+    
+	if (navigator.appName.indexOf("Microsoft")!= -1) {
+		wS.style.filter = "alpha(opacity:"+(begg * 100)+")";
+	} else {
+		wS.style.opacity=begg;
+	}
+	
+	if (begg > 1 || begg < 0){
+		//alert("hello");
+		
+		return;
+	} 
+	if (begg < 0){
+		wS.style.top="-600px";
+	} 
+	
+	begg=begg+incx;
+	
+	var t=setTimeout(function() {fnRevealPic(whichPic,wY,begg,endd,incx);}, 60);
+
+}
+
+function fnAnimate(xwhichStuff,whichDirection,howFar,howOften){
+	var wSA=0;
+	//alert(xwhichStuff);
+	if(howOften > 0){
+		if (whichDirection=="vertical"){
+			wSA=parseInt(xwhichStuff.style.top);
+		} else {
+			wSA=parseInt(xwhichStuff.style.left);
+		}
+		//wSA2=parseInt(xwhichStuff.style.width);
+		wSA=wSA+howFar;
+		//wSA2=wSA2 + howFar;
+		//alert("" + wSA)
+		//whichStuff.style.left = 1;
+		
+		
+		howOften=howOften -1;
+		//alert(howOften);
+		if (whichDirection=="vertical"){
+			xwhichStuff.style.top=wSA + "px";
+		} else {
+			xwhichStuff.style.left=wSA + "px";
+		}
+		//xwhichStuff.style.width=wSA + "px";
+		//alert(""+parseInt(document.getElementById('blueBox').style.left));
+		//window.status=""+whichStuff.style.left;
+		var t=setTimeout(function() {fnAnimate(xwhichStuff,whichDirection,howFar,howOften);}, 5);
+		//whichStuff.style.left=wSA;
+	} else {
+		
+		//alert("hello"+stuffParams[xwhichStuff+"_reset"]);
+	}
+
+}
+
+function fnZoom(whichStuff,howLong,incx){
+	wS=document.getElementById(whichStuff);
+	//deBugger=document.getElementById("debug");
+	//deBugger.innerHTML=""+begg;
+  
+    
+	//if (navigator.appName.indexOf("Microsoft")!= -1) {
+		//wS.style.filter = "alpha(opacity:"+(begg * 100)+")";
+	//} else {
+		//wS.style.opacity=begg;
+	//}
+	wth=parseInt(wS.style.width);
+	ht=parseInt(wS.style.height);
+	wth=wth+incx;
+	ht=ht+incx;
+	wS.style.width=wth + "px";
+	wS.style.height=ht + "px";
+	
+	//document.getElementById('debug').innerHTML=""+wth;
+	
+	howLong=howLong -1;
+	if (howLong <=0 ) {
+		return;
+	}
+	
+	var t=setTimeout(function() {fnZoom(whichStuff,howLong,incx);}, 60);
+}
+
+function fnSwapMenuUp(which){
+	for (i=1;i<4;i++){
+		document.getElementById('Smenu'+i).style.display='none';
+		document.getElementById('rightArticle'+i).style.display='none';
+	}
+	document.getElementById('Smenu'+which).style.display='block';
+	document.getElementById('rightArticle'+which).style.display='block';
+}
+
+function fnViewer(which,caption){
+	document.getElementById('pfWaiting').style.visibility="visible";
+	
+	
+	var pImage = new Image();
+	pImage.src = 'images/user_photos/'+which;
+	//pImage.addEventListener(Event.Complete, imagesLoaded); 
+	fnKeepWaiting(pImage,which,caption,0);
+	
+	
+	
+
+// function invoked on image load
+
+	
+	
+}
+
+function fnPreloading (pImageX){
+	x=x+1;
+		if (x > 100){
+			return;
+		}
+		if ( pImageX.complete ) {
+			return;
+		} else {
+			var t=setTimeout(function() {fnPreloading(pImageX);}, 150);
+		} 
+}
+
+function fnKeepWaiting(pImageX,which,caption,x){
+		x=x+1;
+		if (x > 100){
+			imagesLoaded(which,caption);
+		}
+		if ( pImageX.complete ) {
+			imagesLoaded(which,caption);
+		} else {
+			var t=setTimeout(function() {fnKeepWaiting(pImageX,which,caption,x);}, 150);
+		} 
+	
+}
+
+function imagesLoaded(which,caption){
+		//opera Netscape 6 Netscape 4x Mozilla 
+	//if (window.innerWidth || window.innerHeight){ 
+		//docwidth = window.innerWidth; 
+		//docheight = window.innerHeight; 
+	//} 
+	//IE Mozilla 
+	//if (document.body.clientWidth || document.body.clientHeight){ 
+		//docwidth = document.body.clientWidth; 
+		//docheight = document.body.clientHeight;
+	//}
+	docheight=document.body.clientHeight;
+	docwidth=document.body.clientWidth;
+	document.getElementById('pfBlackOut').style.width=docwidth;
+	document.getElementById('pfBlackOut').style.height=docheight;
+	document.getElementById('pfBlackOut').style.visibility="visible";
+	
+
+		
+		document.getElementById('pfBlackOut').style.filter = "alpha(opacity: 50)";
+
+		document.getElementById('pfBlackOut').style.opacity=0.5;
+
+	
+	
+	document.getElementById('pfCapt').innerHTML=caption;
+	document.getElementById('pfImage').innerHTML="<img src='images/user_photos/"+which+"' width='600' height='480' alt='' border='0'>";
+	document.getElementById('pfWaiting').style.visibility="hidden";
+	document.getElementById("pfViewer").style.visibility= "visible";
+	fnAnimate(document.getElementById('pfCaptionXX'),'vertical', -3, 33);
+}
+
+function fnCloseViewer(){
+	document.getElementById('pfBlackOut').style.width="100px";
+	document.getElementById('pfBlackOut').style.height="100px";
+	document.getElementById('pfBlackOut').style.visibility="hidden";
+	document.getElementById('pfCaptionXX').style.top="480px";
+	document.getElementById('pfCaptionXX').style.left="217px";
+	document.getElementById("pfViewer").style.visibility= "hidden";
+	
+}
+
+function fnPreLoadTicker(){
+	var allLoaded=true;
+	for (var i=0;i<tickerImagesLoaded.length;i++){
+		if(!document.getElementById("tickerImg"+i).complete){
+			allLoaded=false;
+		}
+	}
+	if (allLoaded == true) {
+		fnTickAlong();
+	} else {
+		//alert('not yet')
+		var t=setTimeout(function() {fnPreLoadTicker();}, 5000);
+	}
+}
+
+function init(){
+	document.onmousedown = fnClearMenu;
+	document.getElementById("menuButtonx").href="Javascript: void(0)"
+	document.getElementById("ticker_interface").style.top="222px"
+	document.getElementById("xmenu05").href="Javascript: void(0)"
+	document.getElementById("xmenu07").href="Javascript: void(0)"
+	document.getElementById("xmenu09").href="Javascript: void(0)"
+	document.getElementById("xmenu12").href="Javascript: void(0)"
+	document.getElementById("xmenu14").href="Javascript: void(0)"
+	document.getElementById("xmenu15").href="Javascript: void(0)"
+	fnTickAlong();
+	//fnPreLoadTicker();
+	var arVersion = navigator.appVersion.split("MSIE");
+	myVersion = parseFloat(arVersion[1]);
+	if (myVersion >=5.5 && myVersion <=6.0){
+		//alert(version);
+		for(var ii=1; ii<13; ii++){
+			document.getElementById("l"+ii).style.background="white";
+		}
+	}
+}
+</script>
+<script language="javascript" src="ajax.js" type="text/javascript"></script>
+</head>
+
+<body bgcolor="#3263cc" onLoad="pfPTabs('05');init();ajaxFunction()" onResize="fnClearResize();">
+<div style="background-image: url(images/frontPage/_-03_back.jpg); width: 100%; min-width: 870px"><img src="images/frontPage/_-03.jpg" width="827" height="105" alt="" border="0"></div><!-- frontMenu --><div style="width: 100%; min-width: 870px"><a id="xmenu05" href="Javascript: void(0);" onMouseOver="pfRTabs('05')" onMouseOut="pfOTabs('05')" onClick="pfPTabs('05')"><img src="images/frontPage/onC/_-05.jpg" width="157" height="35" alt="" border="0" ID="m05"></a><img src="images/frontPage/_-06.jpg" width="10" height="35" alt="" border="0"><a id="xmenu07" href="admissions.aspx" onMouseOver="pfRTabs('07')" onMouseOut="pfOTabs('07')" onClick="pfPTabs('07')"><img src="images/frontPage/_-07.jpg" width="126" height="35" alt="" border="0" ID="m07"></a><img src="images/frontPage/_-08.jpg" width="11" height="35" alt="" border="0"><a id="xmenu09" href="courses.aspx" onMouseOver="pfRTabs('09')" onMouseOut="pfOTabs('09')" onClick="pfPTabs('09')"><img src="images/frontPage/_-09.jpg" width="111" height="35" alt="" border="0" ID="m09"></a><img src="images/frontPage/_-11.jpg" width="11" height="35" alt="" border="0"><a id="xmenu12"  href="facilities.aspx" onMouseOver="pfRTabs('12')" onMouseOut="pfOTabs('12')" onClick="pfPTabs('12')"><img src="images/frontPage/_-12.jpg" width="118" height="35" alt="" border="0" ID="m12"></a><img src="images/frontPage/_-13.jpg" width="11" height="35" alt="" border="0"><a id="xmenu14" href="location.aspx" onMouseOver="pfRTabs('14')" onMouseOut="pfOTabs('14')" onClick="pfPTabs('14')"><img src="images/frontPage/_-14.jpg" width="118" height="35" alt="" border="0" ID="m14"></a><img src="images/frontPage/_xtra_1.jpg" width="13" height="35" alt="" border="0"><a id="xmenu15" href="alumni.aspx" onMouseOver="pfRTabs('15')" onMouseOut="pfOTabs('15')" onClick="pfPTabs('15')"><img src="images/frontPage/_-15.jpg" width="113" height="35" alt="" border="0" id="m15"></a></div><!-- frontMenu --><table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr valign="top">
+	<td bgcolor="#3263cc"><img src="images/frontPage/_-16.jpg" width="15" height="5" alt="" border="0"></td>
+	<td><img src="images/frontPage/_-17.jpg" width="440" height="16" alt="" border="0"></td>
+	<td width="100%" background="images/frontPage/_-18_back.jpg"><img src="images/frontPage/_-18.jpg" width="1" height="1" alt="" border="0"></td>
+	<td bgcolor="#3263cc"><img src="images/frontPage/_-16.jpg" width="15" height="5" alt="" border="0"></td>
+</tr>
+<tr valign="top">
+	<td bgcolor="#3263cc">
+	<img src="images/frontPage/_-16.jpg" width="15" height="5" alt="" border="0">
+	</td>
+	<td background="images/frontPage/_-20.jpg">
+	
+	<div id="blueBoxC" class="blueBoxContainer">
+	<div style="position: absolute; left: 100px; top: 100px">Loading.....</div>
+		
+		<!-- ticker container -->
+		
+		<div id="ticker1" style="position: absolute; left: 0px; top: 0px; width: 440px; height: 266px; ">
+		<!-- inner Ticker -->
+		<div id="innerTicker" style="position: absolute; left: 0px; top: 0px; width: 440px; height: 266px;">
+		<!--ticker images -->
+		<img src="images/frontPage/ticker/ticker1x.jpg" id="tickerImg0" width="440" height="266" alt="" border="0" style="position: absolute; left: 0px; top: 0px;"><img src="images/frontPage/ticker/ticker2x.jpg" id="tickerImg1" width="440" height="266" alt="" border="0" style="position: absolute; left: 441px; top: 0px;"><img src="images/frontPage/ticker/ticker3x.jpg" id="tickerImg2" width="440" height="266" alt="" border="0" style="position: absolute; left: 882px; top: 0px;"><img src="images/frontPage/ticker/ticker4x.jpg" id="tickerImg3" width="440" height="266" alt="" border="0" style="position: absolute; left: 1323px; top: 0px;"><img src="images/frontPage/ticker/ticker5x.jpg" id="tickerImg4" width="440" height="266" alt="" border="0" style="position: absolute; left: 1764px; top: 0px;"><img src="images/frontPage/ticker/ticker6x.jpg" id="tickerImg5" width="440" height="266" alt="" border="0" style="position: absolute; left: 2205px; top: 0px;"><img src="images/frontPage/ticker/ticker7x.jpg" id="tickerImg6" width="440" height="266" alt="" border="0" style="position: absolute; left: 2646px; top: 0px;">
+		</div>
+		<!--ticker interface 222px -->
+		<div id="ticker_interface" style="position: absolute; left: 0px; top: -222px">
+		<img src="images/frontPage/ticker/_-02.png" width="420" height="44" alt="" border="0">
+		<a href="#" onClick="fnTicker(0,'click')"><img src="images/frontPage/ticker/interface2/interface2_clicked/_-01.gif" id="tI0"  width="16" height="16" alt="" border="0" style="position: absolute; left: 145px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(1,'click')"><img src="images/frontPage/ticker/interface2/_-03.gif" id="tI1"  width="16" height="16" alt="" border="0" style="position: absolute; left: 165px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(2,'click')"><img src="images/frontPage/ticker/interface2/_-05.gif" id="tI2"  width="16" height="16" alt="" border="0" style="position: absolute; left: 185px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(3,'click')"><img src="images/frontPage/ticker/interface2/_-07.gif" id="tI3"  width="16" height="16" alt="" border="0" style="position: absolute; left: 205px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(4,'click')"><img src="images/frontPage/ticker/interface2/_-09.gif" id="tI4"  width="16" height="16" alt="" border="0" style="position: absolute; left: 225px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(5,'click')"><img src="images/frontPage/ticker/interface2/_-11.gif" id="tI5"  width="16" height="16" alt="" border="0" style="position: absolute; left: 245px; top: 16px; opacity: 0.6"></a>
+		<a href="#" onClick="fnTicker(6,'click')"><img src="images/frontPage/ticker/interface2/_-13.gif" id="tI6"  width="16" height="16" alt="" border="0" style="position: absolute; left: 265px; top: 16px; opacity: 0.6"></a>
+
+		<a href="#" onClick="fnTicker(-50,'click')"><img src="images/frontPage/ticker/left.gif"  width="16" height="16" alt="back" border="0" style="position: absolute; left: 95px; top: 16px"></a>
+		<a href="#" onClick="fnTicker(-51,'click')"><img src="images/frontPage/ticker/left.gif"  width="16" height="16" alt="next picture" border="0" style="position: absolute; left: 311px; top: 16px"></a>
+		</div>
+		</div>
+		
+		
+		
+		<!-- end of ticker container -->
+		
+		<!--<img src="images/frontPage/admissions/a2.jpg" width="410" height="281" alt="" border="0" ID="admissions1" style="position: absolute; left: 0px; top: -500px;">
+		-->
+		<img src="images/frontPage/courses/courses1x.jpg" width="490" height="316" alt="" border="0" ID="courses1" style="position: absolute; left: 0px; top: -500px; width: 490px; height: 316px">
+		<img src="images/frontPage/facilities/facilities1x.jpg" width="440" height="266" alt="" border="0" ID="facilities1" style="position: absolute; left: 0px; top: -500px; width: 440px; height: 266px">
+		<img src="images/frontPage/alumni/alumni.jpg" width="440" height="266" alt="" border="0" ID="alumni1" style="position: absolute; left: 0px; top: -500px; width: 440px; height: 266px">
+		
+		<!-- map -->
+		<div ID="myMap" style="position: absolute; left: 0px; top: 0px"></div>
+		<!-- end map -->
+		
+		<div id="admissions1" style="position: absolute; left: 0px; top: -500px; width: 440px; height: 266px; background: #fe6c19">
+
+	<img src="images/frontPage/admissions/students.jpg" width="130" height="266" alt="" border="0" style="float: right; border-left: 1px solid black">
+		<a href="admissionsOnline.aspx"><img src="images/frontPage/admissions/clipboard.jpg" width="105" height="111" alt="" border="0" style="position: absolute; top: 10px; left: 50px"></a><div style="position: absolute; left: 152px; top: 25px; font-size: 24px; color: #334da1; font-weight: bold; width: 150px"><a href="admissionsOnline.aspx">Apply Online..</a></div>
+
+		<a href="admissionsDownload.aspx"><img src="images/frontPage/admissions/download.jpg" width="105" height="111" alt="" border="0" style="position: absolute; top: 120px; left: 50px"></a><div style="position: absolute; left: 152px; top: 140px; font-size: 24px; color: #334da1; font-weight: bold; width: 150px"><a href="downloads.aspx">Download Application Forms..</a></div>
+		</div>
+		
+	</div>
+	
+	
+	</td>
+	<td background="images/frontPage/_-21_back.jpg">
+	<div ID="mTextBoxRight" style="margin: 10px; overflow: auto; height: 246px;">
+	<!-- Main text for right hand side 
+	Each block is displayed or hidden according to JS
+		-->
+	
+	<!-- Studying at cids/////////////////////////////// -->
+	<div ID="mContactUs" style="display: block; width: 100%; overflow: auto; padding: 0px">
+	<img src="images/frontPage/titles/studyAt.gif" width="297" height="45" alt="" border="0">
+	<img src="images/frontPage/furniture/passPercent.png" width="167" height="186" alt="" border="0" align="right"><h3>Why Study Dentistry at CIDS?</h3>
+<p>Dentistry is poised to make a quantum leap with new technology and the aid of globalisation. We at CIDS will help you to be at the forefront of that change, giving you the skills to reach the top of an exciting profession.<br><br>Many of our students go on to excel both at home and abroad.<br></p>
+
+ <div style="float: right" class="myLinks"><a href="aboutUs.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+
+	</div>
+	
+	<!-- ADMISSIONS/////////////////////////////// -->
+	<div ID="mAdmissions" style="display: none; width: 100%; overflow: auto;"><img src='images/frontPage/titles/admissions.gif' width='309' height='38' alt='' border='0'>
+<span class="horRule"></span>
+<!-- ///////////////////////// -->
+	We have taken every care to ensure that all the provisions of the Dental Council of India are met as per the DCI regulations CIDS has a constructed area of over 100,000 Sq.Ft. <BR><BR>Students benefit from a canteen serving both vegetarian & nonvegetarian food, a well stocked library with CD ROMS and Internet facility. A separate audiovisual room has also been provided with audio visual aids like the state of the art L.C.D projectors.<BR>
+	
+	
+	 <div style="float: right" class="myLinks"><a href="admissions.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+	</div>
+	
+	<!-- COURSES/////////////////////////////// -->
+	<div ID="mCourses" style="display: none; width: 100%; overflow: auto;"><img src='images/frontPage/titles/courses.gif' width='212' height='38' alt='' border='0'>
+<span class="horRule"></span>We provide both undergraduate and postgraduate training programmes.
+<H3>Undergraduate Training Programme - Bachelor of Dental Surgery<BR></H3>A candidate for the undergraduate training programme must have secured a minimum aggregate of 50% in Physics, Chemistry and Biology at the qualifying examination. The undergraduate training leading to the BDS degree takes five years to complete with 240 teaching days in each academic year. <BR>
+<H3>Postgraduate Training Programme - Master of Dental Surgery</H3>Dentistry does not confine itself to treating carious teeth alone. The teeth act as a gateway for various other systemic manifestations and involvements. Accordingly we teach all the disciplines associated with dentistry , and render post graduation teaching programme in all 9 specialities.<BR>We pride ourselves in providing top notch training in the profession, thanks to our skilled training staff and facilities.<BR><BR>Our dental clinics and laboratories have the latest state-of-the-art equipment. To name a few, the  digital OPG and RVG units; Ceramic Laboratories and casting units, the latest audiovisual aids including LCD projectors, a 100-chair modern Dental Hospital Block, Minor Operation Theaters and a fast-developing Department of Implantology which is only the third in the country under the Global Oral Implant Academy. (GOIA).<BR>
+
+	 <div style="float: right" class="myLinks"><a href="courses.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+	
+	</div>
+	
+	<!-- FACILITIES///////////////////////////////<span class="horRule"></span> -->
+	<div ID="mFacilities" style="display: none; width: 100%; overflow: auto;"><img src='images/frontPage/titles/facilities.gif' width='229' height='38' alt='' border='0'>
+	<span class="horRule"></span><br>
+	
+
+	
+	
+	<div class="photoBorderOuter1" style="width: 100px;">
+		<div class="photoBorder1">
+		<img src="images/photos/golfers_small.jpg" width="100" height="138" alt="" border="0" class="sideEdge1"></div><div class="photoBorder1Caption"><div class="photoBorder1CaptionInner">18 Hole Golf Course</div></div>
+	<br>
+	
+
+		<div class="photoBorder1">
+		<img src="images/photos/cricket_small.jpg" width="100" height="53" alt="" border="0" class="sideEdge1"></div><div class="photoBorder1Caption"><div class="photoBorder1CaptionInner">"Coorg Coffee Cup" inter-collegiate cricket tournament</div></div>
+	</div><H3>Health Services</H3>The CIDS is a completely self contained township and has its own inhouse medical emergency room to attend to the emergencies of the staff and students and other residents. 
+<H3>Campus Recreation </H3>There are regular activities involving the students, staff and the families of the staff on the campus. Indoor games like table tennis, chess, badminton and carom are provided in the hostels. Outdoor games available on the campus include Basketball,Tennis and Cricket. A Squash court is in the planning stage.
+<H3>Counselling </H3>The CIDS has set up a full-fledged counselling service is available for the students. The service enables the students to select the optional subjects of their choice as well as take up other issues that directly or indirectly impinge on the academic performance. 
+<H3>Hostel Accommodation</H3>Comfortable hostels have been provided separately for ladies & gents. Wardens reside in each of the hostels to look into the welfare of the students. The rooms available to students are single rooms or double rooms with attached bathrooms. Hot water is provided through solar panels.
+<P>Smoking, drinking, ragging, drug abuse, and other unhealthy practices are strictly prohibited on the campus. Staff are deputed to monitor the situation in side the campus to ensure such unpleasant events do not occur.</P>
+<P>The Management has resolved to admit only 40 students per year so that quality education can be imparted. The Principal and Managing Trustee are in regular contact with the parents to keep abreast of their ward's progress.</P>
+
+	<!-- ///////////////////////// -->
+	
+	
+ <div style="float: right" class="myLinks"><a href="facilities.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+	</div>
+	
+	<!-- LOCATION/////////////////////////////// -->
+	<div ID="mLocation" style="display: none; width: 100%; overflow: auto;"><img src='images/frontPage/titles/location.gif' width='229' height='38' alt='' border='0'>
+<span class="horRule"></span>
+
+	<!-- ///////////////////////// -->
+	<P>Virajpet town is located in the south west  region of Karnataka state in the scenic district of Coorg. The town is on the Karnataka-Kerala Border on the slopes of Western Ghats. Virajpet town is well connected by Road to Bangalore, Mysore , Hassan and Cannanore (Kannur) in Kerala. You can reach Bangalore by air and board a bus or a taxi from there.</P>
+<UL>
+<LI>Bangalore is 4 and half hour drive ie 250 km from Virajpet along the state highway.
+<LI>Mysore is a pleasant 2 hr drive from Virajpet town.
+<LI>Cannanore (Kannur) is a 2 hr (100 KM) drive from virajpet.<BR></LI></UL>
+	
+	 <div style="float: right" class="myLinks"><a href="location.aspx" class="myLinks">VIEW A LARGER MAP</a> » &nbsp;</div>
+	
+	</div>
+	
+	
+	
+	<!-- ALUMNI/////////////////////////////// -->
+	<div ID="mAlumni" style="display: none; width: 100%; overflow: auto;">
+	<img src="images/frontPage/titles/alumni.gif" width="180" height="45" alt="" border="0"><br>
+
+	<span class="horRule"></span><br>
+	
+	
+	
+	Located on the hills of Malithelere, stands the Coorg Institute of Dental Sciences. Started in the month of September 1999, and from that day onwards there has been a steady growth. The college has matured and developed from a college rendering undergraduate studies to a post graduate institute as to what it is now.<br><br>Under the guidance of the managing trustee, Principal, faculty and the students we have formed a committee to work towards beginning of a new alumni association, the “CIDS AA”. <br>
+
+	<!-- ///////////////////////// -->
+	
+	
+ <div style="float: right" class="myLinks"><a href="alumni.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- end of Maint Text Block 
+	-->
+	</td>
+	<td bgcolor="#3263cc">
+	<img src="images/frontPage/_-16.jpg" width="15" height="5" alt="" border="0">
+	</td>
+</tr>
+<tr valign="top">
+	<td>
+
+	</td>
+	<td bgcolor="#fdcb53"><a href="news.aspx"><img src="images/frontPage/latestNews1.jpg" width="440" height="39" alt="" border="0"></a><div class="LMT" style="font-family: Arial; font-size: 10px"><b>INSTILLATION OF STUDENT COUNCIL 2009-10</b><br><span style="color: gray">01/10/09</span><br>Mr. MC Nanaiah, member, Legislative council, Karnataka inaugurated the function which was presided over by Mr. KK Aiyappa, the Principal and Dr. Sunil Muddaiah. The new office bearers were called on stage and bestowed their ranks, followed by the swearing in ceremony. Three dignitaries, Mr. Ramesh ,... <b class="myLinks2"><a href="news.aspx?id=cRUeipmAwTiYe3Ag+ed4QA" class="myLinks2">READ MORE</a> » &nbsp;</b><span class="horRule" style="width: 400px"></span><br><b>DECENNIAL YEAR CELEBRATION </b><br><span style='color: gray'>20/09/09</span><br>The completion of 10 years of excellence in dental education was indeed an occasion for CIDS to celebrate which fell on Sep 20th of 2009. The grand event was inaugurated by the doyen of dental education in India Dr. N Sridhar Shetty. The event was  presided by Mr. KK Aiyappa, Dr. Sequeira Peter Simo... <b class="myLinks2"><a href="news.aspx?id=JLJp89z1gz79HeaA/iNTxw" class="myLinks2">READ MORE</a> » &nbsp;</b><br>
+
+
+</div>
+	</td>
+	<td style="background-image: url('images/frontPage/orangeBack.jpg')">
+		<img src="images/frontPage/aboutUs.jpg" width="172" height="43" alt="" border="0">
+		<div class="LMT">
+		<div class="photoBorderOuter1" style="width: 100px;">
+	<div class="photoBorder1">
+	<img src="images/photos/theBoss.jpg" width="100" height="137" alt="" border="0" class="sideEdge1"></div><div class="photoBorder1Caption"><span class="photoBorder1CaptionInner" >Dr Sunil Muddaiah</span></div>
+	</div>
+	Coorg Institute of Dental Sciences (or C.I.D.S) is an educational facility for the teaching of dentistry  located in the picturesque hills of Coorg in southern India. Excellence is a way of life for the institute - we believe in a totally student-centric approach - and by restricting our intake we are able to concentrate our expertise and guidance upon the development of the student.<br><br>Located picturesquely atop a hill commanding a panoramic view of fields and valleys in Virajpet town, the Coorg Institute of Dental Sciences was set up in September 1999. It is affiliated to the Rajiv Gandhi University of Health Sciences, Bangalore and approved by the Dental Council of India, the Government of Karnataka and the Union Ministry of Health and Family Welfare.<br>
+	
+
+ <div style="float: right" class="myLinks"><a href="aboutUs.aspx" class="myLinks">READ MORE</a> » &nbsp;</div>
+		</div>
+	</td>
+</tr>
+</table>
+<div id="mt07" style="position: absolute; left: 20px; top: 150px; width: 850px; height: 266px; background-color: gray; visibility: hidden">
+asdasdasd
+asd
+as
+
+asdasd
+
+asdasd
+
+</div>
+<table cellpadding=0 cellspacing=0 border=0 width="100%">
+<tr valign="top">
+<td><img src="images/frontPage/ticker/left.gif" width="15" height="16" alt="" border="0"></td>
+<td width="25%" bgcolor="#f24642">
+
+<img src="images/frontPage/furniture/waiting_anim.gif" width="62" height="63" alt="" border="0" id="waiting1">
+<div style=" padding-left: 10px; padding-top: 10px">
+<div style="float: left; height: 120px; width: 40px">
+<img src="images/frontPage/phone.png" width="40" height="35" alt="" border="0" style="float: left; width: 40px;"></div>
+<div style="display: block;  width: 150px; height: 50px;" id="phoneNos"></div>
+
+
+<div style="display: block;  width: 150px; height: 50px;" id="mobiles"></div>
+
+
+<span id="fax"><strong>Fax:</strong> 91-0-8274-260193</span> </div>
+
+
+
+</td><td width="75%" bgcolor="#334da1">
+<div style="padding-left: 20px; padding-top: 10px">
+<b class="whiteHeader1">More Pages:</b><br>
+<a href="admissions.aspx" class="whiteText1">Admissions</a> | 
+<a href="contactUs.aspx" class="whiteText1">Contact Us</a> | 
+<a href="facilities.aspx" class="whiteText1">Facilities</a> | 
+<a href="courses.aspx" class="whiteText1">Courses</a> | 
+<a href="location.aspx" class="whiteText1">Location</a> | 
+<a href="aboutUs.aspx" class="whiteText1">About Us</a> | 
+
+<a href="ourVision.aspx" class="whiteText1">Our Vision</a> | 
+<a href="downloads.aspx" class="whiteText1">Downloads</a> | 
+<a href="departments.aspx" class="whiteText1">Departments</a> | 
+<a href="ragging.aspx" class="whiteText1">Anti-Ragging Policy</a> | 
+<a href="cidsPatients.aspx" class="whiteText1">CIDS' Patients</a> | 
+<a href="news.aspx" class="whiteText1">News</a> | 
+<a href="charity.aspx" class="whiteText1">Charity</a> | 
+<a href="greencids.aspx" class="whiteText1">Green CIDS</a> | 
+<a href="alumni.aspx" class="whiteText1">Alumni</a> | 
+<a href="research2.htm" class="whiteText1">Research Papers</a></div>
+<span class="horRule"></span>
+<div class="whiteText1" style="padding-left: 20px" id="address1">
+
+
+</div>
+
+
+
+</td>
+<td><img src="images/frontPage/ticker/left.gif" width="15" height="16" alt="" border="0"></td>
+</tr>
+</table>
+<!-- explore button -->
+
+<div id="vBar1" style="z-index: 10001; visibility: hidden; position: absolute; left: 110px; top: 20px; width: 2px; height: 159"><img src="images/frontPage/verticalBar.jpg" width="2" height="159" alt="" border="0"></div>
+<div id="vBar2" style="z-index: 10001; visibility: hidden; position: absolute; left: 220px; top: 20px; width: 2px; height: 159"><img src="images/frontPage/verticalBar.jpg" width="2" height="159" alt="" border="0"></div>
+
+<div style="position: absolute; top: -5px; left: 0px; width: 504px; height: 218px; visibility: hidden; z-index: 10000" ID="layExplore"  >
+<div ID="layExploreBack"  style="position: absolute; height: 116px; width: 504px; top: 0px; left: 0px;display:block;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='');background-image:url('images/frontPage/menu1.png');border:none;">
+
+</div>
+</div>
+
+<div id="inLayExplore" style="position: absolute; width: 504px; height: 200px; top: 0px; left: 0px; z-index: 10003; padding: 20px; visibility: hidden">
+<!-- start topMenu -->
+<div id ="inIn1" style="position: absolute; left: 20px; top: 20px; height: 200px; width: 139px">
+<a ID="l1" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="index.aspx" style="font-weight: bold">Home</a>
+<a ID="l2" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="admissions.aspx"><strong id="l1b">Admissions</strong></a>
+<a ID="l3" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="contactUs.aspx"><strong id="l2b">Contact Us</strong></a>
+<a ID="l4" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="facilities.aspx">Facilities</a>
+<a ID="l5" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="courses.aspx">Courses</a>
+<a ID="l6" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="location.aspx">Location</a>
+
+</div>
+<div id="inIn2" style="position: absolute; left: 150px; top: 20px; height: 190px; width: 75px">
+<a ID="l7" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="aboutUs.aspx">About Us</a>
+<a ID="l8" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="ourVision.aspx">Our Vision</a>
+<a ID="l9" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="downloads.aspx">Downloads</a>
+<a ID="l10" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="departments.aspx">Departments</a>
+<a ID="l11" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="ragging.aspx">Anti-Ragging Policy</a>
+<a ID="l12" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="cidsPatients.aspx">CIDS' Patients</a>
+</div>
+<div id="inIn3" style="position: absolute; left: 280px; top: 20px; height: 190px; width: 75px">
+<a ID="l13" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="news.aspx">News</a>
+<a ID="l14" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="charity.aspx">Charity</a>
+<a ID="l15" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','green')" href="greencids.aspx" style="color: green">Green CIDS</a>
+<a ID="l16" class="lMen" onMouseOver="fnBackC(this,'#3263cc','white')"  onMouseOut="fnBackC(this,'','#888888')" href="alumni.aspx">Alumni</a>
+</div>
+
+<!-- end topMenu -->
+</div>
+
+<div style="position: absolute; top: 0px; left: 0px; width: 97%; min-width: 870px; z-index: 9000; border: 0px solid black;" align="right"><img src="images/menu/menuButtonsBack.png" width="167" height="88" alt="" border="0"></div>
+
+<div style="position: absolute; top: 0px; left: 0px; width: 97%; min-width: 870px; z-index: 10002; border: 0px solid black;" align="right"><a id="menuButtonx" href="menu.aspx" onClick="fnToggleButt('Explore');" onMouseOver="document.getElementById('tExplore').src='images/menu/menu1_over.gif'" onMouseOut="document.getElementById('tExplore').src='images/menu/menu1.gif'"><img src="images/menu/menu1.gif" width="167" height="33" alt="" border="0" ID="tExplore"></a></div>
+
+<div style="position: absolute; top: 33px; width: 97%; min-width: 870px; color: black; line-height: 12px; z-index: 9000" align="right"><a href="contactUs.aspx" onMouseOver="document.getElementById('tContactUsx').src='images/menu/menu2_over.gif'" onMouseOut="document.getElementById('tContactUsx').src='images/menu/menu2.gif'"><img src="images/menu/menu2.gif" width="167" height="42" alt="" border="0" id="tContactUsx"></a></div>
+
+<!--
+<div style="position: absolute; top: 100px; width: 97%; min-width: 870px; color: black; line-height: 12px; z-index: 9001" align="right"><img src="images/frontPage/home_page.png" width="157" height="41" alt="" border="0"></div>
+-->
+
+<!-- onClick="fnToggleButt('Explore') 
+<img src="images/frontPage/menu1.png" width="439" height="216" alt="" border="0"  id="layExploreBack">
+images/frontPage/menu1.png
+
+
+-->
+
+
+</body>
+</html>

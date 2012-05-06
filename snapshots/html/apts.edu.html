@@ -1,0 +1,2215 @@
+<script type='text/javascript' src='/ajax/core/engine.js'></script>
+<script type='text/javascript'>_cfscriptLocation = "/portalv2/ajax_functions.cfm";</script>
+<script type='text/javascript' src='/ajax/core/util.js'></script>
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		
+		
+
+<script language="javascript">
+	var companyObject = null;
+	
+			
+	function loadInfo(menuid)
+	{
+		clearContent()
+		
+		
+		
+		menuid = menuid + "&databasePrefix=c398_&client.admright=";
+		
+		DWREngine._execute(_cfscriptLocation, null, 'ContentPage', menuid, getResult);
+		
+	}		
+	
+	
+	function onChangeMenu(menuid,pageid) {					
+			
+		
+		
+			document.getElementById("logoutURL").innerHTML = "<a href='#' onClick=\"window.open('login.cfm','mywindow','resizable=1resizable=1,scrollbars=1, width=500,height=400');\" class='loginLink' >Login</a> ";
+		
+		loadInfo(menuid);	
+		
+		//document.getElementById("searchURL").innerHTML = "| <A href='index.cfm?menuid=1&action=sitemap' onClick=\"onChangeMenu('menuid=1&action=sitemap&client.admright=','noEdit');return false;\">Sitemap</a>&nbsp;&nbsp;";		
+	}		
+	
+	function firstLoadPage(menuid,pageid) {
+		if (menuid.search("action=myaccount") > -1) {
+			pageid = "noEdit"		
+		}
+		
+			document.getElementById("logoutURL").innerHTML = "<a href='#' onClick=\"window.open('login.cfm','mywindow','resizable=1resizable=1,scrollbars=1, width=500,height=400');\" >Login</a> ";
+		
+	}
+	
+	
+</script>
+		
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+				
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+			
+		
+			
+			
+					
+				
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+			
+			
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		
+		
+			
+			
+			
+			
+			
+						
+					
+			
+								
+					
+			
+				
+	
+
+
+<!-- handle old and new customer folder directory --->
+
+<html>
+<head>
+	<title>Asia Pacific Theological Seminary (APTS)</title>
+	<link rel="stylesheet" href="theme/My Theme/stylesheet.css" type="text/css">	
+	<link rel="stylesheet" href="/portalv2/portal_theme.css" type="text/css">	
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<meta name="Keywords" content="Asia Pacific Theological Seminary, Assemblies of God, national churches, Asia, Pacific, Oceania, Assemblies of God World Missions-USA">
+	<meta name="Description" content="Asia Pacific Theological Seminary is a cooperative ministry of the Assemblies of God national churches of Asia, Pacific Oceania, and the Assemblies of God World Missions-USA.. The goal of APTS is to provide advanced leadership training and equip Pentecostal and Charismatic ministers for the Asia Pacific region.">
+</head>
+<script langauge="JavaScript" src="/portalv2/js/javascript.js"></script>
+<script langauge="JavaScript" src="/portalv2/overlib.js"></script>
+<div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+
+
+<script>
+	function onLoadChange() {	
+		DWRUtil.useLoadingMessage();
+		firstLoadPage("menuid=1&client.admright=",1)
+		//onChangeMenu("menuid=1&client.admright=",1);
+	}
+</script>
+
+<body onLoad="onLoadChange()" >
+<div id="portal">
+<table class="indextable">  
+  <tr>
+  	<td colspan="2" class="top">
+
+<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+
+
+
+
+<link href="dropdownmenu/basic.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="dropdownmenu/nav-bar.js"></script>
+
+
+
+<table width="100%" height="" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td  class="top" background="theme/My Theme/images/banner.swf">
+		<table width="18%" border="0" align="left" cellpadding="0" cellspacing="0">
+        	<tr>
+	          <td><a href="index.cfm?menuid=1" onClick="onChangeMenu('menuid=1',1);return false;">
+	            <embed src="theme/My Theme/images/banner.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="900" height="140"></embed>
+	          </a></td>
+    	    </tr>
+      	</table>
+     </td>
+  </tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="padding-top:8px;" background="theme/My Theme//images/topbar_b.jpg" height="41" valign='top'>
+		<table width="900" align="right" border="0" cellpadding="0" cellspacing="0">
+		  
+          <tr>
+          	<td width="150" align="center"><a href="index.cfm" onClick="onChangeMenu('menuid=1','1');return false;"><img src="theme/My Theme//images/blank.gif" height="25" border="0" /></a></td>
+  			   <td valign="top">
+					
+				<ul id="nav-bar" class="clearfix">				
+					
+						<li>
+						  <a href="index.cfm?menuid=22"> <font color="8f8e8e" style="font-family:verdana;font-size:xx-small">Prospective<br>Students</font></a>
+							
+							<ul>
+								
+								<li><a href="index.cfm?menuid=30" >Admission Requirements</a></li>
+								
+								<li><a href="index.cfm?menuid=31" >Application Procedure</a></li>
+								
+								<li><a href="index.cfm?menuid=33" >Tuition Fees & Expenses</a></li>
+								
+								<li><a href="index.cfm?menuid=32" >Application Forms</a></li>
+								
+								<li><a href="index.cfm?menuid=26" >FAQs</a></li>
+								
+								<li><a href="index.cfm?menuid=34" >Academic Calendar</a></li>
+							
+							</ul>
+																						
+						</li>							
+				  
+						<li>
+						  <a href="index.cfm?menuid=6"> <font color="8f8e8e" style="font-family:verdana;font-size:xx-small">News & <br>Announcements</font></a>
+							
+							<ul>
+								
+								<li><a href="index.cfm?menuid=29" >APTS Posters</a></li>
+								
+								<li><a href="index.cfm?menuid=50" >APTS Photos (latest)</a></li>
+							
+							</ul>
+																						
+						</li>							
+				  
+						<li>
+						  <a href="index.cfm?menuid=48"> <font color="8f8e8e" style="font-family:verdana;font-size:xx-small">COURIER<br> Newsletter</font></a>
+																						
+						</li>							
+				  
+						<li>
+						  <a href="index.cfm?menuid=5"> <font color="8f8e8e" style="font-family:verdana;font-size:xx-small">APTS <br>Event Calendar</font></a>
+																						
+						</li>							
+				  
+						<li>
+						  <a href="index.cfm?menuid=13"> <font color="8f8e8e" style="font-family:verdana;font-size:xx-small">Partnering with <br> APTS </font></a>
+																						
+						</li>							
+				  	
+				</ul>
+				 
+				
+			</td>
+		  </tr>
+		</table>
+	  </td>
+  </tr>
+</table>
+</td>
+  </tr> 
+  <tr> 
+    <td rowspan="2" align="right" valign="top" class="menu"> 		
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		
+				
+	
+	
+	
+	
+	
+	
+	
+	
+		
+		
+		
+		
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+		
+		
+
+
+<div id="menu">
+<table class="maintable"  id="menuId" bgcolor="#1061E5">
+  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=7"  class="link">About APTS </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_0">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=49&parentid=7"  class="sublink">President's Message</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=100&parentid=7"  class="sublink">2014 JUBILEE VISION</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=8&parentid=7"  class="sublink">Mission/Vision</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=57&parentid=7"  class="sublink">APTS Board of Directors</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=56&parentid=7"  class="sublink">Administration</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=79&parentid=7"  class="sublink">APTS Promo Video</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=87&parentid=7"  class="sublink">Honorary Positions</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=99&parentid=7"  class="sublink"></a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=14"  class="link">Academics </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_1">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=15&parentid=14"  class="sublink">Accreditation</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=17&parentid=14"  class="sublink">Degree programs </a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=28&parentid=14"  class="sublink">APTS Catalog</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=67&parentid=14"  class="sublink"></a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=19"  class="link">Faculty </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_2">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=70&parentid=19"  class="sublink">Judy Cagle</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=68&parentid=19"  class="sublink">Wayne Cagle</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=105&parentid=19"  class="sublink">John Carter</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=72&parentid=19"  class="sublink">A. Kay Fountain</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=76&parentid=19"  class="sublink">Galen Hertweck</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=77&parentid=19"  class="sublink">Melvin Johnson</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=106&parentid=19"  class="sublink">David Kang Im Seok</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=96&parentid=19"  class="sublink">Jun Kim</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=109&parentid=19"  class="sublink">Evelyn McKinney</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=110&parentid=19"  class="sublink">Everett McKinney</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=66&parentid=19"  class="sublink">Lian Sian Mung</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=108&parentid=19"  class="sublink">Joel Tejedo</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=107&parentid=19"  class="sublink">Marlene Yap</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=86&parentid=19"  class="sublink">Tham Wan Yee</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=103&parentid=19"  class="sublink"></a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=16"  class="link">Student Life </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_3">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=18&parentid=16"  class="sublink">Ministry Opportunities</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=53&parentid=16"  class="sublink">APTS Chapel</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=23"  class="link">Distance Learning </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_4">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=36&parentid=23"  class="sublink">Extension Sites</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=37&parentid=23"  class="sublink">Online/e-learning</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=54"  class="link">Research & Resources </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_5">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=20&parentid=54"  class="sublink">Library</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=21&parentid=54"  class="sublink">Asia Pacific Research Center</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=27&parentid=54"  class="sublink">Lectureship</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=88&parentid=54"  class="sublink">APTS Press</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=94&parentid=54"  class="sublink">AJPS</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=9"  class="link">The Campus </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_6">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=11&parentid=9"  class="sublink">Facilities</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=12&parentid=9"  class="sublink">Lodging Rates</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=10&parentid=9"  class="sublink">Location Map</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=24"  class="link">Special Programs </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_7">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=38&parentid=24"  class="sublink">Missionary Training Institute (MTI) </a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=39&parentid=24"  class="sublink">Institute of Islamic Studies (IIS)</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=40&parentid=24"  class="sublink">Leadership Development Institute (LDI)</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=41&parentid=24"  class="sublink">Institute of Buddhist Studies</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=91&parentid=24"  class="sublink">Asian Institute of Youth Studies</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=43&parentid=24"  class="sublink">Mission: Internship Program (MIP)</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=44&parentid=24"  class="sublink">Power English Program</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=25"  class="link">Alumni </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  <tr style="display:none;" id="SubMenuDisplay_8">
+	<td class="subMenuTd">			 
+		<table class="subtable" id="subMenuId">		   
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=51&parentid=25"  class="sublink">Alumni News</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=46&parentid=25"  class="sublink">Spotlight</a></td>
+		   </tr>
+		   
+		   <tr>
+			  <td class="submenu"><a href="index.cfm?menuid=47&parentid=25"  class="sublink">Request for Transcripts</a></td>
+		   </tr>
+		   	
+		</table>	
+	</td>	
+  </tr>   
+	  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=4"  class="link">Contact Us </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+  
+  
+  <tr id="MainId">
+  	  <td class="mainmenu">
+		  <a href="index.cfm?menuid=89"  class="link">MISSIONS INVESTMENTS </a>		  
+	  </td>
+  </tr>
+  <tr>
+  	<td class="mainmenu"><img src="/portalv2/theme/theme2/images/separator_nav.gif" height="2" width="90%"></td>
+  </tr> 
+    
+   
+</table>
+</div>
+
+
+  <script language="javascript">
+  	var subMenuList = 'SubMenuDisplay_0,SubMenuDisplay_1,SubMenuDisplay_2,SubMenuDisplay_3,SubMenuDisplay_4,SubMenuDisplay_5,SubMenuDisplay_6,SubMenuDisplay_7,SubMenuDisplay_8';
+  </script>
+  
+  
+	<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-765613-27");
+pageTracker._trackPageview();
+</script> </td>
+    <td class="topLogin" align="right">
+				
+		<FORM name="searchForm" action="" method="post" onSubmit="return(searchWebsiteForm())">	  
+			<span name="logoutURL" id="logoutURL"></span>	
+					
+			<span name="searchURL" id="searchURL"></span>
+			
+			| <A href='index.cfm?menuid=1&action=sitemap'>Sitemap</a>&nbsp;&nbsp;
+			<input name="Searchportal" align="absmiddle" onFocus="this.value = '';"  class="sm" size="20" value="Search This Site"> 
+			<INPUT type="image" src="/portalv2/images/search_go.gif" align="absMiddle">&nbsp;&nbsp;
+			<input type="hidden" name="customerid" value="398">
+		</form>
+	</td>
+  </tr>
+  <tr>
+    <td valign="top" class="content"><span name="infoContent" id="infoContent"><span class='title'>WELCOME TO APTS</span><br><br><p>&nbsp;
+<table width="680" height="42" cellspacing="2" cellpadding="2" border="0">
+    <tbody>
+        <tr>
+            <td>
+            <p>The Asia Pacific Theological Seminary (APTS) is set in a garden-like environment amidst a natural environment of unsurpassed beauty. <a href="index.cfm?menuid=9&amp;parentid=7" style="text-decoration: none">Come join us for a tour of the campus . . .</a></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</p>
+<hr size="1" color="#372d98" />
+<table align="center" width="679" cellspacing="3" cellpadding="3" border="0">
+    <tbody>
+        <tr>
+            <td width="33%" valign="top"><a href="http://www.apts-moodle.com/moodle" target="_blank"><img align="left" width="80" height="65" border="0" src="aeimages//Image/e-learning2.gif" alt="" /></a>We welcome you to&nbsp;browse APTS' E-Learning&nbsp;Site but <font color="#ff0000"><strong>we are NOT offering courses on-line yet</strong></font>. <font size="1">However, we are definitely&nbsp;moving in that direction. Meanwhile, most of our&nbsp;faculty on campus use Moodle as a content delivery program to facilitate and supplement their class activities.</font></td>
+            <td width="33%" valign="top">
+            <p>&nbsp;<a href="http://www.bhd.bz/APTS/index.cfm?menuid=48"><img align="middle" width="200" height="74" border="1" src="aeimages//Image/courier-icon.gif" alt="" /></a></p>
+            <div align="center">
+            <p><a href="index.cfm?menuid=48">View our Recent Newsletters . . .</a></p>
+            </div>
+            <p align="center"><font size="5"><strong><a href="http://www.apts.edu/index.cfm?menuid=4"><font size="4">CONTACT US</font><br />
+            </a></strong></font></p>
+            </td>
+            <td width="33%" valign="top">
+            <p align="center"><a href="index.cfm?menuid=79&amp;parentid=7"><img width="150" height="113" src="aeimages//Image/President.JPG" alt="" /></a><br />
+            <a href="index.cfm?menuid=79&amp;parentid=7">View the latest APTS&nbsp;Promo Video</a></p>
+            <p align="center">&nbsp;</p>
+            <div align="center"><hr width="100%" size="2" />
+            </div>
+            <p>&nbsp;</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</p>
+<hr width="100%" size="2" />
+<p>&nbsp;</p> 
+					
+                    <br><br>
+					<div style="font-family:verdana;font-size:10px;color:999999">
+					
+					
+					
+					
+					[Page Counter: 455447]
+					</div>
+					<br><br>					
+				</span>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td colspan="2" class="footer">
+		Copyright &copy; 2007 - 2012 Asia Pacific Theological Seminary (APTS). All Rights Reserved<br>
+		Powered by <a href="http://www.cornerstone-msc.com" target="_blank">CORNERSTONE CONTENT MANAGEMENT SYSTEM</a> - <a href="http://websites.Bhd.bz">websites.BHD.bz</a>		
+	</td>
+  </tr>
+</table>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Linn State Technical College: Home</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<LINK HREF="css/lstc.css" REL="stylesheet" TYPE="text/css">
+<SCRIPT LANGUAGE="JavaScript" TYPE="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<SCRIPT TYPE="text/javascript">
+ 
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+This is the image rotation in the main image cluster
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["images/maincluster/1-1.jpg", "", ""] //plain image syntax
+fadeimages[1]=["images/maincluster/1-2.jpg", "", ""] 
+fadeimages[2]=["images/maincluster/1-3.jpg", "", ""] 
+fadeimages[3]=["images/maincluster/1-4.jpg", "", ""] 
+fadeimages[4]=["images/maincluster/1-5.jpg", "", ""] 
+var fadebgcolor="#8DAECD"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</SCRIPT>
+
+<LINK REL="stylesheet" TYPE="text/css" HREF="css/popoutmenu.css">
+<SCRIPT TYPE="text/javascript" SRC="css/popoutmenu.js">
+/***********************************************
+* AnyLink CSS Menu script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+
+</SCRIPT>
+
+<SCRIPT TYPE="text/javascript" SRC="../css/crouton.js"></SCRIPT>
+<STYLE type="text/css">
+<!--
+.style10 {
+	color: #FF0000;
+	font-size: 16px;
+}
+.style11 {font-size: 12px}
+.style12 {color: #FF0000}
+-->
+</STYLE>
+</HEAD>
+
+<BODY LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" onLoad="MM_preloadImages('images/buttons/topnav_btn_1_on.jpg','images/buttons/topnav_btn_2_on.jpg','images/buttons/topnav_btn_3_on.jpg','images/buttons/topnav_btn_4_on.jpg','images/buttons/topnav_btn_5_on.jpg','images/buttons/mainnav_1_on.jpg','images/buttons/mainnav_2_on.jpg','images/buttons/mainnav_3_on.jpg','images/buttons/mainnav_4_on.jpg','images/buttons/mainnav_5_on.jpg','images/buttons/mainnav_6_on.jpg','images/buttons/mainnav_7_on.jpg','images/buttons/mainnav_8_on.jpg','images/maincluster/futurestudent-on.gif')">
+<BR>
+<TABLE WIDTH="800" BORDER="0" ALIGN="center" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD><IMG SRC="images/topnavbar.jpg" WIDTH="800" HEIGHT="21"></TD>
+  </TR>
+
+</TABLE>
+<TABLE WIDTH="800" HEIGHT="20" BORDER="0" ALIGN="center" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+
+    <TD WIDTH="17"><IMG SRC="images/buttons/topnav_lsblank.jpg" WIDTH="17" HEIGHT="22"></TD>
+    <TD WIDTH="113"><A HREF="careerservices/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','images/buttons/topnav_btn_1_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_1_off.jpg" NAME="Image3" WIDTH="113" HEIGHT="22" BORDER="0"></A></TD>
+    <TD WIDTH="67"><A HREF="library/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','images/buttons/topnav_btn_2_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_2_off.jpg" NAME="Image4" WIDTH="67" HEIGHT="22" BORDER="0"></A></TD>
+    <TD WIDTH="98"><A HREF="modules.php?name=Jobs" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','images/buttons/topnav_btn_3_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_3_off.jpg" NAME="Image5" WIDTH="98" HEIGHT="22" BORDER="0"></A></TD>
+     <TD WIDTH="142"><A HREF="surplus/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','images/buttons/topnav_btn_6_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_6_off.jpg" NAME="Image6" WIDTH="142" HEIGHT="22" BORDER="0"></A></TD>
+    <TD WIDTH="124"><A HREF="/modules.php?name=Staff" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','images/buttons/topnav_btn_4_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_4_off.jpg" NAME="Image7" WIDTH="124" HEIGHT="22" BORDER="0"></A></TD>
+
+    <TD WIDTH="58"><A HREF="search.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','images/buttons/topnav_btn_5_on.jpg',1)"><IMG SRC="images/buttons/topnav_btn_5_off.jpg" NAME="Image8" WIDTH="58" HEIGHT="22" BORDER="0"></A></TD>
+    <TD BACKGROUND="images/buttons/searchbox.jpg">&nbsp;</TD>
+    <TD WIDTH="17"><IMG SRC="images/buttons/topnav_rsblank.jpg" WIDTH="17" HEIGHT="22"></TD>
+  </TR>
+
+</TABLE>
+<TABLE WIDTH="800" HEIGHT="649" BORDER="0" ALIGN="center" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
+  <TR>
+    <TD WIDTH="16" HEIGHT="649" BACKGROUND="images/backgrounds/lsshade.jpg">&nbsp;</TD>
+    <TD WIDTH="770" ALIGN="left" VALIGN="top"><TABLE WIDTH="770" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+
+      <TR>
+        <TD><A HREF="index.php"><IMG src="images/header.jpg" width="410" height="117" border="0"></A><A HREF="https://mylstc.linnstate.edu"><IMG SRC="images/mylstc.jpg" WIDTH="194" HEIGHT="117" BORDER="0"></A><A HREF="admissions/apply.php" TARGET="_blank"><IMG SRC="images/pageheaders/applytoday.jpg" ALT="Apply Today" WIDTH="166" HEIGHT="117" BORDER="0"></A></TD>
+        </TR>
+
+    </TABLE>
+      <TABLE WIDTH="770" HEIGHT="249" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+        <TR>
+
+          <TD WIDTH="524" HEIGHT="249" ALIGN="left" VALIGN="top" BGCOLOR="#FFFFFF">
+          <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="512" HEIGHT="314">
+            <TR>
+              <TD width="533" colspan="6" rowspan="2" VALIGN="TOP"><DIV align="center"><IMG src="images/buttons/audiencebtnsl2.jpg" width="502" height="56" USEMAP="#Map3" border="0"></DIV>
+              <SCRIPT TYPE="text/javascript">
+new fadeshow(fadeimages, 533, 258, 0, 5000, 1, "R")
+ 
+</SCRIPT></TD>
+              <TD height="58"><IMG SRC="spacer.gif" WIDTH="1" HEIGHT="95" BORDER="0" ALT="" /></TD>
+              
+            </TR>
+
+            <TR>
+              <TD HEIGHT="174"><IMG SRC="spacer.gif" WIDTH="1" HEIGHT="45" BORDER="0" ALT="" /></TD>
+            </TR>
+          </TABLE></TD>
+          <TD WIDTH="246" ALIGN="right" VALIGN="top" BACKGROUND="images/backgrounds/nav_1_bg.jpg" BGCOLOR="#FFFFFF"><BR><TABLE WIDTH="232" HEIGHT="213" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+            <TR>
+              <TD WIDTH="232"><A HREF="about/index.php" onClick="return clickreturnvalue()" onMouseOver="dropdownmenu(this, event, 'aboutmenu')"><IMG SRC="images/buttons/mainnav_1_off.jpg" NAME="Image12" WIDTH="221" HEIGHT="32" BORDER="0"></A>
+<DIV ID="aboutmenu" CLASS="menulink">
+
+<A HREF="about/index.php">Welcome</A>
+
+<A HREF="about/thlc.php">Accreditation</A>
+<A HREF="about/facts.php">Facts & Figures</A>
+<A HREF="modules.php?name=News">Campus News & Events</A>
+<A HREF="about/history.php">History</A>
+<A HREF="about/mission.php">Mission</A>
+</DIV>
+</TD>
+            </TR>
+
+            <TR>
+              <TD><A HREF="academic/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image13','','images/buttons/mainnav_2_on.jpg',1)"><IMG SRC="images/buttons/mainnav_2_off.jpg" NAME="Image13" WIDTH="221" HEIGHT="30" BORDER="0"></A></TD>
+            </TR>
+            <TR>
+              <TD><A HREF="activity/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image14','','images/buttons/mainnav_3_on.jpg',1)"><IMG SRC="images/buttons/mainnav_3_off.jpg" NAME="Image14" WIDTH="221" HEIGHT="29" BORDER="0"></A></TD>
+            </TR>
+            <TR>
+              <TD><A HREF="contact/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image15','','images/buttons/mainnav_4_on.jpg',1)"><IMG SRC="images/buttons/mainnav_4_off.jpg" NAME="Image15" WIDTH="221" HEIGHT="28" BORDER="0"></A></TD>
+            </TR>
+
+            <TR>
+              <TD><A HREF="started/index.php" onClick="return clickreturnvalue()" onMouseOver="dropdownmenu(this, event, 'gettingstarted')"><IMG SRC="images/buttons/mainnav_5_off.jpg" NAME="Image16" WIDTH="221" HEIGHT="29" BORDER="0"></A>
+<DIV ID="gettingstarted" CLASS="menulink">
+<A HREF="admissions/collegeprep.php">College Prep</A>
+<A HREF="admissions/requirements.php">Admissions Requirements</A>
+<A HREF="future/brochure.php">Electronic Brochure</A>
+<A HREF="tour/request.php">Schedule a Campus Tour</A>
+<A HREF="admissions/howtoapply.php">How to Apply</A>
+<A HREF="admissions/fees.php">Tuition and Fees</A>
+
+<A HREF="admissions/scholarships/index.php">Scholarship Information</A>
+<A HREF="financialaid/index.php">Financial Aid</A>
+</DIV>
+</TD>
+            </TR>
+            <TR>
+              <TD><A HREF="foundation/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image17','','images/buttons/mainnav_6_on.jpg',1)"><IMG SRC="images/buttons/mainnav_6_off.jpg" NAME="Image17" WIDTH="221" HEIGHT="30" BORDER="0"></A></TD>
+            </TR>
+            <TR>
+              <TD><A HREF="services/index.php" onClick="return clickreturnvalue()" onMouseOver="dropdownmenu(this, event, 'services')"><IMG SRC="images/buttons/mainnav_7_off.jpg" NAME="Image18" WIDTH="221" HEIGHT="29" BORDER="0"></A>
+
+<DIV ID="services" CLASS="menulink">
+
+<A HREF="library/index.php">Library</A>
+<A HREF="studentservices/arc/arc.php" TARGET="_blank">Academic Resources Center</A>
+<A HREF="careerservices/index.php">Career Services</A>
+<A HREF="counseling/index.php">Counseling Center</A>
+<A HREF="activity/index.php">Activity Center</A>
+<A HREF="housing/index.php">Living on Campus</A>
+<A HREF="bookstore/index.php">Bookstore</A>
+<A HREF="sga/index.php">Student Life</A></DIV>   </TD>
+
+            </TR>
+
+            <TR>
+              <TD><A HREF="tour/index.php" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image19','','images/buttons/mainnav_8_on.jpg',1)"><IMG SRC="images/buttons/mainnav_8_off.jpg" NAME="Image19" WIDTH="221" HEIGHT="32" BORDER="0"></A></TD>
+            </TR>
+          </TABLE></TD>
+        </TR>
+    </TABLE>
+      <TABLE WIDTH="770" HEIGHT="160" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+
+        <TR>
+          <TD WIDTH="524" ALIGN="left" VALIGN="top" BGCOLOR="#FFFFFF"><TABLE WIDTH="496" BORDER="0" CELLSPACING="0" CELLPADDING="0">
+
+            <TR>
+              <TD WIDTH="496"><DIV CLASS="breadcrumb">&nbsp;&nbsp;<SCRIPT>kw_crouton(" > ",1,"Linn State Technical College:",3);</SCRIPT></DIV><IMG SRC="images/pageheaders/news.gif" WIDTH="485" HEIGHT="43"></TD>
+            </TR>
+            <TR>
+              <TD HEIGHT="99" ALIGN="left" VALIGN="top" CLASS="mainbody">
+           	 	  <p><a href="about/drugscreening.php">Drug Screening Information and Legal Defense Fund </a><br>
+           	 	    <a href="https://myinfo.linnstate.edu/ics/Home.jnz?portlet=HEO_Family_Day"><br>
+   	 	          </a>                  
+           	 	  <p><a href="https://mylstc.linnstate.edu/ICS/Home.jnz?portlet=2012_Commencement_Information">2012 Commencement Information</a><br>
+   	 	            <br>
+   	 	            <br>
+   	 	            <br>
+   	 	            <a href="/modules.php?name=News&id=253">Alumnus Nathan Hogue to deliver keynote address at ATC Recognition Ceremony</a><br>
+                    <br>
+   	 	            <a href="/modules.php?name=News&id=252">Alumnus John Scheulen to deliver commencement address at Linn State</a><br>
+                     <br>
+   	 	            <a href="/modules.php?name=News&id=256">Linn State instructor selected for Governor's Award of Excellence</a><br>
+                    <br>
+   	 	            <a href="/modules.php?name=News&id=255">Linn State Technical College named as one of top 120 in country</a><br>
+                    <br>
+   	 	            <a href="/modules.php?name=News&id=254">Linn State students compete in National PAS competition</a><br>
+                    <br>
+   	 	            <a href="/modules.php?name=News&id=251">Linn State students advance to National SkillsUSA</a><br>
+                    <br>
+                    <a href="/modules.php?name=News&id=248">Linn State inducts 35 to Phi Theta Kappa</a><br>
+                    <br>
+                    <a href="/modules.php?name=News&id=247">Blair Oaks students receive top honors in writing contest</a><br>
+                    <br>
+                    <a href="/modules.php?name=News&id=245">Linn State hosts juniors, awards $1,000 tuition waiver</a><br>
+                    <br>
+                    <a href="/modules.php?name=News&id=244">Linn State students win ‘Rookie of the Year’ award</a><br>
+                    <br>
+                    <a href="/modules.php?name=News&id=242">Linn State student receives Missouri’s Breaking Traditions award</a><br>
+           	 	  
+           	 	  <TABLE width="97%" border="0">
+                    <TR>
+                      <TD width="30%" height="150"><DIV align="center"><A href="http://my.textcaster.com/ServePopup.aspx?id=1489" target="_blank"><img src="textcasterbox.gif" width="135" height="86" border="0"></A></DIV></TD>
+                      <TD width="30%"><a href="foundation/donate.php" target="_blank"><img src="foundation/Images/Donate.jpg" alt="donate" width="135" height="86" border="0"></a></TD>
+                      <TD width="40%"><DIV align="center"><A href="skillsusa/index.php"><IMG src="skillsusa/images/SkillsUsa_Logo.jpg" width="183" height="98" border="0"></A></DIV></TD>
+                    </TR>
+                </TABLE>                </TD>
+            </TR>
+          </TABLE></TD>
+          <TD WIDTH="246" ALIGN="left" VALIGN="top" BACKGROUND="images/backgrounds/upcomingbg.jpg"><DIV ALIGN="RIGHT"><A HREF="calendar.php"><IMG SRC="images/pageheaders/upcomingevents.jpg" WIDTH="264" HEIGHT="61" BORDER="0"></A><BR>
+          </DIV>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <IFRAME SRC="http://www.google.com/calendar/embed?showTitle=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=250&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=eaglemailadmin@student.linnstate.edu&amp;color=%232952A3&amp;ctz=America%2FChicago" STYLE=" border-width:0 " WIDTH="220" HEIGHT="250" FRAMEBORDER="0" SCROLLING="no"></IFRAME>
+
+          <DIV align="center"><BR>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="anniversary/index.php"><img src="50th Seal.png" alt="50th Seal" width="150" height="136" BORDER="0"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</DIV>          </TD>
+        </TR>
+    </TABLE>
+      <TABLE WIDTH="770" HEIGHT="73" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+        <TR>
+          <TD ALIGN="center" VALIGN="top"><IMG SRC="images/eagleimagebat.jpg" WIDTH="770" HEIGHT="144" BORDER="0" USEMAP="#Map2"></TD>
+        </TR>
+
+    </TABLE></TD>
+    <TD WIDTH="17" BACKGROUND="images/backgrounds/rsshade.jpg">&nbsp;</TD>
+  </TR>
+</TABLE>
+
+<TABLE WIDTH="800" BORDER="0" ALIGN="center" HEIGHT="129" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD ALIGN="center" VALIGN="top" BACKGROUND="images/footer-blank.jpg"><DIV CLASS="footer">One Technology Drive<BR>
+      Linn, MO 65051<BR>
+
+      Questions or Comments? Please <A HREF="mailto:Webmaster@linnstate.edu">e-mail us</A><BR>
+      <A HREF="disclaimer/accessibility.php">ADA Accessibility</A> | <A HREF="disclaimer/nondiscrimination.php">EO/AA </A><BR>
+
+      <BR>
+      <A HREF="about/index.php">About</A> | <A HREF="activity/index.php">Activity Center</A> | <A HREF="academic/index.php">Academic Programs</A> |<A HREF="https://mylstc.linnstate.edu"> MyLSTC</A> | <A href="http://my.textcaster.com/ServePopup.aspx?id=1489"> LSTC Alerts </A> | <A HREF="tour/index.php">LSTC Map &amp; Directions</A>  | <A HREF="foundation/index.php">Giving to LSTC</A> | <A HREF="modules.php?name=Jobs">Jobs@LSTC</A> | <A HREF="https://www.linnstate.edu/admissions/apply.php">Apply Today</A> | <A HREF="contact/index.php">Contact Us</A><Br><BR>
+
+<A HREF="index.php">Home</A> | <A HREF="future/index.php">Future Students</A> | <A HREF="current/index.php">Current Students</A> | <A HREF="alumni/index.php">Alumni &amp; Friends</A> | <A HREF="business/index.php">Business &amp; Community</A></DIV></TD>
+
+  </TR>
+</TABLE>
+
+<MAP NAME="Map2">
+  <AREA SHAPE="RECT" COORDS="99,88,197,123" HREF="http://www.facebook.com/pages/Linn-MO/Linn-State-Technical-College/21972255618" ALT="View our Facebook page">
+</MAP>
+<MAP NAME="Map3">
+  <AREA SHAPE="RECT" COORDS="34,2,140,55" HREF="future/index.php">
+  <AREA SHAPE="RECT" COORDS="146,1,253,53" HREF="current/index.php">
+  <AREA SHAPE="RECT" COORDS="261,2,364,52" HREF="alumni/index.php">
+  <AREA SHAPE="RECT" COORDS="367,1,477,53" HREF="business/index.php">
+</MAP>
+<SCRIPT type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</SCRIPT>
+<SCRIPT type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12448833-1");
+pageTracker._setDomainName(".linnstate.edu");
+pageTracker._trackPageview();
+} catch(err) {}</SCRIPT></BODY>
+</HTML>

@@ -1,0 +1,585 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <title>Wallace Community College Selma - Home</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <style type="text/css">
+        @import "wccs.css" ;
+    </style>
+    <script type="text/javascript" src="/js-bin/mediaplayer/jwplayer.js"></script>
+    <script type="text/javascript" src="/js-bin/mediaplayer/swfobject.js"></script>
+    <script type="text/javascript" src="/js-bin/jquery-1.3.2.js"></script>
+    <script type="text/javascript">
+    swfobject.embedSWF("/files/semail.swf", "studentEmail", "200", "80", "7.0.0", "/files/expressInstall.swf");
+    </script>
+    <script type="text/javascript">
+    // <![CDATA[
+    
+function popUpOpen()
+{
+    var wref = window.open('library/library.html', 'LibraryInstructions', 'width=640,height=520,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+}
+
+function popUpOpenVideo()
+{
+    var wref = window.open('video/video.html', 'WCCS @ uStream.tv', 'width=660,height=550,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+}
+
+function msgForward()
+{
+    alert("Students may continue to register through the holiday break; class fees can be cleared online beginning on January 5th, 2009.");
+    
+    window.location = "https://ibm.wccs.edu/cgi-bin/fslogin.mbr/login";
+}
+
+function CheckLibraryForm()
+{
+    if (document.getElementById("txtAuthor").value == "")
+    {
+        alert("Please fill out the Author/Editor field.");
+        
+        return false;
+    }
+    
+    if (document.getElementById("txtTitle").value == "")
+    {
+        alert("Please fill out the Title field.");
+        
+        return false;
+    }
+    
+    if (document.getElementById("txtWhere").value == "")
+    {
+        alert("Please tell us where you found this information.");
+        
+        return false;
+    }
+    
+    if (document.getElementById("txtName").value == "")
+    {
+        alert("Please fill out the Name field.");
+        
+        return false;
+    }
+    
+    if (document.getElementById("txtId").value == "")
+    {
+        alert("Please fill out the Student/Staff ID Number field.");
+        
+        return false;
+    }
+    
+    return true;
+}
+
+function GSearch() {
+    
+    var s = document.getElementById("sField").value;
+    s = s + " site:www.wccs.edu";
+    var q = "";
+    
+    for(cnt = 0; cnt < s.length; cnt++) {
+        var t = s.substring(cnt, cnt+1);
+        
+        if (t == " ") {
+            q = q + "+";
+        }
+        else {
+            q = q + t.replace(t, escape(t));
+        }
+    }
+    
+    var url = "http://google.com/search?q=" + q;
+    window.location = url;
+    return false;
+}
+
+function openCloseTree(el) {
+    el = "#" + el;
+
+    if ($(el).text() == "+") {
+        $(el).text(">")
+    }
+    else {
+        $(el).text("+")
+    }
+    
+    $(el).parent().children(".deepness").toggle();
+}
+
+function closeAllBranches(dat) {
+    $(dat).find(".deepness").each(function() {
+        closeAllBranches(this)
+        $(this).toggle();
+        //alert($(this).attr("class"));
+    });
+}
+
+    // ]]>
+    </script>
+</head>
+<body>
+    <table id="toptable">
+        <tbody style="margin: 0px; padding: 0px; border-collapse: collapse;">
+            <tr id="logobar">
+                <td id="toptd" rowspan="2">
+                    <a href="http://www.wccs.edu/index.php"><img alt="WCCS" src="/img/top-logo.gif" id="toplogo"></a><br>
+                </td>
+                <td id="linkstd">
+                    <a href="/sacs/qep" class="quicklinks" style="font-style: italic;">WRITE NOW!</a>
+                    |
+                    <a href="/index.php?page=prospective.html&section=1" class="quicklinks">Prospective Students</a>
+                    |
+                    <a href="/index.php?page=swa.html" class="quicklinks">Student Web Access</a>
+                    |
+                    <a href="http://elearning.wccs.edu/" class="quicklinks">E-Learning</a>
+                    |
+                    <a href="index.php?page=studentemail.html" class="quicklinks">Student Email</a>
+                    <br>
+                    <div id="SearchBox">
+                        <div id="innerSearchBox">
+                            <form onsubmit="return GSearch();" style="margin: 0px; padding: 0px;">
+                            <input type="text" id="sField" name="sField" value="">
+                            <input type="submit" id="sButton" value="Search">
+                            <p id="PBG">Powered by Google</p>
+                            </form>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="bridgestd">
+                    <a href="http://www.wccs.edu/index.php">
+                        <img alt="Building Bridges to the Future" src="/img/bridges.gif" id="bridges"><br>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>    <table id="tablebody">
+        <tbody style="width: 100%; height: 100%; margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+            <tr style="margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+                <td class="topredbar">&nbsp;</td>
+            </tr>
+            <tr style="margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+                <td id="content">
+                    <table class="tblframe">
+                        <tr>
+                            <td id="tdpics">
+                                <table id="leftmenucolumn">
+                                    <tbody>
+                                        <tr style="margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+                                            <td style="margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+                                                <a href="http://wccs.edu/sacs/qep">                                                    <img src="/pageimg/write01.jpg" alt="Home" id="leftpics" style="margin-bottom: 0px; padding-bottom: 0px; border-collapse: collapse;">
+                                                </a>                                            </td>
+                                        </tr>
+                                        <tr style="margin-top: 0px; padding-top: 0px; border-collapse: collapse;">
+                                            <td style="margin-top: 0px; padding-top: 0px; border-collapse: collapse;"><div style="background-color: #c6c6ff; margin: 0px;">
+<p class="paragraph" style="font-size: 10pt; padding: 5px; padding-bottom: 0px; text-align: center; font-weight: bold;">
+    ATTENTION STUDENTS:
+</p>
+<p style="font-size: 8pt; padding: 5px; padding-top: 2px; text-align: center;">
+    The Alabama Department of Postsecondary Education has implemented a new
+    policy that requires students to present a valid form of documentation.
+    The required valid form of documentation may be a Alabama Driver's License
+    or instruction permit, Alabama identification card, U.S. Passport, or
+    Social Security Card. If you do not have one of the listed, please contact
+    the Office of Student Services for more options. This must be presented
+    in person or a notarized copy may be mailed. This must be completed before
+    the registration process begins.
+</p>
+</div>
+<div style="width: 100%; text-align: center; padding: 10px;">
+    <a href="http://twitter.com/wccselma" title="Twitter"><img src="/img/twitter_logo.png" style="width: 160px; height; 40px; margin: auto; border: 0px none;" title="Twitter" alt="Twitter"></a>
+    <a href="http://www.facebook.com/pages/Wallace-Community-College-Selma/105762861926" title="Facebook"><img src="/img/facebook_logo.png" style="width: 160px; height; 40px; margin: auto; border: 0px none;" title="Facebook" alt="Facebook"></a>
+</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="topredbar">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td id="tdmainmenu" valign="top">
+                                <table id="newsmenu" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="mmtopleft">&nbsp;</td>
+                                            <td class="mmtop"></td>
+                                            <td class="mmtopright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmleft">&nbsp;</td>
+                                            <td class="mmbody">
+                                                <!--<div id="studentEmail"></div>-->
+                                                <!--<p class="paragraph" style="margin-top: 0px; margin-bottom: 5px;"><a href="sacs/qep"><img src="/img/writenow_sm.png" style="width: 300px; height: 130px; padding: 0px; margin: auto; border: 0px none;" alt="QEP: WRITE NOW!"></a></p>-->
+                                                <p class="paragraph" class="mainmenulinks" style="font-size: 12pt; font-weight: bold;"><a href="http://wccs.edu/survey2/">English 101 Pilot Survey</a></p>
+                                                <p class="paragraph"><a href="https://elearning.wccs.edu/cgi-bin/newpoll/poll.pl?semester=20113" class="mainmenulinks" style="font-size: 12pt;">Spring 2012 Student Opinion of Instruction Survey</a></p>
+                                                <p class="paragraph"><a href="/files/Summer Schedule 2012.pdf" class="mainmenulinks" style="font-size: 12pt;">SUMMER SCHEDULE 2012</a></p>
+                                                <p class="paragraph"><a href="/files/TRANSIENT STUDENT ENROLLMENT INFORMATION.pdf" class="mainmenulinks" style="font-size: 12pt;">WCCS TRANSIENT STUDENT ENROLLMENT INFORMATION</a></p>
+                                                <p class="paragraph"><a href="https://www.research.net/s/VPYN6NZ" class="mainmenulinks" style="font-size: 12pt;">2012 Community Education Survey</a></p>
+                                                <p class="paragraph"><a href="http://wccs.edu/files/peer tutor flyer.pdf" class="mainmenulinks" style="font-size: 12pt;">Student Support Services Peer Tutor</a></p>
+                                                <p class="paragraph"><a href="http://www.wccs.edu/news/article.php?nid=408&category=Events" class="mainmenulinks" style="font-size: 12pt;">BEST Saturday Spring Camps</a></p>
+                                            </td>
+                                            <td class="mmright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmbotleft">&nbsp;</td>
+                                            <td class="mmbottom">&nbsp;</td>
+                                            <td class="mmbotright">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table id="elearnmenu" ellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td class="mmtopleft">&nbsp;</td>
+                                            <td class="mmtop"></td>
+                                            <td class="mmtopright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmleft">&nbsp;</td>
+                                            <td class="mmbody">
+                                                <!--<div id="studentEmail"></div>-->
+                                                <table border="0" style="width: 100%;"><tbody style="width: 100%;">
+                                                    <tr style="width: 100%;">
+                                                        <td colspan="2" style="width: 100%; text-align: center;">
+                                                            <p class="paragraph"><a href="http://elearning.wccs.edu/?page=loggingin.html" class="mainmenulinks" style="font-size: 12pt;">Student Email and E-Learning Login Instructions</a></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="width: 100%;">
+                                                        <td style="width: 50%; text-align: center;">
+                                                            <p class="paragraph"><a href="http://elearning.wccs.edu/" class="mainmenulinks" style="font-size: 12pt;">E-Learning</a></p>
+                                                            <p class="paragraph"><a href="http://wccs.edu/index.php?page=swa.html" class="mainmenulinks" style="font-size: 12pt;">Student Web Access</a></p>
+                                                            <p class="paragraph"><a href="https://elearning.wccs.edu/studentid/" class="mainmenulinks" style="font-size: 12pt;">Get Your Student ID Number</a></p>
+                                                        </td>
+                                                        <td style="width: 50%; text-align: center;">
+                                                            <p class="paragraph"><a href="http://wccs.edu/index.php?page=studentemail.html" class="mainmenulinks" style="font-size: 12pt;">Student E-Mail</a></p>
+                                                            <p class="paragraph"><a href="http://elearning.wccs.edu/index.php?page=selftest.html" class="mainmenulinks" style="font-size: 12pt;">E-Learning Aptitude Test</a></p>
+                                                            <p class="paragraph"><a href="/files/online_registration.pdf" class="mainmenulinks" style="font-size: 12pt;">Instructions for Online Registration</a></p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+                                            </td>
+                                            <td class="mmright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmbotleft">&nbsp;</td>
+                                            <td class="mmbottom">&nbsp;</td>
+                                            <td class="mmbotright">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <table id="mainmenu" cellspacing="0" style="height: 350px;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="mmtopleft">&nbsp;</td>
+                                            <td class="mmtop"></td>
+                                            <td class="mmtopright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmleft">&nbsp;</td>
+                                            <td class="mmbody">
+                                                <table id="tablemainmenu" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="columnmenu">
+                                                                <ul>
+                                                                    <li><a href="index.php?page=about.html" class="mainmenulinks">About WCCS</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=academics.html" class="mainmenulinks">Academics</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=application.html" class="mainmenulinks">Admissions Application</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=aed.html" class="mainmenulinks">Adult Education</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=avc.html" class="mainmenulinks">Advanced Visualization Center</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?pages/ndpolicy.html" class="mainmenulinks">American Disabilities Act</a>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=athletics.html" class="mainmenulinks">Athletics</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="http://wccs.bncollege.com" class="mainmenulinks">Book Store</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=cafeteria.html" class="mainmenulinks">Cafeteria</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=police.html" class="mainmenulinks">Campus Police</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=cedu.html" class="mainmenulinks">Community Education</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=csi.html" class="mainmenulinks">Consumer Student Information</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=schedule.html" class="mainmenulinks">Course Schedule</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="http://culture.wccs.edu/" class="mainmenulinks">Cultural Affairs</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=prospective.html&section=2" class="mainmenulinks">Current Students</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="http://elearning.wccs.edu/" class="mainmenulinks">E-Learning</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=directory.html" class="mainmenulinks">Faculty and Staff</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=finaid.html" class="mainmenulinks">Financial Aid</a></li>
+                                                                </ul>
+                                                            </td>
+                                                            <td class="columnmenu">
+                                                                <ul>
+                                                                    <li><a href="index.php?page=findis.html" class="mainmenulinks">Financial Data</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="http://wccsgearup.weebly.com/" class="mainmenulinks">GEAR UP</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=vacancies.html" class="mainmenulinks">Jobs</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=library.html" class="mainmenulinks">Library</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=newconstructions.html" class="mainmenulinks">New Construction</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?pages/ndpolicy.html" class="mainmenulinks">Non-Discrimination Policy</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="/files/p2p usage policy.pdf" class="mainmenulinks">P2P Policy</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="http://www.pearsoncustom.com/al/wallaceselma/" class="mainmenulinks">Pearson Portal for WCCS</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=prospective.html&section=1" class="mainmenulinks">Prospective Students</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="/sacs/qep" class="mainmenulinks">QEP: <span style="font-style: italic; font-weight: bolder;">WRITE NOW!</span></a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="/sacs/index.html" class="mainmenulinks">SACS Accreditation Web Site</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=studentorgs.html" class="mainmenulinks">Student Organizations</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=sservices.html" class="mainmenulinks">Student Services</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="https://ibm.wccs.edu/cgi-bin/fslogin.mbr/login" class="mainmenulinks">Student Web Access</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=prospective.html&section=3" class="mainmenulinks">Support Services</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=technical.html" class="mainmenulinks">Technical Programs</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=sss.html" class="mainmenulinks">TRIO Programs</a></li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li><a href="index.php?page=wc_home.html" class="mainmenulinks">Writing Center</a></li>
+                                                                </ul>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                            <td class="mmright">&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="mmbotleft">&nbsp;</td>
+                                            <td class="mmbottom">&nbsp;</td>
+                                            <td class="mmbotright">&nbsp;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">    
+    <table id="newscalendar">
+        <thead class="news" style="width: 100%; height: 100%;">
+            <tr>
+                <td id="botredbar" colspan="13">&nbsp;<br></td>
+            </tr>
+            <tr>
+                <td class="newstopblank">&nbsp;</td>
+                <td class="newstopleft">&nbsp;</td>
+                <td class="newstop" style="width: 275px; vertical-align: bottom;"><a href="http://www.wccs.edu/news/"><img src="img/news.gif" alt="News" width="200" height="30" border="0"></a></td>
+                <td class="newstopright">&nbsp;</td>
+                <td class="newstopblank">&nbsp;</td>
+                <td class="newstopleft">&nbsp;</td>
+                <td class="newstop" style="width: 275px;" valign="bottom"><a href="/index.php?page=calendar.html"><img src="img/calendar.gif" alt="Calendar" width="200" height="30"></a></td>
+                <td class="newstopright">&nbsp;</td>
+                <td class="newstopblank">&nbsp;</td>
+                <td class="newstopleft">&nbsp;</td>
+                <td class="newstop">&nbsp;</td>
+                <td class="newstopright">&nbsp;</td>
+                <td class="newstopblank">&nbsp;</td>
+            </tr>
+        </thead>
+        <tbody class="news" style="width: 100%; height: 100%;">
+            <tr>
+                <td>&nbsp;</td>
+                <td class="newsleft">&nbsp;</td>
+                <td class="newsbody" style="width: 275px;">
+<p class="newsentry"><b>May 4, 2012:</b> <a href="http://www.wccs.edu/news/article.php?nid=422&amp;category=Events" target="_top">WCCS ACE Competition Serves as Incentive for Local Students</a></p>
+<p class="newsentry"><b>April 26, 2012:</b> <a href="http://www.wccs.edu/news/article.php?nid=421&amp;category=Sports" target="_top">Sher'Ryan Scott</a></p>
+<p class="newsentry"><b>April 24, 2012:</b> <a href="http://www.wccs.edu/news/article.php?nid=420&amp;category=Programs" target="_top">Summer 2012 Community Education Schedule Posted</a></p>
+<p class="newsentry"><b>April 17, 2012:</b> <a href="http://www.wccs.edu/news/article.php?nid=419&amp;category=Events" target="_top">WCCS Students Honored at 2012 Academic Awards Ceremony</a></p>
+<p class="newsentry"><b>April 9, 2012:</b> <a href="http://www.wccs.edu/news/article.php?nid=418&amp;category=Programs" target="_top">ASU Accelerated Psychology B.S. Degree Program</a></p>
+                    <p class="newsentry" style="font-size: 10pt;"><b><a href="http://www.wccs.edu/news/">More news...</a></b></p>
+                </td>
+                <td class="newsright">&nbsp;</td>
+                <td>&nbsp;</td>
+                <td class="newsleft">&nbsp;</td>
+                <td class="newsbody" style="width: 275px;">
+<p class="newsentry">May 15, 2012 - New / Returning Students Registration</p>
+<p class="newsentry">May 17, 2012 - New / Returning Students Registration</p>
+<p class="newsentry">May 21, 2012 - New / Returning Students Registration</p>
+<p class="newsentry">May 22, 2012 - New / Returning Students Registration</p>
+<p class="newsentry">May 23, 2012 - New / Returning Students Registration</p>
+                    <p class="newsentry" style="font-size: 10pt;"><b><a href="/index.php?page=calendar.html">More dates...</a></b></p>
+                </td>
+                <td class="newsright">&nbsp;</td>
+                <td style="background: #ffffff;">&nbsp;</td>
+                <td class="newsleft">&nbsp;</td>
+                <td class="newsbody" style="text-align: center;">
+                    <p style="text-align: center; margin: auto;">
+                        <a href="http://alabamaworkforcetraining.accs.cc/WorkforceTraining.aspx"><img src="img/AWTS_Logo.jpg" style="border: 0px none;" alt="Alabama Workforce Training Resources"></a>
+                        <a href="http://www.wccs.edu/index.php?page=gearup.html"><img src="img/gurcfy_sm.png" style="border: 0px none;" alt="GEAR UP"></a>
+                        <a href="http://www.wccs.edu/news/article.php?nid=297&category=Programs"><img src="img/avc_logo_sm.png" style="border: 0px none;" alt="AVC"></a>
+                        <a href="http://www.amsti.org/Default.aspx"><img src="img/AMSTI.jpg" style="border: 0px none;" alt="AMSTI"></a>
+                        <a href="/?page=smarthinking.html"><img src="img/smarthinking_logo.png" style="border: 0px none;" alt="SmarThinking"></a>
+                        <a href="/?page=arra.html"><img src="img/arra.jpg" style="border: 0px none;" alt="ARRA"></a>
+                        <a href="http://athens.edu/"><img src="img/athens.jpg" style="border: 0px none;" alt="ATHENS STATE"></a>
+                        <a href="http://stars.troy.edu/"><img src="img/Stars2.gif" style="border: 0px none;" alt="Stars"></a>
+                        <a href="https://elearning.wccs.edu/dps/index.php"><img src="img/dps-logo.gif" style="border: 0px none;" alt="DPS"></a>
+                        <a href="http://www.atn.org/"><img src="img/ATN.jpg" style="border: 0px none;" alt="ATN"></a>
+                        <a href="http://www.waem.us/"><img src="img/WIRED.png" style="border: 0px none;" alt="WIRED"></a>
+                        <a href="http://acs.cc.al.us/"><img src="img/ACCS.png" style="border: 0px none;" alt="ACS"></a>
+                    </p>
+                </td>
+                <td class="newsright">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td class="newsbotleft">&nbsp;<br></td>
+                <td class="newsbottom" style="width: 275px;">&nbsp;</td>
+                <td class="newsbotright">&nbsp;<br></td>
+                <td>&nbsp;</td>
+                <td class="newsbotleft">&nbsp;<br></td>
+                <td class="newsbottom" style="width: 275px;">&nbsp;</td>
+                <td class="newsbotright">&nbsp;<br></td>
+                <td>&nbsp;</td>
+                <td class="newsbotleft">&nbsp;<br></td>
+                <td class="newsbottom">&nbsp;</td>
+                <td class="newsbotright">&nbsp;<br></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="9">&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table id="bottable">
+        <tbody>
+            <tr>
+                <td id="bottomlinks">
+        
+        <a href="index.php?page=about.html" class="bottomlink">About WCCS</a>
+        |
+        <a href="index.php?page=academics.html" class="bottomlink">Academics</a>
+        | 
+        <a href="index.php?page=acaddept.html" class="bottomlink">Academic Departments</a>
+        |
+        <a href="index.php?pages/admindept.html" class="bottomlink">Administrative Departments</a>
+        |
+        <a href="index.php?pages/application.html" class="bottomlink">Admissions</a>
+        |
+        <a href="index.php?pages/ndpolicy.html" class="bottomlink">American Disabilities Act</a>
+        |
+        <a href="index.php?page=athletics.html" class="bottomlink">Athletics</a>
+        <br>
+        <a href="index.php?page=police.html" class="bottomlink">Campus Police</a>
+        |
+        <a href="index.php?page=humanrights.html" class="bottomlink">Diversity</a>
+        |
+        <a href="http://elearning.wccs.edu/" class="bottomlink">E-Learning</a>
+        |
+        <a href="index.php?page=directory.html" class="bottomlink">Faculty and Staff</a>
+        |
+        <a href="index.php?page=vacancies.html" class="bottomlink">Jobs</a>
+        |
+        <a href="index.php?page=library.html" class="bottomlink">Library</a>
+        |
+        <a href="https://zimbra.wccs.edu/" class="bottomlink">Mailroom</a>
+        |
+        <a href="index.php?pages/ndpolicy.html" class="bottomlink">Non-Discrimination Policy</a>
+        <br>
+        <a href="index.php?page=prospective.html&section=1" class="bottomlink">Prospective Students</a>
+        |
+        <a href="index.php?page=studentorgs.html" class="bottomlink">Students</a>
+        |
+        <a href="index.php?page=sservices.html" class="bottomlink">Student Services</a>
+        |
+        <a href="https://ibm.wccs.edu/cgi-bin/fslogin.mbr/login" class="bottomlink">Student Web Access</a>
+        |
+        <a href="index.php?page=sss.html" class="bottomlink">Student Support Services</a>
+	|
+	<a href="https://zimbra.wccs.edu/" class="bottomlink">Zimbra</a>
+        <br>
+        <br>
+        <b>George Corley Wallace State Community College (Wallace Community College Selma) &nbsp; 3000 Earl Goodwin Pkwy. &nbsp; Selma, Alabama 36703</b>
+        <br>
+        <b>Phone: 334-876-9227 &nbsp; Email: <a class="bottomlink" style="text-decoration: underline;" href="?page=mailform.html&amp;email=aburton">info@wccs.edu</a> &nbsp; (c) 2007 Wallace Community College Selma</b><br>
+        <br>
+        <b>It is the official policy of the Alabama State Department of Education, including postsecondary institutions under the<br>
+        control of the State Board of Education, that no person in Alabama shall, on the grounds of race, color, handicap, sex, religion,<br>
+        marital status, creed national origin, or age, be denied the benefits of, or be subjected to discrimination under any program,<br>
+        activity, or employment.</b><br>
+        <br>
+        <b>George Corley Wallace State Community College (Wallace Community College Selma) is accredited by the <a href="http://www.sacscoc.org" class="bottomlink" style="text-decoration: underline;">Commission on Colleges, Southern Association of</a><br>
+        <a href="http://www.sacscoc.org" class="bottomlink" style="text-decoration: underline;"> Colleges and Schools</a> to award Associate in Arts, Associate in Science, and Associate in Applied Science Degrees. Contact the Commission on<br>
+        Colleges at 1866 Southern Lane, Decatur, Georgia 30033-4097 or call 404-679-4500 for questions about the status of<br>
+        Wallace Community College Selma.</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10051219-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+

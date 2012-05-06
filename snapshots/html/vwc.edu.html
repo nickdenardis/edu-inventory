@@ -1,0 +1,916 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="shortcut icon" href="http://www.vwc.edu/favicon.png"/>
+<title>Virginia Wesleyan College - A small Liberal Arts College located in Norfolk, Virginia</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="http://www.vwc.edu/css/960.css"  media="screen" />
+<link href="http://www.vwc.edu/css/print.css" rel="stylesheet" type="text/css" media="print" />
+<link rel="stylesheet" href="http://www.vwc.edu/css/master.css" media="screen"  />
+<link rel="stylesheet" type="text/css" href="http://www.vwc.edu/css/style.css" media="screen" />
+<link rel="stylesheet" href="http://www.vwc.edu/css/menu.css" type="text/css" media="screen" />
+<link href="http://www.vwc.edu/css/sideNavigation.css" rel="stylesheet" type="text/css" media="screen" />
+<link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css' />
+<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"  type="text/javascript"></script>
+<link rel="stylesheet" href="css/themes/pascal/pascal.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="js/jquery.aw-showcase.min.js"></script>
+<script type="text/javascript">
+
+$(function() {		
+		
+	// initialize scrollable with mousewheel support
+	$(".scrollable").scrollable({ vertical: true, mousewheel: true });	
+	$(".scrollable2").scrollable({ vertical: true, mousewheel: true, next: ".next2", prev: ".prev2" });	
+
+});
+</script>
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider({
+        effect: 'fade', // Specify sets like: 'fold,fade,sliceDown'
+		startSlide: 6,
+        animSpeed: 1000, // Slide transition speed
+        pauseTime: 50000 // How long each slide will show
+
+    });
+});
+
+jQuery(document).ready(function($){
+$("#showcase").awShowcase(
+	{
+		content_width:			310,
+		content_height:			167,
+		fit_to_parent:			false,
+		auto:					false,
+		interval:				3000,
+		continuous:				false,
+		loading:				true,
+		tooltip_width:			200,
+		tooltip_icon_width:		32,
+		tooltip_icon_height:	32,
+		tooltip_offsetx:		18,
+		tooltip_offsety:		0,
+		arrows:					false,
+		buttons:				false,
+		btn_numbers:			false,
+		keybord_keys:			true,
+		mousetrace:				false, /* Trace x and y coordinates for the mouse */
+		pauseonover:			true,
+		stoponclick:			true,
+		transition:				'hslide', /* hslide/vslide/fade */
+		transition_delay:		300,
+		transition_speed:		500,
+		show_caption:			'onhover', /* onload/onhover/show */
+		thumbnails:				true,
+		thumbnails_position:	'outside-last', /* outside-last/outside-first/inside-last/inside-first */
+		thumbnails_direction:	'horizontal', /* vertical/horizontal */
+		thumbnails_slidex:		0, /* 0 = auto / 1 = slide one thumbnail / 2 = slide two thumbnails / etc. */
+		dynamic_height:			false, /* For dynamic height to work in webkit you need to set the width and height of images in the source. Usually works to only set the dimension of the first slide in the showcase. */
+		speed_change:			false, /* Set to true to prevent users from swithing more then one slide at once. */
+		viewline:				false /* If set to true content_width, thumbnails, transition and dynamic_height will be disabled. As for dynamic height you need to set the width and height of images in the source. */
+	});
+
+	
+	$('h4 span.title-line').eq(0).hide();
+			
+	$('#accordion li h4').click(function(){
+			$(this).parent().siblings().removeClass('active');
+				$(this).parent().siblings().animate({
+				'padding-top':'0px',
+				'padding-bottom':'0px'}, 100);
+				
+				$(this).parent().next().animate({
+					'padding-top':'0px'},100);
+				
+			$(this).parent().addClass('active');
+			$(this).parent().animate({
+				'padding-top':'0px',
+				'padding-bottom':'0px'}, 100)
+				
+			$(this).next('div').slideDown('normal');
+			$(this).parent().siblings().children('div').slideUp('normal');
+			$(this).parent().siblings().find('h4 span.title-line').slideDown('normal');
+			$('span',this).slideUp('normal');	
+			});
+
+ 
+    $("ul#mainMenu li ").hover(function() { //When trigger is clicked...  
+        $(this).next("div.submenu").slideDown('2000'); //Drop down the subnav on click  
+ 
+});
+
+});
+$('#accordion li:last-child').addClass('last');
+</script>
+<style type="text/css" >
+.scrollable {
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	/* vertical scrollables have typically larger height than width but not now */
+	height: 500px;
+}
+.scrollable2 {
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	/* vertical scrollables have typically larger height than width but not now */
+	height: 250px;
+}
+.items {
+	position:absolute;
+	/* this time we have very large space for height */	
+	height:20000em;
+	margin: 0px;
+}
+/* the action buttons above the scrollable */
+#actions, #actions2 {
+	position:absolute;
+	top:5px;
+	right:5px;
+	width: 60px;
+}
+#actions a, #actions2 a {
+	font-size:11px;
+	cursor:pointer;
+	color:#666;
+}
+#actions a:hover, #actions2 a:hover {
+	text-decoration:underline;
+	color:#000;
+}
+.disabled {
+	visibility:hidden;
+}
+.next {
+	background: url(images/homepage/down.png) no-repeat;
+	margin: 0 3px;
+	padding: 0px;
+	height: 22px;
+	width: 22px;
+	display: block;
+	float: right;
+}
+.prev {
+	display: block;
+	height: 22px;
+	width: 22px;
+	margin: 0 3px;
+	background: url(images/homepage/up.png);
+	padding: 0px;
+	float: left;
+}
+.next2 {
+	background: url(images/homepage/down.png) no-repeat;
+	margin: 0 3px;
+	padding: 0px;
+	height: 22px;
+	width: 22px;
+	display: block;
+	float: right;
+}
+.prev2 {
+	display: block;
+	height: 22px;
+	width: 22px;
+	margin: 0 3px;
+	background: url(images/homepage/up.png);
+	padding: 0px;
+	float: left;
+}
+</style>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-282125-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="favsBg">
+<div class="container_24" id="favs">
+  <div class="grid_2 prefix_1"><a id="newsIcon" href="http://www.vwc.edu/news-a-events/"><span>News &amp; Events</span></a></div>
+    <div class="grid_2"><a  id="campusMaps" href="http://www.vwc.edu/about-us/campus-map.php"><span>Campus Map</span></a></div>
+    <div class="grid_2" ><a id="calendars" href="http://www.vwc.edu/academics/academic-calendar.php"><span>Calendars</span></a></div>
+    <div class="grid_2" ><a id="myVWC" href="https://www.google.com/a/vwc.edu/ServiceLogin2?continue=https%3A%2F%2Fsites.google.com%2Fa%2Fvwc.edu%2Fstart%2Fhome&amp;followup=https%3A%2F%2Fsites.google.com%2Fa%2Fvwc.edu%2Fstart%2Fhome&amp;service=jotspot&amp;passive=true&amp;ul=1&amp;sulf=1"><span>My VWC</span></a></div>
+    <div class="grid_2"><a id="library" href="http://www.vwc.edu/lib/"><span>Library</span></a></div>
+    <div class="grid_2"><a id="directory" href="http://www.vwc.edu/marlin-directory.php"><span>Directory</span></a></div>
+    <div class="grid_2"><a id="blackboard" href="http://virginiawesleyan.blackboard.com/"><span>Blackboard</span></a></div>
+        <div class="grid_2" ><a id="livetext" href="https://www.livetext.com/"><span>Live Text</span></a></div>
+    <div class="grid_2" ><a id="bookstore" href="http://www.vwc.edu/bookstore/"><span>Bookstore</span></a></div>
+    <div class="grid_2"><a id="webAdvisor" href="https://webadvisor.vwc.edu/WebAdvisor/WebAdvisor?TYPE=M&amp;PID=CORE-WBMAIN&amp;TOKENIDX=2076055389"><span>Web Advisor</span></a></div>
+    <div class="grid_2"><a id="marsis" href="https://www.vwc.edu/wwiz/wwiz.exe/ww?wwizmstr=WEB.LOGIN"><span>Marsis</span></a></div>
+    <br class="clear" />
+  </div>
+  <div class="tab">
+    <ul class="login">
+      <li id="toggle"> <a href="#" class="open" id="openFav" style="display: block;">Quicklinks</a> <a href="#" class="close" style="display: none;" id="closeFav">Quicklinks X</a> </li>
+    </ul>
+  </div>
+</div><div id="pageBG">
+  <a name="top" id="top"></a><div id="header">
+    <div class="container_24 nomargin">
+          <div class="grid_6"> <a id="logo" href="http://www.vwc.edu"><span>Virginia Wesleyan College</span></a></div>
+          <div id="weatherApp" class="grid_5 push_12"><p class="time">Sunday, May. 6, 2012<br /></p><p class="weather"><img width="74" height="74" src="https://www.vwc.edu/weather/images/28.png" alt="weather icon" /> <span class="temp">66 &deg;</span> <span class="tempText">Mostly Cloudy</span></p></div>          <div id="cse-search-form" >
+        <form id="cse-search-form2" action="http://www.vwc.edu/search.php">
+              <input type="hidden" value="002486603759077297929:onegfydwdlm" name="cx" />
+              <input type="hidden" value="FORID:11" name="cof" />
+              <input type="hidden" value="UTF-8" name="ie" />
+              <input type="text" onclick="javaScript: if (this.value=='Search VWC')this.value=''" onkeypress="javaScript: if (this.value=='Search VWC')this.value=''" value="Search VWC" id="searchBox" name="q" />
+              <input name="Submit" type="submit" class="gsc-search-button" value="Search" />
+            </form>
+</div>
+        </div>
+  </div>  <div id="topNavigation">
+    <div class="leftNav"></div>
+  <div class="container_24 nomargin">
+    <ul id="mainMenu">
+      <li><a href="http://www.vwc.edu/about-us/">About VWC</a>
+        <div id="cont1" class="submenu container_24">
+          <div class="grid_5">
+            <h2>About VWC </h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/about-us/">About Our College</a></li>
+              <li><a href="http://www.vwc.edu/about-us/our-mission.php">Our Mission </a></li>
+              <li><a href="http://www.vwc.edu/about-us/why-virginia-wesleyan-college.php">Why VWC </a></li>
+              <li><a href="http://www.vwc.edu/about-us/quick-facts.php">Quick Facts</a></li>
+              <li><a href="http://www.vwc.edu/about-us/history-of-the-college.php">History of  the College</a></li>
+              <li><a href="http://www.vwc.edu/about-us/religious-a-spiritual-life.php">Spiritual  Life and Heritage</a></li>
+              <li><a href="http://www.vwc.edu/about-us/diversity.php">Diversity</a></li>
+              <li><a href="http://www.vwc.edu/about-us/sustainability/">Sustainability</a></li>
+              <li><a href="http://www.vwc.edu/emergency/">Emergency Information</a></li>
+
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Campus Information</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/about-us/our-location.php"> Our Location</a></li>
+              <li><a href="http://www.vwc.edu/visit-campus/"> Visit Campus</a></li>
+              <li><a href="http://www.vwc.edu/about-us/campus-map.php"> Campus Map</a></li>
+              <li><a href="http://www.vwc.edu/campus-security/"> Campus  Security </a></li>
+              <li><a href="http://www.vwc.edu/news-a-events/">Campus News &amp; Events</a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Administration</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/administration/">Administration Home</a></li>
+              <li><a href="http://www.vwc.edu/about-us/board-of-trustees.php"> Board of  Trustees</a></li>
+              <li><a href="http://www.vwc.edu/administration/business-office/"> Business  Office</a></li>
+              <li><a href="http://www.vwc.edu/administration/church-relations/"> Church  Relations</a></li>
+              <li><a href="http://www.vwc.edu/administration/human-resources/"> Human  Resources</a></li>
+              <li><a href="http://www.vwc.edu/administration/computer-services/">Computer  Services</a></li>
+              <li><a href="http://www.vwc.edu/administration/office-of-college-communications/"> College  Communications </a></li>
+              <li><a href="http://www.vwc.edu/administration/institutional-research-and-planning/">Institutional Research</a></li>
+              <li><a href="http://www.vwc.edu/about-us/annual-reports.php">Annual Reports</a></li>
+            </ul>
+          </div>
+          <div class="grid_7">
+            <h2>President's Office</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/administration/presidents-office/">Meet Billy Greer</a></li>
+              <li><a href="http://www.vwc.edu/administration/presidents-office/a-conversation-with-president-greer.php">A Conversation With President Greer (video)</a></li>
+              <li><a href="http://www.vwc.edu/administration/presidents-office/president_s-advisory-council.php"> President's Advisory Council</a></li>
+              <li><a href="http://www.vwc.edu/administration/presidents-office/presidents-environmental-issues-council.php">President's Environmental Issues Council</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="http://www.vwc.edu/admissions/">Admissions</a>
+        <div id="cont2" class="submenu container_24">
+          <div class="grid_5">
+            <h2>Admissions</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/admissions/new-students-and-future-marlins/"> New Students</a></li>
+              <li><a href="http://www.vwc.edu/admissions/transfer-students/"> Transfer  Students</a></li>
+              <li><a href="http://www.vwc.edu/admissions/international-students/"> International  Students</a></li>
+              <li><a href="http://www.vwc.edu/admissions/adult-studies/"> Adult  Studies</a></li>
+              <li> <a href="http://www.vwc.edu/admissions/rotc.php">ROTC</a></li>
+              <li><a href="http://www.vwc.edu/admissions/parents-a-family/"> Parents  &amp; Family</a></li>
+              <li><a href="http://www.vwc.edu/admissions/guidance-counselors.php"> Guidance  Counselors </a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Tuition Information</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/admissions/financial-aid/">Financial Aid</a></li>
+              <li><a href="http://www.vwc.edu/admissions/financial-aid/tuition.php">Tuition Costs</a></li>
+              <li><a href="http://www.vwc.edu/admissions/military-grant-program.php">Military Grant Program</a></li>
+              <li><a href="http://www.vwc.edu/admissions/new-students-and-future-marlins/scholarships.php">Scholarships</a></li>
+              <li><a href="http://www.vwc.edu/admissions/new-students-and-future-marlins/freshman-net-price-calculator.php">Freshman Net Price Calculator</a></li>
+              <li><a href="http://www.vwc.edu/admissions/transfer-students/transfer-cost-calculator.php">Transfer Net Price Calculator</a></li>
+            </ul>
+          </div>
+          <div class="grid_6">
+            <h2>Visit Our Campus</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/visit-campus/">Campus Tours</a></li>
+              <li><a href="http://www.vwc.edu/visit-campus/directions.php">Directions</a></li>
+              <li><a href="http://www.vwc.edu/visit-campus/local-accommodations.php">Local Accommodations</a></li>
+              <li><a href="http://www.vwc.edu/visit-campus/campus-map.php">Campus Map</a></li>
+              <li><a href="http://www.ecampustours.com/VirtualTours/Default.aspx?FafsaCode=003767&amp;login=false">Virtual Tour</a></li>
+              <li><a href="http://www.vwc.edu/student-life/meet-a-marlin.php">Meet a Marlin</a></li>
+            </ul>
+          </div>
+          <div class="grid_2">
+            <p>&nbsp;</p><a class="applyNow" href="http://www.vwc.edu/admissions/apply-now/"><span>Apply Now</span></a><p>&nbsp;</p><a class="class2016" href="http://www.vwc.edu/admissions/new-students-and-future-marlins/class-of-2016.php"><span>Class of 2016</span></a>
+          </div>
+        </div>
+      </li>
+      <li><a href="http://www.vwc.edu/academics/">Academics</a>
+        <div id="cont3" class="submenu container_24">
+          <div class="grid_6">
+            <h2>Academics</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/academics/departments-and-programs/">Departments and Programs</a></li>
+              <li><a href="http://www.vwc.edu/academics/majors-a-minors.php">Majors &amp; Minors</a></li>
+              <li><a href="http://www.vwc.edu/academics/catalog.php">Catalog</a></li>
+              <li><a href="http://www.vwc.edu/academics/academic-support-resources.php">Academic Support Services</a></li>
+              <li><a href="http://www.vwc.edu/academics/advising.php">Advising</a></li>
+              <li><a href="http://www.vwc.edu/academics/academic-calendar.php">Academic Calendar</a></li>
+              <li><a href="http://www.vwc.edu/academics/registrar/new-curricular-model.php">2011-12 Curriculum Changes</a></li>
+              <li><a href="http://www.vwc.edu/lib/">Hofheimer Library</a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Academic Affairs</h2>
+            <ul>
+              <li> <a href="http://www.vwc.edu/academics/academic-affairs/">Vice President/Dean</a></li>
+              <li> <a href="http://www.vwc.edu/academics/academic-affairs/division-chairs-and-department-coordinators.php">Divisional Structure</a></li>
+              <li><a href="http://www.vwc.edu/academics/academic-affairs/faculty-assembly.php">Faculty</a></li>
+              <li><a href="http://www.vwc.edu/academics/academic-affairs/honorary-degrees.php">Honorary Degrees</a></li>
+              <li><a href="http://www.vwc.edu/academics/academic-affairs/quality-enhancment-plan.php">Quality Enhancement Plan</a></li>
+              <li> <a href="http://www.vwc.edu/academics/graduation-ceremonies.php">Graduation</a></li>
+              <li><a href="http://www.vwc.edu/academics/creed-a-honor-code.php">Creed and Honor Code</a></li>
+            </ul>
+          </div>
+          <div class="grid_6">
+            <h2>Programs</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/admissions/adult-studies/"> Adult Studies </a></li>
+              <li><a href="http://www.vwc.edu/academics/honors-and-scholars/">Honors and Scholars</a></li>
+              <li><a href="http://www.vwc.edu/academics/winter-session.php">Winter Session</a></li>
+              <li><a href="http://www.vwc.edu/academics/fellowships-scholarships-a-awards.php">Fellowships, Scholarships, and Awards</a></li>
+              <li><a href="http://www.vwc.edu/academics/undergraduate-research.php">Undergraduate Research </a></li>
+              <li><a class="commencement " href="http://www.vwc.edu/academics/graduation-ceremonies/commencement-2012.php"><span>Commencement 2012</span></a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Registrar</h2>
+            <ul>
+              <li>
+                <div><a href="http://www.vwc.edu/academics/registrar/student-forms.php">Student Forms</a></div>
+              </li>
+              <li><a href="http://www.vwc.edu/academics/registrar/new-courses.php">New Courses</a></li>
+              <li><a href="http://www.vwc.edu/academics/registrar/exam-schedule.php">Exam Schedules</a></li>
+              <li><a href="http://www.vwc.edu/academics/registrar/registration-instructions.php">Registration Instructions</a></li>
+              <li><a href="http://www.vwc.edu/academics/registrar/course-schedules.php">Course Schedules</a></li>
+              <li><a href="http://www.vwc.edu/academics/registrar/vccs-transfer-guide.php">VCCS Transfer Guide</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="http://www.vwc.edu/student-life/">Student Life</a>
+        <div id="cont4" class="submenu container_24">
+          <div class="grid_6">
+            <h2>Student Affairs</h2>
+            <ul>
+            <li><a href="http://www.vwc.edu/student-life/vice-president-for-student-affairs-and-dean-of-enrollment-services/">VP / Dean</a></li>
+              <li><a href="http://www.vwc.edu/campus-security/">Campus Security</a></li>
+              <li><a href="http://www.vwc.edu/student-life/career-services/"> Career Services</a></li>
+              <li><a href="http://www.vwc.edu/student-life/chaplains-office/"> Chaplains Office </a></li>
+              <li><a href="http://www.vwc.edu/student-life/community-service/">Community Service </a></li>
+              <li><a href="http://www.vwc.edu/student-life/counseling-services/">Counseling Services </a></li>
+              <li><a href="http://www.vwc.edu/academics/creed-a-honor-code.php">Creed and Honor Code</a></li>
+              <li><a href="http://www.vwc.edu/student-life/health-services/">Health Services</a></li>
+              <li><a href="http://www.vwc.edu/international-and-intercultural-programs/"> International and Intercultural Programs</a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Batten Student Center</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/student-life/batten-student-center.php">Batten Center Offices</a></li>
+              <li><a href="http://www.vwc.edu/student-life/batten-student-center/hours-of-operation.php"> Center Hours of Operation </a></li>
+              <li><a href="http://www.vwc.edu/student-life/dean-of-students.php">Dean of Students </a></li>
+              <li><a href="http://www.vwc.edu/chronicle/">Marlin Chronicle </a></li>
+              <li><a href="http://www.vwc.edu/student-life/meet-a-marlin.php">Meet a Marlin </a></li>
+              <li><a href="http://www.vwc.edu/student-life/recx/">Rec X </a></li>
+              <li><a href="http://www.vwc.edu/bookstore/">Scribner Bookstore</a></li>
+              <li><a href="http://www.vwc.edu/student-life/batten-student-center/services.php"> Services</a></li>
+            </ul>
+          </div>
+          <div class="grid_6">
+            <h2>Student Activities</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/student-life/clubs-a-organizations.php">Clubs and Organizations</a></li>
+              <li><a href="http://www.vwc.edu/student-life/community-service/">Community Services</a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/get-involved.php">Get Involved</a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/greek-life.php">Greek Life </a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/policies-and-forms.php">Policies and Forms</a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/sga.php">Student Government Association</a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/wesleyan-activities-council.php">Wesleyan Activities Council</a></li>
+              <li><a href="http://www.vwc.edu/student-life/student-activities/pdfs/WhatEveryStudentShouldKnow.pdf">What Every Student Should Know</a></li>
+            </ul>
+          </div>
+          <div class="grid_5">
+            <h2>Residence Life</h2>
+            <ul>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/freshmen-interest-groups.php">Freshmen Interest Groups</a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/frequently-asked-questions.php">Frequently Asked Questions</a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/the-housing-process.php"> Housing Process</a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/living-and-learning-communities.php">Living and Learning Communities' </a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/residence-halls.php">Residence Halls </a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life.php">Residence Life</a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/staff.php">Staff</a></li>
+              <li><a href="http://www.vwc.edu/student-life/residence-life/what-to-bring-what-not-to-bring.php">What to Bring/Not to Bring</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+      <li><a href="http://vwcathletics.com">Athletics</a></li>
+      <li><a href="http://www.vwc.edu/alumni-a-friends/">Alumni</a></li>
+      <li><a href="http://www.vwc.edu/giving/">Giving</a></li>
+      <li><a id="class2016" href="http://www.vwc.edu/admissions/new-students-and-future-marlins/class-of-2016.php"><span>Class of 2016</span></a></li>
+   <br class="clear" /> </ul>
+    <div class="rightNav"></div>
+    <div class="clear"></div>
+  </div>
+</div>
+    <div id="content">
+<div id="slide">
+<div class="container_24">
+    <div class="grid_7">
+                    <a href="Celebrating-50-years/"><img src="images/50th8.jpg" alt="Celebrating 50 Years" width="271" height="369" /></a>
+            </div>
+
+<div class="grid_17">
+    <div class="slider-wrapper theme-pascal">
+        <div id="slider" class="nivoSlider"> 
+            <img src="images/slider/1.jpg" alt="A Best College in the nation...The Princeton Review" width="658" height="330" /> 
+            <img src="images/slider/2.jpg" alt="You can wear a number...without being one" width="658" height="330" /> 
+            <img src="images/slider/3.jpg" alt="The college experience...with a coastal edge" width="658" height="330" /> 
+            <img src="images/slider/4.jpg" alt="More than professors...scholars, mentors, and friends" width="658" height="330" /> 
+            <img src="images/slider/5.jpg" alt="Once a Marlin...always a Marlin" width="658" height="330" />
+            <img src="images/slider/6.jpg" alt="An inspriring place...to grow and thrive" width="658" height="330" />
+            <img src="images/slider/7.jpg" alt="Your success...is our legacy" width="658" height="330" /> 
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+    <div class="container_24" id="mainContent">
+      <div class="grid_15">
+        <div id="news">
+          <div>
+          <h1 class="header">Wesleyan News 
+            <!--<img src="images/homepage/rss.png" width="17" height="17" class="rss" />--></h1>
+            <div id="actions"> <a class="prev"></a> <a class="next"></a> </div>
+            <div class="scrollable vertical">
+              <div class="items">
+                <div><a href="news-a-events/news-releases/vwc-among-nations-best.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/princeton_review.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">VWC Among Nation's Best</p>
+            <p class="storyTeaser">Virginia Wesleyan College chosen by Princeton Review for inclusion in its forthcoming guide: The Best 377 Colleges: 2013 Edition
+</p>
+          </div></a><a href="news-a-events/news-releases/the-magic-of-music.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_May/FirstChoirconcert.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">The Magic of Music</p>
+            <p class="storyTeaser">Dr. David Clayton, the College’s first full-time music professor, to retire after nearly 40 years at Virginia Wesleyan
+</p>
+          </div></a><a href="news-a-events/news-releases/fun-with-numbers.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_May/MathnightphotoWEB.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Fun with Numbers</p>
+            <p class="storyTeaser">Games, problem-solving, socializing and even the occasional pie are all part of the equation for “Monday Math Night” at VWC
+</p>
+          </div></a><a href="news-a-events/news-releases/bold-canvases-bright-future.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/katiebennettartist_april201.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Bold Canvases, Bright Future</p>
+            <p class="storyTeaser">Katie Bennett  '13 combines her love of science and art on a microscopic scale
+</p>
+          </div></a><a href="news-a-events/news-releases/making-their-mark.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/FiftyYearsofWomenatWesleyan_March2012-053.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Making Their Mark</p>
+            <p class="storyTeaser">Event honoring the role of women in VWC's history pays tribute to the accomplishments of some of College’s most dedicated supporters
+</p>
+          </div></a></div><div><a href="news-a-events/news-releases/milestones-worth-celebrating.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/EmployeeAppreciationClay_20.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Milestones Worth Celebrating</p>
+            <p class="storyTeaser">Employees recently honored at the College’s annual appreciation dinner
+</p>
+          </div></a><a href="news-a-events/news-releases/the-feminine-mystique.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/feminine-mystique.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">The Feminine Mystique</p>
+            <p class="storyTeaser">The VWC Theatre Department presents Aristophanes’ The Assemblywomen, a gender-bending social satire
+</p>
+          </div></a><a href="news-a-events/news-releases/springing-into-action.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_April/CommunityServiceWetlands_Ma.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Springing into Action</p>
+            <p class="storyTeaser">A group of VWC students spent spring break doing their part for the planet&mdash;including freshman Katie Rogers, who shares her experiences in a blog</p>
+          </div></a><a href="news-a-events/news-releases/a-college-of-distinction.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Mar/COD-Icon-2011-2012.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">A College of Distinction</p>
+            <p class="storyTeaser">Virginia Wesleyan College featured by “Colleges of Distinction,” a leader in educational excellence
+</p>
+          </div></a><a href="news-a-events/news-releases/the-human-element.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Mar/DavidBrooks.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">The Human Element</p>
+            <p class="storyTeaser">Author David Brooks’ funny and thought-provoking speech at College’s 50th Anniversary Luncheon touches on a variety of topics including his love for the liberal arts
+</p>
+          </div></a></div><div><a href="news-a-events/news-releases/united-they-stand.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Mar/UNImages_March2012-011.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">United They Stand</p>
+            <p class="storyTeaser">Model UN team heads to New York to represent the African nation of Liberia at international conference
+</p>
+          </div></a><a href="news-a-events/news-releases/recipe-for-sustainability.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Mar/ChefChrisMarch2012-018.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Recipe for Sustainability</p>
+            <p class="storyTeaser">Chef Chris Harriman’s “Virginia Wesleyan Chowder,” featuring local seafood, on menu for annual Empty Bowls Charity Dinner on March 16.
+</p>
+          </div></a><a href="news-a-events/news-releases/keeper-of-the-classics.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Mar/staleylombardo_t640.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Keeper of the Classics</p>
+            <p class="storyTeaser">VWC welcomes Stanley Lombardo, renowned scholar and translator of Homer’s the Iliad and the Odyssey, on March 8 at 6:30 p.m.
+</p>
+          </div></a><a href="news-a-events/news-releases/a-musical-celebration.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Feb/Redmon2.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">A Musical Celebration</p>
+            <p class="storyTeaser">Three artists who began their journeys at VWC return for a special 50th anniversary concert
+</p>
+          </div></a><a href="news-a-events/news-releases/classroom-to-court-scholar-athletes-honored.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Feb/Scholar_AthletesWEB.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Classroom to Court: Scholar-Athletes Honored</p>
+            <p class="storyTeaser">Dean's List athletes named at State Farm/VWC Scholar-Athlete Recognition on February 18
+</p>
+          </div></a></div><div><a href="news-a-events/news-releases/marlins-win-odac-mens-hoops-crown.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Feb/odac.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Marlins Win ODAC Men's Hoops Crown</p>
+            <p class="storyTeaser">Virginia Wesleyan earns automatic bid into NCAA Division III tournament
+</p>
+          </div></a><a href="news-a-events/news-releases/a-true-gem-on-campus.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Feb/Batten_Anniv_CardSign_12WEB.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">A True Gem on Campus</p>
+            <p class="storyTeaser">The  Jane P. Batten Student Center celebrates 10 years as the heart and hub of life  at Virginia Wesleyan
+</p>
+          </div></a><a href="news-a-events/news-releases/marlins-in-the-making.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/2012_Feb/Marisa-Harris.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Marlins in the Making</p>
+            <p class="storyTeaser">Incoming freshmen flock to VWC from  near and far
+</p>
+          </div></a><a href="news-a-events/news-releases/ripe-with-possibility.php"><div class="story"> <img src="thumb.php?src=/images/stories/news/february_2012/Peppersreduced.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Ripe with Possibility</p>
+            <p class="storyTeaser">College teams with Five Points Community Farm Market to bring community-supported agriculture to VWC
+</p>
+          </div></a><a href="news-a-events/news-releases/marlins-continue-to-give-back.php"><div class="story"> <img src="thumb.php?src=/news-a-events/news-releases/images/stories/news/february_2012/MakeaWish.jpg&h=85&w=150&zc=1&q=100&a=t"  /><p class="storyTitle">Marlins Continue to Give Back</p>
+            <p class="storyTeaser">50th anniversary Alumni Service Registry shows how the volunteer spirit lives on for VWC grads
+</p>
+          </div></a></div>              </div>
+            </div>
+          </div>
+          <div class="moreNews"><a href="http://www.vwc.edu/news-a-events/">All News</a></div>
+        </div>
+      </div>
+      <div class="grid_9 omega">
+        <div id="events">
+          <h1 class="header">Campus Events<!--<img src="images/homepage/rss.png" width="17" height="17" class="rss" />--></h1>
+          <div>
+            <div id="actions2"> <a class="prev2"></a> <a class="next2"></a> </div>
+            <div class="scrollable2 vertical">
+              <div class="items">
+<div><div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#the_19th_annual_leadership_awards_celebration_0506"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+6</div>
+
+							  </div>
+<p>The 19th Annual Leadership Awards Celebration 2:00 p.m. - 3:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#soar_worship_service_0506"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+6</div>
+
+							  </div>
+<p>SOAR Worship Service 4:00 p.m. - 5:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#evening_and_weekend_final_examinations_may_9__15_0509"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+9</div>
+
+							  </div>
+<p>Evening and Weekend Final Examinations May 9 - 15 8:00 a.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#reading_day_may_10_0510"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+10</div>
+
+							  </div>
+<p>Reading Day May 10 8:00 a.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#final_examinations_may_11__12_and_may_14__15_0511"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+11</div>
+
+							  </div>
+<p>Final Examinations May 11 - 12 and May 14 - 15 8:00 a.m.</p>
+</div></a>
+<div class="clear"></div></div>
+</div><div><div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#soar_worship_service_0513"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+13</div>
+
+							  </div>
+<p>SOAR Worship Service 4:00 p.m. - 5:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#seniors_last_supper_lunch_and_dj_0516"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+16</div>
+
+							  </div>
+<p>Seniors "Last Supper" Lunch and DJ 1:30 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#sail_away_with_the_seniors_on_the_carrie_b_0517"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+17</div>
+
+							  </div>
+<p>Sail away with the seniors on the Carrie B 8:00 a.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#2012_virginia_wesleyan_college_commencement_may_19_0519"><div class="event">
+<div class="calendar">
+<div class="calMonth">May</div>
+
+							      <div class="calDate">
+19</div>
+
+							  </div>
+<p>2012 Virginia Wesleyan College Commencement May 19 8:00 a.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#blue_marlin_summer_basketball_camp_0625"><div class="event">
+<div class="calendar">
+<div class="calMonth">Jun</div>
+
+							      <div class="calDate">
+25</div>
+
+							  </div>
+<p>Blue Marlin Summer Basketball Camp 9:00 a.m. - 4:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+</div><div><div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#soccer_camp_0716"><div class="event">
+<div class="calendar">
+<div class="calMonth">Jul</div>
+
+							      <div class="calDate">
+16</div>
+
+							  </div>
+<p>Soccer Camp 9:00 a.m. - 3:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#blue_marlin_summer_basketball_camp_0716"><div class="event">
+<div class="calendar">
+<div class="calMonth">Jul</div>
+
+							      <div class="calDate">
+16</div>
+
+							  </div>
+<p>Blue Marlin Summer Basketball Camp 9:00 a.m. - 4:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#2012_sacred_music_summer_conference_0723"><div class="event">
+<div class="calendar">
+<div class="calMonth">Jul</div>
+
+							      <div class="calDate">
+23</div>
+
+							  </div>
+<p>2012 Sacred Music Summer Conference 8:00 a.m. - 10:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#soccer_camp_0730"><div class="event">
+<div class="calendar">
+<div class="calMonth">Jul</div>
+
+							      <div class="calDate">
+30</div>
+
+							  </div>
+<p>Soccer Camp 9:00 a.m. - 3:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+<div>
+<a href="http://www.vwc.edu/news-a-events/campus-events/campus-events.php#blue_marlin_summer_basketball_camp_0806"><div class="event">
+<div class="calendar">
+<div class="calMonth">Aug</div>
+
+							      <div class="calDate">
+6</div>
+
+							  </div>
+<p>Blue Marlin Summer Basketball Camp 9:00 a.m. - 4:00 p.m.</p>
+</div></a>
+<div class="clear"></div></div>
+</div>              </div>
+            </div>
+          </div>
+          <div class="moreNews"><a href="news-a-events/campus-events/campus-events.php">All Events</a></div>
+        </div>
+        <div id="snapshots">
+          <h1 class="header">Campus Snapshots</h1>
+          <a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/11.JPG"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/28.JPG"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/07.jpg"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/30.jpg"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/02.JPG"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/01.JPG"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/24.jpg"></a><a href="media/campus-snapshots/April-16/"><img class="captionme" src="media/campus-snapshots/April-16/thumbs/39.jpg"></a>        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="spacer20"></div>
+    <div class="container_24">
+      <div class="grid_8">
+        <div id="visit">
+          <h1 class="header">Visit Our Campus</h1>
+          <p align="center"><img src="images/visitCampus.jpg" alt="Schedule a Campus Tour" width="268" height="140" /></p>
+          <p align="center" class="box1"><strong>Schedule a Campus Tour:</strong></p>
+          <ul>
+            <li><a href="http://www.vwc.edu/visit-campus/group-visits.php">Group Visits</a></li>
+            <li><a href="http://www.vwc.edu/visit-campus/admitted-reception.php">Admitted Student Receptions</a></li>
+            <li><a href="http://www.vwc.edu/visit-campus/daily-campus-tours.php">Daily Campus Tours</a></li>
+            <li><a href="http://www.vwc.edu/visit-campus/admitted-freshman-day.php">Admitted Freshman Day</a></li>
+          </ul>
+          <p class="meetName">&nbsp;</p>
+        </div>
+      </div>
+      <div class="grid_8">
+        <div id="videos">
+          <h1 class="header">The Wesleyan Experience</h1>
+          <div id="showcase" class="showcase">
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://youtu.be/-eEGaHtevKw" rel="prettyPhoto[vid]"><img src="images/videos/academics.jpg" alt="Academics" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/academics.jpg" alt="Academics" width="75" />
+                  <div class="showcase-thumbnail-caption">Academics</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://www.youtube.com/watch?v=k6YhQEiPXUw" rel="prettyPhoto[vid]"><img src="images/videos/athletics.jpg" alt="Athletics" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/athletics.jpg" alt="Athletics" width="75" />
+                  <div class="showcase-thumbnail-caption">Athletics</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://youtu.be/D6mwkfasoBY" rel="prettyPhoto[vid]"><img src="images/videos/communityService.jpg" alt="Community Service" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/communityService.jpg" alt="Community Service" width="75" />
+                  <div class="showcase-thumbnail-caption">Community Service</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://www.youtube.com/watch?v=4-G_9W1YInY" rel="prettyPhoto[vid]"><img src="images/videos/ourLocation.jpg" alt="Our Location" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/ourLocation.jpg" alt="Our Location" width="75" />
+                  <div class="showcase-thumbnail-caption">Our Location</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://www.youtube.com/watch?v=mdssDOUdmCA" rel="prettyPhoto[vid]"><img src="images/videos/presMessage.jpg" alt="Message from VWC President" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/presMessage.jpg" alt="Message from VWC President" width="75" />
+                  <div class="showcase-thumbnail-caption">Message from President</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://youtu.be/88OWMrujsxg" rel="prettyPhoto[vid]"><img src="images/videos/research.jpg" alt="Undergraduate Research" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/research.jpg" alt="Undergraduate Research" width="75" />
+                  <div class="showcase-thumbnail-caption">Research</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://youtu.be/khETd15iW2o" rel="prettyPhoto[vid]"><img src="images/videos/studentLife.jpg" alt="Student Life" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/studentLife.jpg" alt="Student Life" width="75" />
+                  <div class="showcase-thumbnail-caption">Student Life</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+            <div class="showcase-slide">
+              <div class="showcase-content">
+                <div class="showcase-content-wrapper"> <a href="http://www.youtube.com/watch?v=D6mwkfasoBY" rel="prettyPhoto[vid]"><img src="images/videos/videoTour.jpg" alt="Video Tour" width="296" height="167" /></a> </div>
+                <div class="showcase-thumbnail"> <img src="images/videos/videoTour.jpg" alt="Video Tour" width="75" />
+                  <div class="showcase-thumbnail-caption">Video Tour</div>
+                  <div class="showcase-thumbnail-cover"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid_8 omega">
+        <div id="meetMarlin">
+          <h1 class="header">I am Virginia Wesleyan</h1>
+          <a href="iam/index.php?page=22"><img src="thumb.php?src=iam/images/photos/carmen-dawkins.jpg&h=240&w=309&zc=1&q=100&a=t" /></a><p class="iamName">Carmen Dawkins '10</p>        </div> </div>
+    </div>
+    <div class="spacer20"></div>
+    <div class="container_24">
+      <div class="grid_24 " >
+        <div id="buttons"> 
+          <!--<h1 class="header" style="text-align:center"><strong>Check Out.....</strong></h1>-->
+          <div class="grid_6 alpha"><a href="the-arts-at-virginia-wesleyan-college/"><img src="images/arts.jpg" alt="The Arts at Virginia Wesleyan" width="170" height="90" /></a></div>
+          <div class="grid_6"><a href="admissions/adult-studies/"><img src="images/adultStudies.jpg" alt="Adult Studies Program" width="170" height="90" /></a></div>
+          <div class="grid_6"><a href="center-for-the-study-of-religious-freedom/"><img src="images/csrf.jpg" alt="The Center for the Study of Religious Freedom" width="170" height="90" /></a></div>
+          <div class="grid_6 omega"><a href="center-for-sacred-music/"><img src="images/csm.jpg" alt="The Center for Sacred Music" width="170" height="90" /></a></div>
+          <br class="clear" />
+  
+      </div>  </div>
+      </div>
+      </div>
+    <div class="footerTop"></div>
+<div  id="footer">
+  <div id="bottom" class="container_24">
+    <div class="grid_8 alpha">
+      <div id="location">
+        <h2>Contact Information</h2>
+        <p><strong>Virginia Wesleyan College</strong></p>
+        <p>1584 Wesleyan Dr.</p>
+        <p>Norfolk, VA 23502</p>
+        <p> Phone: 757.455.3200</p>
+        <p>Toll-Free: 800.737.8684</p>
+        <p><a href="http://www.vwc.edu/contact-us.php">Contact Us </a></p>
+      </div>
+    </div>
+    <div class="grid_5">
+      <h2>Follow Us</h2>
+      <p> <a href="http://www.facebook.com/VirginiaWesleyan"><img src="https://www.vwc.edu/images/homepage/facebook.png" alt="FaceBook icon" width="35" border="0" height="35" /></a> <a href="http://twitter.com/vawesleyan"><img src="http://www.vwc.edu/images/homepage/twitter.png" alt="Youtube icon" width="35" border="0" height="35" /></a> <a href="https://www.youtube.com/user/VaWesleyan"><img src="http://www.vwc.edu/images/homepage/youTube.png" alt="Twitter" width="35" border="0" height="35" /></a> <a href="https://www.linkedin.com/pub/vwc-alumni/29/6a5/591"><img src="http://www.vwc.edu/images/homepage/in.png" alt="Flickr icon" width="35" border="0" height="35" /></a> </p>
+    </div>
+    <div class="grid_5">
+      <h2>Campus Resources</h2>
+      <div id="header_links">
+        <p><a href="http://www.vwc.edu/about-us/campus-map.php">Campus Map</a></p>
+        <p><a href="http://www.vwc.edu/academics/academic-calendar.php">Academic Calendar</a></p>
+        <p><a href="https://sites.google.com/a/vwc.edu/start/">My VWC</a></p>
+        <p><a href="http://www.vwc.edu/lib/">Library</a></p>
+        <p><a href="http://www.vwc.edu/marlin-directory.php">Directory</a></p>
+        <p><a href="http://virginiawesleyan.blackboard.com/">Blackboard</a></p>
+        <p><a href="http://www.vwc.edu/bookstore/">Bookstore</a></p>
+        <p><a href="http://www.vwc.edu/administration/">Administration</a></p>
+        <p><a href="https://webadvisor.vwc.edu/WebAdvisor/WebAdvisor?TYPE=M&amp;PID=CORE-WBMAIN&amp;TOKENIDX=3355072568">Web Advisor</a></p>
+        <p><a href="https://www.vwc.edu/wwiz/wwiz.exe/ww?wwizmstr=WEB.LOGIN">Marsis</a></p>
+        <p><a href="http://www.vwc.edu/emergency">Emergency Information</a></p>
+      </div>
+    </div>
+    <div class="grid_5 prefix_1">
+      <div id="social">
+        <p><img src="https://www.vwc.edu/images/princetonReview.png" alt="" width="151" height="157" /></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div id="copy">
+<div class="container_24">
+<div class="grid_24">
+  <p><a href="http://www.vwc.edu/contact-us.php">Website Comments/Feedback</a></p>
+  <p>&copy;2011 Virginia Wesleyan College</p>
+  <div class="style">
+        <p><a class="button" href="/index.php?view=mobile">Visit Mobile Site</a></p>
+      </div>
+</div>
+</div>
+</div>
+<script src="http://www.vwc.edu/js/menu.js" type="text/javascript"></script> 
+<script src="http://www.vwc.edu/js/global.js" type="text/javascript"></script> 
+</body>
+</html>

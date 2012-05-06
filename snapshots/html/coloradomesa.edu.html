@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>Colorado Mesa University </title>
+<!-- InstanceEndEditable -->
+<script type="text/javascript" src="js/GoogleTracker.js"></script>
+<script type="text/javascript" src="js/GoogleTracker2.js"></script>
+
+
+  
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/megamenu.js"></script>
+    <link href="css/top_navigation_layout.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="css/setup.css" rel="stylesheet" type="text/css" />
+    <link href="css/slide.css" rel="stylesheet" type="text/css" />
+    <link href="css/greybox.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="js/greybox.js"></script>
+    <script type="text/javascript">
+      var GB_ANIMATION = true;
+      $(document).ready(function(){
+        $("a.greybox").click(function(){
+          var t = this.title || $(this).text() || this.href;
+          GB_show(t,this.href,450,765);
+          return false;
+        });
+      });
+    </script>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	//Set Default State of each portfolio piece
+	$(".paging").show();
+	$(".paging a:first").addClass("active");
+		
+	//Get size of images, how many there are, then determin the size of the image reel.
+	var imageWidth = $(".window").width();
+	var imageSum = $(".image_reel img").size();
+	var imageReelWidth = imageWidth * imageSum;
+	
+	//Adjust the image reel to its new size
+	$(".image_reel").css({'width' : imageReelWidth});
+	
+	//Paging + Slider Function
+	rotate = function(){	
+		var triggerID = $active.attr("rel") - 1; //Get number of times to slide
+		var image_reelPosition = triggerID * imageWidth; //Determines the distance the image reel needs to slide
+
+		$(".paging a").removeClass('active'); //Remove all active class
+		$active.addClass('active'); //Add active class (the $active is declared in the rotateSwitch function)
+		
+		//Slider Animation
+		$(".image_reel").animate({ 
+			left: -image_reelPosition
+		}, 500 );
+		
+	}; 
+	
+	//Rotation + Timing Event
+	rotateSwitch = function()
+	   {		
+		play = setInterval(function()
+		    { //Set timer - this will repeat itself every 3 seconds
+			  $active = $('.paging a.active').next();
+		 	  if ( $active.length === 0) 
+			  { //If paging reaches the end...
+				clearInterval(play); //$active = $('.paging a:first'); //go back to first
+			  }
+			  else
+			  {
+			     rotate(); //Trigger the paging and slider function
+			  }
+		     } , 7000);
+		     //Timer speed in milliseconds (3 seconds)
+
+	};
+	
+	rotateSwitch(); //Run function on launch
+	
+	//On Hover
+	$(".image_reel a").hover(function() {
+		clearInterval(play); //Stop the rotation
+	}, function() {
+		rotateSwitch(); //Resume rotation
+	});	
+	
+	//On Click
+	$(".paging a").click(function() {	
+		$active = $(this); //Activate the clicked paging
+		//Reset Timer
+		clearInterval(play); //Stop the rotation
+		rotate(); //Trigger rotation immediately
+		rotateSwitch(); // Resume rotation
+		return false; //Prevent browser jump to link anchor
+	});	
+	
+});
+</script>
+
+
+
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+</head>
+
+<body>
+  <a href="#content_span" class="off_left">Skip to main content</a> 
+<div id="banner_span"><!-- #BeginLibraryItem "/Library/cmu_banner.lbi" -->
+<div id="banner_bg">
+<div id="banner_left"><a href="index.html"><img src="css/images/cmu_logo.png" width="300" height="87" alt="Colorado Mesa University" /></a></div>
+<div id="banner_right"><a href="mavzone/Login/login.html"><img src="css/images/mavzone_login.png" width="90" height="40" alt="MAVzone Login" /></a></div>
+<div id="banner_right"><a href="atoz/index.html" style="padding-right:30px;">A-Z Index</a><a href="shared/directory.html">Directory</a>
+<form action="http://www.coloradomesa.edu/search/results.html" id="cse-search-box">
+  <div style="margin:0; padding:0;">
+    <input type="hidden" name="cx" value="015458181778764710660:libj4uc11aa" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="15" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&lang=en&sitesearch=true"></script></div>
+<div id="banner_right2"><img src="css/images/westerncoloradosuniversity.png" width="293" height="13" alt="Western Colorado's University"></div>
+</div><!-- #EndLibraryItem --></div>
+
+<div id="nav1_span">
+<div id="nav1_bg"><!-- #BeginLibraryItem "/library/megamenu.lbi" --><div id="nav1_left">
+
+<div id="header">   
+     
+
+<div id="mainNav">
+<ul id="topNavLinks">
+<li class="mm_levelOne"><a href="about/index.html">About</a>
+  <div id="menu1" class="subNavMenu">
+  <div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+         <li class="mm_levelTwo"><a href="about/index.html">About CMU</a></li>
+         <li class="mm_levelTwo"><a href="about/values.html">Vision, Values and Mission</a></li>
+         <li class="mm_levelTwo"><a href="about/accreditation.html">Accreditation</a></li>
+         <li class="mm_levelTwo"><a href="president/index.html">Office of the President</a></li>
+         <li class="mm_levelTwo"><a href="trustees/index.html">Board of Trustees</a></li>
+         <li class="mm_levelTwo"><a href="about/lifeincolorado.html">Life in Western CO</a></li>
+         <li class="mm_levelTwo"><a href="mediarelations/index.html">News and Announcements</a></li>
+         <li class="mm_levelTwo"><a href="shared/calendar/index.html">Events Calendar</a></li>
+         <li class="mm_levelTwo"><a href="moss/index.html">Moss Performing Arts Center</a></li>
+         <li class="mm_levelTwo"><a href="hr/newempl.html">Employment Opportunities</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <ul class="mm_subLinks">     
+         <li class="mm_levelTwo"><a href="campusinfo/index.html">Campus Information</a></li>
+         <li class="mm_levelThree"><a href="shared/directory.html">Directory</a></li>
+         <li class="mm_levelThree"><a href="campusinfo/maps.html">Map</a></li>
+         <li class="mm_levelThree"><a href="future/explore/virtual_campus_tour.php">Virtual Campus Tour</a></li>
+         <li class="mm_levelThree"><a href="campusinfo/facilities.html">Campus Facilities</a></li>
+         <li class="mm_levelThree"><a href="security/index.html">Safety and Security</a></li>
+         <li class="mm_levelThree"><a href="policies/index.html">Policies and Guidelines</a></li>
+         <li class="mm_levelTwo"><a href="friends/index.html">Friends of the University</a></li>
+         <li class="mm_levelThree"><a href="giving/index.html">Giving to CMU</a></li>
+         <li class="mm_levelThree"><a href="foundation/index.html">Foundation and <br>
+           Development Office</a></li>
+         <li class="mm_levelThree"><a href="alum/index.html">Alumni Relations</a></li>
+         <li class="mm_levelTwo"><a href="president/impactstudy/index.html">Economic Impact</a></li>
+    </ul>
+   </div>
+   <div class="column_feature" style="width:500px">
+       <p style="margin-top:0">Colorado Mesa University, in Grand Junction, Colorado is dedicated to providing an exceptional educational experience in a student-centered environment featuring small class sizes and a high level of student-faculty interaction. Founded in 1925, the institution has grown from a junior college enrolling 41 students to a vibrant university, of more than 8,900, offering a full-range of undergraduate programs and a growing number of graduate programs.</p>
+       <p align="right"><a href="library/about/history.html" style="color:#5D0022">Read more about the history of CMU</a></p>
+       <img src="css/images/mm_feature_about.png" width="500" height="215" alt="CMU Campus Sign" /></div>
+  </div>
+</li> 
+
+
+<li class="mm_levelOne"><a href="academics/index.html">Academics</a>
+<div id="menu2" class="subNavMenu">
+<div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+        <li class="mm_levelTwo"><a href="academics/program_sheets.html">Programs and Departments</a></li>
+        <li class="mm_levelTwo"><a href="catalog/index.html" target="_blank">Catalog</a></li>
+        <li class="mm_levelTwo"><a href="registrar/reginfo/index.html">Courses and Registration</a></li>
+        <li class="mm_levelThree"><a href="registrar/transcripts/index.html">Transcripts</a></li>
+        <!--<li class="mm_levelThree"><a href="#">Grades</a></li>-->
+        <li class="mm_levelThree"><a href="registrar/dates.html">Important Dates</a></li>
+        <li class="mm_levelTwo"><a href="commencement/index.html">Commencement</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <ul class="mm_subLinks">
+      <li class="mm_levelTwo"><a href="academics/index.html">Office of Academic Affairs</a></li>
+      <li class="mm_levelTwo"><a href="aas/index.html">Advising and Academic Services</a></li>
+      <li class="mm_levelThree"><a href="advising/index.html">Advising Center</a></li>
+      <li class="mm_levelThree"><a href="career/index.html">Career Services</a></li>
+      <li class="mm_levelThree"><a href="eas/index.html">Disability Services</a></li>
+      <li class="mm_levelThree"><a href="testing/index.html">Testing Center</a></li>
+      <li class="mm_levelThree"><a href="tutoring/index.html">Tutorial Learning Center</a></li>
+      <li class="mm_levelTwo"><a href="ir/index.html">Institutional Research and Assessment</a></li>
+      <li class="mm_levelTwo"><a href="it/helpdesk.html">IT Helpdesk</a></li>
+      <li class="mm_levelTwo"><a href="cmulibrary/index.html">Library</a></li>
+      <li class="mm_levelTwo"><a href="sponsoredprograms/index.html">Sponsored Programs</a></li>
+    </ul>
+  </div>
+                
+<div class="column">
+    <ul class="mm_subLinks">
+      <li class="mm_levelTwo"><a href="eso/index.html">Extended Studies and Distance Education</a></li>
+      <li class="mm_levelThree"><a href="online/index.html">CMU Online</a></li>
+      <li class="mm_levelTwo"><a href="wccc/index.html">Western Colorado Community College</a></li>
+      <li class="mm_levelTwo"><a href="montrose/index.html">Montrose Campus</a></li>
+      <li class="mm_levelTwo"><a href="academics/student_resources.html">Special Study Opportunities</a></li>
+      <li class="mm_levelThree"><a href="admissions/fyi.html">Freshman Year Initiative</a></li>
+      <li class="mm_levelThree"><a href="honors/index.html">Honors Program</a></li>
+      <li class="mm_levelThree"><a href="academics/isep.html">International Student Exchange Program</a></li>
+      <!--<li class="mm_levelThree"><a href="#">Internships</a></li>-->
+      <li class="mm_levelThree"><a href="academics/mav3.html">MAV3 Scholars</a></li>
+      <li class="mm_levelTwo"><a href="wccc/concurrent.html">Concurrent Enrollment</a></li>
+    </ul>
+  </div>
+  <div class="column_feature" style="width:280px">
+       <p style="color:#5D0022; font-weight:bold; font-size:14px; margin-top:0">Fast Facts</p>
+       <p>Student to faculty ratio: 22:1</p>
+       <p>60 majors</p>
+       <p>More than 1,200 classes each semester at multiple sites in western Colorado</p>
+       <p>International Student Exchange Program (ISEP) to 50 countries</p>
+       <p>Most popular baccalaureate majors: business, criminal justice, biology, kinesiology, nursing, psychology,  elementary education
+  </p></div>
+</div>
+</li> 
+
+
+<li class="mm_levelOne"><a href="admissions/index.html">Admissions</a>
+<div id="menu3" class="subNavMenu">
+<div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+      <li class="mm_levelTwo"><a href="admissions/index.html">Admissions</a></li>
+      <!--<li class="mm_levelTwo"><a href="#">Undergraduate Admissions</a></li>
+      <li class="mm_levelTwo"><a href="#">Graduate Admissions</a></li>-->
+      <li class="mm_levelTwo"><a href="academics/TransferStudentResources.html">Transfer Information</a></li>
+      <li class="mm_levelTwo"><a href="academics/veteransfaq.html">Veteran Information</a></li>
+      <li class="mm_levelTwo"><a href="finaid/index.html">Financial Aid</a></li>
+      <li class="mm_levelThree"><a href="future/PayingForCollege/financial_aid_award_estimator.php">Financial Aid Award Estimator</a></li>
+      <li class="mm_levelThree"><a href="finaid/finaidtypes.html">Scholarships, Grants and Loans</a></li>
+      <li class="mm_levelThree"><a href="businessoffice/expenses.html">Tuition and Fees</a></li>
+      <li class="mm_levelThree"><a href="future/PayingForCollege/wue_mountains_plains.php">Tuition Assistance Programs (WUE/MP)</a></li>
+      <li class="mm_levelThree"><a href="finaid/fawsinfo.html">Student Employment</a></li>
+      <li class="mm_levelThree"><a href="businessoffice/index.html">Business Office</a></li>
+      <li class="mm_levelThree"><a href="epay/index.html">Bill Pay</a></li>
+      <li class="mm_levelTwo"><a href="reslife/index.html">Residence Life</a></li>
+    </ul>
+  </div>
+  <div class="column">
+    <ul class="mm_subLinks">  
+      <li class="mm_levelTwo"><a href="future/explore/index.php">Explore</a></li>
+      <li class="mm_levelThree"><a href="future/explore/daily_tours.php">Campus Tours</a></li>
+      <li class="mm_levelThree"><a href="future/explore/mesa_experience.php">Mesa Experience</a></li>
+      <li class="mm_levelThree"><a href="future/explore/virtual_campus_tour.php">Virtual Campus Tour</a></li>
+      <li class="mm_levelTwo"><a href="nextsteps/index.html">Already Admitted?<br />Next Steps</a></li>
+      <li class="mm_levelThree"><a href="admissions/orientation.html">Orientation</a></li>
+      <li class="mm_levelThree"><a href="admissions/ambassadors.html">Student Ambassadors</a></li>
+    </ul>
+  </div>  
+   <div class="column_feature" style="width:500px">
+       <p style="margin-top:0">Colorado Mesa University offers a wide range of opportunities with programs ranging from certificates to master’s degrees. No matter what your educational goal, staff in our Admissions Office is here to help guide you through the process to launch your educational journey.  It’s an exciting and dynamic time at Colorado Mesa University. Don’t hesitate to contact us with questions about our academic offerings, the admission process, financial aid to make a college education affordable, and scheduling a campus visit.</p>
+       <img src="css/images/mm_feature_admissions.jpg" width="500" height="225" /></div>
+</div>
+</li>
+
+
+<li class="mm_levelOne"><a href="universitylife/index.html">University Life</a>
+<div id="menu4" class="subNavMenu">
+<div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+        <li class="mm_levelTwo"><a href="studentlife/index.html">Student Life</a></li>
+        <li class="mm_levelThree"><a href="studentlife/orgs.html">Clubs and Organizations</a></li>
+        <li class="mm_levelThree"><a href="op/index.html">Outdoor Program</a></li>
+        <li class="mm_levelThree"><a href="studentlife/clubsports.html">Club Sports</a></li>
+        <li class="mm_levelThree"><a href="mediarelations/student.html">Student Media</a></li>
+        <li class="mm_levelTwo"><a href="studentservices/index.html">Student Services</a></li>
+        <li class="mm_levelThree"><a href="studentservices/diversity_mentoring.html">Diversity and Mentoring</a></li>
+        <li class="mm_levelThree"><a href="studentservices/healthcenter.html">Health Center</a></li>
+        <li class="mm_levelThree"><a href="studentservices/counseling.html">Student Counseling</a></li>
+        <li class="mm_levelTwo"><a href="universitycenter/index.html">University Center</a></li>
+        <li class="mm_levelThree"><a href="bookstore/index.html">Bookstore</a></li>
+        <li class="mm_levelThree"><a href="parking/index.html">Parking</a></li>
+        <li class="mm_levelThree"><a href="mavcard/index.html">MAVcard</a></li>
+        <li class="mm_levelThree"><a href="dining/index.html" target="_blank">Campus Dining</a></li>
+    </ul>
+  </div> 
+  <div class="column">
+    <ul class="mm_subLinks">
+        <li class="mm_levelTwo"><a href="reccenter/index.html">Rec Center</a></li>
+        <li class="mm_levelThree"><a href="reccenter/hours.html">Hours</a></li>
+        <!--<li class="mm_levelThree"><a href="../wellness/index.html">Wellness</a></li>-->
+        <li class="mm_levelTwo"><a href="reslife/index.html">Residence Life</a></li>
+        <!--<li class="mm_levelThree"><a href="#">Housing Guide</a></li>-->
+        <li class="mm_levelThree"><a href="reslife/rha.html">Residence Hall Association</a></li>
+        <li class="mm_levelThree"><a href="reslife/loginmyhousing.html">MyHousing</a></li>
+        <li class="mm_levelTwo"><a href="shared/calendar">Activities and Events</a></li>
+        <li class="mm_levelThree"><a href="moss/index.html">Moss Performing Arts Center</a></li>
+        <li class="mm_levelThree"><a href="studentlife/pac.html">Programming Activities Council</a></li>
+        <li class="mm_levelTwo"><a href="finaid/fawsinfo.html">Student Employment</a></li>
+        <li class="mm_levelTwo"><a href="shared/documents/StudentResourceGuide.pdf" target="_blank">Student Resource Guide (Student Handbook PDF)</a></li>
+    </ul>
+  </div>   
+   <div class="column_feature" style="width:500px">
+       <p style="margin-top:0">Opportunities abound at CMU for physical challenges and mental inspiration. And when you need to wind-down, we offer top-notch facilities for relaxing with friends and on-campus living.  The unparalleled natural setting fuels our work-hard, play-hard mentality. Nestled in the beautiful Grand Valley of Western Colorado, the college experience comes complete with an outdoor lifestyle that's second to none, state-of-the-art facilities that give students the chance to play and learn, and a more than 70 student clubs and organizations that help contribute to the cultural growth of our students and the region.</p>
+       <img src="css/images/mm_feature_universitylife.jpg" width="500" height="215" />
+       </div>
+</div>
+</li>
+
+<li class="mm_levelOne"><a href="cmulibrary/index.html">Library</a>
+<div id="menu5" class="subNavMenu">
+<div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+      <li class="mm_levelTwo"><a href="cmulibrary/index.html">Search Library Resources</a></li>
+      <li class="mm_levelTwo"><a href="cmulibrary/askalibrarian.html">Ask a Librarian</a></li>
+      <li class="mm_levelTwo"><a href="cmulibrary/hours.html">Hours</a></li>
+      <li class="mm_levelTwo"><a href="https://www.millennium.marmot.org/patroninfo~S18/" target="_blank">My Library Account</a></li>
+      <li class="mm_levelTwo"><a href="cmulibrary/staff.html">Contact Us</a></li>
+    </ul>
+  </div>
+   <div class="column_feature" style="width:750px">
+       <p style="margin-top:0">The John U. Tomlinson Library is the largest academic library between Salt Lake City and Denver. The library offers a wealth of information and provides many different services and resources to both the campus and the community. It is the mission of the library to support the information, instructional and research needs of the region.</p>
+       <p>Today, holdings in Tomlinson Library include 395,200 books; 59,300 journals; 30,500 e-books/documents; and more than 30 million items available through Prospector.</p>
+       <img src="css/images/mm_feature_library.jpg" width="750" height="245" />
+       </div>          
+</div>
+</li>
+
+<li class="mm_levelOne"><a href="athletics/index.html">Athletics</a>
+<div id="menu6" class="subNavMenu">
+<div class="subNavArrow"><img src="library/css/images/mm_arrow.png" height="10" width="20" alt="" /></div>            
+  <div class="column">
+    <ul class="mm_subLinks">
+      <li class="mm_levelTwo"><a href="athletics/index.html">Athletics</a></li>
+      <li class="mm_levelTwo"><a href="mavclub/index.html">Maverick Club</a></li><br /><br />
+      <li class="mm_levelTwo"><a href="studentlife/clubsports.html">Club Sports</a>
+      <li class="mm_levelTwo"><a href="studentlife/intramurals.html">Intramural Sports</a>
+    </ul>
+  </div> 
+   <div class="column_feature" style="width:750px">
+       <p style="margin-top:0">Athletics play a key role in the growth of our students and are an integral part of the university experience. Students are given the chance to attend or participate in a wide range of sports and athletic activities including a number of varsity and intramural sports. With more than 70 conference and regional titles, Colorado Mesa University gives student-athletes the opportunity to earn a degree while competing at a top Division II institution. </p>
+       <p>Visit <a href="athletics/index.html" style="color:#5D0022">CMUmavericks.com</a> for more information on Colorado Mesa University athletics.</p><br /><br /><br />
+
+       <center><img src="css/images/mm_athletics.png" width="625" height="117" alt="CMU Athletics" /></center><br /><br /><br /></div>      
+</div>
+</li>
+
+
+
+</ul>
+</div>            
+</div>
+
+</div>
+
+
+
+<div id="nav1_right"> 
+  <a href="http://www.facebook.com/pages/Colorado-Mesa-University/165068093548114" target="_blank"><img src="css/images/facebook_sm.png" width="25" height="25" alt="Find us on Facebook"></a> &nbsp;
+  <a href="http://twitter.com/#!/ColoradoMesaU" target="_blank"><img src="css/images/twitter_sm.png" width="25" height="25" alt="Follow us on Twitter"></a> &nbsp;
+  <a href="http://www.youtube.com/ColoradoMesaU" target="_blank"><img src="css/images/youtube_sm.png" width="25" height="25" alt="Watch us on YouTube"></a> &nbsp;
+  <a href="gomobile.php" target="_blank"><img src="css/images/mobile_sm.png" width="25" height="25" alt="Go to CMUmobile"></a>
+</div><!-- #EndLibraryItem --></div>
+</div>
+
+<div id="maroon_span">
+<div id="maroon_slideshow"><!-- InstanceBeginEditable name="mainImage w:1050 h:400" -->
+
+
+
+
+  <div class="main_view">  
+  <div class="window">
+    <div class="image_reel">
+    <a href="commencement/index.html"><img src="jqueryslide/(2012-05-01)Commencement.jpg" alt="Textbook Buyback" width="1050" height="400" /></a>
+    <a href="bookstore/index.html"><img src="jqueryslide/(2012-04-30)Buyback.jpg" alt="Textbook Buyback" width="1050" height="400" /></a>
+    <img src="jqueryslide/(2012-04-30)Animation.jpg" alt="Animation Festival : Friday, May 4th : 3:30 pm : University Center Ballroom" width="1050" height="400" /> 
+    <a href="theatre/MesaRepertoryTheatre.html"><img src="jqueryslide/(2012-04-30)SummerTheatre.jpg" alt="Mesa Repertory Theatre : Click for Info" width="1050" height="400" /></a>
+    <a href="admissions/orientation.html"><img src="jqueryslide/(2012-04-23)Orientation.png" alt="New Student Orientation : Click for info and dates" width="1050" height="400" /></a>
+    <a href="registrar/reginfo/index.html"><img src="jqueryslide/(2012-03-20)Registration.jpg" alt="Registration Begins March 26 : Click for Info" width="1050" height="400" /></a>
+    <a href="theatre/summerdance.html"><img src="jqueryslide/(2012-04-23)DanceIntensive.jpg" alt="Summer Dance Intensive : June 11-22 : Click for info" width="1050" height="400" /></a> 
+    </div>
+  </div>
+  <div class="paging">
+        <a href="#" rel="1">1</a>
+        <a href="#" rel="2">2</a>
+        <a href="#" rel="3">3</a>
+        <a href="#" rel="4">4</a>
+        <a href="#" rel="5">5</a>
+        <a href="#" rel="6">6</a>
+        <a href="#" rel="7">7</a>
+   </div>
+  </div>
+
+<!-- InstanceEndEditable --></div>
+<br class="clearit" />
+</div>
+
+<div id="nav2_span">
+<div id="nav2_bg"><!-- #BeginLibraryItem "/library/nav2.lbi" -->
+<div id="nav2">
+<a href="future/index.php">Future Students</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="current/index.html">Current Students</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="friends/index.html">Alumni &amp; Friends</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="community/index.html">Community</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="family/index.html">Family</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="faculty/index.html">Faculty &amp; Staff</a>
+</div><!-- #EndLibraryItem --></div>
+</div>
+
+
+<div id="sub_content_span">
+<div id="content_bg">
+<div id="content_span">
+<!-- InstanceBeginEditable name="full content" -->
+    <div id="content_box_left" style="width:215px;">
+      <h2>Calendar &amp; Events</h2>
+        
+      <p><strong>State of the Rivers</strong><br />
+        May 2, 6:30 pm<br />
+        University Center Ballroom<br />
+        <em>"How Low Will They Go? What Are We Going to Do About it? "</em></p>
+        
+      <p><strong>Animation Festival</strong><br />
+        May 4, 3:30 pm<br />
+        University Center Ballroom</p>
+        
+      <p><strong>Wind Symphony</strong><br />
+        May 4, 7:30 pm<br />
+        Robinson Theatre</p>
+        
+      <p><strong>WCCC Car Show</strong><br />
+        May 5, 9 am - 2 pm<br />
+        Bishop Campus<br />
+        <strong>FREE</strong> to Watch, $15 for entry</p>
+        
+      <p><strong>Final Exams</strong><br />
+        May 7-10<br />
+        <a href="shared/other/finalexams_sp.html" class="greybox" title="Final Exam Schedule">View Final Exam Schedule</a></p>
+        
+      <p><strong>Commencement</strong><br />
+        May 12, 8:30 am<br />
+        Stocker Stadium-Lincoln Park<br />
+        <a href="commencement/index.html">More Commencement Information</a></p>
+        
+
+      <!-- 
+        
+      <p><strong>Chamber Choir</strong><br />
+        May 6, 7:30 pm<br />
+        Recital Hall</p>
+        
+      <p><strong>Spring Into Dance</strong><br />
+        May 8, 6:00 pm<br />
+        University Center Ballroom<br />
+        <em>"Value of Public Lands to Western Colorado Economies"</em>
+        <a href="pdf/PublicLands050812.pdf" target="_blank">More Info</a></p>
+      
+        
+      -->
+        
+      
+        
+<p align="right"><a href="shared/calendar/index.html">View Campus Calendar</a></p>
+<!--
+-->
+  
+</div>
+    
+    <div id="content_box_left" style="width:260px;">
+      <h2>News &amp; Announcements</h2>
+
+      <h3 style="margin-bottom:0">Nursing students fundraise for trip to Nicaragua</h3>
+      <p style="margin-top:0">Student nurses and faculty are preparing to journey to Nicaragua to donate 7,000 hours of healthcare in the second poorest country in the western hemisphere.<br />
+<a href="mediarelations/documents/(2012-04-30)ZumbaFundraiser.pdf" target="_blank">Read Full Story...</a></p>
+
+      <h3 style="margin-bottom:0">CMU students announced as finalist in marketing competition</h3>
+      <p style="margin-top:0">A group of marketing students have been selected as finalists in a national competition hosted by EdVenture Partners.<br />
+<a href="mediarelations/documents/(2012-04-28)MarketingFinalists.pdf" target="_blank">Read Full Story...</a></p>
+      
+      <h3 style="margin-bottom:0">Student magazine wins regional award for two consecutive years</h3>
+      <p style="margin-top:0">The CMU student magazine, Horizon, won first place in the Society of Professional Journalist Mark of Excellence Award for Best Overall Student Magazine in region nine.<br />
+<a href="mediarelations/documents/(2012-04-18)SPJAward.pdf" target="_blank">Read Full Story...</a></p>
+      
+
+      <p align="right"><a href="mediarelations/1112releases.html">See all News and Announcement</a></p>
+    </div>
+    
+    <div id="content_box_left" style="width:150px;">
+      <h2>More About...</h2>
+      <p><a href="wccc/index.html">Western Colorado Community College</a></p><br />
+      <p><a href="montrose/index.html">Montrose Campus</a></p><br />
+      <p><a href="online/index.html">CMU Online</a></p>
+    </div>
+    
+    <div id="content_box_right" style="width:215px;">
+      <h2>Student Spotlight</h2>
+      <p>Take a look into a day in the life of Katie Schultz, senior Mass Communication major.</p>
+      <!--<p><a href="spotlight/index.html">Read More...</a></p>-->
+      <iframe width="215" height="139" src="http://www.youtube.com/embed/qet9UNkWtao?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+      
+      
+      
+
+  <br class="clearit" />
+<!-- InstanceEndEditable -->
+</div>
+
+
+<br class="clearit" />  
+</div>
+</div>
+
+<div id="footer_span">
+<div id="footer_content"><!-- #BeginLibraryItem "/library/footer.lbi" -->
+<div id="copyright">&copy;2012 Colorado Mesa University</div>
+
+<div id="buttons">
+<div id="btnRequestInfo"><a href="future/admissions/request_info.php"></a></div>
+<div id="btnVisit"><a href="future/explore/visit_campus.php"></a></div>
+<div id="btnApplyNow"><a href="future/admissions/apply_now.php"></a></div>
+</div>
+
+<br class="clearit">
+
+
+<p>
+  <a href="http://webcam6.coloradomesa.edu/view/index.shtml" target="_blank">Webcam</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="webmaster/accessibility.html">Accessibility</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="webmaster/documents/privacy_statement.pdf" target="_blank">Privacy</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="hr/newempl.html">Employment</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="https://www.surveymonkey.com/s/LY8KSLR" target="_blank">Feedback</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="campusinfo/contact.html">Contact Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+<p>
+<a href="security/index.html">Clery/Security Report</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="http://tops.state.co.us/" target="_blank">Transparency Online Project (TOP)</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</p>
+
+<hr style="width:350px">
+
+<p class="footer_address">1100 North Avenue | Grand Junction, CO   81501-3122<br>
+970.248.1020 | 800.982.6372</p>
+
+<a href="https://secure.touchnet.com/C21035_ustores/web/index.jsp" target="_blank"><img src="css/images/marketplace.png" width="95" height="31" alt="Marketplace"></a>
+<a href="giving/index.html" target="_blank"><img src="css/images/donate.png" width="95" height="31" alt="Donate to CMU" style="margin-left:30px"></a><!-- #EndLibraryItem --></div>
+</div>
+
+</body>
+<!-- InstanceEnd --></html>

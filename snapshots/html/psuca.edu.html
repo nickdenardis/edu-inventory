@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<!-- Enable IE8 Standards mode -->
+	<meta http-equiv="X-UA-Compatible" content="IE=8" >
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<title>PACIFIC STATES UNIVERSITY</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script type="text/javascript" src="common/js/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="common/js/jquery/plugin/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="common/js/jquery/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="common/js/common.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		var isGnbAnimate = true;
+			$("#gnb li.p").mouseover(function(){
+				if(isGnbAnimate){
+					var index = $("#gnb li.p").index(this)+1;
+					$("#gnb_m"+index).attr("src","images/main/menu0"+index+"_over.gif");
+					$(this).find("div").show();
+					//images/main/menu06.gif
+				}
+			});
+			$("#gnb li.p").mouseout(function(){
+				var index = $("#gnb li.p").index(this)+1;
+				$("#gnb_m"+index).attr("src","images/main/menu0"+index+".gif");
+				$(this).find("div").hide();
+				//images/main/menu06.gif
+			});
+			pu.mainSlide();
+			
+			$(".smartMenu").css("left","920px");
+					
+			var slideAnimated = true;	
+			$(".smartMenu").mouseenter(function(){
+				
+				if(slideAnimated){
+					$(".visualZone .smartMenu #smartButton .p").attr("src","images/main/smart_arrow_on.gif");
+					$("#smartButton").addClass('sbuttonOn');
+					slideAnimated = false;
+					var thisOffset = $(this).offset();
+					$(this).animate({
+						'left' : "720px"
+					},{
+						
+						'easing': "easeInExpo",
+						complete: function() {
+							slideAnimated = true;
+						}
+					});
+				}
+			});
+			
+			$(".smartMenu").mouseleave(function(){
+				
+				if(slideAnimated){
+					$(".visualZone .smartMenu #smartButton .p").attr("src","images/main/smart_arrow_off.gif");
+					$("#smartButton").addClass('sbuttonOff');
+					slideAnimated = false;
+					var thisOffset = $(this).offset();
+					$(this).animate({
+						'left' : "920px"
+					},{
+						
+						'easing': "easeInExpo",
+						complete: function() {
+							slideAnimated = true;
+						}
+					});
+				}
+			});
+			
+			
+    	});
+
+	$("img").lazyload({ 
+		placeholder : "images/main/smartmenu_01_over.png",
+		placeholder : "images/main/smartmenu_02_over.png",
+		placeholder : "images/main/smartmenu_03_over.png",
+		placeholder : "images/main/smartmenu_04_over.png",
+		placeholder : "images/main/smartmenu_05_over.png",
+		placeholder : "images/main/smartmenu_06_over.png",
+		placeholder : "images/main/smartmenu_07_over.png",
+		placeholder : "images/main/smartmenu_08_over.png",
+		placeholder : "images/main/smartmenu_09_over.png",
+		placeholder : "images/main/smartmenu_10_over.png",
+		placeholder : "images/main/smartmenu_11_over.png"
+	});
+	
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<!-- header -->
+		<div id="header">
+			<h1><img src="images/main/img_logo.gif" alt="PACIFIC STATES UNIVERSITY" /></h1>
+			<div class="topMenu">
+				<a href="https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/a/psuca.edu/&ss=1&ltmpl=default&ltmplcache=2" target="_blank"><img src="images/main/icon_mail.gif" />PSU E-mail&nbsp;&nbsp;&nbsp;|</a>
+				<a href="http://student.psuca.edu/" target="_blank">Student Portal&nbsp;&nbsp;&nbsp;|</a>
+				<p>
+					<script type="text/javascript">
+						function search() {
+						  var data_1 = document.getElementById('search').value;
+						  location.href="http://www.psuca.edu/search/node/" + data_1;
+						}
+					</script>
+					<label>Search :</label>
+						<input id="search" type="text" class="txt" onKeyPress="if(event.keyCode==13){search();}">
+						<input id="search_button" type="image" src="images/main/btn_find.gif" alt="search" onclick="search()" />
+				</p>
+			</div>
+			<div id="telfax">
+				<img src="images/main/telfax.png" />
+			</div>
+			<ul id="gnb">
+				<li class="p"><a href="http://psuca.edu/profile"><img id="gnb_m1" src="images/main/menu01.gif" alt="About PSU" /></a>
+					<div class="gnbsub gnbsub1">
+						<ul>
+							<li><a href="http://psuca.edu/profile">Profile</a></li>
+							<li><a href="http://psuca.edu/history">History</a></li>
+							<li><a href="http://psuca.edu/accreditation">Accreditation</a></li>
+							<li><a href="http://psuca.edu/node/80">Words from the Chairperson</a></li>
+							<li><a href="http://psuca.edu/president_msg">President's Message</a></li>
+							<li><a href="http://psuca.edu/node/91">Mission</a></li>
+							<li><a href="http://psuca.edu/objectives">Objectives</a></li>
+							<li><a href="http://psuca.edu/facilities">Facilities</a></li>
+							<li><a href="http://psuca.edu/academic_policies">Academic Policies</a></li>
+							<li><a href="http://psuca.edu/files/PSU%20performance.pdf" target="_blank">PSU performance fact sheet </a></li>							
+						</ul>
+					</div>
+				</li>
+				<li class="p"><a href="http://psuca.edu/admin_info"><img id="gnb_m2" src="images/main/menu02.gif" alt="Admissions" /></a>
+					<div class="gnbsub gnbsub2">
+						<ul>
+							<li><a href="http://psuca.edu/node/7">International Students</a></li>
+							<li><a href="http://psuca.edu/node/9">Undergraduate</a></li>
+							<li><a href="http://psuca.edu/node/10">Graduate</a></li>
+							<li><a href="http://psuca.edu/node/11">Doctor of Business Administration</a></li>
+							<li><a href="http://psuca.edu/node/81">Accounting Certificate Program</a></li>
+							<li><a href="http://psuca.edu/node/12">ESL Course of Study</a></li>
+							<li><a href="http://psuca.edu/node/13">Admission of Transferring Students</a></li>
+							<li><a href="http://psuca.edu/node/82">MBAIB Distance Education Program</a></li>
+							<li><a href="http://psuca.edu/node/14">Readmission</a></li>
+							<li><a href="http://psuca.edu/catalog">Student Catalog and Brochure</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="p"><a href="http://psuca.edu/programs"><img id="gnb_m3" src="images/main/menu03.gif" alt="Programs" /></a>
+					<div class="gnbsub gnbsub3">
+						<ul>
+							<li><a href="http://psuca.edu/node/25">Accounting Certificate Program for the AICPA Exam</a></li>
+							<li><a href="http://psuca.edu/node/26">English as a Second Language</a></li>
+							<li><a href="http://psuca.edu/node/28">Bachelor of Business Administration</a></li>
+							<li><a href="http://psuca.edu/node/29/">Master of Business Administration</a></li>
+							<li><a href="http://psuca.edu/node/30/">Doctor of Business Administration</a></li>
+							<li><a href="http://psuca.edu/node/32/">Bachelor of Science in Computer Information Systems</a></li>
+							<li><a href="http://psuca.edu/node/33/">Master of Science in Computer Science</a></li>
+							<li><a href="http://psuca.edu/node/34/">Master of Science in Information Systems</a></li>
+							<li><a href="http://psuca.edu/online/" target="_blank">Distance Education</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="p"><a href="http://psuca.edu/schedule"><img id="gnb_m4" src="images/main/menu04.gif" alt="Schedule" /></a>
+					<div class="gnbsub gnbsub4">
+						<ul>
+							<li><a href="http://psuca.edu/calendar">School Calendar</a></li>
+							<li><a href="http://psuca.edu/files/schedule/2012_Spring_Quarter_Schedule_040612.pdf" target="_blank">2012 Spring</a></li>
+							<li><a href="http://psuca.edu/files/schedule/2012_Spring_Quarter_ESL_Schedule_031212.pdf" target="_blank">2012 Spring - ESL</a></li>
+							<li><a href="http://psuca.edu/files/schedule/2012_April_May_03122012.pdf" target="_blank">2012 Spring I - AICPA</a></li>
+							<li><a href="http://psuca.edu/files/schedule/2012_Spring_Quarter_Textbook_Information_03272012.pdf" target="_blank">2012 SP - Textbook</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="p"><a href="http://psuca.edu/student_services"><img id="gnb_m5" src="images/main/menu05.gif" alt="Student Services" /></a>
+					<div class="gnbsub gnbsub5">
+						<ul>
+							<li><a href="http://psuca.edu/student_services#international">International Students</a></li>
+							<li><a href="http://psuca.edu/student_services#orientation">New Student Orientation</a></li>
+							<li><a href="http://psuca.edu/student_services#career">Career Center and Placement Services</a></li>
+							<li><a href="http://psuca.edu/student_services#housing">Housing Services</a></li>
+							<li><a href="http://psuca.edu/student_services#transcript">Transcript Request Form</a></li>
+							<li><a href="http://psuca.edu/student_services#service">Student Service Request Form</a></li>
+							<li><a href="http://psuca.edu/student_services#activities">Extra Curricular Activities</a></li>
+							<li><a href="http://psuca.edu/student_services#government">Student Government</a></li>
+							<li><a href="http://psuca.edu/node/77">Students Rights and Responsibilities</a></li>
+							<li><a href="http://psuca.edu/node/56">Financial Information</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="p"><a href="http://psuca.edu/contact"><img id="gnb_m6" src="images/main/menu06.gif" alt="Contact Us" /></a>
+					<div class="gnbsub gnbsub6">
+						<ul>
+							<li><a href="http://psuca.edu/personnel">Departments</a></li>
+							<li><a href="http://www.psuca.edu/node/78">Alumni</a></li>
+							<li><a href="http://www.psuca.edu/etec">International Offices</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- //header -->
+		<!-- container -->
+		<div id="container">	
+			<div class="visualZone">
+				<div id="slideshow">
+				<ul id="slidesContainer">
+			      <li class="slide">
+			        <a href="http://psuca.edu/schedule/" target="_blank"><img src="images/main/img_visual01.jpg" alt="image1" /></a>
+			      </li>
+			      <li class="slide">
+			        <a><img src="images/main/img_visual02.jpg" alt="image2" /></a>
+			      </li>
+			      <li class="slide">
+			       	<a href="http://psuca.edu/node/31/"><img src="images/main/img_visual03.jpg" alt="image3" /></a>
+			      </li>
+			      <li class="slide">
+			        <a href="http://psuca.edu/node/25"><img src="images/main/img_visual04.jpg" alt="image4" /></a>
+			      </li>
+			      <li class="slide">
+			        <a><img src="images/main/img_visual05.jpg" alt="image5" /></a>
+			      </li>
+			      <li class="slide">
+			        <a href="http://psuca.edu/node/29/"><img src="images/main/img_visual06.jpg" alt="image6" /></a>
+			      </li>
+				  <li class="slide">
+			        <a href="http://psuca.edu/node/102/"><img src="images/main/img_visual07.jpg" alt="image7" /></a>
+			      </li>
+				  <li class="slide">
+			        <a href="http://psuca.edu/schedule/"><img src="images/main/img_visual08.jpg" alt="image8" /></a>
+			      </li>			      
+			    </ul>
+			    
+			    <div class="smartMenu">
+			    	<a id="smartButton">
+			    		<img class="p" src="images/main/smart_arrow_off.gif" />
+			    	</a>
+			    	<ul>
+			    		<li class="b1">
+			    			<a href="https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/a/psuca.edu/&ss=1&ltmpl=default&ltmplcache=2" target="_blank">PSU E-mail</a>
+			    		</li>
+			    		<li class="b2">
+			    			<a href="http://psuca.edu/catalog">Catalog & Brochure</a>
+			    		</li>
+			    		<li class="b3">
+			    			<a href="http://psuca.edu/academic_policies">Academic Policies</a>
+			    		</li>
+			    		<li class="b4">
+			    			<a href="http://psuca.edu/node/56">Financial Information</a>
+			    		</li>
+			    		<li class="b5">
+			    			<a href="http://psuca.edu/node/77">Right & Responsibilsities</a>
+			    		</li>
+			    		<li class="b6">
+			    			<a href="http://psuca.edu/facilities">Facilities</a>
+			    		</li>
+			    		<li class="b7">
+			    			<a href="http://psuca.edu/personnel">University Personnel</a>
+			    		</li>
+			    		<li class="b8">
+			    			<a href="http://student.psuca.edu/" target="_blank">Student Portal</a>
+			    		</li>
+			    		<li class="b9">
+			    			<a href="http://psuca.edu/forms">Forms</a>
+			    		</li>
+			    		<li class="b10">
+			    			<a href="http://psuca.edu/calendar">Academic Calendar</a>
+			    		</li>
+			    		<li class="b11">
+			    			<a href="http://www.psucpa.com/" target="_blank">Korean CPA</a>
+			    		</li>
+			    	</ul>
+				</div>
+			    
+			    </div>
+			    
+			    
+			    <ul id="pg1_v" >
+			    	<li id="pg1_prev"><a href="javascript:;">◀</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">○</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>	
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>	
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>
+					<li class="pg1_v_btn"><a href="javascript:;">●</a></li>
+					<li id="pg1_next"><a href="javascript:;">▶</a></li>
+				</ul>
+			    
+			    
+  			</div>
+  				
+				<!-- end test layer -->
+			</div>
+			<!-- departmentWrap -->
+			<div class="departmentWrap">
+				<div class="department first">
+					<h2><a href="http://psuca.edu/node/29/"><img src="images/main/title_department01.gif" alt="1" /></a></h2>
+					<ul>
+						<li class="pd10">
+							<a href="http://psuca.edu/node/29/"><img src="images/main/s_contents_01.gif" alt="1" /></a>
+						</li>
+					</ul>
+					<p class="photo"><a href="http://psuca.edu/node/29/"><img src="images/main/img_department01.jpg" alt="" /></a></p>
+				</div>
+				<div class="department">
+					<h2><a href="http://psuca.edu/node/25"><img src="images/main/title_department02.gif" alt="Accounting Courses for AICPA EXAM" /></a></h2>
+					<ul>
+						<li class="pd10">
+							<a href="http://psuca.edu/node/25"><img src="images/main/s_contents_02.gif" alt="1" /></a>
+						</li>
+					</ul>
+					<p class="photo"><a href="http://psuca.edu/node/25"><img src="images/main/img_department02.jpg" alt="" /></a></p>
+				</div>
+				<div class="department">
+					<h2><a href="http://psuca.edu/node/31/"><img src="images/main/title_department03.gif" alt="1" /></a></h2>
+					<ul>
+						<li class="pd10">
+							<a href="http://psuca.edu/node/31/"><img src="images/main/s_contents_03.gif" alt="1" /></a>
+						</li>
+					</ul>
+					<p class="photo"><a href="http://psuca.edu/node/31/"><img src="images/main/img_department03.jpg" alt="" /></a></p>
+				</div>
+				<div class="department">
+					<h2><a href="http://psuca.edu/node/26"><img src="images/main/title_department04.gif" alt="1" /></a></h2>
+					<ul>
+						<li class="pd10">
+							<a href="http://psuca.edu/node/26"><img src="images/main/s_contents_04.gif" alt="1" /></a>
+						</li>
+					</ul>
+					<p class="photo"><a href="http://psuca.edu/node/26"><img src="images/main/img_department04.jpg" alt="" /></a></p>
+				</div>
+			</div>
+			<!-- //departmentWrap -->
+			<div class="news">
+				<h2>
+					<a href="#"><img src="images/main/title_news.gif" alt="News & Events" /></a>
+				<h2>
+				<div class="cont">
+					<div class="box first">
+						<p>
+							<strong style="color:DarkRed">Enroll Now!</strong> <a href="http://student.psuca.edu" target="_blank">Student Portal Login</a><br />
+							- <a href="/sbm">Small Business Management Program(Korean)</a><br />
+							- <a href="/library"><span style="color:Darkblue">The Career Center is presenting a Resume and Cover Letter Workshop this coming Wednesday, April 25, 2012 in Room 117, the Computer Lab. from 12:30 P.M. to 1:30 P.M.</span></a>			
+						</p>
+					</div>
+					<div class="box">
+						<p>
+							<a href="/calendar">
+								<strong>Winter Quarter Begin:</strong> Jan 3, 2012<br />
+								<strong>Spring Quarter Begin:</strong> Apr 2, 2012<br />
+								<strong>Summer Quarter Begin:</strong> Jul 2, 2012<br />
+								<strong>Fall Quarter Begin:</strong> Oct 1, 2012<br />
+							</a>
+						</p>
+					</div>
+					<div class="box">
+						<p>
+						<a href="/node/104">中国学员请注意:日前本校发现在中国有其他机构假藉本校名义私自办理远程教学课程。本校目前并没有远程教学课程，该机构的课程不被本校、也不被美国教育部认可。如果有任何问题，请直接与本校连络</a><br />本校唯一校址是<br /><a href="mailto:cdc@psuca.edu">Email: cdc@psuca.edu</a>
+						</p>
+					</div>
+					<div class="box last">
+						<p>
+							<strong>Campus Closed</strong> <a href="/calendar">(More)</a><br />
+							(May 26-28) - Memorial Day<br />
+							(Jun 16) - Commencement<br />
+							(Jul 4) - Independence Day<br />
+							(Sept 1-3) Labor Day
+						</p>
+					</div>
+				</div>
+			</div>
+			<ul class="linkMenu">
+				<li><a href="http://psuca.edu/calendar"><img src="images/main/menu_link01.gif" alt="" /></a></li>
+				<li class="right"><a href="http://www.psuca.edu/orientation"><img src="images/main/menu_link02.gif" alt="" /></a></li>
+				<li><a href="http://www.psuca.edu/library"><img src="images/main/menu_link03.gif" alt="" /></a></li>
+				<li class="right"><a href="http://www.psuca.edu/node/57"><img src="images/main/menu_link04.gif" alt="" /></a></li>
+				<li class="formal">
+					<h2><img src="images/main/title_menu_link01.gif" alt="" /></h2>
+					<ul class="list_p1">
+						<li>Now Accepting Applications for Spring 2012 (start date April 2nd)</li>
+						<li>An applicant requiring an F-1 Visa should submit an application until the following <a href="node/7">schedule</a>.</li>
+						<li>Questions? Call the Admissions office at 1-323-731-2383 or email to <strong><a href="mailto:admissions@psuca.edu">admissions@psuca.edu</a></strong></li>
+					</ul>
+				</li>
+				<li class="formal right">
+					<h2><img src="images/main/title_menu_link02.gif" alt="" /></h2>
+					<ul class="list_p1">
+						<li><a href="http://www.psuca.edu/files/schedule/2012_Spring_Quarter_Schedule_040612.pdf" target="_blank">2012 Spring Quarter Schedule (Updated 04/05/2012)</a></li>
+						<li><a href="http://www.psuca.edu/files/schedule/2012_Spring_Quarter_ESL_Schedule_031212.pdf" target="_blank">2012 Spring Quarter ESL Schedule (Updated 03/13/2012)</a></li>
+						<li><a href="http://www.psuca.edu/files/schedule/2012_April_May_03122012.pdf" target="_blank">2012 Spring-I Accounting Certificate Program (April-May) Schedule<br />(Updated 03/08/2012)</a>
+						</li>
+						<li><a href="http://www.psuca.edu/files/schedule/2012_Spring_Quarter_Textbook_Information_03272012.pdf" target="_blank">2012 Spring Quarter Textbook Information (Updated 03/27/2012)</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			<ul class="locationInfo">
+				<li class="first">
+					<h2><img src="images/main/title_locationInfo01.gif" alt="" /></h2>
+					<p class="photo"><a href="http://psuca.edu/about_LA"><img src="images/main/img_LA.jpg" alt="" /></a></p>
+				</li>
+				<li>
+					<h2><img src="images/main/title_locationInfo02.gif" alt="" /></h2>
+					<p class="photo"><a href="http://www.psuca.edu/location"><img src="images/main/img_map.jpg" alt="LA Campus" /></a></p>
+				</li>
+				<li>
+					<h2><img src="images/main/title_locationInfo03.gif" alt="" /></h2>
+					<p class="">The new location of PSU has its own parking structure which is to be found behind the building. PSU students are suggested to park in this parking structure. There is the fee ($3.30) per entry which requires a discount coupon (No coupon: $14 per entry).</p>
+				</li>
+				<li>
+					<h2><img src="images/main/title_locationInfo04.gif" alt="" /></h2>
+					<ul class="list_p2">
+						<li><a href="http://psuca.edu/student_services#international">International Students</a></li>
+						<li><a href="http://psuca.edu/student_services#orientation">New Student Orientation</a></li>
+						<li><a href="http://psuca.edu/student_services#career">Career Center and Placement Services</a></li>
+						<li><a href="http://psuca.edu/student_services#housing">Housing Services</a></li>
+						<li><a href="http://psuca.edu/student_services#transcript">Transcript Request Form</a></li>
+						<li><a href="http://psuca.edu/student_services#activities">Extra Curricular Activities</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="connectZone">
+				<h2><img src="images/main/title_connect.gif" alt="" /></h2>
+				<div class="iconConnect">
+					<a href="http://www.facebook.com/PacificStatesUniversity" target="_blank" title="Facebook"><img src="images/main/icon_connect01.gif" alt="Facebook" /></a>
+					<a href="http://twitter.com/intent/user?screen_name=psuca" target="_blank" title="Twitter"><img src="images/main/icon_connect02.gif" alt="Twitter" /></a>
+					<a href="#" title="coming in 2012"><img src="images/main/icon_connect03.gif" alt="coming in 2012" /></a>
+					<a href="#" title="coming in 2012"><img src="images/main/icon_connect04.gif" alt="coming in 2012" /></a>
+					<a href="http://student.psuca.edu/" target="_blank" title="Student Portal"><img src="images/main/icon_connect05.gif" alt="Student Portal" /></a>
+					<a href="http://csl.psuca.edu" title="coming in 4th Q"><img src="images/main/icon_connect06.gif" alt="coming in 4th Q" /></a>
+					<a href="https://www.google.com/a/psuca.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https://mail.google.com/a/psuca.edu/&ss=1&ltmpl=default&ltmplcache=2" target="_blank" title="PSU E-mail"><img src="images/main/icon_connect07.gif" alt="PSU E-mail" /></a>
+				</div>
+			</div>
+			
+		</div>
+		<!-- //container -->
+	</div>
+
+		<!-- footer -->
+			<div id="footer">
+				<div class="footerTop">
+					<h3><img src="images/main/footer_logo.gif" alt="" /></h3>
+					<p><a href="http://www.psuca.edu/node/102"><img src="images/main/icon_mail.gif" />&nbsp;&nbsp;Login to PSU E-mail</a></p>
+					<select id="familySites" style="width: px;" title="" onchange="familyLink(this);">
+						<option value="http://www.psuca.edu">Family Sites</option>
+						<option value="http://www.konkuk.ac.kr/eng/">Konkuk University</option>
+						<option value="http://www.psucpa.com/">PSU CPA</option>
+						<!--option value="http://www.pstuca.com/">PSU TaeKwonDo</option-->
+					</select>
+					<script type="text/javascript">
+						function familyLink(t){
+							var linkVal = t.value;
+							window.open(linkVal,"");
+						}
+					</script>
+					<ul class="schoolInfo">
+						<li>3450 Wilshire Blvd. 5th Floor</li>
+						<li>Los Angeles, CA 90010</li>
+						<li>Tel: 323.731.2383</li>
+						<li>Fax: 323.731.7276</li>
+						<li><a href="mailto:admissions@psuca.edu">Email: admissions@psuca.edu</a></li>
+					</ul>
+				</div>
+				<p class="btmMenu">
+					<a href="http://psuca.edu/profile">About PSU   |</a>
+					<a href="http://psuca.edu/admin_info">Admissions   |</a>
+					<a href="http://psuca.edu/programs">Programs   |</a>
+					<a href="http://psuca.edu/personnel">Directory   |</a>
+					<a href="http://psuca.edu/academic_policies">Academic Policies   |</a>
+					<a href="http://psuca.edu/node/77">Rights and Responsibilities   |</a>
+					<a href="http://psuca.edu/node/56">Financial Information   |</a>
+					<a href="http://psuca.edu/catalog">Catalog   |</a>
+					<a href="http://psuca.edu/forms">Forms   |</a>
+					<a href="http://student.psuca.edu/" target="_blank">Student Portal   |</a>
+					<a href="http://psuca.edu/contact">Contact Us</a>
+				</p>
+			</div>		
+		<!-- //footer -->
+
+</body>
+</html>

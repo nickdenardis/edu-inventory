@@ -1,0 +1,67 @@
+
+
+<html>
+<head>
+<title>goto HomePage</title>
+
+
+
+<script language="javascript">
+	function sleep(msecs){
+		var start = new Date().getTime();
+		var cur = start
+		while(cur - start < msecs){
+  			cur = new Date().getTime();
+ 		}
+
+	}
+</script>
+</head>
+<body>
+<form name="tform" action="/servlet/crinity" method="post">
+	<input type="hidden" name="ptype" value="MAIN" > 
+	<input type="hidden" name="paction" value="index_ackr" > 
+</form>
+<script>
+	var setCookie = function(name, value, expiredays) {
+		try {
+			var today = new Date();
+			today.setDate(today.getDate() + expiredays);
+			document.cookie = name + '=' + escape(value) + '; path=/; expires='
+					+ today.toGMTString() + ';';
+			return true;
+		} catch (e) {
+			return false;
+		}
+	};
+	
+	var ua = navigator.userAgent.toLowerCase();
+	
+	var uaCheck = function(r) {
+		return r.test(ua);
+	}
+	var isMobile = false;
+	if (uaCheck(/ipad/ig) || uaCheck(/android/ig) || uaCheck(/opera mini/ig) || uaCheck(/iphone/) || uaCheck(/samsung-sch-m49/) || uaCheck(/samsung-sch-m71/) || uaCheck(/samsung-sph-m84/)  ) {
+		setCookie('locationTemp', '../customized/skkUniv/smart', 365);
+		isMobile = true;
+	} else {
+		setCookie('locationTemp', '../customized/skkUniv/korean', 365);
+		isMobile = false;
+	}
+
+	//samsung-sch-m495(0)/msie 6.0;windows ce;iemobile 7.11
+	//samsung-sch-m715(0)/1.0/msie 6.0;windows ce;iemobile 8.12
+
+	if (document.domain.indexOf("skku.ac.kr") >= 0) {
+		document.tform.submit();
+	} else if(document.domain.indexOf("skku.edu") >= 0 && isMobile ){
+		document.tform.submit();
+	} else {
+		document.location="http://www.skku.edu/";
+		//document.tform.submit();
+	}
+	
+</script>
+</body>
+</html>
+

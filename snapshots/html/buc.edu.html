@@ -1,0 +1,942 @@
+ <html>
+<head>
+<meta http-equiv="Content-Language" content="ko">
+<meta http-equiv="Content-Type" content="text/html; charset=ks_c_5601-1987">
+<title>BETHESDA UNIVERSTY</title>
+<div id="divMenu" style="right:62px; top:0px; width:81; position: absolute; height:500px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td>
+<img src="http://www.buc.edu/skin/side_bg1.jpg" border="0"></td>
+	</tr>
+	<tr>
+		<td background="http://www.buc.edu/skin/side_bg2.jpg">
+		<p align="center">
+<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=2&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><img src="http://www.buc.edu/skin/side_b21.jpg" border="0"></a><br>
+<a target="_blank" href="http://www.bucathletics.com"><img src="http://www.buc.edu/skin/side_b32.jpg" border="0"></a><br>
+<a target="_blank" href="http://lib03.sa3000.com/BCU/"><img border="0" src="http://www.buc.edu/skin/side_b42.jpg"></a><br>
+<a href="http://bethesdaonline.net/bbs/login.php"><img border="0" src="http://www.buc.edu/skin/side_b52.jpg"></a><br>
+<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=5&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><img border="0" src="http://www.buc.edu/skin/side_b62.jpg"></a>
+
+</td>
+	</tr>
+	<tr>
+		<td>
+<img src="http://www.buc.edu/skin/side_bg3.jpg" border="0"></td>
+	</tr>
+	<tr>
+		<td>
+<img border="0" src="image/spc.png" width="10" height="5"></td>
+	</tr>
+	<tr>
+		<td>
+<p align="center">
+<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_501&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="http://www.buc.edu/skin/side_b11.jpg"></a></td>
+	</tr>
+	<tr>
+		<td>
+<img border="0" src="image/spc.png" width="10" height="5"></td>
+	</tr>
+	<tr>
+		<td>
+<p align="center">
+<a href="http://www.bucmanagement.com/login.html?act=st"><img border="0" src="image/side_b12.jpg"></a></td>
+	</tr>
+	<tr>
+		<td>
+<img border="0" src="image/spc.png" width="10" height="5"></td>
+	</tr>
+	<tr>
+		<td>
+<p align="center">
+<a href="#pg1"><img border="0" src="http://www.buc.edu/skin/ptop.jpg"></a></td>
+	</tr>
+</table>
+</div>
+<script>
+var bNetscape4plus = (navigator.appName == "Netscape" && navigator.appVersion.substring(0,1) >= "4");
+var bExplorer4plus = (navigator.appName == "Microsoft Internet Explorer" && navigator.appVersion.substring(0,1) >= "4");
+
+function CheckUIElements()
+{
+var yMenuFrom, yMenuTo, yButtonFrom, yButtonTo, yOffset, timeoutNextCheck;
+
+if ( bNetscape4plus ) { // ³×Ã÷ÄÉÀÌÇÁ ¿ë ¼³Á¤
+//yButtonFrom = document["divLinkButton"].top;
+//yButtonTo = top.pageYOffset + top.innerHeight - 55;
+yMenuFrom = document["divMenu"].top;
+yMenuTo = top.pageYOffset + 200; // À§ÂÊ À§Ä¡
+}
+else if ( bExplorer4plus ) { // IE ¿ë ¼³Á¤
+//yButtonFrom = parseInt (divLinkButton.style.top, 10);
+//yButtonTo = document.body.scrollTop + document.body.clientHeight - 55;
+yMenuFrom = parseInt (divMenu.style.top, 10);
+yMenuTo = document.body.scrollTop + 200; // À§ÂÊ À§Ä¡
+}
+
+if ( yMenuFrom != yMenuTo ) {
+yOffset = Math.ceil( Math.abs( yMenuTo - yMenuFrom ) / 20 );
+if ( yMenuTo < yMenuFrom )
+yOffset = -yOffset;
+
+if ( bNetscape4plus )
+document["divMenu"].top += yOffset;
+else if ( bExplorer4plus )
+divMenu.style.top = parseInt (divMenu.style.top, 10) + yOffset;
+
+timeoutNextCheck = 10;
+}
+
+setTimeout ("CheckUIElements()", timeoutNextCheck);
+}
+
+function OnLoad()
+{
+var y;
+
+// ÇÁ·¹ÀÓ ¿¡¼­ ¹ş¾î³ª°Ô ÇÏ´Â ÇÔ¼öÀÔ´Ï´Ù. ÇÁ·¹ÀÓ¿¡ ³ÖÀ¸·Á¸é »èÁ¦ÇÏ¼¼¿ä
+if ( top.frames.length )
+// top.location.href = self.location.href;
+
+// Æä¿¡Áö ·Îµù½Ã Æ÷Áö¼Ç
+if ( bNetscape4plus ) {
+document["divMenu"].top = top.pageYOffset + 135;
+document["divMenu"].visibility = "visible";
+//document["divLinkButton"].top = top.pageYOffset + top.innerHeight - 55;
+//document["divLinkButton"].visibility = "visible";
+}
+else if ( bExplorer4plus ) {
+divMenu.style.top = document.body.scrollTop + 135;
+divMenu.style.visibility = "visible";
+//divLinkButton.style.top = document.body.scrollTop + document.body.clientHeight - 55;
+//divLinkButton.style.visibility = "visible";
+}
+
+// initializing UI update timer
+CheckUIElements();
+//if ( bExplorer4plus )
+// setTimeout ( "FlashTitleStepIt(255)", 10 );
+return true;
+}
+
+
+OnLoad();
+</script></head>
+<script src="uboard/standard/ub_js/uboard.js"></script>
+<link rel="stylesheet" type="text/css" href="adweb.css">
+</head>
+<body marginwidth="0" marginheight="0" topmargin="0" bottommargin="0" leftmargin="0" rightmargin="0" background="http://www.buc.edu/skin/bg_body.jpg" bgproperties=fixed>
+<a name="pg1"></a><div align="center">
+<table border="0" width="955" cellspacing="0" cellpadding="0" background="http://www.buc.edu/skin/bg_body2.jpg">
+<tr>
+<td>
+¡¡<table border="0" cellpadding="0" cellspacing="0" width="100%" background="http://www.buc.edu/skin/top_bg.jpg">
+<tr>
+<td valign="bottom" rowspan="2" width="10%">
+<a href="index.html?langs=2"><img border="0" src="http://www.buc.edu/skin/logo.png" ></a>
+</td>
+<td valign="bottom" width="90%">
+<div id="logplace"><div id="viewlog">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td colspan="3">
+
+</td></tr>
+<tr><td>
+
+
+
+
+
+</div>
+
+
+
+</td><td class="Text">
+<p align="right">
+
+
+
+<a onclick="UBOARD_CALL('fix_call_file=(URL:include/top_log.html?act=regiform)','viewlog')"><img border="0" src="image/t_regi.png" alt="È¸¿øµî·Ï"></a><a onclick="UBOARD_CALL('fix_call_file=(URL:include/top_log.html?act=logform)','viewlog')"><img border="0" src="image/t_login.png" alt="·Î±×ÀÎ"></a><a href="index.html?langs=1"><img border="0" src="image/flg_ko2.jpg" ></a>  <a href="index.html?langs=2"><img border="0" src="image/flg_en2.jpg" ></a>
+</td><td class="Text" width="20"></td></tr></table></div></td>
+</tr>
+<tr>
+<td valign="bottom" width="90%">
+<head>
+<link rel="stylesheet" type="text/css" href="adweb.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jkmegamenu.js">
+</script>
+<script type="text/javascript">
+jkmegamenu.definemenu("megaanchor", "megamenu1", "mouseover")
+jkmegamenu.definemenu("megaanchor1", "megamenu2", "mouseover")
+jkmegamenu.definemenu("megaanchor2", "megamenu3", "mouseover")
+jkmegamenu.definemenu("megaanchor3", "megamenu4", "mouseover")
+jkmegamenu.definemenu("megaanchor4", "megamenu5", "mouseover")
+jkmegamenu.definemenu("megaanchor5", "megamenu6", "mouseover")
+jkmegamenu.definemenu("megaanchor6", "megamenu7", "mouseover")
+jkmegamenu.definemenu("megaanchor7", "megamenu8", "mouseover")
+
+</script>
+<STYLE TYPE='text/css'>
+.megamenu{
+position: absolute;
+display: none;
+left: 0;
+top: 0;
+background: white;
+border: 0px solid #C0C0C0;
+border-width: 1px 1px;
+padding: 10px;
+font: normal 12px Verdana;
+z-index: 100;
+}
+
+.megamenu .column{
+float: left;
+width: 170px;
+margin-right: 5px;
+}
+
+.megamenu .column ul{
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.megamenu .column ul li{
+padding-bottom: 5px;
+}
+
+.megamenu .column h3{
+background: #EFEFEF;
+font: bold 13px Arial;
+color: #666;
+margin: 0 0 5px 0;
+
+a { color: #808080; text-decoration: none;} 
+a:link {  color: #808080; text-decoration: none;}
+a:visited {  color: #808080; text-decoration: none;}
+a:hover { color: #000000; text-decoration: none;}
+
+
+}
+.megamenu .column ul li a{
+color: #FFF;
+
+text-decoration: none;
+}
+.megamenu .column ul li a:hover{
+color: #FF6600;
+}
+
+.tLink a { color: #666; text-decoration: none;} 
+.tLink a:link {  color: #666; text-decoration: none;}
+.tLink a:visited {  color: #666; text-decoration: none;}
+.tLink a:hover { color: #FFCC66; text-decoration: none;}
+
+</STYLE>
+
+</head>
+
+<table class="tLink" border="0" cellpadding="0" cellspacing="0" width="100%" height="38" background="http://www.buc.edu/skin/tme1.png">
+	<tr>
+		<td class="mtxt" background="image/tmxs2.png">
+<p>
+<a href="#" id="megaanchor" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_20&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve1.png"></a><a href="#" id="megaanchor1" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_30&mid=3&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve2.png"></a><a href="#" id="megaanchor7" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_2001&mid=9&go=0&def=B&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve8.png"></a><a href="#" id="megaanchor2" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_40&mid=4&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve3.png"></a><a href="#" id="megaanchor3" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_50&mid=5&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve4.png"></a><a href="#" id="megaanchor4" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_60&mid=6&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve5.png"></a><a href="#" id="megaanchor5" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=2&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve6.png"></a><a href="#" id="megaanchor6" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_80&mid=8&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="skin/nve7.png"></a>
+<div id="megamenu1" class="megamenu" style="position: absolute; left: 38px; top: 0px; width:280px">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn1.jpg"></td>
+<td width="50"><img border="0" src="image/spc.png" width="10" height="30"></td><td width="155" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_20&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>Founders greetings</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_21&mid=2&go=1&def=Y&sid=&langs=2)','AJXmain')"><li>Presidents greetings</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_22&mid=2&go=2&def=Y&sid=&langs=2)','AJXmain')"><li>About Bethesda</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_23&mid=2&go=3&def=Y&sid=&langs=2)','AJXmain')"><li>Faculty & Staff</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_24&mid=2&go=4&def=Y&sid=&langs=2)','AJXmain')"><li>Campus Location</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_25&mid=2&go=5&def=Y&sid=&langs=2)','AJXmain')"><li>Drug-Free Policy</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_26&mid=2&go=6&def=Y&sid=&langs=2)','AJXmain')"><li>Campus Security</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>  
+</td></tr></table></div>
+
+
+				
+<div id="megamenu2" class="megamenu" style="position: absolute; left: 352px; top: 0px; width:280px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn2.jpg"></td>
+<td width="50"><img border="0" src="image/spc.png" width="10" height="30"></td><td width="155" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_30&mid=3&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>Undergraduate</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_31&mid=3&go=1&def=Y&sid=&langs=2)','AJXmain')"><li>Graduate</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_32&mid=3&go=2&def=Y&sid=&langs=2)','AJXmain')"><li>Doctor of Ministry</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_33&mid=3&go=3&def=Y&sid=&langs=2)','AJXmain')"><li>Online Degree Program</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_34&mid=3&go=4&def=Y&sid=&langs=2)','AJXmain')"><li>Tuition and Fees</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_35&mid=3&go=5&def=Y&sid=&langs=2)','AJXmain')"><li>Financial Aid</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_36&mid=3&go=6&def=Y&sid=&langs=2)','AJXmain')"><li>Transfer of Credit Policies</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_37&mid=3&go=7&def=Y&sid=&langs=2)','AJXmain')"><li>Application Forms Download</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>  
+</td></tr></table></div>
+
+
+<div id="megamenu3" class="megamenu" style="position: absolute; left: 584px; top: 0px; width:280px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn3.jpg"></td>
+<td width="50"><img border="0" src="image/spc.png" width="10" height="30"></td><td width="155" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_40&mid=4&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>Undergraduate Programs</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_41&mid=4&go=1&def=Y&sid=&langs=2)','AJXmain')"><li>Religion</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_42&mid=4&go=2&def=Y&sid=&langs=2)','AJXmain')"><li>Music</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_43&mid=4&go=3&def=Y&sid=&langs=2)','AJXmain')"><li>Early Childhood Education</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_44&mid=4&go=4&def=Y&sid=&langs=2)','AJXmain')"><li>Design</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_45&mid=4&go=5&def=Y&sid=&langs=2)','AJXmain')"><li>Business Administration</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_46&mid=4&go=6&def=Y&sid=&langs=2)','AJXmain')"><li>Information Technology</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>  
+</td></tr></table></div>
+
+
+<div id="megamenu4" class="megamenu" style="position: absolute; left: 825px; top: 0px; width:280px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn4.jpg"></td>
+<td width="50"><img border="0" src="image/spc.png" width="10" height="30"></td><td width="155" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_50&mid=5&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>Graduate Programs</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_51&mid=5&go=1&def=Y&sid=&langs=2)','AJXmain')"><li>M.A. in Biblical Studies</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_52&mid=5&go=2&def=Y&sid=&langs=2)','AJXmain')"><li>Master of Divinity</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_53&mid=5&go=3&def=Y&sid=&langs=2)','AJXmain')"><li>M.A. in Music</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_54&mid=5&go=4&def=Y&sid=&langs=2)','AJXmain')"><li>Doctor of Ministry</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>  
+</td></tr></table></div>
+
+
+<div id="megamenu5" class="megamenu" style="position: absolute; left: 358px; top: 0px; width:280px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn5.jpg"></td>
+<td width="50"><img border="0" src="image/spc.png" width="10" height="30"></td><td width="155" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_60&mid=6&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>A board of director</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_61&mid=6&go=1&def=Y&sid=&langs=2)','AJXmain')"><li>Structure</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"><div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_62&mid=6&go=2&def=Y&sid=&langs=2)','AJXmain')"><li>Library</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>  
+<div class="column"><a target="_blank" href="http://bucathletics.com/"><li>Athletics</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div></td></tr></table>
+
+
+  
+
+<div id="megamenu6" class="megamenu" style="position: absolute; left: 38px; top: 0px; width:280px">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td valign="top"><img border="0" src="http://www.buc.edu/skin/mubn6.jpg"></td>
+		<td>
+		
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_501&mid=12&go=0&def=Y&sid=&langs=2)','AJXmain')"><li>Academic Calendar</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>		
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=2&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><li>Announcement</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>	
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=5&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><li>School Information</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>	
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=3&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><li>Links Related Sites</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>		
+<div class="column"><a href="http://bethesdaonline.net/bbs/login.php"><li>Online Lecture</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+<div class="column"><a href="https://www.bluehost.com/cgi/webmail"><li>Member Email</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=7&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><li>Job Opportunity</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=4&mid=12&go=0&def=B&sid=&langs=2)','AJXmain')"><li>FAQ</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+<div class="column"><a href="http://www.bucmanagement.com/login.html?act=pro"><li>Intranet</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+<div class="column"><a href="http://www.bucmanagement.com/login.html?act=st"><li>LMS</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+
+<div class="column"><a href="http://www.bucmanagement.com/from_buc.html"><li>Test Form</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>
+</td></tr>
+</table></div>
+
+
+<div id="megamenu7" class="megamenu" style="position: absolute; left: 605px; top: 0px; width:205px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn7.jpg"></td><td width="17"><img border="0" src="image/spc.png" width="10" height="30"></td>
+	<td width="140" valign="top">
+<span class="subLink "><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=3&mid=8&go=0&langs=2)','AJXmain')"><li>Links Related Sites</a></span><br><img border="0" src="http://www.buc.edu/skin/kline.jpg">		
+<span class="subLink "><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=board&board_id=4&mid=8&go=0&langs=2)','AJXmain')"><li>FAQ</a></span><br><img border="0" src="http://www.buc.edu/skin/kline.jpg">		
+</td></tr></table>
+
+
+
+<div id="megamenu8" class="megamenu" style="position: absolute; left: -279px; top: 0px; width:345px">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td><img border="0" src="http://www.buc.edu/skin/mubn7.jpg"></td><td width="10"><img border="0" src="image/spc.png" width="10" height="30"></td>
+	<td width="287" valign="top">
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_2001&mid=9&go=0&def=B&sid=&langs=2)','AJXmain')"><li>Pre-School Teacher/<br>&nbsp;&nbsp;&nbsp;&nbsp;Dirctoer Certificate program</a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>		
+<div class="column"><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_2002&mid=9&go=0&def=B&sid=&langs=2)','AJXmain')"><li>ESC Certificate Program </a><br><img border="0" src="http://www.buc.edu/skin/kline.jpg"></div>		
+
+</td></tr></table>
+
+
+
+
+
+
+		</td>
+	</tr>
+</table></div></td>
+</tr>
+<tr>
+<td valign="bottom" colspan="2" height="25" background="http://www.buc.edu/skin/tme1_1.png">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="1" rowspan="2"><img border="0" src="http://www.buc.edu/skin/hot_box.png" ></td>
+		<td><span class="hot"><font color="#ffffff"></font> <script type="text/javascript">
+var tickercontents=new Array()
+tickercontents[0]='2012³â ½ÅÀÔ»ı ¸ğÁıÀÌ ½ÃÀÛµÇ¾ú½À´Ï´Ù, ÀÚ¼¼ÇÑ ³»¿ëÀº ÀÔÇĞÃ³¿¡ ¹®ÀÇ ¹Ù¶ø´Ï´Ù.</a>'
+tickercontents[1]='¼®»ç ¹× ¹Ú»ç°úÁ¤-TRACS ¿¡¼­ ÀÎÁØ </a>'
+tickercontents[2]='¼º°æÀº ¸ğµç ÀÎ·ù¸¦ À§ÇÑ ¹ÏÀ½°ú ½ÇÃµÀÇ Àı´ë È®½ÇÇÑ ÇÏ³ª´ÔÀÇ ¸»¾¸ÀÌ´Ù</a>'
+tickercontents[3]='¹Ì±¹ ¿¬¹æ ±³À°ºÎ »êÇÏ ABHEÀÇ Á¤±ÔÀÎÁØ</a>'
+tickercontents[4]='ÇĞ»ç°úÁ¤-USDE ¹× CHEA »êÇÏ ABHE¿Í TRACS ¿¡¼­ ÀÎÁØµÇ¾ú½À´Ï´Ù.</a>'
+
+var persistlastviewedmsg=1 //should messages' order persist after users navigate away (1=yes, 0=no)?
+var persistmsgbehavior="onload" //set to "onload" or "onclick".
+
+//configure the below variable to determine the delay between ticking of messages (in miliseconds):
+var tickdelay=3000
+
+////Do not edit pass this line////////////////
+
+var divonclick=(persistlastviewedmsg && persistmsgbehavior=="onclick")? 'onClick="savelastmsg()" ' : ''
+var currentmessage=0
+
+function changetickercontent(){
+if (crosstick.filters && crosstick.filters.length>0)
+crosstick.filters[0].Apply()
+crosstick.innerHTML=tickercontents[currentmessage]
+if (crosstick.filters && crosstick.filters.length>0)
+crosstick.filters[0].Play()
+currentmessage=(currentmessage==tickercontents.length-1)? currentmessage=0 : currentmessage+1
+var filterduration=(crosstick.filters&&crosstick.filters.length>0)? crosstick.filters[0].duration*1000 : 0
+setTimeout("changetickercontent()",tickdelay+filterduration)
+}
+
+function beginticker(){
+if (persistlastviewedmsg && get_cookie("lastmsgnum")!="")
+revivelastmsg()
+crosstick=document.getElementById? document.getElementById("memoryticker") : document.all.memoryticker
+changetickercontent()
+}
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = ""
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset)
+if (end == -1)
+end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function savelastmsg(){
+document.cookie="lastmsgnum="+currentmessage
+}
+
+function revivelastmsg(){
+currentmessage=parseInt(get_cookie("lastmsgnum"))
+currentmessage=(currentmessage==0)? tickercontents.length-1 : currentmessage-1
+}
+
+if (persistlastviewedmsg && persistmsgbehavior=="onload")
+window.onunload=savelastmsg
+
+if (document.all||document.getElementById)
+document.write('<div id="memoryticker" '+divonclick+'></div>')
+if (window.addEventListener)
+window.addEventListener("load", beginticker, false)
+else if (window.attachEvent)
+window.attachEvent("onload", beginticker)
+else if (document.all || document.getElementById)
+window.onload=beginticker
+
+</script></span></td>
+	</tr>
+	<tr>
+		<td height="5"></td>
+	</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign="bottom" colspan="2">
+<img border="0" src="image/spc.png" width="20" height="5"></td>
+</tr>
+<tr>
+<td valign="bottom" colspan="2">
+</tr>
+</table><div id="logplace"></div>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<div id="AJXmain">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td colspan="3">
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<script language="javascript">
+
+	// ¸ŞÀÎ ÀÌ¹ÌÁö change
+	function  i_screen_img_chang(num,rotate){
+
+		var main_img_ob=document.getElementById('i_screen_main_img');
+		var main_link_ob=document.getElementById('i_screen_main_link');
+		if(!main_img_ob) return;
+		if(num>6) num=1;
+		var new_link_ob=document.getElementById('i_screen_link'+num);
+		img_file='banner'+num+'.jpg';
+		if(rotate) i_screen_img=setTimeout("i_screen_img_chang("+(num+1)+",1)",4000); // 3ÃÊ °£°İÀ¸·Î ±×¸² ÀÚµ¿º¯°æ
+		else{
+			clearTimeout(i_screen_img);
+			i_screen_img=setTimeout("i_screen_img_chang("+(num+1)+",1)",5000); // ¸¶¿ì½º over ·Î ±×¸² º¯°æµÈÈÄ 5ÃÊÈÄ¿¡ ±×¸² ÀÚµ¿º¯°æ
+		}
+		if(this_browser=='e') main_img_ob.filters.blendTrans.apply();
+		main_img_ob.src=main_img_ob.src.replace(/[^\/]+$/,img_file);
+		if(this_browser=='e') main_img_ob.filters.blendTrans.play();
+		if(main_link_ob && new_link_ob) main_link_ob.href=new_link_ob.href;
+		for(i=1; i<7; ++i){
+			new_small_ob=document.getElementById('i_screen_small'+i);
+			if(new_small_ob) new_small_ob.className=(num==i) ? 'i_unset_transp' : 'i_set_transp';
+		}
+	} i_screen_img=setTimeout("i_screen_img_chang(2,1)",4000); // Ã³À½ Ãâ·Â½Ã 5ÃÊÈÄ ±×¸² ÀÚµ¿ º¯°æ
+
+</script>
+	<div align="center">
+	<table cellpadding=0 cellspacing=0 border=0 style="margin-top:0;">
+		<tr>
+			<td>
+		<a href="index.html?" id="i_screen_link1"></a>
+		<a href="index.html?" id="i_screen_link2"></a>
+		<a href="index.html?" id="i_screen_main_link">
+		<img id='i_screen_main_img' border="0" align=absmiddle	src="image/banner1.jpg" style="filter: blendtrans(duration=0.8)"></a>
+
+			</td>
+		</tr>
+		<tr>
+			<td height="3">
+
+			</td>
+			</tr>
+	</table>
+</div>
+
+</td>
+</tr>
+<tr>
+<td width="1">
+<img border="0" src="http://www.buc.edu/skin/mbx1.png"></td>
+<td background="http://www.buc.edu/skin//mbx2.png">
+¡¡</td><td width="1">
+<img border="0" src="http://www.buc.edu/skin/mbx3.png"></td>
+</tr>
+<tr>
+<td width="1" background="http://www.buc.edu/skin/mbx4.png" valign="top">
+</td>
+<td background="http://www.buc.edu/skin/mbx5.png">
+<table border="0" cellpadding="0" width="100%" cellspacing="0">
+<tr>
+<td width="100%" valign="top" colspan="3">
+<p align="center"><img border="0" src="http://www.buc.edu/skin/tlt12.jpg"></td>
+</tr>
+<tr>
+<td width="100%" valign="top" colspan="3"><HTML>
+<HEAD>
+<TITLE> ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë”© </TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset =UTF-8" /> 
+
+<script language="javascript">
+function ImageSliding(o, width, handle, time, speed, interval, start){
+ this.obj;
+ this.width;//í•œì¹¸ì˜ ê°€ë¡œê¸¸ì´
+ this.speed; //ì´ë™ ì†ë„(ì†ë„ ë‚®ì„ìˆ˜ë¡ ë¹ ë¦„, ì´ˆê¸°ê°’ 40)
+ this.interval;//ì´ë™ ê°„ê²©(ì´ˆê¸°ê°’ : ê°€ë¡œê¸¸ì´ / 8)
+ this.time;//í•œì¹¸ ì´ë™í•˜ëŠ” ë‹¤ìŒ ì´ë™ê¹Œì§€ í…€(ì´ˆ, ì´ˆê¸°ê°’ : 3)
+ this.handle;//ì´ë™í•  ë°©í–¥(ì´ˆê¸°ê°’ : left)
+ this.sign;
+ this.flag = true;
+ this.isMove = true;
+ this.start; 
+ var cnt=0;
+ for(var i=0; i<arguments.length; i++){if(arguments[i]) cnt++;}
+ if(cnt) this.setting(o, width, speed, interval, time, handle, start);
+}
+ImageSliding.prototype = {
+ setting : function(o, width, handle, time, speed, interval, start){
+  var cnt=0;
+  for(var i=0; i<arguments.length; i++){if(arguments[i])cnt++;}
+  var isObj = cnt == 1 && typeof(o) == "object" ? true : false;  
+  this.obj = isObj && typeof(o.obj) == "object" ? o.obj : (typeof(o.obj) == "object" ? o : (typeof(o.obj) == "string" ? document.getElementById(o.obj) : document.getElementById(o)));
+  if(!this.obj)
+  {
+   alert("ìŠ¬ë¼ì´ë”© ë  ê°ì²´ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.\nì…‹íŒ…ì„ í™•ì¸í•´ ì£¼ì„¸ìš”.");
+   return;
+  }  
+  this.width = width ? width : (isObj && o.width ? o.width : this.obj.rows[0].cells[0].offsetWidth);
+  this.speed = speed ? speed : (isObj && o.speed ? o.speed : 40);
+  this.interval = interval ? interval : (isObj && o.interval ? o.interval : 8);
+  this.time = time ? time : (isObj && o.time ? o.time : 3);
+  this.start = start ? true : (isObj && o.start ? true : false);  
+  this.obj.style.position = "absolute";
+  this.obj.style.left = "0px";
+  this.obj.style.top = "0px";
+  var This = this; 
+  if(window.attachEvent)
+  {
+   this.obj.attachEvent("onmouseover", function(){This.moveControl.call(This, false);});
+   this.obj.attachEvent("onmouseout", function(){This.moveControl.call(This, true);});
+  }
+  else
+  {
+   this.obj.addEventListener("mouseover", function(){This.moveControl.call(This, false);}, false);
+   this.obj.addEventListener("mouseout", function(){This.moveControl.call(This, true);}, false);
+  }  
+  this.setHandle(handle ? handle : (isObj && o.handle ? o.handle : "left"));
+  if(this.start) this.startSliding();
+ }, 
+ setHandle : function(handle){
+  this.handle = handle.toLowerCase();
+  this.sign = this.handle == "left" ? -1 : 1;
+ },
+ startSliding : function(){  
+  if(!this.flag) return;
+  else if(!this.obj)
+  {
+   alert("ìŠ¬ë¼ì´ë”© ë  ê°ì²´ê°€ ì§€ì •ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.\nì…‹íŒ…ì„ í™•ì¸í•´ ì£¼ì„¸ìš”.");
+   return;
+  }
+  else if(this.obj.parentNode.offsetWidth / this.width >= this.obj.rows[0].cells.length)
+  {
+   //ì‹¤ì œ ì„œë¹„ìŠ¤ ì ìš©ì‹œì—ëŠ” ì•„ë˜ alert ë¥¼ ì£¼ì„ì²˜ë¦¬ í•˜ì‹œë©´ ë©ë‹ˆë‹¤.
+   //alert("í˜„ì¬ í™˜ê²½ì—ì„œëŠ” ì´ë¯¸ì§€ê°€ ìµœì†Œ "+Math.ceil(this.obj.parentNode.offsetWidth / this.width)+"ê°œ ì´ìƒ ìˆì–´ì•¼ í•©ë‹ˆë‹¤.\n\nì´ë¯¸ì§€ ê°¯ìˆ˜ê°€ ë¶€ì¡±í•˜ì—¬ ì´ë¯¸ì§€ ìŠ¬ë¼ì´ë”©ì´ ì¤‘ì§€ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+   //return;
+  }
+  var This = this;
+  this.flag = false;  
+  if(this.handle == "left")
+  {   
+   window.setTimeout(function(){This.goImageSliding.call(This);}, this.time * 1000);
+  }
+  else 
+  {
+   This.initPosition();
+   window.setTimeout(function(){This.goImageSliding.call(This);}, this.time * 1000);
+  }
+ },
+ goImageSliding : function(){  
+  var This = this;
+  var oLeft = parseInt(this.obj.style.left) * this.sign;  
+  if(this.handle == "right") oLeft = this.width + oLeft;  
+  var moveLength = Math.floor((this.width - oLeft) / this.interval) < this.interval ? (this.width - oLeft < this.interval ? (this.width - oLeft < Math.floor(this.interval/2) ? 1 : Math.floor(this.interval/2)) : this.interval) : Math.floor((this.width - oLeft) / this.interval);
+  if(this.isMove) this.obj.style.left = (((parseInt(this.obj.style.left) * this.sign) + moveLength) * this.sign) + "px";
+  if(!this.isMove || parseInt(this.obj.style.left) % this.width != 0)
+  {
+   window.setTimeout(function(){This.goImageSliding.call(This);}, this.speed);
+  }
+  else
+  {
+   if(this.handle == "left") this.initPosition(); 
+   this.flag = true;
+   this.startSliding();
+  }
+ },
+ initPosition : function(){
+  if(this.handle == "left")
+  {    
+   this.obj.rows[0].appendChild(this.obj.rows[0].cells[0]);
+   this.obj.style.left = "0px";
+  }
+  else
+  {   
+   this.obj.rows[0].insertBefore(this.obj.rows[0].cells[this.obj.rows[0].cells.length-1], this.obj.rows[0].cells[0]);
+   this.obj.style.left = (this.width * -1) + "px";
+  }  
+ },
+ moveControl : function(bool){
+  this.isMove = bool;
+ }
+};
+window.onload = function(){
+ new ImageSliding({obj:"tbl", start:true});
+};
+//-->
+</script>
+</HEAD>
+<BODY>
+<div style="position:relative; left:3px;width:922px; height:110px; overflow:hidden;">
+<table id="tbl" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+  
+ <td><a target="_blank" href='http://www.bucmanagement.com/login.html?act=st'><img src="image/show2_5.jpg" border="0"></a></td>
+ <td><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_501&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img src="image/show2_1.jpg" border="0"></a></td>
+ <td><a href="http://bethesdaonline.net/bbs/login.php"><img src="image/show2_2.jpg" border="0"></a></td>
+ <td><a target="_blank" href='http://lib03.sa3000.com/BCU/'><img src="image/show2_3.jpg" border="0"></a></td>
+ <td><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_24&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img src="image/show2_4.jpg" border="0"></a></td>
+ <td><a target="_blank" href='http://www.bucmanagement.com/login.html?act=st'><img src="image/show2_5.jpg" border="0"></a></td>
+ <td><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_501&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img src="image/show2_1.jpg" border="0"></a></td>
+ <td><a href="http://bethesdaonline.net/bbs/login.php"><img src="image/show2_2.jpg" border="0"></a></td>
+ <td><a target="_blank" href='http://lib03.sa3000.com/BCU/'><img src="image/show2_3.jpg" border="0"></a></td>
+ <td><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_24&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img src="image/show2_4.jpg" border="0"></a></td>
+ </tr>
+</table>
+</div><div id="board_front"></div>
+</td>
+</tr>
+<tr>
+<td height="12" width="100%" valign="top" colspan="3"></td>
+</tr>
+<tr>
+<td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="450">
+	<tr>
+		<td height="32"><img border="0" src="http://www.buc.edu/skin/tlt4.png"></td>
+	</tr>
+	<tr>
+		<td>		<table border="1" cellpadding="0" width="97%" style="border-collapse: collapse" bordercolor="#E4E4E4" cellspacing="7">
+	<tr>
+		<td>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td width="2%"><img border="0" src="image/spc.png" width="10" height="10"></td>
+		<td width="98%">
+ <div class="tabsmenucontent">
+<table border="0" cellpadding="0" width="100%" style="border-collapse: collapse">
+ 
+<tr><td height="20"><img border="0" src="image/dot.png"></td>
+		<td onmouseover="ub_hover_bgcolor(this,'#f2f3f1')" class="board">
+		<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:include/board_view.html?pg_id=board&mid=6&board_id=2&no=57&go=0)','board_front')">Notice for class cancellation</a>
+		</td>
+		<td class="Text">&nbsp;&nbsp;</td>
+		<td class="Text">2012-02-22</td>
+	</tr> 
+<tr><td height="20"><img border="0" src="image/dot.png"></td>
+		<td onmouseover="ub_hover_bgcolor(this,'#f2f3f1')" class="board">
+		<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:include/board_view.html?pg_id=board&mid=6&board_id=2&no=56&go=0)','board_front')">Notice for Registration method</a>
+		</td>
+		<td class="Text"><a href="upload/Student Registration Guideline for Student-New.pdf"><img border="0" src="image/up_disk.png" width="16" height="16" alt="Download"></a>&nbsp;&nbsp;</td>
+		<td class="Text">2012-02-13</td>
+	</tr> 
+<tr><td height="20"><img border="0" src="image/dot.png"></td>
+		<td onmouseover="ub_hover_bgcolor(this,'#f2f3f1')" class="board">
+		<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:include/board_view.html?pg_id=board&mid=6&board_id=2&no=55&go=0)','board_front')">Notice for 2012 Graduation</a>
+		</td>
+		<td class="Text">&nbsp;&nbsp;</td>
+		<td class="Text">2012-02-09</td>
+	</tr> 
+<tr><td height="20"><img border="0" src="image/dot.png"></td>
+		<td onmouseover="ub_hover_bgcolor(this,'#f2f3f1')" class="board">
+		<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:include/board_view.html?pg_id=board&mid=6&board_id=2&no=54&go=0)','board_front')">Ministry Opportunity</a>
+		</td>
+		<td class="Text">&nbsp;&nbsp;</td>
+		<td class="Text">2012-02-08</td>
+	</tr> 
+<tr><td height="20"><img border="0" src="image/dot.png"></td>
+		<td onmouseover="ub_hover_bgcolor(this,'#f2f3f1')" class="board">
+		<a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:include/board_view.html?pg_id=board&mid=6&board_id=2&no=47&go=0)','board_front')">Notice for Encouragement Scholarship</a>
+		</td>
+		<td class="Text"><a href="upload/Encouragement-°İ·ÁÀåÇĞ±İ.doc"><img border="0" src="image/up_disk.png" width="16" height="16" alt="Download"></a>&nbsp;&nbsp;</td>
+		<td class="Text">2012-02-01</td>
+	</tr></table>
+</div></td>
+</tr>
+	<tr>
+		<td colspan="2">
+		<img border="0" src="image/spc.png" width="355" height="11"></td>
+		</tr>
+</table></td>
+</tr>
+</table></td>
+	</tr>
+</table>
+
+</td>
+<td valign="top">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td height="30"><img border="0" src="http://www.buc.edu/skin/tlt5.png"></td>
+	</tr>
+	<tr>
+		<td>
+		<p align="center">
+<a target="_blank" href="http://www.bucmanagement.com/login.html?act=st"><img border="0" src="image/hpb1.jpg"></a><a href="http://bethesdaonline.net/bbs/login.php"><img border="0" src="image/hpb2.jpg"></a>
+<img border="0" src="image/hpb4.jpg">
+
+
+</td>
+	</tr>
+	<tr>
+		<td>
+¡¡</td>
+	</tr>
+</table>
+</td>
+<td valign="top" rowspan="2">
+<p align="right">
+<head>
+<meta http-equiv="Content-Language" content="ko">
+</head>
+
+<script type="text/javascript">
+var numberslide=new Array()
+numberslide[0]=["image/p_icon1.jpg", "index.html?langs=2"]
+numberslide[1]=["image/p_icon2.jpg", "index.html?langs=2"]
+numberslide[2]=["image/p_icon3.jpg", "index.html?langs=2"]
+numberslide[3]=["image/p_icon4.jpg", "index.html?langs=2"]
+numberslide[4]=["image/p_icon5.jpg", "index.html?langs=2"]
+
+var mylinktarget="" //specify optional link target
+var mylinkcolor="navy" //specify default color of number links
+var mylinkcolorSelected="red" //specify color of selected links
+
+var imgborderwidth=0 //specify border of image slideshow
+
+/////Stop customizing here////////////////
+
+var preloadit=new Array()
+for (i=0;i<numberslide.length;i++){
+preloadit[i]=new Image()
+preloadit[i].src=numberslide[i][0]
+}
+
+var currentindex=""
+
+function changeslides(which){
+var imghtml=""
+currentindex=(which=="initial")? 0 : parseInt(which)
+var mode=(which=="initial")? "initial" : ""
+var which=(mode=="initial")? numberslide[0] : numberslide[which]
+if (which[1]!="")
+imghtml='<a href="'+which[1]+'" target="'+mylinktarget+'">'
+imghtml+='<img src="'+which[0]+'" border="'+imgborderwidth+'">'
+if (which[1]!="")
+imghtml+='</a>'
+
+if (mode=="initial")
+document.write('<div>'+imghtml+'</div>')
+else{
+document.getElementById("imagecontainer").innerHTML=imghtml
+changecolors()
+}
+}
+
+function createnumbers(){
+document.write('<a href="javascript:changeslides(0)" style="color:'+mylinkcolorSelected+'">0</a> ')
+for (i=1; i< numberslide.length; i++)
+document.write('<a href="javascript:changeslides(\''+i+'\')">'+i+'</a> ')
+}
+
+function changecolors(){
+var numberobj=document.getElementById("numberDiv")
+numberlinks=numberobj.getElementsByTagName("A")
+for (i=0; i<=currentindex; i++)
+numberlinks[i].style.color=mylinkcolorSelected
+for (i=currentindex+1; i<numberslide.length; i++)
+numberlinks[i].style.color=mylinkcolor
+}
+
+function goforward(){
+if (currentindex<numberslide.length-1)
+changeslides(currentindex+1)
+}
+
+function goback(){
+if (currentindex!=0)
+changeslides(currentindex-1)
+}
+
+</script>
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="16%" height="245">
+	<tr>
+		<td width="1">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td>
+<a href="javascript:goback()"><img src="image/sc3_2.jpg" border="0" width="16" height="28"></a></td>
+	</tr>
+</table>
+</td><td background="image/sc3_1.jpg" valign="top"><div align="center">
+		<table border="0" cellpadding="0" cellspacing="0" width="53%" height="230">
+			<tr>
+<td colspan="2">
+<img border="0" src="image/spc.png" width="157" height="7"></td>
+			</tr>
+			<tr>
+				<td valign="top">
+<img border="0" src="image/spc.png" width="6" height="167">
+				
+				</td>
+				<td valign="top">
+				<div id="slideshowContainer" style="width: 114px; height: 30px">
+
+<div id="imagecontainer">
+<script type="text/javascript">
+changeslides("initial") //This call displays the first image
+</script>
+</div>
+</div></td></tr>
+		</table>
+		</div>
+		</td>
+		<td width="16" valign="middle">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td><a href="javascript:goforward()" style="float: right"><img src="image/sc3_3.jpg" border="0" width="16" height="28"></a></td>
+	</tr>
+</table>
+<a href="javascript:goforward()" style="float: right"></a></td>
+	</tr>
+</table></td>
+</tr>
+<tr>
+<td valign="top" colspan="2">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tr>
+		<td><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=contact&mid=20&etc=Y&go=0&def=C&sid=&langs=2)','AJXmain')"><img border="0" src="image/sban012.png"></a><a href="#" onclick="UBOARD_CALL('fix_call_file=(URL:main.html?pg_id=page_33&mid=2&go=0&def=Y&sid=&langs=2)','AJXmain')"><img border="0" src="image/sban022.png"></a><a target="_blank" href="http://bucnursing.com/"><img border="0" src="image/sban032.png"></a>
+</td>
+	</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+<td width="1" background="http://www.buc.edu/skin/mbx6.png">
+</td>
+</tr>
+<tr>
+<td width="1">
+<img border="0" src="http://www.buc.edu/skin/mbx7.png"></td>
+<td background="http://www.buc.edu/skin/mbx8.png"></td>
+<td width="1">
+<img border="0" src="http://www.buc.edu/skin/mbx9.png"></td>
+</tr>
+</table></div>
+</tr>
+<tr>
+<td valign="top"><br>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" background="http://www.buc.edu/skin/box2.png">
+	<tr>
+		<td width="986" colspan="3" height="18">¡¡</td>
+	</tr>
+	<tr>
+		<td width="26%" rowspan="2">
+<img border="0" src="http://www.buc.edu/skin/logo.png" ></td>
+		<td class="btinfo" width="52%" rowspan="2">
+<p align="left">
+TEL : 714)517-1945<br>
+FAX : 714)517-1948<br>
+EMAIL : <a href="mailto:admission@buc.edu">admission@buc.edu</a> <br>
+ADDRESS : 730 N, Euclid Street, Anaheim, CA 92801<br>
+Copyright ¨Ï 2008 Bethesda University of California. All rights reserved. 
+
+</td>
+		<td width="22%" valign="top">
+<p align="right">
+
+        <script language="javascript" type="text/javascript">
+        // µå·Ó´Ù¿î¸®½ºÆ®ÀÇ Ç×¸ñ ¼±ÅÃ½Ã ÇØ´ç »çÀÌÆ®·Î ÀÌµ¿ÇÏ´Â ±â´É
+        function adtm(obj) {
+            if (obj.value != "#") {
+                location.href = obj.value;    
+            }
+        }
+        </script>
+<a href="http://www.tracs.org/"><img border="0" src="image/buc_ptr1.jpg" width="62" height="67" ></a>
+<a href="http://www.abhe.org/"><img border="0" src="image/buc_ptr2.jpg" width="63" height="67" ></a>
+<a href="http://www.thenccaa.org/"><img border="0" src="image/buc_ptr3.jpg" width="62" height="67" ></a>
+</td>
+	</tr>
+	<tr>
+		<td width="22%" valign="top">
+<p align="right">
+<select id="adtm" name="adtm1" onchange="adtm(this);">
+<option selected value="-1">FAMILY SITES</option>
+<option value="http://www.bfgchurch.com">º£µ¥½º´Ù¼øº¹À½±³È¸</option>
+<option value="http://www.yfgc.fgtv.com">¿©ÀÇµµ ¼øº¹À½ ±³È¸</option>
+<option value="http://www.bucathletics.com">º£µ¥½º´Ù´ëÇĞ±³ Ãà±¸ÆÀ</option>
+<option value="http://www.bucnursing.com">°£È£ÇĞ±³</option>
+</select></td>
+	</tr>
+	<tr>
+		<td width="100%" colspan="3" height="30"></td>
+	</tr>
+</table></td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>

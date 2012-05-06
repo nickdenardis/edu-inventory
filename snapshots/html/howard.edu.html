@@ -1,0 +1,436 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head><script language="JavaScript1.1">
+<!-- SLIDESHOW SCRIPT BEGINS HERE
+
+//Pixelating Image slideshow
+//Copyright Dynamic Drive 2001
+//Visit http://www.dynamicdrive.com for this script
+
+//specify interval between slide (in mili seconds)
+var slidespeed=9000
+//specify images
+
+var slideimages=new Array("http://www.howard.edu/newsroom/images/sustainableHU.png",
+"http://www.howard.edu/newsroom/images/BiancaBaileyNew2012.jpg",
+"http://www.howard.edu/newsroom/images/DodsonHOME.jpg",
+"http://www.howard.edu/newsroom/images/Warren_Gulotti2HOME.jpg",
+"http://www.howard.edu/newsroom/images/Washingtonhome.jpg")
+
+
+//specify corresponding links
+var slidelinks=new Array("http://www.howard.edu/newsroom/releases/2012/20120416ASustainableHowardforthe21stCentury.html",
+"http://www.howard.edu/newsroom/releases/2012/20120423HowardSeniortoParticipateinWhiteHousePanelonGirlsinSTEM.html",
+"http://www.howard.edu/capstone/april2012/feature1.html ",
+"http://www.howard.edu/capstone/april2012/feature2.html",
+"http://www.howard.edu/capstone/april2012/feature3.html")
+
+var imageholder=new Array()
+var ie55=window.createPopup
+for (i=0;i<slideimages.length;i++){
+imageholder[i]=new Image()
+imageholder[i].src=slideimages[i]
+}
+
+function gotoshow(){
+window.location=slidelinks[whichlink]
+}
+
+//-->SLIDESHOW SCRIPT ENDS HERE
+</script>
+
+<!--=+=TEXTONLY=+=-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Howard University</title>
+<meta name="keywords" content="Howard University HBCU Historically Black Colleges and Universities Washington DC Higher Education Majors Degrees Undergraduate Graduate Research Learning Admission Library Computing Technology Students Faculty Staff Alumni Parents Television WHUR-FM WHUT">
+<meta name="description" content="Howard University is a comprehensive research university, unique and irreplaceable, defined by its core values, the excellence of all its activities in instruction, research and service, and by its enduring commitment to educating youth, African Americans and other people of color in particular, for leadership and service to our nation and the global community.">
+<link rel="alternate" type="application/rss+xml" title="" href="http://www.howard.edu/calendar/export/export.php?calendarid=default&format=rss2_0&timebegin=upcoming">
+<meta http-equiv="imagetoolbar" content="no">
+<meta http-equiv="imagetoolbar" content="false">
+<link href="css/standard.css" type="text/css" rel="stylesheet">
+<link href="css/frontpage/frontpage.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/frontpage/frontpage-screen.css" type="text/css" rel="stylesheet" media="screen">
+<link href="css/frontpage/frontpage-mainnavi.css" type="text/css" rel="stylesheet" media="all">
+<link href="css/frontpage/frontpage-print.css" type="text/css" rel="stylesheet" media="print">
+<style type="text/css">
+@import url(css/frontpage/frontpage-import.css);
+
+#VisualsImport a, #VisualsImport td {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color: #B2B2B2
+}
+#VisualsImport a {
+	color: #B3CDFF;
+	font-size: 14px;
+	text-decoration: none;
+}
+#VisualsImport a:hover {
+	text-decoration: underline;
+}
+.newsroom-divider {
+    background-image: url(images/frontpage/dottedline.gif);
+    background-position: left center;
+    background-repeat: repeat-x;
+}
+
+.nolink {
+	cursor: default;
+}
+</style>	
+<link href="css/frontpage/frontpage-contrast.css" type="text/css" title="High Visibility" rel="alternate stylesheet">
+<script src="js/basicfunctions.js" type="text/javascript" language="javascript"></script>
+<script src="js/stylesheets.js" type="text/javascript" language="javascript"></script>
+
+<link type="text/css" rel="stylesheet" href="js/jquery/jquery.ui.rotate.css">
+<script src="js/jquery/jquery-1.3.2.js" type="text/javascript"></script>
+<script src="js/jquery/ui/jquery.ui.core.js" type="text/javascript"></script>
+<script src="js/jquery/jquery.ui.rotate.js" type="text/javascript"></script>
+<script src="homepage/rotate.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	
+	// Set the rotation link.
+	if (document.rotateOpts && document.rotateOpts.photoLink) {
+		$('#ImageBox-Div a').attr('href', document.rotateOpts.photoLink);
+	}
+	else {
+		// Unwrap the rotation image.
+		var imageBoxAnchor = $('#ImageBox-Img').parent('a');
+		if (imageBoxAnchor.size()) {
+			$('#ImageBox-Img').insertAfter(imageBoxAnchor);
+			imageBoxAnchor.remove();
+		}
+	}
+	
+	$('#ImageBox-Div').rotate($.extend({
+		total: 1,
+		seconds: 12,
+		getFullURL: function(num) {
+			if (num == 2) num = 3;
+			return "/photos/10-11-26/" + num + ".jpg";
+		},
+		start: "RANDOM",
+		randomizeOrder: false,
+		clickNext: false,
+		autoStart: true,
+		fade: true,
+		fadeTime: 200,
+		fadeImg: $('#ImageBox-Img'),
+		buttons: false,
+		tabs: 'right',
+		tabSpacing: 40,
+		onChange: function(e, num) {
+			switch (num) {
+				case 1: $('#ImageBox-Div a').attr('href', 'http://www.howard.edu/newsroom/releases/2010/20101124MarshaAmbrosiustoHeadlineWorldAIDSDayBenefit.html'); break;
+				//case 2: $('#ImageBox-Div a').attr('href', 'http://www.howard.edu/newsroom/releases/2010/20101124HowardStudentsToFormHumanRibbonToMarkWorldAIDSDay.html'); break;
+				case 2: $('#ImageBox-Div a').attr('href', 'http://www.howard.edu/capstone/nov2010/'); break;
+			}
+		
+			return;
+			var html = '';
+			switch (num) {
+				case 1: html = 'The nation’s top drug officer, R. Gil Kerlikowske, discusses College of Medicine’s efforts to curb drug use with Dr. Robert E. Taylor, dean of the medical school and founder of the University’s Alcohol Research Center, and Dr. Eve Higginbotham, senior vice president and executive dean for Health Sciences.'; break;
+				case 2: html = 'Taylor explains to Kerlikowske how the the Screening, Brief Intervention and Referral to Treatment (SBIRT) program works. SBIRT is a federally funded program that trains medical residents how to identify people with substance abuse problems and how to intervene appropriately'; break;
+				case 3: html = 'TyWanda McLaurin-Jones, Ph.D., program manager for SBIRT, accompanies Kerlikowske on a tour of the College of Medicine’s new Clinical Skills Center.  The Clinical Skills Center provides hands-on learning with practice patients for medical students, residents and others while College of Medicine physicians look on via monitors and provide guidance and helpful critique.'; break;
+				case 4: html = 'Taylor thanks Kerlikowske for visiting the University as the nation’s top drug officer heads to other drug prevention and treatment programs in Washington.  Kerlikowske’s visit to Howard was part of a tour of four facilities in the District of Columbia, which included the D.C. Superior Court for Family Treatment, the District’s Youth Work Intervention program and the Behavior Health Urgent Health Care Clinic.'; break;
+			}
+			$('#PhotoCaption').html(html);
+		}
+
+	}, document.rotateOpts));
+	
+	$.ajax({
+		dataType: 'html',
+		type: 'GET',
+		url: 'homepage/newsroom.htm',
+		success: function(data) {
+			var $table = $('*:first', data).parent().attr('cellpadding', '4').appendTo($('#VisualsImport'));
+			$('tr:not(:last)', $table).each(function() {
+				$(this).after($('<tr><td colspan="2"></td></tr>').addClass('newsroom-divider'));
+			});
+			
+			$('tr:last', $table)
+				.after($('<tr><td colspan="2" align="center"><a href="/newsroom/">More News »</td></tr>'))
+				.after($('<tr><td colspan="2"></td></tr>').addClass('newsroom-divider'));
+		}
+	});
+});
+
+stylesheetOnload();
+
+var maxEvents = 10;
+var maxEventHeight = 400;
+
+// Start and stop the image rotating depending on the state of the tabs.
+//if (!document.fTabLoad) { document.fTabLoad = function() { imageRotate_StopRotation(); } }
+//if (!document.fTabUnload) { document.fTabUnload = function() { imageRotate_StartRotation(); } }
+</script>
+<script src="/js/urchin-hu.js" type="text/javascript"></script>
+<script type="text/javascript">trackThisPage();</script>
+<!--[if lte IE 6]>
+<script defer type="text/javascript" src="js/pngfix.js"></script>
+<style>
+#NextRotatingImage a:hover {
+	border: 0 none #000000; /* For IE bug. */
+	background-image: url(images/frontpage/nextphoto-hover-bg.gif);
+}
+#UpcomingEvents-Listing p a { line-height: 0.75em !important; }
+#MainNavi-Table a { height: 1em; }
+#UpcomingEvents-Listing a { height: 1em; }
+</style>
+<![endif]-->
+<!--[if IE 7]>
+<style> /* Fixes for text becoming too thick due to ClearType */
+#MainNavi-Table a { font-weight: normal; font-size: 17px; }
+#UpcomingEvents-Title { font-weight: normal; font-size: 15px; }
+</style>
+<![endif]-->
+<style type="text/css">
+#Visuals td#Visuals-Title a, #UpcomingEvents-Title a {
+	color: #d9e6ff;
+	padding-right: 16px;
+	background-image: url(images/frontpage/linkicon.gif);
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+</style>
+</head>
+
+<body>  <!-- onLoad="menuInit();" -->
+
+<!--#include file="mobilelink.htm" -->
+
+<div id="TextOnlyLink"><a href="http://textonly.howard.edu/">Text-Only Version</a></div>
+<!--=+=TEXTONLY:START=+=-->
+<!-- Start Main Body -->
+
+<table id="MainBody" border="0" cellspacing="0" cellpadding="0" align="center"><tr>
+
+<!-- Start Left Column -->
+<td id="LeftColumn" valign="top"><table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><img id="HULogo" src="images/frontpage/logo.gif" alt="Howard University" width="220" height="79"></td>
+	</tr>
+	<tr>
+		<td valign="middle" height="240" id="MainNavi-Container">
+			<div id="InformationFor"><font size="4"><b>Information for:</b></font></div>
+			<table border="0" cellpadding="0" cellspacing="0" id="MainNavi-Table" width="100%">
+				<tr><td><a href="students/prospective.htm" onClick="hutrack(this,'homepage/mainlinks');">Prospective Students</a></td></tr>
+				<tr><td><a href="students/current.htm" onClick="hutrack(this,'homepage/mainlinks');">Current Students</a></td></tr>
+				<tr><td><a href="http://www.gs.howard.edu/" onClick="hutrack(this,'homepage/mainlinks');">Graduate School</a></td></tr>
+				<tr><td><a href="employees/" onClick="hutrack(this,'homepage/mainlinks');">Faculty &amp; Staff</a></td></tr>
+				<tr><td><a href="visitors/" onClick="hutrack(this,'homepage/mainlinks');">Parents &amp; Visitors</a></td></tr>
+				<tr><td><a href="http://www.howard.edu/alumni/" onClick="hutrack(this,'homepage/mainlinks');">Alumni &amp; Friends</a></td></tr>
+			</table>
+			<form id="Search-Form" method="GET" action="search/">
+			<input type="hidden" name="cx" value="009305417205126745725:-3vs3o90etk" />
+			<input type="hidden" name="sa" value="Search" />
+			<input type="hidden" name="cof" value="FORID:11" />
+			<table border="0" cellpadding="4" cellspacing="0" id="Search-Table" align="center">
+				<tr>
+					<td id="Search-Text"><INPUT TYPE="text" name="q" maxlength="255"></td>
+					<td id="Search-Button"><input type="image" border="0" src="images/template/search-go.gif" width="52" height="15" alt="Search"></td>
+				</tr>
+			</table>
+			</form>
+		</td>
+	</tr>
+</table></td>
+<!-- End Left Column -->
+
+<!--=+=TEXTONLY:HIDESTART=+=-->
+<!-- Start Right Column -->
+
+
+    
+        <td width="530" valign="top" id="ImageBox"> <a href="javascript:gotoshow()"><img src="http://www.howard.edu/newsroom/images/sustainableHU.png","http://www.howard.edu/newsroom/Award5303191.jpg" name="slide" width="530" height="319" border=0 style="filter:progid:DXImageTransform.Microsoft.Pixelate(MaxSquare=15,Duration=1)"></a> 
+    <script language="JavaScript1.1">
+<!--
+var whichlink=0
+var whichimage=0
+var pixeldelay=(ie55)? document.images.slide.filters[0].duration*1000 : 0
+function slideit(){
+if (!document.images) return
+if (ie55) document.images.slide.filters[0].apply()
+document.images.slide.src=imageholder[whichimage].src
+if (ie55) document.images.slide.filters[0].play()
+whichlink=whichimage
+whichimage=(whichimage<slideimages.length-1)? whichimage+1 : 0
+setTimeout("slideit()",slidespeed+pixeldelay)
+}
+slideit()
+
+//-->
+  </script>
+
+<!-- End Right Column -->
+<!--=+=TEXTONLY:HIDEEND=+=-->
+
+</tr></table>
+<!-- End Main Body -->
+
+<!-- Padding between tables for when CSS does not load -->
+<div class="TableSpacing">&nbsp;</div>
+
+<!-- Emergency Message -->
+<!-- Start News Table -->
+<table id="Content-Table" width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+	<tr>
+		
+    <td id="Content-Cell"> 
+      <table  border="0" cellspacing="0" cellpadding="0">
+        	<tr>
+        		<td id="Quicklinks"><ul class="Spacing5">
+        		  <font color="#FFFFFF">
+        		    <!--#include file="mobilequicklink.htm" -->
+        		    <!--<li><a href="policy/facilitynotices.htm">Inclement Weather<br>
+						&amp; Closure Notices</a></li>-->
+        		    <li><a href="http://www.howard.edu/ope/convocations/commencement/2012/" style="color: #FFFFFF; font-size: 15px;">Commencement  2012</a></li>
+        		  </font>
+        		  <li><a href="directory/" onClick="hutrack(this,'homepage/quicklinks');">A-Z 
+        		    Directory</a></li>
+        		  <li><a href="explore/" onClick="hutrack(this,'homepage/quicklinks');">About 
+        		    Howard &amp; Directions</a></li>
+        		  <li><a href="directory/administration.htm" onClick="hutrack(this,'homepage/quicklinks');">Administration</a></li>
+        		  <li><a href="enrollment/admission/" onClick="hutrack(this,'homepage/quicklinks');">Admission</a></li>
+        		  <li><a href="http://www.howard-bison.com/" onClick="hutrack(this,'homepage/quicklinks');">Athletics</a></li>
+        		  <li><a href="blackboard/" onClick="hutrack(this,'homepage/quicklinks');">Blackboard</a></li>
+        		  <li><a href="bisonweb/" onClick="hutrack(this,'homepage/quicklinks');">BisonWeb</a></li>
+        		  <li><a href="http://www.howard.edu/secretary/trustees/">Board of 
+        		    Trustees </a></li>
+        		  <li><a href="http://www.bookstore.howard.edu/" onClick="hutrack(this,'homepage/quicklinks');">Bookstore</a></li>
+        		  <li><a href="calendars/" onClick="hutrack(this,'homepage/quicklinks');">Calendars 
+        		    &amp; Courses</a></li>
+        		  <li><a href="directory/emergencies.htm" onClick="hutrack(this,'homepage/quicklinks');">Emergencies 
+        		    &amp; Alert HU</a></li>
+        		  <li><a href="https://www.howard.edu/advancement/campaign/">Giving 
+        		    to Howard</a></li>
+        		  <li><a href="http://healthsciences.howard.edu/" onClick="hutrack(this,'homepage/quicklinks');">Health 
+        		    Sciences</a></li>
+        		  <li><a href="http://healthsciences.howard.edu/" onClick="hutrack(this,'homepage/quicklinks');">Howard 
+        		    University</a></li>
+        		  <li><a href="http://www.huhealthcare.org/" onClick="hutrack(this,'homepage/quicklinks');">Howard 
+        		    University Hospital</a></li>
+        		  <li><a href="http://www.howard.edu/library/" onClick="hutrack(this,'homepage/quicklinks');">Libraries</a></li>
+        		  <li><a href="http://www.howard.edu/ms2/" onClick="hutrack(this,'homepage/quicklinks');">Middle 
+        		    School of Mathematics and Science (MS)<sup>2</sup></a></li>
+        		  <li><a href="http://www.howard.edu/secretary/policy/">Policy Office</a></li>
+        		  <li><a href="http://www.howard.edu/newsroom/publications.htm" onClick="hutrack(this,'homepage/quicklinks');">Publications</a></li>
+        		  <li><a href="http://www.howard.edu/research/" onClick="hutrack(this,'homepage/quicklinks');">Research 
+        		    &amp; Innovation</a></li>
+        		  <li><a href="academics/" onClick="hutrack(this,'homepage/quicklinks');">Schools 
+        		    &amp; Colleges</a></li>
+        		  <li><a href="students/life.htm" onClick="hutrack(this,'homepage/quicklinks');">Student 
+        		    Affairs</a></li>
+        		  <li><a href="http://www.howard.edu/secretary/documents/400-005TitleIXStudents.pdf" onClick="hutrack(this,'homepage/quicklinks');">Student 
+        		    Title IX Sexual Harassment Policy</a></li><li><a href="http://www.howard.edu/renewal/" onClick="hutrack(this,'homepage/quicklinks');">University-wide Renewal</a></li>
+        </ul></td>
+				<!--=+=TEXTONLY:TR=+=-->
+        		
+          <td valign="top" id="Visuals"> 
+            <table width="100%"  border="0" cellspacing="0" cellpadding="0" id="Visuals-Table">
+						<tr><td id="Visuals-Title"><h2><a href="http://www.howard.edu/newsroom/" onClick="hutrack(this,'homepage/mainlinks');">Visit the News Room</a></h2></td></tr>
+			</table>
+					<div id="VisualsImport"></div>
+			  </td>
+				<!--=+=TEXTONLY:TR=+=-->
+        		<td valign="top" id="UpcomingEvents">
+					<!--<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom: 6px;">
+						<tr>
+							<td style="padding: 6px; text-align: center; padding-bottom: 10px; background-image: url(../../images/frontpage/dottedline.gif); background-position: left bottom; background-repeat: repeat-x;"><a href="http://medicine.howard.edu/about/news/events/releases/syphax/default.htm" style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #B3CDFF;" class="hoverline">Dr. Burke "Mickey" Syphax, Medical Pioneer and Educational Pillar</a></td>
+						</tr>
+					</table>-->
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" id="UpcomingEvents-Table">
+                	<tr>
+                		<td id="UpcomingEvents-Title" align="center"><h2><a href="calendars/" onClick="hutrack(this,'homepage/mainlinks');">Upcoming Events</a></h2></td>
+                	</tr>
+                	<tr>
+
+                		<td id="UpcomingEvents-Listing"><div id="UpcomingEvents-List"><script type="text/javascript">if (typeof maxEvents == 'undefined') { maxEvents = 8; } document.write('<scr'+'ipt type="text/javascript" src="/calendar/public-export/?calendarid=default&datatype=html&htmltemplate=mainsite&dateformat=micro&timedisplay=start&timeformat=short&maxlocationcharacters=20&maxtitlecharacters=45&maxevents='+maxEvents+'&javascript=y"></scr'+'ipt>');</script></div>
+						<p id="MoreEvents"><a href="calendars/" style="line-height: 1;"><span>More Upcoming Events <tt class="verdana-plus1">&raquo;</tt></span></a></p></td>
+                	</tr>
+                	</table></td>
+   		  </tr>
+        	</table>
+		</td>
+	</tr>
+</table>
+<!-- End News Table -->
+
+<script type="text/javascript">
+/* Track clicks of event items */
+if (document.getElementById) {
+	var objList = document.getElementById("UpcomingEvents-List");
+	if (objList.getElementsByTagName) {
+		var arrA = objList.getElementsByTagName("A");
+		for (var i = 0; i < arrA.length; i++) {
+			arrA[i].onclick = function() { trackURL('eventitem/'); }
+		}
+	}
+}
+
+/* Hide some upcoming events if the box is too tall. */
+if (document.getElementById) {
+	var objET = document.getElementById("UpcomingEvents-Table");
+	
+	if (objET.offsetHeight && objET.offsetHeight) {
+		for (var iEvent = maxEvents; iEvent > 0; iEvent--) {
+			var objVTCalEvent = document.getElementById("VTCAL_EventNum"+iEvent);
+			if ((objVTCalEvent = document.getElementById("VTCAL_EventNum"+iEvent)) && objET.offsetHeight > maxEventHeight) {
+				objVTCalEvent.style.display = "none";
+			}
+		}
+	}
+}
+</script>
+
+<!-- Padding between tables for when CSS does not load -->
+<div class="TableSpacing">&nbsp;</div>
+
+<!-- Start Footer -->
+<map name="CampaignMap">
+    <area shape="rect" coords="159,32,263,54" href="https://www.howard.edu/advancement/donation/index.html" alt="" onClick="trackURL(this);">
+    <area shape="rect" coords="0,31,140,54" href="http://www.howard.edu/advancement/campaign/" alt="" onClick="trackURL(this);">
+    <area shape="rect" coords="0,0,263,30" href="http://www.howard.edu/advancement/campaign/" alt="" onClick="trackURL(this);">
+</map>
+<script type="text/javascript">
+function toggleVisibility() {
+	if (getActiveStyleSheet() == 'High Visibility') setActiveStyleSheet(''); else setActiveStyleSheet('High Visibility');
+	createCookie("frontpagestyle", getActiveStyleSheet(), 5);
+}
+</script>
+<style type="text/css">
+#FollowUs td {
+	font-size: 14px;
+	padding: 0;
+	padding-right: 6px;
+}
+</style>
+<table id="Footer" width="750" align="center" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><table id="FollowUs" style="float: right;" border="0" cellpadding="0" cellspacing="0">
+		  <tr>
+		    <td style="padding-bottom: 3px;">Follow us on:</td>
+		    <td><a href="http://www.facebook.com/pages/Washington-DC/Howard-University/38238012184"><img src="images/facebook-w-shadow.png" alt="Facebook" width="22" height="22" border="0"></a></td>
+		    <td><a href="http://twitter.com/HowardU"><img src="images/twitter-w-shadow.png" alt="Twitter" width="22" height="22" border="0"></a></td>
+		    <td><a href="http://www.youtube.com/HowardUniversity"><img src="images/youtube-w-shadow.png" alt="YouTube" width="50" height="21" border="0"></a></td>
+		    <td><a href="http://howarduniversity.tumblr.com/"><img src="images/tumblr.jpg" alt="tumblr" width="22" height="22" border="0"></a></td>
+	      </tr>
+		  </table>		  <!--<img usemap="#CampaignMap" src="images/frontpage/campaign.gif" alt="Campaign for Howard" width="263" height="48" border="0" align="right">-->&copy; Howard University, all rights reserved.<br>
+		2400 Sixth Street, NW, Washington, DC 20059<br>
+		Phone: 202-806-6100 - <a href="contacts/" onClick="hutrack(this,'homepage/mainlinks');">Contact Howard</a> - <a href="policy/web-disclaimer.htm" onClick="hutrack(this,'homepage/mainlinks');">WWW Disclaimer</a><br>
+		<a id="HighVisibility" href="#" onClick="toggleVisibility(); return false;">High Visibility On/Off</a> - <a href="guide/" onClick="hutrack(this,'homepage/mainlinks');">Web Site Guide</a> - <a href="photos/" onClick="hutrack(this,'homepage/mainlinks');">Photo Credits</a></td>
+	</tr>
+</table>
+
+<!--=+=TEXTONLY:END=+=-->
+<!--PAGELOADED-->
+
+<map name="ImageBox-ImgMap"><area shape="rect" coords="261,241,402,285" href="/asb/2011/neworleans/"><area shape="rect" coords="466,254,522,298" href="/asb/2011/haiti/"><area shape="rect" coords="362,178,470,226" href="/asb/2011/atlanta/">
+<area shape="rect" coords="393,96,522,140" href="/asb/2011/dc/"><area shape="rect" coords="293,69,393,110" href="/asb/2011/chicago/"><area shape="rect" coords="365,28,468,69" href="/asb/2011/detroit/">
+</map>
+
+</body>
+</html>

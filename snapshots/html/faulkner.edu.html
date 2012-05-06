@@ -1,0 +1,896 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><title>
+	Faulkner University
+</title><link href="styles/fauMain.css" rel="stylesheet" type="text/css" /><link href="styles/fauHome.css" rel="stylesheet" type="text/css" /><meta http-equiv="Page-Enter" content="blendtrans(duration=0.5)" /><meta http-equiv="Page-Exit" content="blendtrans(duration=0.5)" />
+<script language="javascript" type="text/javascript">
+	// Set slideShowSpeed (milliseconds)
+var slideShowSpeed = 6000
+
+// Duration of crossfade (seconds)
+var crossFadeDuration = 3
+
+//instantiate the array and set the counter to zero
+
+number = 0;
+
+
+var t
+var j = 1
+var p = 6
+
+var myPics = new Array()
+var myLinks = new Array()
+
+//lets preload the arrays for use at runtime
+for (i = 1; i < p; i++){
+   myPics[i] = new Image()
+   myPics[i].src = "/images/home_images/slides/" + i + ".jpg"
+}
+
+//Links for the Bannewr Images
+myLinks[1] = '/bush/'
+myLinks[2] = '/jsl/news/newsDetail.aspx?newsID=765'
+myLinks[3] = '/iAdvantage/'
+myLinks[4] = '/Admissions/Undergraduate/CollegeBound2012details.aspx'
+myLinks[5] = 'http://www.faulknereagles.com/sport/0/3.php'
+
+
+function runSlideShow(){
+   if (document.all){
+   var myPix = document.getElementById('imgShowcase');
+   var myLnk = document.getElementById('lnkSlide');
+	  // prep the property picture for transition
+	  myPix.style.filter="blendTrans(duration=2)"
+      myPix.style.filter="blendTrans(duration=crossFadeDuration)"
+      myPix.filters.blendTrans.Apply()  
+	    
+   }
+   //load the image source
+   document.getElementById('imgShowcase').src = myPics[j].src
+   document.getElementById('lnkSlide').href = myLinks[j]
+     
+   if (document.all){
+	  myPix.filters.blendTrans.Play()
+   }
+   j = j + 1
+   if (j > (p-1)) j=1
+   t = setTimeout('runSlideShow()', slideShowSpeed)
+   
+}
+</script>
+
+<script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+//-->
+</script>
+
+
+<link href="/styles/DisplayPages.css" rel="stylesheet" type="text/css" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body bgcolor="#FFFFFF" background="images/home_BG.jpg" leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" marginwidth="0" onload="MM_preloadImages('images/SideMenu_CurrentStudent_RO.jpg','images/SideMenu_ProspectiveStudent_RO.jpg','images/SideMenu_AlumniInformation_RO.jpg','images/SideMenu_JonesLawSchool_RO.jpg','images/SideMenu_Bham_RO.png','images/SideMenu_Hville_RO.jpg','images/SideMenu_Mobile_RO.png','/images/home_images/InfoBar_Undergrad_Content.png','images/home_images/InfoBar_UnderGrad_Gray.png','images/home_images/InfoBar_Grad_Gray.png','images/home_images/InfoBar_Athletics_Gray.png','images/home_images/InfoBar_Theatre_Gray.png','images/home_images/InfoBar_Grad_Content.png','images/home_images/InfoBar_Undergrad_Content.jpg','images/home_images/InfoBar_Grad_Content.jpg','images/home_images/InfoBar_Athletics_Content.jpg','images/home_images/InfoBar_Theatre_Content.jpg','images/thumb1.png','/images/home_images/slides/4.jpg','/images/home_images/slides/3.jpg','/images/home_images/slides/2.jpg','/images/home_images/slides/1.jpg','images/home_images/InfoBar_UnderGrad_RO.png','images/home_images/InfoBar_Grad_RO.png','/images/home_images/InfoBar_JSL_Content.jpg','images/home_images/InfoBar_Athletics_RO.png','images/home_images/InfoBar_Theatre_RO.png'); runSlideShow()">
+<!-- ImageReady Slices (template_4.psd - Slices: 15, 75, AdRotator_Low, AdRotator_Mid, AdRotator_Top, Banner_Border_Bottom, Banner_Border_Left, Banner_Border_Right, Banner_Image, Events_Img1, Events_Img2, Events_Img3, Events_Img4, Events_Title, Header_Logo, InfoBar_Athletics, InfoBar_BG, InfoBar_Grad, InfoBar_JSL, InfoBar_Theatre,
+InfoBar_Undergrad, News_Img1, News_Img2, News_Img3, News_Img4, News_Title, SideMenu_AlumniInformation, SideMenu_Bham, SideMenu_CurrentStudent, SideMenu_Hville, SideMenu_JonesLawSchool, SideMenu_Mobile, SideMenu_ProspectiveStudent, TopNav_About, TopNav_Academics, TopNav_Admissions, TopNav_Advancement, TopNav_Athletics, TopNav_Background,
+TopNav_Campus, TopNav_Services, template_4_02) -->
+
+<form name="form1" method="post" action="default.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=SldLSz15EqDaaHMPoO1veBh0s8GiuPvOSNaVBBh95ck6pQgYikJmaaq_yeYlrIvUi_t0oHTK1GdS10mIupKwrSudg_I1&amp;t=634604208479085897" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=cSYTO66Z7QnmyUluhAZQXGKGTeqampEGri1h-kVNxNihKbYb0ORMGEmj19j3eWU5H_VOe-HTxeeNwNjnGEL9IlATrEQ1&amp;t=634604208479085897" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="1JwkmgNNNrCtAUWZT7R8gQW+2OtKVzz42WM4O7WV5FV8ICz5YcV7sycxlV7IYUd4yP4hPLgzWRdjJqpLCBgR7aIRP64qevn/XckYLeh4rmobBVE5PO18f9JYfhWcxuNeJ+CpH55s4piA+9CrAlIRseRgevU=" />
+</div>
+
+<script src="/scripts/jquery-1.4.1.min.js" type="text/javascript" />
+
+<script type="text/javascript">
+</script>
+
+<link href="/scripts/styles.css" rel="stylesheet" type="text/css" />
+
+<script src="/scripts/jquery.hoverIntent.minified.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  var _scrollBarWidth = 0;
+
+  $(document).ready(function()
+  {
+    setupMainMenu();
+  });
+
+  function setupMainMenu()
+  {
+            //select the topmost element 
+//    $('a[href="' + document.URL.replace("http://localhost:3012","") + '"]').parent().addAttr("selected", "true");
+//    $('li[selected=true]').css("background-color","#eaeae8");
+
+   // _scrollBarWidth = getScrollbarWidth();
+
+    var menuDiv = $("div.topNavStatic");
+    var topLevel = menuDiv.find("ul:first");
+    var topMenuItems = topLevel.children("li");
+    topMenuItems.last().addClass("last");
+    var topMenuItemCount = topMenuItems.length;
+    var topMenuItemsWidth = 0;
+    
+    //to set up the width according to the width of the menu 
+    topMenuItems.each(function() { topMenuItemsWidth += $(this).outerWidth(true); });
+
+    var parentWidth = topLevel.innerWidth();
+
+    if (topMenuItemsWidth > parentWidth)
+    {
+      var offset = topLevel.outerWidth(true) - parentWidth;
+      topLevel.css("width", topMenuItemsWidth + offset + "px");
+      menuDiv.css("width", topMenuItemsWidth + offset + "px");
+    }
+    else if (parentWidth > topMenuItemsWidth)
+    {
+      var leftOver = parentWidth - topMenuItemsWidth;
+      var additonalWidth = 0;
+      if (leftOver > topMenuItemCount)
+      {
+        additonalWidth = parseInt(Math.floor(leftOver / topMenuItemCount));
+        leftOver = leftOver - (additonalWidth * topMenuItemCount);
+      }
+      //adjusting the width of each element to the width of the browser window
+      topMenuItems.each(function()
+      {
+        var elem = $(this);
+        if (leftOver != 0)
+        {
+          elem.css("width", elem.width() + additonalWidth + 1 + "px");
+          leftOver--;
+        }
+        else
+        {
+          elem.css("width", elem.width() + additonalWidth + "px");
+        }
+      });
+
+    }
+    //sets up the submenu's firing action when the menu is being generated
+    hiConfig = {
+      sensitivity: 10,
+      interval: 200,
+      timeout: 100,
+      over: function()
+      {
+        showSubMenu($(this));
+      },
+      out: function()
+      {
+        var subMenu = $(this).find('ul:first')
+        subMenu.css({ visibility: "hidden" });
+      }
+    }
+
+    topLevel.find("ul").css({ display: "none" }); // Opera Fix
+    topLevel.find("li").hoverIntent(hiConfig);
+  }
+
+  function getScrollbarWidth()
+  {
+    var div = $('<div style="width:50px;height:50px;overflow:hidden;position:absolute;top:-200px;left:-200px;"><div style="height:100px;"></div>');
+    // Append our div, do our calculation and then remove it 
+    $('body').append(div);
+    var w1 = $('div', div).innerWidth();
+    div.css('overflow-y', 'scroll');
+    var w2 = $('div', div).innerWidth();
+    $(div).remove();
+    return (w1 - w2);
+  }
+  
+   //function that fires when a submenu is requested
+  function showSubMenu(sender)
+  {
+    var docWidth = $(document.body).innerWidth()
+    var docScrollLeft = $(document).scrollLeft();
+    var docScrollTop = $(document).scrollTop();
+    var thisLevelMenu = sender.parent();
+    var nextLevelMenu = sender.find("ul:first");
+    var nextLevelMenuWidth = nextLevelMenu.width();
+    var senderLeft = sender.offset().left - docScrollLeft;
+
+    //this "level" is refering to a property that you set on the top most ul
+    if (thisLevelMenu.attr("level") === "1")
+    {
+      if (senderLeft + nextLevelMenuWidth + _scrollBarWidth > docWidth)
+      {
+        nextLevelMenu.css("left", 0 - (nextLevelMenuWidth - (docWidth - senderLeft)) - _scrollBarWidth + "px");
+      }
+      else
+      {
+        nextLevelMenu.css("left", "0px");
+
+        var maxChildWidth = 0;
+        nextLevelMenu.find("ul").each(function(i)
+        {
+          if ($(this).width() > maxChildWidth)
+          {
+            maxChildWidth = $(this).width();
+          }
+        });
+      }
+    }
+    else
+    {
+      var docHeight = $(window).height()
+      var senderTop = sender.offset().top - docScrollTop;
+      var subMenuHeight = nextLevelMenu.outerHeight(true);
+      var subMenuWidth = thisLevelMenu.width();
+      var nextMenuLeft;
+      var nextMenuTop
+
+      if (senderLeft + subMenuWidth + nextLevelMenuWidth + _scrollBarWidth > docWidth)
+      {
+        nextMenuLeft = "-" + (nextLevelMenuWidth + 2) + "px";
+      }
+      else
+      {
+        nextMenuLeft = subMenuWidth + "px";
+      }
+
+      if (senderTop + subMenuHeight + _scrollBarWidth > docHeight)
+      {
+        nextMenuTop = (docHeight - (senderTop + subMenuHeight + _scrollBarWidth));
+        if (Math.abs(nextMenuTop) > senderTop)
+        {
+          nextMenuTop = "-" + senderTop + "px";
+        }
+        else
+        {
+          nextMenuTop = nextMenuTop + "px";
+        }
+      }
+      else
+      {
+        nextMenuTop = "-1px";
+      }
+
+      nextLevelMenu.css({ "left": nextMenuLeft, "top": nextMenuTop });
+    }
+
+    nextLevelMenu.children("ul").css({ visibility: "visible" });
+    nextLevelMenu.css({ visibility: "visible", display: "none" }).fadeIn(100);
+  }
+
+</script>
+
+<link href="/scripts/styles.css" rel="stylesheet" type="text/css" />
+<table width="100%" align="center" cellpadding="0" cellspacing="0">
+<tr>
+        <td ><table width="990" border="0" cellspacing="0" cellpadding="0" align="center" class="topNavImg">
+          <tr>
+            <td width="194"><a href="/Default.aspx"><img src="/images/Faulkner_logo_03.jpg" alt="Faulkner University " width="270" height="56" border="0" /></a></td>
+            <td width="796" valign="top" align="right">
+
+<script type="text/javascript">
+    function showAlerts(alertString) {
+        var divAlert = document.getElementById("divAlert");
+        var lblAlertSummary = document.getElementById("lblAlertSummary");
+
+        lblAlertSummary.innerHTML = alertString;
+        divAlert.style.display = "block";
+    }
+    function hideAlerts() {
+        var divAlert = document.getElementById("divAlert");
+        divAlert.style.display = "none";
+    }
+
+    //move the image box
+    function popupMouseDown(elem, e) {
+
+        var evt = e || window.event;
+        var win = elem.offsetParent;
+        var startWinX = win.offsetLeft;
+        var startWinY = win.offsetTop;
+        var startMouseX = evt.clientX;
+        var startMouseY = evt.clientY;
+
+        var move = function(e) {
+            var evt = e || window.event;
+
+            win.style.left = (startWinX - (startMouseX - evt.clientX)) + 'px';
+            win.style.top = (startWinY - (startMouseY - evt.clientY)) + 'px';
+
+            if (document.all) {
+                evt.cancelBubble = true;
+                evt.returnValue = false;
+            }
+            if (evt.preventDefault) {
+                evt.preventDefault();
+            }
+        }
+
+        var up = function(e) {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+
+        document.onmousemove = move;
+        document.onmouseup = up;
+    }
+</script>
+
+
+<span id="uctopNav_AlertDisplayUC1_valUtilityValidator" style="color:Red;display:none;">CustomValidator</span>
+<table cellpadding="4" cellspacing="2">
+    <tr>
+        <td class="alertText">
+            <span id="uctopNav_AlertDisplayUC1_lblMessage"></span>
+        </td>
+        <td>
+            &nbsp;&nbsp;
+        </td>
+    </tr>
+</table>
+<div id="divAlert" class="divAlert" align="left">
+    <div style="background-color: #638fba; height:25px; margin: 0px 0px 15px 0px; padding-left: 5px; cursor: move; color: #fff;" onmousedown="popupMouseDown(this, event);">
+        Faulkner Alerts<img id="uctopNav_AlertDisplayUC1_imgDivClose" class="imgCloseButton" onclick="hideAlerts();" src="images/close.png" style="border-width:0px;" />
+    </div>
+    <div style="padding: 0px 0px 0px 10px">
+        <label ID="lblAlertSummary"></label>
+    </div>   
+</div></td>
+          </tr>
+        </table></td>
+  </tr>
+    <tr>
+        <td background="/images/topBanner.jpg" style="background-position:bottom; background-repeat:repeat-x; height:44px" ><div align="center">
+          <table width="990" border="0" cellspacing="0" cellpadding="0" style=" height:40px">
+            <tr>
+              
+              <td style="text-align: right;">
+<div id="uctopNav_divTopMenu" class="topNavStatic"><ul class="topMenu" level="1"><li id="u3"><a href="/default.aspx">Home</a></li><li id="u4"><a href="/aboutfaulkner/default.aspx">About Faulkner</a><ul><li id="u1907"><a href="/aboutfaulkner/history.aspx">Our History</a></li><li id="u1906"><a href="/aboutfaulkner/accreditation.aspx">Accreditation</a></li><li id="u1909"><a href="/aboutfaulkner/consumerinformation/default.aspx">Consumer Information</a></li><li id="u2029"><a href="/directory/default.aspx">Faculty & Staff Directory</a></li><li id="u1908"><a href="/aboutfaulkner/where.aspx">Where Is Faulkner?</a></li><li id="u1990"><a href="/aboutfaulkner/humanresources/openings.aspx#1">Employment at Faulkner</a></li><li id="u1910"><a href="/aboutfaulkner/publicrelations/default.aspx">University Communications</a></li><li id="u1913"><a href="/aboutfaulkner/humanresources/default.aspx">Human Resources</a></li><li id="u1902"><a href="/news/default.aspx#content">Features</a></li></ul></li><li id="u2"><a href="/admissions/default.aspx">Admissions</a><ul><li id="u9"><a href="/admissions/undergraduate/default.aspx">Traditional Undergrad</a></li><li id="u59"><a href="/admissions/montgomery/default.aspx">Montgomery Campus</a></li><li id="u123"><a href="/admissions/birmingham/default.aspx">Birmingham Campus</a></li><li id="u158"><a href="/admissions/huntsville/default.aspx">Huntsville Campus</a></li><li id="u159"><a href="/admissions/mobile/default.aspx">Mobile Campus</a></li><li id="u160"><a href="/admissions/communitypartnerships/default.aspx">Community Partners</a></li><li id="u162"><a href="/admissions/graduate/default.aspx">Graduate Programs</a></li><li id="u12"><a href="/admissions/international/default.aspx">International Students</a></li><li id="u161"><a href="/admissions/mep/default.aspx">Military Education Program</a></li><li id="u163"><a href="/finaid/default.aspx">Financial Aid</a></li></ul></li><li id="u164"><a href="/academics/default.aspx">Academics</a><ul><li id="u1125"><a href="/admissions/programs.aspx#academics">Majors</a></li><li id="u301"><a href="/academics/artsandsciences/default.aspx">College of Arts & Sciences</a></li><li id="u302"><a href="/academics/biblicalstudies/default.aspx">College of Biblical Studies</a></li><li id="u304"><a href="/academics/business/default.aspx">College of Business & Executive Education</a></li><li id="u513"><a href="/academics/ed/default.aspx">College of Education</a></li><li id="u691"><a href="/academics/gbhc/default.aspx">Great Books Honors College</a></li><li id="u1382"><a href="/jsl/default.aspx">Faulkner Law</a></li><li id="u306"><a href="/admissions/graduate/default.aspx">Graduate Programs</a></li><li id="u307"><a href="/academics/international.aspx">International Studies</a></li><li id="u308"><a href="/academics/eli/default.aspx">English Language Institute</a></li><li id="u309"><a href="/gnl/default.aspx">Nichols Library</a></li><li id="u1195"><a href="/academics/programs/default.aspx">Academic Programs</a></li><li id="u2037"><a href="/academics/facultywebsites.aspx">Faculty Websites</a></li><li id="u1277"><a href="/academics/blackboardhelp.aspx">Blackboard Help</a></li><li id="u2090"><a href="/academics/resources.aspx">Academic Resources</a></li></ul></li><li id="u165"><a href="http://www.faulknereagles.com/">Athletics</a></li><li id="u166"><a href="/studentlife/default.aspx">Student Life</a><ul><li id="u508"><a href="/studentlife/deanofstudents.aspx">Dean of Students</a></li><li id="u1648"><a href="/studentlife/livingoncampus/default.aspx">Living On Campus</a></li><li id="u504"><a href="/studentlife/spirituallife/default.aspx">Spiritual Life</a></li><li id="u1732"><a href="/studentlife/registrar/default.aspx">Registrar's Office</a></li><li id="u502"><a href="/studentlife/recreation/default.aspx">Student Activities</a></li><li id="u507"><a href="/studentlife/studentservices/default.aspx">Student Services</a></li><li id="u1702"><a href="/studentlife/security/default.aspx">Campus Security</a></li><li id="u1720"><a href="/studentlife/activities.aspx">Student Events</a></li><li id="u1728"><a href="/academics/spire/default.aspx">The Spire</a></li><li id="u503"><a href="/studentlife/socialclubs.aspx">Clubs and Organizations</a></li><li id="u2008"><a href="/studentlife/studenthandbook.aspx">Student Handbook</a></li></ul></li><li id="u1126"><a href="/giving/default.aspx">Giving</a><ul><li id="u1891"><a href="/giving/givenow/default.aspx">Give Now</a></li><li id="u1962"><a href="/giving/typesofgifts.aspx">Types of Gifts</a></li><li id="u1890"><a href="/giving/benefits.aspx">Who Benefits?</a></li><li id="u1889"><a href="/giving/benefitdinner.aspx">Benefit Dinner</a></li><li id="u2150"><a href="/giving/phonathon.aspx">Phonathon</a></li></ul></li><li id="u1128"><a href="/alumni/default.aspx">Alumni</a><ul><li id="u1884"><a href="/alumni/alumniassociation.aspx">Alumni Association</a></li><li id="u1885"><a href="/alumni/eventschedule.aspx">Event Schedule</a></li><li id="u2191"><a href="/giving/givenow/default.aspx">Give Now</a></li></ul></li></ul></div>      </td>
+              <td width="144" valign="middle">
+                
+
+
+
+<table cellpadding="0" cellspacing="0"><tr><td  valign="top"> <input name="uctopNav$SearchUC1$q" type="text" maxlength="512" id="uctopNav_SearchUC1_q" style="width:100px;" /></td><td><span id="uctopNav_SearchUC1_reqSearchTxt" style="color:Red;display:none;">*</span><input type="image" name="uctopNav$SearchUC1$sa" id="uctopNav_SearchUC1_sa" src="/images/magnifyingGlass.jpg" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;uctopNav$SearchUC1$sa&quot;, &quot;&quot;, true, &quot;grpSearch&quot;, &quot;&quot;, false, false))" style="border-width:0px;" /></td></tr></table>
+
+<input type="hidden" name="uctopNav$SearchUC1$cx" id="uctopNav_SearchUC1_cx" value="012194942424371850524:ppwwxsa6dra" />
+<input type="hidden" name="uctopNav$SearchUC1$cof" id="uctopNav_SearchUC1_cof" value="FORID:11" /></td>
+            </tr>
+          </table>
+      </div></td>
+  </tr>
+</table>                                
+             
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr align="left" valign="top" style="background-image:url('images/home_images/Banner_BG.png'); background-repeat:repeat-x">
+	<td align="left">&nbsp;</td>
+	<td width="964" align="center" valign="top">
+	<table width="964" border="0" align="left" cellpadding="0" cellspacing="0">
+	<tr align="left" valign="top">            
+		<td width="964" colspan="3" align="left" valign="top">
+		<table width="964" border="0" cellspacing="0" cellpadding="0" align="left">
+		<tr align="center" valign="top">
+			<td width="17" align="left" valign="top"><img src="images/home_images/Banner_Border_Left.png" alt="" width="17" height="212" border="0"></td>
+			<td width="620" align="left" valign="top">
+            	<a href="#" id="lnkSlide" name="lnkSlide"><img src="/images/home_images/slides/1.jpg" alt="Faulkner University | Laura Bush Benefit Dinner Ad" name="imgShowcase" width="622" height="214" border="0" id="imgShowcase"/></a>
+            </td>
+			<td width="65" align="center" valign="top" style="background-image:url('images/home_images/Banner_Select_BG.jpg');">
+            	<a href="http://www.faulkner.edu/bush" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('imgShowcase','','/images/home_images/slides/1.jpg',1)"><img src="/images/home_images/slides/thumbs/lbush.jpg" alt="Faulkner University | Laura Bush Thumbnail" name="Thumb1" width="38" height="38" hspace="7" vspace="2" border="0" align="middle" id="Thumb1" /></a>
+				<a href="/jsl/news/newsDetail.aspx?newsID=765" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('imgShowcase','','/images/home_images/slides/2.jpg',1)"><img src="/images/home_images/slides/thumbs/barPassRate.jpg" alt="Faulkner University | Jones School of Law Thumbnail" name="Thumb2" width="38" height="38" hspace="7" vspace="2" border="0" align="middle" id="Thumb2" /></a>
+                <a href="/iAdvantage/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('imgShowcase','','/images/home_images/slides/3.jpg',1)"><img src="/images/home_images/slides/thumbs/eagleiAdvantage.jpg" alt="Faulkner University | Eagle iAdvantage Thumbnail" name="Thumb3" width="38" height="38" hspace="7" vspace="2" border="0" align="middle" id="Thumb3" /></a>
+                <a href="/Admissions/Undergraduate/CollegeBound2012details.aspx" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('imgShowcase','','/images/home_images/slides/4.jpg',1)"><img src="/images/home_images/slides/thumbs/collegeBound.jpg" alt="Faulkner University | College Bound Thumbnail" name="Thumb4" width="38" height="38" hspace="7" vspace="2" border="0" align="middle" id="Thumb4" /></a>
+                <a href="http://www.faulknereagles.com/sport/0/3.php" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('imgShowcase','','/images/home_images/slides/5.jpg',1)"><img src="/images/home_images/slides/thumbs/bbChamps.jpg" alt="Faulkner University | Baseball Champions Thumbnail" name="Thumb5" width="38" height="38" hspace="7" vspace="2" border="0" align="middle" id="Thumb5" /></a>
+                </td>			
+			<td width="245" align="right" valign="top">
+			<table width="245" border="0" cellspacing="0" cellpadding="0" align="left">
+			<tr align="left" valign="top">
+			  <td height="60" align="left" valign="top" nowrap><img src="/images/home_images/SideMenu_address.jpg" alt="Faulkner University | 5345 Atlanta Highway, Montgomery, AL 36109" width="245" height="61" /></td>
+			  </tr>
+			<tr align="left" valign="top">
+            	<td width="245" height="31" align="left" valign="top" nowrap><a href="https://my.faulkner.edu" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('CurrentStudent','','images/home_images/SideMenu_CurrentStudent_RO.jpg',1)"><img src="/images/home_images/SideMenu_CurrentStudent.jpg" alt="Faulkner University | Current Students Link" name="CurrentStudent" width="245" height="31" border="0"></a></td>
+			</tr>
+			<tr align="left" valign="top">
+			  <td width="245" height="30" align="left" valign="top" nowrap><a href="/jsl/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('JonesLawSchool','','images/home_images/SideMenu_JonesLawSchool_RO.jpg',1)"><img src="/images/home_images/SideMenu_JonesLawSchool.jpg" alt="Faulkner University | Faulkner Law Link" name="JonesLawSchool" width="245" height="30" border="0"></a></td>
+			  </tr>
+			<tr align="left" valign="top">
+            	<td width="245" height="30" align="left" valign="top" nowrap><a href="/admissions/birmingham/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('BhamCampus','','images/home_images/SideMenu_Bham_RO.png',1)"><img src="/images/home_images/SideMenu_Bham.jpg" alt="Faulkner University | Birmingham Campus Link" name="BhamCampus" width="245" height="30" border="0"></a></td>
+			</tr>
+			<tr align="left" valign="top">
+            	<td width="245" height="30" align="left" valign="top" nowrap><a href="/admissions/huntsville/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('HvilleCampus','','images/home_images/SideMenu_Hville_RO.jpg',1)"><img src="/images/home_images/SideMenu_Hville.jpg" alt="Faulkner University | Huntsville Campus Link" name="HvilleCampus" width="245" height="30" border="0"></a></td>
+			</tr>
+			<tr align="left" valign="top">
+            	<td width="245" height="31" align="left" valign="top" nowrap><a href="/admissions/mobile/" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('MobileCampus','','images/home_images/SideMenu_Mobile_RO.png',1)"><img src="/images/home_images/SideMenu_Mobile.jpg" alt="Faulkner University | Mobile Campus Link" name="MobileCampus" width="245" height="31" border="0"></a></td>
+			</tr>
+			</table>			</td>
+			<td width="17" align="right" valign="top"><img src="images/home_images/Banner_Border_Right.png" width="17" height="212" alt=""></td>	
+		</tr>
+		<tr align="left" valign="top" nowrap>	
+			<td width="964" colspan="5" align="left" valign="top" nowrap><img src="images/home_images/Banner_Border_Bottom.png" alt="" width="964" height="7" hspace="0" vspace="0" border="0" align="top"></td>
+		</tr>
+		</table>
+		</td>
+	</tr>	
+	</table> 
+	</td>	
+	<td align="left">&nbsp;</td>
+</tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr align="center" valign="top">
+	<td align="left">&nbsp;</td>
+	<td width="960" align="center" valign="top">
+	<table width="960" border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr align="center" valign="top">
+		<td align="left"><table width="700" border="0" cellspacing="0" cellpadding="1" align="left">
+		  <tr align="left" valign="top">
+			<td width="9">&nbsp;</td>
+			<td rowspan="5" align="right"><table cellpadding="0" cellspacing="0" width="325">
+    <tr>
+        <td align="left">
+            <img src="/images/home_images/newsControl.jpg" alt="News" width="63" height="21" border="0" />        </td>
+        <td align="right" valign="bottom">
+            <strong><i><a href="/news/default.aspx" style="text-decoration: none;">More News</a></i></strong></td>
+    </tr>
+        <tr><td colspan="2" style="padding: 0px;"><hr class="newsFilter"/></td></tr>
+    </table>
+<table cellpadding="0" cellspacing="0" width="305">
+    <tr valign="top">
+        <td colspan="2">
+            <div>
+	<table cellspacing="0" cellpadding="6" rules="rows" border="0" id="ucNews_gvNews" style="border-width:0px;width:305px;border-collapse:collapse;">
+		<tr class="grdRowULine" onclick="__doPostBack('ucNews$gvNews','Select$0')" style="cursor:pointer;">
+			<td class="newsTitle" align="left">Faulkner baseball celebrates first SSAC Title</td>
+		</tr><tr class="grdRowULine" onclick="__doPostBack('ucNews$gvNews','Select$1')" style="cursor:pointer;">
+			<td class="newsTitle" align="left">New apartments on the rise on Faulkner's campus</td>
+		</tr><tr class="grdRowULine" onclick="__doPostBack('ucNews$gvNews','Select$2')" style="cursor:pointer;">
+			<td class="newsTitle" align="left">Blue and White game gives fans a taste of on-campus football</td>
+		</tr><tr class="grdRowULine" onclick="__doPostBack('ucNews$gvNews','Select$3')" style="cursor:pointer;">
+			<td class="newsTitle" align="left">Women’s basketball team top contributors to cancer foundation</td>
+		</tr>
+	</table>
+</div>
+        </td>
+    </tr>
+</table></td>
+			<td align="left" colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+			  <tr>
+			      <td><a href="https://www.faulkner.edu/Calendar/Default.aspx"><img src="/images/home_images/Events_Title.jpg" width="116" height="21" alt="Events" hspace="10" border="0" /></a></td>
+			      <td align="right" valign="bottom"><strong><i><a href="https://www.faulkner.edu/Calendar/Default.aspx" style="text-decoration: none;">More Events</a></i></strong></td>
+			      </tr>
+			    <tr>
+			      <td colspan="2"><hr class="newsFilter"/></td>
+			      </tr>
+			    </table>
+                <span id="ucEvents_valUtilityValidator" style="color:Red;display:none;">CustomValidator</span>
+<table id="ucEvents_dlEvents" cellspacing="0" border="0" style="width:290px;border-collapse:collapse;">
+	<tr>
+		<td><table cellpadding="2" cellspacing="1" width='290' class="datalistEv"> </td>
+	</tr><tr>
+		<td>
+            <tr>
+                <td class="datalistItemEv newsDate" width="80px" style="padding-top:3px; padding-bottom:3px" >06/02/2012</td>
+                <td class="datalistItemEv" style="padding-top:3px; padding-bottom:3px"  >
+                    <a id="ucEvents_dlEvents_ctl01_linkTitle" class="calendarLink" href="https://www.faulkner.edu/calendar/RegisterEvents.aspx?eID=36">InSpire 2012 - Group Registration</a>
+                </td>
+            </tr>
+    </td>
+	</tr><tr>
+		<td>
+            <tr>
+                <td class="datalistItemEv newsDate" width="80px" style="padding-top:3px; padding-bottom:3px" >06/02/2012</td>
+                <td class="datalistItemEv" style="padding-top:3px; padding-bottom:3px"  >
+                    <a id="ucEvents_dlEvents_ctl02_linkTitle" class="calendarLink" href="https://www.faulkner.edu/calendar/RegisterEvents.aspx?eID=37">InSpire 2012 - Individual Registration</a>
+                </td>
+            </tr>
+    </td>
+	</tr><tr>
+		<td>
+            <tr>
+                <td class="datalistItemEv newsDate" width="80px" style="padding-top:3px; padding-bottom:3px" >06/07/2012</td>
+                <td class="datalistItemEv" style="padding-top:3px; padding-bottom:3px"  >
+                    <a id="ucEvents_dlEvents_ctl03_linkTitle" class="calendarLink" href="https://www.faulkner.edu/calendar/RegisterEvents.aspx?eID=17">College Bound II</a>
+                </td>
+            </tr>
+    </td>
+	</tr><tr>
+		<td>
+            <tr>
+                <td class="datalistItemEv newsDate" width="80px" style="padding-top:3px; padding-bottom:3px" >06/07/2012</td>
+                <td class="datalistItemEv" style="padding-top:3px; padding-bottom:3px"  >
+                    <a id="ucEvents_dlEvents_ctl04_linkTitle" class="calendarLink" href="https://www.faulkner.edu/calendar/RegisterEvents.aspx?eID=19">Vanguard Preaching Camp</a>
+                </td>
+            </tr>
+    </td>
+	</tr><tr>
+		<td></table></td>
+	</tr>
+</table>
+
+</td>
+		</tr>
+				
+		</table>
+		</td>
+		<td width="260" align="left">
+		<table width="280" border="0" cellspacing="0" cellpadding="0" align="RIGHT">
+		<tr align="left" valign="top">
+			<td height="84" align="right" valign="middle"><a id="adsTop" href="/studentlife/it/WebStream.aspx" target="_top"><img src="/images/home_images/bannerAds/small_graduationLive.jpg" alt="Graduation Live" style="border-width:0px;" /></a></td>
+			<td height="84" width="25" align="right" valign="middle">&nbsp;</td>
+		</tr>
+		<tr align="left" valign="top">
+			<td height="81" align="right" valign="top"><a id="adsBottom" href="/academics/international.aspx" target="_top"><img src="/images/home_images/bannerAds/small_international.jpg" alt="Study Abroad" style="border-width:0px;" /></a></td>
+			<td height="81" width="25" align="right" valign="top">&nbsp;</td>
+		</tr>
+		</table>
+		</td>		
+	</tr>
+	</table>	
+	</td>	
+	<td align="left">&nbsp;</td>
+</tr>
+</table>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr align="center" valign="top" style="background-image:url('images/home_images/InfoBar_StripeBG.jpg'); background-repeat:repeat-x">
+	<td align="left">&nbsp;</td>
+	<td width="960" align="center" valign="top">
+	<table width="960" border="0" align="left" cellpadding="0" cellspacing="0">
+	<tr align="left" valign="top">
+		<td COLSPAN="3">  
+		<table width="960" border="0" cellspacing="0" cellpadding="0" align="left">
+		<tr align="left" valign="top">
+		  <td height="27" align="left" valign="top"><a href="#" onmouseover="MM_swapImage('InfoBar_UnderGrad_RO','','images/home_images/InfoBar_UnderGrad_Gray.png','InfoBar_Grad_RO','','images/home_images/InfoBar_Grad_RO.png','InfoBar_JSL_RO','','images/home_images/InfoBar_JSL_RO.png','InfoBar_Athletics_RO','','images/home_images/InfoBar_Athletics_RO.png','InfoBar_Theatre_RO','','images/home_images/InfoBar_Theatre_RO.png',1);MM_showHideLayers('divswaptarget','','show','divswaptarget2','','hide','divswaptarget3','','hide','divswaptarget4','','hide','divswaptarget5','','hide','divswaptarget6','','hide')">
+		    <img src="/images/home_images/InfoBar_Undergrad_RO.png" alt="Faulkner University | Undergraduate" name="InfoBar_UnderGrad_RO" width="202" height="27" border="0" id="InfoBar_Undergrad_RO" /></a></td>
+		  <td  height="27" align="left" valign="top"><a href="#" onmouseover="MM_swapImage('InfoBar_Grad_RO','','images/home_images/InfoBar_Grad_Gray.png','InfoBar_Content_BG','','images/home_images/InfoBar_Grad_Content.jpg','InfoBar_UnderGrad_RO','','images/home_images/InfoBar_UnderGrad_RO.png','InfoBar_JSL_RO','','images/home_images/InfoBar_JSL_RO.png','InfoBar_Athletics_RO','','images/home_images/InfoBar_Athletics_RO.png','InfoBar_Theatre_RO','','images/home_images/InfoBar_Theatre_RO.png',1);MM_showHideLayers('divswaptarget','','hide','divswaptarget2','','show','divswaptarget3','','hide','divswaptarget4','','hide','divswaptarget5','','hide','divswaptarget6','','hide')">
+		    <img src="/images/home_images/Infobar_Grad_RO.png" alt="Faulkner University | Graduate" name="InfoBar_Grad_RO" width="186" height="27" border="0" id="InfoBar_Grad_RO" /></a></td>
+		  <td height="27" align="left" valign="top"><a href="#" onmouseover="MM_swapImage('InfoBar_UnderGrad_RO','','images/home_images/InfoBar_UnderGrad_RO.png','InfoBar_Grad_RO','','images/home_images/InfoBar_Grad_RO.png','InfoBar_JSL_RO','','/images/home_images/InfoBar_JSL_Content.jpg','InfoBar_Athletics_RO','','images/home_images/InfoBar_Athletics_RO.png','InfoBar_Theatre_RO','','images/home_images/InfoBar_Theatre_RO.png',1);MM_showHideLayers('divswaptarget','','hide','divswaptarget2','','hide','divswaptarget3','','show','divswaptarget4','','hide','divswaptarget5','','hide','divswaptarget6','','hide')">
+		    <img src="/images/home_images/infobar_JSL_RO.png" alt="Faulkner University | Faulkner Law" name="InfoBar_JSL_RO" width="186" height="27" border="0" id="InfoBar_JSL_RO" /></a></td>
+		  <td height="27" align="left" valign="top"><a href="#" onmouseover="MM_swapImage('InfoBar_Athletics_RO','','images/home_images/InfoBar_Athletics_Gray.png','InfoBar_Content_BG','','images/home_images/InfoBar_Athletics_Content.jpg','InfoBar_UnderGrad_RO','','images/home_images/InfoBar_UnderGrad_RO.png','InfoBar_Grad_RO','','images/home_images/InfoBar_Grad_RO.png','InfoBar_JSL_RO','','images/home_images/InfoBar_JSL_RO.png','InfoBar_Theatre_RO','','images/home_images/InfoBar_Theatre_RO.png',1);MM_showHideLayers('divswaptarget','','hide','divswaptarget2','','hide','divswaptarget3','','hide','divswaptarget4','','show','divswaptarget5','','hide','divswaptarget6','','hide')">
+		    <img src="/images/home_images/InfoBar_Athletics_RO.png" alt="Faulkner University | Athletics" name="InfoBar_Athletics_RO" width="186" height="27" border="0" id="InfoBar_Athletics_RO" /></a></td>
+		  <td height="27" align="left" valign="top"><a href="#" onmouseover="MM_swapImage('InfoBar_Theatre_RO','','images/home_images/InfoBar_Theatre_Gray.png','InfoBar_Content_BG','','images/home_images/InfoBar_Theatre_Content.jpg','InfoBar_UnderGrad_RO','','images/home_images/InfoBar_UnderGrad_RO.png','InfoBar_Grad_RO','','images/home_images/InfoBar_Grad_RO.png','InfoBar_JSL_RO','','images/home_images/InfoBar_JSL_RO.png','InfoBar_Athletics_RO','','images/home_images/InfoBar_Athletics_RO.png',1);MM_showHideLayers('divswaptarget','','hide','divswaptarget2','','hide','divswaptarget3','','hide','divswaptarget4','','hide','divswaptarget5','','show','divswaptarget6','','hide')">
+		    <img src="/images/home_images/InfoBar_Theatre_RO.png" alt="Faulkner University | Dinner Theatre" name="InfoBar_Theatre_RO" width="204" height="27" border="0" id="InfoBar_Theatre_RO" /></a></td>
+		  </TR>
+		<tr align="left" valign="top">
+		  <td height="152" colspan="5">
+          	<style type="text/css">
+<!--
+.style2 {font-size: 13px}
+-->
+</style>
+<div id="divswaptarget" class="divswap">
+  <table border="0" cellpadding="0" cellspacing="0" class="infobarTable" style="background-image:url(sharedmedia/_quicklinks/undergrad.jpg); background-repeat:no-repeat;">
+    <tr>
+      <td colspan="6" align="left" valign="top"><img src="images/blank.gif" alt="" width="1" height="12" /><br /></td>
+    </tr>
+    <tr>
+      <td width="210" align="left" valign="top">&nbsp;</td>
+      <td width="303" align="center" valign="top">It's all here.  Challenging academics, caring professors, a safe, supportive environment, a spiritual emphasis, an active campus life - Faulkner has it all!  And so can you!<br />
+        <br />
+      </td>
+      <td width="7" align="left" valign="top"></td>
+      <td width="154" align="left" valign="top"><p>- <a href="/admissions/programs.aspx"  >MAJORS LIST</a><br />- <a href="/finaid/default.aspx"  >FINANCIAL AID</a><br />
+        - <a href="/studentlife/housing/default.aspx"  >HOUSING</a><br />
+          - <a href="/studentlife/"  >AROUND CAMPUS</a><a href="/studentlife/"  ><br>
+          </a><a href="/documents/AcademicCalendar.pdf"  >- ACADEMIC CALENDAR<br>
+          </a></p>
+        <p><br />
+      </p></td>
+      <td width="159" align="left" valign="top">
+        <p>- <a href="/admissions/undergraduate/counselors/default.aspx"  >MEET YOUR &nbsp;&nbsp;&nbsp;COUNSELOR</a><br />
+          
+          - <a href="/admissions/undergraduate/visit/"  >SCHEDULE A VISIT</a><br />
+        - <a href="/admissions/undergraduate/tour/virtualtour.aspx "  >VIRTUAL TOUR</a><br />
+          - <a href="/documents/campus%20map.pdf">CAMPUS MAP</a><br />
+          - <a href="mailto:admissions@faulkner.edu"  >CONTACT US</a><br />
+        </p>
+      </td>
+      <td width="137" align="right" valign="top">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="6" align="left" valign="top"><img src="images/blank.gif" alt="" width="1" height="12" /></td>
+    </tr>
+  </table>
+</div>
+<div id="divswaptarget2" class="divswap">
+  <table border="0" cellpadding="0" cellspacing="0" class="infobarTable" style="background-image:url(/sharedmedia/_quicklinks/grad.jpg); background-repeat:no-repeat">
+    <tr>
+      <td width="200" align="left" valign="top">&nbsp;</td>
+      <td width="250" align="center" valign="top"><br />
+        You're going the extra mile in your education, so Faulkner is committed to getting you there.  Our on-line offerings, flexible scheduling and caring professors make post-graduate studies doable! <br />
+        <br />
+      </td>
+      <td width="30" align="left" valign="top"></td>
+      <td align="left" valign="top">
+        <br /> - <a href="/academics/biblicalstudies/degrees/mabs/default.aspx "  >MASTER OF ARTS IN BIBLICAL STUDIES</a><br />
+        - <a href="/academics/artsandsciences/socialandbehavioral/counseling/default.aspx "  >MASTER OF SCIENCE IN COUNSELING</a><br />
+        - <a href="/admissions/graduate/mcj/default.aspx "  >MASTER OF JUSTICE ADMINISTRATION</a><br />
+        - <a href="/academics/ed/masterofeducation/default.aspx "  >MASTER OF EDUCATION</a><br />
+        - <a href="/academics/gbhc/mlitt/default.aspx "  >MASTER OF LETTERS</a><br />
+      - <a href="/admissions/graduate/msm/default.aspx ">MASTER OF SCIENCE IN MANAGEMENT</a></td>
+      <td width="194" align="right" valign="top">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<div id="divswaptarget3" class="divswap">
+  <table border="0" cellpadding="0" cellspacing="0" class="infobarTable" style="background-image:url(/sharedmedia/_quicklinks/lawSchool.jpg); background-repeat:no-repeat;">
+    <tr>
+      <td height="32" colspan="5" align="left" valign="top"><img src="images/blank.gif" alt="" width="1" height="12" /></td>
+    </tr>
+    <tr>
+      <td width="21" height="66" align="left" valign="top">&nbsp;</td>
+      <td width="189" align="left" valign="top"><a href="/jsl/howtoapply.aspx">How to Apply</a><br />
+      <a href="/jsl/financing.aspx">Financial	Aid </a><br /></td>
+      <td width="192" align="left" valign="top"><a href="/jsl/info/accreditation.aspx">Accreditation Statement</a><br />
+        <a href="/jsl/info/consumer.aspx#employment">Employment Statistics</a><br />
+      <a href="/jsl/financing.aspx">Tuition, Fees, Expenses</a></td>
+      <td width="191" align="left" valign="top"><a href="/jsl/barpassagerates.aspx">Bar Passage Rates</a><br />
+        <a href="/jsl/academics/curriculum.aspx">First Year Curriculum</a><br />
+      <a href="/jsl/academics/documents/transcript%20request%20form.pdf" target="_blank">Order a Transcript</a></td>
+      <td width="377" align="right" valign="top">&nbsp;</td>
+  </tr>
+    <tr>
+      <td colspan="5" align="left" valign="top"><img src="images/blank.gif" alt="" width="1" height="12" /></td>
+    </tr>
+    <tr>
+      <td align="left" valign="top">&nbsp;</td>
+      <td align="left" valign="top"><a href="mailto:law@faulkner.edu">Contact Us</a></td>
+      <td align="left" valign="top"><a href="https://os.lsac.org/Release/Logon/Access.aspx" target="_blank">Apply Now</a></td>
+      <td align="left" valign="top"><a href="mailto:law@faulkner.edu?subject=Request Information Packet">Request Information Packet</a></td>
+      <td align="left" valign="top">&nbsp;</td>
+  </tr>
+  </table>
+</div>
+<div id="divswaptarget4" class="divswap" style="background-image:url(/sharedmedia/_quicklinks/Athletics_BG.jpg); background-repeat:no-repeat">
+  <table border="0" cellpadding="0" cellspacing="0" class="infobarTable">
+    <tr>
+      <td width="100" align="left" valign="top">&nbsp;</td>
+      <td width="564" align="left" valign="top">
+      <table width="525px">
+        <tr>
+          <th>MEN'S SPORTS</th>
+          <th>WOMEN'S SPORTS</th>
+          <th>EAGLE LINKS</th>
+        </tr>
+        <tr>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/3.php">Baseball</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/2.php">Women's Basketball</a></td>
+          <td>- <a href="http://www.faulknereagles.com/">Visit Athletics Main</a></td>
+        </tr>
+        <tr>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/1.php">Men's Basketball</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/8.php">Women's Golf</a></td>
+          <td>- <a href="http://www.faulknereagles.com/staff.php">Athletic Staff</a></td>
+        </tr>
+        <tr>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/4.php">Football</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/9.php">Women's Soccer</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/14.php">Cheerleading</a></td>
+        </tr>
+        <tr>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/5.php">Men's Golf</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/7.php">Softball</a></td>
+          <td>- <a href="http://www.faulknereagles.com/videoList.php">Film Room</a></td>
+        </tr>
+        <tr>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/6.php">Men's Soccer</a></td>
+          <td>- <a href="http://www.faulknereagles.com/sport/0/10.php">Volleyball</a></td>
+          <td>- <a href="http://client.stretchinternet.com/client/faulkner.portal#">Faulkner Sports Network</a></td>
+        </tr>
+      </table></td>
+      <td width="280" align="left" valign="top"><table width="280" border="0" cellpadding="0" cellspacing="0">
+          
+          <tr align="left" valign="top">
+            <td width="230" height="76" align="left" valign="middle"><p><em>Faulkner athletics is in full swing. For more information on upcoming events, recent results and the latest articles visit the athletics page.</em></p></td>
+          </tr>
+      </table></td>
+      <td width="20" height="152">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<div id="divswaptarget5" class="divswap">
+  <table width="970" border="0" cellpadding="0" cellspacing="0" class="infobarTable" style="background-image:url(/sharedmedia/_quicklinks/dinner-theatre.jpg); background-repeat:no-repeat">
+    <tr>
+      <td align="left" valign="top" width="20" height="152">&nbsp;</td>
+      <td align="left" valign="top" width="264"><p><img src="/StudentLife/dinnerTheatre/images/LittleWomen-smaller.png" height="120" hspace="6" vspace="2" align="left">Little Women, the Musical<br>
+          <br>
+      April  12, 13, 14, 19, 20, 21, 26, 27 &amp; 28</p></td>
+      <td align="left" valign="top" width="198"><table width="170" border="0" align="center" cellpadding="1" cellspacing="0">
+          <tr align="left" valign="top">
+            <td><p>- Doors open at 6:00 pm<br />
+                - Dinner served at 6:15 pm<br />
+            - Show Starts at 7:30 pm</p></td>
+          </tr>
+          <tr align="left" valign="middle">
+            <td align="left">&nbsp;</td>
+          </tr>
+          </table>
+        <br>		            
+      <br></td>
+      <td width="215" align="left" valign="top"><br>
+        <table border="0" align="center" cellpadding="0">
+          <tr align="left" valign="top">
+            <td align="left" valign="top"><a href="/StudentLife/dinnerTheatre/coming.aspx"  > - Coming Soon</a></td>
+            <td align="left" valign="top"><a href="/StudentLife/dinnerTheatre/seasonticket.aspx"  >- Season Tickets</a></td>
+          </tr>
+          <tr align="left" valign="top">
+            <td align="left" valign="top"><a href="/StudentLife/dinnerTheatre/cast.aspx"  > - Cast List</a></td>
+            <td align="left" valign="top"><a href="/StudentLife/dinnerTheatre/auditions.aspx"  >- Auditions</a></td>
+          </tr>
+          <tr align="left" valign="top">
+            <td align="left" valign="top"><a href="/StudentLife/dinnerTheatre/reservations.aspx"  >- Reservations</a></td>
+          </tr>
+      </table></td>
+      <td width="273" align="left" valign="top">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+          </td>
+		  </tr>
+		</table>
+	    </td>
+	</tr>
+	<tr align="center" valign="top">
+	    <td colspan="3">
+
+<table cellpadding="0" cellspacing="0" align="center">
+	<tr>
+   	  <td>
+            <a href="http://www.faulkner.edu/exchange" class="footerLinks" target="_blank">WebMail</a> - 
+            <a href="/askus/"  class="footerLinks" >Ask  Us</a> - 
+            <a href="/studentlife/health/emergencynotifications.aspx"  class="footerLinks" >Eagle Alert</a> - 
+            <a href="/GNL/" class="footerLinks" >Library</a> - 
+            
+            <a href="/giving/"  class="footerLinks" >Give Online</a> - 
+            <a href="/directory/"  class="footerLinks" >Faculty & Staff Directory</a> -
+            <a href="/aboutfaulkner/humanresources/openings.aspx" class="footerLinks" >Employment</a> - 
+            <a href="/Academics/FacultyWebsites.aspx" class="footerLinks" >Faculty Web Sites</a><br />
+            <a href="/aboutfaulkner/where.aspx"  class="footerLinks" >Map &amp; Directions</a> | <span style="color: #AAAAAA;">5345 Atlanta Highway, Montgomery, AL 36109   334.272.5820 or 800.879.9816   | &copy;2012 all right reserved.</span>
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> 
+            </script>
+            <script type="text/javascript">
+                _uacct = "UA-2052705-1";
+                urchinTracker();
+            </script>
+      </td>
+        <td style="padding-left: 10px;">
+        	<table cellpadding="0" cellspacing="0">
+            	<tr>
+                	<td><a href="http://www.facebook.com/FaulknerUniversity" target="_blank"><img src="/images/home_images/footer/FB.png" alt="Facebook" width="25" height="25" border="0" /></a>
+                    </td>
+                    <td><a href="https://twitter.com/FaulknerEdu" target="_blank"><img src="/images/home_images/footer/Twitter.png" alt="Twitter" width="25" height="25" border="0" /></a>
+                    </td>
+               	</tr>
+            </table>
+             </td>
+    </tr>
+</table>
+</td>
+	</tr>	
+	</table>
+	</td>	
+	<td align="left">&nbsp;</td>
+</tr>
+</table>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("uctopNav_AlertDisplayUC1_valUtilityValidator"), document.getElementById("uctopNav_SearchUC1_reqSearchTxt"), document.getElementById("ucEvents_valUtilityValidator"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var uctopNav_AlertDisplayUC1_valUtilityValidator = document.all ? document.all["uctopNav_AlertDisplayUC1_valUtilityValidator"] : document.getElementById("uctopNav_AlertDisplayUC1_valUtilityValidator");
+uctopNav_AlertDisplayUC1_valUtilityValidator.errormessage = "CustomValidator";
+uctopNav_AlertDisplayUC1_valUtilityValidator.display = "Dynamic";
+uctopNav_AlertDisplayUC1_valUtilityValidator.evaluationfunction = "CustomValidatorEvaluateIsValid";
+var uctopNav_SearchUC1_reqSearchTxt = document.all ? document.all["uctopNav_SearchUC1_reqSearchTxt"] : document.getElementById("uctopNav_SearchUC1_reqSearchTxt");
+uctopNav_SearchUC1_reqSearchTxt.controltovalidate = "uctopNav_SearchUC1_q";
+uctopNav_SearchUC1_reqSearchTxt.display = "Dynamic";
+uctopNav_SearchUC1_reqSearchTxt.validationGroup = "grpSearch";
+uctopNav_SearchUC1_reqSearchTxt.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+uctopNav_SearchUC1_reqSearchTxt.initialvalue = "";
+var ucEvents_valUtilityValidator = document.all ? document.all["ucEvents_valUtilityValidator"] : document.getElementById("ucEvents_valUtilityValidator");
+ucEvents_valUtilityValidator.errormessage = "CustomValidator";
+ucEvents_valUtilityValidator.display = "Dynamic";
+ucEvents_valUtilityValidator.evaluationfunction = "CustomValidatorEvaluateIsValid";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        //]]>
+</script>
+</form>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"> 
+</script>
+<script type="text/javascript"> 
+_uacct = "UA-2052705-1";
+urchinTracker();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,326 @@
+<head>
+<!--[if IE]>
+<style type="text/css">
+body, a, h1, h2, h2, h4 img {
+	behavior:expression((this.runtimeStyle.behavior="none")&&(this.tabIndex="-1"));
+}
+}
+</style>
+<![endif]-->
+<script language="JavaScript" type="text/JavaScript">
+<!--\\
+function newWindow(mypage,myname,w,h,features) {
+  if(screen.width) {
+		var winl = (screen.width-w)/2;
+		var wint = (screen.height-h)/2;
+  }
+	else {
+		winl = 0;wint =0;
+	}
+  if (winl < 0) winl = 0;
+  if (wint < 0) wint = 0;
+	
+  var settings = 'height=' + h + ',';
+  settings += 'width=' + w + ',';
+  settings += 'top=' + wint + ',';
+  settings += 'left=' + winl + ',';
+  settings += features;
+		
+  win = window.open(mypage,myname,settings);
+  win.window.focus();
+}
+
+function imgPreview(mypage,myname,w,h,features) {
+	if(document.all) {
+		var wwidth = document.body.clientWidth;
+		var wheight = document.body.clientHeight;
+	}
+	else {
+		if(document.layers) {
+			var wwidth = window.innerWidth;
+			var wheight = window.innerHeight;
+		}
+		else {
+			alert("This is NOT working");
+		}
+	}
+	var t = (wwidth-w)/2;
+	var l = (wheight-h)/2;
+	
+	var settings = 'width = ' + w + ',';
+			settings += 'height =' + h + ',';
+			settings += 'top =' + t + ',';
+			settings += 'left =' + l + ',';
+			settings +=	 features; 
+			/*features = location,menubar,status,toolbar,resizable*/
+	win = window.open(mypage,myname,settings);
+	win.window.focus();
+}
+
+function subLinks(varDiv, varImg) {
+    if(varDiv.style.display == "none") {
+       		varDiv.style.display = "";
+					varImg.src ="../images/arrowMinus.gif";
+	  }
+    else {
+       varDiv.style.display = "none";
+			 varImg.src = "../images/arrowPlus.gif";
+    }
+}
+//*************** Banner Ads ***************
+var BannerAdSpeed = 5000
+
+// Specify the image files
+var adImgs = new Array("../images/mainbanner/putp.jpg","../images/mainbanner/gallery.jpg","../images/mainbanner/lsp.jpg","../images/mainbanner/lsp.jpg"); //,"../images/mainbanner/puafa.jpg"
+
+// Specify the URLs
+var adURL = new Array("putp/index.php?top=5","putp/gallery.php?top=5&amp;sub=21","putp/scholarships.php?top=5&amp;sub=20","lsp/conference.php?top=6&amp;sub=27"); //,"puafa/currentevents.php?top=3&sub=9"
+
+var thisAd = 0;
+var imgCt = adImgs.length;
+
+function runBannerAds(){
+	if(document.images) {
+			thisAd++;
+				if(thisAd == imgCt) {
+					thisAd = 0;
+				}
+			document.BannerAds.src = adImgs[thisAd]
+			setTimeout("runBannerAds();", BannerAdSpeed)
+	}
+}
+function newLocation() {
+	document.location.href = "../" + adURL[thisAd]
+}
+function goToURL (url) {
+	window.location = ""+url+""
+}
+function land(ref, target)
+{
+lowtarget=target.toLowerCase();
+if (lowtarget=="_self") {window.location=loc;}
+else {if (lowtarget=="_top") {top.location=loc;}
+else {if (lowtarget=="_blank") {window.open(loc);}
+else {if (lowtarget=="_parent") {parent.location=loc;}
+else {parent.frames[target].location=loc;};
+}}}
+}
+function jump(menu)
+{
+ref=menu.quickLinks.options[menu.quickLinks.selectedIndex].value;
+splitc=ref.lastIndexOf("*");
+target="";
+if (splitc!=-1)
+{loc=ref.substring(0,splitc);
+target=ref.substring(splitc+1,1000);}
+else {loc=ref; target="_self";};
+if (ref != "") {land(loc,target);}
+}
+function parentSet(href)
+{
+	window.location.href = href;
+}
+//*************** End Banner Ads ***************
+//-->
+</script>
+		<title>Welcome to Phillips University</title>
+	<!-- Meta Tags -->
+	<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> -->
+	<meta name="robots" content="index, follow" />
+	<meta name="description" content="Phillips University Legacy Foundation..." />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Innovative Communications, Inc." />
+	<meta name="verify-v1" content="j0snNzliX0vW/dNx6k8H+w8+PmXnIpwdq79u5cNeS0k=" />
+	<!-- Favicon <link rel="shortcut icon" href="/favicon.ico" /> -->
+	<link href="../_css/_base.css.php?top=1" rel="stylesheet" media="screen" type="text/css" />
+</head>	
+<body><div id="header"> 
+  <div id="headerwrapper" class=""> 
+    <h1><a href="../index/index.php?top=1" title="Return to Home Page">
+      PHILLIPS UNIVERSITY      </a></h1>
+    <p id="navUtilities"><a href="../custom/search.php">Search</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../custom/contact.php">Contact 
+			Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../custom/resources.php">Resources</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="../custom/giftshop.php?top=3&c=puafa">Shopping Mall</a></p>
+<ul id="Mainnav">
+ <li><a href="../index/index.php?top=1" id="navHome" title="Welcome to Phillips University" class="currentSection">HOME</a></li>
+ <li><a href="../pu/index.php?top=2" id="navUniv" title="Learn about Phillips University Today" >Phillips University</a></li>
+ <li><a href="../puafa/index.php?top=3" id="navalum" title="Stay connected with the Phillips Alumni & Friends Asscoiation" >Alumni Association</a></li>
+ <li><a href="../pulf/index.php?top=4" id="navlegacy" title="Phillips University Legacy Foundation: Honoring Its Past, Pursuing Its Vision" >Legacy Foundation</a></li>
+ <li><a href="../lsp/index.php?top=6" id="navscholar" title="The Phillips University Legacy Scholarship Program - Nurturing Young Christian Leaders" >Scholarships</a></li>
+ <li><a href="../ne/index.php?top=7&sub=33&cat=1" id="navNews" title="The Latest News &amp; Events from the Phillips University Family" >News &amp; Events</a></li>	   </ul>
+	<!-- Home Page Sub -->		
+		<div id="picHome"><img src="../images/marshallbuilding.jpg" alt="Marshall Building, Phillips University"/></div>
+		<!-- close:homepic -->
+    <div id="slideshow"> 
+      <div id="flashContent">
+      	<img style="float:right;z-index:-10;margin-right:30px;margin-top:5px;width:86px;height:123px;" src="../lsp/scholarimgs/LoveLauren.jpg" alt="Ms. Lauren E.  Love"/><h1 class="blip">This scholarship shaped me into a globally aware young woman &#8230<span><a href="../lsp/scholarspotlight.php?top=6&sub=41&id=20" title="Read more">Read more &#187;</a></span></h1><p>Ms. Lauren E.  Love<br/>Texas Christian University</p>      </div>
+    </div>
+    <div class="clearHack"></div>
+						<!-- close:slideshow -->
+				<!-- End Home Page Sub -->
+  </div>
+  <!-- close:headerwrapper -->
+</div>
+<!-- close:header -->
+<div id="content"> 
+<div id="contentwrapper">
+		<div id="news">
+        	<div id="quickLinks">
+        <form name="quickLinks" method="post">
+        	<select name="quickLinks" class="select-holder" size="1" onChange="jump(this.form)" target="_blank">
+          	<option value="" selected="yes">Find it quick...</option>
+            <option value="https://olg.campusnet.net/OnlineGiving_430/site/page.aspx?siteid=a4a511da-6539-41fc-a2bf-5ef07c85d469&preview=true">Donate to PULF</option>
+            <option value="../custom/update.php">Update My Information</option>
+            <option value="../puafa/index.php?top=3">Join PUAFA</option>
+            <option value="../custom/giftshop.php?top=3&c=puafa">Buy Memorabilia</option>
+            <option value="../puafa/index.php?top=3">Donate to PUAFA</option>
+            <option value="../ne/index.php?top=7&sub=33&cat=3">News &amp; Events</option>
+            <option value="../lsp/index.php?top=6">Scholarship Information</option>
+            <option value="../pu/transcripts.php?top=2&sub=4">Transcript Requests</option>
+            <optgroup label="------------------------">
+              <option value="../custom/contact.php">Contact Us</option>
+            </optgroup>
+          </select>
+        </form>
+      </div>
+      <a style="border:none;" href="../ne/index.php?top=7&sub=33&cat=1" title="See all the Phillips University Family News"><div id="newsHeadline"></div></a><div class="newsItem"><h3><a href="../ne/index.php?top=7&amp;sub=33&amp;cat=1&amp;nid=89">2012 REUNION  &#187;</a></h3><p style="color:#999;">06/08/12</p><p>TO REGISTER call (580)237-4433  ask for Winnie</p></div><div class="newsItem"><h3><a href="../ne/index.php?top=7&amp;sub=33&amp;cat=1&amp;nid=90">HOW TO READ THE NEWSLETTER? &#187;</a></h3><p style="color:#999;">04/30/12</p><p>Read the latest newsletter ONLINE</p></div><div class="newsItem"><h3><a href="../ne/index.php?top=7&amp;sub=33&amp;cat=1&amp;nid=57">ALUMNI BOARD &#187;</a></h3><p style="color:#999;">02/16/12</p><p>2011-2012 Board Members</p></div><a style="border:none;" href="../ne/index.php?top=7&sub=34&cat=2" title="See all the Phillips University Family Events"><div id="eventsHeadline"></div></a><div class="newsItem"><h3><a href="../ne/index.php?top=7&amp;sub=34&amp;cat=2&amp;eid=22">REUNION 2012 &#187;</a></h3><p>June 08, 2012 at 6:30 p.m.</p></div>      <p id="subspacer">&nbsp;</p>
+      <div class="newsItem"> <h3 style="margin-bottom:3px;"><a href="http://phillipsunivphotos.smugmug.com" target="_blank">Alumni Photos &#187;</a></h3></div> <div class="newsItem"><h3 style="margin-bottom:3px;"><a href="http://phillipsunivphotos.smugmug.com" target="_blank">Leadership Conference Photos &#187;</a></h3></div>      <div>
+      	<p style="font-size:1.4em;padding-top:2px;"><img style="position:relative;margin-top:-3px;float:left;margin-right:4px;border:none;" src="../images/link-facebook.gif"/><a href="http://www.facebook.com/home.php?ref=home#/group.php?gid=41872278727" target="_blank" title="PUAFA on Facebook">PUAFA on Facebook</a>
+      </div>			
+			<p id="subspacer">&nbsp;</p>
+		</div>
+	<!-- close:news -->
+	
+	<!--<hr />-->
+	<div id="feature">
+			<h2>2011 Leadership Conference a Success!</h2>
+		<div style="margin-bottom:20px;width:95%;">
+    <div style="float:left;clear:both;">
+  <img style="float:left;margin-right:10px;width:163px;height:127px;" src="../images/LSP2011.jpg" alt=""/>
+    <div>
+      <p style="float:right;width:334px;margin-bottom:10px;"><span style="font-style:italic">The 2011 Conference was a great way to finish my time with Phillips University. I really enjoyed the leadership training we received. We learned not only what types of leaders we are, but also how we interact with other personalities.</span><br/><span style="float:right;">&#8212; Dalton Goodier, Sr., TCU</span></p>
+      <p style="float:right;width:334px;margin-bottom:6px;"><span style="font-style:italic">The best part of each leadership conference is getting to spend time with the alumni of Phillips. This year, we had an especially good opportunity to benefit from the experiences of those who have lived, led, and served before us.</span><br/><span style="float:right;">&#8212; Brian Preskitt, Jr., TCU</span></p>
+     </div>
+  </div>
+  
+  <p style="margin-bottom:6px;">The theme for the 2011 Legacy Scholarships Leadership Conference was "Each One - Reach One - Teach One-Lead One."  Twelve Scholars and fourteen PU Alumni and staff participated in the conference at Pine Cove Christian Camp outside of Tyler, TX.  Leadership Trainer, Brian Brandt, helped attendees understand their own strengths and weaknesses and how to communicate more effectively with others.  PU Alumnus Dick Fearnow ('59) spoke with the scholars about his volunteer work in his hometown of Lakeland, FL and Scholar Alumna Kate Krumrei (TCU ’06) spoke about the volunteer work she has performed in third world countries.  Scholars presented their Volunteer Service Projects (40 hours of service are required each year.)  Projects included raising money for cancer research, volunteering with a homeless ministry and ministering to children living in poverty.<img style="margin:10px auto;" src="../images/LSPGroup2011.jpg" alt=""/></p>
+  <h2>Local author donates proceeds of PU history book to Legacy Foundation</h2>
+  <p style="margin-bottom:6px;"><img src="../images/JoAnnPhillips.jpg" style="float:right;margin:0 0 6pc 6px" alt="" />The opening of Cherokee Strip Regional Heritage Center gave new life to a project started more than 10 years ago about Phillips University.</p>
+  <p style="margin-bottom:6px;">Local author JoAnn Phillips was asked years ago to write a book about the university.</p>
+  <p style="margin-bottom:6px;">"I was asked to write a little storybook," she said. "It was to be a promotional item for high school seniors. They could read it and learn about Phillips and decide if they wanted to go there."</p>
+  <p><a href="http://enidnews.com/localnews/x598327311/Local-authors-book-tells-story-of-Phillips-University-through-skunk-eyes" title="Local author donates proceeds of PU history book to Legacy Foundation" target="_blank">&#187; Read the full article&#8230;</a></p>
+  <p>&nbsp;</p>
+  <h2>Enid's Cherokee Strip Regional Heritage Center Opens to Public</h2>
+  <p style="margin-bottom:6px;">Friday was the crowning day for those who worked six years to make Cherokee Strip Regional Heritage Center a reality.</p>
+  <p style="margin-bottom:6px;">Lew Ward, chairman of the board for the center, gave the keynote speech at the grand opening ceremony Friday.</p>
+  <p style="margin-bottom:6px;">"The Land Run of 1893 is said to be the largest competitive event in the history of the country," Ward said. "They came from across our country and many from foreign lands. They brought what some call the Immigrant’s Edge. A pioneer sharpened by previous hardship and excited about the American frontier. It was a story of a dream, of opportunity and freedom, that lured the homesteaders. It’s a story of surviving against all odds."</p>
+  <p style="margin-bottom:6px;"><a href="http://enidnews.com/localnews/x300769871/Enid-s-Cherokee-Strip-Regional-Heritage-Center-opens-to-public" title="Enid's Cherokee Strip Regional Heritage Center Opens to Public" target="_blank">&#187; Read the full article&#8230;</a></p>
+  <iframe title="YouTube video player" width="320" height="210" src="http://www.youtube.com/embed/TytJI1WCi_w?rel=0" frameborder="0" allowfullscreen></iframe>
+  <p>&nbsp;</p>
+  <h2>Phillips University Honored</h2>
+  	<p style="margin-bottom:6px;"><img style="float:right;margin:0 0 4px 6px;" src="../images/proclamation.jpg" alt="The Day of Phillips University &#8211; The Legacy Lives." onMouseover="return escape('<center><br/><img src=\'../images/proclamation-fullsize.jpg\'/><br/><br/></center>')" />Phillips University, which was a major educational force in the Enid area for many years, was honored Tuesday by Enid City Commission with a proclamation from Mayor John Criner.</p>
+  <p style="margin-bottom:6px;">Phillips closed in 1999 and the campus now is home to Northern Oklahoma College Enid.</p>
+  <p style="margin-bottom:6px;">Phillips was founded in Enid in 1907 under the name Oklahoma Christian University, which was the first private Christian university in Oklahoma Territory.</p>
+  <p style="margin-bottom:6px;">According to information from the school, it became known for its academic excellence and from 1907 to 1999 awarded more than 13,000 diplomas.</p>
+  <p style="margin-bottom:6px;">Phillips Legacy Foundation was formed in 2002 by the Phillips University Alumni and Friends Association with the mission of following in the tradition of Phillips University by providing scholarships and opportunities to educate and develop Christian leaders.</p>
+  <p style="margin-bottom:6px;">Since 2002, Phillips Legacy Foundation provided leadership training and has awarded more than $860,000 to 105 Legacy scholars.</p>
+  <p style="margin-bottom:6px;">This month, the foundation will bring scholars to Enid to attend the annual Phillips Legacy Scholars Leadership Conference.</p>
+  <p><span style="font-size:9px;color:#5a0000;"><a href="http://enidnews.com/localnews/x2073120012/Phillips-University-honored" title="Phillips University Honored">By Robert Barron, Staff Writer<br/> Enid News and Eagle</a></span></p>
+ </div>
+  <p id="clearHack">&nbsp;</p>
+  <script language="JavaScript" type="text/javascript" src="../admin/wz_tooltip/wz_tooltip.js"></script>	
+      <p>&nbsp;</p>
+    </div>
+    <!-- close:feature -->
+    <div class="clearHack">&nbsp;</div>
+  <br/>
+	</div>
+  <!-- close:contentwrapper -->
+	</div>
+<!-- close:content -->
+
+<div id="footer"> 
+  <div id="footerwrapper"> 
+    <div id="siteMap">
+			
+<ul class="column">
+<li><a href="../index/index.php?top=1" title="Welcome to Phillips University">HOME</a></li>
+<li><img src="../images/arrowPlus.gif" id="toggleOn2" onClick="subLinks(siteMapFooter2, this);" border="0" alt="Expand Sub-menus" title="Expand Sub-menus"/>&nbsp;<a href="../pu/index.php?top=2" title="Learn about Phillips University Today">Phillips University</a>
+	<ul id="siteMapFooter2" class="siteMapFooter" style="display:none;">
+		<li><a href="../pu/trustees.php?top=2&amp;sub=1" title="Contact information about the Philliips University Board of Trustees">Board of Trustees</a></li>
+		<li><a href="../pu/transcripts.php?top=2&amp;sub=4" title="Where to get copies of your transcript">Transcripts</a></li>
+		<li><a href="../pu/history.php?top=2&amp;sub=5" title="The History of Phillips University">The History of Phillips University</a></li>
+	</ul>
+</li>
+
+<li><img src="../images/arrowPlus.gif" id="toggleOn3" onClick="subLinks(siteMapFooter3, this);" border="0" alt="Expand Sub-menus" title="Expand Sub-menus"/>&nbsp;<a href="../puafa/index.php?top=3" title="Stay connected with the Phillips Alumni & Friends Asscoiation">Alumni Association</a>
+	<ul id="siteMapFooter3" class="siteMapFooter" style="display:none;">
+		<li><a href="../puafa/intouch.php?top=3&amp;sub=8" title="Find out about alumni, faculty, friends, and staff">In-Touch</a></li>
+		<li><a href="../puafa/orgs.php?top=3&amp;sub=7" title="Learn about all the various clubs, hubs, and organizations">Social Organizations</a></li>
+		<li><a href="../puafa/directors.php?top=3&amp;sub=6" title="Philliips University Alumni &amp; Freinds Association: Board of Director">Board of Directors</a></li>
+		<li><a href="../puafa/newsletter.php?top=3&amp;sub=10" title="Download a PDF version of the most recent version of the Connections newsletter">Newsletter</a></li>
+		<li><a href="../puafa/support.php?top=3&amp;sub=11" title="Help Support the Phillips University Alumni &amp; Friends Association">Support Us</a></li>
+		<li><a href="../../custom/giftshop.php?top=3&c=puafa" title="Shop for books and various PU memoriablia">Shopping Mall</a></li>
+		<li><a href="../puafa/staff.php?top=3&amp;sub=14" title="Phillips Univeristy Almuni &amp; Friends Association Staff">Staff</a></li>
+		<li><a href="../puafa/forms.php?top=3&amp;sub=13" title="Download membership applications, reunioin registrations, veterans, and various other forms">Downloadable Forms</a></li>
+	</ul>
+</li>
+
+</ul>
+<ul class="column">
+<li><img src="../images/arrowPlus.gif" id="toggleOn4" onClick="subLinks(siteMapFooter4, this);" border="0" alt="Expand Sub-menus" title="Expand Sub-menus"/>&nbsp;<a href="../pulf/index.php?top=4" title="Phillips University Legacy Foundation: Honoring Its Past, Pursuing Its Vision">Legacy Foundation</a>
+	<ul id="siteMapFooter4" class="siteMapFooter" style="display:none;">
+		<li><a href="../pulf/directors.php?top=4&amp;sub=15" title="PU Legacy Foundation Board of Directors">Board of Directors</a></li>
+		<li><a href="../pulf/staff.php?top=4&amp;sub=18" title="Contact people at the Phillips University Legacy Foundation">Staff</a></li>
+		<li><a href="../pulf/scholarships.php?top=4&amp;sub=20" title="Learn about the Phillips University Tradition Projects vision for the Legacy Scholars Program">Scholarships</a></li>
+		<li><a href="../pulf/gallery.php?top=4&amp;sub=21" title="Learn about the Phillips University Gallery that will be in the newly rennovated Cherokee Strip Regional Heritage Center Museum">Phillips Gallery</a></li>
+		<li><a href="../pulf/waystogive.php?top=4&amp;sub=23" title="Learn about the many opportunities to support the Phillips University Legacy Foundation ">Ways to Give</a></li>
+		<li><a href="../pulf/donate.php?top=4&amp;sub=26" title="Donate to the Phillips University Legacy Foundation Today">Donate Online</a></li>
+	</ul>
+</li>
+
+<li><img src="../images/arrowPlus.gif" id="toggleOn6" onClick="subLinks(siteMapFooter6, this);" border="0" alt="Expand Sub-menus" title="Expand Sub-menus"/>&nbsp;<a href="../lsp/index.php?top=6" title="The Phillips University Legacy Scholarship Program - Nurturing Young Christian Leaders">Scholarships</a>
+	<ul id="siteMapFooter6" class="siteMapFooter" style="display:none;">
+		<li><a href="../lsp/donate.php?top=6&amp;sub=45" title="Donate to the Phillips University Legacy Foundation Today">Donate Online</a></li>
+		<li><a href="../lsp/waystogive.php?top=6&amp;sub=44" title="Learn about the many opportunities to support the Phillips University Legacy Foundation ">Ways to Give</a></li>
+		<li><a href="../lsp/conference.php?top=6&amp;sub=27" title="Learn about the wonderful and lifelong benefits the Leadership Development Conference provides for both our future Christian leaders as well as devoted alumni &amp; freinds">Leadership Conference</a></li>
+		<li><a href="../lsp/currentscholars.php?top=6&amp;sub=28" title="Learn about this years Legacy Scholar recipients and hear what they have to say">Current Scholars</a></li>
+		<li><a href="../lsp/scholarspotlight.php?top=6&amp;sub=41" title="Phillips University Legacy Scholar Program - Scholar Spotlight">Scholar Spotlight</a></li>
+		<li><a href="../lsp/seminary.php?top=6&amp;sub=43" title="PU Legacy Seminary Scholarships">Seminary</a></li>
+		<li><a href="../lsp/undergraduate.php?top=6&amp;sub=42" title="PU Legacy Scholarshhip Program Information">Undergraduate</a></li>
+		<li><a href="../lsp/forms.php?top=6&amp;sub=32" title="Download all the necessary forms to apply for a scholarship">Applications</a></li>
+	</ul>
+</li>
+
+<li><img src="../images/arrowPlus.gif" id="toggleOn7" onClick="subLinks(siteMapFooter7, this);" border="0" alt="Expand Sub-menus" title="Expand Sub-menus"/>&nbsp;<a href="../ne/index.php?top=7&sub=33&cat=1" title="The Latest News &amp; Events from the Phillips University Family">News &amp; Events</a>
+	<ul id="siteMapFooter7" class="siteMapFooter" style="display:none;">
+		<li><a href="../ne/index.php?top=7&amp;sub=33&amp;cat=1" title="Get the most up to date news about Phillips: Legacy Foundation, Alumni &amp; Friends Association, and the Tradition Project">Recent News</a></li>
+		<li><a href="../ne/index.php?top=7&amp;sub=34&amp;cat=2" title="Upcoming Phillips Family Events">Upcoming Events</a></li>
+	</ul>
+</li>
+<li><a href="../custom/search.php">Search</a></li><li><a href="../custom/contact.php">Contact Us</a></li><li><a href="../custom/resources.php">Resources</a></li><li><a href="../custom/giftshop.php">Shopping Mall</a></li>
+</ul>
+    </div>
+    <!-- close:siteMap -->
+    <div id="copyright"> 
+      <p><b>Phillips University Legacy Foundation</b><br/>114 E. Broadway Suite 1001<br/>Enid, OK 73701<br/>(580) 237-4433 PHONE<br/>
+        (580) 237-0124 FAX</p>
+      <p>Email:&nbsp;<a href="mailto:kelly.pu@sbcglobal.net">PULF</a></p>
+      <p>&copy;&nbsp;2012&nbsp;Phillips University Legacy Foundation</p>
+    </div>
+    <!-- close:copyright -->
+    <div style="clear: both;">&nbsp;</div>
+  </div>
+  <!-- close:footerwrapper -->
+</div>
+<!-- close:footer -->	
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-8631821-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

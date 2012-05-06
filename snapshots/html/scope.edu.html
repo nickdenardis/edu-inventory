@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html  lang="en-US">
+<head id="Head">
+<!--**********************************************************************************-->
+<!-- DotNetNuke - http://www.dotnetnuke.com                                          -->
+<!-- Copyright (c) 2002-2012                                                          -->
+<!-- by DotNetNuke Corporation                                                        -->
+<!--**********************************************************************************-->
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><meta content="text/javascript" http-equiv="Content-Script-Type" /><meta content="text/css" http-equiv="Content-Style-Type" /><meta id="MetaKeywords" name="KEYWORDS" content=",DotNetNuke,DNN" /><meta id="MetaCopyright" name="COPYRIGHT" content="Copyright © 2012. City University of Hong Kong. All Rights Reserved." /><meta id="MetaGenerator" name="GENERATOR" content="DotNetNuke " /><meta id="MetaAuthor" name="AUTHOR" content="CityU SCOPE" /><meta name="RESOURCE-TYPE" content="DOCUMENT" /><meta name="DISTRIBUTION" content="GLOBAL" /><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" /><meta name="REVISIT-AFTER" content="1 DAYS" /><meta name="RATING" content="GENERAL" /><meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /><style id="StylePlaceholder" type="text/css"></style><link href="/Portals/_default/default.css?cdv=54" type="text/css" rel="stylesheet"/><link href="/DesktopModules/HTML/module.css?cdv=54" type="text/css" rel="stylesheet"/><link href="/Portals/0/portal.css?cdv=54" type="text/css" rel="stylesheet"/><link href="/admin/ControlPanel/module.css?cdv=54" type="text/css" rel="stylesheet"/><link href="/Portals/_default/Skins/_default/WebControlSkin/Default/ComboBox.Default.css?cdv=54" type="text/css" rel="stylesheet"/><script src="/Resources/Shared/Scripts/jquery/jquery.min.js?cdv=54" type="text/javascript"></script><script src="/Resources/Shared/Scripts/jquery/jquery-ui.min.js?cdv=54" type="text/javascript"></script>     
+        
+			    <script type="text/javascript">
+			      var _gaq = _gaq || [];
+			      _gaq.push(['_setAccount', 'UA-1602394-2']);
+			      _gaq.push(['_trackPageview']);
+			 
+			      (function() {
+				    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			      })();
+			    </script>
+        
+		  <link href="https://template.cityu.edu.hk/template/css/cityu.base.css" media="screen" type="text/css" rel="stylesheet"></link><link href="
+https://template.cityu.edu.hk/template/css/jquery.ddsmoothmenu.css" media="screen" type="text/css" rel="stylesheet"></link><link href="
+https://template.cityu.edu.hk/template/css/jquery.nivo.slider.css" media="screen" type="text/css" rel="stylesheet"></link><link href="/Portals/_default/Skins/Scope2012/css/cityu.base.custom.css" media="screen" type="text/css" rel="stylesheet"></link><link href="
+https://template.cityu.edu.hk/template/css/cityu.print.css" media="print" type="text/css" rel="stylesheet"></link><script language="javascript" type="text/javascript" src="/Portals/_default/Skins/Scope2012/js/cityu.base.config.js"></script><script language="javascript" type="text/javascript" src="
+https://template.cityu.edu.hk/template/js/cityu.base.js"></script><script language="javascript" type="text/javascript" src="
+https://template.cityu.edu.hk/template/js/jquery/ddsmoothmenu/jquery.ddsmoothmenu.js"></script><script language="javascript" type="text/javascript" src="
+https://template.cityu.edu.hk/template/js/jquery/ddsmoothmenu/jquery.ddsmoothmenu.ready.js"></script><script language="javascript" type="text/javascript" src="
+https://template.cityu.edu.hk/template/js/jquery/nivo.slider/jquery.nivo.slider.js"></script><script language="javascript" type="text/javascript" src="
+https://template.cityu.edu.hk/template/js/jquery/nivo.slider/jquery.nivo.slider.ready.js"></script><link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/Scope2012/SiteMap/sitemap.css"></link><title>
+	CityU SCOPE
+</title></head>
+<body id="Body" class="cityu-dept cityu-layout-home cityu-bgtheme-02 cityu-navtheme-03">
+    
+    <form method="post" action="/" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="StylesheetManager_TSSM" id="StylesheetManager_TSSM" value="" />
+<input type="hidden" name="ScriptManager_TSM" id="ScriptManager_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=WJE0DKIDalBp_zC4vEts-0ozoOo_v_r_8zOTXWuxyxEDdc87MW_2LBD8Qx6XUNC0bLDl7frpKMlAhrPj0&amp;t=634691058428792078" type="text/javascript"></script>
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ScriptManager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-US%3a89093640-ae6b-44c3-b8ea-010c934f8924%3aea597d4b%3ab25378d2" type="text/javascript"></script>
+<script src="/js/dnn.js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 90, '');
+//]]>
+</script>
+
+        <script src="/Resources/Shared/Scripts/initTooltips.js?cdv=54" type="text/javascript"></script><script src="/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js?cdv=54" type="text/javascript"></script><script src="/js/dnn.jquery.js?cdv=54" type="text/javascript"></script><script src="/js/dnncore.js?cdv=54" type="text/javascript"></script><script src="/js/dnn.modalpopup.js?cdv=54" type="text/javascript"></script><script src="/Resources/ControlPanel/ControlPanel.debug.js?cdv=54" type="text/javascript"></script>
+        
+        
+
+
+
+	<!-- Header -->
+	<div id="cityu-header" class="cityu-outer">
+		<div class="cityu-inner">
+        
+       	  <!-- Global -->
+		  <div id="cityu-header-global">
+                
+			<!-- CityU Logo -->
+					<div id="cityu-header-cityulogo">
+						<a href="http://www.cityu.edu.hk/"><img src="https://template.cityu.edu.hk/template/img/logos/cityu_deptpage.png" alt="City University of Hong Kong" /></a>
+					</div>
+			<!-- /CityU Logo -->
+             <div class="cityu-skiplink">
+				<a href="#cityu-nav">Skip to navigation</a>
+			</div>
+			<div class="cityu-skiplink">
+				<a href="#cityu-content">Skip to content</a>
+			</div>       
+                    
+			<!-- Toolbar -->    
+			<div id="cityu-header-toolbar">
+			  <!-- Links -->
+				  <div id="cityu-header-links">
+					  <a id="dnn_dnnLOGIN_loginLink" class="SkinObject" href="http://www.scope.edu/Home/UserLogin/tabid/171/Default.aspx?returnurl=%2f">Staff Login</a>
+					  <!--&middot;  -->
+					  
+				  </div>
+			  <!-- /Links -->
+				  
+			  <!-- Search -->
+				  <div id="cityu-header-search">
+					 <span id="dnn_dnnSEARCH_ClassicSearch">
+  
+  <span class="SkinObject" title="Site Search"><input id="dnn_dnnSEARCH_SiteRadioButton" type="radio" name="dnn$dnnSEARCH$Search" value="SiteRadioButton" checked="checked" /><label for="dnn_dnnSEARCH_SiteRadioButton">Site</label></span>
+  <input name="dnn$dnnSEARCH$txtSearch" type="text" maxlength="255" size="20" id="dnn_dnnSEARCH_txtSearch" class="NormalTextBox" onkeydown="return __dnn_KeyDown(&#39;13&#39;, &#39;javascript:__doPostBack(%27dnn$dnnSEARCH$cmdSearch%27,%27%27)&#39;, event);" />&nbsp;
+  <a id="dnn_dnnSEARCH_cmdSearch" class="SkinObject" href="javascript:__doPostBack(&#39;dnn$dnnSEARCH$cmdSearch&#39;,&#39;&#39;)">Search</a>
+</span>
+
+
+
+				  </div>
+			  <!-- /Search -->
+			</div>
+			<!-- Toolbar -->  
+          </div>
+	      <!-- /Global -->
+            
+            <!-- Local -->
+				<div id="cityu-header-local">
+					<div id="cityu-header-deptnames">
+						<div id="cityu-header-parentname">
+						</div>
+						<div id="cityu-header-deptname">
+						<a href="http://www.scope.edu/">School of Continuing and Professional Education</a>
+						</div>
+					</div>
+				  <!-- Dept Logos -->
+				  <div id="cityu-header-deptlogos">
+				   <a id="dnn_LOGO_hypLogo" title="CityU SCOPE" href="http://www.scope.edu/Home.aspx"><img id="dnn_LOGO_imgLogo" src="/Portals/0/logo.gif" alt="CityU SCOPE" style="border-width:0px;" /></a>
+				   </div>
+				  <!-- /Dept Logos -->
+			  </div>
+				<!-- /Local -->
+	  </div>
+	</div>
+    <!-- /Header -->
+                
+	<!-- Main Nav -->
+    <div id="cityu-nav" class="cityu-outer">
+        <div class="cityu-inner">
+            <!-- Nav - Dynamic Drive - Smooth Navigational Menu -->
+            <!-- DDRmenu v02.00.01 - DNNStandard template --><div id="cityu-nav-list" class="ddsmoothmenu">
+    <ul class="cityu-fontsize-S">
+		<li class="cityu-icon-home">
+			<a href="/">
+				<div title="Home"></div>
+			</a>
+		</li>
+	    
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/MessageFromDirector.aspx" style="padding:10px 10px 10px 10px">About Us</a>
+		
+			<ul>
+				
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/OurMission.aspx">Our Mission</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/MessageFromDirector.aspx">Message From Director</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/StaffDirectory.aspx">Staff Directory</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/HistoricHighlights.aspx">Historic Highlights</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/EmploymentSCOPE.aspx">Employment@SCOPE</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/AboutUs/ContactUs.aspx">Contact Us</a>
+		
+	</li>
+
+			</ul>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/Programmes.aspx" style="padding:10px 10px 10px 10px">Programmes</a>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home.aspx" style="padding:10px 10px 10px 10px">Students</a>
+		
+			<ul>
+				
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/Students/ProspectiveStudents/LocalStudents/ApplicationMethods.aspx">Prospective Students</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/Students/CurrentStudents/StudentServices.aspx">Current Students</a>
+		
+	</li>
+
+			</ul>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/Application/ApplicationMethod.aspx" style="padding:10px 10px 10px 10px">Application</a>
+		
+			<ul>
+				
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/Application/ApplicationMethod.aspx">Application Method</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/Application/PaymentMethods.aspx">Payment Methods</a>
+		
+	</li>
+
+	<li >
+		
+			<a class="" href="http://www.scope.edu/Home/Application/FinancialAssistance.aspx">Financial Assistance</a>
+		
+	</li>
+
+			</ul>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/DiplomaCertificateandShortCourse/語文選修課程.aspx" style="padding:10px 10px 10px 10px">Courses for CityU Students</a>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/DiplomaCertificateandShortCourse/香港城市大學長者學苑.aspx" style="padding:10px 10px 10px 10px">Elder Academy</a>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/LearningCentres.aspx" style="padding:10px 10px 10px 10px">Learning Centres</a>
+		
+	</li>
+
+	<li>
+		
+			<a class="" href="http://www.scope.edu/Home/CorporateTraining.aspx" style="padding:10px 10px 10px 10px">Corporate Training</a>
+		
+	</li>
+
+    </ul>
+</div>
+
+
+
+            <!-- /Nav - Dynamic Drive - Smooth Navigational Menu -->
+        </div>
+    </div>
+	<!-- Main Nav -->
+    
+    <!-- Media -->
+    <div id="cityu-media" class="cityu-outer">
+      <div class="cityu-inner">
+
+            <!-- Slider-->
+        <div id="cityu-media-slider-wrapper" class="theme-default" >
+                <div id="dnn_TopLeftPane"> <div class="DnnModule DnnModule-DNN_HTML DnnModule-3922"><a name="3922"></a><div id="dnn_ctr3922_ContentPane"><!-- Start_Module_3922 --><div id="dnn_ctr3922_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3922_HtmlModule_lblContent" class="Normal">
+	<div id="cityu-media-slider" class="nivoSlider"><a href="Home/Programmes.aspx"><img title="Postgraduate and Top-up Programmes Open for Application Now" src="/portals/0/events/news_ofa0412.png" alt="Postgraduate and Top-up Programmes Open for Application Now" /></a> <a href="/Home/ePublications.aspx"><img title="New Prospectus available Online NOW!" src="/portals/0/events/news_booklet0112.png" alt="New Prospectus available Online NOW!" /></a> <a href="#"><img title="We are the sum of our choices." src="/portals/0/events/news_quote09.png" alt="We are the sum of our choices." /></a></div>
+</div>
+
+</div><!-- End_Module_3922 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+        </div>
+          <!-- /Slider -->
+
+          <!-- News -->
+        <div id="cityu-media-news">
+            <div id="dnn_TopRightPane"> <div class="DnnModule DnnModule-DNN_HTML DnnModule-3918"><a name="3918"></a><div id="dnn_ctr3918_ContentPane"><!-- Start_Module_3918 --><div id="dnn_ctr3918_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3918_HtmlModule_lblContent" class="Normal">
+	<div style="width: 260px; height: 350px; margin: 0px; padding: 0px; overflow: hidden; position: relative;"><span style="position: absolute; top: 0px; left: 0px;"><img src="/portals/0/CustomImages/temp_pic_01.jpg" alt="Programme Header" /></span> <span style="position: absolute; top: 114px; left: 0px;"><a href="/Home/PostgraduateDegree.aspx"><img src="/portals/0/CustomImages/temp_pic_02.jpg" alt="Post Graduate Degree" /></a></span> <span style="position: absolute; top: 186px; left: 0px;"><a href="/Home/UndergraduateDegree.aspx"><img src="/portals/0/CustomImages/temp_pic_03.jpg" alt="Under Graduate Degree" /></a></span> <span style="position: absolute; top: 259px; left: 0px;"><a href="/Home/DiplomaCertificateandShortCourse.aspx"><img src="/portals/0/CustomImages/temp_pic_04.jpg" alt="Diploma Certificate and Short Course" /></a></span> <span style="position: absolute; top: 328px; left: 0px;"><img alt="" src="/portals/0/CustomImages/temp_pic_05.jpg" /></span></div>
+</div>
+
+</div><!-- End_Module_3918 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+		</div>
+          <!-- /News -->
+
+        </div>
+    </div>
+    <!-- /Media -->	
+    
+	
+
+
+  <!--cityu-main --> 
+  <div id="cityu-main" class="cityu-outer">
+  <!--cityu-inner --> 
+      <div class="cityu-inner">    
+      
+
+				<!-- Sidebar 2 -->
+				<div id="cityu-sidebar-2">
+					
+					<!-- Box -->
+					<div id="dnn_RightTopPane" class="cityu-box cityu-sub-slider"><div class="DnnModule DnnModule-DNN_HTML DnnModule-3919"><a name="3919"></a><div id="dnn_ctr3919_ContentPane"><!-- Start_Module_3919 --><div id="dnn_ctr3919_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3919_HtmlModule_lblContent" class="Normal">
+	<div class="cityu-box-header">Spotlights</div>
+<div id="cityu-sub-slider-wrapper" class="theme-sub">
+<div id="cityu-sub-slider" class="nivoSlider"><a href="/Home/Students/CurrentStudents/PastoralCare.aspx"><img src="/portals/0/spotlights/sl_pastoralcare.png" alt="Pastoral Care" /></a></div>
+</div>
+</div>
+
+</div><!-- End_Module_3919 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+			   		 <!-- /Box -->
+
+					<!-- Box -->
+					<div id="dnn_RightBottomPane" class="cityu-box"><div class="DnnModule DnnModule-DNN_HTML DnnModule-3921"><a name="3921"></a><div id="dnn_ctr3921_ContentPane"><!-- Start_Module_3921 --><div id="dnn_ctr3921_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3921_HtmlModule_lblContent" class="Normal">
+	<a target="_blank" href="/progs/degree/sharingbygraduates/default.html"><img alt="" width="260" height="109" src="/portals/0/CustomImages/news-02.jpg" /></a><br />
+<a target="_blank" href="/seminar/"><img alt="" width="260" height="133" src="/portals/0/CustomImages/news-01.jpg" /></a>
+</div>
+
+</div><!-- End_Module_3921 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+				  <!-- /Box -->
+                </div>
+				<!-- /Sidebar 2 -->   
+
+      			<!--Content -->
+   				 <div id="cityu-content">
+					 <div class="cityu-content-columns" >
+						<!-- Column -->
+						<div id="dnn_LeftPane" class="cityu-content-column"> <div class="DnnModule DnnModule-DNN_HTML DnnModule-3920"><a name="3920"></a><div id="dnn_ctr3920_ContentPane"><!-- Start_Module_3920 --><div id="dnn_ctr3920_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3920_HtmlModule_lblContent" class="Normal">
+	<h1>Current Students</h1>
+<ul class="cityu-lineheight-S">
+    <li><a target="_blank" href="https://banweb.cityu.edu.hk/pls/PROD/twgkpweq_cityu.P_ActivateEID_SCOPE">Activiate EID</a></li>
+    <li><a target="_blank" href="http://www.cityu.edu.hk/cityu/student/index.htm">CityU e-Portal</a></li>
+    <li><a href="/Home/Students/CurrentStudents/PaymentMethods.aspx">Payment Methods</a></li>
+    <li><a href="/Home/Students/CurrentStudents/CertificatesTranscripts.aspx">Certificates &amp; Transcripts</a></li>
+    <li><a href="/Home/Students/CurrentStudents/StudentServices.aspx">Student Services</a></li>
+    <li><a href="/Home/Students/CurrentStudents/PastoralCare.aspx">Pastoral Care</a></li>
+    <li><a href="/Home/Students/CurrentStudents/ServiceCharges.aspx">Service Charges</a></li>
+    <li><a href="/Home/Students/CurrentStudents/CodeofConduct.aspx">Code of Conduct</a></li>
+    <li><a href="/Home/Students/CurrentStudents/FeedbackChannel.aspx">Feedback Channel</a></li>
+    <li><a href="/Home/Students/CurrentStudents/FAQ.aspx">FAQ</a></li>
+</ul>
+<p><a href="/Home/Students/CurrentStudents/AdverseWeatherArrangements.aspx"><img src="/portals/0/CustomImages/weather_arrangements.png" alt="AdverseWeatherArrangements" /></a></p>
+</div>
+
+</div><!-- End_Module_3920 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+						<!-- /Column -->
+						<!-- Column -->
+						<div id="dnn_ContentPane" class="cityu-content-column"> <div class="DnnModule DnnModule-DNN_HTML DnnModule-3916"><a name="3916"></a><div id="dnn_ctr3916_ContentPane"><!-- Start_Module_3916 --><div id="dnn_ctr3916_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3916_HtmlModule_lblContent" class="Normal">
+	<h1>Prospective Students</h1>
+<ul class="cityu-lineheight-S"><!--<li><a href="#">e-Publications</a></li>-->
+    <li><a href="/Home/Students/ProspectiveStudents/LocalStudents/ApplicationMethods.aspx">Application Methods</a></li>
+    <!--<li><a href="#">Payment Methods</a></li>--><!--<li><a href="#">Financial Assistance</a></li>-->
+    <li><a href="/Home/Students/ProspectiveStudents/LocalStudents/TrackStatus.aspx">Track Status</a></li>
+    <li><a href="/Home/Students/ProspectiveStudents/LocalStudents/FAQ.aspx">FAQ</a></li>
+</ul>
+</div>
+
+</div><!-- End_Module_3916 --></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+						<!-- /Column -->
+						
+						<!-- Column -->
+						<div id="dnn_SearchPane" class="cityu-content-column"> <div class="DnnModule DnnModule-GTIProgramSearch DnnModule-475"><a name="475"></a><div id="dnn_ctr475_ContentPane"><!-- Start_Module_475 --><div id="dnn_ctr475_ModuleContent" class="DNNModuleContent ModGTIProgramSearchC">
+	
+
+<script type="text/javascript" language="javascript">
+var searchBoxfocus = false;
+function attachEvents(control)
+{
+     if (window.addEventListener) //DOM method for binding an event
+     {
+         control.addEventListener("focus",function(){
+                searchBoxfocus = true;
+        },false);
+        
+        control.addEventListener("blur",function(){
+            searchBoxfocus = false;
+        },false);
+     }
+     else{
+         control.attachEvent('onfocus',
+            function(){
+                searchBoxfocus = true;
+        });
+        
+        control.attachEvent('onblur',
+            function(){
+                searchBoxfocus = false;
+        });
+     }
+     
+}
+$(document).ready(function(){
+    var txtKeywords = document.getElementById('dnn_ctr475_ViewProgramSearch_txtKeywords');
+    var ddlStudyMode = document.getElementById('dnn_ctr475_ViewProgramSearch_ddlStudyMode');
+    var ddlLevelofStudy = document.getElementById('dnn_ctr475_ViewProgramSearch_ddlLevelofStudy');
+    var ddlDiscipline = document.getElementById('dnn_ctr475_ViewProgramSearch_ddlDiscipline');
+    var searchButton = document.getElementById('dnn_ctr475_ViewProgramSearch_btnProgramSearchButton');
+    
+    attachEvents(txtKeywords);
+    attachEvents(ddlStudyMode);
+    attachEvents(ddlLevelofStudy);
+    attachEvents(ddlDiscipline);
+    
+	$(document).keypress(function(event){
+	    if (event.keyCode == '13' && searchBoxfocus) {
+	        event.preventDefault();
+	        searchButton.focus();
+            searchButton.click();  
+        }
+	});
+});
+</script>
+
+
+
+<!--<img id="dnn_ctr475_ViewProgramSearch_imgCourseSearch" src="DesktopModules/GTI.ProgramSearch/images/IndexCourseSearchBtn.gif" />-->
+<h1>Quick Search for Programmes & Courses</h1> 
+
+<div id="dnn_ctr475_ViewProgramSearch_ProgramSearchContent" style="background: url(DesktopModules/GTI.ProgramSearch/images/IndexCourseSearchBG02.gif) bottom left no-repeat;">
+	<table>
+		<tr>
+			<td><span id="dnn_ctr475_ViewProgramSearch_lblKeywords">Keywords:</span></td>
+			<td><input name="dnn$ctr475$ViewProgramSearch$txtKeywords" type="text" id="dnn_ctr475_ViewProgramSearch_txtKeywords" /></td>     
+		</tr>
+		<tr>
+			<td><span id="dnn_ctr475_ViewProgramSearch_lblStudyMode">Study Mode:</span></td>
+			<td><select name="dnn$ctr475$ViewProgramSearch$ddlStudyMode" id="dnn_ctr475_ViewProgramSearch_ddlStudyMode">
+		<option value="">All</option>
+		<option value="MM">Mixed Mode</option>
+		<option value="PT">Part Time</option>
+		<option value="FT">Full Time</option>
+
+	</select></td>
+		</tr>
+		<tr>
+			<td><span id="dnn_ctr475_ViewProgramSearch_lblLevelofStudy">Level of Study:</span></td>
+			<td><select name="dnn$ctr475$ViewProgramSearch$ddlLevelofStudy" id="dnn_ctr475_ViewProgramSearch_ddlLevelofStudy">
+		<option value="-1">All</option>
+		<option value="7">Postgraduate</option>
+		<option value="6">Undergraduate</option>
+		<option value="5">Diploma</option>
+		<option value="4">Certificate</option>
+		<option value="2">Professional</option>
+		<option value="1">General</option>
+
+	</select></td>
+		</tr>
+		<tr>
+			<td><span id="dnn_ctr475_ViewProgramSearch_lblDiscipline">Subject:</span></td>
+			<td><select name="dnn$ctr475$ViewProgramSearch$ddlDiscipline" id="dnn_ctr475_ViewProgramSearch_ddlDiscipline" class="skinindexSearchInput">
+		<option value="-1"></option>
+		<option value="1">Accounting and Finance</option>
+		<option value="2">Business Administration and Management</option>
+		<option value="11">Calligraphy, Painting and Floral Design</option>
+		<option value="4">Computer Science, IT and Multimedia</option>
+		<option value="3">Construction and Built Environment</option>
+		<option value="21">Cultural Enrichment</option>
+		<option value="15">Design</option>
+		<option value="17">Engineering</option>
+		<option value="22">Healthcare, Beauty and Fitness</option>
+		<option value="13">Hospitality and Tourism</option>
+		<option value="7">Hygiene and Safety</option>
+		<option value="12">Language and Communication</option>
+		<option value="16">Law</option>
+		<option value="10">Logistics and Transportation</option>
+		<option value="23">Others</option>
+		<option value="5">Social Science and Education</option>
+
+	</select></td>
+		</tr>
+		<tr>
+			<td><input type="image" name="dnn$ctr475$ViewProgramSearch$btnProgramSearchButton" id="dnn_ctr475_ViewProgramSearch_btnProgramSearchButton" title="Search" src="DesktopModules/GTI.ProgramSearch/images/IndexSearchBtn.gif" alt="Search" /></td>
+			<td><a id="dnn_ctr475_ViewProgramSearch_hLinkAdvancedSearch" href="http://www.scope.edu/Home/Programmes.aspx">Advanced Search</a></td>
+		</tr>
+	</table>
+</div>                
+   
+</div><!-- End_Module_475 --></div>
+</div></div>
+						<!-- /Column -->
+					</div>
+                </div>
+                <!--/Content-->
+
+
+
+        </div><!--cityu-inner --> 
+     </div><!--cityu-main --> 
+
+    <!-- Footer -->
+    <div id="cityu-footer" class="cityu-outer">
+        <div class="cityu-inner">
+            <!-- Footer Sitemap -->
+            <div id="cityu-footer-nav-list">
+                <!-- DDRmenu v02.00.01 - SiteMap template --><div class="sitemap">
+  <ul>
+    <li><a href="http://www.scope.edu/Home/AboutUs/MessageFromDirector.aspx">About Us</a><ul>
+        <li><a href="http://www.scope.edu/Home/AboutUs/OurMission.aspx">Our Mission</a></li>
+        <li><a href="http://www.scope.edu/Home/AboutUs/MessageFromDirector.aspx">Message From Director</a></li>
+        <li><a href="http://www.scope.edu/Home/AboutUs/StaffDirectory.aspx">Staff Directory</a></li>
+        <li><a href="http://www.scope.edu/Home/AboutUs/HistoricHighlights.aspx">Historic Highlights</a></li>
+        <li><a href="http://www.scope.edu/Home/AboutUs/EmploymentSCOPE.aspx">Employment@SCOPE</a></li>
+        <li><a href="http://www.scope.edu/Home/AboutUs/ContactUs.aspx">Contact Us</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/Programmes.aspx">Programmes</a></li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home.aspx">Students</a><ul>
+        <li><a href="http://www.scope.edu/Home/Students/ProspectiveStudents/LocalStudents/ApplicationMethods.aspx">Prospective Students</a></li>
+        <li><a href="http://www.scope.edu/Home/Students/CurrentStudents/StudentServices.aspx">Current Students</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/Application/ApplicationMethod.aspx">Application</a><ul>
+        <li><a href="http://www.scope.edu/Home/Application/ApplicationMethod.aspx">Application Method</a></li>
+        <li><a href="http://www.scope.edu/Home/Application/PaymentMethods.aspx">Payment Methods</a></li>
+        <li><a href="http://www.scope.edu/Home/Application/FinancialAssistance.aspx">Financial Assistance</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/DiplomaCertificateandShortCourse/%E8%AA%9E%E6%96%87%E9%81%B8%E4%BF%AE%E8%AA%B2%E7%A8%8B.aspx">Courses for CityU Students</a></li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/DiplomaCertificateandShortCourse/%E9%A6%99%E6%B8%AF%E5%9F%8E%E5%B8%82%E5%A4%A7%E5%AD%B8%E9%95%B7%E8%80%85%E5%AD%B8%E8%8B%91.aspx">Elder Academy</a></li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/LearningCentres.aspx">Learning Centres</a></li>
+  </ul>
+  <ul>
+    <li><a href="http://www.scope.edu/Home/CorporateTraining.aspx">Corporate Training</a></li>
+  </ul>
+</div>
+<div style="clear:both"></div>
+            </div>
+            <!-- /Footer Sitemap -->
+            <hr />
+            <!-- Column -->
+            <div id="cityu-footer-column">
+                <!-- Notes -->
+                <div id="cityu-footer-notes">
+                    <!-- Links -->
+                    <div id="cityu-footer-links">
+                        <a href="http://www.cityu.edu.hk/cityu/geninfo/privacy.htm" target="_blank">Privacy Policy</a> &middot; 
+						<a href="http://www.cityu.edu.hk/cityu/copyright/index.htm#copyright" target="_blank">Copyright</a> &middot; 
+						<a href="/Home/Disclaimer.aspx">Disclaimer</a>&middot; 
+						<a href="/Home/AboutUs/ContactUs.aspx">Contact Us</a>
+                    </div>
+                    <!-- /Links -->
+                    <!-- Credits -->
+                    <div id="cityu-footer-credits">
+                        <span id="dnn_dnnCOPYRIGHT_lblCopyright" class="SkinObject">Copyright © 2012. City University of Hong Kong. All Rights Reserved.</span>
+
+                    </div>
+                    <!-- /Credits -->
+                </div>
+                <!-- /Notes -->
+                <!-- Icons -->
+                <div id="cityu-footer-icons">
+                    <a href="http://www.cityu.edu.hk/">
+                        <img src="https://template.cityu.edu.hk/template/img/logos/cityu_footer.png" alt="City University of Hong Kong" /></a>
+                </div>
+                <!-- /Icons -->
+            </div>
+            <!-- /Column -->
+        </div>
+    </div>
+    <!-- /Footer -->
+     
+     
+ 
+     
+
+
+
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" autocomplete="off" value="`{`__scdoff`:`1`}" />
+        
+    
+<script type="text/javascript" src="/Resources/Shared/scripts/initWidgets.js" ></script></form>
+    
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        
+        //This code is to force a refresh of browser cache
+        //in case an old version of dnn.js is loaded
+        //It should be removed as soon as .js versioning is added
+        jQuery(document).ready(function () {
+            if (navigator.userAgent.indexOf(" Chrome/") == -1) {
+                if ((typeof dnnJscriptVersion === 'undefined' || dnnJscriptVersion !== "6.0.0") && typeof dnn !== 'undefined') {
+                    window.location.reload(true);
+                }
+            }
+        });
+         //]]>
+    </script>
+</body>
+</html>

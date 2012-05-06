@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta name="keywords" content="MST, Missouri S&amp;T, UMR, University of Missouri-Rolla, MS&amp;T, MO-S&amp;T, Rolla, Joe Miner, MOST, MUST, engineering, engineering school, aerospace engineering, mathematics, math, environmental biology, biology, biological sciences, biomaterials, business administration, MBA, ceramic engineering, chemical engineering, chemistry, civil engineering, computer science, earth science, economics, electrical engineering, engineering management, English, environmental engineering, geological engineering, geology, geophysics, geotechnics, history, information science and technology, interdisciplinary engineering, manufacturing engineering, materials science and engineering, mechanical engineering, metallurgical engineering, mining engineering, nuclear engineering, petroleum engineering, philosophy, physics, psychology, systems engineering, technical communication, technology, science, college, university, undergraduate, graduate, distance education, continuing education, certificate programs, admissions, financial aid, summer programs, pre-college, Rolla, Missouri, engineering college, engineering university" />
+<meta name="Description" content="Missouri University of Science and Technology, formerly the University of Missouri-Rolla, is one of the world's leading technological research universities. Known internationally for its engineering, science and technology programs, Missouri S&amp;T also offers degrees in business, humanities, the liberal arts and more. Founded in 1870 as the University of Missouri School of Mines and Metallurgy (MSM), Missouri S&amp;T offers undergraduate, graduate and Ph.D. degrees as well as online programs and graduate certificate programs." />
+<title> Missouri University of Science and Technology</title>	
+            
+
+<link type="text/css" rel="stylesheet" href="/site_config/global/css/header.css"></link>
+<link type="text/css" rel="stylesheet" href="/site_config/global/css/footer.css"></link>
+<link type="text/css" rel="stylesheet" href="/site_config/type1/css/template.css"></link>
+<link type="text/css" rel="stylesheet" href="/local_config/css/override.css"></link>
+<link rel="stylesheet" href="/site_config/type3/css/type3-print.css" type="text/css" media="print" />
+
+<script type="text/javascript" src="/local_config/js/local.js"></script>
+<script type="text/JavaScript" src="http://gateway.mst.edu/site_config/global/js/commonScripts.js"></script>
+<script type="text/javascript" language="javascript">
+		//overriding unneeded functions
+		
+		function initNav(){
+			return 0;
+		};
+		
+		function matchHeight(){
+			return 0;
+		};
+	  	AC_FL_RunContent = 0;
+    </script>
+<script type="text/JavaScript" src="http://gateway.mst.edu/site_config/global/js/global_nav.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" ></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js" ></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+	    $.ajax({
+	        type: "GET",
+	        url: "/site_config/global/includes/profiles.xml",
+	        dataType: "xml",
+	        success: xmlParser
+	    });
+
+	});
+
+	function xmlParser(xml) {
+		var profileCount = $(xml).find("profile").length;
+		var packetCount = $(xml).find("packet").length;
+		var randProfile = Math.floor(Math.random()*profileCount);
+		var randPacket = Math.floor(Math.random()*packetCount);
+		$(xml).find("profile").each(function (index,domEle) {
+			if (index == randProfile){											  
+				$("#footerProfile").append('<a href="'+$(this).find("readmorelink").text()+'" title="'+$(this).find("profilealt").text()+'"><img src="'+$(this).find("picture").text()+'" alt="'+$(this).find("profilealt").text()+'" width="135px" height="134px" border="0"></img></a>');
+				$("#footerProfileText").append('<p><strong>'+$(this).find("heading").text()+'</strong><br />'+$(this).find("text").text()+' <a href="'+$(this).find("readmorelink").text()+'"> Read More</a></p>');
+			}
+		});
+		$(xml).find("packet").each(function (index,domEle2) {
+			if (index == randPacket){											  
+				$("#footerFacts").append('<a href="'+$(this).find("packetlink").text()+'" title="'+$(this).find("packetalt").text()+'"><img src="'+$(this).find("picture").text()+'" alt="'+$(this).find("packetalt").text()+'" width="600px" height="60px" border="0"></img></a>');
+			}
+		});	
+	}
+	
+	function getCount(xml,nodes){
+		var response = {};
+		for (var node in nodes) 
+				{
+			response[node] = $(nodes[node],xml).length;
+		}
+		return response;
+    }
+</script>
+<script type="text/javascript">
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+		</script>
+		<script type="text/javascript">
+			var firstTracker = _gat._getTracker("UA-3753913-1");
+			firstTracker._setDomainName("mst.edu");
+			firstTracker._initData();
+
+			firstTracker._trackPageview();
+			var secondTracker = _gat._getTracker("UA-6741508-1");
+			secondTracker._setDomainName("mst.edu");
+			secondTracker._setAllowLinker(true);
+			secondTracker._initData();
+			secondTracker._trackPageview();
+			var thirdTracker = _gat._getTracker("UA-6775924-1");
+			thirdTracker._setDomainName("mst.edu");
+			thirdTracker._setAllowLinker(true);
+			thirdTracker._initData();
+
+			thirdTracker._trackPageview();
+			var fourthTracker = _gat._getTracker("UA-6775931-1");
+			fourthTracker._setDomainName("mst.edu");
+			fourthTracker._setAllowLinker(true);
+			fourthTracker._initData();
+			fourthTracker._trackPageview();
+			var fifthTracker = _gat._getTracker("UA-6775937-1");
+			fifthTracker._setDomainName("mst.edu");
+			fifthTracker._setAllowLinker(true);
+			fifthTracker._initData();
+			fifthTracker._trackPageview();
+		</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#featured").tabs({
+		   show: function(event, ui) { 
+		 	$(".ui-tabs-nav-item").stop().animate({ opacity: 0.5 });
+			$(".ui-tabs-selected").stop().animate({ opacity: 1.0 }); }
+		});	
+		$("#featured").bind( "tabsshow", function(event, ui) {
+			$(".ui-tabs-nav-item").stop().animate({ opacity: 0.5 });
+			$(".ui-tabs-selected").stop().animate({ opacity: 1.0 });
+		});
+		
+		if( -1 != navigator.userAgent.indexOf ("MSIE") )
+		{
+			// load Microsoft Internet 
+			// Explorer version
+			var featuredTabs = $('#featured').tabs();			
+			featuredTabs.tabs("rotate", 7000, true);
+		
+		}
+		else
+		{
+			$('#featured').tabs({fx:[{opacity: 'fadeOut', duration: 'slow'},{opacity: 'toggle', duration: 'normal'}]}).tabs("rotate", 7000, true);		
+		}
+		
+		$("#featured").hover(
+			function() {
+				$('#featured').tabs("rotate",0,true);
+			},
+			function() {
+				$('#featured').tabs("rotate",7000,true);
+			}
+		);	
+
+	});
+
+</script>
+
+</head><body><div id="page">
+				<div id="floatingLogo"><a href="http://www.mst.edu" title="Missouri S&amp;T"><img src="/site_config/global/images/sandtLogo.jpg" alt="Missouri S&amp;T" width="97" height="79" hspace="0" vspace="0" border="0" align="bottom" /></a></div>
+				<form id="search" method="get" action="http://search.mst.edu/search" class="quicklinks">
+			<input name="output" value="xml_no_dtd" type="hidden" />
+			<input name="client" value="default_frontend" type="hidden" />
+			<input name="proxystylesheet" value="default_frontend" type="hidden" />
+			<input name="site" value="default_collection" type="hidden" />
+				<a href="http://calendar.mst.edu/">CALENDAR</a>
+				&nbsp;&nbsp;
+				<a href="http://www.mst.edu/map/">CAMPUS MAP</a>
+				&nbsp;&nbsp;
+				<a href="http://directory.mst.edu">FIND PEOPLE</a>
+				&nbsp;&nbsp;
+				<a href="http://directory.mst.edu/organizations/groups_alpha.html">A-Z INDEX</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+			<input id="search1" size="15" name="q" value="Search" onfocus="clearText(this)" class="boxStyle" type="text" />
+			<input id="searchArrow" type="image" src="/site_config/global/images/arrow.png" alt="Search" />
+		</form> 
+        	<div id="header"></div>
+		<div id="globalNav">
+			<ul id="nav">
+  <li><a href="http://futurestudents.mst.edu">FUTURE STUDENTS</a>
+                  <ul>
+                  		<li></li>
+                        <li><a href="http://futurestudents.mst.edu">Information for Future Students</a></li>
+                        <li><div style="height:10px;" align="center"></div></li>
+                        <li class="alternate"><a href="http://futurestudents.mst.edu/degrees/index.html">Majors and Degrees</a></li>
+                    <li class="alternate"><a href="http://futurestudents.mst.edu/visit/index.html">Campus Visit Programs</a></li>
+                        <li class="alternate"><a href="http://futurestudents.mst.edu/admissions/application_select.html">Apply for Admission</a></li>
+                        <li class="alternate"><a href="http://futurestudents.mst.edu/costs/costs.html">Costs and Fees</a></li>
+                        <li class="alternate"><a href="http://futurestudents.mst.edu/admissions/requestinfo.html">Request Information</a></li>
+                    <li><div style="height:10px;" align="center"></div></li>
+                    	<li><a href="http://futurestudents.mst.edu">Admissions</a></li>
+                        <li><a href="http://dce.mst.edu/index.html">Distance &amp; Continuing Education</a></li>
+                        <li><a href="http://sfa.mst.edu/index.html">Financial Aid &amp; Scholarships</a></li>
+                        <li><a href="http://reslife.mst.edu/index.html">Student Housing</a></li>
+                        <li><a href="http://pro.mst.edu/index.html">New Student Orientation</a></li>
+                        <li><a href="http://futurestudents.mst.edu/precollege/index.html">Summer Camps &amp; Pre-College Programs</a></li>
+                        <li><a href="http://ugs.mst.edu/index.html">Undergraduate Studies</a></li>
+                        <li><a href="http://grad.mst.edu/index.html">Graduate Studies</a></li>
+                        <li><a href="http://studentlife.mst.edu/index.html">Student Life &amp; Campus Activities</a></li>
+                  </ul>
+  </li>
+  <li><a href="http://www.mst.edu/students/">CURRENT STUDENTS</a>
+                  <ul>
+                  		<li></li>
+                        <li><a href="http://www.mst.edu/students/">Information for Current Students</a></li>
+                        <li><div style="height:10px;" align="center"></div></li>
+                <li class="alternate"><a href="https://www.google.com/a/mst.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fa%2Fmst.edu%2F&bsv=1eic6yu9oa4y3&ss=1&ltmpl=default&ltmplcache=2">Gmail</a></li>
+                        <li class="alternate"><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1293745543&rver=6.1.6206.0&wp=MBI&wreply=http:%2F%2Fmail.live.com%2Fdefault.aspx&lc=1033&id=64855&mkt=en-us&cbcxt=mai&snsc=1">Outlook Live</a></li>
+		<li class="alternate"><a href="https://joess.mst.edu/index.html">Joe'SS</a></li>
+          		<li class="alternate"><a href="http://blackboard.mst.edu/webapps/login/">Blackboard</a></li>
+                        <li><div style="height:10px;" align="center"></div></li>
+                        <li><a href="http://www.mstbookstore.com/">Bookstore</a></li>
+                        <li><a href="http://calendar.mst.edu">Calendar</a></li>
+                        <li><a href="http://career.mst.edu/index.html">Career Opportunities and Employer Relations</a></li>
+		<li><a href="http://cashier.mst.edu/index.html">Cashier</a></li>
+                        <li><a href="http://sfa.mst.edu/costs/index.html">Costs &amp; Fees</a></li>
+                        <li><a href="http://dce.mst.edu/index.html">Distance &amp; Continuing Education</a></li>
+                        <li><a href="http://sfa.mst.edu/index.html">Financial Aid</a></li>
+                        <li><a href="http://grad.mst.edu/index.html">Graduate Studies</a></li>
+                        <li><a href="http://it.mst.edu/current_students/help_index.html">HelpDesk</a></li>
+                        <li><a href="http://library.mst.edu/index.html">Library</a></li>
+                        <li><a href="http://registrar.mst.edu/index.html">Registrar</a></li>
+                        <li><a href="http://reslife.mst.edu/index.html">Residential Life</a></li>
+                        <li><a href="http://stuaff.mst.edu/index.html">Student Affairs</a></li>
+                        <li><a href="http://studentlife.mst.edu/index.html">Student Life</a></li>
+                        <li><a href="http://studentlife.mst.edu/organizations/">Student Organizations</a></li>
+                        <li><a href="http://ugs.mst.edu">Undergraduate Studies</a></li>
+                        <li><a href="http://writingcenter.mst.edu">Writing Center</a></li>
+                  </ul>
+  </li>
+  <li><a href="http://alumni.mst.edu/">ALUMNI &amp; FRIENDS</a>
+
+                  <ul>
+                  		<li></li>
+                         <li><a href="http://alumni.mst.edu">Information for Alumni &amp; Friends</a></li>
+                        <li><a href="http://alumni.mst.edu/index.html">Alumni Association</a></li>
+                        <li><a href="http://alumni.mst.edu/groups/index.html">Alumni Groups</a></li>
+                        <li><a href="http://career.mst.edu/alumni/index.html">Career Networking</a></li>
+                        <li><a href="http://alumni.mst.edu/goods/index.html">Goods &amp; Services</a></li>
+                        <li><a href="http://alumni.mst.edu/giving/index.html">Making a Gift</a></li>
+                        <li><a href="http://registrar.mst.edu/transcripts/transcripts.html">Transcripts</a></li>
+                  </ul>
+  </li>
+<li><a href="http://www.mst.edu/facstaff/">FACULTY &amp; STAFF</a>
+
+                  <ul>
+                  		<li></li>
+                  		<li><a href="http://www.mst.edu/facstaff/">Information for Faculty &amp; Staff</a></li>
+                        <li><div style="height:10px;" align="center"></div></li>
+                    	<li class="alternate"><a href="https://minermail.mst.edu">Miner Mail</a></li>
+     					<li class="alternate"><a href="https://joess.mst.edu/index.html">Joe'SS</a></li>
+          				<li class="alternate"><a href="http://blackboard.mst.edu/webapps/login/">Blackboard</a></li>
+                        <li><div style="height:10px;" align="center"></div></li>
+                        <li><a href="http://www.mst.edu/administration/">Administration</a></li>
+                        <li><a href="http://hraadi.mst.edu/hr/benefits.html">Benefits</a></li>
+                        <li><a href="http://people.mst.edu/organizations/groups_category.html">Departments</a></li>
+                        <li><a href="http://directory.mst.edu/index.html">Directory</a></li>
+                        <li><a href="http://it.mst.edu/current_students/help_index.html">HelpDesk</a></li>
+                        <li><a href="http://hr.mst.edu/index.html">Human Resources</a></li>
+                        <li><a href="http://library.mst.edu/index.html">Library</a></li>
+                        <li><a href="http://standards.mst.edu/">Logos</a></li>
+                        <li><a href="http://phyfac.mst.edu/">Physical Facilities</a></li>
+                        <li><a href="http://www.mst.edu/research/index.html">Research</a></li>
+                        <li><a href="http://www.umsystem.edu/">UM System</a></li>
+                    <li><a href="http://www.youtube.com/user/MissouriSandT">Video</a></li>
+                  </ul>
+  </li>
+  <li><a href="http://www.mst.edu/community/">COMMUNITY</a>
+                  <ul>
+                  		<li></li>
+                        <li><a href="http://www.mst.edu/community/">Community Information</a></li>
+                        <li><a href="http://calendar.mst.edu">Calendar</a></li>
+                        <li><a href="http://studentlife.mst.edu/volunteer/index.html">Service</a></li>
+                        <li><a href="http://sports.mst.edu/">Sports</a></li>
+                        <li><a href="http://leachtheatre.mst.edu/index.html">Leach Theater</a></li>
+                  </ul>
+  </li>
+</ul>
+		</div>
+		<div id="globalSubNav">
+			<div class="line"></div>
+		</div>
+
+
+
+	<div id="subHeader">
+		<div id="subHeaderArea1"></div>
+		<div id="subHeaderArea2"></div>
+	</div>
+    <div id="pageContent">
+    	<div id="pageContentArea1"></div>
+        <div id="pageContentArea2full">
+        	<div id="featuredcontentArea">
+				<div id="featured" >
+<ul class="ui-tabs-nav">
+  <li class="ui-tabs-nav-item ui-tabs-selected" id="nav-fragment-1"><a href="#fragment-1" title="Something's fishy"><img
+src="/images/featuredcontent/2012_fishingclub_gateway_thumbnail.jpg" alt="Something's fishy" width="100" height="80" /></a></li>
+  <li class="ui-tabs-nav-item" id="nav-fragment-2"><a href="#fragment-2" title="Smartphone savvy"><img
+src="/images/featuredcontent/2012_phagan_brian_gateway_thumbnail.jpg" alt="Smartphone savvy" width="100" height="80" /></a></li>
+  <li class="ui-tabs-nav-item" id="nav-fragment-3"><a href="#fragment-3" title="The eyes have it"><img
+src="/images/featuredcontent/2012_sheng-lockwood_eye-tracking_gateway_thumbnail.jpg" alt="The eyes have it" width="100" height="80" /></a></li>
+  <li class="ui-tabs-nav-item" id="nav-fragment-4"><a href="#fragment-4" title="Low-impact day"><img
+src="/images/featuredcontent/2012_morrison_melissa_gateway_thumbnail2.jpg" alt="Low-impact day" width="100" height="80" /></a></li>
+
+    
+  
+  
+
+</ul>
+
+<!-- First Content -->
+<div id="fragment-1" class="ui-tabs-panel" style=""><a href="http://discover.mst.edu/2012/05/somethings-fishy.html" ><img
+src="/images/featuredcontent/2012_fishingclub_gateway_feature.jpg" alt="Something's fishy" width="558" height="356" border="0" /></a>
+  <div class="info" >
+    <h2><a href="http://discover.mst.edu/2012/05/somethings-fishy.html">Something's fishy</a></h2>    
+    <p>Member's of S&T's fledgling Fishing Club visit Maramec Spring Park near Rolla ... <a href="http://discover.mst.edu/2012/05/somethings-fishy.html" ><strong>Watch the video</strong></a></p>
+  </div>
+</div>
+
+<!-- Second Content -->
+<div id="fragment-2" class="ui-tabs-panel ui-tabs-hide" style=""><a href="http://discover.mst.edu/2012/04/smartphone-savvy-pays-off.html" ><img
+src="/images/featuredcontent/2012_phagan_brian_gateway_feature.jpg" alt="Smartphone savvy" width="558" height="356" border="0" /></a>
+  <div class="info" >
+    <h2><a href="http://discover.mst.edu/2012/04/smartphone-savvy-pays-off.html">Smartphone savvy pays off</a></h2>    
+    <p>Brian Phagan heads to a new campus after graduation &mdash; to Microsoft's headquarters in the Seattle area ... <a href="http://discover.mst.edu/2012/04/smartphone-savvy-pays-off.html" ><strong>Read more</strong></a></p>
+  </div>
+</div>
+
+<!-- Third Content -->
+<div id="fragment-3" class="ui-tabs-panel ui-tabs-hide" style=""><a href="http://discover.mst.edu/2012/04/the-eyes-have-it.html" ><img
+src="/images/featuredcontent/2012_sheng-lockwood_eye-tracking_gateway_feature.jpg" alt="The eyes have it" width="558" height="356" border="0" /></a>
+  <div class="info" >
+    <h2><a href="http://discover.mst.edu/2012/04/the-eyes-have-it.html">The eyes have it</a></h2>    
+    <p>S&T&#39;s human-computer interaction researchers give websites a closer look ... <a href="http://discover.mst.edu/2012/04/the-eyes-have-it.html" ><strong>Read more</strong></a></p>
+  </div>
+</div>
+
+<!-- Fourth Content -->
+<div id="fragment-4" class="ui-tabs-panel ui-tabs-hide" style=""><a href="http://discover.mst.edu/2012/04/low-impact-day.html" ><img
+src="/images/featuredcontent/2012_morrison_melissa_gateway_feature.jpg" alt="Low-impact day" width="558" height="356" border="0" /></a>
+  <div class="info" >
+    <h2><a href="http://discover.mst.edu/2012/04/low-impact-day.html">Low-impact day</a></h2>    
+    <p>For 24 hours, Melissa Morrison tried to minimize her environmental impact ... <a href="http://discover.mst.edu/2012/04/low-impact-day.html" ><strong>Read more</strong></a></p>
+  </div>
+</div>
+
+</div>
+                <noscript>
+                    <img border="0" src="http://www.mst.edu/images/gwImage1.jpg" />
+                </noscript>
+            	</div>
+            	<div id="packetArea">
+                 <!-- <a href="http://bit.ly/yLotqA"><img src="/images/gateway/CherylBSchrader-gw.jpg" alt="Cheryl B. Schrader named Chancellor" border="0"  width="231" height="339" /></a> <p style="padding-left:10px;margin-top:0px; color:#333333"><strong>Cheryl B. Schrader named next chancellor.  </strong><a href="http://bit.ly/yLotqA">Read more ...</a></p> -->
+                
+                	<a href="http://registrar.mst.edu/commencement/video/index.html"><img src="/images/gateway/packet1.jpg" alt="S&T Commencement" border="0" width="231" height="121" /></a>
+                	<a href="http://futurestudents.mst.edu/precollege/index.html"><img src="/images/gateway/packet2.jpg" alt="Pre-college and summer programs: sign up now at Missouri S&T" border="0" width="231" height="121" /></a>
+                	<a href="http://magazine.mst.edu"><img src="/images/gateway/packet3.jpg" alt="Missouri S&T Magazine Spring 2012" border="0" width="231" height="121" /></a>
+               
+   	      </div>
+            <div class="pageTitleBold"></div>
+            <div class="contentText">
+
+                    <div class="contentbox1">
+                        <div class="type1contentboxheader">Get Started</div>
+                        <ul>
+                        	<li><a href="http://futurestudents.mst.edu/visit/index.html?actionLinks=true;">Visit Campus</a></li>
+                            <li><a href="http://futurestudents.mst.edu/degrees/index.html?actionLinks=true;">Degree Programs</a></li>
+                          <li><a href="http://futurestudents.mst.edu/admissions/application_select.html?actionLinks=true;">Apply Online</a></li>
+                            <li><a href="http://sfa.mst.edu/index.html?actionLinks=true;">Costs &amp; Financial Aid</a></li>
+                            <li><a href="http://futurestudents.mst.edu/admissions/requestinfo.html?actionLinks=true;">Request More Info</a></li>
+                      </ul>
+                  </div>
+
+                    <div class="contentbox2">
+                        <div class="type1contentboxheader">Online Resources</div>
+                            <ul>
+                                
+                                <li><a href="http://blackboard.mst.edu/webapps/login/">Blackboard</a></li>
+                                <li><a href="https://www.google.com/a/mst.edu/ServiceLogin?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fa%2Fmst.edu%2F&bsv=1eic6yu9oa4y3&ss=1&ltmpl=default&ltmplcache=2">Gmail</a></li>
+                                <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1293745543&rver=6.1.6206.0&wp=MBI&wreply=http:%2F%2Fmail.live.com%2Fdefault.aspx&lc=1033&id=64855&mkt=en-us&cbcxt=mai&snsc=1">Outlook Live</a></li>
+		  <li><a href="http://minermail.mst.edu">Minermail</a></li>
+                                <li><a href="http://joess.mst.edu/index.html">Joe'SS</a></li>
+                              <li><a href="http://library.mst.edu/index.html">Library</a></li>
+<li><a href="http://calendar.mst.edu">Calendar</a></li><br />
+                          </ul>
+                    </div>
+
+                  <div class="contentbox3">
+                  <div class="type1contentboxheader">Information About</div>
+		    <div id="list1">
+                    <ul>
+                    	<li><a href="http://www.mst.edu/about/">Missouri S&amp;T</a></li>
+                    	<li><a href="http://www.mst.edu/academics">Academics</a></li>
+                      	<li><a href="http://futurestudents.mst.edu/index.html">Admissions</a></li>
+                      	<li><a href="http://sports.mst.edu/">Athletics</a></li>
+                      <li><a href="http://hraadi.mst.edu/hr/employment/index.html">Employment</a></li>
+                        <li><a href="http://www.mst.edu/research/index.html">Research</a></li>
+		    </ul>
+		    </div>
+		    <div id="list2">
+		    <ul>
+                      <li><a href="http://www.mst.edu/administration">Administration</a></li>
+                        <li><a href="http://www.youtube.com/user/MissouriSandT">Video</a></li>
+           		        <li><a href="http://ice.mst.edu">Emergency Information</a></li>
+                        <li><a href="http://communications.mst.edu/logos/logos.html">Logos</a></li>
+                        <li><a href="http://leachtheatre.mst.edu">Leach Theatre</a></li>
+                    </ul>
+		    </div>
+                </div>
+                  <div class="contentbox4">
+                  	<div class="type1contentboxheader"><a href="http://news.mst.edu">News</a></div>
+<span class="rss_box">
+    <p class="rss_title">
+        <a class="rss_box" href="http://news.mst.edu/" target="_self">Missouri S&amp;T Featured</a>
+        <br/>
+    </p>
+    <ul class="rss_items">
+        <li class="rss_item">
+            <a class="rss_item" href="http://news.mst.edu/2012/05/nasa_astronaut_tells_new_st_gr.html">NASA astronaut tells new S&amp;T grads that 'the sky is not the limit'</a>
+            <br/>
+            <span class="rss_date">published on May 05, 2012</span>
+        </li>
+        <li class="rss_item">
+            <a class="rss_item" href="http://news.mst.edu/2012/04/st_students_form_mars_rover_de.html">S&amp;T students form Mars Rover Design Team</a>
+            <br/>
+            <span class="rss_date">published on April 27, 2012</span>
+        </li>
+        <li class="rss_item">
+            <a class="rss_item" href="http://news.mst.edu/2012/04/missouri_sts_engineers_without.html">Missouri S&amp;T's Engineers Without Borders plans four summer trips </a>
+            <br/>
+            <span class="rss_date">published on April 26, 2012</span>
+        </li>
+    </ul>
+</span>
+
+<div align="right"><a href="http://news.mst.edu">[more news]</a></div>
+
+		  </div>
+
+		</div>
+     	</div>
+ 	</div>
+    <div id="footer">
+		        <div id="footerArea1">
+			<div id="footerProfile"></div>
+            <div id="globalFooterContent">
+            	<div id="footerLinks">
+                	<a href="http://futurestudents.mst.edu/admissions/application_select.html?footerLinks=true;">APPLY NOW</a>
+                    	<a href="http://futurestudents.mst.edu/visit/index.html?footerLinks=true;">VISIT CAMPUS</a>
+                    	<a href="http://futurestudents.mst.edu/degrees/index.html?footerLinks=true;">FIND YOUR MAJOR</a>
+                    	<a href="http://giving.mst.edu/index.html?footerLinks=true;">GIVE NOW</a>
+                    	<a href="http://hraadi.mst.edu/hr/employment/index.html?footerLinks=true;">WORK AT S&amp;T</a>
+            		<div id ="footerSocialMedia">
+			<a href="http://www.facebook.com/MissouriSandT"><img src="/site_config/global/images/icon-facebook.jpg" border="0" height="16px" width="16px" alt="facebook"></a>
+			<a href="http://twitter.com/MissouriSandT"><img src="/site_config/global/images/icon-twitter.jpg" border="0" height="16px" width="16px" alt="twitter"></a>
+			<a href="http://www.youtube.com/user/MissouriSandT"><img src="/site_config/global/images/icon-youtube.jpg" border="0" height="16px" width="16px" alt="youtube"></a>
+			<a href="http://www.flickr.com/photos/missourisandt/"><img src="/site_config/global/images/icon-flickr.jpg" border="0" height="16px" width="16px" alt="flickr"></a>
+		</div>
+              </div>
+
+                <div id="footerProfileText">
+                </div>
+                <div id="footerFacts">
+                </div>
+            </div>
+        </div>
+        <div id="footerArea2">
+         <p><a href="http://www.mst.edu"><img src="/site_config/global/images/sandt.jpg" alt="Missouri University of Science and Technology" border="0" align="left" style="padding-right:10px;" /></a>
+         	<a href="http://www.collegeportraits.org/MO/MST/"><img src="/site_config/global/images/vsa.jpg" alt="Voluntary System of Accountability" border="0" align="right" /></a>
+         Missouri University of Science and Technology  |  1870  Miner Circle, Rolla, MO 65409  |  573-341-4111  |  1-800-522-0938<br />
+         &copy;2008 <a href="http://www.umsystem.edu/curators/">Curators of the University of Missouri</a> | <a href="http://www.umsystem.edu">UM System</a> | <a href="http://stuaff.mst.edu/policiesprocedures/IntellectualPluralism.html">Intellectual Pluralism</a> | <a href="http://ira.mst.edu/accreditation.html">Accreditation</a> | <a href="http://hraadi.mst.edu/titleix/notice.html">Title IX</a><br />
+         <a href="http://chancellor.mst.edu/mission/index.html">Mission</a> &middot; <a href="http://www.umsystem.edu/ums/copyright/">DMCA</a> &middot; <a href="http://dss.mst.edu/">Disability Resources</a> &middot; <a href="mailto:webmaster@mst.edu">Contact S&amp;T</a> &middot; Missouri S&T is an <a href="http://www.umsystem.edu/ums/rules/collected_rules/personnel/ch320/320.010_Equal_Employment_Opportunity_Program/">equal opportunity/affirmative action institution</a> </p>
+</div>
+
+    </div>
+       	</div>
+   	</body></html>

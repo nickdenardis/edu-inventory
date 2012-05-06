@@ -1,0 +1,499 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+  <link rel="address bar icon" href="http://www.anokaramsey.edu/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="http://www.anokaramsey.edu/favicon.ico" type="image/x-icon" />
+    <title>Welcome to the Anoka Ramsey Community College Website</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="CODE_LANGUAGE" content="C#" />
+    <meta name="vs_defaultClientScript" content="JavaScript" />
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5" />
+
+
+
+    <link href="/default.css" rel="stylesheet" />
+  <link href="/ARCC_homeStyles.css" rel="stylesheet" type="text/css">
+<link href="/nav_globalDropdown.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/dropdown.js"></script>
+<script type="text/javascript" src="/topDropdown.js"></script>
+<!-- BEGIN Student/Employee Homepage Specific -->
+<script type="text/javascript" src="stu_emp/jquery.js"></script> 
+<script type="text/javascript" src="stu_emp/thickbox.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+//v1.7
+// Flash Player Version Detection
+// Detect Client Browser type
+// Copyright 2005-2008 Adobe Systems Incorporated.  All rights reserved.
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+function ControlVersion()
+{
+	var version;
+	var axo;
+	var e;
+	// NOTE : new ActiveXObject(strFoo) throws an exception if strFoo isn't in the registry
+	try {
+		// version will be set for 7.X or greater players
+		axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
+		version = axo.GetVariable("$version");
+	} catch (e) {
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 6.X players only
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");
+			
+			// installed player is some revision of 6.0
+			// GetVariable("$version") crashes for versions 6.0.22 through 6.0.29,
+			// so we have to be careful. 
+			
+			// default to the first public version
+			version = "WIN 6,0,21,0";
+			// throws if AllowScripAccess does not exist (introduced in 6.0r47)		
+			axo.AllowScriptAccess = "always";
+			// safe to call for 6.0r47 or greater
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 4.X or 5.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = axo.GetVariable("$version");
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 3.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");
+			version = "WIN 3,0,18,0";
+		} catch (e) {
+		}
+	}
+	if (!version)
+	{
+		try {
+			// version will be set for 2.X player
+			axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash");
+			version = "WIN 2,0,0,11";
+		} catch (e) {
+			version = -1;
+		}
+	}
+	
+	return version;
+}
+// JavaScript helper required to detect Flash Player PlugIn version information
+function GetSwfVer(){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	var flashVer = -1;
+	
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+			var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			var descArray = flashDescription.split(" ");
+			var tempArrayMajor = descArray[2].split(".");			
+			var versionMajor = tempArrayMajor[0];
+			var versionMinor = tempArrayMajor[1];
+			var versionRevision = descArray[3];
+			if (versionRevision == "") {
+				versionRevision = descArray[4];
+			}
+			if (versionRevision[0] == "d") {
+				versionRevision = versionRevision.substring(1);
+			} else if (versionRevision[0] == "r") {
+				versionRevision = versionRevision.substring(1);
+				if (versionRevision.indexOf("d") > 0) {
+					versionRevision = versionRevision.substring(0, versionRevision.indexOf("d"));
+				}
+			}
+			var flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	else if ( isIE && isWin && !isOpera ) {
+		flashVer = ControlVersion();
+	}	
+	return flashVer;
+}
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision)
+{
+	versionStr = GetSwfVer();
+	if (versionStr == -1 ) {
+		return false;
+	} else if (versionStr != 0) {
+		if(isIE && isWin && !isOpera) {
+			// Given "WIN 2,0,0,11"
+			tempArray         = versionStr.split(" "); 	// ["WIN", "2,0,0,11"]
+			tempString        = tempArray[1];			// "2,0,0,11"
+			versionArray      = tempString.split(",");	// ['2', '0', '0', '11']
+		} else {
+			versionArray      = versionStr.split(".");
+		}
+		var versionMajor      = versionArray[0];
+		var versionMinor      = versionArray[1];
+		var versionRevision   = versionArray[2];
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+		if (versionMajor > parseFloat(reqMajorVer)) {
+			return true;
+		} else if (versionMajor == parseFloat(reqMajorVer)) {
+			if (versionMinor > parseFloat(reqMinorVer))
+				return true;
+			else if (versionMinor == parseFloat(reqMinorVer)) {
+				if (versionRevision >= parseFloat(reqRevision))
+					return true;
+			}
+		}
+		return false;
+	}
+}
+function AC_AddExtension(src, ext)
+{
+  if (src.indexOf('?') != -1)
+    return src.replace(/\?/, ext+'?'); 
+  else
+    return src + ext;
+}
+function AC_Generateobj(objAttrs, params, embedAttrs) 
+{ 
+  var str = '';
+  if (isIE && isWin && !isOpera)
+  {
+    str += '<object ';
+    for (var i in objAttrs)
+    {
+      str += i + '="' + objAttrs[i] + '" ';
+    }
+    str += '>';
+    for (var i in params)
+    {
+      str += '<param name="' + i + '" value="' + params[i] + '" /> ';
+    }
+    str += '</object>';
+  }
+  else
+  {
+    str += '<embed ';
+    for (var i in embedAttrs)
+    {
+      str += i + '="' + embedAttrs[i] + '" ';
+    }
+    str += '> </embed>';
+  }
+  document.write(str);
+}
+function AC_FL_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".swf", "movie", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+     , "application/x-shockwave-flash"
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_SW_RunContent(){
+  var ret = 
+    AC_GetArgs
+    (  arguments, ".dcr", "src", "clsid:166B1BCA-3F9C-11CF-8075-444553540000"
+     , null
+    );
+  AC_Generateobj(ret.objAttrs, ret.params, ret.embedAttrs);
+}
+function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
+  var ret = new Object();
+  ret.embedAttrs = new Object();
+  ret.params = new Object();
+  ret.objAttrs = new Object();
+  for (var i=0; i < args.length; i=i+2){
+    var currArg = args[i].toLowerCase();    
+    switch (currArg){	
+      case "classid":
+        break;
+      case "pluginspage":
+        ret.embedAttrs[args[i]] = args[i+1];
+        break;
+      case "src":
+      case "movie":	
+        args[i+1] = AC_AddExtension(args[i+1], ext);
+        ret.embedAttrs["src"] = args[i+1];
+        ret.params[srcParamName] = args[i+1];
+        break;
+      case "onafterupdate":
+      case "onbeforeupdate":
+      case "onblur":
+      case "oncellchange":
+      case "onclick":
+      case "ondblclick":
+      case "ondrag":
+      case "ondragend":
+      case "ondragenter":
+      case "ondragleave":
+      case "ondragover":
+      case "ondrop":
+      case "onfinish":
+      case "onfocus":
+      case "onhelp":
+      case "onmousedown":
+      case "onmouseup":
+      case "onmouseover":
+      case "onmousemove":
+      case "onmouseout":
+      case "onkeypress":
+      case "onkeydown":
+      case "onkeyup":
+      case "onload":
+      case "onlosecapture":
+      case "onpropertychange":
+      case "onreadystatechange":
+      case "onrowsdelete":
+      case "onrowenter":
+      case "onrowexit":
+      case "onrowsinserted":
+      case "onstart":
+      case "onscroll":
+      case "onbeforeeditfocus":
+      case "onactivate":
+      case "onbeforedeactivate":
+      case "ondeactivate":
+      case "type":
+      case "codebase":
+      case "id":
+        ret.objAttrs[args[i]] = args[i+1];
+        break;
+      case "width":
+      case "height":
+      case "align":
+      case "vspace": 
+      case "hspace":
+      case "class":
+      case "title":
+      case "accesskey":
+      case "name":
+      case "tabindex":
+        ret.embedAttrs[args[i]] = ret.objAttrs[args[i]] = args[i+1];
+        break;
+      default:
+        ret.embedAttrs[args[i]] = ret.params[args[i]] = args[i+1];
+    }
+  }
+  ret.objAttrs["classid"] = classid;
+  if (mimeType) ret.embedAttrs["type"] = mimeType;
+  return ret;
+}
+// -->
+</script>
+<link rel="stylesheet" href="stu_emp/thickbox.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="stu_emp/style2.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="stu_emp/stuempnav.css" type="text/css" media="screen" />
+<script type="text/javascript" src="stu_emp/stu_emp_slideshow.js"></script>
+<!-- END Student/Employee Homepage Specific -->
+</head>
+
+<body><form name="mainform" method="post" action="/Default.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="mainform">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTk2NDc2MzcyM2RkPoBZHD0BOFllBjDf88pI84JWYu0=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['mainform'];
+if (!theForm) {
+    theForm = document.mainform;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=F31noyLEUzsY6KDIxUwNz_wBL-HEZiFqj9jprKAqCLgat6yAbN5Dy5n1G_uH2y9IBwE838G5obzfMhWoWKZt27Qe39o1&amp;t=634701233845240858" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=geL8tWw7wu_eEwg7q8Cz_-YyCXVrbZh6UkGUU2RdgDPEBEpKNZgJ6Hbl8KT1jJIZxnNZZoedvp-vcptguGiLBWuTSmecvcvNjM3qNZHFXWT0PQ3CRDPQZ4gc4aVF8zsv3L4k2aBFJqofSFkimnsSHMtC7R60X-GdHkn7oL5z0ik2Zo3G0&amp;t=7a329416" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=vbhFSPFbaX25kySOGTBscrTOku202cSd4Wo55J0LmE7-MYUmrBbuAaoeFznXvdMDyUCSf3xfyO7Tow62SXS6wTDoMKrtyRxtU7RzAfz7AX2hpRWsqIrlVcX4QSAyD2rYv9UcxnqiIVMWyn4DqF55179cr37Ik2mKHtWJdidgiyj_xW6f0&amp;t=7a329416" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=wd00YYD2xRbljw-DcI0xSnzPtZWVXYv6Q58Ne-b-cW1GKmkIwWdqI8ScjPzKqGH1WdLAZ23zgocvmAYCz2bNwjh0cZMf0FGHXoitqkFaP4ghtTn1HZcNuM3QZiBRC6Lp15JRWW9X4cHDIUm-bPpqXfiowRA1&amp;t=fffffffff806c484" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=En2yubRzE_yFGOhZrl3NrWQSfqeJA9YLmhRsRba3ecHygRhFWrmHbm1rGikWfyU3ByFToZrPFV4lTNCexNFqbGsQXMjt99VUuQuQPgondBew4KK9b44fnqO2IrgQEjh8tHGahkGtgcpgZ-WPW_Mlij9F-nrGDOLWaNI4SEi7W0iIX2Fx0&amp;t=fffffffff806c484" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=9QwptQLIOj3LAGw7kVLDsH-gnBBYqUgWbBJqIQhMoFT9iSYiI5q0iqGlJ54WC7LJSrFt-FSclqSRXfAKbvlcpHd9sRGy12LAVHCvsxUGkPS6fd4lhblcIPBdyf6sHDWBlNPNB1ycTkbFm1IOuqw4mXQwN1u5DqqBb9P4j-5dDO5NjwvZ0&amp;t=fffffffff806c484" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+null;
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBAKCzJusAwKH5ML5BwLck/uhBQLmi4KIBb856aD2414GoBgpEdjTLCAdcDYY" />
+</div>
+				<div id="homepage">
+						<div id="shadowRight">
+								<img alt="" src="/images/shadowR.gif" /> </div>
+						<div id="mainPageArea">
+								<div id="homeHeader">
+										<div id="headerRight">
+												<div id="ARCCtopNavBar">
+														<!--<div id="topBarSpacer">
+														</div>-->
+														<div id="askUs">
+																<a href="https://anokaramretain.askadmissions.net/ask.aspx">ASK US</a></div>
+														<div id="AZindex">
+																<a href="https://anokaram.askadmissions.net/Vip/Default.aspx">VIP Login</a> </div>
+														<div id="ARCChomeLinks">
+																<dl class="topDropdown" style="PADDING-RIGHT: 6px; PADDING-LEFT: 0px; VERTICAL-ALIGN: top">
+																		<dt class="topDropDT" id="six-ddheader" onmouseover="ddMenu('six',1)" onmouseout="ddMenu('six',-1)">
+																				<p style="MARGIN-BOTTOM: 15px">
+																						<a class="topLink" style="LINE-HEIGHT: 15px" href="/StudentHome.aspx">Student Home</a> </p>
+																		</dt>
+																		<dd class="topDropDD" id="six-ddcontent" onmouseover="cancelHide('six')" style="MARGIN-LEFT: 1px" onmouseout="ddMenu('six',-1)">
+																				<ul class="topSubLink">
+																				<li><a title="my.AnokaRamsey.edu E-mail" href="http://webs.anokaramsey.edu/Studentmail/" style="text-decoration:none;">Student E-Mail</a></li>
+
+																			
+																						<li>
+																								<a class="thickbox" title="Desire2Learn(D2L) Login" style="TEXT-DECORATION: none" href="/stu_emp/d2l.htm?height=425&amp;width=735">Desire2Learn (D2L)</a> </li>
+																						<li>
+																								<a class="thickbox" title="My Financial Aid" style="TEXT-DECORATION: none" href="/stu_emp/financial.htm?height=425&amp;width=735">My Financial Account</a> </li>
+																						<li>
+																								<a class="thickbox" title="My Course Schedule" style="TEXT-DECORATION: none" href="/stu_emp/registration.htm?height=425&amp;width=735">My Course Schedule</a> </li>
+																				</ul>
+																		</dd>
+																</dl>| <a href="/EmployeeHome.aspx">Employee Home</a> | <a href="/Directory.aspx">Directory</a> </div>
+														<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('searchbox_0$searchScriptMgr', document.getElementById('mainform'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+<div id="searchField">
+<input name="searchbox_0$searchTxt" type="text" id="searchbox_0_searchTxt" class="searchInput" size="30" />
+    <input type="hidden" name="searchbox_0$searchTxt_TextBoxWatermarkExtender_ClientState" id="searchbox_0_searchTxt_TextBoxWatermarkExtender_ClientState" />
+</div><div class="searchButton"><input type="submit" name="searchbox_0$btnSmSearch" value="" id="searchbox_0_btnSmSearch" class="searchClickButton" /></div>
+
+
+												</div>
+												<div id="homeHeaderBkgd">
+												</div>
+										</div>
+										<div id="logoMain">
+												<img width="231" height="80" alt="" src="/images/logo_Home.gif?w=231&amp;h=80&amp;as=1" /> </div>
+								</div>
+								<div id="contentPane">
+										<!---->
+										<!--<div style="width:910px; height:23px; margin-bottom:6px; border-bottom:1px dotted #ED1C24; border-top: 1px dotted #ED1C24; color:#ED1C24; font-weight:bold; text-align:center; margin-top:11px; line-height:21px;">Here's where the alert would go...</div>-->
+										<div>
+												<div id="homeAlert" style="width:910px; height:23px; margin-bottom:6px; border-bottom:1px dotted #ED1C24; border-top: 1px dotted #ED1C24; color:#ED1C24; font-weight:bold; text-align:center; margin-top:11px; line-height:21px;"><p>Effective fall 2012 registration Speech (SPCH) courses will be renamed Communication Studies (CMST). Please see CMST to register for fall.</p></div>
+										</div>
+										<div id="flashBox">
+												<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="755" height="328" id="loader" align="middle" wmode="transparent">
+<param name="allowScriptAccess" value="sameDomain" />
+<param name="movie" value="arcc_homeflash_4.swf" /><param name="quality" value="high" /><param name="bgcolor" value="#ffffff" /><param name="wmode" value="transparent" /><embed src="arcc_homeflash_4.swf" quality="high" bgcolor="#ffffff" width="755" height="328" name="loader" align="middle" wmode="transparent" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
+</object>
+										</div>
+										<div id="newsBox">
+												<div id="newsContent">
+														<div id="newsInside">
+																<h4 style="MARGIN-BOTTOM: 5px">
+																		<a href="/News.aspx">NEWS</a>
+																</h4>
+																<p style="margin-top:0;"><a class="Title" href="/en/News/CurrentNews/All-Americans Spring 2012.aspx">Shorter and Loughlin Named All American</a></p><p style="margin-top:0;"><a class="Title" href="/en/News/CurrentNews/Artist_Grant.aspx">College Art Faculty Receives $10,000 Grant for Cross-Border Project</a></p>
+																<h4>
+																		<a href="/Events.aspx">EVENTS</a>
+																</h4>
+																
+														</div>
+												</div>
+												<div id="newsBottom">
+														<img width="155" height="33" alt="" src="/images/links_homeBoxR.gif?w=155&amp;h=33&amp;as=1" usemap="#Map" border="0" /> <map name="Map"><area shape="rect" coords="29,-1,49,22" href="http://www.myspace.com/444180937" target="_blank" alt="MySpace" /><area shape="rect" coords="49,0,70,22" href="http://www.facebook.com/pages/Anoka-Ramsey-Community-College/37484383493" target="_blank" alt="Facebook" /><area shape="rect" coords="70,-3,93,24" href="http://twitter.com/AnokaRamseyCC" target="_blank" alt="Twitter" /><area shape="rect" coords="91,-1,116,25" href="http://blogarcc.wordpress.com/feed/" target="_blank" alt="RSS Feed" /></map></div>
+												<br />
+												<br />
+										</div>
+										<div id="homeButtons" style="PADDING-LEFT: 30px">
+												<div id="buttonHome" style="width:120px;">
+														<a href="/classes.aspx">
+																<span>EARN A DEGREE</span> </a>
+												</div>
+												<div id="buttonHome" style="width:113px;">
+														<a href="/student/Admissions/ExpressSteps.aspx">
+																<span>TAKE A CLASS</span> </a>
+												</div>
+												<div id="buttonHome" style="width:178px;">
+														<a href="/Professional%20Training/Businesses.aspx">
+																<span>IMPROVE YOUR BUSINESS</span> </a>
+												</div>
+												<div id="buttonHome" style="width:186px;">
+														<a href="/about/Community.aspx">
+																<span>COMMUNITY CONNECTIONS</span> </a>
+												</div>
+												<div id="buttonHome" style="width:135px;">
+														<a href="http://www.anokaramsey-anokatechcommunity.org/page.aspx?pid=356">
+																<span>MAKE A DONATION</span></a>
+												</div>
+										</div>
+										<div id="homeButtonLine">
+										</div>
+										<br />
+										<div id="homeSilo" style="width:99px;"><div id="homeSiloContentAbout"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:69px;"><a href="/about.aspx">About<br>
+				    Us</a></div></div><p><a href="/en/RequestInfo.aspx">Request Information</a></p><p><a href="/en/about/Location.aspx">Locations &amp; Maps</a></p><p><a href="/en/about/Information/Alumni/AlumniRelations.aspx">Alumni Relations</a></p><p><a href="/en/about/Employment/Employment/ARCCJobs.aspx">College Jobs</a></p><p><a href="/en/resources/Safety.aspx">Safety &amp; Transportation</a></p></div></div><div id="homeSilo" style="width:116px;"><div id="homeSiloContentMoney"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:85px;"><a href="/money.aspx">All About<br>
+				    Money</a></div></div><p><a href="/en/money/costAttend.aspx">Cost to Attend</a></p><p><a href="/en/money/howpay.aspx">How to Pay</a></p><p><a href="/en/money/FinancialAid.aspx">Financial Aid Basics</a></p><p><a href="/en/money/FinancialAid/TypesofAid.aspx">Types of Financial Aid</a></p><p><a href="/en/money/FinancialAid/FinancialAidSteps.aspx">Apply for Financial Aid</a></p><p><a href="/en/money/FinancialAid/SummerFinancialAid.aspx">Summer Financial Aid</a></p></div></div><div id="homeSilo" style="width:116px;"><div id="homeSiloContentStudent"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:85px;"><a href="/student.aspx">Become a<br>
+				    Student</a></div></div><p><a href="/en/student/Admissions.aspx">Steps to Become a Student</a></p><p><a href="/en/student/Assessment.aspx">Placement Testing</a></p><p><a href="/en/student/OrientationProcess.aspx">Orientation Process</a></p><p><a href="/en/student/Registration.aspx">Registration Process</a></p><p><a href="/en/about/WhyARCC/visit.aspx">Visit/Tour a Campus</a></p><p><a href="/en/SummerExpress.aspx">Summer Express</a></p></div></div><div id="homeSilo" style="width:110px;"><div id="homeSiloContentBooks"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:79px;"><a href="/books.aspx">Books &amp;<br>
+				    Supplies</a></div></div><p><a href="/en/books/Bookstore/bookCharging.aspx">Book Charging</a></p><p><a href="/en/books/Bookstore/Bookstore.aspx">Bookstores</a></p><p><a href="/en/books/Merchandise.aspx">Buy Merchandise</a></p><p><a href="/en/resources/Success/Library.aspx">Library</a></p></div></div><div id="homeSilo" style="width:161px;"><div id="homeSiloContentClasses"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:130px;"><a href="/classes.aspx">Classes, Programs<br>
+				    &amp; Transfers</a></div></div><p><a href="/en/classes/CourseSchedule.aspx">Course Schedule</a></p><p><a href="/en/classes/programsinterest.aspx">Programs by Interest</a></p><p><a href="/en/classes/ProgramsA-Z.aspx">Programs A-Z</a></p><p><a href="/en/classes/OffCampus.aspx">Off-Campus Locations</a></p><p><a href="/en/Training.aspx">Professional Training</a></p><p><a href="/en/student/Transfer.aspx">Transfer</a></p></div></div><div id="homeSilo" style="width:132px;"><div id="homeSiloContentLife"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:100px;"><a href="/lifeoutside.aspx">Life Outside<br>the Classroom</a></div></div><p><a href="/en/lifeoutside/Activities.aspx">Activities, Clubs, Organizations</a></p><p><a href="/en/lifeoutside/Activities/MusicTheatre.aspx">Music, Theatre &amp; Art</a></p><p><a href="/en/lifeoutside/Activities/Athletics.aspx">Athletics</a></p><p><a href="/en/lifeoutside/Activities/PTK Honor Society.aspx">Phi Theta Kappa (PTK) Honor Society</a></p><p><a href="/en/lifeoutside/Activities/StudentGovernment.aspx">Student Government</a></p></div></div><div id="homeSilo" style="width:114px;"><div id="homeSiloContentResources"><div id="homeSiloTitleL"><div id="homeSiloTitle" style="width:83px;"><a href="/resources.aspx">Student Resources</a></div></div><p><a href="/en/News/AcademicCatalog.aspx">Academic Catalog</a></p><p><a href="/en/resources/studentadvising.aspx">Student Advising</a></p><p><a href="/en/resources/Success/TutoringSrvcs.aspx">Tutoring Services</a></p><p><a href="/en/resources/Counseling.aspx">Counseling</a></p><p><a href="/en/resources/CareerResources.aspx">Career Resources</a></p><p><a href="/en/resources/Records.aspx">Student Records &amp; Printable Forms</a></p><p><a href="/en/resources/Success/Library.aspx">Library</a></p></div></div>
+								</div>
+								<br />
+								<br />
+								<div id="footer">
+										<div id="footerLine">
+										</div>
+										<div id="footerContent">
+												<div id="footerContentR">
+														<a href="/about/Contact.aspx">Contact Us</a> | <a href="/About/Information/Disclaimer.aspx">Disclaimer</a> | <a href="/about/Accessibility.aspx">Accessibility</a><br /><span class="campusName">Coon Rapids Campus:</span><br /><span class="campusInformation">11200 Mississippi Blvd NW<br />Coon Rapids, MN 55433-3470<br />Information: 763-433-1100 TTY: 763-433-1450</span> </div>&copy;<script src="/copyright.js" type="text/javascript"> </script> Anoka-Ramsey Community College, an equal opportunity employer and educator<br /><span class="campusName">Cambridge Campus:</span> <br /><span class="campusInformation">300 Spirit River Drive South<br />Cambridge, MN 55008-5704<br />Information: 763-433-1100 â€¢ TTY: 763-433-1450</span> <br /><br /><div id="accreditation"><span class="homeAccreditation">Anoka-Ramsey Community College is a member of the <a href="http://www.mnscu.edu/" target="_blank">Minnesota State Colleges &amp; Universities system</a> and accredited by The Higher Learning Commission.</span></div></div>
+								</div>
+						</div>
+				</div>
+				<div id="shadowBottom">
+						<div id="shadowCorner">
+						</div>
+				</div>
+				<br />
+		
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TextBoxWatermarkBehavior, {"ClientStateFieldID":"searchbox_0_searchTxt_TextBoxWatermarkExtender_ClientState","WatermarkText":"Search For...","id":"searchbox_0_searchTxt_TextBoxWatermarkExtender"}, null, null, $get("searchbox_0_searchTxt"));
+});
+//]]>
+</script>
+</form>
+		
+		<!-- Monitor tag for Account anokaramsey (ID: 221), Site anokaramsey.edu (ID: 250), Queue Advising (ID: 538) -->
+ <script language=javascript src="https://sightmax75R2.sightmaxondemand.com/anokaramsey/SightMaxAgentInterface/Monitor.smjs?accountID=221&siteID=250&queueID=538"></script>
+		
+		</body>
+</html>

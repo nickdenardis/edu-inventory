@@ -1,0 +1,891 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="The SUNY College of Optometry, located in New York City, is the campus of the State University of New York system devoted to optometric education and related scholarly activities.">
+<meta name="keywords" content="optometry schools, optometric education, optometry,  SUNY Optometry, SUNY State College of Optometry, SUNY, OCNY, Optometric Center New York, University Optometric Center, University Eye Center, SUNY Research Foundation, Vision Science, OD">
+
+<link rel='SHORTCUT ICON' href='favicon.ico'>
+<title>
+SUNY College of Optometry
+</title>
+<link rel="stylesheet" id="stylesheet" href="http://www.sunyopt.edu/includes/site/styles.css" />
+<script type="text/javascript" src="http://www.sunyopt.edu/includes/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.sunyopt.edu/includes/js/jquery.cycle.js"></script>
+<script type="text/javascript" src="http://www.sunyopt.edu/includes/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="http://www.sunyopt.edu/includes/js/tools.js"></script>
+<script type="text/javascript" src="http://www.sunyopt.edu/includes/js/translate.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  var currentPosition = 0;
+  var slideWidth = 988;
+  var slides = $('.slide');
+  var numberOfSlides = slides.length;
+  $('#slidesContainer').css('overflow', 'hidden');
+  slides
+    .wrapAll('<div id="slideInner"></div>')
+	.css({
+      'float' : 'left',
+      'width' : slideWidth
+    });
+  $('#slideInner').css('width', slideWidth * numberOfSlides);
+  $('#slideshow')
+    .append('<span class="control" id="leftControl">Clicking moves left</span>')
+    .append('<span class="control" id="rightControl">Clicking moves right</span>');
+    
+  manageControls(currentPosition);
+  
+  $('.control')
+    .bind('click', function(){
+    // Determine new position
+	currentPosition = ($(this).attr('id')=='rightControl') ? currentPosition+1 : currentPosition-1;
+    manageControls(currentPosition);
+    // Move slideInner using margin-left
+    $('#slideInner').animate({
+      'marginLeft' : slideWidth*(-currentPosition)
+    });
+  });
+  
+  function manageControls(position){
+    // Hide left arrow if position is first slide
+	if(position==0){$('#leftControl').hide()} else{$('#leftControl').show()}
+	// Hide right arrow if position is last slide
+    if(position==numberOfSlides-1){$('#rightControl').hide()} else{$('#rightControl').show()}
+  }	
+});
+</script>
+
+<script type="text/javascript">
+            function pageselectCallback(page_index, jq){
+                var new_content = jQuery('#hiddenresult div.result:eq('+page_index+')').clone();
+                $('#Searchresult').empty().append(new_content);
+                return false;
+            }
+
+            function initPagination() {
+                // count entries inside the hidden content
+                var num_entries = jQuery('#hiddenresult div.result').length;
+                // Create content inside pagination element
+                $("#Pagination").pagination(num_entries, {
+                    callback: pageselectCallback,
+                    items_per_page:1 // Show only one item per page
+                });
+             }
+            
+            $(document).ready(function(){initPagination();});            
+        </script>
+
+
+</head>
+<body>
+    
+   <!--<div id="weather_alert">
+<div id="overlay"></div>
+	<div id="message_box">
+	  <h1>Weather Alert</h1>
+
+	  <p>As of 12:00 noon on Monday, January 29, 2012 the College and the University Eye Center will be open and 
+will resume full operations, including all classes, labs and clinics. Students with afternoon clinical 
+assignments should report to their scheduled clinics.</p>
+  <p>As of 12:00 noon on Monday, January 29, 2012 the College and the University Eye Center will be open and 
+will resume full operations, including all classes, labs and clinics. Students with afternoon clinical 
+assignments should report to their scheduled clinics.</p>
+  <p>As of 12:00 noon on Monday, January 29, 2012 the College and the University Eye Center will be open and 
+will resume full operations, including all classes, labs and clinics. Students with afternoon clinical 
+assignments should report to their scheduled clinics.</p>
+  <p>As of 12:00 noon on Monday, January 29, 2012 the College and the University Eye Center will be open and 
+will resume full operations, including all classes, labs and clinics. Students with afternoon clinical 
+assignments should report to their scheduled clinics.</p>
+<img src="http://www.sunyopt.edu/images/uploads/news/career.jpg"/>
+<br>
+  <a href="javascript:void(0);"  onclick="document.getElementById('weather_alert').style.display = 'none';" title="Click to go to details">Click here for more information <img src="http://www.sunyopt.edu/site_images/nav/education_bullet.png"/></a>
+<br><br><br>
+	  <a href="javascript:void(0);"  onclick="document.getElementById('weather_alert').style.display = 'none';" title="Click to go to homepage">Enter Site <img src="http://www.sunyopt.edu/site_images/nav/education_bullet.png"/></a>
+
+	</div>
+
+</div>
+ -->
+
+    <div id="wrapper">
+        <div id="top_bar">
+<ul id="top_left_tools">
+<li style="width:63px"><a style="width:61px" title="twitter facebook youtube links" href="http://www.sunyopt.edu/about/social_media"><img src="http://www.sunyopt.edu/site_images/nav/social_media.gif" alt="social media icons" /></a></li>
+<li><a id="text_black" href="#" ></a></li>
+<li><a id="text_white" href="#"></a></li>
+
+<li><a id="text_smaller" href="#" class="decreaseFont"></a></li>
+<li><a id="text_bigger" href="#" class="increaseFont"></a></li>
+</ul>
+
+
+<ul id="secondary_nav">
+<li  id="about_button"><a href="http://www.sunyopt.edu/about">About</a>
+     <div id="about_dropdown">
+       <a href="http://www.sunyopt.edu/pdfs/about/annual_report_2011.pdf" title="2011 annual report download" target="_blank"><img src="http://www.sunyopt.edu/site_images/nav/annual_report_2011.png" width="199" height="250" alt="2011 annual report thumbnail" style="float:right; margin:15px"/></a>
+<a style="position:absolute;top:230px; left:205px; " class="teaser_copy" href="http://www.sunyopt.edu/pdfs/about/annual_report_2011.pdf" title="2011 annual report download" target="_blank">Download the 2011<br/>State of the College Report</a>
+       <div class="nav_column">
+         <ul>
+         
+
+           <li><a href="http://www.sunyopt.edu/about/presidents_message">President's Message</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/fact_sheet">Fact Sheet</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/history_and_mission">History and Mission</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/accreditation1">Accreditation</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/strategic_plan">Strategic Plan</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/college_governance">College Governance</a></li>
+
+          
+
+           <li><a href="http://www.sunyopt.edu/about/college_calendar">College Calendar</a></li>
+
+          
+         </ul>
+       </div>
+       <div class="nav_column" style="left:180px">
+          <ul>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/state_of_the_college_reports">State of the College Reports</a></li>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/directions_to_the_college">Directions to the College</a></li>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/social_media">Social Media</a></li>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/new_york_city">New York City</a></li>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/virtual_tour">Virtual Tour</a></li>
+          
+
+            <li><a href="http://www.sunyopt.edu/about/contact_us">Contact Us</a></li>
+             
+          </ul>
+        </div>
+     </div>
+</li>
+<li ><a href="http://www.sunyopt.edu/news">News</a></li>
+<li  id="library_button"><a href="http://www.sunyopt.edu/library">Library</a>
+<div id="lib_dropdown" >
+<div id ="lib_menu">
+<div id ="lib_menu_top">
+<img src="http://www.sunyopt.edu/site_images/nav/lib_img.jpg" width="354" height="118" /><h1>The Harold Kohn Vision Science Library</h1> 
+<p>The largest vision science library in the country with more than 40,000 books and over 2,500<br/> online journals. <a href="http://www.sunyopt.edu/library" class="home">Visit our homepage &gt;</a></p>
+</div>
+<div id ="lib_menu_middle">
+<div class="lib_menu_col_1">
+<h2><a href="http://www.sunyopt.edu/library/about_the_library">About</a></h2>
+
+<ul id="middle_col_menu">
+<li><a href="http://www.sunyopt.edu/library/about_the_library/mission" title="mission">Mission</a></li>
+<li><a href="http://www.sunyopt.edu/library/about_the_library/hours_and_calendar" title="hours and calendar" >Hours & Calendar</a></li>
+<li><a href="http://www.sunyopt.edu/library/about_the_library/borrowing_library_materials" title="borrowing library materials">Borrowing Library Materials</a></li>
+<li><a href="http://www.sunyopt.edu/library/about_the_library/facilities" title="facilities">Facilities</a></li>
+<li><a href="http://www.sunyopt.edu/library/about_the_library/staff_directory" title="staff_directory">Staff Directory</a></li>
+<li><a href="http://www.sunyopt.edu/library/about_the_library/library_a_z_index" title="library a-z">Library A-Z Index</a></li>
+</ul>
+
+</div>
+<div class="lib_menu_col_2">
+<h2><a href="http://www.sunyopt.edu/library/find_articles">Find Articles</a></h2>
+<ul id="middle_col_menu">
+<li><a href="http://www.sunyopt.edu/library/find_articles/find_full_text" title="find full text articles">Find Full Text</a></li>
+<li><a href="http://ares.sunyopt.edu:2048/login?url=http://www.visioncite.com" title="visioncite" target="_blank">VisionCite</a></li>
+<li><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?holding=sunyoptlib_fft_ndi" title="Pubmed" target="_blank">PubMed</a></li>
+<li><a href="http://scholar.google.com/" title="Google Scholar"  target="_blank">Google Scholar</a></li>
+<li><a href="http://ares.sunyopt.edu:2048/login?url=http://www.sciencedirect.com/" target="_blank" title="ScienceDirect">ScienceDirect</a></li>
+<li><a href="http://dy7sq4pe6f.search.serialssolutions.com/?SS_Page=refiner&SS_RefinerEditable=yes">Citation Linker</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_articles/from_the_headlines">From the Headlines</a></li>
+</ul>
+</div>
+<div class="lib_menu_col_3">
+<h2><a href="http://www.sunyopt.edu/library/find_journals">Find Journals</a></h2>
+<ul id="middle_col_menu">
+<li><a href="http://dy7sq4pe6f.search.serialssolutions.com/" title="Journal Finder" target="_blank">Journal Finder</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_journals/select_e-journals">Select E-Journals</a></li>
+<li><a href="http://ares.sunyopt.edu:2048/login?url=http://www.sunyopt.edu/library/journal_id" target="_blank">Journal ID/Passwords</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_journals/locate_a_journal">Locate a Journal</a></li>
+</ul>
+</div> 
+<div class="lib_menu_col_4">
+<h2><a href="http://www.sunyopt.edu/library/find_books" title="find books">Find Books</a></h2>
+<ul id="middle_col_menu">
+<li><a href="http://www.sunyopt.edu/library/find_books/in_the_library" title="in the library">In the Library</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_books/e-books" title="e-books">E-Books</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_books/on_reserve" title="on reserve">On Reserve</a></li>
+<li><a href="http://opt.sunyconnect.suny.edu:4550/opt_new_book.html" target="_blank" title="new_titles">New Titles</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_books/other_libraries" title="other libraries">Other Libraries</a></li>
+</ul>
+</div>
+<div class="lib_menu_col_5">
+<h2><a href="http://www.sunyopt.edu/library/resources" title="resources">Resources</a></h2>
+<ul id="middle_col_menu">    
+<li><a href="http://www.sunyopt.edu/library/resources/citation_guides" title="citation guides">Citation Guides</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/e_databases" title="e-databases">E-Databases</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/eyesites" title="eyesites">Eyesites</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/image_bank" title="image bank">Image Bank</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/wills_eye_manual" title="willis eye manual">Wills Eye Manual</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/copyright_guidelines_and_resources" title="copyright guidelines" >Copyright Guidelines</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/dictionaries_and_thesauri" title="dicionaries and thesauri" >Dictionaries/Thesauri</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/practice_guidelines" title="practice guidelines" >Practice Guidelines</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/search_engines" title="search engines" >Search Engines</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/statistical_resources" title="statistical resources" >Statistical Resources</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/new_york_city" title="new york city">New York City</a></li>
+</ul>
+</div>
+<div class="lib_menu_col_6">
+<h2><a href="http://www.sunyopt.edu/library/services">Services</a></h2> 
+<ul id="middle_col_menu">
+<li><a href="http://www.sunyopt.edu/library/services/for_faculty_residents_and_staff" title="for faculty, residents and staff">For Faculty, Residents and Staff</a></li>
+<li><a href="http://www.sunyopt.edu/library/services/for_our_students" title="For our students">For Our Students</a></li>
+<li><a href="http://www.sunyopt.edu/library/services/for_adjunct_faculty" title="for adjust faculty">For Adjunct Faculty</a></li>
+<li><a href="http://www.sunyopt.edu/library/services/for_alumni" title="For alumni">For Alumni</a></li>
+<li><a href="http://www.sunyopt.edu/library/services/for_the_profession" title="For the profession">For the Profession</a></li>
+</ul>
+</div>
+</div>
+<div id ="lib_menu_bottom">
+<div class="lib_menu_col_social">
+<a href="http://twitter.com/#!/kohn_library" targe="_blank"><img src="http://www.sunyopt.edu/site_images/nav/lib_twitter_icon.jpg" /></a>
+</div>
+<div class="lib_menu_col_search">
+<h2>Search EyeBrowze Catalog:</h2>
+<form action="http://opt.sunyconnect.suny.edu:4550/F/CJ6NTR75X2S35EP5Q6EG4HUA3LBKJ2R8GIPV19CX2FIRX5C2AF-00564" method="get" name="form2">
+<input name="request" type="text" class="lib_search_bar" id="lib_search" />
+<input type="hidden" name="find_scan_code" value="FIND_WRD"/>
+<input type="hidden" name="adjacent" value="N" />
+<input name="Go" type="submit" class="lib_submit" id="lib_submit" value="Go" /></form>
+</div>
+<div class="lib_menu_col_links">
+<h2>Quick Links:</h2>
+<ul id="drop_nav">
+<li class="first"><a href="#" style="height:35px">&nbsp;</a>
+<ul>
+<li><a href="http://www.sunyopt.edu/library/learn_more/hours_and_calendar" title="library hours">Library Hours</a></li>
+<li><a href="http://www.sunyopt.edu/library/for_faculty_residents_and_staff/connect_off_site" title="connect off-site">Connect Off-Site</a></li>
+<li><a href="http://sunyopt.illiad.oclc.org/illiad/logon.html">ILLiad Log-on</a></li>
+<li><a href="https://elearning.sunyopt.edu/">Moodle</a></li>
+<li><a href="http://www.sunyopt.edu/offices/information_technology_services/atomic_learning">Tech. Tutorials</a></li>
+<li><a href="http://www.sunyopt.edu/library/services/for_our_students/ask_a_librarian">Ask-a-librarian</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="lib_menu_col_how">
+<h2>How Do I... ?:</h2>
+<ul id="drop_nav">
+<li class="first"><a href="#" style="height:35px">&nbsp;</a>
+<ul>
+<li><a href="http://www.sunyopt.edu/library/services/for_faculty_residents_and_staff/interlibrary_loan" title="Interlibrary Loan">Request an interlibrary loan?</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_articles/find_full_text" title="Find Full text articles">Find full-text articles?</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_journals/locate_a_journal" title="locate a journal" >Locate a journal in the library?</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/clinical_point_of_care" title="clinical point of care">Find resources when I’m in clinic?</a></li>
+<li><a href="http://www.sunyopt.edu/library/resources/citation_guides">Cite a source?</a></li>
+<li><a href="http://www.sunyopt.edu/library/find_books/on_reserve">Reserve an overnight book?</a></li>
+
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+     </div>
+</li>
+<li ><a href="http://www.sunyopt.edu/alumni">Alumni</a></li>
+<li ><a href="http://www.sunyopt.edu/about/contact_us">Contact us</a></li>
+<li  ><a href="http://www.sunyopt.edu/giving/make_a_gift" id="give_button">Give</a></li>
+</ul>
+</div>
+
+
+<div id="branding">
+   <div class="branding-left">
+     <a href="http://www.sunyopt.edu"> <img src="http://www.sunyopt.edu/site_images/misc/logo.gif" width="474" height="92" alt="University Eye Center logo" id="logo"/></a>
+   </div>
+
+   <div class="branding-right">
+       <div class="search">
+         <form method="post" action="http://www.sunyopt.edu/"  >
+<div class='hiddenFields'>
+<input type="hidden" name="ACT" value="12" />
+<input type="hidden" name="XID" value="" />
+<input type="hidden" name="RES" value="" />
+<input type="hidden" name="meta" value="YTo5OntzOjY6InN0YXR1cyI7czoxODoiT3BlbnxOZWVkcyBFZGl0aW5nIjtzOjc6ImNoYW5uZWwiO3M6Mjk6Im5vdCBob3RfYnV0dG9uc3xsYW5kaW5nX3BhZ2VzIjtzOjg6ImNhdGVnb3J5IjtzOjA6IiI7czo5OiJzZWFyY2hfaW4iO3M6NzoiZW50cmllcyI7czo1OiJ3aGVyZSI7czozOiJhbGwiO3M6MTI6InNob3dfZXhwaXJlZCI7czowOiIiO3M6MTk6InNob3dfZnV0dXJlX2VudHJpZXMiO2I6MDtzOjExOiJyZXN1bHRfcGFnZSI7czoxNDoic2VhcmNoL3Jlc3VsdHMiO3M6MTU6Im5vX3Jlc3VsdHNfcGFnZSI7czoyMjoic2VhcmNoL2FkdmFuY2VkX3NlYXJjaCI7fTJlY2MyNzdjMWZkZWY1M2ZkNDQyNDNmOTk5YjgxNzlm" />
+<input type="hidden" name="site_id" value="1" />
+</div>
+
+
+         <input type="text" value="Search" name="keywords" maxlength="50" id="searchbox" onclick="javascript:document.getElementById('searchbox').value=''">
+         <input type="submit" value="Go"  id="searchbutton">
+         </form>
+       </div>
+
+       <div class="login">
+         <ul id="login-nav">
+            <li><a href="#" class="first">&nbsp;</a>
+             <ul>
+              <li><a href="https://my.sunyopt.edu/" title="mysunyopt log in">My.sunyopt.edu</a></li>
+              <li><a href="http://mail.sunyopt.edu/Login/" title="First Class webmail">First Class</a></li>
+              <li><a href="https://www.meditrek.com/HS_MEDITREK/LogIn.asp">Meditrek</a></li>
+              <li><a href="http://elearning.sunyopt.edu/" title="Moodle log in">Moodle</a></li>
+              <li><a href="https://www.sunyopt.edu/faculty/facschedule-new.php">Faculty Schedule</a></li>
+             </ul>
+           </li>
+         </ul>
+       </div>
+   </div>
+</div>
+
+<div id="engagement_area">
+   
+              <div id="slideshow">
+    <div id="slidesContainer">
+ 
+ 
+        
+       <div class="slide"><div class="slide-01" style="background-image:url('http://www.sunyopt.edu/images/uploads/em_home_sunyopt2.jpg')"><div class="slide-text-area"><div class="slide-text">
+        <h2><p>
+	Educating tomorrow&rsquo;s leaders in vision care since 1971.</p>
+</h2>
+        <p><a href="http://www.sunyopt.edu/about">Read more <img src="http://www.sunyopt.edu/site_images/nav/read-more-arrow.png" alt="arrow"></a></p>
+      </div></div></div></div>
+     
+       <div class="slide"><div class="slide-01" style="background-image:url('http://www.sunyopt.edu/images/uploads/em_home_special_olympics2.jpg')"><div class="slide-text-area"><div class="slide-text">
+        <h2><p>
+	Giving back: Students and faculty members volunteer at the Special Olympics.</p>
+</h2>
+        <p><a href="http://www.sunyopt.edu/news/suny_optometry_faculty_students_volunteer_at_special_olympics">Read more <img src="http://www.sunyopt.edu/site_images/nav/read-more-arrow.png" alt="arrow"></a></p>
+      </div></div></div></div>
+     
+       <div class="slide"><div class="slide-01" style="background-image:url('http://www.sunyopt.edu/images/uploads/em_home_confucius2.jpg')"><div class="slide-text-area"><div class="slide-text">
+        <h2><p>
+	Crossing borders: The College&rsquo;s Confucius Institute fosters exchange between healthcare providers in the US and China.</p>
+</h2>
+        <p><a href="http://www.sunyopt.edu/education/academics/international_programs/confucius_institute">Read more <img src="http://www.sunyopt.edu/site_images/nav/read-more-arrow.png" alt="arrow"></a></p>
+      </div></div></div></div>
+     
+   
+
+
+    </div>
+  </div>
+     
+  
+
+
+    <ul id="main_nav">
+
+<li id="education" ><a href="http://www.sunyopt.edu/education">Education</a>
+
+<div class="dropdown"> 
+<img src="http://www.sunyopt.edu/site_images/nav/education_teaser.jpg" width="437" height="232" alt="education teaser" class="dropdown_teaser_img"/>
+<span class="teaser_copy" >Dr. Mark Rosenfield works with a student in a practice lab.</span>
+
+<div class="nav_column">
+
+<ul id="education_section"><li><a href="http://www.sunyopt.edu/about" class="education_main_bullets">About Us</a></li></ul>
+<ul id="education_section"><li><a href="http://www.sunyopt.edu/education/academics" class="education_main_bullets">Academics</a></li></ul>
+     <ul>
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/od_program">OD Program</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/graduate_programs">Graduate Programs</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/residency_programs">Residency Programs</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/continuing_professional_education">Continuing Professional Education</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/academic_departments">Academic Departments</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/academics/international_programs">International Programs</a></li>
+
+       
+     </ul>
+
+   
+</div>
+
+
+<div class="nav_column" style="left:195px">
+  <ul id="education_section"><li><a href="http://www.sunyopt.edu/education/admissions" class="education_main_bullets">Admissions</a></li></ul>
+   <ul>
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/why_SUNY">Why SUNY?</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/od_program">OD Program</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/graduate_programs">Graduate Programs</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/cstep">CSTEP</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/FAQ">FAQ</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/new_york_city">New York City</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/student_testimonials">Student Testimonials</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/request_information">Request Information</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/virtual_tour">Virtual Tour</a></li>
+
+   
+
+    <li><a href="http://www.sunyopt.edu/education/admissions/visit_us">Visit Us</a></li>
+
+   
+   </ul>
+   
+  
+</div>
+
+<div class="nav_column" style="left:350px">
+
+<ul id="education_section"><li><a href="http://www.sunyopt.edu/education/faculty" class="education_main_bullets">Faculty</a></li></ul>
+<ul id="education_section"><li style="padding-top:10px;"><a href="http://www.sunyopt.edu/education/student_life" class="education_main_bullets">Student Life</a></li></ul>
+
+
+    <ul>
+       
+
+    <li><a href="http://www.sunyopt.edu/education/student_life/student_services">Student Services</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/student_life/clubs_and_student_organizations">Clubs and Student Organizations</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/student_life/student_council">Student Council</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/education/student_life/college_traditions">College Traditions</a></li>
+
+       
+    <li><a href="http://www.sunyopt.edu/blog/public/Construction/student_life_and_learning" target="_blank">The Center for Student Life and Learning <img src="http://www.sunyopt.edu/site_images/nav/external_link.png" alt="external link to the blog"/> </a></li>   
+      </ul> 
+
+
+</div>
+
+</div> <!-- END OF EDUCATION DROPDOWN -->
+</li><!-- END OF EDUCATION NAV -->
+
+<li id="research" ><a href="http://www.sunyopt.edu/research">Graduate Center for Vision Research</a>
+<div class="dropdown"> 
+<img src="http://www.sunyopt.edu/site_images/nav/research_teaser.jpg" width="437" height="232" alt="research teaser" class="dropdown_teaser_img"/>
+<span class="teaser_copy">Dr. Ben Backus conducts<br/> research at the College.</span>
+
+
+<div class="nav_column">
+    <ul>
+       
+
+    <li><a href="http://www.sunyopt.edu/research/about_our_research">About Our Research</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/current_research">Current Research</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/graduate_faculty">Graduate Faculty </a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/research_facilities">Research Facilities</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/technology_transfer">Technology Transfer</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/policies_and_requirements">Policies and Requirements</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/research_training_programs">Research Training Programs</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/schnurmacher_institute_for_vision_research">Schnurmacher Institute for Vision Research</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/research/center_for_vision_care_policy">Center for Vision Care Policy</a></li>
+
+       
+      </ul> 
+</div>
+
+</div> <!-- END OF RESEARCH DROPDOWN -->
+</li><!-- END OF RESEARCH NAV -->
+
+
+<li id="patient_care" ><a href="http://www.sunyopt.edu/patient_care">Patient Care</a>
+<div class="dropdown"> 
+<a style="height:272px" href="http://sunyopt.edu/uec" title="university eye center"><img src="http://www.sunyopt.edu/site_images/nav/patient_care_teaser.jpg" width="437" height="232" alt="research teaser" class="dropdown_teaser_img"/></a>
+<span class="teaser_copy">The UEC sees over 75,000 <br/>patient visits per year.</span>
+
+<div class="nav_column">
+    <ul>
+         
+
+    <li><a href="http://www.sunyopt.edu/patient_care/about_the_university_eye_center">About the University Eye Center</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/patient_care/specialty_services">Specialty Services</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/patient_care/special_testing">Special Testing</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/patient_care/uec_referral_service">UEC Referral Service</a></li>
+
+       
+    <li><a href="http://www.sunyopt.edu/uec">UniversityEyeCenter.org <img src="http://www.sunyopt.edu/site_images/nav/external_link.gif" alt="external link to University Eye Center"/> </a></li>
+    </ul>
+</div>
+
+</div> <!-- END OF PATIENT CARE DROPDOWN -->
+</li><!-- END OF PATIENT CARE NAV -->
+
+<li id="giving" ><a href="http://www.sunyopt.edu/giving">Giving</a>
+<div class="dropdown" style="width:400px; left:588px"> 
+<a style="display:block; height:272px;width:180px; float:right" href="http://www.sunyopt.edu/pdfs/giving/VATP.pdf" target="_blank" title="Vision and the Promise brochure download" ><img src="http://www.sunyopt.edu/site_images/nav/the_vision_and_the_promise_cover.jpg" width="151" height="232" alt="The Vision and the Promise Cover" class="dropdown_teaser_img"/> </a>
+<span class="teaser_copy" style="right:140px"><a href="http://www.sunyopt.edu/pdfs/giving/VATP.pdf" target="_blank" style="color:#4b4b4b">Download the Vision and<br/>the Promise brochure.</a></span>
+
+
+<div class="nav_column">
+    <ul>
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/about_the_optometric_center_of_new_york">About the Optometric Center of New York</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/mission">Mission</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/eyes_on_new_york_gala">Eyes on New York Gala</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/the_vision_and_the_promise_major_gifts_campaign">The Vision and The Promise: Major Gifts Campaign</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/make_a_gift">Make a Gift</a></li>
+
+       
+
+    <li><a href="http://www.sunyopt.edu/giving/contact_us">Contact Us</a></li>
+
+       
+    </ul>   
+</div>
+
+</div> <!-- END OF GIVING DROPDOWN -->
+</li><!-- END OF GIVING NAV -->
+</ul>
+
+</div> <!-- END OF ENGAGEMENT AREA -->
+
+<iframe scrolling='no' frameborder='0' class='shim' name='shim' id='shim'></iframe>
+<div id="translate_popup" class="popup">
+  <div class="popup_table">
+          
+         
+            <div class="popup_field" width="147"> <span style="float:left;padding-top:7px">Select a Language:&nbsp; &nbsp;</span><select name="tl" id="tl" style="width:147px">
+                <option value="">- Select -</option>
+                <option value="ar">Arabic</option>
+                <option value="bg">Bulgarian</option>
+                <option value="ca">Catalan</option>
+
+                <option value="zh-CN">Chinese (Simplified)</option>
+                <option value="zh-TW">Chinese (Traditional)</option>
+                <option value="hr">Croatian</option>
+                <option value="cs">Czech</option>
+                <option value="da">Danish</option>
+                <option value="nl">Dutch</option>
+
+                <option value="tl">Filipino</option>
+                <option value="fi">Finnish</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="el">Greek</option>
+                <option value="iw">Hebrew</option>
+
+                <option value="hi">Hindi</option>
+                <option value="id">Indonesian</option>
+                <option value="it">Italian</option>
+                <option value="ja">Japanese</option>
+                <option value="ko">Korean</option>
+                <option value="lv">Latvian</option>
+
+                <option value="lt">Lithuanian</option>
+                <option value="no">Norwegian</option>
+                <option value="pl">Polish</option>
+                <option value="pt">Portuguese</option>
+                <option value="ro">Romanian</option>
+                <option value="ru">Russian</option>
+
+                <option value="sr">Serbian</option>
+                <option value="sk">Slovak</option>
+                <option value="sl">Slovenian</option>
+                <option value="es">Spanish</option>
+                <option value="sv">Swedish</option>
+                <option value="uk">Ukrainian</option>
+
+                <option value="vi">Vietnamese</option>
+              </select>
+            </div>
+         <div id="clear"></div>
+            <input type="button" id="translate_confirm" value="Translate" onClick="setLanguage(document.getElementById('tl').options[document.getElementById('tl').selectedIndex].value)" />
+              <input type="button"  id="translate_confirm" value="Cancel" onClick="hideTranslate()" /></td>
+
+</div></div>
+               
+<div id="news_events" class="home_news" > 
+        
+                <div id="news_events_top" > 
+<div id="news-title">News & Events</div> <div id="Pagination"></div></div>
+<br style="clear:both;" />
+        
+        <div id="Searchresult">
+		<div id="news_events_bottom"> 
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/sivr_colloquia" title="SIVR Colloquia"><h2>SIVR Colloquia</h2></a>
+<div class="date" style="margin-left:10px">May 4, 2012</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/annual_gala_honors_two_leaders" title="Annual Gala Honors Two Leaders"><h2>Annual Gala Honors Two Leaders</h2></a>
+<div class="date" style="margin-left:10px">March 28, 2012</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/suny_optometrys_next_open_house_will_be_held_on_thursday_may_24th" title="SUNY Optometry&#8217;s next Open House will be held on Thursday May 31st"><h2>SUNY Optometry&#8217;s next Open House will be held on Thursday May 31st</h2></a>
+<div class="date" style="margin-left:10px">May 31, 2012</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+        <!-- Container element for all the Elements that are to be paginated -->
+        <div id="hiddenresult" style="display:none;">
+            <div class="result">
+            <div id="news_events_bottom"> 
+
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/sivr_colloquia" title="SIVR Colloquia"><h2>SIVR Colloquia</h2></a>
+<div class="date"  style="margin-left:10px">May 4, 2012</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/annual_gala_honors_two_leaders" title="Annual Gala Honors Two Leaders"><h2>Annual Gala Honors Two Leaders</h2></a>
+<div class="date"  style="margin-left:10px">March 28, 2012</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/suny_optometrys_next_open_house_will_be_held_on_thursday_may_24th" title="SUNY Optometry&#8217;s next Open House will be held on Thursday May 31st"><h2>SUNY Optometry&#8217;s next Open House will be held on Thursday May 31st</h2></a>
+<div class="date"  style="margin-left:10px">May 31, 2012</div>
+</div>
+
+
+</div>
+</div>
+
+ <div class="result">
+            <div id="news_events_bottom"> 
+
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/the_first_presidents_donor_appreciation_event" title="The first President&#8217;s Donor Appreciation Event"><h2>The first President&#8217;s Donor Appreciation Event</h2></a>
+<div class="date"  style="margin-left:10px">February 17, 2012</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/partners_for_sight_foundation_renews_support_for_suny_homebound_progra1" title="Partners for Sight Foundation Renews Support for SUNY Homebound Program"><h2>Partners for Sight Foundation Renews Support for SUNY Homebound Program</h2></a>
+<div class="date"  style="margin-left:10px">December 28, 2011</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/suny_optometry_received_technology_grant_from_essilor_and_the_american_opto" title="SUNY Optometry received Technology Grant from Essilor and the American Optometric Foundation"><h2>SUNY Optometry received Technology Grant from Essilor and the American Optometric Foundation</h2></a>
+<div class="date"  style="margin-left:10px">December 7, 2011</div>
+</div>
+
+
+</div>
+</div>
+
+<div class="result">
+            <div id="news_events_bottom"> 
+
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/visionyc" title="VisioNYC"><h2>VisioNYC</h2></a>
+<div class="date"  style="margin-left:10px">December 12, 2011</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/phyllis_milton_renews_support_for_suny_manhattan_homebound_program" title="Phyllis Milton Renews Support for SUNY Manhattan Homebound Program"><h2>Phyllis Milton Renews Support for SUNY Manhattan Homebound Program</h2></a>
+<div class="date"  style="margin-left:10px">September 23, 2011</div>
+</div>
+
+
+<div class="news-events-item">
+<a href="http://www.sunyopt.edu/news/post/study_finds_better_access_to_eye_care_today" title="Study Finds Better Access to Eye Care Today"><h2>Study Finds Better Access to Eye Care Today</h2></a>
+<div class="date"  style="margin-left:10px">September 9, 2011</div>
+</div>
+
+
+</div>
+</div>
+
+</div>
+        <div id="front_bottom">
+
+  <div class="three_column">
+    <h2>The Vision and the Promise</h2>
+    <img src="http://www.sunyopt.edu/images/uploads/front-bottom-03.jpg" class="news-img">
+    <p>Learn more about the Optometric Center of New York’s ambitious $10 million major gifts campaign to advance the mission of the College.<br/><a href="http://www.sunyopt.edu/giving/the_vision_and_the_promise_major_gifts_campaign">Read more</a>.</p>
+  </div>
+
+  <div class="three_column">
+    <h2>Current Research</h2>
+    <img src="http://www.sunyopt.edu/images/uploads/front-bottom-02.jpg" class="news-img">
+    <p>Our researchers drive vision science forward with research ranging from the molecular to the physiological to the perceptual. <br/><a href="http://www.sunyopt.edu//research/current_research">Read more</a>.</p>
+  </div>
+
+  <div class="three_column">
+    <h2>Why SUNY?</h2>
+    <img src="http://www.sunyopt.edu/images/uploads/front-bottom-01.jpg" class="news-img">
+    <p>The OD program offers small class sizes, expert professors and an unparalleled clinical experience in state-of-the-art facilities. <br/><a href="http://www.sunyopt.edu/education/admissions/why_suny">Read more</a>.</p>
+  </div>
+
+</div>
+    
+    </div><!-- END OF WRAPPER -->
+
+    <div id="footer">
+<div class="footer-inner">
+<div class="footer-left">
+<img src="http://www.sunyopt.edu/site_images/misc/footer-offices.gif" style="margin:20px 0px 10px 0px;">
+<ul class="footer-list">
+<li><a href="http://www.sunyopt.edu/offices/business_affairs">Business Affairs</a></li>
+<li><a href="http://www.sunyopt.edu/offices/environmental_health_and_safety">Environmental Health & Safety</a></li>
+<li><a href="http://www.sunyopt.edu/offices/human_resources">Human Resources</a></li>
+<li><a href="http://www.sunyopt.edu/offices/information_technology_services">Information Technology Services</a></li>
+
+</ul>
+</div>
+<div class="footer-center">
+<ul class="footer-list">
+<li><a href="http://www.sunyopt.edu/offices/institutional_research">Institutional Research</a></li>
+<li><a href="http://www.sunyopt.edu/offices/internal_control">Internal Control</a></li>
+<li><a href="http://www.sunyopt.edu/offices/university_police">University Police</a></li>
+</ul>
+
+<div class="footer-right">
+
+
+<img src="http://www.sunyopt.edu/site_images/misc/footer-contact.gif" style="margin-top:15px"><br><br>
+33 West 42nd Street<br>
+New York, NY 10036<br>
+p 212-938-4000<br>
+<a href="http://www.sunyopt.edu/about/social_media"><img src="http://www.sunyopt.edu/site_images/misc/social_media.gif" /></a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom-left">
+<a href="http://www.sunyopt.edu/about/privacy_policy">Privacy Policies</a>  <a href="http://www.sunyopt.edu/directory">Directory</a>    <a href="http://www.universityeyecenter.org">UniversityEyeCenter.org</a>  
+</div>
+<div class="footer-bottom-right">
+&copy Copyright 2012, SUNY College of Optometry, All rights reserved. 
+</div>
+
+
+</div>
+</div>
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-1302702-1";
+urchinTracker();
+</script>
+
+</body>
+</html>  

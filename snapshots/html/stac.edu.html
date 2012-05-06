@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Welcome to STAC</title>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=3.0.1'></script>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<style type="text/css">
+<!--
+@import url("../stac_admissions/images/pop_ups/stac_pop_up_menu.css");
+@import url("../stac_admissions/images/pop_ups/future.gif");
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	color: #666666;
+	text-decoration: underline;
+}
+a:active {
+	color: #999999;
+	text-decoration: none;
+}
+a {
+	font-family: Arial, Helvetica, sans-serif;
+}
+.style17 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #5A0928;
+}
+.style18 {
+	font-size: 13px;
+	font-weight: bold;
+}
+.style20 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.style21 {font-family: Arial, Helvetica, sans-serif}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+body {
+	background-color: #CCC;
+}
+	
+
+    #slideshow-container { height:330px; position:relative; }
+    #slideshow-container img { position:absolute; left:0; top:0; width:100%; height:100% }
+    #slideshow      { position:absolute; left:0; top:0; width:100%; height:100%; list-style:none }
+    #slideshow img  { width:120px; height:90px; background-repeat:none; background-position:top left; position:absolute; left:0; top:0 }
+    #slideshow      { position:absolute; left:0; top:0; width:100%; height:100%; }
+    #slideshow img  { width:900px; height:330px; background-repeat:none; background-position:top left; position:absolute; left:0; top:0 }	
+
+-->
+</style>
+<!-- SLIDESHOW SCRIPT-->
+    <script type="text/javascript">
+        jQuery.jQueryRandom = 0;
+        jQuery.extend(jQuery.expr[":"],
+        {
+            random: function(a, i, m, r) {
+                if (i == 0) {
+                    jQuery.jQueryRandom = Math.floor(Math.random() * r.length);
+                };
+                return i == jQuery.jQueryRandom;
+            }
+        });        
+        //end :random extend
+
+        $(function() {
+          $('#slideshow img').not(':random').hide(); //hide all images except one initially
+          setInterval(function(){
+            $('#slideshow img:visible').fadeOut('slow')
+              .siblings('img:random').fadeIn('slow') //find a random image
+               .end().appendTo('#slideshow');}, 
+            4000); //2 second interval
+        });
+    </script>
+
+<script language="JavaScript1.2" type="text/javascript" src="../stac_admissions/images/pop_ups/mm_css_menu.js"></script>
+
+<script type="text/JavaScript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+//-->
+</script>
+<link href="link_style/class11.css" rel="stylesheet" type="text/css" />
+<link href="css/rotatestyle.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+.style28 {color: #5A0928}
+-->
+</style>
+</head>
+
+<body onload="MM_preloadImages('../stac_admissions/images/pop_ups/future.gif')">
+<table width="900" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="524" height="79" align="left" valign="middle" bgcolor="#5A0928"><img src="../stac_admissions/images/stac_logo_ko.png" alt="stac_logo" width="500" height="79" border="0" usemap="#Image2Map" id="Image2" /></td>
+    <td width="248" align="right" valign="middle" bgcolor="#5A0928"><form action="http://www.stac.edu/s2.html" id="cse-search-box">
+  <div>
+    <div align="center">
+
+      <input type="hidden" name="cx" value="009418182975573094957:_goste6bzkk" />
+      <input type="hidden" name="cof" value="FORID:11" />
+      <input type="hidden" name="ie" value="UTF-8" />
+      <br />
+      <input type="text" name="q" size="20" /> 
+      <input type="submit" name="sa" value="Search" />
+      </div>
+  </div>
+</form>
+
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=en"></script>
+
+            </form>    </td>
+  </tr>
+  <tr>
+    <td colspan="2"><table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="44" align="center" valign="top"><a href="http://www.stac.edu/Current_Students.htm"></a><a href="http://www.stac.edu/alumni_friends.htm"></a><a href="http://www.stac.edu/Faculty_Staff.html"></a>
+          <div id="FWTableContainer1041761279">
+
+            <table width="750" border="0" align="center" cellpadding="0" cellspacing="0">
+              <!-- fwtable fwsrc="stac_pop_up_menu.png" fwbase="stac_pop_up_menu.gif" fwstyle="Dreamweaver" fwdocid = "1041761279" fwnested="1" -->
+              <tr>
+                <td width="138" align="center"><a href="http://www.stac.edu/Prospective_Students.html" target="_top" onclick="MM_nbGroup('down','navbar1','future','images/pop_ups/future.gif',1)" onmouseover="MM_menuShowMenu('MMMenuContainer0030162720_0', 'MMMenu0030162720_0',5,29,'future');;MM_nbGroup('over','future','','',1)" onmouseout="MM_menuStartTimeout(1000);;MM_nbGroup('out')"><img src="images/pop_ups/images/future.gif" alt="" name="future" width="138" height="40" border="0" lowsrc="../stac_admissions/images/pop_ups/stac_pop_up_menu.png" id="future" /></a></td>
+                <td width="140" align="center"><a href="http://www.stac.edu/Current_Students.htm" target="_top" onclick="MM_nbGroup('down','group1','current','',1)" onmouseover="MM_menuShowMenu('MMMenuContainer0030162844_1', 'MMMenu0030162844_1',6,29,'current');;MM_nbGroup('over','current','','',1)" onmouseout="MM_nbGroup('out');MM_menuStartTimeout(1000);"><img src="images/pop_ups/images/current.gif" alt="" name="current" width="140" height="40" border="0" lowsrc="../stac_admissions/images/pop_ups/stac_pop_up_menu.png" id="current" /></a></td>
+                <td width="211" align="center"><a href="http://www.stac.edu/alumni_friends.htm" target="_top" onmouseover="MM_menuShowMenu('MMMenuContainer0030163348_2', 'MMMenu0030163348_2',27,29,'alumni');" onmouseout="MM_menuStartTimeout(1000);"><img name="alumni" src="images/pop_ups/images/alumni.gif" width="211" height="40" border="0" id="alumni" alt="" /></a></td>
+                <td width="130" align="center"><a href="http://www.stac.edu/Faculty_Staff.html" target="_top" onmouseover="MM_menuShowMenu('MMMenuContainer0030163625_3', 'MMMenu0030163625_3',6,29,'faculty');" onmouseout="MM_menuStartTimeout(1000);"><img name="faculty" src="images/pop_ups/images/faculty.gif" width="130" height="40" border="0" id="faculty" alt="" /></a></td>
+                <td width="131" align="center"><a href="http://www.stac.edu/contact_us.html"><img src="images/pop_ups/images/contact.gif" alt="" name="contact" width="131" height="40" border="0" align="absmiddle" id="contact" /></a></td>
+              </tr>
+
+            </table>
+            <div id="MMMenuContainer0030162720_0">
+              <div id="MMMenu0030162720_0" onmouseout="MM_menuStartTimeout(1000);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.stac.edu/stac_admissions/index.html" id="MMMenu0030162720_0_Item_0" class="MMMIFVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> Admissions </a> <a href="http://www.stac.edu/apply/apply.html" id="MMMenu0030162720_0_Item_1" class="MMMIVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> Apply Online </a> <a href="http://www.stac.edu/Financial_Aid/financial_aid.html" id="MMMenu0030162720_0_Item_2" class="MMMIVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> Financial Aid </a> <a href="http://www.stac.edu/majorsatoz.html" id="MMMenu0030162720_0_Item_3" class="MMMIVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> Majors A-Z </a> <a href="http://www.stac.edu/Vistus.htm" id="MMMenu0030162720_0_Item_4" class="MMMIVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> Visit our Campus </a> <a href="http://www.stac.edu/Prospective_Students.html" id="MMMenu0030162720_0_Item_5" class="MMMIVStyleMMMenu0030162720_0" onmouseover="MM_menuOverMenuItem('MMMenu0030162720_0');"> More Options </a> </div>
+
+            </div>
+            <div id="MMMenuContainer0030162844_1">
+              <div id="MMMenu0030162844_1" onmouseout="MM_menuStartTimeout(1000);" onmouseover="MM_menuResetTimeout();"> <a href="http://stac.blackboard.com" id="MMMenu0030162844_1_Item_0" class="MMMIFVStyleMMMenu0030162844_1" onmouseover="MM_menuOverMenuItem('MMMenu0030162844_1');"> Blackboard Sign-in </a> <a href="http://www.stac.edu/Registraroff.htm" id="MMMenu0030162844_1_Item_1" class="MMMIVStyleMMMenu0030162844_1" onmouseover="MM_menuOverMenuItem('MMMenu0030162844_1');"> Registrar </a> <a href="https://mail.google.com/a/stac.edu/?source=navclient#inbox" id="MMMenu0030162844_1_Item_2" class="MMMIVStyleMMMenu0030162844_1" onmouseover="MM_menuOverMenuItem('MMMenu0030162844_1');"> STAC Email </a> <a href="http://www.stac.edu/stusevice/offstulife.htm" id="MMMenu0030162844_1_Item_3" class="MMMIVStyleMMMenu0030162844_1" onmouseover="MM_menuOverMenuItem('MMMenu0030162844_1');"> Student Life </a> <a href="http://www.stac.edu/Current_Students.htm" id="MMMenu0030162844_1_Item_4" class="MMMIVStyleMMMenu0030162844_1" onmouseover="MM_menuOverMenuItem('MMMenu0030162844_1');"> More Options </a> </div>
+
+            </div>
+            <div id="MMMenuContainer0030163348_2">
+              <div id="MMMenu0030163348_2" onmouseout="MM_menuStartTimeout(1000);" onmouseover="MM_menuResetTimeout();"> <a href="http://www.stac.edu/alumni.htm" id="MMMenu0030163348_2_Item_0" class="MMMIFVStyleMMMenu0030163348_2" onmouseover="MM_menuOverMenuItem('MMMenu0030163348_2');"> Alumni Association </a> <a href="http://www.stac.edu/alumni2/Making_a_Gift_to_STAC.html" id="MMMenu0030163348_2_Item_1" class="MMMIVStyleMMMenu0030163348_2" onmouseover="MM_menuOverMenuItem('MMMenu0030163348_2');"> Give to STAC </a> <a href="http://www.stac.edu/directory.htm" id="MMMenu0030163348_2_Item_2" class="MMMIVStyleMMMenu0030163348_2" onmouseover="MM_menuOverMenuItem('MMMenu0030163348_2');"> Campus Directory </a> <a href="http://www.stac.edu/alumni_friends.htm" id="MMMenu0030163348_2_Item_3" class="MMMIVStyleMMMenu0030163348_2" onmouseover="MM_menuOverMenuItem('MMMenu0030163348_2');"> More Options </a> </div>
+
+            </div>
+            <div id="MMMenuContainer0030163625_3">
+              <div id="MMMenu0030163625_3" onmouseout="MM_menuStartTimeout(1000);" onmouseover="MM_menuResetTimeout();"> <a href="https://mail.google.com/a/stac.edu/?source=navclient#inbox" id="MMMenu0030163625_3_Item_0" class="MMMIFVStyleMMMenu0030163625_3" onmouseover="MM_menuOverMenuItem('MMMenu0030163625_3');"> STAC Email </a> <a href="http://www.stac.edu/HumanResoff.htm" id="MMMenu0030163625_3_Item_1" class="MMMIVStyleMMMenu0030163625_3" onmouseover="MM_menuOverMenuItem('MMMenu0030163625_3');"> Human Resources </a> <a href="http://www.stac.edu/directory.htm" id="MMMenu0030163625_3_Item_2" class="MMMIVStyleMMMenu0030163625_3" onmouseover="MM_menuOverMenuItem('MMMenu0030163625_3');"> Campus Directory </a> <a href="http://www.stac.edu/Faculty_Staff.html" id="MMMenu0030163625_3_Item_3" class="MMMIVStyleMMMenu0030163625_3" onmouseover="MM_menuOverMenuItem('MMMenu0030163625_3');"> More Options </a> </div>
+
+            </div>
+          </div>          <a href="http://www.stac.edu/contact.html"></a></td>
+        </tr>
+      <tr>
+        <td height="32" align="center" valign="top">
+    <div id="slideshow-container">
+      <div id="slideshow"> 
+          <img src="images/home1.jpg" width="900" height="330"> 
+          <img src="images/home4.jpg" width="900" height="330">
+          <img src="images/home5.jpg" width="900" height="330">
+          <img src="images/home6.jpg" width="900" height="330">
+          <img src="images/home7.jpg" width="900" height="330">
+          <img src="images/home8.jpg" width="900" height="330">
+          <img src="images/home9.jpg" width="900" height="330">
+          <img src="images/home10.jpg" width="900" height="330">
+          <img src="images/home11.jpg" width="900" height="330">
+          <img src="images/home12.jpg" width="900" height="330">
+          <img src="images/home13.jpg" width="900" height="330">
+          <img src="images/home14.jpg" width="900" height="330">
+          <img src="images/home15.jpg" width="900" height="330">
+          <img src="images/home16.jpg" width="900" height="330">
+          <img src="images/home17.jpg" width="900" height="330">
+          <img src="images/home18.jpg" width="900" height="330">
+          <img src="images/home19.jpg" width="900" height="330">
+          <img src="images/home21.jpg" width="900" height="330">
+          <img src="images/home22.jpg" width="900" height="330">
+          <img src="images/home23.jpg" width="900" height="330">
+          <img src="images/home24.jpg" width="900" height="330">
+          <img src="images/home25.jpg" width="900" height="330">
+          <img src="images/home26.jpg" width="900" height="330">
+      </div> 
+    </div>
+     <table width="900" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+
+           <td height="10" colspan="6" bgcolor="#FFFFFF">&nbsp;</td>  
+          </tr>
+    </table>
+     <table width="900" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><strong>ADMISSIONS:</strong></td>
+           <td width="10" rowspan="23" align="left" valign="top" bgcolor="#FFFFFF" class="style17"><img src="images/rule.png" width="1" height="446" alt="rule" /></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><strong>ACADEMICS:</strong></td>
+
+           <td width="10" rowspan="23" align="left" valign="top" bgcolor="#FFFFFF" class="style17"><img src="images/rule.png" width="1" height="451" alt="rule" /></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><strong>ALUMNI &amp; FRIENDS:</strong></td>
+           <td width="9" rowspan="23" align="left" valign="top" bgcolor="#FFFFFF" class="style17"><img src="images/rule.png" width="1" height="446" alt="rule" /></td>
+           <td width="243" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><strong>CAMPUS CALENDAR:</strong></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/apply.html" class="class11">Apply</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/academicaffairs/aa_home.html">Academic Affairs</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/alumni2/Making_a_Gift_to_STAC.html">Give to STAC</a></span></td>
+           <td width="243" rowspan="17" align="left" valign="top" bgcolor="#FFFFFF">&nbsp;
+             <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;mode=AGENDA&amp;height=306&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=stac.edu_qhu14cn8hbverlrocsaavg3ko4%40group.calendar.google.com&amp;color=%23AB8B00&amp;src=stac.edu_9l3ur9542dbu66j59p4af1l06o%40group.calendar.google.com&amp;color=%23182C57&amp;src=stac.edu_s00rd7oueqqae8epjkojqajd3c%40group.calendar.google.com&amp;color=%23B1440E&amp;src=stac.edu_t5a8dcvlhd3er0t2jt0qg8bgms%40group.calendar.google.com&amp;color=%23856508&amp;src=stac.edu_2hc1r935l54kki6ulfbadd8rts%40group.calendar.google.com&amp;color=%230D7813&amp;src=stac.edu_89q1j74njrcrdhftt3l8ciof58%40group.calendar.google.com&amp;color=%23182C57&amp;ctz=America%2FNew_York" style=" border-width:0 " width="243" height="306" frameborder="0" scrolling="no"></iframe></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/freshmen.html" class="class11">Undergraduate</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://stac.blackboard.com/">Blackboard</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/alumni2/alumni_fame.html">Alumni Hall of Fame</a><a href="http://www.stac.edu/pdf/dinner/2011 Invitation.pdf"></a></span></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/graduate.html" class="class11">Graduate</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="https://stacsun03.stac.edu:4446/PROD/twbkwbis.P_WWWLogin">Banner Self Service</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/alumni2/keep_in_touch.html">Alumni Update</a><a href="http://www.stac.edu/alumni2/alumni_fame.html"></a></span></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/graduate.html">Transfer</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/cae/cae.html">Center for Academic Excellence</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/pageflip/flipbook_case/index.html">Campaign Case Statement </a></span></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/ask_admissions.html">Ask Admissions</a><a href="../admissions/life_at_stac.html"></a></span></td>
+
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/Registraroff.htm">Registrar</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"> <a href="http://www.stac.edu/pdf/fund/Campaign Donation.pdf">Give to the Capital Campaign </a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/life_at_stac.html">Life @ STAC</a><a href="../admissions/accepted_students.html"></a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://stac.libguides.com/lougheedlibrary">Library</a></span></td>
+
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">   <a href="alumni2/pdf/Alumni_Week_2012.pdf">Alumni Week Events </a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/visit_us.html">Open House</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/majorsatoz.html">Academic Programs</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"> <a href="golf/index.html">STAC XL Golf Tournament</a> </td>
+
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/contact_us.html">Contact Us</a></span></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/stac_admissions/academics.html">Three Year Program</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><a href="alumni2/torch_winter_11/index.html"></a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"> <a href="http://www.stac.edu/accepted">Accepted Students</a></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="style17"><strong>WHAT'S NEW:</strong></span></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><a href="http://www.stac.edu/whtsnew.htm">Press Room</a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style17"><strong>STUDENT DEVELOPMENT:</strong></td>
+
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/jobs.htm">Jobs @ STAC</a></span></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stacathletics.com">Athletics</a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/mba/omba.html">Online MBA</a><a href="https://sites.google.com/a/stac.edu/announce/"></a></span></td>
+
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"> <a href="http://www.stac.edu/security/">Campus Safety &amp; Security</a> </span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><a href="http://www.stac.edu/divisions/gte/teachleader.html">Online Teacher Leadership</a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><span class="class11"><a href="http://www.stac.edu/career_services/cs_home.html">Career Services</a><a href="http://www.stac.edu/Healthserv.htm"></a></span></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><a href="https://sites.google.com/a/stac.edu/announce/">Special Announcements</a><a href="http://www.stac.edu/divisions/gte/teachleader.html"></a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+           <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><a href="http://www.stac.edu/Healthserv.htm">Health Services</a></td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><a href="https://sites.google.com/a/stac.edu/announce/"></a></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+            <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><a href="http://www.stac.edu/student_activities/sa.html">Student Activities</a></td>
+
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           </tr>
+            <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><img src="images/support_stac_online.png" width="125" height="69" border="0" align="absmiddle" usemap="#Map6" /></td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           </tr>
+            <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="243" height="18" bgcolor="#FFFFFF">&nbsp;</td>  
+           </tr>
+            <tr>
+
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="170" rowspan="4" align="left" valign="middle" bgcolor="#FFFFFF" class="style20"><img src="images/facebook_YouTube.png" alt="social" width="77" height="33" border="0" usemap="#Map2" /></td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="243" rowspan="4" align="center" valign="middle" bgcolor="#FFFFFF"><img src="images/cal_usnews.png" alt="mba_usnews" width="240" height="100" border="0" usemap="#Map5" /></td>  
+           </tr>
+            <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           </tr>
+            <tr>
+           <td width="16" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="215" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="18" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="30" height="18" bgcolor="#FFFFFF">&nbsp;</td>
+           </tr>
+
+            <tr>
+           <td width="16" height="35" bgcolor="#FFFFFF">&nbsp;</td>
+           <td width="215" height="35" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="197" height="35" align="left" valign="middle" bgcolor="#FFFFFF" class="style20">&nbsp;</td>
+           <td width="30" height="35" bgcolor="#FFFFFF">&nbsp;</td>
+           </tr>
+    </table>
+        <table width="900" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+
+              <td width="96" height="90" align="center" valign="middle" bgcolor="#F1BA46"><a href="http://www.stac.edu/"><img src="../stac_admissions/images/stac_torch_maroon.png" alt="stac_torch" width="83" height="82" border="0" /></a></td>
+              <td width="242" align="left" valign="middle" bgcolor="#F1BA46"><p class="style17"><span class="style18">St. Thomas Aquinas College</span><br />
+                125 Route 340<br />
+                Sparkill, NY 10976<br />
+                845.398.4100
+</p>                </td>
+              <td width="101" align="left" valign="middle" bgcolor="#F1BA46"><p class="style20"><a href="http://www.stac.edu/stac_admissions/index.html" class="style21">Admissions</a></p>
+
+                <p class="style20"><a href="http://www.stac.edu/index.html" class="style21">Home</a></p></td>
+              <td width="108" bgcolor="#F1BA46"><p class="style20"><a href="http://www.stac.edu/alumni2/Making_a_Gift_to_STAC.html" class="style21">Give to STAC</a></p>
+                <p class="style20"><a href="http://www.stac.edu/stacatoz.html">STAC A-Z</a> </p></td>
+              <td width="110" bgcolor="#F1BA46"><p class="style20"><a href="https://sites.google.com/a/stac.edu/stacnews/" class="style21">Press Room </a></p>
+                <p class="style20"><a href="https://www.google.com/a/stac.edu/ServiceLogin?service=mail&amp;passive=true&amp;rm=false&amp;continue=https%3A%2F%2Fmail.google.com%2Fa%2Fstac.edu%2F%3Fsource%3Dnavclient&amp;bsv=llya694le36z&amp;ltmpl=default&amp;ltmplcache=2&amp;from=login#inbox" class="style21">STAC Email</a>  </p></td>
+
+              <td width="93" bgcolor="#F1BA46"><p class="style20"><a href="http://www.stacathletics.com/landing/index" class="style21">Athletics</a></p>
+                <p class="style20"><a href="http://www.stac.edu/jobs.htm" class="style21">Jobs at STAC</a> </p></td>
+            </tr>
+          </table></td>
+        </tr>
+
+    </table></td>
+  </tr>
+
+</table>
+
+<map name="Map" id="Map">
+  <area shape="rect" coords="8,309,112,394" href="http://www.stac.edu/stac_admissions/index.html" />
+<area shape="rect" coords="230,309,335,394" href="https://www.google.com/calendar/hosted/stac.edu/embed?src=stac.edu_2hc1r935l54kki6ulfbadd8rts@group.calendar.google.com&amp;ctz=America/New_York&amp;pvttk=e53e97f5d4b2b5f9d3e363dbd2583b2d" />
+<area shape="rect" coords="339,309,448,394" href="http://www.stacathletics.com/landing/index" />
+<area shape="rect" coords="455,308,561,396" href="http://www.stac.edu/insa.htm" />
+</map>
+<map name="Map3" id="Map3"><area shape="rect" coords="7,307,112,394" href="http://www.stac.edu/stac_admissions/index.html" />
+<area shape="rect" coords="119,309,223,393" href="http://www.stac.edu/majorsatoz.html" />
+<area shape="rect" coords="232,309,334,394" href="https://www.google.com/calendar/hosted/stac.edu/embed?src=stac.edu_2hc1r935l54kki6ulfbadd8rts@group.calendar.google.com&amp;ctz=America/New_York&amp;pvttk=e53e97f5d4b2b5f9d3e363dbd2583b2d" />
+<area shape="rect" coords="344,310,447,394" href="http://www.stacathletics.com/landing/index" />
+<area shape="rect" coords="456,309,561,394" href="http://www.stac.edu/alumni2/Making_a_Gift_to_STAC.html" />
+</map>
+
+<map name="Image2Map" id="Image2Map"><area shape="rect" coords="10,8,489,71" href="http://www.stac.edu/" />
+
+</map>
+<map name="Map2" id="Map2">
+  <area shape="rect" coords="1,-8,32,33" href="http://www.facebook.com/stac.edu" alt="facebook" />
+  <area shape="rect" coords="37,-2,75,35" href="http://www.youtube.com/user/STACStThomasAquinas" alt="you tube" />
+</map>
+
+<map name="Map4" id="Map4">
+  <area shape="rect" coords="117,3,197,80" href="http://www.stac.edu/pressroom/GP2713.html" alt="us_news" />
+  <area shape="rect" coords="3,3,111,81" href="https://www.google.com/calendar/hosted/stac.edu/embed?src=stac.edu_2hc1r935l54kki6ulfbadd8rts@group.calendar.google.com&ctz=America/New_York&pvttk=e53e97f5d4b2b5f9d3e363dbd2583b2d" />
+</map>
+
+<map name="Map5" id="Map5">
+  <area shape="rect" coords="8,4,137,97" href="https://sites.google.com/a/stac.edu/calendar/" />
+
+  <area shape="rect" coords="147,4,228,89" href="http://www.stac.edu/pressroom/GP2713.html&quot; alt=&quot;us_news" />
+</map>
+
+<map name="Map6" id="Map6">
+<area shape="rect" coords="-11,4,123,66" href="http://onlinegiving.stac.edu" />
+</map></body>
+</html>

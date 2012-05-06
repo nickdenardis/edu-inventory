@@ -1,0 +1,1057 @@
+<HTML>
+<HEAD>
+<TITLE>Defiance College</TITLE>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+      
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): Â© Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array() //2nd array set example. Remove or add more sets as needed.
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["http://www.defiance.edu/Graphics/home/home_box_music_programs.jpg", "http://www.defiance.edu/pages/SL_music_programs.html", ""] //
+fadeimages[1]=["http://www.defiance.edu/Graphics/home/home_box_music_programs.jpg", "http://www.defiance.edu/pages/SL_music_programs.html", ""] //
+
+
+ 
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</script>
+
+
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
+
+<style type="text/css">
+<!--
+
+.style1 {color: #FFFFFF}
+#Search {
+	position:absolute;
+	width:185px;
+	height:62px;
+	z-index:7;
+	left: 169px;
+	top: 175px;
+	visibility: visible;
+}
+#Search2 {
+	position:absolute;
+	width:205px;
+	height:43px;
+	z-index:7;
+	left: 448px;
+	top: 119px;
+}
+#QuickLinks {
+	position:absolute;
+	width:233px;
+	height:33px;
+	z-index:8;
+	left: 626px;
+	top: 226px;
+	visibility: visible;
+}
+.Table_Bottom_Border {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #000000;
+}
+-->
+</style>
+<link href="include/DC_CSS.css" rel="stylesheet" type="text/css" media="screen">
+<link href="include/Print_DC_CSS.css" rel="stylesheet" type="text/css" media="print">
+<link href="include/HideScreenShowPrint.css" rel="stylesheet" type="text/css" media="screen">
+<style type="text/css">
+<!--
+.style18 {font-size: 14px}
+.style19 {color: #FDFF93; font-weight: bold; font-family: Arial, Helvetica, sans-serif;}
+.style7 {font-size: 14}
+#AlumnFriends {
+	position:absolute;
+	width:178px;
+	height:153px;
+	z-index:9;
+	left: 321px;
+	top: 357px;
+	visibility: hidden;
+}
+#AlumnFriends a:link {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;
+}
+#AlumnFriends a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;
+}
+#AlumnFriends a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fdff93;
+	text-decoration: underline;
+	font-size: 12px;
+}
+#AlumnFriends a:active {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FDFF93;
+	text-decoration: none;
+	font-size: 12px;
+}
+#alert {
+	position:absolute;
+	width:171px;
+	height:29px;
+	z-index:1;
+	left: 506px;
+	top: 308px;
+	visibility: hidden;
+}
+#SchombergSeries {	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:10;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#Event1 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:11;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#OpenHouse {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:10;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#DCCB {	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:10;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#McMaster {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:10;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#McMaster2 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:20;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#McMaster3 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:17;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#McMaster4 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:18;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#McMaster5 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:19;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+#DCplayers2 {
+	position:absolute;
+	width:400px;
+	height:200px;
+	z-index:15;
+	left: 414px;
+	top: 595px;
+	overflow: auto;
+	background-color: #FFFF99;
+	border-color: #000000;
+	border-style: solid;
+	border-bottom-width: thin;
+	border-right-width: thin;
+	border-top-width: thin;
+	border-left-width: thin;
+	visibility: hidden;
+}
+.Regular_Text1 {font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+.applytable {
+	line-height: 18px;
+}
+.Reg_Text_Purple {	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #663398;
+}
+
+
+#ApplyOnline {
+	position:absolute;
+	width:200px;
+	height:115px;
+	z-index:22;
+	left: 314px;
+	top: 267px;
+	line-height: normal;
+	visibility: hidden;
+}
+#ApplyOnline a:link {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;
+}
+#ApplyOnline a:visited {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FFFFFF;
+	text-decoration: none;
+	font-size: 12px;
+}
+#ApplyOnline a:hover {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #fdff93;
+	text-decoration: underline;
+	font-size: 12px;
+}
+#ApplyOnline a:active {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #FDFF93;
+	text-decoration: none;
+	font-size: 12px;
+}
+.style21 {color: #990000}
+#alert2 {	position:absolute;
+	width:171px;
+	height:29px;
+	z-index:1;
+	left: 506px;
+	top: 313px;
+	visibility: visible;
+}
+.style22 {font-size: 14px; color: #301D43; line-height: normal; font-family: Arial, Helvetica, sans-serif;}
+-->
+</style>
+
+
+<script type="text/javascript">
+/***********************************************
+* Ajax Rotating Includes script- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+//To include a page, invoke ajaxinclude(files_array, "ROTATETYPE") in the BODY of page.
+//* file_array is the name of the array containing your list of files to include.
+//* For "ROTATETYPE", valid values are "dailyw", "dailym", and "random", for each day of the week, each day of the month, and random, respectively.
+//* Included file MUST be from the same domain as the page displaying it.
+
+//Enter path to list of files to display.
+//For rotatetype="dailyw", there must be 7 files, and for "dailym", 31 files. Otherwise, no restriction:
+
+var includefiles=["includes/home_content_4.html", "includes/home_content_3.html", "includes/home_content_2.html", "includes/home_content_1.html"]
+
+var rootdomain="http://"+window.location.hostname
+
+function ajaxinclude(files_array, rotatetype){
+var page_request = false
+if (window.XMLHttpRequest) // if Mozilla, Safari etc
+page_request = new XMLHttpRequest()
+else if (window.ActiveXObject){ // if IE
+try {
+page_request = new ActiveXObject("Msxml2.XMLHTTP")
+} 
+catch (e){
+try{
+page_request = new ActiveXObject("Microsoft.XMLHTTP")
+}
+catch (e){}
+}
+}
+else
+return false
+var url=choosefile(files_array, rotatetype)
+if (typeof files_array[url]=="undefined"){
+document.write("Error: No file for this day has been found.")
+return
+}
+else
+url=files_array[url]
+page_request.open('GET', url, false) //get page synchronously 
+page_request.send(null)
+writecontent(page_request)
+}
+
+function writecontent(page_request){
+if (window.location.href.indexOf("http")==-1 || page_request.status==200)
+document.write(page_request.responseText)
+}
+
+function choosefile(files_array, rotatetype){
+var today=new Date()
+var selectedfile=(rotatetype=="dailyw")? today.getDay() : rotatetype=="dailym"? today.getDate() : Math.floor(Math.random()*files_array.length)
+if (rotatetype=="dailyw" && selectedfile==0) //if display type=="week days" and today is Sunday 
+selectedfile=7
+if (rotatetype=="dailyw" || rotatetype=="dailym")
+selectedfile--  //remove 1 to sync with array index
+return selectedfile
+}
+</script>
+</HEAD>
+<BODY BGCOLOR=#FFFFFF LEFTMARGIN=0 TOPMARGIN=0 MARGINWIDTH=0 MARGINHEIGHT=0 onLoad="MM_preloadImages('images/top_navigation_clicked_01.gif','images/top_navigation_clicked_03.gif','images/top_navigation_clicked_04.gif','images/top_navigation_clicked_05.gif','images/bottom_links_clicked_01.gif','images/bottom_links_clicked_02.gif','images/bottom_links_clicked_03.gif','images/Main_Nav_Clicked_03.gif','images/Main_Nav_Clicked3_04.gif','images/Main_Nav_Clicked3_05.gif','images/Main_Nav_Clicked3_06.gif','images/Main_Nav_Clicked3_07.gif','images/Main_Nav_Clicked3_11.gif','images/Main_Nav_Clicked3_10.gif','images/Main_Nav_Clicked3_08.gif','images/Main_Nav_Clicked3_12.gif','images/Main_Nav_Clicked3_15.gif','images/Main_Nav_Clicked3_14.gif','images/top_navigation_clicked_02.gif','images/main_campaign_cl.gif','images/Main_DC_Pres_cl.gif','images/main_vets_cl.gif','images/main_selfstudy_cl.gif','Graphics/DC_Ribbon-Cutting_cl.jpg','Graphics/right_image_Enroll_cl.jpg')">
+<div id="GiveToDC">
+  <table width="343" height="144" border="2" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43" onMouseOver="MM_showHideLayers('GiveToDC','','show');MM_swapImage('Give_to_DC_button','','images/top_navigation_clicked_05.gif',1)" onMouseOut="MM_showHideLayers('GiveToDC','','hide');MM_swapImgRestore()">
+    <tr>
+      <td width="373"><table width="339" height="142" border="0" cellpadding="10" cellspacing="0">
+        <tr>
+          <td width="142" valign="top"><span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">Give to DC:</span><br>
+                <a href="http://www.defiance.edu/thetransformingdifference.html">DC Campaign</a><a href="../pages/IA_annual.html"><br>
+                Defiance Fund<br>
+</a><a href="http://www.defiance.edu/dcfieldhouse.html">Field House Campaign</a><br>
+                <a href="http://www.defiance.edu/transform/take_a_seat.html">&quot;Take a Seat&quot; Campaign</a><br>
+                <a href="http://www.defiance.edu/transform/performing_arts.html">Performing Arts Initiative</a><br>
+                <a href="http://www.defiance.edu/pages/IA_EFT.html"><br>
+                </a><a href="http://www.defiance.edu/pages/IA_donation.html">Online Giving</a><a href="http://www.defiance.edu/pages/IA_EFT.html"><br>
+                Electronic Funds Transfer</a><br>
+                <a href="../pages/IA_endowments.html">Endowments</a><br>
+                <a href="http://dclegacy.org">Planned Giving</a><br>
+              <a href="../pages/IA_faq.html">FAQ's</a><a href="../pages/IA_home.html"></a></span></td>
+          <td width="157" valign="top"><p class="Drop_Menu_Links"><a href="https://www.defiance.edu/alumni_referral_form.html">Refer a Student to DC<br>
+            <br>
+          </a><a href="../pages/IA_home.html">Institutional Advancement</a><br>
+              <a href="http://alumni.defiance.edu/?page=alumnioffices">Advancement Staff</a><br>
+              <a href="../pages/IA_contact.html">Contact Us</a><span class="style18"><span class="style19"><br>
+              <br>
+                <br>
+                See Also:</span></span><a href="http://alumni.defiance.edu/"><br>
+            Alumni Website</a></p>            </td>
+        </tr>
+      </table></td>
+    </tr>
+  </table>
+<span class="Drop_Menu_Links"></span></div>
+<!-- ImageReady Slices (sliced_homepage1.psd) -->
+<TABLE WIDTH=985 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<TR class="Hide_Element">
+<TD ROWSPAN=6 valign="top" class="Hide_Element"><img src="images/atoz_02.gif" width=117 height=835 alt=""><br></TD>
+    <TD COLSPAN=5 valign="top" class="Hide_Element"><img src="images/Main_Image_16_tab.jpg" alt="Defiance College" width=750 height=261 border="0" usemap="#Map"></TD>
+<TD ROWSPAN=6 valign="top" class="Hide_Element"><img src="images/atoz_04.gif" width=118 height=835 alt=""></TD>
+<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=261 ALT=""></TD>
+  </TR>
+<TR>
+	  <TD valign="top" bgcolor="#301D43" class="Hide_Element">
+	  <IMG SRC="images/atoz_05.gif" ALT="" WIDTH=52 HEIGHT=40></TD>
+	  <TD valign="bottom" background="images/Left_Navigation_Buttons_01.gif" class="Hide_Element"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+</head>
+
+<body onload="MM_preloadImages('../images/Main_Nav_Clicked_02.gif')">
+<a href="../admissions.html"><img src="../images/Left_Navigation_Buttons_02.gif" alt="Future Students" name="Home_Nav_Top" width="183" height="19" border="0" align="bottom" id="Image2" onmouseover="MM_swapImage('Home_Nav_Top','','../images/Main_Nav_Clicked_02.gif',1)" onmouseout="MM_swapImgRestore()" /></a>
+</body>
+</html>
+</TD>
+	  <TD COLSPAN=3 valign="top" class="Hide_Element"><a href="admissions.html"><img src="images/top_navigation_regular_01.gif" alt="Admissions" name="Admissions_button" width="114" height="40" border="0" id="Image1" onMouseOver="MM_swapImage('Image1','','images/top_navigation_clicked_01.gif',1);MM_showHideLayers('Admissions','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('Admissions','','hide')"></a><a href="http://www.defiance.edu/athletics/home.html"></a><a href="http://www.defiance.edu/pages/info_majors.html"><img src="images/top_navigation_regular_03.gif" alt="Academics" name="Academics_button" width="87" height="40" border="0" id="Academics_button" onMouseOver="MM_swapImage('Academics_button','','images/top_navigation_clicked_03.gif',1);MM_showHideLayers('Academics','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('Academics','','hide')"></a><a href="pages/SL_home.html"><img src="images/top_navigation_regular_04.gif" alt="Student Life" name="Student_Life_Button" width="98" height="40" border="0" id="Student_Life_Button" onMouseOver="MM_swapImage('Student_Life_Button','','images/top_navigation_clicked_04.gif',1);MM_showHideLayers('StudentLife','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('StudentLife','','hide')"></a><a href="http://www.defiance.edu/athletics/home.html"><img src="images/top_navigation_regular_02.gif" alt="Athletics" name="Athletics_button" width="74" height="40" border="0" id="Athletics_button" onMouseOver="MM_swapImage('Athletics_button','','images/top_navigation_clicked_02.gif',1)" onMouseOut="MM_swapImgRestore()"></a><a href="pages/IA_annual.html"><img src="images/top_navigation_regular_05.gif" alt="Give to DC" name="Give_to_DC_button" width="89" height="40" border="0" id="Give_to_DC_button" onMouseOver="MM_swapImage('Give_to_DC_button','','images/top_navigation_clicked_05.gif',1);MM_showHideLayers('GiveToDC','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('GiveToDC','','hide')"></a><img src="images/top_navigation_regular_06.gif" alt="" width="53" height="40"></TD>
+<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=40 ALT=""></TD>
+  </TR>
+	<TR>
+		<TD ROWSPAN=2 valign="top" bgcolor="#EEEDD9" class="Hide_Element"><img src="images/atoz_08.gif" width=52 height=46 alt=""></TD>
+      <TD valign="top" background="images/Left_Navigation_Buttons_14.gif" class="Hide_Element"><p align="center">
+        <a href="https://www.defiance.edu/application.html"><img src="images/Left_Navigation_Buttons_03.gif" alt="Apply Online" name="Home_Nav_3" width="183" height="18" border="0" id="Image3" onMouseOver="MM_swapImage('Home_Nav_3','','images/Main_Nav_Clicked_03.gif',1);MM_showHideLayers('ApplyOnline','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('ApplyOnline','','hide')" /></a><br />
+        <a href="../current_students.html"><img src="images/Main_Nav_3_04.gif" alt="Current Students" name="Home_Nav_4" width="183" height="19" border="0" id="Image4" onMouseOver="MM_swapImage('Home_Nav_4','','images/Main_Nav_Clicked3_04.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br />
+        <a href="../CAP.html"><img src="images/Main_Nav_3_05.gif" alt="Adult Students" name="Home_Nav_5" width="183" height="19" border="0" id="Image5" onMouseOver="MM_swapImage('Home_Nav_5','','images/Main_Nav_Clicked3_05.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br />
+        <a href="http://www.defiance.edu/pages/cap_graduate_programs.html"><img src="images/Main_Nav_3_06.gif" alt="Graduate Programs" name="Home_Nav_6" width="183" height="17" border="0" id="Image6" onMouseOver="MM_swapImage('Home_Nav_6','','images/Main_Nav_Clicked3_06.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br />
+        <a href="../parents.html"><img src="images/Main_Nav_3_07.gif" alt="Parents &amp; Family" name="Home_Nav_7" width="183" height="18" border="0" id="Image7" onMouseOver="MM_swapImage('Home_Nav_7','','images/Main_Nav_Clicked3_07.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br />
+        <a href="http://alumni.defiance.edu/"><img src="images/Main_Nav_3_08.gif" alt="Alumni &amp; Friends" name="Home_Nav_8" width="183" height="18" border="0" id="Home_Nav_8" onMouseOver="MM_swapImage('Home_Nav_8','','images/Main_Nav_Clicked3_08.gif',1);MM_showHideLayers('AlumnFriends','','show')" onMouseOut="MM_swapImgRestore();MM_showHideLayers('AlumnFriends','','hide')" /></a><br />
+        <img src="images/Main_Nav_3_09.gif" alt="" name="Home_Nav_9" width="183" height="18" border="0" id="Image8" /><br />
+        <a href="../mcmaster_school.html"><img src="images/Main_Nav_3_10.gif" alt="McMaster School" name="Home_Nav_10" width="183" height="17" border="0" id="Image9" onMouseOver="MM_swapImage('Home_Nav_10','','images/Main_Nav_Clicked3_10.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br />
+        <a href="../mcmaster_school.html"><img src="images/Main_Nav_3_11.gif" alt="Service Learning" name="Home_Nav_11" width="183" height="18" border="0" id="Home_Nav_11" onMouseOver="MM_swapImage('Home_Nav_11','','images/Main_Nav_Clicked3_11.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br>
+        <a href="http://www.defiance.edu/hasp.html"><img src="images/Main_Nav_3_12.gif" alt="Autism Studies" name="Home_Nav_12" width="183" height="19" border="0" id="Home_Nav_12" onMouseOver="MM_swapImage('Home_Nav_12','','images/Main_Nav_Clicked3_12.gif',1)" onMouseOut="MM_swapImgRestore()" /><br>
+        </a><a href="http://www.defiance.edu/pages/vet_home.html"><img src="images/main_vets.gif" alt="Veterans Programs" name="home_vets" width="183" height="18" border="0" id="home_vets" onMouseOver="MM_swapImage('home_vets','','images/main_vets_cl.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><a href="../mcmaster_school.html"><br>
+        </a><img src="images/Main_Nav_3_13.gif" alt="" name="Home_Nav_13" width="183" height="18" border="0" id="Image10" /><br />
+        <a href="http://www.defiance.edu/pages/pres_bio.html"><img src="images/Main_DC_Pres.gif" alt="DC President" name="dc_pres" width="183" height="18" border="0" id="dc_pres" onMouseOver="MM_swapImage('dc_pres','','images/Main_DC_Pres_cl.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br>
+        <a href="http://www.defiance.edu/pages/info_home.html"><img src="images/Main_Nav_3_14.gif" alt="DC Information" name="Home_Nav_14" width="183" height="19" border="0" id="Image11" onMouseOver="MM_swapImage('Home_Nav_14','','images/Main_Nav_Clicked3_14.gif',1)" onMouseOut="MM_swapImgRestore()" /></a><br>
+        <a href="../pages/info_directory.html"><img src="images/Main_Nav_3_15.gif" alt="Campus Directory" name="Home_Nav_15" width="183" height="18" border="0" id="Home_Nav_15" onMouseOver="MM_swapImage('Home_Nav_15','','images/Main_Nav_Clicked3_15.gif',1)" onMouseOut="MM_swapImgRestore()"></a><br>
+        <img src="images/Main_Nav_3_16.gif" alt="" width="183" height="17" border="0"><br>
+      </a><a href="http://www.defiance.edu/thetransformingdifference.html"><img src="images/main_campaign.gif" alt="DC Campaign" name="Campaign" width="183" height="18" border="0" id="Campaign" onMouseOver="MM_swapImage('Campaign','','images/main_campaign_cl.gif',1)" onMouseOut="MM_swapImgRestore()"></a><br>
+      <a href="http://www.defiance.edu/selfstudy.html"><img src="images/main_selfstudy.gif" alt="DC Self-Study" name="selfstudy" width="183" height="18" border="0" id="selfstudy" onMouseOver="MM_swapImage('selfstudy','','images/main_selfstudy_cl.gif',1)" onMouseOut="MM_swapImgRestore()"></a><br>
+      <a href="http://www.defiance.edu/thetransformingdifference.html"><br>
+      </a></p>      </TD>
+      <TD ROWSPAN=2 valign="top" bgcolor="#EEEDD9"><table width="334" border="0" cellspacing="0" cellpadding="25">
+        <tr>
+            <td><table width="200" border="0" cellpadding="0" cellspacing="0" class="HideScreenShowPrint">
+              <tr>
+                <td><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+-->
+</style>
+</head>
+
+<body>
+<p class="Regular_Text"><img src="../Graphics/Print_Header_DC_Defy.gif" alt="Print_Header_DC_Defy" width="500" height="186" /></p>
+</body>
+</html>
+</td>
+              </tr>
+            </table>
+              <span class="Header_1">Recent News</span>
+              <table width="100%" border="0" cellpadding="10" cellspacing="0">
+                <tr>
+                  <td valign="top"><p align="left" class="Regular_Text">   <strong class="Regular_Text">Defiance College 2012 Commencement <br>
+Ceremony to be held May 6</strong><br>
+<strong><img src="Dispatch/photos/Rory_Vaden_2012_sm.jpg" alt="" border="1" height="113" hspace="7" vspace="10" width="75" align="left"></strong>Two hundred and forty-seven graduates will be awarded diplomas during Defiance College&rsquo;s 2012 commencement ceremony on Sunday, May 6. The ceremony will begin at 12 noon on the Colonnade Green in front of the Pilgrim Library.<span class="style22"><br>
+</span><a href="http://www.defiance.edu/Dispatch/12_4n_commencement2012.html">continue</a> | <a href="http://www.defiance.edu/Dispatch/dispatch_web.html">more news</a><strong><span class="Header_1"><br>
+</span><br>
+</strong><span class="Regular_Text"><strong>Business Students open <br>
+Disc Golf Course on DC Campus</strong><br>
+The Defiance College Business Advantage Student Advisory Board (BASAB) has announced the addition of a Disc Golf course to the campus. Recently opened, the nine-hole disc golf course is available to the campus.<br>
+<a href="http://www.defiance.edu/Dispatch/12_5n_Disc_Golf_Course.html">continue</a> | <a href="http://www.defiance.edu/Dispatch/dispatch_web.html">more news</a><br>
+                      </span></p>
+                  </td>
+                </tr>
+              </table>
+              <br>
+              <table width="100%" border="0" cellpadding="10" cellspacing="0">
+                <tr>
+                  <td valign="top"><span class="Header_1">Upcoming Events</span>
+                  <table width="100%" border="0" cellpadding="9" cellspacing="0">
+                        <tr>
+                          <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td width="76%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                      <td width="26%" valign="top" class="Regular_Text"><p class="Regular_Text">May 6<br>
+                                        May 11<br>
+Jun. 15<br>
+Jun. 16<br>
+Jul. 18<br>
+Jul. 28<br>
+                                      Aug. 13</p>                                      </td>
+<td width="74%" valign="top"><p class="Regular_Text">- Commencement<br>
+        - <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a><br>
+- <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a><br>
+- <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a><br>
+- <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a><br>
+- <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a><br>
+- <a href="http://www.defiance.edu/pages/adm_orientation_fall.html">2012 Orientation</a></p>  </td>
+                                  </tr>
+                                </table></td>
+                              </tr>
+                            </table>
+                              <p class="Regular_Text"><a href="http://www.calsnet.net/defiancecollege" target="_blank">event calendar</a><br>
+                            </p></td>
+                        </tr>
+                    </table></td>
+                </tr>
+              </table>
+              <table width="400" border="0" cellpadding="0" cellspacing="0" class="HideScreenShowPrint"></table>              </td>
+        </tr>
+        </table>
+        
+        <div id="Academics" onMouseOver="MM_showHideLayers('Academics','','show');MM_swapImage('Academics_button','','images/top_navigation_clicked_03.gif',1)" onMouseOut="MM_showHideLayers('Academics','','hide');MM_swapImgRestore()">
+<table width="175" border="2" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43">
+              <tr>
+                <td height="247"><table width="345" height="232" border="0" cellpadding="10" cellspacing="0">
+                  <tr>
+                    <td width="145" height="232" valign="top"><p class="style1"><span class="Drop_Menu_Links_Header">Academics:</span><br>
+                            <span class="Drop_Menu_Links"><a href="../pages/info_majors.html">Majors</a><br>
+                            <a href="../pages/catalog.html">Catalog and Schedules</a><br>
+                            <a href="../pages/onlineclasses.html">Online Classes</a><br>
+                            <a href="../pages/info_academic_calendar.html">Academic Calendar</a><br>
+                              <a href="../pages/bus_home.html"></a><br>
+                              <br>
+                      </span><span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">See Also:</span><br>
+                      <a href="../pages/info_first_year_experience.html">First-Year Experience</a><a href="../pages/carolyn_small.html"><br>
+                      </a><a href="../mcmaster_school.html">McMaster School</a><br>
+                      <a href="http://www.defiance.edu/pages/project701.html">Project 701</a></span><span class="Drop_Menu_Links"><a href="../pages/carolyn_small.html"><br>
+                      Carolyn Small Honors</a><br>
+                      <a href="../pages/design_for_leadership.html">Design for Leadership</a><br>
+                        <br>
+                        <a href="CAP.html"> Adult &amp; Grad Programs</a><a href="../pages/cap_weekend_college.html"><br>
+                        Weekend College</a><br>
+                        <a href="../pages/cap_graduate_programs.html">Graduate Programs</a></span><br>
+                      <a href="../pages/info_first_year_experience.html"></a><a href="../pages/design_for_leadership.html"></a></p>                    </td>
+                    <td width="160" valign="top"><p class="Drop_Menu_Links"><a href="pages/AH_home.html">Arts &amp; Humanities </a><br>
+                          <a href="pages/BASS_home.html">Social Sciences</a><br>
+                          <a href="../pages/bus_home.html">Business &amp; Allied Health</a><br>
+                      <a href="pages/edu_home.html">Education</a><br>
+                          <a href="pages/NS_home.html">Science &amp; Math</a><br>
+                        <span class="style7"><br>
+                        </span><br>
+                      <a href="../pages/SL_ARC.html">Academic Resources (ARC)</a><a href="library.html"><br>
+                      Pilgrim Library</a><br>
+                      <br>
+                      <a href="../pages/RC_home.html">Registrar's Office</a><br>
+                    <a href="../pages/RC_transcript.html">Transcript Request</a><br>
+                    <a href="http://www.defiance.edu/pages/BusOffice_home.html">Business Office</a><br>
+                    <br>
+                    <a href="http://www.defiance.edu/magazine.html">DC The Magazine</a><br>
+                    <a href="http://www.defiance.edu/speakersbureau.html">DC Speakers Bureau</a></p></td>
+                  </tr>
+                </table></td>
+          </tr>
+          </table>
+		    <span class="style1"><span class="Drop_Menu_Links_Header">
+        </span></span></div>
+        <div id="StudentLife" onMouseOver="MM_showHideLayers('StudentLife','','show');MM_swapImage('Student_Life_Button','','images/top_navigation_clicked_04.gif',1)" onMouseOut="MM_showHideLayers('StudentLife','','hide');MM_swapImgRestore()">
+<table width="175" border="2" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43">
+              <tr>
+                <td><table width="372" border="0" cellspacing="0" cellpadding="10">
+                  <tr>
+                    <td width="172" height="191" valign="top"><p><span class="Drop_Menu_Links_Header">Student Life:</span><br>
+                            <span class="Drop_Menu_Links"><a href="../pages/SL_home.html">Student Life Home</a><a href="../pages/SL_cab.html"><br>
+                            </a><a href="../pages/SL_residence.html">Residence Life</a><a href="../pages/SL_cab.html"><br>
+                            </a><a href="../pages/SL_student_activities.html">Student Activities</a><br>
+                            <br>
+                            <span class="style1"><a href="http://www.defiance.edu/pages/SL_activities_organizations.html">Student Organizations</a></span><a href="../pages/SL_cab.html"><br>
+                      Campus Activities Board (CAB)</a><span class="style1"><br>
+                      <a href="../pages/SL_greek.html">Greek Life</a><br>
+                    <a href="../pages/SL_multicultural.html">Intercultural Relations<br>
+                    </a><a href="http://www.defiance.edu/pages/SL_spiritual_life.html">Spiritual Life<br>
+                    </a><a href="pages/SL_music_programs.html">Music Programs</a></span></span></p></td>
+                    <td width="160" valign="top"><span class="Drop_Menu_Links"><a href="../pages/SL_health.html">Health Center<br>
+                      </a><a href="http://www.defiance.edu/career.html">Career Development</a><br>
+                      <a href="../pages/SL_ARC.html">Academic Resources (ARC)</a><br>
+                    <a href="http://www.defiance.edu/pages/AS_home.html">Accessibility Services</a><br>
+                    <a href="http://www.defiance.edu/pages/SL_campus_security.html">Campus Security</a><br>
+                    <a href="pages/CS_home.html">Computer Services</a></span><br>
+                    <br>
+                    <span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">See Also:</span><a href="http://www.defiancedining.com/"><br>
+Dining Services</a><br>
+<a href="../library.html">Pilgrim Library</a><br>
+<a href="http://www.cbamatthews.com/defiance/">Bookstore</a></span></td>
+                  </tr>
+                </table></td>
+              </tr>
+          </table>
+        </div>
+        <div id="Admissions" onMouseOver="MM_showHideLayers('Admissions','','show');MM_swapImage('Admissions_button','','images/top_navigation_clicked_01.gif',1)" onMouseOut="MM_showHideLayers('Admissions','','hide');MM_swapImgRestore()">
+<table border="2" cellpadding="10" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43">
+              <tr valign="top">
+                <td width="306" height="181"><table width="306" border="0" cellpadding="0">
+                  <tr>
+                    <td width="152" height="155" valign="top"><span class="Drop_Menu_Links_Header">Admissions:</span><br>
+                      <a href="admissions.html">Admissions Home</a><br>
+                        <a href="https://www.defiance.edu/admissions_inquiry.html">Send Me Information</a><br>
+                        <a href="https://www.defiance.edu/application.html">Apply Online</a><br>
+                        <a href="../pages/adm_visit.html">Come for a Visit</a><br>
+                        <a href="../pages/adm_transfer.html">Transfer Students</a><br>
+                        <a href="../pages/adm_international.html">International Students</a><br>
+                        <a href="../pages/adm_criteria.html">Admissions Criteria</a><br>
+                        <a href="../pages/adm_timeline.html">Admission Timeline</a><br>
+                      <a href="../pages/adm_counselor.html">Who's My Counselor?</a></td>
+                    <td width="141" valign="top"><p><a href="../pages/adm_ambassadors.html">Defiance Ambassadors</a><br>
+                      <a href="../pages/adm_staff.html">Admissions Staff</a><br>
+                      <a href="../pages/adm_orientation_home.html">Orientation</a><br>
+                      <span class="Regular_Text style1"><a href="http://www.defiance.edu/pages/adm_HSenroll_main.html">High School PSEO</a></span><br>
+                      <span class="Drop_Menu_Links"><br>
+                      </span></p>
+          <p><span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">See Also:</span><br>
+                          </span><a href="http://www.defiance.edu/pages/info_directions.html">Directions to Campus</a><br>
+                          <a href="../pages/info_campus_map.html">Campus Map</a><br>
+                          <a href="../pages/RC_tuition.html">Tuition &amp; Fees</a><br>
+                      <a href="../pages/FA_home.html">Financial Aid</a></p></td>
+                  </tr>
+                </table></td>
+              </tr>
+          </table>
+        </div>
+      <div id="BestColleges"></div></TD>
+	  <TD ROWSPAN=2 valign="top" background="images/atoz_10.gif" class="Hide_Element"><span class="small_reg_text"><a href="http://alumni.defiance.edu/events/event_details.asp?id=24379"></a></span><img src="images/atoz_10.gif" width="100%" height="383"></TD>
+<TD height="0" ROWSPAN=2 valign="top" bgcolor="#EEEDD9"><a href="https://www.defiance.edu/pages/adm_deposit.html"><img src="Graphics/right_image_Enroll_2.jpg" alt="Reserve your spot in the class of 2016.  Place your deposit today!" name="deposit" width="178" height="312" border="0" id="deposit" onMouseOver="MM_swapImage('deposit','','Graphics/right_image_Enroll_cl.jpg',1)" onMouseOut="MM_swapImgRestore()" /></a><br>
+          <table width="178" border="0" cellspacing="0" cellpadding="15">
+            <tr>
+              <td class="Regular_Text"><p class="small_reg_text">&nbsp;</p>
+                <br>
+                <br>
+                <br>
+              <br>                <br>
+              <br>
+              <br>              </td>
+            </tr>
+          </table>          
+          <a href="http://www.defiance.edu/summerprograms.html"><img src="Graphics/summer_2012.jpg" alt="Summer Programs" width="178" height="50" border="0"></a><br>
+      <br>
+      <a href="http://www.defianceathletics.com/baseball/news/2011-12/2022/defiance-cuts-ribbon-at-george-m-smart-athletic-center/"><img src="Graphics/DC_Ribbon-Cutting.jpg" alt="DC Athletic Center Ribbon-Cutting" name="athleticccenter" width="178" height="50" vspace="5" border="0" id="athleticccenter" onMouseOver="MM_swapImage('athleticccenter','','Graphics/DC_Ribbon-Cutting_cl.jpg',1)" onMouseOut="MM_swapImgRestore()"></a></TD>
+<TD valign="top">
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=244 ALT=""></TD>
+  </TR>
+	<TR>
+	  <TD ROWSPAN=2 valign="bottom" background="images/Left_Navigation_Buttons_14.gif" class="Hide_Element"><script type="text/javascript">
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+new fadeshow(fadeimages, 183, 188, 0, 6000, 1, 1)
+ 
+                  </script></TD>
+<TD height="139" valign="bottom">
+	  <IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=139 ALT=""></TD>
+  </TR>
+	<TR>
+		<TD valign="top" class="Hide_Element">
+			<IMG SRC="images/atoz_13.gif" WIDTH=52 HEIGHT=49 ALT=""></TD>
+	  <TD COLSPAN=3 valign="bottom" bgcolor="#301D43" class="Hide_Element"><a href="https://mail.google.com/a/defiance.edu"><img src="images/bottom_links_01.gif" alt="Acess Email" name="Image12" width="118" height="49" border="0" id="Image12" onMouseOver="MM_swapImage('Image12','','images/bottom_links_clicked_01.gif',1)" onMouseOut="MM_swapImgRestore()"></a><a href="http://www.defiance.edu/pages/info_directory.html"><img src="images/bottom_links_02.gif" alt="Campus Directory" border="0" id="Image13" onMouseOver="MM_swapImage('Image13','','images/bottom_links_clicked_02.gif',1)" onMouseOut="MM_swapImgRestore()"></a><a href="https://www.defiance.edu/application.html"><a href="https://www.defiance.edu/application.html"><img src="images/bottom_links_03.gif" alt="Apply Online" width="93" height="49" border="0" id="Image14" onMouseOver="MM_swapImage('Image14','','images/bottom_links_clicked_03.gif',1)" onMouseOut="MM_swapImgRestore()"></a></TD>
+<TD valign="bottom">
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=49 ALT=""></TD>
+  </TR>
+	<TR>
+		<TD COLSPAN=5 valign="top" class="Hide_Element"><div align="center">
+		
+<link href="../include/DC_CSS.css" rel="stylesheet" type="text/css">
+<div align="center"><br>
+    <span class="small_reg_text">Defiance College  |  701 N. Clinton St.  |  Defiance, Ohio 43512  |  1.800.520.GODC  | <a href="http://www.defiance.edu/pages/info_contacts.html">Contact us</a><br>
+    <br>
+&copy; 2007-2012 Defiance College. All Rights Reserved. | <a href="https://www.defiance.edu/transcripts/privacy.php">Privacy Policy</a></span></div>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1090788-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+
+
+
+
+<!-- BEGIN ProvideSupport.com Visitor Monitoring Code -->
+<div id="ciXiss" style="z-index:100;position:absolute"></div><div id="sdXiss" style="display:none"></div><script type="text/javascript">var seXiss=document.createElement("script");seXiss.type="text/javascript";var seXisss=(location.protocol.indexOf("https")==0?"https://secure.providesupport.com/image":"http://image.providesupport.com")+"/js/defiance11/safe-monitor.js?ps_h=Xiss\u0026ps_t="+new Date().getTime();setTimeout("seXiss.src=seXisss;document.getElementById('sdXiss').appendChild(seXiss)",1)</script><noscript><div style="display:inline"><a href="http://www.providesupport.com?monitor=defiance11"><img src="http://image.providesupport.com/image/defiance11.gif" border="0"></a></div></noscript>
+<!-- END ProvideSupport.com Visitor Monitoring Code -->
+
+		    <div id="Search">
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td><link href="../DC_CSS.css" rel="stylesheet" type="text/css" />
+<form name="search" action="http://www.defiance.edu/cgi-bin/defiancesearch.pl" method="post">
+  <td align="right">
+    <input name="searchbox" type="text" class="SearchField" onfocus=this.select() value="&nbsp; Search" size="20">
+    <input type="image" class="ImagePosition" src="/Graphics/searchicon.gif" alt="Search" valign="bottom">
+  </td>
+</form>
+</td>
+                </tr>
+              </table>
+	      </div>
+          <div id="QuickLinks">
+          <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><link href="../include/DC_CSS.css" rel="stylesheet" type="text/css" />
+<select name="jumpMenu" class="QuickLinks" id="jumpMenu" onChange="MM_jumpMenu('parent',this,0)">
+              <option selected="selected">Quick Links</option>
+              <option>-----------------</option>
+              <option value="https://www.defiance.edu/alumni_referral_form.html">Alumni Student Referral</option>
+              <option>-----------------</option>
+              <option value="https://www.defiance.edu/application.html">Apply for Admission</option>
+              <option value="https://www.defiance.edu/admissions_inquiry.html">Send Me Information</option>
+              <option value="http://www.defiance.edu/pages/adm_visit.html">Visit DC</option>
+              <option>-----------------</option>
+              <option value="http://www.defiance.edu/pages/RC_home.html">Registrar's Office</option>
+              <option value="http://www.defiance.edu/pages/catalog.html">Catalogs &amp; Schedules</option>
+              <option value="http://www.defiance.edu/pages/RC_transcript.html">Transcript Request</option>
+              <option value="http://library.defiance.edu/services/testing.html">Testing</option>
+              <br />
+              <option value="http://www.defiance.edu/pages/RC_download_forms.html">Important Forms</option>
+              <option>-----------------</option>
+              <option value="http://www.defiance.edu/pages/BusOffice_home.html">Business Office</option>
+              <option value="http://www.defiance.edu/pages/FA_home.html">Financial Aid</option>
+              <option value="http://www.defiance.edu/career.html">Career Development</option>
+              <option value="http://www.defiance.edu/library.html">Pilgrim Library</option>
+              <option>-----------------</option>
+              <option value="https://www.defiance.edu/onestop/">One Stop</option>
+              <option value="https://moodle.defiance.edu/login/index.php">Moodle</option>
+              <option value="https://defiance.basecamphq.com/login">Basecamp</option>
+              <option value="http://www.defiance.edu/Dispatch/dispatch_web.html">News and Events</option>
+</select>
+</td>
+    </tr>
+  </table>
+          </div>
+          
+          
+          <div id="AlumnFriends" onMouseOver="MM_showHideLayers('AlumnFriends','','show');MM_swapImage('Home_Nav_8','','images/Main_Nav_Clicked3_08.gif',1)" onMouseOut="MM_showHideLayers('AlumnFriends','','hide');MM_swapImgRestore()">
+<div align="left">
+                <table width="173" border="2" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43">
+                  <tr>
+                    <td width="321"><table width="162" border="0" cellspacing="0" cellpadding="10">
+                        <tr>
+                          <td width="205" height="138" valign="top"><span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">Alumni &amp; Friends</span></span><span class="Drop_Menu_Links_Header">:</span><span class="Drop_Menu_Links"><br>
+                          <a href="http://alumni.defiance.edu/"><strong>DC Alumni Website</strong></a><br>
+                                <a href="http://www.defiance.edu/pages/IA_annual.html">Give to DC</a><br>
+                                <a href="http://www.defiance.edu/magazine.html">DC The Magazine</a><br>
+                          <br>
+                                <a href="http://www.defiance.edu/pages/SL_career_CCN.html">College Central</a><br>
+                                <a href="http://www.defiance.edu/career.html">Career Counseling</a><br>
+                                <a href="http://www.defiance.edu/media/transcript%20request%20form.pdf" target="_blank">Transcript Request</a><br>
+                          </span></td>
+                      </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              </div>
+          </div>
+          <div id="alert">
+            
+            <div align="center">
+              <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+</body>
+</html>
+
+              <table width="0" border="0" cellpadding="0" cellspacing="3" bgcolor="#FFCC00">
+                <tr>
+                  <td><div align="center"><span class="Regular_Text style21 style21"><strong><a href="weather.html">*** Weather Advisory ***</a></strong></span><br>
+                    <span class="small_reg_text">Details</span></div></td>
+                </tr>
+              </table>
+            </div>
+          </div> 
+          <div id="ApplyOnline" onMouseOver="MM_showHideLayers('ApplyOnline','','show');MM_swapImage('Home_Nav_3','','images/Main_Nav_Clicked_03.gif',1)" onMouseOut="MM_showHideLayers('ApplyOnline','','hide');MM_swapImgRestore()">
+           <table width="188" border="2" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF" bgcolor="#301D43">
+             <tr>
+               <td width="182"><table class="applytable" width="175" border="0" cellspacing="0" cellpadding="10">
+                  <tr>
+                     <td width="155" valign="top"><span class="Drop_Menu_Links"><span class="Drop_Menu_Links_Header">Apply Online:</span></span><span class="Drop_Menu_Links_Header"></span><span class="Drop_Menu_Links"><br>
+                           <a href="https://www.defiance.edu/application.html"><strong>Traditional-Age Freshman</strong></a><br>
+                           <a href="http://www.defiance.edu/pages/transfer_apply.html">Transfer Student</a><br>
+                           <a href="http://www.defiance.edu/pages/cap_graduate_programs.html">Graduate Student</a><a href="https://www.defiance.edu/design_leadership_application.html"><br>
+                           </a><a href="https://www.defiance.edu/adult_student_application.html">Adult Student</a><a href="https://www.defiance.edu/design_leadership_application.html"><br>
+                      </a><a href="http://www.defiance.edu/pages/adm_international.html">International Student</a><a href="https://www.defiance.edu/design_leadership_application.html"><br>
+                      Design for Leadership</a><br>
+                     </span></td>
+                  </tr>
+               </table></td>
+             </tr>
+           </table>
+         </div>
+         <br>
+		</div></TD>
+<TD>
+			<IMG SRC="images/spacer.gif" WIDTH=1 HEIGHT=102 ALT=""></TD>
+	</TR>
+</TABLE>
+<!-- End ImageReady Slices -->
+
+<map name="Map"><area shape="rect" coords="444,3,753,59" href="http://www.defiance.edu/commencement.html" alt="DC Commencement - Sunday, May 6, 2012">
+</map></BODY>
+</HTML>

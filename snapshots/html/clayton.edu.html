@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html  lang="en-US">
+<head id="Head"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><meta content="text/javascript" http-equiv="Content-Script-Type" /><meta content="text/css" http-equiv="Content-Style-Type" /><meta id="MetaCopyright" name="COPYRIGHT" content="Copyright 2010 by DotNetNuke Corporation" /><meta id="MetaAuthor" name="AUTHOR" content="Clayton State University" /><meta name="RESOURCE-TYPE" content="DOCUMENT" /><meta name="DISTRIBUTION" content="GLOBAL" /><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" /><meta name="REVISIT-AFTER" content="1 DAYS" /><meta name="RATING" content="GENERAL" /><meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" /><style id="StylePlaceholder" type="text/css"></style><link href="/DependencyHandler.axd?s=L1BvcnRhbHMvX2RlZmF1bHQvZGVmYXVsdC5jc3M7L0Rlc2t0b3BNb2R1bGVzL0hUTUwvbW9kdWxlLmNzczsvRGVza3RvcE1vZHVsZXMvTmV3cy9tb2R1bGUuY3NzOy9Qb3J0YWxzL19kZWZhdWx0L1NraW5zL0NTVSAyMDExL3NraW4uY3NzOy9Qb3J0YWxzL19kZWZhdWx0L1NraW5zL0NTVSAyMDExL0hvbWUuY3NzOy9Qb3J0YWxzL19kZWZhdWx0L0NvbnRhaW5lcnMvRGFya0tuaWdodC9jb250YWluZXIuY3NzOy9Qb3J0YWxzL19kZWZhdWx0L0NvbnRhaW5lcnMvQ1NVIDIwMTEvY29udGFpbmVyLmNzczsvUG9ydGFscy8xL3BvcnRhbC5jc3M7&amp;t=Css&amp;cdv=5140" type="text/css" rel="stylesheet"/><script src="/DependencyHandler.axd?s=L1Jlc291cmNlcy9TaGFyZWQvU2NyaXB0cy9qcXVlcnkvanF1ZXJ5Lm1pbi5qczsvUmVzb3VyY2VzL1NoYXJlZC9TY3JpcHRzL2pxdWVyeS9qcXVlcnktdWkubWluLmpzOw&amp;t=Javascript&amp;cdv=5140" type="text/javascript"></script><link rel="stylesheet" href="/portals/1/home/home.css" type="text/css"></link>
+<meta name="google-site-verification" content="ZWN0zg420MGOcaO9o97mZApLwCENCGxCOpwHUCUDr3Q" />
+
+          <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-17883852-1']);
+            _gaq.push(['_setDomainName', 'www.clayton.edu']);
+            _gaq.push(['_setAllowHash', false]);
+            
+
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+          </script>
+
+        <title>
+	Clayton State University > Home
+</title></head>
+<body id="Body">
+    
+    <form method="post" action="/" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="StylesheetManager_TSSM" id="StylesheetManager_TSSM" value="" />
+<input type="hidden" name="ScriptManager_TSM" id="ScriptManager_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=yQY8ySaEb3nm-kSyo7wi8A2&amp;t=634432355525733750" type="text/javascript"></script>
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ScriptManager_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3aen-US%3a8f393b2b-3315-402f-b504-cd6d2db001f6%3aea597d4b%3ab25378d2" type="text/javascript"></script>
+<script src="/js/dnn.js" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="E26Lqt1FUX7wtfklZSnV94Rg+nIJ2Z1weusgqdnEH0tI8IGmkDr7ONsxNREE9h0XouVeV3JI4monPGaxVNLx1A==" />
+</div><script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', [], [], [], 90, '');
+//]]>
+</script>
+
+        <script src="/DependencyHandler.axd?s=L2pzL2Rubi54bWwuanM7L2pzL2Rubi54bWxodHRwLmpzOy9qcy9kbm5jb3JlLmpzOy9qcy9kbm4ubW9kYWxwb3B1cC5qczs&amp;t=Javascript&amp;cdv=5140" type="text/javascript"></script>
+        
+        
+<!--[if lt IE 7]><link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/CSU 2011/styles/ie6.css" /><![endif]-->
+<!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/CSU 2011/styles/ie7.css" /><![endif]-->
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/CSU 2011/styles/ie8.css" /><![endif]-->
+<!--[if IE 9]><link rel="stylesheet" type="text/css" href="/Portals/_default/Skins/CSU 2011/styles/ie9.css" /><![endif]-->
+<div id="dnn_ControlPanel" class="ControlPanelContainer">
+    
+
+</div>
+<div id="headerWrapper">
+    <div id="headerContainer">
+        <div id="logoWrapper">
+            <a href="http://www.clayton.edu" title="Clayton State University Home">
+                <div id="logo">
+                </div>
+            </a>
+        </div>
+        <div id="menu">
+            <div id="menu-top">
+                <div id="topNavigation">
+                    <ul>
+                        <li class="swan"><a href="http://swan.clayton.edu/">SWAN Portal Login</a></li>
+                        <li><a href="http://apps.clayton.edu/directory">Directory</a></li>
+                        <li><a href="http://www.clayton.edu/contacts">Contact Us</a></li>
+                        <li><a href="http://www.clayton.edu/officesdepartments">Offices &amp; Departments</a></li>
+                        <li><a href="http://www.clayton.edu/calendar">Calendars</a></li>
+                    </ul>
+                    <div id="search">
+						<span>
+							
+
+<div id="dnn_ctl03_DropDownSearch" class="SearchContainer">
+  <div class="SearchBorder">
+  <div id="SearchIcon" class="SearchIcon">
+    <img id="dnn_ctl03_downArrow" title="Select the search type" src="/icons/sigma/Action_16X16_Standard.png" alt="Select the search type" />
+  </div>
+  <input name="dnn$ctl03$txtSearchNew" type="text" maxlength="255" id="dnn_ctl03_txtSearchNew" class="SearchTextBox" onkeydown="return __dnn_KeyDown(&#39;13&#39;, &#39;javascript:__doPostBack(%27dnn$ctl03$cmdSearchNew%27,%27%27)&#39;, event);" />&nbsp;
+  <ul id="SearchChoices">
+    <li id="SearchIconSite">Site</li>
+    <li id="SearchIconWeb">Web</li>
+  </ul>
+  </div>
+  <a id="dnn_ctl03_cmdSearchNew" class="ServerSkinWidget" href="javascript:__doPostBack(&#39;dnn$ctl03$cmdSearchNew&#39;,&#39;&#39;)"><div> </div></a>
+</div>
+
+						</span>
+                    </div>
+                </div>
+            </div>
+            <div id="menu-bottom">
+                <div id="mainNavWrapper">
+                    <div id="topNav">
+                        <ul id="mainNav">
+                            <li class="futureStudents"><a href="#" class="drop">Future Students</a>
+                                <div class="subnav">
+                                    <div class="subnavTop">
+                                        <ul class="subnavContent">
+                                            <li>
+                                                <dl class="col-1">
+                                                    <dt>What's First?</dt>
+                                                    <dd><a href="http://admissions.clayton.edu/">Admission - Undergraduate</a></dd>
+                                                    <dd><a href="http://graduate.clayton.edu/">Admission - Graduate</a></dd>
+                                                    <dd><a href="http://conted.clayton.edu/">Continuing Education<br><span class="para">(non-credit courses)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/financial-aid">Financial Aid</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/maps">Maps/Directions</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub/itpchoice/notebookcomputerpolicy">Notebook Computer Policy</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/registrar">Readmission<br><span class="para">(Registrar)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub">The HUB</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/bursar/fees">Tuition/Fees</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/veterans-information-page">Veterans Information</a></dd>
+                                                    <dd><a href="http://cidftp.clayton.edu/cid/map/index.html">Virtual Campus Tour</a></dd>
+                                                    <dd><a href="http://admissions.clayton.edu/smalltour.asp">Visit Clayton State</a></dd>
+                                                </dl>
+                                                <dl class="col-2">
+                                                    <dt>What's Next?</dt>
+                                                    <dd><a href="http://www.clayton.edu/cas/advising">Advising</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/bursar">Bursar<br><span class="para">(tuition &amp; fee payment)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/academics">Degrees and Majors</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/disability">Disability Resource Center</a></dd>
+                                                    <dd><a href="http://honorsprogram.clayton.edu/">Honors Program</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/housing">Housing and Residence Life</a></dd>
+                                                    <dd><a href="http://admissions.clayton.edu/international.htm">International Admissions</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/orientation">Orientation and New Student Programs</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/testing">Testing Center</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/lochshop/">The Loch Shop</a></dd>
+                                                    <dd><a href="http://nursing.clayton.edu/uhs/">University Health Services</a></dd>
+                                                </dl>
+                                                <dl class="col-3">
+                                                    <dt>What&#39;s New?</dt>
+                                                    <dd><a href="http://www.clayton.edu/calendar">Academic Calendar</a></dd>
+                                                    <dd><a href="https://academicinfo.clayton.edu/campus-review/">Campus Review</a></dd>
+                                                    <dd><a href="http://adminsystems.clayton.edu/adcalendar/">Event Calendar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about/university/fastfacts">Fast Facts</a></dd>
+                                                    <dd><a href="http://www.facebook.com/pages/Morrow-GA/Clayton-State-University/120178704320?ref=search">Follow Us</a></dd>
+                                                    <dd><a href="https://academicinfo.clayton.edu/laker-connection/">Laker Connection</a></dd>
+                                                    <dd><a href="http://news.clayton.edu/">Laker Newsroom</a></dd>
+                                                    <dd><a href="http://www.flickr.com/photos/claytonstateuniversity/">Photo Gallery</a></dd>
+                                                </dl>
+                                                <dl class="col-4">
+                                                    <dt>What's Happening?</dt>
+                                                    <dd><a href="http://www.claytonstatesports.com/">Athletics</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/">Auxiliary Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/campus-life">Campus Life</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/cstheater/">Clayton State Theatre</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell/intramuralsports">Intramurals</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/library">Library</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell">Recreation &amp; Wellness</a></dd>
+                                                    <dd><a href="http://spiveyhall.org/">Spivey Hall</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-activities-center">Student Activities Center</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/vpa">Visual &amp; Performing Arts</a></dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="currentStudents"><a href="#" class="drop">Current Students</a>
+                                <div class="subnav">
+                                    <div class="subnavTop">
+                                        <ul class="subnavContent">
+                                            <li>
+                                                <dl class="col-1">
+                                                    <dt>Quick Clicks</dt>
+                                                    <dd><a href="http://www.clayton.edu/bursar">Bursar<br><span class="para">(tuition and fee payment)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/campus-life">Campus Life</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/financial-aid">Financial Aid</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/housing">Housing and Residence Life</a></dd>
+                                                    <dd><a href="https://duck.clayton.edu/pls/banprod/ID_LOOKUP.BuildForm">ID Lookup</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/registrar">Registrar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-conduct">Student Conduct</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/Portals/46/docs/student-handbook.pdf" target="_blank">Student Handbook</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-media">Student Media</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub">The HUB</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/lochshop/">The Loch Shop </a></dd>
+                                                    <dd><a href="http://www.clayton.edu/bursar/fees">Tuition/Fees</a></dd>
+                                                </dl>
+                                                <dl class="col-2">
+                                                    <dt>Here For You</dt>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/">Auxiliary Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/career">Career Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/counseling">Counseling and Psychological Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/disability">Disability Resource Center</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/portals/537/docs/Guide-to-Campus-Services.doc">Guide to Campus Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/international-student-services">International Student Services Office</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/lakercard/">LakerCard </a></dd>
+                                                    <dd><a href="http://www.clayton.edu/ROTC">ROTC</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-affairs">Student Affairs</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/english/Writers%27_Studio/default.html">Writers' Studio</a></dd>
+                                                    <dd><a href="http://nursing.clayton.edu/uhs/">University Health Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/veterans-information-page">Veterans Information</a></dd>
+                                                    
+                                                </dl>
+                                                <dl class="col-3">
+                                                    <dt>Academic Resources</dt>
+                                                    <dd><a href="http://www.clayton.edu/calendar">Academic Calendar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/publications">Academic Catalog</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/cas/advising">Advising</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/cas">Center for Academic Success</a></dd>
+                                                    <dd><a href="http://apps.clayton.edu/courses/schedule">Class Schedule</a></dd>
+                                                    <dd><a href="https://clayton.view.usg.edu/" target="_blank">GeorgiaVIEW</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/portals/549/docs/intellectual-diversity.pdf" target="_blank">Intellectual Diversity</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/international-programs">International Programs</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub/itpchoice">ITP Choice</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/library">Library</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub/itpchoice/notebookcomputerpolicy">Notebook Computer Policy</a></dd>
+                                                    <dd><a href="http://distancelearning.clayton.edu/">Distance Learning</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/testing">Testing Center</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/english/Writers%27_Studio/default.html">Writers' Studio</a></dd>
+                                                </dl>
+                                                <dl class="col-4">
+                                                    <dt>Around Campus</dt>
+                                                    <dd><a href="http://www.claytonstatesports.com/">Athletics</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-media/csir">Clayton State Internet Radio</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-media/cstv">Clayton State Television</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/campuslife/organizations">Clubs and Organizations</a></dd>
+                                                    <dd><a href="http://adminsystems.clayton.edu/adcalendar/">Event Calendar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell/fitnesscenter">Fitness Center</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell/intramurals">Intramural Sports</a></dd>
+                                                    <dd><a href="http://www.csudining.com/">Lakeside Dining Hall</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell">Recreation &amp; Wellness</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/campuslife">Service &amp; Volunteer Opportunities</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-activities-center">Student Activities Center</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/studentmedia/benttree">The Bent Tree</a></dd>
+                                                    
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="academicPrograms"><a href="#" class="drop">Academic Programs</a>
+                                <div class="subnav">
+                                    <div class="subnavTop">
+                                        <ul class="subnavContent">
+                                            <li>
+                                                <dl class="col-1">
+                                                    <dt>Academic Units</dt>
+                                                    <dd><a href="http://apps.clayton.edu/courses/schedule">Class Schedule</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/">College of Arts &amp; Sciences</a></dd>
+                                                    <dd><a href="http://business.clayton.edu/">College of Business</a></dd>
+                                                    <dd><a href="http://health.clayton.edu/">College of Health</a></dd>
+                                                    <dd><a href="http://cims.clayton.edu">College of Information &amp; Mathematical Sciences</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/academics">Degrees and Majors</a></dd>
+                                                    <dd><a href="http://graduate.clayton.edu">School of Graduate Studies</a></dd>
+                                                </dl>
+                                                <dl class="col-2">
+                                                    <dt>Resources</dt>
+                                                    <dd><a href="http://www.clayton.edu/calendar">Academic Calendar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/publications">Academic Catalog</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/cas/advising">Advising</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/cas">Center for Academic Success</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/fyarc">First Year Advising &amp; Retention Center</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/oie">International Programs</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/library">Library</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/registrar/registrationinformation">Registrar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/bursar/fees">Tuition/Fees</a></dd>
+                                                </dl>
+                                                <dl class="col-3">
+                                                    <dt>Options</dt>
+                                                    <dd><a href="http://fayette.clayton.edu/">Clayton State - Fayette</a></dd>
+                                                    <dd><a href="http://distancelearning.clayton.edu/">Distance Learning</a></dd>
+                                                    <dd><a href="http://ecore.clayton.edu/">eCore</a></dd>
+                                                    <dd><a href="http://henry.clayton.edu/">Henry County Instructional Site</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/maps">Maps/Directions</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/">Morrow Main Campus</a></dd>
+                                                    <dd><a href="http://rockdale.clayton.edu/">Rockdale County Instructional Site</a></dd>
+                                                    <dd><a href="http://cidftp.clayton.edu/cid/map/index.html">Virtual Campus Tour</a></dd>
+                                                    <dd><a href="http://admissions.clayton.edu/smalltour.asp">Visit Clayton State</a></dd>
+                                                </dl>
+                                                <dl class="col-4">
+                                                    <dt>Technology</dt>
+                                                    <dd><a href="http://www.clayton.edu/cid">Center for Instructional Development</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/cts/policies/compusage">Computer Usage Policy</a></dd>
+                                                    <dd><a href="https://clayton.view.usg.edu/" target="_blank">GeorgiaVIEW</a></dd>
+                                                    <dd><a href="https://duck.clayton.edu/pls/banprod/ID_LOOKUP.BuildForm" target="_blank">ID Lookup</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/media">Media &amp; Printing Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub/itpchoice/notebookcomputerpolicy">Notebook Computer Policy</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/vpoits">OITS</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/hub">The HUB</a></dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="alumniCommunity"><a href="#" class="drop">Alumni/Community</a>
+                                <div class="subnav">
+                                    <div class="subnavTop">
+                                        <ul class="subnavContent">
+                                            <li>
+                                                <dl class="col-1">
+                                                    <dt>Stay Connected</dt>
+                                                    <dd><a href="http://www.clayton.edu/alumni/join">Alumni Association</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/alumni">Alumni Relations</a></dd>
+                                                    <dd><a href="http://www.claytonstatesports.com/">Athletics</a></dd>
+                                                    <dd><a href="http://conted.clayton.edu/">Continuing Education</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/CSRA">Retirees Association</a></dd>
+                                                    <dd><a href="http://spiveyhall.org/">Spivey Hall</a></dd>
+                                                    <dd><a href="#">Success Stories</a></dd>
+                                                </dl>
+                                                <dl class="col-2">
+                                                    <dt>Support Clayton State</dt>
+                                                    <dd><a href="http://www.clayton.edu/development/facultystafffunddrive">Faculty/Staff Fund Drive</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/foundation">Foundation</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/development">Giving</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/development">Office of Development</a></dd>
+                                                    <dd><a href="#">Students...In Their Own Words</a></dd>
+                                                    <dd><a href="#">Ways to Make an Impact</a></dd>
+                                                </dl>
+                                                <dl class="col-3">
+                                                    <dt>See What's New</dt>
+                                                    <dd><a href="https://academicinfo.clayton.edu/campus-review/">Campus Review</a></dd>
+                                                    <dd><a href="http://www.facebook.com/pages/Morrow-GA/Clayton-State-University/120178704320?ref=search">Follow Us</a></dd>
+                                                    <dd><a href="http://adminsystems.clayton.edu/adcalendar/">Event Calendar</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/recwell/fitnesscenter">Fitness Center</a></dd>
+                                                    <dd><a href="https://academicinfo.clayton.edu/laker-connection/">Laker Connection</a></dd>
+                                                    <dd><a href="http://news.clayton.edu/">Laker Newsroom</a></dd>
+                                                    <dd><a href="http://www.flickr.com/photos/claytonstateuniversity/6009577716/in/set-72157627349584100/" target="_blank">Photo Gallery</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-activities-center">Student Activities Center</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/lochshop/">The Loch Shop</a></dd>
+                                                    <dd><a href="http://cidftp.clayton.edu/cid/map/index.html">Virtual Campus Tour</a></dd>
+                                                </dl>
+                                                <dl class="col-4">
+                                                    <dt>Service Partners</dt>
+                                                    <dd><a href="http://www.claytonchamber.org/" target="_blank">Clayton County Chamber of Commerce</a></dd>
+                                                    <dd><a href="http://www.fayettechamber.org/" target="_blank">Fayette County Chamber of Commerce</a></dd>
+                                                    <dd><a href="http://www.sos.state.ga.us/archives/" target="_blank">Georgia Archives</a></dd>
+                                                    <dd><a href="http://www.henrycounty.com/" target="_blank">Henry County Chamber of Commerce</a></dd>
+                                                    <dd><a href="http://www.morrowtourism.com/touristcenter.htm" target="_blank">Morrow Tourism Center</a></dd>
+                                                    <dd><a href="http://www.archives.gov/" target="_blank">National Archives at Atlanta</a></dd>
+                                                    <dd><a href="http://business.clayton.edu/SBDC/">Small Business Development Center</a></dd>
+                                                    <dd><a href="http://www.usg.edu/" target="_blank">University System of Georgia</a></dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="quickLinks"><a href="#" class="drop">Quick Links</a>
+                                <div class="subnav">
+                                    <div class="subnavTop">
+                                        <ul class="subnavContent">
+                                            <li>
+                                                <dl class="col-1">
+                                                    <dd><a href="http://www.clayton.edu/azindex">A-Z Index</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about">About Clayton State</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/provost">Academic Affairs</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/academics">Academic Programs</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about/university/accreditation">Accreditation</a></dd>
+                                                    <dd><a href="http://admissions.clayton.edu/">Admission – Graduate </a></dd>
+                                                    <dd><a href="http://graduate.clayton.edu/">Admission – Undergraduate</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/alumni">Alumni Relations</a></dd>
+                                                    <dd><a href="http://www.gacollege411.org/applications/USG_Common_App_Short/apply.html?application_id=3387" target="_blank">Apply Now</a></dd>
+                                                    <dd><a href="http://www.claytonstatesports.com/">Athletics</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/vpbusinessoperations">Business and Operations</a></dd>
+                                                </dl>
+                                                <dl class="col-2">
+                                                    <dd><a href="http://www.clayton.edu/calendar">Calendars</a></dd>
+                                                    <dd><a href="http://a-s.clayton.edu/cstheater/">Clayton State Theatre</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-activities-center/conferenceservices">Conference Services</a></dd>
+                                                    <dd><a href="http://conted.clayton.edu/">Continuing Education</a></dd>
+                                                    <dd><a href="http://healthsci.clayton.edu/DH/DHclinic.htm">Dental Hygiene Clinic</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/development">Development</a></dd>
+                                                    <dd><a href="https://academicinfo.clayton.edu/emergency-weather-protocol/">Emergency Weather Procedures</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/em">Enrollment Management</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/vpexternalrelations">External Relations</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/facilities">Facilities Management</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about/university/fastfacts">Fast Facts</a></dd>
+                                                </dl>
+                                                <dl class="col-3">
+                                                    <dd><a href="http://www.clayton.edu/foundation">Foundation</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/development">Giving</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about/university/history">History</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/human-resources">Human Resources</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/institutional-research">Institutional Research</a></dd>
+                                                    <dd><a href="https://clayton.peopleadmin.com/">Jobs </a></dd>
+                                                    <dd><a href="http://www.clayton.edu/library">Library</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/maps">Maps/Directions</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/about/university/mission">Mission Statement</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/vpoits">Office of Information Technology &amp; Services</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/president">Office of the President</a></dd>
+                                                </dl>
+                                                <dl class="col-4">
+                                                    <dd><a href="http://www.clayton.edu/public-safety">Public Safety/<br>Campus Police</a></dd>
+                                                    <dd><a href="http://spiveyhall.org/">Spivey Hall</a></dd>
+                                                    <dd><a href="http://www.claytonstatesports.com/information/SI">Sports Information<br><span class="para">(athletics media contact)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/strategicplan">Strategic Planning</a></dd>
+                                                    <dd><a href="http://www.clayton.edu/student-affairs">Student Affairs</a></dd>
+                                                    <dd><a href="http://auxiliaries.clayton.edu/lochshop/">The Loch Shop</a></dd>
+                                                    <dd><a href="http://news.clayton.edu/">University Relations<br><span class="para">(official media contact)</span></a></dd>
+                                                    <dd><a href="http://www.clayton.edu/veterans">Veterans Information</a></dd>
+                                                    <dd><a href="http://cidftp.clayton.edu/cid/map/index.html">Virtual Campus Tour</a></dd>
+                                                    <dd><a href="http://admissions.clayton.edu/smalltour.asp">Visit Clayton State</a></dd>
+                                                </dl>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="contentholder" class="contentwrapper">
+  <div id="dnn_Heading" class="heading DNNEmptyPane"></div>
+  <div id="dnn_EmergencyAnnouncement" class="EA DNNEmptyPane"></div>
+  <div id="dnn_HeadingSlideshow" class="headingslideshow DNNEmptyPane"></div>
+  <div id="dnn_RightPane" class="sidebar-2"><div class="DnnModule DnnModule-DNN_HTML DnnModule-14723"><a name="14723"></a>
+<div class="features">
+    <h2>
+        
+        <span id="dnn_ctr14723_ctl01_titleLabel" class="Head"><a href="http://admissions.clayton.edu">Undergraduate Admissions</a></span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr14723_ContentPane">
+<!-- Start_Module_14723 --><div id="dnn_ctr14723_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr14723_HtmlModule_lblContent" class="Normal">
+	<p><a href="https://secure.gacollege411.org/applications/USG_Common_App_Short/apply.html?application_id=3387">Apply Now</a></p>
+<p><a href="http://admissions.clayton.edu/informationrequest.asp">Request Information</a></p>
+<p><a href="http://adminsystems2.clayton.edu/Admissions/display_events.aspx">Clayton State...In Your Area</a></p>
+<p><a href="http://admissions.clayton.edu/visitcampus.htm">Visit Clayton State</a></p>
+</div>
+
+</div><!-- End_Module_14723 --></div>
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-14724"><a name="14724"></a>
+<div class="features-bottom">
+    <h2>
+        
+        <span id="dnn_ctr14724_ctl01_titleLabel" class="Head">Graduate Admissions</span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr14724_ContentPane">
+<!-- Start_Module_14724 --><div id="dnn_ctr14724_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr14724_HtmlModule_lblContent" class="Normal">
+	<p><a href="https://adminsystems.clayton.edu/GradApp/">Apply Now</a></p>
+<p><a href="http://graduate.clayton.edu">Open House - May 8, 2012</a></p>
+</div>
+
+</div><!-- End_Module_14724 --></div>
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-14725"><a name="14725"></a>
+<div class="Invisible"><div id="dnn_ctr14725_ContentPane"><!-- Start_Module_14725 --><div id="dnn_ctr14725_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr14725_HtmlModule_lblContent" class="Normal">
+	<!--<div class="features-bottom">
+<a href="/about/contacts/weather"><img alt="" class="shadow" src="http://www.clayton.edu/portals/1/inclement-weather.jpg" width="200" height="65" /></a>
+</div>-->
+<div class="features-bottom">
+<a href="/about" title="About Clayton State"><img class="shadow" alt="About Clayton State" src="http://www.clayton.edu/portals/1/home/about.jpg" /></a>
+</div>
+<div class="features-bottom">
+<a href="http://auxiliaries.clayton.edu/lochshop/" title="The Loch Shop"><img class="shadow" alt="Loch Shop" src="http://www.clayton.edu/portals/1/home/loch-shop.jpg" /></a>
+</div>
+<div class="features-bottom">
+<a href="/veterans-information-page" title="Veteran Friendly Campus"><img class="shadow" alt="Veteran Friendly Campus" src="http://www.clayton.edu/portals/1/home/veteran.jpg" /></a>
+</div>
+<div class="features-bottom">
+<a href="/strategicplan" title="Strategic Plan"><img class="shadow" alt="Strategic Plan" src="http://www.clayton.edu/portals/1/home/strategic-plan.jpg" /></a>
+</div>
+<div class="features-bottom">
+<a href="/inside" title="Clayton State Insider"><img class="shadow" alt="Strategic Plan" src="http://www.clayton.edu/portals/1/home/inside-clayton-state.jpg" /></a>
+</div>
+</div>
+
+</div><!-- End_Module_14725 --></div></div></div></div>
+  <div id="mainbody">
+    <div id="dnn_SlideshowPane" class="slideshow"><div class="DnnModule DnnModule-DNN_HTML DnnModule-14722"><a name="14722"></a>
+<div class="Invisible"><div id="dnn_ctr14722_ContentPane"><!-- Start_Module_14722 --><span class="Normal"><style type="text/css">
+.heading-slideshow {height:250px;width:720px;}
+</style></span><div id="dnn_ctr14722_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr14722_HtmlModule_lblContent" class="Normal">
+	<div class="heading-slideshow">
+<a href="http://www.clayton.edu/graduation"><img alt="" src="/portals/1/spring-2012-commencement.jpg" class="shadow-15" width="730" height="250" /></a>
+<a href="http://news.clayton.edu/2012/04/clayton-state-named-one-of-the-top-100-workplaces-in-atlanta/"><img alt="" src="/portals/1/ajc-banner.jpg" class="shadow-15" width="730" height="250" /></a>
+<a href="http://www.clayton.edu/alumni/licenseplate"><img alt="" src="/portals/1/license-plate.jpg" class="shadow-15" width="730" height="250" /></a>
+</div>
+</div>
+
+</div><span class="Normal"><script type="text/javascript" src="/portals/1/js/jquery.cycle.all.latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.heading-slideshow').cycle({
+                   fx: 'fade'
+          });
+});
+</script></span><!-- End_Module_14722 --></div></div></div></div>
+    <div id="dnn_MenuPane" class="sidebar"><div class="DnnModule DnnModule-DNN_NewsFeeds DnnModule-3061"><a name="3061"></a>
+<div class="features">
+    <h2>
+        
+<a href="/DesktopModules/News/NewsRss.aspx?PortalId=1&amp;TabId=41&amp;ModuleId=3061" target="_blank" class="float-right-icon rss">&nbsp;</a>
+
+        <span id="dnn_ctr3061_ctl01_titleLabel" class="Head"><a href="http://www.claytonstatesports.com/">Athletics</a></span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr3061_ContentPane">
+<!-- Start_Module_3061 --><div id="dnn_ctr3061_ModuleContent" class="DNNModuleContent ModDNNNewsFeedsC">
+	<div id="dnn_ctr3061_RssModule_pnlRss">
+		
+ <div class="normal"></div>
+ 
+ <div style="display:none;">
+  <input type="submit" name="dnn$ctr3061$RssModule$btnUpdate" value="Hit Me" id="dnn_ctr3061_RssModule_btnUpdate" />
+ </div>
+
+	</div>
+
+</div><!-- End_Module_3061 --></div>
+
+</div><div class="DnnModule DnnModule-DNN_NewsFeeds DnnModule-3121"><a name="3121"></a>
+<div class="features-bottom">
+    <h2>
+        
+<a href="/DesktopModules/News/NewsRss.aspx?PortalId=1&amp;TabId=41&amp;ModuleId=3121" target="_blank" class="float-right-icon rss">&nbsp;</a>
+
+        <span id="dnn_ctr3121_ctl01_titleLabel" class="Head"><a href="http://www.spiveyhall.org">Spivey Hall</a></span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr3121_ContentPane">
+<!-- Start_Module_3121 --><div id="dnn_ctr3121_ModuleContent" class="DNNModuleContent ModDNNNewsFeedsC">
+	<div id="dnn_ctr3121_RssModule_pnlRss">
+		
+ <div class="normal"><div class="feed1">
+  <div class="feed1-date"><span>May 18</span></div>
+  <div class="feed1-item"><a href="http://adminsystems.clayton.edu/adcalendar/EventList.aspx?view=EventDetails&amp;eventidn=2682&amp;information_id=6555&amp;type=&amp;rss=rss" target="_blank"><h3>Spivey Hall Young Artists and Spivey Hall Children's Choir</h3></a></div>
+  <div class="feed1-clear"></div>
+</div>
+<div class="feed1">
+  <div class="feed1-date"><span>May 19</span></div>
+  <div class="feed1-item"><a href="http://adminsystems.clayton.edu/adcalendar/EventList.aspx?view=EventDetails&amp;eventidn=2683&amp;information_id=6557&amp;type=&amp;rss=rss" target="_blank"><h3>Spivey Hall Children's Choir and Spivey Hall Tour Choir</h3></a></div>
+  <div class="feed1-clear"></div>
+</div>
+<div class="feed1">
+  <div class="feed1-date"><span>May 19</span></div>
+  <div class="feed1-item"><a href="http://adminsystems.clayton.edu/adcalendar/EventList.aspx?view=EventDetails&amp;eventidn=2684&amp;information_id=6560&amp;type=&amp;rss=rss" target="_blank"><h3>Sir Simon Preston, organ</h3></a></div>
+  <div class="feed1-clear"></div>
+</div></div>
+ 
+ <div style="display:none;">
+  <input type="submit" name="dnn$ctr3121$RssModule$btnUpdate" value="Hit Me" id="dnn_ctr3121_RssModule_btnUpdate" />
+ </div>
+
+	</div>
+
+</div><!-- End_Module_3121 --></div>
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-14721"><a name="14721"></a>
+<div class="Invisible"><div id="dnn_ctr14721_ContentPane"><!-- Start_Module_14721 --><div id="dnn_ctr14721_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr14721_HtmlModule_lblContent" class="Normal">
+	<div class="features-bottom">
+<a title="Give to Clayton State" href="/development/makeagift"><img class="shadow" src="http://www.clayton.edu/portals/1/home/giving.jpg" alt="Give to Clayton State" /></a>
+</div>
+<div class="features-bottom">
+<a title="Alumni" href="/alumni"><img class="shadow" src="http://www.clayton.edu/portals/1/home/alumni.jpg" alt="Alumni" /></a>
+</div>
+</div>
+
+</div><!-- End_Module_14721 --></div></div></div></div>
+    <div class="content">
+      <div id="dnn_SidePane" class="sidebar-3 DNNEmptyPane"></div>
+      <div id="inner-content">
+        <div id="dnn_SidePane3a" class="sidebar-3a DNNEmptyPane"></div>
+        <div id="dnn_ContentPane" class="content-1"><div class="DnnModule DnnModule-DNN_NewsFeeds DnnModule-3059"><a name="3059"></a>
+<div class="features">
+    <h2>
+        
+<a href="/DesktopModules/News/NewsRss.aspx?PortalId=1&amp;TabId=41&amp;ModuleId=3059" target="_blank" class="float-right-icon rss">&nbsp;</a>
+
+        <span id="dnn_ctr3059_ctl01_titleLabel" class="Head"><a href="http://news.clayton.edu" target="_blank">Laker News Room</a></span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr3059_ContentPane">
+<!-- Start_Module_3059 --><div id="dnn_ctr3059_ModuleContent" class="DNNModuleContent ModDNNNewsFeedsC">
+	<div id="dnn_ctr3059_RssModule_pnlRss">
+		
+ <div class="normal"><div class="news1">
+  <div class="news1-image"><a href="http://news.clayton.edu/?p=16982" target="_blank"><img class="shadow" src="http://news.clayton.edu/wp-content/uploads/2012/05/e815c2_a50bf9a2619ce354e4c8798bef57b40d.jpg_128-e1336143405101.jpg" alt="Clayton State Music Alumni Davis and Odom Hitting High Notes" title="Clayton State Music Alumni Davis and Odom Hitting High Notes"></a></div>
+  <div class="news1-item"><a href="http://news.clayton.edu/?p=16982" target="_blank"><h3>Clayton State Music Alumni Davis and Odom Hitting High Notes</h3></a><p>Two alumni of Clayton State University’s Division of Music, Brent Davis (1999) and Stephen Odom (2010) have recently been in [...]</p>
+  </div>
+  <div class="news1-clear"></div>
+</div>
+<div class="news1">
+  <div class="news1-image"><a href="http://news.clayton.edu/?p=16916" target="_blank"><img class="shadow" src="http://news.clayton.edu/wp-content/uploads/2012/05/DSC_0654-e1336054779377.jpg" alt="Clayton State Celebrates its Scholarship Donors and Recipients" title="Clayton State Celebrates its Scholarship Donors and Recipients"></a></div>
+  <div class="news1-item"><a href="http://news.clayton.edu/?p=16916" target="_blank"><h3>Clayton State Celebrates its Scholarship Donors and Recipients</h3></a><p>Clayton State University students and donors gathered together earlier this week to celebrate at the annual Scholarship Recognition Luncheon, held [...]</p>
+  </div>
+  <div class="news1-clear"></div>
+</div>
+<div class="news1">
+  <div class="news1-image"><a href="http://news.clayton.edu/?p=16850" target="_blank"><img class="shadow" src="http://news.clayton.edu/wp-content/uploads/2012/04/DSC_0562-e1335540469616.jpg" alt="Clayton State Names Zornosa, Davis as Alice Smith Award Winners" title="Clayton State Names Zornosa, Davis as Alice Smith Award Winners"></a></div>
+  <div class="news1-item"><a href="http://news.clayton.edu/?p=16850" target="_blank"><h3>Clayton State Names Zornosa, Davis as Alice Smith Award Winners</h3></a><p>Dr. Ximena Zornosa and Darius Davis are the winners of the Clayton State University 2012 Alice Smith Awards.  Clayton [...]</p>
+  </div>
+  <div class="news1-clear"></div>
+</div>
+<div class="news1">
+  <div class="news1-image"><a href="http://news.clayton.edu/?p=16842" target="_blank"><img class="shadow" src="http://news.clayton.edu/wp-content/uploads/2012/04/DSC_0082-e1335539855615.jpg" alt="Essay by Clayton State’s Ruth Caillouet Chosen for National Award" title="Essay by Clayton State’s Ruth Caillouet Chosen for National Award"></a></div>
+  <div class="news1-item"><a href="http://news.clayton.edu/?p=16842" target="_blank"><h3>Essay by Clayton State’s Ruth Caillouet Chosen for National Award</h3></a><p>An essay written by Dr. Ruth Caillouet, chair, Department of Teacher Education and associate professor of English Education at Clayton [...]</p>
+  </div>
+  <div class="news1-clear"></div>
+</div></div>
+ 
+ <div style="display:none;">
+  <input type="submit" name="dnn$ctr3059$RssModule$btnUpdate" value="Hit Me" id="dnn_ctr3059_RssModule_btnUpdate" />
+ </div>
+
+	</div>
+
+</div><!-- End_Module_3059 --></div>
+
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-3125"><a name="3125"></a>
+<div class="features-bottom">
+    <h2>
+        
+        <span id="dnn_ctr3125_ctl01_titleLabel" class="Head">Photo Gallery</span>
+
+
+
+    </h2>
+</div>
+<div id="dnn_ctr3125_ContentPane">
+<!-- Start_Module_3125 --><div id="dnn_ctr3125_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	
+<div id="dnn_ctr3125_HtmlModule_lblContent" class="Normal">
+	
+</div>
+
+</div><span class="Normal"><table cellpadding="0" cellspacing="10" border="0" id="flickr_badge_wrapper">
+<tr>
+<script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?show_name=1&count=5&display=random&size=s&layout=h&source=user_set&user=62543203%40N05&set=72157627349584100&context=in%2Fset-72157627349584100%2F"></script>
+</tr>
+</table></span><!-- End_Module_3125 --></div>
+
+</div></div>
+        <div class="clear"></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+</div><div id="footerWrapper">
+  <div id="footer">
+    <div class="footer-1">
+      <p><strong>&copy; 2012 Clayton State University</strong></p>
+      <p><a href="http://www.usg.edu/" target="_blank">A Senior Unit of the University System of Georgia</a></p>
+      <p><a href="http://www.clayton.edu/about/university/accreditation">Accreditation</a></p>
+      <p><a href="http://www.clayton.edu/equalopportunity">Equal Opportunity</a></p>
+      <p><a href="http://www.clayton.edu/ethicsandintegrity">Ethics &amp; Integrity</a></p>
+      <p><a id="dnn_ctl01_loginLink" class="SkinObject" href="http://www.clayton.edu/login?returnurl=%2f">Login</a></p>
+    </div>
+    <div class="footer-2">
+      <p class="bold">Locations</p>
+      <ul>
+        <li><a href="http://www.clayton.edu/maps/maincampus"> Main Campus</a>, 2000 Clayton State Boulevard, Morrow, GA 30260, (678) 466-4000</li>
+        <li><a href="http://www.clayton.edu/maps/csueat">Clayton State East</a>, 5823 Trammell Road, Morrow, GA 30260</li>
+        <li><a href="http://www.clayton.edu/maps/fayette">Fayette</a>, 100 World Drive, Suite 100, Peachtree City, GA 30269, (678) 466-5000</li>
+        <li><a href="http://www.clayton.edu/maps/henry">Henry</a>, 401 Tomlinson St., McDonough, GA 30253</li>
+      </ul>
+    </div>
+    <div class="footer-3">
+      <p class="bold">Follow Us</p>
+      <ul>
+        <li><a href="http://www.facebook.com/pages/Morrow-GA/Clayton-State-University/120178704320?ref=search" class="facebook-icon" title="Follow us on Facebook" target="_blank"></a></li>
+        <li><a href="http://twitter.com/ClaytonStNews" class="twitter-icon" title="Follow us on Twitter" target="_blank"></a></li>
+        <li><a href="http://www.youtube.com/user/ClaytonSTNews?feature=mhum" class="youtube-icon" title="Follow us on YouTube" target="_blank"></a></li>
+        <li><a href="http://www.flickr.com/photos/claytonstateuniversity/" class="flickr-icon" title="Follow us on Flickr" target="_blank"></a></li>
+        <li><a href="https://foursquare.com/claytonstnews" class="foursquare-icon" title="Follow us on Four Square" target="_blank"></a></li>
+        <li><a href="http://academicinfo.clayton.edu/category/destination/news-csuedu/feed/" class="rss-icon" title="RSS Feed" target="_blank"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>
+<div id="ie6_message">This website requires Internet Explorer 7 and higher. Please update to the<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank"> newest version</a>.</div>
+<script type="text/javascript">
+if(typeof jQuery=="function"){jQuery(document).ready(function(){jQuery("div[action]").each(function(){var a=$("<form></form>"),b=this.attributes;for(var c in b){if(!isNaN(c)){a.attr(b[c].name,b[c].value)}}a.html($(this).html());$(this).replaceWith(a)})})}
+</script>
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" value="`{`__scdoff`:`1`,`SearchIconWebUrl`:`url(/icons/sigma/GoogleSearch_16X16_Standard.png)`,`SearchIconSiteUrl`:`url(/icons/sigma/DnnSearch_16X16_Standard.png)`,`SearchIconSelected`:`S`}" />
+        <script src="/DependencyHandler.axd?s=L1Jlc291cmNlcy9TZWFyY2gvU2VhcmNoLmpzOw&amp;t=Javascript&amp;cdv=5140" type="text/javascript"></script>
+    
+<script type="text/javascript" src="/Resources/Shared/scripts/initWidgets.js" ></script></form>
+    
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        
+        //This code is to force a refresh of browser cache
+        //in case an old version of dnn.js is loaded
+        //It should be removed as soon as .js versioning is added
+        jQuery(document).ready(function () {
+            if (navigator.userAgent.indexOf(" Chrome/") == -1) {
+                if ((typeof dnnJscriptVersion === 'undefined' || dnnJscriptVersion !== "6.0.0") && typeof dnn !== 'undefined') {
+                    //window.location.reload(true);
+                    //CSU HACK
+                    //Since this is primarily caused by the dnn.js script not being loaded in the markup
+                    //redirect to the fixcache handler to clear the page cache
+                    window.location = '/libraries/fixcache.aspx?TabId=41&PortalId=1&_t=' + new Date().getTime();
+                }
+            }
+        });
+         //]]>
+    </script>
+</body>
+</html>

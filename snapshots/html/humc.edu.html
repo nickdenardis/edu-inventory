@@ -1,0 +1,111 @@
+<HTML>
+<HEAD>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Beginning of JavaScript Applet -------------------
+function scrollit_r2l(seed)
+{
+        var m1  = "Welcome to Harbor-UCLA Medical Center ";
+        var m2  = "-- Excellence in Biomedical Research";
+
+        var msg=m1+m2;
+
+        var out = " ";
+
+        var c   = 1;
+
+        if (seed > 100) {
+
+                seed--;
+
+                var cmd="scrollit_r2l(" + seed + ")";
+
+                timerTwo=window.setTimeout(cmd,100);
+
+        }
+
+        else if (seed <= 100 && seed > 0) {
+
+                for (c=0 ; c < seed ; c++) {
+
+                        out+=" ";
+
+                }
+
+                out+=msg;
+
+                seed--;
+
+                var cmd="scrollit_r2l(" + seed + ")";
+
+                    window.status=out;
+
+                timerTwo=window.setTimeout(cmd,100);
+
+        }
+
+        else if (seed <= 0) {
+
+                if (-seed < msg.length) {
+
+                        out+=msg.substring(-seed,msg.length);
+
+                        seed--;
+
+                        var cmd="scrollit_r2l(" + seed + ")";
+
+                        window.status=out;
+
+                        timerTwo=window.setTimeout(cmd,100);
+
+                }
+
+                else {
+
+                        window.status=" ";
+
+                        timerTwo=window.setTimeout("scrollit_r2l(100)",75);
+
+                }
+
+        }
+
+}
+// -- End of JavaScript code -------------- -->
+</SCRIPT>
+<TITLE>Harbor-UCLA Medical Center</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff" onload="timerONE=window.setTimeout('scrollit_r2l(100)',500);">
+<CENTER>
+<IMG SRC="images/humc10.gif" ALT="Harbor-UCLA Medical Center">
+<HR>
+</CENTER>
+
+<BR>
+<H2>Information currently available</H2><BR>
+<UL>
+<IMG SRC="images/ball.gif" ALT="o"> <A HREF="hormones/"><FONT SIZE="5"><B>Pituitary Peptide Hormones & Antisera for Research</B></FONT></A><BR>
+<BR>
+<IMG SRC="images/ball.gif" ALT="o"> <A HREF="staff/staff97.html"><FONT SIZE="5"><B>HUMC Faculty &amp; Staff List</B></FONT></A><BR>
+<BR>
+<IMG SRC="images/ball.gif" ALT="o"> <A HREF="http://www.labiomed.org">Los Angeles Biomedical Research Institute</B></FONT></A><BR>
+<BR>
+<IMG SRC="images/ball.gif" ALT="o"> <A HREF="library/library.html"><FONT SIZE="
+5"><B>Parlow Library</B></FONT><FONT SIZE="3"><B>/Biomedical Periodicals</B></FONT></A><BR>
+<BR>
+<IMG  align=middle SRC="images/hmc50bsm.gif" ALT="o"> <A HREF="calendar/caindex.html"><FONT SIZE="5"><I><B>50 years of caring at Harbor-UCLA Medical Center</B></I></FONT></A><BR>
+<BR>
+<H4>
+<IMG SRC="images/ball.gif" ALT="o"> <A HREF="http://www.research.ucla.edu">
+Sponsored Research@UCLA</A><BR>
+</UL>
+</H4>
+<BR>
+<CENTER><TABLE width=600>
+<TH><FONT SIZE="4" COLOR="Navy">Los Angeles County Harbor-UCLA Medical Center</FONT><BR>
+<FONT SIZE="4" COLOR="Navy">1000 W. Carson Street&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<BR>
+<FONT SIZE="4" COLOR="Navy">Torrance, California 90502<BR>
+<FONT SIZE="4" COLOR="Navy">(310) 222-2345<BR>
+<BR>
+</TABLE></CENTER>
+</BODY>
+</HTML>

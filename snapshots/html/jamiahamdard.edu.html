@@ -1,0 +1,1063 @@
+
+
+
+<SCRIPT LANGUAGE=javascript>
+<!--
+function SelectValue(strFormTag,strValue)
+{
+var intLength,i;
+intLength = eval(strFormTag).length
+for (i=0;i<=intLength-1;i++)
+	{
+	if (eval(strFormTag).options[i].value == strValue)
+		{	eval(strFormTag).options[i].selected=true	}
+	}
+}
+
+function SelectMultiple(fldName,strValue)
+{
+if (strValue=="")
+	{}
+else
+	for(i=0; i<eval(fldName).length; i++)
+		if (strValue.indexOf(eval(fldName).options[i].value)!=-1)
+			eval(fldName).options[i].selected=true
+}
+
+
+function filldata(strFormName,strFieldName,strSQL,strDefaultText)
+{
+alert(strSQL)
+	if (strSQL=="" || (strSQL.search("###")>=0))
+		{
+		alert('siva')
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		return false;
+		}
+	
+	var parser=new ActiveXObject("microsoft.xmldom");
+	parser.async="false";
+	
+	parser.load("fillData1.asp?sql="+strSQL);
+	myerror = parser.selectSingleNode("MyError")
+	if (myerror == null)		//Records available in the table
+		{	
+		nodes = parser.selectSingleNode("roottag")
+		alert(nodes)
+		var myproducts = nodes.selectNodes("fieldtag1")
+		
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		var total = myproducts.length
+		var myproduct
+		var counter
+		for(counter = 1; counter<=total; counter++)
+			{
+			myproduct = myproducts.nextNode()
+			eval("document."+strFormName+"."+strFieldName).options[counter] = new Option(myproduct.text, myproduct.attributes(0).value);
+			}
+		}
+	else
+		{
+			eval("document."+strFormName+"."+strFieldName).options.length = 0;
+			eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText, "###");
+		}
+}
+
+
+/*function fillData(strFormName,strFieldName,strSQL,strDefaultText)
+{
+	if (strSQL=="" || (strSQL.search("###")>=0))
+		{
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		return false;
+		}
+	var parser=new ActiveXObject("microsoft.xmldom");
+	parser.async="false";
+	parser.load("../include/fillData1.asp?sql="+strSQL);
+	myerror = parser.selectSingleNode("MyError")
+	if (myerror == null)		//Records available in the table
+		{	
+		nodes = parser.selectSingleNode("roottag")
+		
+		var myproducts = nodes.selectNodes("fieldtag1")
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		var total = myproducts.length
+		var myproduct
+		var counter
+		for(counter = 1; counter<=total; counter++)
+			{
+			
+			myproduct = myproducts.nextNode()
+			eval("document."+strFormName+"."+strFieldName).options[counter] = new Option(myproduct.text, myproduct.attributes(0).value);
+			}
+		}
+	else
+		{
+			eval("document."+strFormName+"."+strFieldName).options.length = 0;
+			eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText, "###");
+		}
+}*/
+
+
+function fillData(strFormName,strFieldName,strSQL,strDefaultText)
+{
+	if (strSQL=="" || (strSQL.search("###")>=0))
+		{
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		return false;
+		}
+	//alert("../include/fillData1.asp?sql="+strSQL)
+	var parser=new ActiveXObject("microsoft.xmldom");
+	parser.async="false";
+	parser.load("../include/fillData1.asp?sql="+strSQL);
+	//alert(parser.xml)
+	myerror = parser.selectSingleNode("MyError")
+	if (myerror == null)		//Records available in the table
+		{	
+			//alert(parser.xml)	
+		nodes = parser.selectSingleNode("roottag")
+		
+		var myproducts = nodes.selectNodes("fieldtag1")
+		//alert(myproducts.length);
+		//salert (eval("document."+strFormName+"."+strFieldName))
+		//alert(eval("document."+strFormName+"."+strFieldName).options.length)
+
+//alert(eval("document."+strFormName+"."+strFieldName))
+
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		//var k = 0;
+		var total = myproducts.length
+		var myproduct
+		var counter
+		for(counter = 1; counter<=total; counter++)
+			{
+			
+			myproduct = myproducts.nextNode()
+			//alert (myproduct.attributes(0).value);
+			
+			eval("document."+strFormName+"."+strFieldName).options[counter] = new Option(myproduct.text, myproduct.attributes(0).value);
+			//k++;
+			}
+		}
+	else
+		{
+		
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText, "###");
+		//alert("Sorry! Subjects Not Found!!")
+		}
+}
+
+
+
+
+
+function fillDate(strFormName,strFieldName,strSQL,strDefaultText)
+{
+	if (strSQL=="" || (strSQL.search("###")>=0))
+		{
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		return false;
+		}
+	//alert("../include/fillData1.asp?sql="+strSQL)
+	var parser=new ActiveXObject("microsoft.xmldom");
+	parser.async="false";
+	parser.load("../include/fillDate.asp?sql="+strSQL);
+	//alert(parser.xml)
+	myerror = parser.selectSingleNode("MyError")
+	if (myerror == null)		//Records available in the table
+		{	
+			//alert(parser.xml)	
+		nodes = parser.selectSingleNode("roottag")
+		
+		var myproducts = nodes.selectNodes("fieldtag1")
+		//alert(myproducts.length);
+		//salert (eval("document."+strFormName+"."+strFieldName))
+		//alert(eval("document."+strFormName+"."+strFieldName).options.length)
+
+//alert(eval("document."+strFormName+"."+strFieldName))
+
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText,"###");
+		//var k = 0;
+		var total = myproducts.length
+		var myproduct
+		var counter
+		for(counter = 1; counter<=total; counter++)
+			{
+			
+			myproduct = myproducts.nextNode()
+			//alert (myproduct.attributes(0).value);
+			
+			eval("document."+strFormName+"."+strFieldName).options[counter] = new Option(myproduct.text, myproduct.attributes(0).value);
+			//k++;
+			}
+		}
+	else
+		{
+		
+		eval("document."+strFormName+"."+strFieldName).options.length = 0;
+		eval("document."+strFormName+"."+strFieldName).options[0] = new Option(strDefaultText, "###");
+		//alert("Sorry! Subjects Not Found!!")
+		}
+}
+
+
+/* ******************************************************************************
+
+To Select and Deselect all the Options in the list box we can use this function
+Author Name:- Sivakumar.k
+*********************************************************************************I */
+
+function selectAll(objCheck,ObjList)
+{
+alert('test')
+	if (objCheck.checked)
+		{
+			for	(var i=0;i<ObjList.options.length;i++)
+				{ObjList.options[i].selected=true}
+		 }  
+	if (objCheck.checked==false)
+		{
+			for	(var i=0;i<ObjList.options.length;i++)
+				{ObjList.options[i].selected=false}
+	    }    
+ 
+ }
+
+/* ******************************************************************************
+
+To Select and Deselect all the Options in the list box we can use this function
+Author Name:- Sivakumar.k
+
+//objCheck checkbox or Radio Name
+//ObjList Listbox Name
+*********************************************************************************I */
+
+function selectAll(objCheck,ObjList)
+{
+	if (objCheck.checked)
+		{
+			for	(var i=0;i<ObjList.options.length;i++)
+				{ObjList.options[i].selected=true}
+		 }  
+	if (objCheck.checked==false)
+		{
+			for	(var i=0;i<ObjList.options.length;i++)
+				{ObjList.options[i].selected=false}
+	    }    
+ 
+ }
+
+
+//-->
+</SCRIPT>
+
+<html xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<title>Welcome to Jamia Hamdard</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="jh.css" type="text/css">
+
+<style>
+<!--
+h3
+	{margin-bottom:.0001pt;
+	line-height:150%;
+	page-break-after:avoid;
+	font-size:14.0pt;
+	font-family:"Times New Roman";
+	font-weight:normal; margin-left:0in; margin-right:0in; margin-top:0in}
+h1
+	{margin-bottom:.0001pt;
+	line-height:150%;
+	page-break-after:avoid;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	margin-left:0in; margin-right:0in; margin-top:0in}
+div.Section1
+	{page:Section1;}
+h4
+	{margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold; margin-left:0in; margin-right:0in; margin-top:0in}
+h2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.5in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	text-indent:-.5in;
+	page-break-after:avoid;
+	tab-stops:.5in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman"}
+span.SpellE
+	{}
+.msonormal {}
+span.apple-style-span
+	{}
+-->
+</style>
+
+</head>
+
+<body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0" background=images/jbg.jpg>
+<table width="827" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<SCRIPT LANGUAGE=javascript>
+<!--
+function  SearchVal()
+{
+	if(document.frmSearch.kwd.value=="")
+	{
+		alert("Enter Data to Search")
+		document.frmSearch.kwd.focus()
+		return false
+	}
+	else
+	{
+		var str=document.frmSearch.kwd.value
+		if(str.length==1)
+		{
+			alert('Please Enter Valid Data')					
+			document.frmSearch.kwd.focus()
+			return false
+		}
+		else
+		{
+			var re = / /g;
+			var strb = re//str.replace(re,"~");
+			//document.frmSearch.kwd.value=strb
+			document.frmSearch.action="search.asp?kwd="+str 
+			document.frmSearch.submit()
+		}
+	}
+}
+
+
+//-->
+
+</SCRIPT>
+<script language="JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x=document.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</script>
+</head>
+
+<body bgcolor="#ffffff" text="#000000" onLoad="MM_preloadImages('images/_ab2.gif','images/_ap2.gif','images/_ca2.gif','images/_co2.gif','images/_si2.gif','../images/_h2.gif','../images/_ab2.gif','../images/_co2.gif','../images/_si2.gif')" leftmargin="0" topmargin="0">
+<table width="779" border="0" cellspacing="0" cellpadding="0">
+  <tr> 
+    <td width="779" height="68" background="../images/_01.gif" class="para" valign="top"> 
+      <p><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      </td>
+  </tr>
+  <tr> 
+    <td>
+	<a onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image6','','../images/_h2.gif',1)" href="../default.asp"><IMG border=0 height=28 name=Image6 src="../images/_h1.gif" width=104></a><A href="about_us.asp" onmouseout=MM_swapImgRestore() onmouseover="MM_swapImage('Image7','','../images/_ab2.gif',1)"><IMG border=0 height=28 name=Image7 src="../images/_ab1.gif" width=143></a><A href="#"  onClick="MM_openBrWindow('Student.asp','app','top=10,left=200,scrollbars=yes,resizable=yes,width=700,height=600')" onmouseout=MM_swapImgRestore() onmouseover="MM_swapImage('Image10','','../images/_ap2.gif',1)" target=_self><IMG border=0 height=28 name=Image10 src="../images/_ap1.gif" width=143 alt="Online Registration"></a><A href="careers.asp" onmouseout=MM_swapImgRestore() onmouseover="MM_swapImage('Image11','','../images/_ca2.gif',1)"><IMG border=0 height=28 name=Image11 src="../images/_ca1.gif" width=143></a><A href="contact.asp" onmouseout=MM_swapImgRestore() onmouseover="MM_swapImage('Image8','','../images/_co2.gif',1)"><IMG border=0 height=28 name=Image8 src="../images/_co1.gif" width=142></a><A href="sitemap.asp" onmouseout=MM_swapImgRestore() onmouseover="MM_swapImage('Image9','','../images/_si2.gif',1)"><IMG border=0 height=28 name=Image9 src="../images/_si1.gif" width=104></a></td>
+  </tr>
+  <tr> 
+    <td height="139" width="779" background="../images/_02.gif"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="779" height="139">
+        <param name=movie value="images/home.swf">
+        <param name=quality value=high>
+        <embed src="images/home.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="779" height="139">
+        </embed> 
+      </object></td>
+  </tr>
+</table>
+<table width="779" border="0" cellspacing="0" cellpadding="0" background="images/searchbg.gif">
+  <tr> 
+    <td class="ind" height="50" align="middle" valign="center"> 
+
+
+
+
+<FORM method="POST" name="frmSearch" action="search.asp" onsubmit="return SearchVal()">
+        <table width="300" border="0" cellspacing="0" cellpadding="0" align="right">
+          <tr> 
+            <td CLASS=SUBHEAD align="right" valign="middle"><img src="images/sjh.gif" width="200" height="22"></td>
+			<td CLASS=SUBHEAD align="right" valign="middle"> 
+              <input class=ver name="kwd" style="BORDER-BOTTOM-WIDTH: 1px; BORDER-LEFT-WIDTH: 1px; BORDER-RIGHT-WIDTH: 1px; BORDER-TOP-WIDTH: 1px">
+            </td>
+            <td valign="middle"> 
+              <input type="image" src="images/search.gif" name="Submit" value="Submit" width="30" height="23">&nbsp;&nbsp;
+            </td>
+          </tr>
+        </table>
+</form>
+
+
+
+    </td>
+  </tr>
+</table></BODY></HTML>
+</td>
+  </tr>
+  <tr> 
+    <td>
+     
+      <table width="781" border="1" style="border-collapse:collapse" cellspacing="0" cellpadding="0" bordercolor="000000" height="15" bgcolor=White>
+        <tr> 
+          <td width="779" background="images/flash.gif" height="15">
+			<p align="left">&nbsp;</td>
+           </tr>
+      </table>
+    <p align="left"><MARQUEE class=ver id=marquee onMouseover=" marquee.stop();" onMouseout=" marquee.start();" truespeed scrolldelay=15 scrollamount=1>:: :: Welcome to Jamia Hamdard ::</MARQUEE></td>
+  </tr>
+  <tr> 
+    <td height="699"> 
+      <table width="921" border="0" cellspacing="0" cellpadding="0" bgcolor=White>
+        <tr> 
+          <td width="172" valign=top>
+          <table border="0" cellspacing="0" cellpadding="0" align="center" style="width: 57px">
+          <tr>
+          <td>
+          
+ 
+<script language="JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+// -->
+</script>
+<body leftmargin="0">
+<table width="150" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+  <td>
+  <SCRIPT language=JavaScript type=text/javascript>
+timegap=1000
+followspeed=5
+followrate=40
+suboffset_top=0;
+suboffset_left=0;
+
+effect = "fade(duration=0.0);Shadow(color='black', Direction=135, Strength=2)"
+
+function openwin(url)
+{
+	nwin=window.open(url, "nwin",config="scrollbars=yes,resizable=yes,toolbar=yes,location=yes,status=yes,menubar=yes,");
+	nwin.focus();
+}
+prop1=[						// prop1 is an array of properties you can have as many property arrays as you need
+"000000",					// Off Font Color
+"D2D0D0",					// Off Back Color
+"ffffff",					// On Font Color
+"A6A2A2",					// On Back Color
+"000000",					// Border Color
+10,							// Font Size
+"normal",					// Font Style 
+"bold",						// Font Weight
+"verdana,Tahoma,Helvetica",			// Font
+4,							// Padding
+"../images/arrow.gif",				// Sub Menu Image
+8,							// 3D Border & Separator
+"c7c7c7",					// 3D High Color
+"000000",					// 3D Low Color
+"",					// Referer item Font Color (leave this blank to disable)
+"",					// Referer item Back Color (leave this blank to disable)
+]
+
+prop2=[						// prop1 is an array of properties you can have as many property arrays as you need
+"000000",					// Off Font Color
+"D5D2D2",					// Off Back Color
+"ffffff",					// On Font Color
+"a6a2a2",					// On Back Color
+"ae2525",					// Border Color
+10,							// Font Size
+"normal",					// Font Style 
+"bold",					// Font Weight
+"verdana,Tahoma,Helvetica",			// Font
+4,							// Padding
+"",				// Sub Menu Image
+1,							// 3D Border & Separator
+"CCCCCC",					// 3D High Color
+"000000",					// 3D Low Color
+"",					// Referer item Font Color (leave this blank to disable)
+"",					// Referer item Back Color (leave this blank to disable)
+]
+
+menu1=[				// This is the array that contains your menu properties and details
+302,				// Top1
+1,					// left
+160,					// Width
+1,					// Border Width
+"left",			// Screen Position - here you can use "center;middle;right"
+prop1,				// Properties Array - this is set higher up, as above
+1,					// Always Visible - allows the mnenu item to be visible at all time
+"left",			// Alignment - sets the menu elements alignment, HTML values are valid here for example: left, right or center
+,					// Filter - Text variable for setting transitional effects on menu activation
+,					// Follow Scrolling - Tells the menu item to follow the user down the screen
+0, 					// Horizontal Menu - Tells the menu to be horizontal instead of top to bottom style
+,					// Keep Alive - Keeps the menu visible until the user moves over another menu or clicks elsewhere on the page
+,					// Position of sub image left:center:right:middle:top:bottom
+,					// Show an image on top menu bars indicating a sub menu exists below
+,					// Reserved for future use
+"&nbsp;Academic&nbsp;Departments","show-menu2",,"",1,
+"&nbsp;Courses&nbsp;Offered","show-menu3",,"",1,
+"&nbsp;Admission&nbsp;Guidelines","show-menu4",,"",1,
+"&nbsp;Downloads","download.asp",,"",1,
+"&nbsp;International Students","show-menu7",,"",1,
+"&nbsp;Campus&nbsp;Facilities","camp_facilities.asp",,"",1,
+"&nbsp;News&nbsp;Board","newspage.asp",,"",1,
+"&nbsp;Forthcoming&nbsp;Events","forthcome.asp",,"",1,
+"&nbsp;Campus&nbsp;Placements","campplace.asp",,"",1,
+"&nbsp;Project Vacancies","projectvac.asp",,"",1,
+"&nbsp;Hamdard&nbsp;Study&nbsp;Circle","study.asp",,"",1,
+"&nbsp;Alumni&nbsp;Registration","alumini.asp",,"",1,
+"&nbsp;Resource&nbsp;Manager","show-menu5",,"",1,
+"&nbsp;Open and Distance Learning","http://www.jamiahamdard.edu/odl/default.asp",,"",1,
+"&nbsp;Tenders","tenderView.asp",,"",1,
+"&nbsp;Location","show-menu6",,"",1,
+"&nbsp;FAQ","FAQ.asp",,"",1
+]
+menu2=[
+,,200,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;Faculty of Science","facofsc.asp",,,1,
+"&nbsp;Faculty of Pharmacy","pharma.asp",,,1,
+"&nbsp;Faculty of Medicine","medicine.asp",,,1,
+"&nbsp;Faculty of Nursing","nursing.asp",,,1,
+"&nbsp;Faculty of Management Studies  &nbsp;and IT","managementstudies.asp",,,1,
+"&nbsp;Faculty of Islamic Studies & &nbsp;Social Sciences","Islam_soc.asp",,,1,
+"&nbsp;Faculty of Allied Health Sciences","alliedhealth.asp",,,1,
+"&nbsp;Dept.of Paramedical Sciences","http://www.jamiahamdard.edu/PDF/PARAMEDICAL.pdf",,,1,
+"&nbsp;HIMSR","http://www.himsr.org/",,,1
+]
+
+menu3=[
+,,180,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;Under Graduate/ Diploma &nbsp;Courses","ug.asp",,,1,
+"&nbsp;Post Graduate Courses","pg.asp",,,1,
+"&nbsp;Ph.D. Coursess","phd.asp",,,1
+]
+menu4=[
+,,180,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;Application Forms and &nbsp;Prospectus","adguide.asp",,,1,
+"&nbsp;Foreign/NRI/Sponsored Candidates","foreign.asp",,,1,
+"&nbsp;Test Centers","testcentre.asp",,,1,
+"&nbsp;General Information and &nbsp;Guidelines","guidelines.asp",,,1,
+"&nbsp;Completion of Admission","comp_admission.asp",,,1,
+"&nbsp;Important Dates","imp_dates.asp",,,1,
+"&nbsp;Fee Structure","fee_struc.asp",,,1
+]
+menu5=[
+,,180,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;Thesis Summary","thesis.asp",,,1,
+"&nbsp;Telephone Directory","teledir.asp",,,1,
+"&nbsp;Address Book","adbook.asp",,,1,
+"&nbsp;Faculty Members","facultymem.asp",,,1,
+"&nbsp;Foreign/NRI/Sponsored &nbsp;Candidates","foreign_list.asp",,,1
+]
+menu6=[
+,,180,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;City Location","howto_get.asp",,,1,
+"&nbsp;University Location","location.asp",,,1
+]
+
+
+menu7=[
+,,180,1,"",prop2,,"left",effect,,,,,,,
+"&nbsp;Admission Guideline","foreign.asp",,,1,
+"&nbsp;List of International &nbsp;Students","foreign_list.asp",,,1,
+"&nbsp;Foreign Student Cell","ForeignStudCell.asp",,,1
+]
+
+</SCRIPT>
+<SCRIPT LANGUAGE=javascript src="include/JAMIAmenu.js"></SCRIPT>
+<SCRIPT language=JavaScript type=text/javascript>
+/*DHTML Menu version 3.0 (beta)
+* written by Andy Woolley
+* Copyright 2001 Andy Woolley. All Rights Reserved.*/
+timer=0;d=document
+smc=-1;
+ns4=(d.layers)?true:false
+ns6=(navigator.userAgent.indexOf("Gecko")!=-1)?true:false
+mac=(navigator.appVersion.indexOf("Mac")!=-1)?true:false
+if(ns6)mac=false
+opera=(navigator.userAgent.indexOf("Opera")!=-1)?true:false
+ns61=(parseInt(navigator.productSub)>=20010726)?true:false
+ie4=(!d.getElementById&&d.all)?true:false;
+konq=(navigator.userAgent.indexOf("Konqueror")!=-1)?true:false
+mp=(ns6)?"pointer":"hand";atop=5;oatop=0;aleft=0;oaleft=1
+var a,am,oa,im,om,flta;hlarr=new Array();hlcnt=0;hll=0
+timo=0;el=0;nshl=0;var omv=0;df=1;im=0;ofrac=0;omnu=0;ac=15;m=1
+var imar=new Array();mr=","
+while(eval("window.menu"+m))
+{
+	mr+="menu"+m+",";
+	tmenu=eval("menu"+m);m++};
+	mr=mr+" ";
+	mr=mr.split("\,");
+	menus=mr.length-1;
+	bgt="";
+	if(!opera)bgt="Color"
+	function gmobj(mtxt)
+	{
+	if(d.getElementById)
+	{	m=d.getElementById(mtxt)	}
+	else if(d.all)
+	{	m=d.all[mtxt]	}
+	else if(d.layers)
+	{	m=d.layers.eval(mtxt)	}
+return m
+}
+function Minit()
+{	
+el=0;osy=-1;df=-1;
+if ((d.all&&d.getElementById)&&!mac) document.write("<s"+"cript>function getflta(ap){try{if(ap.filters){flta=1}}catch(e){}}</sc"+"ript>");
+for(x=1;x<menus;x++){menu=eval("menu"+x);if(menu[6]==1)popup(x)}
+for(a=1;a<menus;a++){fixb("menu"+a)}
+pu=setTimeout('checs()',followrate)
+sis();setpos();
+if(ns4){window.onresize=function(){if(window.innerWidth==ww&&window.innerHeight==wh)return;window.history.go(0);}}else{window.onresize=setpos}
+sy=1;checs();
+function coc()
+{
+	menu=eval(omnu)
+	if(menu[13]!="form")closeallmenus()
+	}
+if(ns4)d.onmousedown=coc;else d.onclick=coc
+if(mac&&d.all){d.write("<div style=\"position:absolute;top:0;left:0\">")}
+frs=0
+fre=0
+}
+for(a=1;a<menus;a++){dmenu("menu"+a)}
+if(!ns61&ns6){window.onload=Minit}else{Minit();window.onload=sis}
+</SCRIPT>
+</td>
+</tr>
+  <tr>
+<!--    <td align="left" valign="top">
+      <div id="Layer1" style="position:absolute; left:1px; top:568px; width:150px; height:125px; z-index:1; overflow: visible"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="160" height="250">
+          <param name=movie value="../images/movie2.swf">
+    <param name=quality value=high>
+    <embed src="../images/movie2.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="160" height="250">
+    </embed> 
+  </object></div>
+    </td>
+	-->
+  </tr>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+
+</table>
+
+
+
+          </td>
+          </tr>
+          </table>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          </td>
+          <td width=4 background="images/_bg.gif"></td>
+        <td width="200" valign=top> 
+          
+          <table width="200" border="0" cellspacing="0" cellpadding="2" align="center">
+            <tr>
+              <td><font size=4 color=red face=verdana><b>News &amp; Events</b></font></td>
+            </tr>
+            <tr> 
+              <td class="ver" align="center" background="images/_bg1.gif" height="1"></td>
+           </tr>
+           
+			<tr> 
+			<td class="ver"> 
+				<p class=subhead align="left">PUBLIC-PRIVATE PARTNERSHIP EXCELLENCE AWARD 2011 </p>
+				<p class="ver" align="justify">Dr. M. Z. Abdin, Professor of Biotechnology and his group working in the Centre for Transgenic Plant Development, a unit of Department of Biotechnology, 				</p>
+			</td>
+			</tr>
+			<tr> 
+			<td class="ver" valign=top> 
+				<a class="news" href="news.asp?nid=54"><div align=right>
+                  <font style="font-size: 9pt">more...</font></div></a>
+			</td>
+			</tr>
+			<tr>
+			  <td class="ver" height="1" align="center" background="images/_bg1.gif"></td>
+			</tr>
+			
+			<tr> 
+			<td class="ver"> 
+				<p class=subhead align="left">NEW EXPERIMENT</p>
+				<p class="ver" align="justify">Hilleman Labs and Jamia Hamdard are collaborating to set up a vaccine Research lab at the University Campus.....				</p>
+			</td>
+			</tr>
+			<tr> 
+			<td class="ver" valign=top> 
+				<a class="news" href="news.asp?nid=51"><div align=right>
+                  <font style="font-size: 9pt">more...</font></div></a>
+			</td>
+			</tr>
+			<tr>
+			  <td class="ver" height="1" align="center" background="images/_bg1.gif"></td>
+			</tr>
+			
+			<tr> 
+			<td class="ver"> 
+				<p class=subhead align="left">Jamia Hamdard Reaccredited in Grade ‘A’ by the NAAC..</p>
+				<p class="ver" align="justify">The National Accreditation and Assessment Council (NAAC) has re-accredited Jamia Hamdard in grade ‘A’, the highest grade...				</p>
+			</td>
+			</tr>
+			<tr> 
+			<td class="ver" valign=top> 
+				<a class="news" href="news.asp?nid=50"><div align=right>
+                  <font style="font-size: 9pt">more...</font></div></a>
+			</td>
+			</tr>
+			<tr>
+			  <td class="ver" height="1" align="center" background="images/_bg1.gif"></td>
+			</tr>
+			
+			   
+ 
+			</table>
+            
+            <td width=4 background="images/_bg.gif"></td>
+          <td width="537" valign=top>
+          <div align="center">
+          <table border="0" cellspacing="0" cellpadding="2" height="589" style="border-left-width: 0; border-right-width: 0" width="537">
+            <tr> 
+              <td style="border-style: solid; border-width: 1" height="28" width="531">
+              <p align="left"><font face="Arial"><small><small>Site last 
+              updated 
+    Saturday May 05, 2012 03:50:11 PM<br>
+              Please forward your suggestions to the 
+              <font size="1"><a href="mailto:mirzarahilbeg@jamiahamdard.ac.in">
+				<font style="font-size: 8pt">Computer 
+				Centre</font></a></font></small></small></font></td>
+            </tr>
+            <tr> 
+              <td style="border-top-style: solid; border-top-width: 1" height="2" width="533"></td>
+            </tr>
+            <tr> 
+              <td class="ver" width="533" height="1" background="images/_bg1.gif"></td>
+            </tr>
+            <tr> 
+              <td class="ver" width="533" height="1" background="images/_bg1.gif" style="border-bottom-style: none; border-bottom-width: medium"></td>
+            </tr>
+            <tr>
+              <td class="ver" width="454" height="42" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1">
+              <p class="MsoNormal">Admission of Foreign Nationality Students To 
+				Various Courses of jamia Hamdard Are opened .please contact 
+				foreign student Advisor office in this regard --Phone No. 
+				01126059688 Ext 5450</td>
+            </tr>
+            <tr>
+              <td class="ver" width="533" height="42" style="border-left-style: none; border-left-width: medium; border-right-style: none; border-right-width: medium; border-top-style: none; border-top-width: medium; border-bottom-style: solid; border-bottom-width: 1">
+              <b>
+              <font face="Verdana" size="4" color="#FF0000">Important Links</font></b></td>
+            </tr>
+			<tr> 
+              <td class="ver" width="533" height="2" background="images/_bg1.gif"></td>
+            </tr>
+			<tr> 
+              <td class="ver" width="533" height="511"> 
+                            <p style="text-align: center">
+							<font size="4">Admissions - 2012</font><span class="fldText" id="_trSubjectText" style="OVERFLOW: visible"><a href="http://www.jamiahamdard.ac.in/Admissions-2011/Notice_MSc_Pharmacovigilance_5.8.11.pdf"><font size="2">&nbsp;</font></a></span><font style="font-size: 10pt">&nbsp;</font></p>
+							<ul>
+								<li>
+								<a href="Index_MBA-Sel-List-I-2012.asp"><b>
+								<span style="font-size: 9pt; font-family: Verdana; font-weight: bold">
+								Selection &amp; Waiting List - I (MBA Programme - 
+								2012-13)</span></b></a><font size="2"><b><img border="0" src="images/new_shining.gif" height="14"></b></font><br>
+&nbsp;</li>
+								<li>
+								<span style="font-size: 9pt">
+								<a href="http://www.mycollegeform.com/apply/jamia-hamdard-university/">
+								<font style="font-size: 15pt" color="#008000">Online Admission 
+								Form Status 2012</font></a> </span><font size="2"><b>
+								<img border="0" src="images/new_shining.gif" height="14"><br>
+&nbsp;</b></font></li>
+								<li>
+								<div class="Section1">
+									<p class="MsoNormal"><b>
+									<span style="font-size: 9pt; font-family: Verdana; font-weight: bold"">
+									<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="PDF/Downloadinstructions-2012-19.03.12.pdf">Download 
+									Application Form for Admission-2012-13</a></span></b><font size="2"><b><img border="0" src="images/new_shining.gif" height="14"><br>
+&nbsp;</b></font></div>
+								</li>
+								<li>
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="http://www.jamiahamdard.ac.in/PDF/admission%202012/HAMDARD%20PROSPECTUS%202012-13.pdf">
+								Information Bulletin &amp; Prospectus-2012-13</a> <font size="2"><b>
+								<img border="0" src="images/new_shining.gif" height="14"></b></font><br>
+								<br>&nbsp;</li>
+								<li>
+								<b>
+								<span style="font-size: 12.0pt; font-family: 'Times New Roman',serif">
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="http://www.jamiahamdard.ac.in/Admission-2012/Change%20in%20DGNM%20eligibility%20.pdf">
+								Modified eligibility criteria for admission to 
+								Diploma in General Nursing and Midwifery (DGNM) 
+								from 2012 -13 onwards</a>&nbsp; </span></b>
+								<font size="2"><b>
+								<img border="0" src="images/new_shining.gif" height="14"></b></font><br>&nbsp;</li>
+								<li>
+								<span style="font-size: 9pt">
+								<font style="font-size: 9pt" size="2">
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="http://www.jamiahamdard.ac.in/Admission-2012/Important%20dates.pdf">Important Dates for Admission to 
+								MBA and Other Academic<br>
+								(Under Graduate / Post Graduate / Ph.D/)<br>
+								Programmes of the University</a></font></span><font size="2" face="Verdana">&nbsp;
+								</font><font size="2"><b>
+								<img border="0" src="images/new_shining.gif" height="14"></b></font><font size="2" face="Verdana"><br>
+&nbsp;</font></li>
+								<li><span style="font-size: 9pt">
+							<font size="2">
+								<b>
+								<a href="http://www.jamiahamdard.ac.in/Admissions-2011/madrasalist.pdf">
+								<font style="font-size: 9pt">List of Recognized Madrasas</font></a><font style="font-size: 10pt">
+								<br>
+								</font></b></font><b><font size="2"><br></font>
+								</b><br><b>**************************************</b></font><b>********</b></span><b><span lang="EN-IN" style="font-size: 11.0pt; line-height: 115%; font-family: Verdana,sans-serif; color: blue"><br>&nbsp;</span></b></li><li>
+								<font style="font-size: 9pt">
+								<span style="font-size: 9pt">
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="http://www.jamiahamdard.ac.in/PDF/HCC-2.pdf">Hamdard Coaching Centre 
+								(Admission 2012-13)</a> </span></font><b>
+								<font face="Verdana" size="2">
+								<a href="http://himsr.org/pdf/srd.pdf">
+								<img border="0" src="images/new_shining.gif" height="14"></a></font></b><br>&nbsp;<li>
+								<font style="font-size: 9pt">
+								<span style="font-size: 9pt">
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="Adm_Notice_CCNA-2011.asp">Admission Notice for Admission to CCNA Training 
+								Programme &#8211; 2012</a></span><span style="font-weight: 400; font-size: 9pt">
+								</span></font><b><font face="Verdana" size="2">
+								<a href="http://www.jamiahamdard.ac.in/PDF/Info.doc.docx">
+								<img border="0" src="images/new_shining.gif" height="14"></a></font></b><br>&nbsp;<li>
+								<span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman',serif">
+								<a style="font-size: 9pt; font-family: Verdana; color: #FF3300" href="http://www.jamiahamdard.ac.in/PDF/dodlnotice.pdf">The last date of submission of examination forms 
+								in the DODL</a></span><b><font face="Verdana" size="2"><a href="http://www.jamiahamdard.ac.in/PDF/Info.doc.docx"><img border="0" src="images/new_shining.gif" height="14"></a></font></b><span style="font-size: 9pt"><font style="font-size: 9pt"><li>
+								<font FACE="Times New Roman" SIZE="5"><b>
+								<p ALIGN="LEFT">
+								<a style="font-size: 9pt; font-family: Verdana; font-weight: bold" href="http://www.jamiahamdard.ac.in/PDF/Advertisement-2012.pdf">Admission is open to job-oriented M.Sc. 
+								Programme in Clinical Research</a> <br>&nbsp;</b></font></font></span><font style="font-size: 9pt"><span style="font-size: 9pt"><li>
+								<p style="text-align: justify">
+								<font size="2" face="Arial">
+								<a href="PDF/Schedule%20for%20Counseling%20Sessions%202011-12.pdf">
+								<span style="font-size: 9pt; font-family:Arial">Schedule for Counseling Sessions of Post Graduate Diploma in Chemoinformatics (PGDC) 
+					for 2012</a></span></font></p><font size="2">
+								<li>
+								<p class="MsoNormal">
+								<span style="font-size: 10.0pt; font-family: Arial,sans-serif">
+								<a href="http://www.jamiahamdard.ac.in/Hamdard%20Centenary%20Fellowship_2011.pdf">
+								<span style="font-size: 9pt">Hamdard Centenary Fellowship for Post-doctoral Research</span></a>
+								</span><br>&nbsp;</font></span></li>
+								<li>
+								<p style="text-align: justify"><font size="2">
+								<a href="http://www.jamiahamdard.ac.in/PDF/ODLPDF/ODL_Eligibility_BCA-25.8.11.pdf">
+								<span style="font-size: 9pt">Notice Regarding change of 
+					Eligibility of BCA Program in Directorate of Open &amp; Distance 
+					Learning</span> </a></font>
+								<span style="mso-bidi-font-size:11.0pt;line-height:
+115%; font-weight:400"><br>&nbsp;</span></p></li>
+								<li>
+								<p style="text-align: justify"><b>
+								<span style="font-weight: 400"><font size="2">
+								<a href="bioChem_eletronics.asp">
+								<font style="font-size: 9pt">M.Sc. Bioelectronics and 
+            Instrumentation</font></a></font><font color="#000080" style="font-size: 9pt">
+								</font></span>
+								<span style="mso-bidi-font-size:11.0pt;line-height:
+115%"><font style="font-size: 9pt"><br>&nbsp;</font></span></b></p></li>
+								<li>
+								<p style="text-align: justify">
+								<span style="FONT-WEIGHT: 700; TEXT-DECORATION: none">
+								<font color="#000080" size="2" face="Century Gothic">
+								<a style="TEXT-DECORATION: none" href="http://www.jamiahamdard.ac.in/about/Int_exams-2011.htm">
+								<font style="font-size: 9pt">Results of University Internal Examinations - 2011</font></a></font><a style="TEXT-DECORATION: none" href="http://www.jamiahamdard.ac.in/about/Int_exams-2011.htm"><font color="#000080" style="font-size: 9pt">
+								</font></a></span>
+								<font color="#FF0000" style="font-size: 9pt">
+								<br>&nbsp;</font></p></li>
+								<li>
+								<p><b><span style="color: black"><font size="2">
+								<a href="PDF/Write-up-Bio-electonics-22.7.10_.pdf">
+								<span style="font-weight: 400">
+								<font style="font-size: 9pt">Opportunities in Interdisciplinary Sciences at Jamia 
+                            Hamdard: Instrumentation and Bio-electronics</font></span></a></font><span style="font-weight: 400"><font style="font-size: 9pt">
+								</font></span></span></b>
+								<b style="mso-bidi-font-weight:
+normal"><span style="line-height:115%;"><font size="1"><br>&nbsp;</font></span></b></li>
+								<li>
+								<p align="center" style="text-align: left; line-height: 150%">
+								<b><a href="E-learning.asp">
+								<font style="font-size: 9pt">E-Learning Resources</font></a><font style="font-size: 9pt">
+								<br>&nbsp;</font></b></li>
+								<li>
+								<p style="text-align: justify">
+								<font face="Verdana" style="font-size: 9pt; " color="#FF3300">
+								<a href="http://www.jamiahamdard.ac.in/pdf/pdf_for_EDU/HERBAL_GARDEN.pdf">
+								<font style="font-size: 9pt">Know About Our 
+                Herbal Garden</font></a></font><font face="Verdana" color="#FF3300" style="font-size: 9pt"> .pdf</font></p>
+								</li>
+							</ul>
+							<ul>
+							
+							<li>
+							<p align="left" style="margin-top: 0; margin-bottom: 0">
+							<b>
+							<a target="_blank" href="http://www.jamiahamdard.ac.in/LibrayInformationSystem/Library%20Web%20%20site.HTML">
+							<font style="font-size: 9pt">University Library &amp; Information System</font></a></b><br>&nbsp;</li>
+							<li>
+							<p align="left" style="margin-top: 0; margin-bottom: 0">
+							<span style="font-family: Albany"><font size="1"><b>
+							<a href="PDF/Right_Info_Act.pdf"><font size="2">INFORMATION 
+                HANDBOOK Under <br>&quot;Right to Information Act 2005&quot;</font><font color="#FF6633" size="2">
+							</font></a></b></font>
+							<font color="#FF3300" size="2"><b>.pdf&nbsp; <br>&nbsp;</b></font></span></li>
+							<li>
+							<p align="left" style="margin-top: 0; margin-bottom: 0">
+							<b><font face="Verdana" color="#000099" size="2">
+							<a style="TEXT-DECORATION: none" href="http://www.jamiahamdard.ac.in/PDF/UGC_anti-ragging_June%202009.pdf">
+							<span style="font-size: 9pt">IMPORTANT NOTICE FOR STUDENTS: UGC REGULATIONS ON CURBING 
+					THE MENACE OF RAGGING IN HIGHER EDUCATIONAL INSTITUTIONS, 
+					2009</span></a></font><font face="Verdana" color="#FF3300" style="font-size: 9pt">
+							</font>
+							<font face="Verdana" color="#FF3300" size="2"><br>&nbsp;</font></b></li>
+							<li>
+							<p align="left" style="margin-top: 0; margin-bottom: 0">
+							<span style="TEXT-DECORATION: none">
+							<font face="Verdana" color="#1a681a" size="2">
+							<a href="http://www.jamiahamdard.ac.in/PDF/Proctorial_Board_Ragging.pdf">
+							<span style="font-size: 9pt; font-weight:700; text-decoration:none">Proctorial Board Members for reporting of Ragging incidents</span></a></font><font face="Verdana" size="2" color="#FF3300"><span style="FONT-WEIGHT: 700">
+							</span></font></span><font face="Verdana"><br>&nbsp;</font></li>
+							<li>
+							<font face="Verdana" style="font-size: 9pt; font-weight: 700; text-transform:uppercase" color="#FF3300">
+							<a href="http://www.cfsindia.org.in">
+							<font style="font-size: 9pt">Centre for Federal Studies
+                			</font></a></font>
+							<font face="Verdana" color="#FF3300" style="font-size: 9pt">
+							<br>&nbsp;</font></li>
+							<li>
+							<a href="http://library:8080/jopacv06/html/SearchForm">
+							<font style="font-size: 9pt">Online Library Book Search&nbsp;&nbsp;</font></a><font style="font-size: 9pt">
+							</font>
+							<font face="Verdana" color="#FF3300" style="font-size: 9pt">
+							<br>&nbsp;</font></li>
+							<li><font size="1" color="#FF6633">
+							<a href="Giving_and_Sharing1.asp">
+							<font style="font-size: 9pt">About Giving and Sharing</font></a></font><font color="#FF6633" style="font-size: 9pt">&nbsp; 
+							<br>&nbsp;</font></li>
+							<li>
+							<font face="Verdana" style="font-size: 9pt" color="#FF3300">
+							<a href="other_imp_links.asp">
+							<font style="font-size: 9pt">Archival Links&nbsp;</font></a>&nbsp;&nbsp;
+							</font></li>
+                </ul>
+							<p>&nbsp;<br>&nbsp;</font></td>
+            </tr>
+			<tr> 
+              <td class="ver" width="533" height="511"> 
+                            &nbsp;</td>
+            </tr>
+          </table>
+			</div>
+			</td>
+			     <td width=4 background="images/_bg.gif"></td>
+			</table>
+			</td>
+			</tr>
+  <tr>
+    <td>
+<link rel="stylesheet" href="../jh.css" type="text/css">
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<table width="779" border="0" cellspacing="0" cellpadding="0" height="40">
+  <tr> 
+    <td class="bot" height="40" valign="bottom" align="center"><img src="images/bottombg.gif" width="779" height="40" usemap="#Map" border="0"></td>
+  </tr>
+</table>
+<map name="Map">
+  <area shape="rect" coords="378,20,569,34" href="http://www.openwavedss.com" target="_blank">
+</map>
+</td>
+  </tr>
+</table>
+</BODY>

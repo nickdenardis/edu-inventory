@@ -1,0 +1,554 @@
+   
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Career Training | Career College | Salinas CA</title>
+<meta name="description" content="Train for Your Career Today. Central Coast College in Salinas CA Offers Healthcare Training and Business Programs.  "/>
+<meta name="keywords" content="California Colleges, Colleges in CA, Career Training, Career College, Vocational School, Colleges in Salinas"/>
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/coda-slider.css" type="text/css" />
+<link rel="stylesheet" href="/css/blue.css" type="text/css" />
+<link rel="stylesheet" href="/css/tables.css" type="text/css" />
+<link rel="stylesheet" href="/css/tiptip.css" type="text/css" />
+<!--
+[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]
+-->
+<!--[if gte IE 8]>
+<style>
+	#formWrapper fieldset {
+		padding:3px 0;
+	}
+   #formWrapper legend {
+		display: block !important;
+		height: 0;
+		margin: 0;
+      padding: 0;
+      width: 0;
+      visibility: hidden;
+	}
+	select#start_dt {
+			background: #fff url(../images/forms/ico_edit.png) no-repeat 4px 5px;
+			padding-left: 19px;
+		}
+</style>
+<![endif]-->
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.js"></script>
+<script type="text/javascript" src="/javascript/jquery.flash.js"></script>
+<script type="text/javascript" src="/javascript/cust_select_plugin.js"></script>
+<script type="text/javascript" src="/javascript/jquery.tipTip.js"></script>
+<script type="text/javascript" src="/javascript/jquery.coda-slider-2.0.js"></script>
+<script type="text/javascript" src="/javascript/jquery.easing.1.3.js"></script>
+<script type='text/javascript' src='/jwplayer/jwplayer.js'></script>  
+
+<script type="text/javascript">
+// initialise plugins
+
+//tool-tip ("tipTip")
+$(function(){
+    $(".tool-tip").tipTip({maxWidth: "auto"});
+});
+
+//slider
+	$().ready(function() {
+		$('#coda-slider-1').codaSlider({
+			  autoSlide: true,
+			  autoSlideInterval: 10000,
+			  autoSlideStopWhenClicked: true
+		 });
+	});
+</script>
+
+<script type="text/javascript" src="/javascript/validator.js"></script>
+<script type="text/javascript" src="/javascript/masked_input.js"></script>
+<script type="text/javascript">
+        // FORM MASKING FOR PHONE NUMBERS
+        jQuery(function($){
+           $("#phone").mask("(999) 999-9999");
+           $("#contact_phone").mask("(999) 999-9999");
+        });
+        // SUBMIT FORMS AFTER VALIDATION
+          $.validator.setDefaults({
+            submitHandler: function() {  
+                form.submit(); 
+            }
+        });       
+        // REMOVE AND RETURN VALUES FROM TEXT INPUTS
+        $(document).ready(function(){
+            $('input, textarea').focus(function() {
+                    value=$(this).val();
+                    $(this).attr("value","");
+                });
+            $('input, textarea').blur(function() {
+                if($(this).val()=="") {
+                    $(this).val(value);
+                }
+            });
+        });
+		  
+        // SHORT FORM REQS/VALIDATION
+        $(document).ready(function() {
+            $("#miniForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    email: "",
+                    fname: "",
+                    lname: ""
+                }
+            });    
+        }); 
+        
+        $(document).ready(function() {
+            $("#referFriend").validate({  
+                rules: {
+                    friendname: "required",
+                    phone: "required",
+                    friendemail: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    friendname: "",
+                    friendemail: "",
+                    phone: ""
+                }
+            });    
+        });         
+        
+    $(document).ready(function() {   
+        $("#postJob").validate({  
+            rules: {
+					contact_name: "required",
+					contact_email: {
+						required: true,
+						email: true
+					},                                              
+               contact_phone: "required", 
+               company_name: "required",                                                
+               company_zip: "required",                                                
+               job_title: "required",
+               job_duties: "required",
+               job_duration: "required"					
+            },
+            messages: {
+					contact_name: "Required",
+					contact_email: "A valid email address is required.",                                                
+					contact_phone: "A current phone number is required.",  
+					company_name: "Required",
+					company_zip: "Required",                                                
+					job_title: "Required",
+					job_duties: "Please enter a brief description of the job.",
+					job_duration: "Required"					
+            }
+        });    
+    });      
+    $(document).ready(function() {   
+        $("#requestInfo").validate({  
+            rules: {
+					fname: "required",
+					lname: "required",
+					email: {
+						required: true,
+						email: true
+					},                                              
+                phone: "required",                                                
+                zip: "required",                                                
+                referral: "required",                                                
+                program: "required"                                                
+            },
+            messages: {
+                fname: "Required",
+                lname: "Required",
+                email: "A valid email address is required.",                                                
+                phone: "A current phone number is required.",                                                
+                referral: "Please select how you heard about CCC.",                                                
+                zip: "Required",                                                
+                program: "Please select a program of interest."                                                
+            }
+        });    
+    });      
+    $(document).ready(function() {   
+        $("#scheduleVisit").validate({  
+            rules: {
+					fname: "required",
+					lname: "required",
+					email: {
+						required: true,
+						email: true
+					},                                              
+                phone: "required",                                            
+                zip: "required",                                                
+                program: "required"                                                
+            },
+            messages: {
+                fname: "Required",
+                lname: "Required",
+                email: "A valid email address is required.",                                                
+                phone: "A current phone number is required.",                                              
+                zip: "Required",                                                
+                program: "Please select a program of interest."                                                
+            }
+        });    
+    });      
+    $(document).ready(function() {   
+        $("#applyOnline").validate({  
+            rules: {
+					fname: "required",
+					lname: "required",
+					email: {
+						required: true,
+						email: true
+					},                                              
+                    phone: "required",                                                
+					referral: "required",                                                
+					zip: {
+						required: true,
+						maxlength: 5,
+						minlength: 5   
+					},                                                 
+					program: "required",
+					start_dt: "required",
+					ed_level: "required",
+					attend_reason: "required"                                                 
+            },
+            messages: {
+                fname: "Required",
+                lname: "Required",
+                email: "A valid email address is required.",                                                
+                phone: "A current phone number is required.",                                                
+                zip: "Required",     
+                referral: "Please select how you heard about CCC.",                                            
+                program: "Please select a program of interest.",
+                start_dt: "Please select a time frame for when you would like to start at CCC.",                                                
+                ed_level: "Please select the option that most closely matches your level of education.",                                              
+                attend_reason: "Describe why you chose the program above." 
+					                                                
+            }
+        });    
+    }); 
+
+	 
+	$(document).ready(function(){
+		$("#expandSlider").click(function(){
+			$("#sliderLinks").toggleClass("expanded");
+			$("#smmLinks").toggleClass("show-icons");
+			$(this).toggleClass("hide-btn");
+		});
+		/*
+		$(".hide-btn").click(function(){
+			//$("#sliderLinks").toggleClass("collapsed");
+			//$("#smmLinks").toggleClass("hide-icons");
+			//$(this).toggleClass("expand-btn");
+			$("#sliderLinks").toggleClass("expanded");
+			$("#smmLinks").toggleClass("show-icons");
+			$(this).toggleClass("expand-btn");
+		});
+*/
+		$("#showSnav").click(function(){
+			//$("#sNav").fadeIn("fast");
+			$("#sNav").toggleClass("show-content");
+			$(".section-wrapper-snav").toggleClass("hide-more");
+			//$(".show-bkg-img").toggleClass("hide-bkg-img");
+		});
+		$(".hide-snav").click(function(){
+			$("#sNav").fadeOut("fast");
+			//$("#sNav").toggleClass("show-content");
+			$(".section-wrapper-snav").toggleClass("hide-more");
+			//$(".show-bkg-img").toggleClass("hide-bkg-img");
+		});
+
+		$("#showRfi").click(function(){
+			//$("#sNav").fadeIn("fast");
+			$("#miniRfi").toggleClass("show-content");
+			$(".section-wrapper-rfi").toggleClass("hide-more");
+			//$(".show-bkg-img").toggleClass("hide-bkg-img");
+		});
+		$(".hide-rfi").click(function(){
+			$("#miniRfi").fadeOut("fast");
+			//$("#sNav").toggleClass("show-content");
+			$(".section-wrapper-rfi").toggleClass("hide-more");
+			//$(".show-bkg-img").toggleClass("hide-bkg-img");
+		});
+		
+	});
+</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '230464710373488', status: true, cookie: true,
+             xfbml: true});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script> 	   
+</head>
+<body id="home">
+<div id="container">
+   <div id="top">
+   <div id="logo">
+      <a href="/" title="Go to home page"><img src="/images/ccc_logo-blue.png" border="0" width="325" alt="Central Coast College" /></a>
+   <!-- /logo -->
+   </div>
+   <div id="topNav">
+      <div class="t-left"></div>
+         <a href="/news/calendar">Calendar</a>
+         <div class="a-div"></div>
+         <a href="/apply-online/">Apply Online</a>
+         <div class="a-div"></div>
+         <a href="/request-information/">Request Info</a>
+         <div class="a-div"></div>
+         <a href="/employers/">Employers</a>
+      <div class="t-right"></div>
+   <!-- /topNav -->
+   </div>
+   <div id="slider">
+   	<div class="slider-right"></div>
+      <div id="sliderLinks" class="collapsed expanded">
+      	<div id="smmLinks" class="hide-icons show-icons">
+            <!--
+            <a href="" class="chat tool-tip" title="Chat live with an admissions rep to get the info that you need now!">&nbsp;</a>
+            -->
+
+            <a href=" /news" class="news" target="_blank" title="CCC NEWS ADN EVENTS">&nbsp;</a>
+            <a href=" http://www.facebook.com/pages/Central-Coast-College/148008045245349" class="facebook" target="_blank" title="Visit CCC on Facebook">&nbsp;</a>
+            <a href="http://twitter.com/centralcoast09" class="twitter" target="_blank" title="Follow us on Twitter">&nbsp;</a>
+         </div>
+         <h3 class="cta-phone">
+            800.922.2443
+         </h3> 
+      </div>
+      
+   	<a id="expandSlider" class="expand-btn hide-btn tool-tip" title="Click here to hide / expand" href="javascript:void(0)"></a> 
+    
+   </div>
+
+<!-- /top -->
+<div style="float: right; margin-right: -98px; margin-top: 58px; width: 140px; height:28px">
+   <!-- Embedded WhosOn By Gragg Advertising: Insert the script below at the point on your page where you want the Click To Chat link to appear -->
+<script type='text/javascript' src='http://graggadvertising.whoson.com/include.js?domain=www.centralcoastcollege.edu'></script>
+<script type='text/javascript' >
+if(typeof sWOTrackPage=='function')sWOTrackPage();
+</script>
+<!-- End of embedded WhosOn By Gragg Advertising -->  
+</div>
+</div> 
+
+
+<div id="mainNav">
+   <ul>
+       <li class="nav-end-l"></li>
+       <li><a class="isactive" href="/">Home</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="/programs/">Programs</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="/admissions/">Admissions</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="/financial-aid/">Financial Aid</a></li>
+       <li class="nav-div"></li>
+       <!--<li><a  href="/graduates/">Graduates</a></li>-->
+       <li><a  href="/graduates/">Graduate Services</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="/request-information/">Request Information</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="/apply-online/">Apply Online</a></li>
+       <li id="searchWrapper">
+            <form name="kwsearch" id="kwSearch" action="/index/search" method="post">  
+                 <input class="search" type="text" name="kwBox" id="kwBox" onblur="if(this.value == '')this.value='Keyword Search';" onfocus="if(this.value == 'Keyword Search')this.value='';" value="Keyword Search"/>
+         
+                 <input type="image" src="/images/search_btn-blue.png" name="submit" id="searchBtn" /> 
+            </form>
+       </li>
+   </ul>
+</div>
+          
+          
+   <div class="cleaner"></div>
+   <div id="introWrapper">
+	   <noscript>
+	<div>
+        <p>Unfortunately your browser does not have JavaScript capabilities which are required to render the full functionality of our site. This could be the result of two possible scenarios:</p>
+        <ol>
+            <li>You are using an old web browser, in which case you should upgrade it to a newer version. We recommend the latest version of <a href="http://www.getfirefox.com">Mozilla Firefox</a>.</li>
+            <li>You have disabled JavaScript in you browser, in which case you will have to enable it to properly use our site. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a>.</li>
+        </ol>
+    </div>
+</noscript>
+
+<div class="coda-slider-wrapper" id="sliderWrapper">
+      <div class="coda-slider preload" id="coda-slider-1">
+         
+    		<!-- START 1st SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/slides/slide1.jpg" width="615" height="240" alt="Get Ahead with a Career in Business" border="0" />
+                     </div>                     
+                  </div><!-- / .wrapper --> 
+               </div>
+       <!-- / .panel -->  
+         
+    		<!-- START 2nd SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/slides/slide2.jpg" width="615" height="240" alt="Training for a Better Career" border="0" />
+                     </div>
+           </div><!-- / .wrapper --> 
+         </div>
+       <!-- / .panel -->  
+         
+    		<!-- START 3rd SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/slides/slide3.jpg" width="615" height="240" alt="One Smart Move" border="0" />
+                     </div>
+           </div><!-- / .wrapper --> 
+        </div>
+    <!-- / .panel --> 
+    
+    		<!-- START 4th SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+               <div class="slides">
+                  <img src="/images/slides/slide4.jpg" width="615" height="240" alt="Career Training for a Better Future" border="0" />                           
+               <!-- /slides -->
+               </div>
+           </div><!-- / .wrapper --> 
+        </div>
+       <!-- / .panel -->  
+     
+    		<!-- START 5th SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+               <div class="slides">
+                  <img src="/images/slides/slide5.jpg" width="615" height="240" alt="Business and Computer Career Training" border="0" />                           
+               <!-- /slides -->
+               </div>
+           </div><!-- / .wrapper --> 
+        </div>
+       <!-- / .panel -->  
+     
+    		<!-- START 6th SLIDE -->
+         <div class="panel">
+            <div class="panel-wrapper">
+               <div class="slides">
+                  <img src="/images/slides/slide6.jpg" width="615" height="240" alt="Central Coast College Student Life" border="0" />                           
+               <!-- /slides -->
+               </div>
+           </div><!-- / .wrapper --> 
+        </div>
+       <!-- / .panel -->  
+     
+            </div><!-- .panelContainer -->
+        <div id="ssDiv"></div>
+         <div id="ssButtons">
+            <!--<h2><a href="/programs/">Find Out More About ACI!</a></h2>-->
+          </div>
+</div>
+<!-- #sliderWrap -->
+      <div id="introText">
+         <h1>A Better Career Awaits...</h1>
+         <p>Ten of the top 20 fastest growing occupations are healthcare related. If you are seeking a rewarding career in a growing profession, Central Coast College Health Career Training  Programs are right for you.</p>         <p><a href="/programs/"><img src="/images/btn_red_findoutmore.png" alt="Find Out More" style="margin-left:15px;"/></a></p>
+      </div>
+   </div>          
+   <div class="clear-space" style="padding:5px 0;">&nbsp;</div>
+   <div class="cta">
+      <h2><a href="/financial-aid/">Financial Aid</a></h2>
+      <p>We understand that continuing your education is an important investment. Find out if you quailify for financial aid.</p>
+      <p align="right"><a href="/financial-aid/"><img src="/images/btn_learnmore.png" alt="Learn more about CCC's career services and programs" border="0"></a></p>
+   </div>
+   <div class="cta">
+      <h2><a href="/news/">News & Events</a></h2>
+      <p><strong>Want to learn about what's going on at CCC?</strong> Click here to read about all the recent activities at our school!</p>
+      <p align="right"><a href="/news/"><img src="/images/btn_learnmore.png" alt="Learn more about CCC's career services and programs" border="0"></a></p>
+   </div>
+   <div class="cta">
+   
+    <!-- Embedded WhosOn By Gragg Advertising: Insert the script below at the point on your page where you want the Click To Chat link to appear -->
+    <!--
+    <script type='text/javascript' src='http://graggadvertising.whoson.com/include.js?domain=www.centralcoastcollege.edu'></script>
+    <script type='text/javascript' >
+    if(typeof sWOTrackPage=='function')sWOTrackPage();
+    </script>
+    -->
+    <!-- End of embedded WhosOn By Gragg Advertising -->
+   
+     <!-- BEGIN PHP Chat -->
+     <!-- <script language="JavaScript" src="http://webchat.graggadv.com/014-9000/phpchat/js/status_image.php?base_url=http://webchat.graggadv.com/014-9000/phpchat&l=admin&x=1&deptid=0&"><a href="http://www.graggadv.com"></a></script> -->
+     <!-- END PHP Chat -->
+     <h2><a href="https://graggadvertisingchat.whoson.com/chat/chatstart.htm?domain=www.centralcoastcollege.edu" onclick="javascript:window.open('https://graggadvertisingchat.whoson.com/chat/chatstart.htm?domain=www.centralcoastcollege.edu','wochat','width=484,height=361');return false;">Live Chat</a></h2>
+      <p><strong>Have a question?</strong> You can get the information that you want in a hurry using our <strong>Live Chat</strong> service. CCC admissions advisors are eager to answer your questions! <strong>En Espanol.</strong></p>
+   </div>
+   <div class="clear-space" style="padding:7px 0;">&nbsp;</div>
+<!-- / CONTAINER -->  
+</div>
+<div id="footerWrapper">
+    <div id="footer">
+      <div id="colAddress">
+         <p>&copy; 2011 Central Coast College</p>
+         <p>480 S. Main St. | Salinas, CA 93901</p> 
+         <p><strong>800.922.2443</strong>&nbsp; | <a href="/">centralcoastcollege.edu</a></p>
+         <p style="margin:7px 0; padding:0;">
+         <a href="http://sanjose.bbb.org/business-reviews/Vocational-Schools/Central-Coast-College-in-Salinas-CA-217165" target="_blank" class="img-link tool-tip" style="padding:1;" title="Better Business Bureau, Accredited Member since 2003"><img class="add-gray-border" src="/images/bbb-logo1.png" border="0" alt="Better Business Bureau, Accredited Member since 2003" /></a>
+         <a href="http://www.accet.org/" target="_blank" class="img-link tool-tip" style="padding:1;" title="ACCET, Accredited Member since 1989"><img class="add-gray-border" src="/images/accet-logo1.png" border="0" alt="ACCET, Accredited Member since 1989" /></a>
+         <a href="http://www.cappsonline.org/" target="_blank" class="img-link tool-tip" style="padding:1;" title="California Association of Private Postsecondary Schools, Member since 1985"><img class="add-gray-border" src="/images/capps-logo1.png" border="0" alt="California Association of Private Postsecondary Schools, Member since 1985" /></a>
+         <a href="http://mpcc.com/" target="_blank" class="img-link tool-tip" style="padding:1;" title="Monterey Peninsula Chamber of Commerce, Member since 1983"><img class="add-gray-border" src="/images/mpcc-logo1.png" border="0" alt="Monterey Peninsula Chamber of Commerce, Member since 1983" /></a>
+         <a href="http://www.salinaschamber.com/default.asp" target="_blank" class="img-link tool-tip" style="padding:1;" title="Salianas Valley Chamber of Commerce, Member since 1983"><img class="add-gray-border" src="/images/svcc-log1.png" border="0" alt="Salianas Valley Chamber of Commerce, Member since 1983" /></a>
+         <a href="/financial-aid/mycaa" target="_blank" class="img-link" title="Learn more about MYCAA funding" style="padding:1px;"><img class="add-gray-border" src="/images/logo-mycaa.gif" alt="MYCAA" /></a>
+         </p>
+      </div>
+      <div id="colNav">
+         <p style="text-align:right;">
+            <a href="/about-ccc/">About CCC</a> &nbsp;&bull;&nbsp; 
+            <a href="/request-information/">Contact CCC</a> &nbsp;&bull;&nbsp; 
+            <a href="/admissions/faq">FAQs</a> &nbsp;&bull;&nbsp; <a href="/sitemap/">Sitemap</a> <br> 
+            <a href="/calculator">Calculator</a>   &nbsp;&bull;&nbsp;
+            <!--<a href="/media">Media</a>   &nbsp;&bull;&nbsp; -->
+            <a href="/disclosures">Disclosures</a>  &nbsp;&bull;&nbsp;
+            <a href="/ccc-privacy.html">Privacy Policy</a>
+            <!--
+            &nbsp;&bull;&nbsp; 
+            <a href="/request-information/privacy-policy">Privacy Policy</a> &nbsp;&bull;&nbsp; 
+            <a href="/sitemap">Sitemap</a>    
+            -->
+            &nbsp;    
+         </p>
+         <p style="text-align:right;"><a class="img-link" href="/news/" title="View CCC News and Events"><img src="/images/btn_ftr_news.png" alt="News and Events" /></a> <a class="img-link" href="/media/" title="View CCC Media"><img src="/images/btn_ftr_media.png" alt="Media" /></a> <a class="img-link" href="/employers/" title="Employers, read about custom training opportunities, post a job opening to our job board and more..."><img src="/images/btn_ftr_employers.png" alt="Employers" /></a></p>
+         <p class="right"><a href="http://twitter.com/centralcoast09" target="_blank"><img src="/images/icon_twitter-wcrcl.png" align="absmiddle" alt="CCC on Twitter" /> &nbsp;<strong>Follow Us</strong> on Twitter</a> &nbsp;
+         	<a href=" http://www.facebook.com/pages/Central-Coast-College/148008045245349" target="_blank"><img src="/images/icon_facebook-wcrcl.png" align="absmiddle" alt="CCC on Facebook" /> &nbsp;<strong>Join us</strong> on Facebook</a>         
+         </p>
+      <!-- /colNav -->
+      </div>
+    <!-- /FOOTER-->       
+   </div>
+<!-- /footerWRAPPER-->       
+</div>
+<!-- Google Analytics -->       
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6113535-11");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+          
+</body>
+</html>

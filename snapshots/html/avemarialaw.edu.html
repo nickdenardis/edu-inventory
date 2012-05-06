@@ -1,0 +1,892 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
+
+
+ 
+<title>Ave Maria School of Law: Home</title>
+<style type="text/css">
+<!--
+body {
+	background-image: url(/assets/images/main/main_01.jpg);
+	margin-top: 0px;
+}
+.highlighted{
+	color: gold;
+	font-weight:bold;
+}
+-->
+.normText{
+font-family: Georgia, "Times New Roman", Times, serif;
+font-size: 12px;
+color : #FFFFFF;
+text-decoration : none;
+}
+.tooltipper{
+	background-color:lightgray;
+	color: black;
+	font-style:italic;
+	padding: 3px;
+	border: darkgray solid thin;
+}
+label.error{
+	color: darkred;
+	font-weight: bold}
+</style>
+
+<link href="/assets/css/Global.css" rel="stylesheet" type="text/css" media="screen" /> 
+<link href="/assets/css/links.css" rel="stylesheet" type="text/css" media="screen" /> 
+<link href="/assets/css/navs.css" rel="stylesheet" type="text/css" media="screen" /> 
+
+<link href="/assets/css/printstyle.css" rel="stylesheet" type="text/css" media="print" />
+<link href="/assets/css/styling.css" rel="stylesheet" type="text/css" media="screen" /> 
+<style>
+
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+
+	background:transparent url(/assets/images/homepage/bottom/tooltip_speakbox.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+#thumbs img {
+	border:0;
+	cursor:pointer;
+	margin:0 2px;
+}
+/* style the trigger elements */
+
+</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25605821-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    <link type="text/css" href="/assets/css/demos.css" rel="stylesheet" />
+	<link type="text/css" href="/assets/css/themes/base/ui.all.css" rel="stylesheet" />
+    
+    
+
+<script type="text/javascript" src="/assets/js/jquery-1.4.2.js"></script>
+
+<script type="text/javascript" src="/assets/js/ui/ui.core.js"></script>
+<script type="text/javascript" src="/assets/js/coin-slider.min.js"></script>
+<link rel="stylesheet" href="/assets/css/coin-slider-styles.css" type="text/css" />
+<script type="text/javascript" src="/assets/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="/assets/js/ui/ui.tabs.js"></script>
+    	<script type="text/javascript" src="/assets/js/ui/ui.dialog.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#coin-slider').coinslider({ width: 687, height:370, navigation: false, delay: 5650, effect:'swirl'});
+		
+
+		
+
+
+
+		$("img.rollover").hover(
+			function()
+			{
+				
+				this.src = this.src.replace("_off","_over");
+			},
+			function()
+			{
+				this.src = this.src.replace("_over","_off");
+			}
+		);
+
+		
+	});
+
+
+
+	
+</script>
+
+<script type="text/javascript">
+	$(function(){
+	
+    $('.donortb tr:even').css("background", "#CCC");
+      $(".topHeader a").css("font-size","11px").css("font-weight","bold");
+		$(".topHeader a").hover(highlight,normText);
+			$("#thumbs img").hover(talkBox,noTalk);
+
+			   });
+	 function highlight(evt){
+	  $(this).removeClass();
+	  $(this).addClass("highlighted");
+	 
+	  var offset = $(this).position();
+	  var caption = $(this).attr("depth");
+	$tooltipper = $('<div class="tooltipper">'+caption+'</div>').insertAfter($(this));
+	$tooltipper.css({
+		position : 'absolute',
+		top : offset.top + 25,
+		left : offset.left + 25,
+		'font-size' : '9pt',
+		'font-style' : 'italic',
+		'font-weight' : 'bold'
+
+		
+		});
+	//$("#tooltip"));
+			}
+	function normText(evt){
+		$(this).removeClass();
+		$(this).addClass("smwhite");
+	 $("div.tooltipper").css("display","none");
+		//$tooltip = $('<div id="tooltip">A new element</div>').insertAfter($(this));	
+	}
+	
+	
+
+	 function talkBox(evt){
+	  var offset = $(this).position();
+	  var caption = $(this).attr("title");
+	$tooltip = $('<div class="tooltip">'+caption+'</div>').insertAfter($(this));
+	$tooltip.css({
+		position : 'absolute',
+		top : offset.top -128,
+		left : offset.left -25,
+		'font-size' : '12px',
+		'font-weight' : 'bold'
+
+		
+		});
+	
+			}
+	function noTalk(evt){
+
+	 $("div.tooltip").css("display","none");
+		
+	}
+	
+	
+</script>
+<script>
+$(function(){
+  $('#future').hide();	
+$('#trigger a').html('>>2012-2013 Calendar');
+  $('#trigger a').toggle(
+	function(){
+		$(this).html('<<2011-2012 Calendar');
+		$('#current').hide('slow',
+						   function(){$('#future').show('slow');});
+
+},
+	function(){
+		$(this).html('>>2011-2012 Calendar');
+		$('#future').hide('slow',function(){$('#current').show('slow');});
+	});
+
+		   });
+
+</script>
+</style>
+	<script type="text/javascript">
+	$(function() {
+		$('a.schLink').toggle(
+
+		function(){
+
+				$(this).siblings().animate({
+						opacity:'toggle',
+						height:'toggle'},1000);
+							 },
+		function(){	
+
+		
+				$(this).siblings().animate({
+						opacity:'toggle',
+						height:'toggle'},1000);
+
+							 });
+
+	});
+	$('a.schLink').click(function(){
+								  
+								  });
+	</script>
+
+
+<script type="text/javascript">
+
+/***********************************************
+* Switch Menu script- by Martial B of http://getElementById.com/
+* Modified by Dynamic Drive for format & NS4/IE4 compatibility
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+var persistmenu="yes" //"yes" or "no". Make sure each SPAN content contains an incrementing ID starting at 1 (id="sub1", id="sub2", etc)
+var persisttype="local" //enter "sitewide" for menu to persist across site, "local" for this page only
+
+if (document.getElementById){ //DynamicDrive.com change
+document.write('<style type="text/css">\n')
+document.write('.submenu{display: none;}\n')
+document.write('</style>\n')
+}
+
+function SwitchMenu(obj){
+	if(document.getElementById){
+	var el = document.getElementById(obj);
+	var ar = document.getElementById("masterdiv").getElementsByTagName("span"); //DynamicDrive.com change
+		if(el.style.display != "block"){ //DynamicDrive.com change
+			for (var i=0; i<ar.length; i++){
+				if (ar[i].className=="submenu") //DynamicDrive.com change
+				ar[i].style.display = "none";
+			}
+			el.style.display = "block";
+		}else{
+			el.style.display = "none";
+		}
+	}
+}
+
+function get_cookie(Name) { 
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) { 
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function onloadfunction(){
+if (persistmenu=="yes"){
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=get_cookie(cookiename)
+if (cookievalue!="")
+document.getElementById(cookievalue).style.display="block"
+}
+}
+
+function savemenustate(){
+var inc=1, blockid=""
+while (document.getElementById("sub"+inc)){
+if (document.getElementById("sub"+inc).style.display=="block"){
+blockid="sub"+inc
+break
+}
+inc++
+}
+var cookiename=(persisttype=="sitewide")? "switchmenu" : window.location.pathname
+var cookievalue=(persisttype=="sitewide")? blockid+";path=/" : blockid
+document.cookie=cookiename+"="+cookievalue
+}
+
+if (window.addEventListener)
+window.addEventListener("load", onloadfunction, false)
+else if (window.attachEvent)
+window.attachEvent("onload", onloadfunction)
+else if (document.getElementById)
+window.onload=onloadfunction
+
+if (persistmenu=="yes" && document.getElementById)
+window.onunload=savemenustate
+
+</script>
+
+<script type="text/javascript">
+
+//SuckerTree Horizontal Menu (Sept 14th, 06)
+//By Dynamic Drive: http://www.dynamicdrive.com/style/
+
+var menuids=["treemenu1"] //Enter id(s) of SuckerTree UL menus, separated by commas
+
+function buildsubmenus_horizontal(){
+for (var i=0; i<menuids.length; i++){
+  var ultags=document.getElementById(menuids[i]).getElementsByTagName("ul")
+    for (var t=0; t<ultags.length; t++){
+		if (ultags[t].parentNode.parentNode.id==menuids[i]){ //if this is a first level submenu
+			ultags[t].style.top=ultags[t].parentNode.offsetHeight+"px" //dynamically position first level submenus to be height of main menu item
+			ultags[t].parentNode.getElementsByTagName("a")[0].className="mainfoldericon"
+		}
+		else{ //else if this is a sub level menu (ul)
+		  ultags[t].style.left=ultags[t-1].getElementsByTagName("a")[0].offsetWidth+"px" //position menu to the right of menu item that activated it
+    	ultags[t].parentNode.getElementsByTagName("a")[0].className="subfoldericon"
+		}
+    ultags[t].parentNode.onmouseover=function(){
+    this.getElementsByTagName("ul")[0].style.visibility="visible"
+    }
+    ultags[t].parentNode.onmouseout=function(){
+    this.getElementsByTagName("ul")[0].style.visibility="hidden"
+    }
+    }
+  }
+}
+
+if (window.addEventListener)
+window.addEventListener("load", buildsubmenus_horizontal, false)
+else if (window.attachEvent)
+window.attachEvent("onload", buildsubmenus_horizontal)
+
+</script>
+
+<script language="javascript">
+	function toggle(id){
+    ul = "ul_" + id;
+    img = "img_" + id;
+    ulElement = document.getElementById(ul);
+    imgElement = document.getElementById(img);
+    if (ulElement){
+            if (ulElement.className == 'closed'){
+                    ulElement.className = "open";
+                    }else{
+                    ulElement.className = "closed";
+                    }
+            }
+    }
+	</script>
+</head>
+<table width="937" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2"><table width="919" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="819" valign="top" bgcolor="#FFFFFF">
+        <div class="noprint">
+        <table width="919" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="123" rowspan="3" valign="bottom" style="background:url('/assets/images/main/nav_bg.jpg') repeat-x bottom"><a href="/index.cfm"><img src="/assets/images/main/avemarialogo.png" alt="Ave Maria School of Law" width="122" height="152" border="0" /></a></td>
+            <td width="68" height="30">&nbsp;</td>
+            <td width="728" height="30" bgcolor="#003366">
+                <div align="center" class="topHeader">
+                <a class="smwhite"  href="/index.cfm?event=about.deansMessage" depth="Learn More About AMSL" >ABOUT AMSL</a>&nbsp;&nbsp;<span class="Text_Top_White_11">|</span>&nbsp;&nbsp; 
+                        <a href="/index.cfm?event=giving.intro" class="smwhite"  depth="Help AMSL Maintain Excellence">GIVING</a>&nbsp;&nbsp; <span class="Text_Top_White_11">|</span>&nbsp;&nbsp;
+                <a href="/index.cfm?event=directory.department" class="smwhite" depth="Meet Our Staff And Faculty" >DIRECTORY</a>&nbsp;&nbsp; <span class="Text_Top_White_11">|</span>&nbsp;&nbsp;                <a href="/index.cfm?event=about.employment" depth="AMSL Career Opportunities" class="smwhite"  >CAREERS@AMSL</a>&nbsp;&nbsp; <span class="Text_Top_White_11">|</span>&nbsp;&nbsp;
+                <a href="/employers/" class="smwhite" depth="Recruit The Best" >EMPLOYERS</a>&nbsp;&nbsp; <span class="Text_Top_White_11">|</span>&nbsp;&nbsp;
+                  <a class="smwhite" href="/index.cfm?event=avestory.Story" depth="AMSL News and Events" >NEWS</a> &nbsp;&nbsp;<span class="Text_Top_White_11">|</span> &nbsp;&nbsp;
+                <a href="https://portal.avemarialaw.edu" class="smwhite" depth="Login" >AVE PORTAL</a> &nbsp;&nbsp;<span class="Text_Top_White_11">|</span>&nbsp;&nbsp;
+                <a class="smwhite" href="/index.cfm?event=search.ave" depth="Search The AMSL Site" >SEARCH</a>&nbsp;&nbsp;<span class="Text_Top_White_11">|</span>&nbsp;&nbsp;
+		<a class="smwhite" href="http://store.avemarialaw.edu/store" depth="Store">STORE</a>&nbsp;&nbsp;
+
+		</div>
+            </td>
+          </tr>
+          <tr>
+            <td height="97" colspan="2" valign="bottom"><img src="/assets/images/homepage/title_new.png"/>        
+
+			</td>
+            </tr>
+          <tr>
+            <td height="33" colspan="2"  valign="bottom" style="background:url('/assets/images/main/nav_bg.jpg') repeat-x bottom"><div class="noprint" style="margin-bottom:0px"> 
+<div class="suckertreemenu">
+<ul id="treemenu1">
+
+<li><a href="index.cfm?event=ProspectiveStudent"><img src="/assets/images/main/nav_07.jpg" alt="" width="157" height="33" border="0" id="Image1" /></a>
+  <ul>
+  
+  
+  
+  
+  
+  
+  <li><a href="#">Admissions</a> 
+    <ul>
+    	<li><a href="index.cfm?event=admissions.standards">Admission Standards &amp; Requirements</a></li>
+  		<li><a href="index.cfm?event=admissions.applicationMethods">Application Methods</a></li>
+
+        <li><a href="index.cfm?event=admissions.dates">Dates &amp; Deadlines</a></li>
+        <li><a href="index.cfm?event=admissions.profiles">Entering Class Profile</a></li>
+  		
+        <li><a href="index.cfm?event=admissions.international">International Applicants</a></li>
+  		<li><a href="index.cfm?event=admissions.transfers">Transfer &amp; Guest Applicants</a> </li>
+  		</ul>
+  </li>
+  <li><a href="#">Meet our Staff</a>
+    <ul>
+      <li><a href="index.cfm?event=admissions.Letter">Letter from Assistant Dean of Admissions</a></li>
+      <li><a href="index.cfm?event=admissions.staff">Meet our Staff</a></li>
+      <li><a href="index.cfm?event=admissions.contact">Contact Us</a></li>
+    </ul>
+  </li>
+ <li><a href="https://aces2.lsac.org/YourStatus/membership/AppStatIdMe.aspx?guid=Fji%2FlUnEbgQ%3D" target="_blank"> Applicant Status Online</a></li>
+  
+	  
+      
+      
+      
+      
+      <li><a href="#">Financial Aid</a>
+        <ul>
+            <li><a href="index.cfm?event=financial.aid">Financial Aid &amp; Tuition Information</a></li>
+            <li><a href="index.cfm?event=admissions.scholarship">Scholarship Information</a></li> 
+        </ul>
+      </li>
+      
+      
+      
+      <li><a href="#">Admission Events</a>
+        <ul>
+            <li><a href="index.cfm?event=admevents.offCampus">Off-Campus Recruiting Visits</a></li>
+            <li><a href="index.cfm?event=aboutAve.recruit">On-Campus Recruitment Events</a></li>
+          
+        </ul>
+      </li>
+      
+      <li><a href="#">Schedule A Visit</a>
+        <ul>
+            <li><a href="index.cfm?event=schedule.visit">Schedule an Individual Visit</a>
+             
+            </li>
+            <li><a href="index.cfm?event=aboutAve.directions">Maps &amp; Directions</a></li>
+            <li><a href="index.cfm?event=aboutAve.hotels">Lodging Options</a></li>  
+        </ul>
+      </li>
+	 
+      <li><a href="index.cfm?event=request.materials">Request Admissions Materials</a></li> 
+</ul>
+</a></li>
+
+
+<li><a href="index.cfm?event=Academics"><img src="/assets/images/main/nav_08.jpg" alt="" width="92" height="33" border="0" id="Image7" /></a>
+  <ul>
+ 		<li><a href="index.cfm?event=academics.Curriculum">Curriculum</a></li>
+  		<li><a href="index.cfm?event=academics.Intregrating">Integrating Religion, Ethics, and the Law</a></li>
+
+        <li><a href="index.cfm?event=academics.coursedescriptions">Course Descriptions</a></li>
+        <li><a href="index.cfm?event=academics.RWA">Research, Writing, &amp; Advocacy Program</a></li>
+        <li><a href="index.cfm?event=clinical">Clinical Programs</a></li>
+
+        <li><a href="index.cfm?event=academics.Externships">Externship Program</a></li>
+
+                <li><a href="http://www.avemarialaw.edu/lr">Law Review</a></li>
+         <li><a href="http://www.avemarialaw.edu/ilj"> International Law Journal</a></li>
+        <li><a href="index.cfm?event=academics.MootCourt">Moot Court</a></li>
+        <li><a href="index.cfm?event=academics.Speakers">Lectures & Speakers</a></li>
+        <li><a href="index.cfm?event=academics.AcademicSuccess">Academic Success</a></li>
+        <li><a href="index.cfm?event=academics.Calendars">Academic Calendar</a></li>
+
+        <li><a href="index.cfm?event=academics.Technology">Technology</a></li>
+  	</ul>
+</li>
+
+
+<li><a href="index.cfm?event=Admin"><img src="/assets/images/main/nav_fac_admin.jpg" alt="" name="Image2" border="0" id="Image2"/></a>
+  <ul>
+  
+ <li><a href="#">About AMSL</a>
+    <ul>
+
+  		<li><a href="index.cfm?event=about.mission">Mission</a></li>
+
+        <li><a href="index.cfm?event=about.NationalLawSchool">A National Law School</a></li>
+        <li><a href="index.cfm?event=about.value">A Degree of Value</a></li>
+        <li><a href="index.cfm?event=about.AveLawyers">Ave Maria Lawyers</a></li>
+        <li><a href="index.cfm?event=about.employment">Employment at the Law School</a></li>
+        <li><a href="index.cfm?event=florida">Naples, Florida</a></li>
+        
+        <li><a href="http://sites.google.com/site/amslvideoarchives" target="_blank">Video Gallery</a></li>
+        <li><a href="index.cfm?event=avestory.Story">AMSL News</a></li>
+        <li><a href="index.cfm?event=about.publications">Publications</a></li>
+        <li><a href="index.cfm?event=about.directions">Maps &amp; Directions</a></li>
+          <li><a href="index.cfm?event=academics.Speakers">Lectures & Speakers</a></li>
+        <li><a href="index.cfm?event=about.hotels">Overnight Accomodations</a></li>
+        <li><a href="index.cfm?event=about.facilities">Law School Facilities</a></li>
+    </ul>
+  </li>
+ 		<li><a href="index.cfm?event=admin.DeansMessage">Dean's Message</a></li>
+ 		<li><a href="index.cfm?event=faculty.profiles">Faculty Profiles</a></li>
+        <li><a href="index.cfm?event=faculty.StudentSaying">What our Students Are Saying</a></li>
+  		<li><a href="index.cfm?event=admin.BOG">Board of Governors</a></li>
+  		<li><a href="index.cfm?event=admin.seniorStaff">Senior Administrators</a></li>
+  		<li><a href="index.cfm?event=admin.directory">Departmental Directory</a></li>
+  	</ul>
+</li>
+
+
+<li><a href="index.cfm?event=Careers"><img src="/assets/images/main/nav_10.jpg" alt="" width="73" height="33" border="0" id="Image3"/></a>
+  <ul>
+        <li><a href="index.cfm?event=careers.letter">Welcome</a></li>
+        <li><a href="index.cfm?event=careers.degree"> Degree of Value</a></li>
+        <li><a href="index.cfm?event=careers.report">Career Report</a></li>
+        <li><a href="index.cfm?event=careers.placement">Alumni Placement</a></li>
+        <li><a href="index.cfm?event=careers.clerkships">Judicial Clerkships</a></li>
+        <li><a href="index.cfm?event=careers.AlumniProfiles">Ave Maria Lawyers</a></li>
+        <li><a href="index.cfm?event=careers.staff">Career Services Staff</a></li>
+        <li><a href="index.cfm?event=careers.services">Career Services Programs</a></li>
+        <li><a href="index.cfm?event=careers.programs">Career Services Presentations</a></li>
+        <li><a href="index.cfm?event=careers.reciprocity">Reciprocity Policy</a></li>
+        <li><a href="index.cfm?event=careers.mentors">Board of Visitors Mentors</a></li>  
+        <li><a href="index.cfm?event=careers.summeropportunities">Summer Opportunities</a></li> 
+  	</ul>
+</li>
+
+
+
+
+<li><a href="/library/"><img src="/assets/images/main/nav_12.jpg" alt="" name="" width="71" height="33" border="0" id="Image5"/></a>
+  <ul>
+    
+
+    <li><a href="index.cfm?event=library.about">About The Library</a>
+      <ul>
+        <li><a href="index.cfm?event=library.hours">Library Hours</a></li>
+        <li><a href="index.cfm?event=library.staff">Staff Directory</a></li>
+        <li><a href="index.cfm?event=library.policies">Library Policies</a></li>
+        <li><a href="index.cfm?event=library.faqs">Frequently Asked Questions</a></li>
+      </ul>
+    </li>
+    <li><a href="index.cfm?event=library.guides">Research Guides</a>
+      <ul>
+        <li><a href="index.cfm?event=library.AtoZ">Databases A-Z</a></li>
+        <li><a href="index.cfm?event=library.">Full Text Electronic Journals</a></li>
+        <li><a href="index.cfm?event=library.">Databases by Subject</a></li>
+        
+      </ul>
+    </li>
+    <li><a href="#">Technology</a>
+      <ul>
+        <li><a href="index.cfm?event=IT.helpdesk">HelpDesk</a></li> 
+        <li><a href="index.cfm?event=IT.compSpecs">Notebook Specifications</a></li>
+        <li><a href="index.cfm?event=IT.labs">Computer Labs</a></li>
+        <li><a href="index.cfm?event=AV.request">A/V Services</a></li>
+      </ul>
+    </li>
+  </ul>
+</li>
+
+
+<li><a href="index.cfm?event=StudentLife"><img src="/assets/images/main/nav_13.jpg" alt="" width="91" height="33" border="0" id="Image6"/></a>
+  <ul>
+    <li><a href="index.cfm?event=studentlife.letter">Letter from Associate Dean</a></li>
+    
+    <li><a href="index.cfm?event=studentlife.organizations">Student Organizations</a></li>
+    <li><a href="index.cfm?event=studentLife.honorCode">Student Honor Code</a></li>
+    <li><a href="index.cfm?event=studentlife.spiritlife">Spiritual Life</a>
+      <ul>
+        <li><a href="index.cfm?event=spiritlife.chaplain">Letter From The Chaplain</a></li>
+        <li><a href="index.cfm?event=spiritlife.mass">Mass Schedule</a></li>
+        
+        <li><a href="index.cfm?event=spiritlife.otherFaiths">Students of Other Faiths</a></li>
+        <li><a href="index.cfm?event=spiritlife.enrichment">Enrichment and Involvement</a></li>
+      </ul>
+    </li>
+    
+    <li><a href="index.cfm?event=studentlife.marriedstudents">Married Law Students</a></li>
+    <li><a href="index.cfm?event=transcripts">Transcript Requests</a></li>
+    <li><a href="index.cfm?event=about.facilities">Our Campus</a></li>
+    
+    <li><a href="http://www.avemarialaw.edu/housing/dspstudentHousing.cfm">Student Housing</a></li>
+    <li><a href="index.cfm?event=studentlife.calendar">Academic Calendar</a></li>
+    <li><a href="index.cfm?event=studentlife.affidavit">Affidavit Weekly Newsletter</a></li>
+    <li><a href="index.cfm?event=studentlife.orientation">First Year Orientation</a></li>
+    <li><a href="http://sites.google.com/site/amslvideoarchives" target="_blank">Video Gallery</a></li>
+  </ul>
+  </li>
+  
+<li><a href="index.cfm?event=alumni.welcome"><img src="/aveportal/assets/images/Topnav_11.jpg" border="0" style="border-left: solid thin black; margin-left: 3px" /></a>
+	<ul>
+        <li><a href="https://law-avemaria-csm.symplicity.com/students/" target="_blank">Symplicity (Job Postings)</a></li>
+        </ul>
+</li>
+
+
+
+</ul>
+</div>
+
+
+</div></td>
+            </tr>
+        </table>
+        </div>
+          <table width="919" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="228" valign="top" bgcolor="#A88B47"><div align="left">
+                    
+                    
+                    
+                </div>
+                  <div class="noprint"><div align="left">
+
+
+
+<table bgcolor="#A88B47">
+<tr>
+
+    <td bgcolor="#A88B47">
+    
+      <table width="212" border="0" align="center" cellpadding="0" cellspacing="0">
+
+      <tr>
+        <td ><div align="left" style="padding-top:3px;padding-left:2px"><a href="index.cfm?event=admissions.applicationMethods"><img src="/assets/images/homepage/apply_button_off.jpg" alt="Apply For Admission To Ave Maria" border="0"  class="rollover" /></a><a href="index.cfm?event=admissions.applicationMethods"></a></div></td>
+      </tr>
+      <tr>
+        <td ><div align="left" style="padding-top:3px;padding-left:2px"><a href="index.cfm?event=give.now"><img src="/assets/images/homepage/give_button_off.jpg" alt="Florida Information"  border="0"  align="left" class="rollover" /></a></div></td>
+      </tr>
+     <tr>
+        <td ><div align="left" style="padding-top:3px;padding-left:2px"><a href="/recruitthebest"><img src="/assets/images/homepage/recruit_button_off.jpg" alt="Recruit Now" title="Recruit Now"  border="0" align="left"  class="rollover"/></a>
+        </div></td>
+      </tr>
+      <tr>
+        <td ><div align="left" style="padding-top:3px;padding-left:2px"><a href="index.cfm?event=florida"><img src="/assets/images/homepage/naples_button_off.jpg" alt="Support Ave Maria"  border="0" align="left"  class="rollover"/></a>
+        </div></td>
+      </tr>
+
+        <td></td>
+      </tr>
+      <tr>
+      <td align="center"><br>
+         <a class="blue" href="index.cfm?event=media.RadioShow">
+<img src="/assets/images/main/radio_show_homepage_new.jpg" alt="Radio Show" border="0" width="212"/>
+<b>Radio Show</b></a>
+         <br />
+         <br />
+<br>
+
+      <a class="blue" href="http://Sites.google.com/site/amslvideoarchives" target="_blank"><img src="/assets/images/video/video-archive.png" alt="Ave Maria School of Law Insider" border="0" /><br />
+      <br>
+<b>Ave Maria School of Law:<br />
+Video Archive</b></a>
+      </td>
+      </tr>
+    </table>
+    
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#A88B47">&nbsp;</td>
+  </tr>
+</table>
+</div></div></td>
+                <td width="690" valign="top">
+                    <div align="left">
+
+
+
+
+
+
+<script type="text/javascript" src="/aveportal/apps/EAModule/assets/flash_files/swfobject.js"></script>
+</head>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td style="background: #a88b47" align="center">
+
+
+<div align="center">
+
+       
+       <div id='coin-slider'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=admissions.applicationMethods"><img src='/assets/images/homepage/banner_fall2011/web_banner_001.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=Academics"><img src='/assets/images/homepage/banner_fall2011/web_banner_002.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=faculty.profiles"><img src='/assets/images/homepage/banner_fall2011/web_banner_003.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/fallgala/"><img src='/assets/images/homepage/banner_fall2011/web_banner_004.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=studentlife.organizations"><img src='/assets/images/homepage/banner_fall2011/web_banner_005.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=studentlife.organizations"><img src='/assets/images/homepage/banner_fall2011/web_banner_006.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=florida"><img src='/assets/images/homepage/banner_fall2011/web_banner_007.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=careers.AlumniProfiles"><img src='/assets/images/homepage/banner_fall2011/web_banner_008.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+<a href="http://www.avemarialaw.edu/index.cfm?event=about.mission"><img src='/assets/images/homepage/banner_fall2011/web_banner_009.jpg' alt=""  border="0" target="_blank"/><br />
+<br /></a>
+
+
+
+
+
+</div>
+
+       
+       
+       
+        </div>
+
+</td>
+  </tr>
+<tr>
+    <td height="27" bgcolor="#FFCC33">      <div class="blue_title" align="center"><img src="/assets/images/homepage/news_events.jpg" /></div></td>
+  </tr>
+  <tr>
+    <td height="166" align="center" valign="top" bgcolor="#FFFFFF">
+      <div align="center" style="margin-top:45px">
+  
+  
+    
+    
+  </div>
+
+      
+      
+      
+  
+
+      
+      
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<a href="http://www.avemarialaw.edu/commencement2012" target="_blank"  ><img src='/assets/images/homepage/avemariaLogobanne_homepageLrg.jpg' border="0" title="Ave Maria School of Law Commencement 2011" alt="Ave Maria School of Law Commencement 2012"/></a><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+           <div id="thumbs"> 
+           <a href="http://www.youtube.com/watch?v=YJPWZVm-T90" target="_blank"  ><img src='/assets/images/homepage/bottom/milhizer.jpg' border="0" title="Dean Milhizer speaks on HHS Mandate and receives prestigious award at Franciscan University of Steubenville" alt="Dean Milhizer speaks on HHS Mandate and receives prestigious award at Franciscan University of Steubenville"/>
+		   
+		   
+
+  <a href="http://www.avemarialaw.edu/assets/documents/events/Patricia Ming to Jamaica.pdf" target="_blank"><img src='/assets/images/homepage/bottom/jamaica_sm.jpg' alt="" border="0"  title="Student speaks about pro-life issues in Jamaica" />
+ </a>
+
+ 
+   <a href="http://www.avemarialaw.edu/assets/documents/events/Professor John Raudabaugh.pdf" target="_blank">
+<img src='/assets/images/homepage/bottom/John-Raudabaughsm.jpg' alt="" border="0" title="Chair in Labor Law Established"/></a>
+
+
+
+ 
+ 
+       <a href="http://www.avemarialaw.edu/assets/documents/events/BennettMillerMootCourtSuccess.pdf" target="_blank"><img src='/assets/images/homepage/bottom/GeorgeMillerandAndrewBennett.jpg' border="0" title="AMSL Moot Court Defeats Top-Ranked Competition to Advance to Nationals"/></a>
+     
+      </div>
+
+
+    </td>
+  </tr>
+  
+  <tr>
+
+    <td width="100%" height="25" bgcolor="#FFFFFF">
+      <div align="center" class="blue_9">
+      </div>
+  </td>
+  </tr>
+  
+</table>
+</div></td>
+              </tr>
+          </table></td>
+      </tr>
+    </table></td>
+    <td width="18" background="/assets/images/main/main_45.jpg"><img src="/assets/images/main/main_45.jpg" width="18" height="10" /></td>
+  </tr>
+  <tr>
+    <td width="881" height="22" background="/assets/images/main/main_52.jpg"></td>
+    <td height="22" width="18" colspan="2" background="/assets/images/main/main_50.jpg"></td>
+  </tr>
+</table>
+<table width="837" border="0" align="center">
+  <tr>
+    <td height="21"><div align="center" class="contact_info"><strong>Admissions Information : </strong>(239) 687-5300  |  E-mail: <a href="mailto:info@avemarialaw.edu">info@avemarialaw.edu</a>  | <br /> 
+        <strong>Webmaster Information:</strong> (239) 687-5300 | E-mail: <a href="mailto:webadmin@avemarialaw.edu">webadmin@avemarialaw.edu</a> <br />
+      &copy; 2012 Ave Maria School of Law  |  1025 Commons Circle, Naples, FL 34119| <a href="index.cfm?event=ave.sitemap">Site Map</a><br />
+      Ave Maria School of Law was approved by the <a href="index.cfm?event=admissions.ABA">American Bar Association</a> in August 2005.<br />
+Licensed by the Florida Commission for Independent Education, license number 4007.
+</div></td>
+  </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+	
+	

@@ -1,0 +1,43 @@
+<html><head>
+<title>Web user login</title>
+<script language=javascript src="js/MulPlatAPI.js"></script>
+<script language=javascript src="/libs/define.js"></script>
+<script language=javascript src="/customdir/custom.js"></script>
+<script language=javascript>
+
+function onBodyLoad()
+{
+    //首先需要查看当前产品OEM支持的语言模式
+    var nLanguageSupported = WnmGetLanguageSupported ();
+
+    switch (nLanguageSupported)
+    {
+        //仅仅支持英文
+        case 1:
+            window.location = "en/login.html";
+            break;
+        //仅仅支持中文
+        case 2:
+            window.location = "cn/login.html";
+            break;
+        //支持中英文双语
+        case 3:
+        default:    //其他情况和中英文双语等同处理
+            var sUserLanguage = getBrowserLanguage();
+            if ( sUserLanguage.indexOf("cn")!=-1 ) 
+            {
+    		    window.location = "cn/login.html";
+            }
+    	    else
+    	    {
+    		    window.location = "en/login.html";
+            }
+            break;
+    }
+}
+</script>
+</head>
+
+<body style="background-color: #E1E9F5;" onload="onBodyLoad()">
+</body>
+</html>

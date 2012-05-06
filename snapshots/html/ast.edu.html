@@ -1,0 +1,633 @@
+   
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Career Training | Columbus OH | AST
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="keywords" content="Career Training, Technical School HVAC Schools, Medical Assisting Schools, Billing and Coding Schools, Business Administration Schools, Computer Specialist Schools
+"/>
+<meta name="description" content="Train for Your Career Today! American School of Technology Offers Career Training Programs in Columbus, OH. 
+"/>
+<meta name="robots" content="index,follow">
+
+
+
+<!--<link rel="stylesheet" type="text/css" href="http://js.graggadv.com/ext-3.1.1/resources/css/ext-all.css">-->
+<link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
+<!--<link rel="stylesheet" type="text/css" href="/css/nav_5tabs.css" />
+ -->
+ <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+ <link rel="stylesheet" type="text/css" href="/css/forms.css" />  
+
+<!--
+<script type="text/javascript" src="http://js.graggadv.com/ext-3.1.1/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="http://js.graggadv.com/ext-3.1.1/ext-all.js"></script>
+
+<script type="text/javascript">
+ Ext.BLANK_IMAGE_URL = 'http://js.graggadv.com/ext-3.1.1/resources/images/default/s.gif';   
+ Ext.QuickTips.init();
+ 
+    Ext.apply( Ext.form.VTypes
+            , { 'phone': function()
+               {  var re = /^([0-9]{3}[-]?){1,2}([0-9]{4})$/;
+                  return function(v) { return re.test(v); }
+               }()
+            , 'phoneText' : 'Not a valid phone number'
+            });  
+            
+Ext.onReady(function(){
+
+           var MainPanel = new Ext.Panel({
+                layout: "border",
+                height:445,
+                width:255,
+                border:false,
+                hideBorders:true,
+                renderTo:'homeForm',
+                bodyStyle:'background-color:#F1F1F1;padding-top:-10px;',
+                items: [{
+                        xtype:"form",
+                        region:"center",
+                        id:"referral_form",
+                        hideBorders:true,
+                        border:false,
+                        buttonAlign:'left', 
+                        labelWidth:20,
+                        bodyStyle:"background-color:#F1F1F1;text-align:left;padding-left:10px;" ,
+                        items:[{
+                            html:"<b>First Name:</b>",
+                            bodyStyle:"background-color:#F1F1F1;text-align:left;"
+                        },{
+                            xtype:"textfield",
+                            id:"fname",
+                            name:"fname",
+                            hideLabel:true,  
+                            allowBlank:false
+                        },{
+                            html:"<b>Last Name:</b>",
+                            bodyStyle:"background-color:#F1F1F1;text-align:left;"
+                        },{                            
+                            xtype:"textfield",
+                            id:"lname",
+                            name:"lname",
+                            hideLabel:true,
+                            allowBlank:false                            
+                        },{
+                            html:"<b>Email:</b>",
+                            bodyStyle:"background-color:#F1F1F1;text-align:left;"
+                        },{                            
+                            xtype:"textfield",
+                            id:"email",
+                            name:"email",
+                            hideLabel:true,
+                            allowBlank:false,
+                            vtype:'email'                            
+                        },{
+                            html:"<b>Phone:</b>",
+                            bodyStyle:"background-color:#F1F1F1;text-align:left;"
+                        },{                            
+                            xtype:"textfield",
+                            id:"phone_day",
+                            name:"phone_day",
+                            hideLabel:true,
+                            allowBlank:false,
+                            vtype:'phone' 
+                        },{
+                            html:"<b>Comments:</b>",
+                            bodyStyle:"background-color:#F1F1F1;text-align:left;"
+                        },{                            
+                            xtype:"textarea",
+                            id:"comments",
+                            name:"comments",
+                            width:175,
+                            height:75,
+                            hideLabel:true   
+                        },{//],
+                        //buttons:[{
+                        xtype:"button",
+                            //"text": "SubmitMyInformationTodayOr",
+                            //icon:'/images/home_submit_btn',
+                            //iconAlign: 'right',
+                            width:150,
+                            height:100,
+                            toolTip:"Submit My Information",
+                            cls: 'mybutton-text-icon',
+                            iconCls:'mybutton-image',
+                            scale:'large',
+                            autoHeight:true,
+                            autoWidth:true,
+                            border:false,
+                            handler:function(){
+                                var form = Ext.getCmp("referral_form").getForm(); 
+                                 if(form.isValid()){
+                                    var lname = Ext.getCmp("lname").getValue();    
+                                    var fname = Ext.getCmp("fname").getValue();    
+                                    var email = Ext.getCmp("email").getValue();    
+                                    var phone_day = Ext.getCmp("phone_day").getValue();    
+                                    var comments = Ext.getCmp("comments").getValue();    
+                                    
+                                    var data = {
+                                     //   glue_id:10100,
+                                        fname: fname,
+                                        lname: lname,
+                                        email: email,
+                                        phone_day: phone_day,
+                                        phone_eve:"Not Entered",
+                                        address:"N/A",
+                                        city:"N/A",
+                                        state:"N/A",
+                                        zip:"43001",
+                                        comments: comments
+                                    };
+                                    
+                                    var mask = new Ext.LoadMask(Ext.getBody(), {msg:"Sending Data..."});
+                                    mask.show();   
+                                    Ext.Ajax.request({
+                                        url     : '/contact-us/submit-lead',
+                                        params  : data,
+                                        success : function(response) {
+                                            mask.hide();  
+                                              var evals = Ext.decode(response.responseText);
+                                              var showThanks = false;
+                                              
+                                              var validErrors = [
+                                                ["Lead is a duplicate","Our records indicate you have already submitted your information."]
+                                              ];
+                                              var msg="";
+                                              
+                                              if(!evals.success){
+                                                  for(e = 0; e < evals.errors.length;e++){
+                                                      if(e in validErrors){
+                                                          var temp = validErrors[e][1];
+                                                          if(temp == 'undefined' || temp == undefined ){}
+                                                          else{
+                                                              window.location = '/error/';
+                                                          }
+                                                      }
+                                                  }
+                                              }
+                                              
+                                              window.location = '/index/thank-you'
+                                                  
+                                        },
+                                        failure : function(response) {
+                                            mask.hide();  
+                                        }
+                                    });                                     
+                                 }                                                    
+                            }
+                        }]
+                    }]
+           }); 
+});
+</script>
+<style>
+#homeForm div {
+    margin-left:0px;
+    border-width:0 0px;
+}
+#homeForm form {
+    border-width:0 0px;
+}
+#homeForm div element.style{
+    padding-left:0px;
+}
+#x-form-item-label {
+    width:0px;
+}
+.mybutton-text-icon .x-btn-left, .mybutton-text-icon .x-btn-right, .mybutton-text-icon .x-btn-center{
+background: 0;
+}
+.mybutton-image {
+    width:160px!important; height:35px!important;
+     background-repeat: no-repeat;
+    background-image: url('/images/home_submit_btn.jpg') !important;
+    border:0px;
+}
+.mybutton-image  .x-btn-left, .mybutton-text-icon .x-btn-right, .mybutton-text-icon .x-btn-center{
+background: 0;
+}
+/* now customize the new button that has a caption below the icon */
+.mybutton-text-icon .x-btn-center .x-btn-text {
+background-position: 0 2px;
+background-repeat: no-repeat;
+padding-left:0px;
+padding-top:0px;
+padding-bottom:0px;
+padding-right:0px;
+height: 100px;
+width: 150px;
+color:white;
+}
+.x-btn-tl, .x-btn-tr, .x-btn-tc, .x-btn-ml, .x-btn-mr, .x-btn-mc, .x-btn-bl, .x-btn-br, .x-btn-bc {
+background-image:none;
+}
+</style>
+-->
+<!--[if IE 7]>
+<link rel="stylesheet" href="css/ie7_styles.css" type="text/css" media="screen, projection">
+<![endif]-->
+<!--[if IE 6]>
+<link rel="stylesheet" href="css/ie6_styles.css" type="text/css" media="screen, projection">
+<![endif]-->
+<meta name="google-site-verification" content="NdNe0gc4SpCWhmSienF1_gayEubEnITvnjqkxTTMjok" />
+
+<script type="text/javascript">
+//<![CDATA[
+if (top != self) {
+	top.location.href = self.location.href; 
+} 
+// ]]>
+
+</script>
+
+</head>
+<body id="home">
+  <div id="top">
+      <div id="logo"><a href="/" title="American School of Technology"><img src="/images/logo.png" border="0"></a></div>
+      <div id="phone"><img src="/images/phone.jpg" alt="Call Today: 1-800-571-8750"></div>
+      <div id="topLinks">
+      	<a href="/pearson-vue-testing-center/">Certification Testing</a>
+      	<a href="/affiliates/">Affiliate Programs</a>
+      	<a href="/student-services/online-refresher-courses">Online Refresher Courses</a>
+      </div>
+      <div class="cleaner"></div>
+   </div>
+   
+   <div id="nav-container">
+        <div id="mainNav">
+         <ul>
+            <li><a href="/programs/"  title="Programs">PROGRAMS</a></li>
+            <li class="nav-div"></li>
+            <li><a href="/why-ast/"  title="Why AST?">WHY AST?</a></li>
+            <li class="nav-div"></li>   
+            <li><a href="/student-services/"  title="Student Services">STUDENT SERVICES</a></li>
+            <li class="nav-div"></li>                    
+            <li><a href="/financial-aid/"  title="Financial Aid">FINANCIAL AID</a></li>
+            <li class="nav-div"></li>
+
+            <li><a href="/location/"  title="Location">LOCATION</a></li>
+            <li class="nav-div"></li>            
+
+            <li><a href="/contact-us/"  title="Contact Us">CONTACT US</a></li>
+         </ul>
+      </div>
+   
+      <div id="hdrQuickSearch">
+         <form name="links_form" id="links_form" action="/index/search/" method="post">
+            <input type="text" name="keyword" id="keyword"/> 
+         </form>
+      </div>
+      <div id="searchbtn"><a href="#" onclick="document.forms['links_form'].submit();"><img src="/images/search.jpg" border="0"></a></div>
+      <div class="cleaner"></div>
+   </div>
+   <!-- Flash -->
+   
+   <div id="flashbox">
+      <div id="callout_nav">
+      <div class="navMenu">
+      
+            <ul>
+            	<li>
+               	<div>
+                  	<a href="/programs/hvac-overview" title="">HVAC/R Careers&nbsp;</a>
+                     <ul style="margin-top:0; padding-top:0;">                          
+                 			<li><a href="/programs/hvac-r" title="">Heating, Ventilation, Air Conditioning / Refrigeration</a></li>
+                        <!--<li>, </li>-->
+                     </ul>
+                  </div>
+               </li>
+					<li class="medi">
+               	<div>
+                  	<a title="MEDICAL Careers" href="/programs/medical-overview">MEDICAL Careers&nbsp;</a>
+                     <ul style="margin-top: 0pt; padding-top: 0pt;">
+                     	<li><a title="Medical Assisting" href="/programs/medical-assisting">Medical Assisting</a></li>
+                        <li>, </li>
+                        <li><a title="Medical Billing and Coding" href="/programs/medical-billing-and-coding">Medical Billing and Coding</a></li>
+<!--                         <li>, </li>
+                       <li><a title="State Tested Nursing Aide" href="/programs/state-tested-nursing-aide">State Tested Nursing Aide</a></li>
+ -->                     </ul>
+                  </div>
+               </li>
+               <li>
+               	<div><a title="BUSINESS Career" href="/programs/business-overview">BUSINESS Career&nbsp;</a>
+                  	<ul style="margin-top: 0pt; padding-top: 0pt;">
+                     	<li><a title="Business Administration" href="/programs/business-administration">Business Administration</a></li>
+                     </ul>
+                  </div>
+               </li>
+<!--                <li>
+               	<div><a title="COMPUTER Career" href="/programs/computer-careers-overview">COMPUTER Career&nbsp;</a>
+                     <ul style="margin-top: 0pt; padding-top: 0pt;">
+                       <li><a title="Computer Office Specialist" href="/programs/computer-office-specialist">Computer Office Specialist</a></li>
+                     </ul>
+            		</div>
+               </li>   -->      
+               <li>
+               	<div><a title="Fitness Career" href="/programs/nasm-personal-fitness-trainer">FITNESS Career&nbsp;</a>
+                     <ul style="margin-top: 0pt; padding-top: 0pt;">
+                        <li><a title="Personal Fitness Trainer" href="/programs/nasm-personal-fitness-trainer">Personal Fitness Trainer</a></li>
+                     </ul>
+            		</div>
+               </li>    
+      </ul>
+      </div>
+   </div>
+    
+    
+      <!-- flash slideshow here -->
+      
+      <div id="flash">
+         <object id="myOther" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="601" height="261">
+         <param name="movie" value="/flash/slideshow.swf" />
+         <param name="wmode" value="transparent">
+         <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="/flash/slideshow.swf" width="601" height="261">
+            <param name="wmode" value="transparent">
+         <!--<![endif]-->
+
+         <h1>Alternative content</h1>
+         <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+         <!--[if !IE]>-->
+            </object>
+         <!--<![endif]-->
+         </object></div>
+      </div>
+   
+      <!-- end flash slideshow -->
+   
+   </div>   
+   
+   <!-- content wrapper-->
+   
+   <div id="wrapper">
+      
+      <!-- Left columns container -->
+      <div id ="leftColumns">
+         <div id="left">
+
+         <h1>Welcome to American School of Technology</h1>
+<p>At AST, we believe it's critical to have the right skills for the right job. That's why we offer comprehensive career training for some of today's most popular careers in the <a href="../../programs/business-administration">Business</a>, <a href="../../programs/hvac-r">Heating Ventilation Air Conditioning/Refrigeration</a>, <!--<a href="../../programs/nasm-personal-fitness-trainer" mce_href="../../programs/nasm-personal-fitness-trainer">Fitness</a>,--> <a href="../../programs/computer-office-specialist">IT</a> and <a href="../../programs/medical-overview">Medical Fields</a>.</p>
+<p>The training you get at AST will prepare you for an exciting new career. Find out how our experienced faculty can train you for a rewarding career in less than 1 year!</p>
+<h1>Personal Attention</h1>
+<p>AST is committed to meeting each student&rsquo;s individual needs. We understand the challenge of training for a new career and the hard work that goes into it. That&rsquo;s why we offer smaller class sizes so you benefit from more personal attention from faculty and staff.<br /><a href="../../student-services"><strong>Student Services</strong></a></p>
+<h1>Flexible Programs</h1>
+<p>Take advantage of the many flexible programs offered at AST. We understand how busy your life can be. That's why at AST you can enroll in day or evening classes. Our highly-skilled instructors are dedicated to helping you succeed!<br /><a href="../../programs/"><strong>Career Programs</strong></a></p>
+<h1>Financial Aid</h1>
+<p>The task of paying for college can be made much easier with the help of financial aid. Qualified students can apply for various grants, scholarships and other forms of tuition assistance. Our experienced and friendly staff can help you through the application process.<br /><a href="../../financial-aid"><strong>Financial Aid</strong></a>            <div style="margin-top:20px; width:645px;">
+               <a href="/pearson-vue-testing-center"><img src="/images/psvue-button.jpg" border="0" width="297"/></a>
+               <a href="/affiliates"><span style="float:right; margin-top:-3px;"><img src="/images/affiliate-button.jpg" border="0" width="297"/></span></a>
+            </div>
+         
+         </div>
+         <div id="right">
+         <h1>Programs</h1>
+
+         <ul>
+            <li style="line-height: 24px;"><a href="/programs/hvac-r">Heating, Ventilation, Air Conditioning/Refrigeration</a></li>         
+            <li><a href="/programs/medical-assisting">Medical Assisting</a></li>
+            <li><a href="/programs/medical-billing-and-coding">Medical Billing and Coding</a></li>
+<!--            
+			<li><a href="/programs/state-tested-nursing-aide">State Tested Nursing Aide</a></li>                               
+ -->
+             <li><a href="/programs/business-administration">Business Administration</a></li>
+<!-- 
+           <li><a href="/programs/computer-office-specialist">Computer Office Specialist</a></li>
+ -->
+             <li><a href="/programs/nasm-personal-fitness-trainer" accesskey="Personal Fitness Trainer">Personal Fitness Trainer</a></li>
+         </ul>      
+         
+         <h1>Location</h1>
+         <p>
+         Our campus is conveniently located near I-71 and is easily accessible from all over the city.  Our training facility provides classrooms, labrotories, administrative offices, student lounge and a resources area.
+         </p>
+         <p>
+         <b>2100 Morse Road<br/>
+         Columbus, OH 43229</b><br/>
+         </p>
+         <p><a href="http://maps.google.com/maps?q=2100+morse+road,+columbus+ohio+43229&oe=utf-8&client=firefox-a&ie=UTF8&hl=en&hq=&hnear=2100+Morse+Rd,+Columbus,+Franklin,+Ohio+43229&z=16" target="_out" title="Click to view the map to AST"><img src="../images/map.jpg" border="0"/></a></p>
+         <p><a href="/location"><strong>Learn more about our campus</strong></a></p>
+         <h1><strong>Have a Question?</strong></h1>
+
+         <p>Our Admissions representatives are here to help you get the answers you need to make the right decision about your future.</p>
+         <h5><a href="contact-us">Contact Us Today!</a></h5>
+         </div>
+                     
+                  <div class="cleaner"></div>   
+      </div>
+   
+   
+      <!-- Right column container -->
+      <div id="rightColumn">
+          <!--   <div style="margin-bottom:10px;">
+                 <h2>Open House</h2>
+                 <p>
+                    May 19th, 2011<br/>
+                    11am-3pm & 5pm-7pm<br/>
+                    
+                    <a href="http://tinyurl.com/3v32arq" target="_blank" style="font-size:12px;">Read More</a> or
+                    <br><a href="/pdf/ast_openhouse_poster.pdf" target="_blank" style="font-size:12px;">Download Information</a></p>
+                 
+             </div> -->  
+             <img src="../images/home_form_hdr.jpg"/>
+            <div id="homeForm" style="padding-bottom:0;">
+             <form id="homeContact" name="homeContact" method="post" action="">
+             <input type="hidden" name="submit_request" value="1" />
+             <input type="hidden" name="program" value="Medical Assisting" />
+             <input type="hidden" name="gradyear" value="2000" />
+                <div>
+                            
+                   <p>Fields marked <span class="required">*</span> are required.</p>
+                </div>
+                                
+                <div>
+                   <label for="fname">First name:<span class="required">*</span></label>
+                   <input type="text" id="fname" name="fname" maxlength="50" class="alpha" rel="req" value="" span class="error-icon" id="fname_req"></span>
+                </div>                                
+                <div>
+                   <label for="lname">Last name:<span class="required">*</span></label>
+                   <input type="text" id="lname" name="lname" maxlength="50" class="alpha" rel="req" value="" /><span class="error-icon" id="lname_req"></span>
+                </div>                                
+                <div>
+                   <label for="email">Email:<span class="required">*</span></label>
+                   <input type="text" id="email" name="email" maxlength="50" class="email" rel="req" value="" /><span class="error-icon" id="email_req"></span>
+                </div> 
+                <div>
+                   <label for="phone_day">Phone:<span class="required">*</span></label>
+                   <input type="text" id="phone_day" name="phone_day" maxlength="14" style="width:125px;" class="phone" rel="req" value="" /><span class="error-icon" id="phone_day_req"></span>
+                </div>
+                
+                
+                
+               <!-- <div>
+                    <label for="grad_year">When did you graduate?</label>
+                    <select id="grad_year" name="grad_year" rel="req" value="">
+                                                    <option value="2012">2012</option>
+                                                    <option value="2011">2011</option>
+                                                    <option value="2010">2010</option>
+                                                    <option value="2009">2009</option>
+                                                    <option value="2008">2008</option>
+                                                    <option value="2007">2007</option>
+                                                    <option value="2006">2006</option>
+                                                    <option value="2005">2005</option>
+                                                    <option value="2004">2004</option>
+                                                    <option value="2003">2003</option>
+                                                    <option value="2002">2002</option>
+                                                    <option value="2001">2001</option>
+                                                    <option value="2000">2000</option>
+                                                    <option value="1999">1999</option>
+                                                    <option value="1998">1998</option>
+                                                    <option value="1997">1997</option>
+                                                    <option value="1996">1996</option>
+                                                    <option value="1995">1995</option>
+                                                    <option value="1994">1994</option>
+                                                    <option value="1993">1993</option>
+                                                    <option value="1992">1992</option>
+                                                    <option value="1991">1991</option>
+                                                    <option value="1990">1990</option>
+                                                    <option value="1989">1989</option>
+                                                    <option value="1988">1988</option>
+                                                    <option value="1987">1987</option>
+                                                    <option value="1986">1986</option>
+                                                    <option value="1985">1985</option>
+                                                    <option value="1984">1984</option>
+                                                    <option value="1983">1983</option>
+                                                    <option value="1982">1982</option>
+                                                    <option value="1981">1981</option>
+                                                    <option value="1980">1980</option>
+                                                    <option value="1979">1979</option>
+                                                    <option value="1978">1978</option>
+                                                    <option value="1977">1977</option>
+                                                    <option value="1976">1976</option>
+                                                    <option value="1975">1975</option>
+                                                    <option value="1974">1974</option>
+                                                    <option value="1973">1973</option>
+                                                    <option value="1972">1972</option>
+                                                    <option value="1971">1971</option>
+                                                    <option value="1970">1970</option>
+                                                    <option value="1969">1969</option>
+                                                    <option value="1968">1968</option>
+                                                    <option value="1967">1967</option>
+                                                    <option value="1966">1966</option>
+                                                    <option value="1965">1965</option>
+                                                    <option value="1964">1964</option>
+                                                    <option value="1963">1963</option>
+                                            </select>
+                </div> -->
+               
+                
+                <div>
+                   <label for="glue_id">How did you hear about AST?<span class="required">*</span></label>                
+                   <select id="glue_id" name="glue_id" rel="req" value="" style="width:160px;"/><span class="error-icon" id="how_found_req"></span>
+                   <option value="" selected="selected">-Select-</option>
+              <!--     <option value="10152">Columbus Job News</option> -->
+                   <option value="10153">Columbus Employment Guide</option>
+<!--                   <option value="10154">Columbus Dispatch</option>
+                   <option value="10156">WWHO-TV/CW/53</option>-->
+                   <option value="10155">WTTE-TV/FOX/28</option>
+<!--                   <option value="19392">WBNS-TV/CBS/10</option>
+                  <option value="19804">Yellow Pages</option> -->
+                   <option value="10100">Internet</option>
+                   </select>
+                </div>
+                
+                <!-- Replaced below with above to source media leads-->
+                <!--
+                <div>
+                   <label for="how_found">How did you hear about AST?<span class="required">*</span></label>                
+                   <select id="how_found" rel="req" value="" style="width:160px;"/><span class="error-icon" id="how_found_req"></span>\
+                   <option value="" selected="selected">-Select-</option>
+                   <option value="Columbus Job News">Columbus Job News</option>
+                   <option value="Columbus Employment Guide">Columbus Employment Guide</option>
+                   <option value="Columbus Dispatch">Columbus Dispatch</option>
+                   <option value="WWHO-TV/CW/53">WWHO-TV/CW/53</option>
+                   <option value="WTTE-TV/FOX/28">WTTE-TV/FOX/28</option>
+                   <option value="WBNS-TV/CBS/10">WBNS-TV/CBS/10</option>
+                   <option value="yellow pages">Yellow Pages</option>
+                   <option value="internet">Internet</option>
+                   </select>
+                </div> -->
+                
+                <p>&nbsp;</p>
+                <h6>&nbsp;</h6>
+                <div>
+                    <label for="comments">Comments or Questions:</label>
+                    <textarea rows="5" cols="36" name="comments" id="comments"></textarea>                        
+                </div> 
+                <p>&nbsp;</p>
+                <div class="submitbtn" style="margin-top:25px;">
+                  <a href="#" onclick="document.forms['homeContact'].submit();"><img src="/images/home_submit_btn.jpg" border="0"/></a><br /><br />
+                  <div class="cleaner"></div>
+                </div>
+             <input type="hidden" name="gradyear" value="2010" readonly="readonly">  
+             <input type="hidden" name="program" value="Medical Assisting" readonly="readonly"> 
+                
+             </form>
+             <img src="../images/home_form_btm.png"/> 
+             <p>
+                <a title="Click for the Business Review of American School Of Technology, a Schools - Business & Vocational in Columbus OH" href="http://www.bbb.org/centralohio/business-reviews/schools-business-and-vocational/american-school-of-technology-in-columbus-oh-6435#sealclick"><img alt="American School Of Technology is a BBB Accredited Business. Click for the BBB Business Review of this Schools - Business & Vocational in Columbus OH" style="border: 0;" src="http://seal-centralohio.bbb.org/seals/blue-seal-63-134-americanschooloftechnology-6435.png" /></a>               
+             </p>
+             <p><strong>Enroll at AST and take advantage of these great benefits:</strong></p>
+             <div id="home_sidelist">
+             <ul>
+             <li>Hands-on training</li>
+             <li>Small class sizes</li>
+             <li>Job placement assistance for graduates</li>
+             <li>Training completed in less than 1 year</li>
+             <li>Practical and friendly learning environment</li>
+             <li>Real-world labs and equipment</li>
+             <li>Day and evening classes forming now</li>
+             <li>Financial Aid available for those <br />who qualify</li>
+             <li>VA, and WIA approved (through ODJFS)</li>
+             <li>Corporate and group contract <br />training available</li>
+             </ul>
+             </div>        
+             <span id="error" style="color:#f00; margin-left:40px;font-weight:bold;"></span> 
+          </div>
+                  
+          <div id="ss_err" style="margin-left:55px;color:#f00;font-weight:bold;font-size:10px;border:none;"></div>     
+       </div>  
+       
+       <!-- End Form -->
+        
+      <div class="cleaner"></div>
+      <div id="footer-wrapper">   
+         <div id="footer">
+             <img src="/images/footer-rule.jpg"/>
+             <p>&nbsp;</p>
+             <p style="font-size:13px;"><strong>&copy; 2010 American School of Technology.</strong> All rights reserved.  |  2100 Morse Road, Columbus, OH 43229  |  800-571-8750  |  <a href="http://maps.google.com/maps?q=2100+morse+road,+columbus+ohio+43229&oe=utf-8&client=firefox-a&ie=UTF8&hl=en&hq=&hnear=2100+Morse+Rd,+Columbus,+Franklin,+Ohio+43229&z=16" target="out">Get Directions</a></p>
+             
+<p style="font-size:13px;"><a href="" title="Home">Home</a> &bull; <a href="/programs/" title="Programs">Programs</a> &bull; 
+<a href="/financial-aid/" title="Financial Aid">Financial Aid</a> &bull; 
+<a href="/student-services/" title="Student Services">Student Services</a> &bull; <a href="/location/" title="Location">Location</a> &bull; 
+<a href="/why-ast/" title="Why AST?">Why AST?</a> &bull; <a href="/contact-us/" title="Contact Us">Contact Us</a> &bull; 
+<a href="/index/sitemap/" title="Sitemap">Sitemap</a> &bull; 
+<a href="/calculator/" title="Net Price Calculator">Net Price Calculator</a> &bull; 
+<a href="/disclosures" target="_blank" rel="nofollow">Disclosures</a></p>              
+         <p style="font-size:13px;"><strong>Programs</strong>
+           <a href="/programs/hvac-r" title="Heating, Ventilation, Air Conditioning / Refrigeration">Heating, Ventilation, Air Conditioning / Refrigeration</a> &bull; <a href="/programs/medical-assisting" title="Medical Assisting">Medical Assisting</a> &bull; <a href="/programs/medical-billing-and-coding" title="Medical Billing and Coding">Medical Billing and Coding</a> &bull; <a href="/programs/business-administration" title="Business Administration Program">Business Administration Program</a> &bull; <a href="/programs/nasm-personal-fitness-trainer" title="Personal Fitness Trainer Certificate Program">Personal Fitness Trainer Certificate Program</a>         </p>
+         <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6113535-33']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+         
+         </div>
+   </div>
+   </div>
+
+</body>
+</html>
+
+

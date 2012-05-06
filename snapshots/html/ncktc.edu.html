@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>NCKTC 6.20.13 - Login Page</title>
+		<link rel="stylesheet" type="text/css" href="/css/login/grey.css" />
+		<link rel="stylesheet" type="text/css" href="/css/jquery.ui.dialog.css" />
+		<link rel="stylesheet" href="/css/lang.css?6.20.13" type="text/css" media="screen"/>
+
+		<!-- login page js translations -->
+		<script type="text/javascript">
+		function jsTranslate(englishString)
+		{
+
+			if( jsTranslateHash[englishString] !== undefined && jsTranslateHash[englishString].length > 0 ) return jsTranslateHash[englishString]
+			else return englishString
+		}
+		
+		//Add translation strings here for strings that have to be inside .js files (currently not configured to be parsed by php engine)
+		jsTranslateHash = {
+			"A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site." : "A popup-blocker is enabled on your browser.<br>To correctly view the WebMail application, you must allow popup windows from the URL of the site.", 
+		};
+		</script>
+		<!-- jQuery -->
+		<script type="text/javascript" src="/js/jQuery/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="/js/jQuery/ui/jquery-ui-1.7.2.custom.min.js"></script>
+		<script type="text/javascript" src="/js/xp.js"></script>
+		<script type="text/javascript" src="/js/browsercheck.js"></script>
+		<script type="text/javascript" src="/js/rememberme.js"></script>
+		
+		<!-- Fav icon -->
+		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+		<script type="text/javascript">
+		var Expand;
+
+		// Reload to the master frame if we are inside a frameset
+		if (parent.frames[1]) top.window.location=self.location;
+
+		// Get list of local domains as a JS array 
+	    var localDomains = new Array();
+localDomains['ncktc.edu'] = 1;
+
+		$(function() {
+
+		$("#loginPage").bind('submit', function() {
+			email = $("#email").val();
+			emailArgs = email.split('@');
+			$("input[name=emailName]").val(emailArgs[0]);
+			
+			if( !emailArgs[1] ) {
+				$("input[name=emailDomain]").val( $("input[name=emailDomainDefault]").val() );
+				
+			} else {
+				$("input[name=emailDomain]").val(emailArgs[1]);				
+			}
+
+			document.body.style.cursor = 'wait';
+		});
+		 
+		
+		RememberMe();
+
+		$("#dialog").dialog({ 
+			autoOpen: false, 
+			height: 70,
+			modal: true, 
+			overlay: { 
+			opacity: 0.5, 
+			background: "white" 
+			},
+			resizable: false,
+			closeOnEscape: false,  
+			width: 270
+		});
+
+		});
+		</script>
+		<script type="text/javascript">
+//<![CDATA[
+
+		// Expand More Options
+		function ExpandOptions()    
+		{
+		
+			Expand = 1;
+			document.getElementById('LanguageDisplay').style.display='';
+			document.getElementById('LoginBtn').style.display='';
+			document.getElementById('MailServer').style.display='';
+
+			if(document.getElementById('LanguageDisplay').style.display == '') 
+			{
+		
+				document.getElementById('protocol').style.display = '';
+				document.getElementById('MoreOptions').style.display='none';
+				if( document.getElementById('signup') != undefined )
+				{
+			
+					document.getElementById('signup').style.display='none';
+			
+				}
+		
+			}
+
+		}
+
+		//]]>
+		</script>
+	</head>
+	<body id="bg" class="en">
+		
+		<div id="dialog" style="display:none;">
+
+		<br>
+		<center>
+		<div id='loading'>
+		<h1 class='loading-text'><img class='loadingimg' src='/images/25.gif' width='28' height='28'/><span class='loading'><strong>Loading...</strong></span></h1>
+		</div>
+		</center>
+
+		</div>
+				
+		
+								
+				
+		<div id="container">
+			<div id="header">
+				<div id="logo"></div>
+			</div>
+			<div id="content">
+				<div class="login-txt">
+					<p>
+						Login					</p>
+				</div><!-- Begin Form -->
+				<form class="login-form" action="/index.php/mail/auth/processlogin" name="loginPage" id="loginPage" method="post">
+					
+					<input type='hidden' name='emailName' value=''/>
+					<input type='hidden' name='emailDomain' value=''/>
+					<input type='hidden' name='emailDomainDefault' value='ncktc.edu'/>
+					<input type='hidden' name='cssStyle' value='grey'/>
+					
+					<table class="login">
+						<tbody>
+							<tr>
+								<td>
+									<label class="user">Email:</label> <input id="email" class="input-email" type="text" name="email" tabindex="1" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label class="pass">Password:</label> <input id="password" class="input-pass" type="password" name="password" tabindex="2" />
+								</td>
+							</tr>
+							<tr id="MoreOptions">
+								<td>
+									<label class="more">More: <span class="arrow"><a href="javascript:ExpandOptions()">▼</a></span></label>
+									<input class="loginbtn" type="submit" value="Login" />
+								</td>
+							</tr>
+							<tr id="MailServer" style="display: none;">
+								<td>
+									<label class="pass">Mailserver:</label> 
+																		<input id="Mailserverinput" class="input-pass" type="text" value="" name="requestedServer" tabindex="3" />
+																	</td>
+							</tr>
+							<tr id="protocol" style="display: none;">
+								<td>
+									<label class="pcol">Protocol:</label> <select class="protocol" name="MailType">
+						              										<option value="IMAP">IMAP</option>
+									  									  										<option value="IMAPS">IMAP SSL</option>
+									  									</select>
+								</td>
+							</tr>
+							<tr id="LanguageDisplay" style="display: none;">
+								<td>
+									<label class="language">Language:</label>
+										<select class="language" name="Language">
+								  			<option value="" selected>Default</option>
+												
+											<option value="ar">العربية</option>
+												
+											<option value="ca">Catalan</option>
+												
+											<option value="de">Deutsch</option>
+												
+											<option value="en">English</option>
+												
+											<option value="el">Ελλάδα</option>
+												
+											<option value="es">Español</option>
+												
+											<option value="fi">Finnish</option>
+												
+											<option value="fr">Français</option>
+												
+											<option value="it">Italiano</option>
+												
+											<option value="nl">Nederlands</option>
+												
+											<option value="pt_Br">Português Brasileiro</option>
+												
+											<option value="ru">Russian</option>
+												
+											<option value="th">Thai</option>
+												
+											<option value="zh">汉语</option>
+																					</select>									
+								</td>
+							</tr>
+							<tr id="LoginBtn" style="display: none;">
+								<td>
+									<input class="loginbtn grey" type="submit" value="Login" /> <span class="remember">Remember Me</span> <input class="check" type="checkbox" value="1" name="RememberMe" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+
+		<div id="foot">
+			<a href="http://www.atmail.com/" target="_blank">Powered by Atmail 6.20.13</a> - 
+	<a href="/index.php/admin/">WebAdmin Control Panel</a>			
+			
+					</div>
+		</div>
+	<!-- plugins working -->
+</body>
+</html>

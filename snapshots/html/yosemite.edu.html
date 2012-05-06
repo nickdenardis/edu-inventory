@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--
+=========================================================================================
+	Copyright (c) Yosemite Community College District
+	Created by: Yosemite Community College District, Information Technology Department
+	Version: 1.2.031209
+==========================================================================================
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+
+
+
+<title>Yosemite Community College District</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="author" content="YCCD Information Technology" />
+<meta name="copyright" content="Copyright (c) Yosemite Community College District.  All Rights Reserved." />
+<meta name="mssmarttagspreventparsing" content="true" />
+<meta name="revisit-after" content="1 days" />
+<meta name='Description' content="Official website of the Yosemite Community College District, a two college multicampus educational system serving the Central Valley, Foothills, and Sierra Nevada." />
+<meta name='Keywords' content="Yosemite, Community, College, District, Modesto, California, Columbia, Junior," />
+
+<link href="/_css/home.css" rel="stylesheet" type="text/css" />
+
+
+
+<script type="text/javascript">
+
+	function clearBox(box) {
+		 if(box.value==box.defaultValue) {
+	 	 	 box.value = "";
+	 	 }
+	 }
+
+var menuLayers = {
+  timer: null,
+  activeMenuID: null,
+
+  show: function(id, e) {
+    var mnu = document.getElementById? document.getElementById(id): null;
+    if (!mnu) return;
+    this.activeMenuID = id;
+    if ( mnu.onmouseout == null ) mnu.onmouseout = this.mouseoutCheck;
+    if ( mnu.onmouseover == null ) mnu.onmouseover = this.clearTimer;
+   this.timer = setTimeout("document.getElementById('" + menuLayers.activeMenuID + "').style.visibility = 'visible'", 200);
+
+  },
+  
+  hide: function() {
+    this.clearTimer();
+    if (this.activeMenuID && document.getElementById) 
+      this.timer = setTimeout("document.getElementById('"+menuLayers.activeMenuID+"').style.visibility = 'hidden'", 500);
+  },
+  
+  mouseoutCheck: function(e) {
+    e = e? e: window.event;
+    // is element moused into contained by menu? or is it menu (ul or li or a to menu div)?
+    var mnu = document.getElementById(menuLayers.activeMenuID);
+    var toEl = e.relatedTarget? e.relatedTarget: e.toElement;
+    if ( mnu != toEl && !menuLayers.contained(toEl, mnu) ) menuLayers.hide();
+  },
+  
+  // returns true of oNode is contained by oCont (container)
+  contained: function(oNode, oCont) {
+    if (!oNode) return; // in case alt-tab away while hovering (prevent error)
+    while ( oNode = oNode.parentNode ) 
+      if ( oNode == oCont ) return true;
+    return false;
+  },
+
+  clearTimer: function() {
+    if (menuLayers.timer) clearTimeout(menuLayers.timer);
+  }
+  
+}
+</script>
+</head>
+
+<body>
+<noscript>The YCCD website requires Javascript for proper functioning in graphical mode. Your browser does not currently support Javascript.</noscript>
+<div id="horizon">
+<div id="main">
+<div id="hplogo"><a href="http://www.yosemite.edu"><img src="/_img/hpyccdlogo.gif" alt="Yosemite Community College District" border="0" width="240" height="90" /></a></div>
+<div id="hpfooter">
+<p><img src="/_img/topspace.gif" width="1" height="53" align="left"><span class="style1"><br>
+		      <span class="style2">Copyright &copy; 2006 Yosemite Community College District. All Rights Reserved.<BR>
+                <a href="http://www.google.com/local?f=q&hl=en&q=2201+Blue+Gum+Avenue,+Modesto,+California+95358" target="_blank">2201 Blue Gum Avenue, Modesto, California 95358</a> (</span></span><span class="style3">209) 575-6550 </span></p>
+
+
+</div>
+
+<div id="hptopnav">
+		  <form name="form1" method="post" action="http://www.yosemite.edu/bounce.asp">
+		    <select name="target" id="jump">
+		      <option value="_none">Select Link...</option>
+			  <option value="http://www.yosemite.edu/accounting/">Accounting</option>
+			  <option value="http://www.yosemite.edu/ap/">Accounts Payable</option>
+			  <option value="http://www.yosemite.edu/benefits/">Benefits Office</option>
+			  <option value="http://www.yosemite.edu/beyondtolerance/">Beyond Tolerance</option>
+			  <option value="http://www.yosemite.edu/trustees/">Board of Trustees</option>
+			  <option value="http://www.yosemite.edu/safety/">Campus Safety</option>
+			  <option value="http://www.yosemite.edu/registry/">CCC Registry</option>
+			  <option value="http://www.yosemite.edu/chancellor/">Chancellors Office</option>
+			  <option value="http://www.gocolumbia.edu/">Columbia College</option>
+			  <option value="http://www.yosemite.edu/fmp/yccd/draft.asp">Facilities Master Plan</option>
+			  <option value="http://www.yosemite.edu/fiscalservices/">Fiscal Services</option>
+			  <option value="http://www.yosemite.edu/facilities/">Facilities &amp; Operations</option>
+			  <option value="http://flex.yosemite.edu">Flex</option>
+			  <option value="http://www.yosemite.edu/grant">Grants Office</option>
+			  <option value="http://www.yosemite.edu/hr">Human Resources</option>
+			  <option value="http://www.yosemite.edu/helpdesk">I.T. HelpDesk</option>
+			  <option value="https://yosemite.peopleadmin.com/">Job Announcements</option>
+			  <option value="http://www.yosemite.edu/bond/">Measure E</option>
+			  <option value="http://www.mjc.edu/">Modesto Junior College</option>		
+			  <option value="http://directory.yosemite.edu/">People Finder</option>
+			 <option value="http://www.yosemite.edu/externalaffairs/">Public Affairs Office</option>
+			 <option value="http://www.yosemite.edu/payroll/">Payroll</option>
+			  <option value="http://www.yosemite.edu/purchasing/">Purchasing &amp; Receiving</option>
+			  <option value="http://www.yosemite.edu/research/">Research &amp; Planning</option>
+			  <option value="http://www.yosemite.edu/riskmanagement/">Risk Management</option>
+			  <option value="http://webmail.yosemite.edu/">Staff Email</option>
+			  <option value="http://staffnet.yosemite.edu/">StaffNet</option>
+			  <option value="http://www.yosemite.edu/studentloans">Student Loans</option>
+			  <option value="http://www.yosemite.edu/transportation">Transportation</option>
+			 <option value="http://www.yosemite.edu/video/">Online Video</option>
+			  <option value="https://www.yosemite.edu/1098t">1098-T Viewer</option>
+	        </select>
+            <input name="imageField" type="image" src="/_img/gotxt.gif" alt="Change Page" />
+		  </form>
+		  <form action="http://search.yosemite.edu/search" method="get" name="gs">
+			  &nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="q" size="20" maxlength="256" value="Search..." onFocus="clearBox(this);" id="search" />
+			  <input id="words" type="image" src="/_img/go.gif" alt="Search" width="16" height="15" />&nbsp;&nbsp;
+			  <input type="hidden" name="entqr" value="0">
+                  <input type="hidden" name="ud" value="1">
+                  <input type="hidden" name="sort" value="date:D:L:d1">
+                  <input type="hidden" name="output" value="xml_no_dtd">
+                  <input type="hidden" name="oe" value="UTF-8"><input type="hidden" name="ie" value="UTF-8">
+                  <input type="hidden" name="client" value="yccd_frontend">
+                  <input type="hidden" name="proxystylesheet" value="yccd_frontend">
+                  <input type="hidden" name="site" value="Yosemite_Edu">
+		    </form>
+
+</div>
+
+<div id="hpmenubar">
+	<img src="/_img/mbend.gif" border="0" class="mbend" alt="" width="13" height="19" />
+	<a href="http://www.yosemite.edu/trustees/"><img src="/_img/mbboard.gif" border="0" alt="Board of Trustees" width="110" height="19" /></a>
+	<img src="/_img/mbspacer.gif" border="0" class="mbspacer" alt="" width="3" height="19" />
+	<a href="http://www.yosemite.edu/chancellor"><img src="/_img/mbchancellor.gif" border="0" alt="Chancellors Office" width="118" height="19" /></a>
+	<img src="/_img/mbspacer.gif" border="0" class="mbspacer" alt="" width="3" height="19" />
+	<a href="http://www.yosemite.edu/externalaffairs/newsreleases.htm"><img src="/_img/mbnews.gif" border="0" alt="News" width="34" height="19" /></a>
+	<img src="/_img/mbspacer.gif" border="0" class="mbspacer" alt="" width="3" height="19" />
+	<a href="http://www.yosemite.edu"><img src="/_img/mbhome.gif" border="0" alt="YCCD Website Homepage" width="37" height="19" /></a>
+	<img src="/_img/mbspacer.gif" border="0" class="mbspacer" alt="" width="3" height="19" />
+	<a href="http://www.yosemite.edu/externalaffairs/district.htm"><img src="/_img/mbabout.gif" border="0" alt="About YCCD" width="75" height="19" /></a>
+</div>
+
+<div id="hpschools">
+<a href="http://www.gocolumbia.edu"><img src="/_img/cc.jpg" alt="Columbia College" border="0" width="165" height="130" /></a>
+<br /> <br /> <br />
+<a href="http://www.mjc.edu"><img src="/_img/mjc.jpg" alt="Modesto Junior College" border="0" width="165" height="130" /></a>
+</div>
+
+<div id="hpmenu">
+	<img src="/_img/distoff.gif" width="150" height="26">
+		    <blockquote>
+		      <p class="style6"><a href="http://www.yosemite.edu/externalaffairs/" onmouseover="menuLayers.show('menu1', event)" onmouseout="menuLayers.hide()">Public Affairs</a></p>
+			  <div id="menu1" class="menu">
+  				<ul>
+					<li><a href="http://www.yosemite.edu/externalaffairs/">Public Affairs Office</a></li>
+					<li><a href="http://www.yosemite.edu/externalaffairs/newsreleases.htm">News & Press Releases</a></li>
+  					<li><a href="http://www.yosemite.edu/externalaffairs/district.htm">District Information</a></li>
+					<li><a href="http://www.yosemite.edu/externalaffairs/media.htm">Media Information</a></li>
+  				</ul>
+				</div>
+		      <p class="style6"><a href="http://www.yosemite.edu/fiscalservices/" onmouseover="menuLayers.show('menu2', event)" onmouseout="menuLayers.hide()">Fiscal Services</a></p>
+			  <div id="menu2" class="menu">
+  				<ul>
+					<li><a href="http://www.yosemite.edu/fiscalservices/">Fiscal Services Office</a></li>
+					<li><a href="http://www.yosemite.edu/fiscalclassroom/">Fiscal Services Classroom</a></li>
+					<li><a href="http://www.yosemite.edu/accounting">Accounting</a></li>
+					<li><a href="http://www.yosemite.edu/ap">Accounts Payable</a></li>
+					<li><a href="http://www.yosemite.edu/controller/default.htm">Controllers Office</a></li>
+  					<li><a href="http://www.yosemite.edu/facilities/">Facilities & Operations</a></li>					
+					<li><a href="http://www.yosemite.edu/grant">Grant Development & Special Programs</a></li>
+					<li><a href="http://www.yosemite.edu/payroll">Payroll</a></li>
+					<li><a href="http://www.yosemite.edu/purchasing/">Purchasing</a></li>
+					<li><a href="http://www.yosemite.edu/riskmanagement">Risk Management</a></li>
+					<li><a href="http://www.childdevelopment.org/">Child Development Training Consortium</a></li>
+					<li><a href="http://www.yosemite.edu/fiscalservices/mjcbusinessservices/default.htm">MJC Business Services</a></li>
+					<li><a href="http://www.gocolumbia.edu/businesservices.html">CC Business Services</a></li>
+					
+					<li><a href="http://www.yosemite.edu/transportation/default.htm">Transportation</a></li>
+					<li><a href="http://bookstore.yosemite.cc.ca.us/">MJC Bookstore</a></li>
+  				</ul>
+				</div>
+		      <p class="style6"><a href="http://www.yosemite.edu/hr/" onmouseover="menuLayers.show('menu3', event)" onmouseout="menuLayers.hide()">Human Resources</a></p>
+			  <div id="menu3" class="menu">
+  				<ul>
+					<li><a href="http://www.yosemite.edu/hr/">Human Resources Office</a></li>
+  					<li><a href="https://yosemite.peopleadmin.com/">Job Openings</a></li>
+					<li><a href="http://www.yosemite.edu/benefits/">Benefits Office</a></li>
+					<li><a href="http://www.yosemite.edu/hr/classificationreview">Classification Review (Internal Link)</a></li>
+					<li><a href="http://www.yosemite.edu/safety">Campus Safety</a></li>
+					<li><a href="http://yccdnet/cssecurity">Campus Safety (Internal Link)</a></li>
+					<li><a href="http://www.yosemite.edu/registry/">The Registry</a></li>
+					<li><a href="http://www.yosemite.edu/BeyondTolerance/">Beyond Tolerance Initiative</a></li>
+  				</ul>
+				</div>
+		      <p class="style6"><a href="http://www.yosemite.edu/it/" onmouseover="menuLayers.show('menu4', event)" onmouseout="menuLayers.hide()">Information Technology</a></p>
+			  <div id="menu4" class="menu">
+  				<ul>
+					<li><a href="http://www.yosemite.edu/it/">Information Technology Office</a></li>
+  					<li><a href="http://www.yosemite.edu/it/sysop.htm">Systems & Operations</a></li>
+  					<li><a href="http://www.yosemite.edu/it/networking.htm">Networking & Telecommunications</a></li>
+					<li><a href="http://www.yosemite.edu/research/">Research & Planning</a></li>
+					<li><a href="http://www.yosemite.edu/it/programming.htm">Programming</a></li>
+					<li><a href="http://www.yosemite.edu/helpdesk/">Helpdesk</a></li>
+					<li><a href="http://www.yosemite.edu/it/forms.htm">Online Forms</a></li>
+					<li><a href="http://www.yosemite.edu/helpdesk/training.htm">Training</a></li>
+  				</ul>
+				</div>
+		      <p class="style6"><a href="http://www.yosemite.edu/bond/">Measure "E" Bond</a></p>
+		      <p class="style6"><a href="https://yosemite.peopleadmin.com/">Job Announcements</a></p>
+		      <!--p class="style6"><a href="http://webmail.yosemite.edu/">Staff Email</a></p-->
+			  <p class="style6"><a href="#" onmouseover="menuLayers.show('menu5', event)" onmouseout="menuLayers.hide()">Staff Resources</a></p>
+			  <div id="menu5" class="menu2">
+  				<ul>
+					<li><a href="http://webmail.yosemite.edu">Staff Email</a></li>
+					<li><a href="http://flex.yosemite.edu">Flex</a></li>
+					<li><a href="http://directory.yosemite.edu">People Finder</a></li>
+  					<li><a href="http://staffnet.yosemite.edu">StaffNet</a></li>
+					<li><a href="http://yccdnet.yosemite.edu">YCCDNet (Internal Only)</a></li>
+  				</ul>
+				
+				</div>
+			<p class="style6"><a href="YCCD_Redistricting.pdf">Redistricting</a></p>
+	        </blockquote>
+</div>
+
+
+
+
+
+</div>
+</div>
+
+
+</body>
+</html>

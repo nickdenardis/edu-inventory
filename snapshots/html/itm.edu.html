@@ -1,0 +1,705 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>ITM Group of Institutions</title>
+
+<link href="css/style_new.css" rel="stylesheet" type="text/css" />
+
+<script src="scripts/swfobject_modified.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"> </script>
+
+<script type="text/javascript" src="js/validation.js"></script>
+
+<script>
+
+var pausecontent2=new Array()
+
+
+
+</script>
+
+
+
+
+
+
+
+<script>
+
+var pausecontent3=new Array()
+
+
+
+</script>
+
+
+
+
+
+<script type="text/javascript">
+
+/***********************************************
+
+* Pausing up-down scroller- Â© Dynamic Drive (www.dynamicdrive.com)
+
+* This notice MUST stay intact for legal use
+
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+
+***********************************************/
+
+function pausescroller(content, divId, divClass, delay)
+
+{
+
+this.content=content //message array content
+
+this.tickerid=divId //ID of ticker div to display information
+
+this.delay=delay //Delay between msg change, in miliseconds.
+
+this.mouseoverBol=0 //Boolean to indicate whether mouse is currently over scroller (and pause it if it is)
+
+this.hiddendivpointer=1 //index of message array for hidden div
+
+document.write('<div id="'+divId+'" class="'+divClass+'" style="position: relative; overflow: hidden;height:50px;"><div class="innerDiv" style="position: absolute; width: 100%" id="'+divId+'1">'+content[0]+'</div><div class="innerDiv" style="position: absolute; width: 100%; visibility: hidden" id="'+divId+'2">'+content[1]+'</div></div>')
+
+var scrollerinstance=this
+
+if (window.addEventListener) //run onload in DOM2 browsers
+
+window.addEventListener("load", function(){scrollerinstance.initialize()}, false)
+
+else if (window.attachEvent) //run onload in IE5.5+
+
+window.attachEvent("onload", function(){scrollerinstance.initialize()})
+
+else if (document.getElementById) //if legacy DOM browsers, just start scroller after 0.5 sec
+
+setTimeout(function(){scrollerinstance.initialize()}, 500)
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// initialize()- Initialize scroller method.
+
+// -Get div objects, set initial positions, start up down animation
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.initialize=function(){
+
+this.tickerdiv=document.getElementById(this.tickerid)
+
+this.visiblediv=document.getElementById(this.tickerid+"1")
+
+this.hiddendiv=document.getElementById(this.tickerid+"2")
+
+this.visibledivtop=parseInt(pausescroller.getCSSpadding(this.tickerdiv))
+
+//set width of inner DIVs to outer DIV's width minus padding (padding assumed to be top padding x 2)
+
+this.visiblediv.style.width=this.hiddendiv.style.width=this.tickerdiv.offsetWidth-(this.visibledivtop*2)+"px"
+
+this.getinline(this.visiblediv, this.hiddendiv)
+
+this.hiddendiv.style.visibility="visible"
+
+var scrollerinstance=this
+
+document.getElementById(this.tickerid).onmouseover=function(){scrollerinstance.mouseoverBol=1}
+
+document.getElementById(this.tickerid).onmouseout=function(){scrollerinstance.mouseoverBol=0}
+
+if (window.attachEvent) //Clean up loose references in IE
+
+window.attachEvent("onunload", function(){scrollerinstance.tickerdiv.onmouseover=scrollerinstance.tickerdiv.onmouseout=null})
+
+setTimeout(function(){scrollerinstance.animateup()}, this.delay)
+
+}
+
+
+
+
+
+// -------------------------------------------------------------------
+
+// animateup()- Move the two inner divs of the scroller up and in sync
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.animateup=function(){
+
+var scrollerinstance=this
+
+if (parseInt(this.hiddendiv.style.top)>(this.visibledivtop+5)){
+
+this.visiblediv.style.top=parseInt(this.visiblediv.style.top)-5+"px"
+
+this.hiddendiv.style.top=parseInt(this.hiddendiv.style.top)-5+"px"
+
+setTimeout(function(){scrollerinstance.animateup()}, 50)
+
+}
+
+else{
+
+this.getinline(this.hiddendiv, this.visiblediv)
+
+this.swapdivs()
+
+setTimeout(function(){scrollerinstance.setmessage()}, this.delay)
+
+}
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// swapdivs()- Swap between which is the visible and which is the hidden div
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.swapdivs=function(){
+
+var tempcontainer=this.visiblediv
+
+this.visiblediv=this.hiddendiv
+
+this.hiddendiv=tempcontainer
+
+}
+
+
+
+pausescroller.prototype.getinline=function(div1, div2){
+
+div1.style.top=this.visibledivtop+"px"
+
+div2.style.top=Math.max(div1.parentNode.offsetHeight, div1.offsetHeight)+"px"
+
+}
+
+
+
+// -------------------------------------------------------------------
+
+// setmessage()- Populate the hidden div with the next message before it's visible
+
+// -------------------------------------------------------------------
+
+
+
+pausescroller.prototype.setmessage=function(){
+
+var scrollerinstance=this
+
+if (this.mouseoverBol==1) //if mouse is currently over scoller, do nothing (pause it)
+
+setTimeout(function(){scrollerinstance.setmessage()}, 100)
+
+else{
+
+var i=this.hiddendivpointer
+
+var ceiling=this.content.length
+
+this.hiddendivpointer=(i+1>ceiling-1)? 0 : i+1
+
+this.hiddendiv.innerHTML=this.content[this.hiddendivpointer]
+
+this.animateup()
+
+}
+
+}
+
+
+
+pausescroller.getCSSpadding=function(tickerobj){ //get CSS padding value, if any
+
+if (tickerobj.currentStyle)
+
+return tickerobj.currentStyle["paddingTop"]
+
+else if (window.getComputedStyle) //if DOM2
+
+return window.getComputedStyle(tickerobj, "").getPropertyValue("padding-top")
+
+else
+
+return 0
+
+}
+
+</script>
+
+<!-- ====================NEWS TICKER ------------------------ -->
+
+
+
+<link href="drop/jNice.css" rel="stylesheet" type="text/css">
+
+<script type="text/javascript" src="drop/jquery-latest.pack.js"></script>
+
+<script type="text/javascript" src="drop/jquery.jNice.js"></script>
+<script type="text/javascript" src="js/thickbox.js"></script>
+<link href="css/thickbox.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <div id="header">
+
+    <div style="float:right">   
+
+	 <div class="floatR globalnav"><div class="globaltxt"><a href="index.php" ><img src="images/home.gif" alt="Home" align="bottom" class="home" style="margin-top:2px; vertical-align:bottom;" title="Home"/></a> &nbsp; 1800-209-9727 (Toll Free) &nbsp; |  &nbsp; admissions@itm.edu</div>
+	 </div>  
+
+	<div id="nav" class="clear floatR">
+
+      <ul>
+
+        <li><a href="aboutus.php" class="menu1"><img src="images/blank.gif" alt="" width="69" height="93" border="0" /></a></li>
+
+		<li><img src="images/line.gif" width="1" alt="" /></li>
+
+        <li><a href="media_center.php" class="menu2"><img src="images/blank.gif" alt="" width="90" height="93" border="0" /></a></li>
+
+        <li><img src="images/line.gif" width="1" alt="" /></li>
+
+        <li><a href="http://www.itm.edu/alumni/" class="menu3"><img src="images/blank.gif" alt="" width="79" height="93" border="0" /></a></li>
+
+        <li><img src="images/line.gif" width="1"  alt="" /></li>
+
+        <li><a href="http://www.itm.edu/recruiters/" class="menu4" style="margin:none" target="_blank"><img src="images/blank.gif" alt="" width="112" height="93" border="0" /></a></li>
+
+        <li><img src="images/line.gif" width="1"  alt="" /></li>
+
+        <li><a href="news-events.php" class="menu5" style="margin:none"><img src="images/blank.gif" alt="" width="89" height="93" border="0" /></a></li>
+
+        <li><img src="images/line.gif" width="1"  alt="" /></li>
+
+        <li><a href="contactus.php" class="menu6" style="margin:none"><img src="images/blank.gif" alt="" width="83" height="93" border="0" /></a></li>
+
+      </ul>
+
+    </div></div><a href="#"><img src="images/logo.gif" alt="" /></a></div>
+
+  <div class="clearfloat"></div>
+
+  <div class="content_home">
+
+    <div class="find_div">
+
+    <div id="breadcrumbs" class="floatL"><a href="https://drpvramana.wordpress.com/" target="_blank">Dr.P. V. Ramana, Founder & Chairperson of ITM Group of Institutions Blog</a></div>
+
+         <div class="search_box1">
+
+        <script language="javascript" type="text/javascript">
+function show_page(obj)
+{
+	if(obj.options[obj.selectedIndex].value != '')
+		window.location = obj.options[obj.selectedIndex].value;
+}
+</script>
+
+<select onchange="javscript: show_page(this);" class="mt" name="select">
+  <option value="">- - - - - - - - - Find a Program - - - - - - - </option>
+  <option value="" style="color:#660000">- - - - - - - - - POST GRADUATE PROGRAMS - - - - - -</option>
+  <optgroup label="ITM Business School" style="font-style:normal;">
+  <option value="http://www.itm.edu/pgdm/pgdm.php">PGDM iConnect</option>
+  </optgroup>
+  <optgroup label="ITM Global Leadership Center-Navi Mumbai" style="font-style:normal;"><br />
+  <option value="http://www.itm.edu/pgdm/rmm.php">PGDM iConnect Retail Management &amp; Marketing</option>
+  <option value="http://www.itm.edu/pgdm/hrm.php">PGDM iConnect Human Resources</option>
+  <option value="http://www.itm.edu/pgdm/ib_navi-mumbai.php">PGDM iConnect International Business</option><br />
+  <option value="http://www.itm.edu/pgdm/pgprm.php">Hypercity- ITM Post Graduate Program in Retail</option>
+  </optgroup>
+  <optgroup label="ITM Global Leadership Center-Chennai" style="font-style:normal;">
+  <option value="http://www.itm.edu/pgdm/ib_chennai.php">PGDM iConnect International Business</option>
+  </optgroup>
+  <optgroup label="ITM Institute of Financial Markets" style="font-style:normal;">
+  <option value="http://www.itm.edu/pgdm/ifm.php">PGDM iConnect Financial Markets</option>
+  </optgroup>
+  <optgroup label="11month PGMP Program  " style="font-style:normal;">
+  <option value="http://www.asiagsb.ac.in/">Asia Graduate School of Business</option>
+  </optgroup>
+  <optgroup label="Executive MBA" style="font-style:normal;">
+  <option value="http://www.itm.edu/eec/emba.php">Executive Masters Program in Business Administration</option>
+  <option value="http://www.itm.edu/eec/smba.php">Masters Program in Business Administration</option>
+  <option value="http://www.itm.edu/eec/emfm.php">Executive Masters Program in Financial Markets</option>
+  <option value="http://www.itm.edu/eec/emba-hc.php">Executive Masters Program in Healthcare Management</option>
+   </optgroup><br /><br /><br />
+   <option value="" style="color:#660000">- - - - - - - - UNDER GRADUATE PROGRAMS - - - - -</option>
+  
+  <optgroup label="ITM Institute of Hotel Management" style="font-style:normal;">
+  <option value="http://www.itm.edu/ihm/ihm_mum_programs.php">B.Sc. Hospitality Studies</option>
+  <option value="http://www.itm.edu/ihm/ihm_mum_programs.php">B.A. International Hospitality Management</option>
+  <option value="http://www.itm.edu/ihm/ihm_mum_programs.php">B.A in Hospitality & Tourism Management </option>
+  <option value="http://www.itm.edu/ihm/ihm_ban_programs.php">B.Sc Catering Science and Hotel Management</option>
+  <option value="http://www.itm.edu/ihm/ihm_mum_programs.php">Advanced Diploma in  Patisserie & Confectionery Program</option>
+   </optgroup>
+  <optgroup label="ITM School of Culinary  Arts" style="font-style:normal;">
+  <option value="http://www.itm.edu/ihm/ihm_cul_programs.php#bca">Baccalaureate in Culinary Arts</option>
+  <option value="http://www.itm.edu/ihm/ihm_cul_programs.php#gdca">Grand Diploma in Culinary Arts</option>
+  <option value="http://www.itm.edu/ihm/ihm_cul_programs.php#ccp">Certificate Course in Patisserie</option>
+  <!--</optgroup>
+  <optgroup label="Ph.D Programs" style="font-style:normal;">
+  <option value="http://www.itm.edu/phd/bit/">BIT</option>
+  <option value="http://www.itm.edu/phd/sndt/index.php">SNDT</option> -->
+  </optgroup>
+  <optgroup label="ITM Institute of Fashion Design & Technology" style="font-style:normal;">
+  <option value="http://www.itm.edu/ifdt/programs.php">Advanced Diploma in Fashion Design</option>
+  <option value="http://www.itm.edu/ifdt/programs.php">Advanced Diploma in Fashion Marketing</option>
+  <option value="http://www.itm.edu/ifdt/programs.php">B.A (HONS) in Fashion Design</option>
+  <option value="http://www.itm.edu/ifdt/programs.php">B.A (HONS) in Fashion Business</option>
+  <option value="http://www.itm.edu/ifdt/programs.php">Fashion Design</option>
+  <option value="http://www.itm.edu/ifdt/programs.php">Interior Design</option>
+  </optgroup>
+  <optgroup label="Engineering" style="font-style:normal;">
+  <option value="http://www.itm.edu/engg">Engineering</option>
+  </optgroup>
+  <optgroup label="Health Sciences" style="font-style:normal;">
+  <option value="http://www.itm.edu/ihs">Health Sciences</option>
+  </optgroup>  
+  
+</select>
+    
+
+      </div>
+
+    </div>
+
+    <div class="floatL">
+
+      <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1002" height="281">
+
+        <param name="movie" value="swf/header.swf" />
+
+        <param name="quality" value="high" />
+
+        <param name="wmode" value="opaque" />
+
+        <param name="swfversion" value="6.0.65.0" />
+
+        <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+
+        <param name="expressinstall" value="scripts/expressInstall.swf" />
+
+        <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+
+        <!--[if !IE]>-->
+
+        <object type="application/x-shockwave-flash" data="swf/header.swf" width="1002" height="281">
+
+          <!--<![endif]-->
+
+          <param name="quality" value="high" />
+
+          <param name="wmode" value="opaque" />
+
+          <param name="swfversion" value="6.0.65.0" />
+
+          <param name="expressinstall" value="scripts/expressInstall.swf" />
+
+          <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+
+          <div>
+			<img src="images/swfalt.jpg" width="1002" height="281" />
+           <!-- <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>-->
+
+          </div>
+
+          <!--[if !IE]>-->
+
+        </object>
+
+        <!--<![endif]-->
+
+      </object>
+
+    </div>
+
+    <div id="right_div">
+
+      <div class="title"> <img height="34" width="81" alt="" src="images/ti_itm_programs.gif" /></div>
+
+      <div class="clear"></div>
+
+      <div class="programme"><a href="pgdm/pgdm.php?for=home"><img src="images/mba_icon.jpg" alt="PGDM <em>iConnect</em>" border="0" /></a></div>
+
+      <div class="programme"><a href="eec/index.php"><img src="images/executive_icon.jpg" alt="Executive MBA" border="0" /></a></div>
+
+      <div class="programme"><a href="engg/index.php"><img src="images/engineering_icon.jpg" alt="Engineering" border="0" /></a></div>
+
+      <div class="programme"><a href="ihs/index.php" target="_self"><img src="images/health_science_icon.jpg" alt="Health Science" border="0" /></a></div>
+
+      <div class="programme"><a href="ihm/index.php" target="_self"><img src="images/hospitality_icon.jpg" alt="Hospitality Management" border="0" /></a></div>
+
+      <div class="programme"><a href="ifdt/index.php"><img src="images/fashion_icon.jpg" alt="Fashion Designing" border="0" /></a></div>
+
+      <div class="clear">&nbsp;</div>
+<div>
+<a href="http://www.itmuniversity.org/" target="_blank"><img src="images/home_live_blub.jpg" width="246" height="144" alt="" border="0" style="float:left;" />
+  <img src="images/home_toll_blub.jpg" alt=""  hspace="10px" style="float:left;" border="0" /><a href="student_life.php"><img src="images/home_email_blub.jpg" alt="" border="0" style="float:left;" /></a>  </div>
+  </div>
+
+    <div id="left_div"><div class="contact_div"><a href="applynowbox.php?height=250&width=700" class="thickbox"><img src="images/ti_apply.gif" width="249" alt="Apply Now" title="Apply Now" height="71" border="0" /></a></div>
+<!-- https://www.nopaperforms.com/admission/itm/login_itm.php -->
+      <div class="contact_div"><!--p>Call (TOLL FREE)  1<strong> 800 234 8945</strong><br />
+
+      for admission related Inquiries.<br />
+
+      <strong>( 9.00 am to 4.00pm)</strong></p>
+
+    <div> <a href="#" target="_blank"></a>
+
+      <p><br />
+
+        <strong class="red_txt">Email ID:<br />
+
+      <br /--> 
+
+        <div class="contact_div" id="enquirenow_div"><img src="images/ti_enquire_now.gif" alt="" width="249" height="71" border="0" />
+
+    <form method="post" name="frmenquirenow">
+		<input type="hidden" name="referrer" value="" />
+		<input type="hidden" name="creative" value="" />
+		<input type="hidden" name="section" value="" />
+		<input type="hidden" name="size" value="" />
+		<input type="hidden" name="campaign_name" value="itmWebsiteEnquire" />
+		<input type="hidden" name="pagename" value="itmWebsiteEnquire" />	
+
+	<table width="100%" border="0" align="center" cellpadding="2" cellspacing="2" id="enquirenow">
+
+      <tr>
+
+        <td class="form_txt">* Name:</td>
+
+        <td><input type="text" name="name" id="name" style="width:135px" /></td>
+
+      </tr>
+
+      <tr>
+
+        <td class="form_txt">* Email:</td>
+
+        <td><input type="text" name="email" id="email" style="width:135px" /></td>
+
+      </tr>
+
+      <tr>
+
+        <td class="form_txt">* Mobile:</td>
+
+        <td><input type="text" name="mobile" id="mobile" style="width:135px" maxlength="10" /></td>
+
+      </tr>
+
+      <tr>
+
+        <td class="form_txt">* Qualification:</td>
+
+          <td><select  style="width: 135px;" id="qualification" name="qualification">
+
+              <option value="">Select</option>
+
+              <option value="HSC">HSC</option>
+
+              <option value="B.A">B.A</option>
+
+              <option value="B.Arch">B.Arch</option>
+
+              <option value="BCA">BCA</option>
+
+              <option value="B.B.A">B.B.A</option>
+
+              <option value="B.Com">B.Com</option>
+
+              <option value="B.Ed">B.Ed</option>
+
+              <option value="BDS">BDS</option>
+
+              <option value="BHM">BHM</option>
+
+              <option value="B.Pharma">B.Pharma</option>
+
+              <option value="B.Sc">B.Sc</option>
+
+              <option value="B.Tech/B.E.">B.Tech/B.E.</option>
+
+              <option value="LLB">LLB</option>
+
+              <option value="MBBS">MBBS</option>
+
+              <option value="Diploma">Diploma</option>
+
+              <option value="BVSC">BVSC</option>
+
+              <option value="Other">Other</option>
+
+            </select></td>
+
+		</tr>
+
+      <tr>
+
+        <td class="form_txt">* City:</td>
+
+        <td id="cities_div1">
+
+		<select name="city" id="city" style="width:135px" >
+
+			<option value="">Loading City List</option>
+
+        </select>
+
+		</td>
+
+      </tr>
+
+      <!--<tr id="formdisplay">
+
+        <td class="form_txt"> Date:</td>
+
+        <td align="left">
+
+		<input type="text" class="w18em dateformat-Y-ds-m-ds-d" id="dp-s2" name="date" id="date" value="" readonly="" style="width:110px;" />
+
+		</td>
+
+      </tr> -->
+
+	  <tr>
+
+        <td class="form_txt">Have a Query?</td>
+
+        <td><textarea name="query" id="query" rows="1" style="width:135px"></textarea></td>
+
+      </tr>
+		<tr>
+          <td colspan="2" class="form_txt"><input type="checkbox" name="visitcampus" id="visitcampus" />&nbsp;Visit Campus</td>
+        </tr>
+      <tr>
+
+        <td>&nbsp;</td>
+
+        <td><img onclick="validate_formenquire(document.frmenquirenow);" src="images/submit_btn.gif" alt="" border="0" style="cursor:pointer;" /></td>
+
+      </tr>
+
+      <tr>
+
+        <td>&nbsp;</td>
+
+        <td>&nbsp;</td>
+
+      </tr>
+
+    </table>
+
+	</form>
+
+      </div>
+
+      <!--div id="join_div"><img src="images/ti_join.jpg" alt="" width="61" height="10" />&nbsp;<a href="#"><img src="images/f_icon.jpg" alt="" border="0" class="icon" /></a> <a href="#"><img src="images/t_icon.jpg" alt="" border="0" class="icon"/></a> <a href="#"><img src="images/in_icon.jpg" alt="" border="0" class="icon"/></a> <a href="#"><img src="images/r_icon.jpg" alt="" width="24" height="25" border="0" class="icon"/></a> <br />
+
+        <br />
+
+   
+
+<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=itmpgdm"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=itmpgdm"></script>
+
+
+
+</div-->
+
+    </div>
+
+  </div>
+
+</div>
+
+</div><div class="clear"></div><br /><br /><br /><br />
+<div style="width:100%; bottom:0px; padding:0px; position:fixed;" align="center">
+	<table width="98%" border="0" cellspacing="0" cellpadding="0" align="center">
+        <tr> 
+          <td width="16"><img src="http://www.itm.edu/images/footer/left_bg.PNG" width="16" height="38"></td>
+          <td style="background-image:url(http://www.itm.edu/images/footer/middle_bg.PNG); background-repeat:repeat-x; padding-top: 5px"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: arial; font-size: 10px; color: #333">
+              <tr>
+                <td align="left">
+                <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                <td style="border-right:1px solid #666; padding:0 7px;" height="26">
+                <a href="/contactus.php" style="color: #333; text-decoration: none">Contact Us</a>
+                </td>
+                <td style="border-right:1px solid #666; padding:0 7px;">
+                <a href="http://www.facebook.com/pages/ITM-Counselor/122532771126349?ref=sgm" target="_blank"><img src="http://www.itm.edu/images/footer/top_fb.gif" border="0" align="absmiddle"></a>
+                </td><td style="border-right:1px solid #666; padding:0 7px;">
+                <a href="http://twitter.com/itmcounselor" target="_blank"><img src="http://www.itm.edu/images/footer/top_twitter.gif" border="0" align="absmiddle"></a>
+                </td>
+                <td style="border-right:1px solid #666; padding:0 7px;"><a href="http://picasaweb.google.com/ITMGroupPics" target="_blank"><img src="http://www.itm.edu/images/footer/picasa.jpg" border="0" align="absmiddle"></a></td>
+                <td style="border-right:1px solid #666; padding:0 7px;">
+                <a href="http://www.pagalguy.com/forum/cat-and-related-discussion/73438-itm-pgdm-2012-official-counseling.html" target="_blank"><img src="http://www.itm.edu/images/footer/pagal.gif" border="0" align="absmiddle"></a>
+                </td>
+                <td style="border-right:1px solid #666; padding:0 7px;">
+                <a href="http://www.youtube.com/user/ITMGroupVideos" target="_blank"><img src="http://www.itm.edu/images/footer/youtube.jpg" width="35" height="15" border="0" align="absmiddle"></a>
+                </td></tr></table>
+                </td>
+                <td width="200" align="right">&copy; 2010 ITM. All rights reserved.</td>
+              </tr>
+            </table></td>
+          <td width="16"><img src="http://www.itm.edu/images/footer/right_bg.PNG" width="16" height="38"></td>
+        </tr>
+      </table>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18757693-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript">
+getcities(1);
+//swfobject.registerObject("FlashID");
+</script>
+
+</body>
+
+</html>
+

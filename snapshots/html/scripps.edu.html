@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<link href="http://www.scripps.edu/files/css/bridge.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<link href="http://www.scripps.edu/files/css/print.css" media="print" rel="stylesheet" type="text/css" />
+<title>The Scripps Research Institute</title>
+ <!--Workaround for IE 7 or lower-->
+ <!--[if lte IE 7]>
+        <link href="/files/css/ie.css" rel="stylesheet"type="text/css" /> 
+        <![endif]-->
+ <script src="http://www.scripps.edu/files/scripts/sfhover.js" type="text/javascript" ></script>
+<script src="http://www.scripps.edu/files/scripts/jquery.js" type="text/javascript" ></script>
+<script src="http://www.scripps.edu/files/scripts/search.js" type="text/javascript" ></script>
+<script type="text/javascript">
+// <![CDATA[
+/*
+*
+* Dont edit these vars
+*
+*/
+//whether or not the animation has finished
+var complete = Boolean(true);
+//the current count in the slide sequence, set to 1 for the infinite looping functionality
+var count = 1;
+//decides whether or not to kill the timer (set later)
+var killTimer = Boolean(false);
+//the array that will be populated with the title and link info
+var titleArray = [];
+//the timer instance
+var timer;
+//the total number of images loaded via the json object
+var totalCount = 0;
+//the width of the image added to the slding div, reset to the container divs css width. it is important that all of the images are this exact width in pixels
+var width = 355;
+function getJSON()
+{
+    addSliderImages({ // ]]>
+
+
+			"object1" : {
+			"title" : "Scientists show how a gene duplication helped our brains become ‘human’",
+			"image" : "/files/slider_images/20120507polleux.jpg",
+			"url" : "/newsandviews/e_20120507/polleux.html",
+						"priority" : true
+	
+		}
+						,
+		"object2" : {
+			"title" : "Team finds anticonvulsant drug helps marijuana smokers kick the habit",
+			"image" : "/files/slider_images/20120507mason.jpg",
+			"url" : "/newsandviews/e_20120507/mason.html",
+						"priority" : false
+	
+		}
+						,
+		"object3" : {
+			"title" : "Study reveals dynamic changes in gene regulation in human stem cells",
+			"image" : "/files/slider_images/20120507stemcell.jpg",
+			"url" : "/newsandviews/e_20120507/stemcells.html",
+						"priority" : false
+	
+		}
+						,
+		"object4" : {
+			"title" : "Researchers find structure of a key ‘gene silencer’ protein",
+			"image" : "/files/slider_images/20120430mcrae.jpg",
+			"url" : "/newsandviews/e_20120430/mcrae.html",
+						"priority" : false
+	
+		}
+						,
+		"object5" : {
+			"title" : "Scientists solve a mystery of bacterial growth and resistance ",
+			"image" : "/files/slider_images/20120430marletta.jpg",
+			"url" : "/newsandviews/e_20120430/marletta.html",
+						"priority" : false
+	
+		}
+						,
+		"object6" : {
+			"title" : "Lab opens new front in war on common retinal diseases ",
+			"image" : "/files/slider_images/20120430friedlander.jpg",
+			"url" : "/newsandviews/e_20120430/friedlander.html",
+						"priority" : false
+	
+		}
+						,
+		"object7" : {
+			"title" : "Scientists develop antidote for cocaine overdose",
+			"image" : "/files/slider_images/20120423janda.jpg",
+			"url" : "/newsandviews/e_20120423/janda.html",
+						"priority" : false
+	
+		}
+						,
+		"object8" : {
+			"title" : "Focusing on the long term: Dale Boger explores chemistry with medical potential",
+			"image" : "/files/slider_images/20120423boger.jpg",
+			"url" : "/newsandviews/e_20120423/boger.html",
+						"priority" : false
+	
+		}
+						,
+		"object9" : {
+			"title" : "Team develops simple test to predict heart attacks",
+			"image" : "/files/slider_images/20120326topol.jpg",
+			"url" : "/newsandviews/e_20120326/topol.html",
+						"priority" : false
+	
+		}
+			 // <![CDATA[
+});
+}
+
+function addSliderImages(json)
+{
+    //used to stored the randomly sorted json objects
+    var randomArray = [];
+    //used to store the json object without priority set to true
+    var leftOver = [];
+    width = $('#slideContainer').width();
+    var myJSONObject = json;
+    //places all object from loaded json into an array (for sortability)
+    for (var i in myJSONObject)
+    {
+        randomArray.push(myJSONObject[i]);
+    }
+    //randomizes the array
+    randomArray.sort(function() {return 0.5 - Math.random()});
+    totalCount = randomArray.length;
+    //searches the array for objects with priority set to true, and adds them to the sliding div first. then adds the remaining to the leftover array
+    for (var j = 0; j < totalCount; j++)
+    {
+        //only allows 1 (the first one found) object with priority = true
+        if ((randomArray[j].priority == true) && !killTimer)
+        {
+            $('#slider').append(createSliderDiv(randomArray[j].image, randomArray[j].url));
+            //killTimer = true;
+            titleArray.push({"title":randomArray[j].title, "url":randomArray[j].url});
+        }
+        else {
+            leftOver.push(randomArray[j]);
+        }
+    }
+    //places the remaining images into the sliding div after the objects with priority set to true
+    for (var k in leftOver)
+    {
+        $('#slider').append(createSliderDiv(leftOver[k].image, leftOver[k].url));
+        titleArray.push({"title":leftOver[k].title, "url":leftOver[k].url});
+    }
+    //adds the first image again to the end of the div for infinite looping
+    $('#slider').append($('#slider').children().slice(0,1).clone());
+    titleArray.push($(titleArray)[0]);
+    //adds the last of the leftover to the front of the div for infinite looping
+    $('#slider').prepend(createSliderDiv(leftOver[leftOver.length-1].image));
+    titleArray.unshift({"title":leftOver[leftOver.length-1].title, "url":leftOver[leftOver.length-1].url});
+    //empties the subTitle div, and adds the matching link for the first visible image in the div
+    $('#subTitle').empty();
+    $('#subTitle').append(createSubTitle(titleArray[1].title, titleArray[1].url));
+    //adjusts the css width of the sliding div to the number of images multiplied by the set width of the images
+    $('#slider').css("width", (randomArray.length+2) * width);
+    $('#slider').css("left", -width);
+    
+    /*******************************************
+     *
+     * Comment/un-Comment to turn slider on/off
+     *
+     *******************************************/    
+    startTimer();
+}
+
+function createSliderDiv(s,u)
+{
+    return "<div class='slideImageContainer'><a href='" + u + "'><img src='" + s + "'/></a></div>";
+}
+
+function createSubTitle(t,u)
+{
+    return "<a href='" + u + "'>" + t + "</a>";
+}
+
+function startTimer()
+{
+    if (!killTimer)
+    {
+    //The second argument here is time in milliseconds for slide. Originally 6500.
+        timer = setTimeout('slide()', 10000);
+    }
+}
+
+function slide(t)
+{
+    if (complete)
+    {
+        complete = false;
+        //$('#prevSlide').css("visibility", "visible");
+        //$('#nextSlide').css("visibility", "visible");
+        switch (t)
+        {
+            case "prevSlide":
+                count--;
+                killTimer = true;
+                clearTimeout(timer);
+            break;
+            
+            case "nextSlide":
+                count++;
+                killTimer = true;
+                clearTimeout(timer);
+            break;
+            
+            default:
+                count++;
+            break;
+        }
+        if (count <= 0) 
+        {
+            count = 0;
+            //$(t).css("visibility", "hidden");
+        }
+        else if (count >= totalCount+1)
+        {
+            count = totalCount+1;
+            //$(t).css("visibility", "hidden");
+        }
+        $('#slider').animate({left:-width*count}, 500, checkCount);
+        //makes the subTitle div invisible, empties it, adds the matching link, and fades it back in
+        $('#subTitle').css("display", "none");
+        $('#subTitle').empty();
+        $('#subTitle').append(createSubTitle(titleArray[count].title, titleArray[count].url));
+        $('#subTitle').fadeIn(700);
+    }
+}
+
+function checkCount()
+{
+    //resets the sliding div for infinite looping
+    complete = true;
+    if (Math.abs($('#slider').position().left) < width)
+    {
+        $('#slider').css("left", -width*(totalCount));
+        count = totalCount;
+    }
+    else if (Math.abs($('#slider').position().left) > width * (totalCount))
+    {
+        $('#slider').css("left", -width);
+        count = 1;
+    }
+    if (!killTimer) startTimer();
+}
+
+//executes the getJSON function when the page is ready
+$(window).load(getJSON);
+// ]]>
+</script>
+<meta content="Scripps Research Home" name="description" />  <meta content="Sun, 06 May 2012 000:33:58 -0380" name="date" /> <meta content="Scripps Research Home" name="author" /> <script type="text/javascript">
+
+ var _gaq = _gaq || [];
+ _gaq.push(['_setAccount', 'UA-5551732-3']);
+ _gaq.push(['_trackPageview']);
+
+ (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ })();
+
+</script>
+<script language="JavaScript" type="text/javascript">
+
+<!-- JavaScript by web-architect copyright © 2000, web-architect.
+if(document.images) {
+
+doorways = new Array(); 
+
+doorways[1] = new Image();
+doorways[2] = new Image();
+doorways[1].src = "/files/images/doorways/cancer-research.png";
+doorways[2].src = "/files/images/doorways/cancer-research-alt.jpg"; 
+
+doorways[3] = new Image();
+doorways[4] = new Image();
+doorways[3].src = "/files/images/doorways/alzheimers-research.png";
+doorways[4].src = "/files/images/doorways/alzheimers-research-alt.jpg"; 
+
+doorways[5] = new Image();
+doorways[6] = new Image();
+doorways[5].src = "/files/images/doorways/diabetes-research.png";
+doorways[6].src = "/files/images/doorways/diabetes-research-alt.jpg";
+
+doorways[7] = new Image();
+doorways[8] = new Image();
+doorways[7].src = "/files/images/doorways/blindness.png";
+doorways[8].src =  "/files/images/doorways/blindness.jpg";
+
+doorways[9] = new Image();
+doorways[10] = new Image();
+doorways[9].src = "/files/images/doorways/parkinsons.png";
+doorways[10].src = "/files/images/doorways/parkinsons.jpg";
+
+doorways[11] = new Image();
+doorways[12] = new Image();
+doorways[11].src = "/files/images/doorways/hiv-aids.png";
+doorways[12].src = "/files/images/doorways/hiv-aids.jpg"; 
+
+doorways[13] = new Image();
+doorways[14] = new Image();
+doorways[13].src = "/files/images/doorways/basic-biomedical-science.png";
+doorways[14].src = "/files/images/doorways/basic-biomedical-science-alt.jpg"; 
+
+doorways[15] = new Image();
+doorways[16] = new Image();
+doorways[15].src = "/files/images/doorways/chm_studies.png";
+doorways[16].src =  "/files/images/doorways/chm_studies.jpg";
+
+}
+
+function imageSwap(from,to) {
+if(document.images) {
+document.images[from].src = doorways[to].src;
+}
+}
+//-->
+    </script>
+<style type="text/css">
+
+/* =10 Home Page
+–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+h1 {text-align: center;
+color: #FFB600;
+font-size: 16px;
+}
+h2{
+text-align: left;
+color: #FFB600;
+font-size: 15px;
+margin: 10px 10px 10px 0px;
+margin-bottom: 15px;
+float: left;
+}
+
+#home{
+	clear: both;
+	height: 825px;
+	background: url(http://www.scripps.edu/home_page.jpg);
+}
+
+
+#home_left_col{
+	float: left;
+	display: inline;
+	width: 327px;
+	padding: 33px 0 0 6px;
+}
+
+
+#home_mid_col{
+	float: left;
+display: inline;
+width: 400px;
+min-height: 200px;
+margin-top: 130px;
+}
+
+
+#home_mid_col h1{
+	font-size: 20px;
+}
+
+#mid_copy, #mid_copy_fl, #mid_copy_ca{
+	padding: 30px 0px 0px 32px;
+}
+
+#mid_copy h1, #mid_copy p, #mid_copy_fl p{
+	margin: 0;
+text-align: left;
+float:left;
+
+}
+
+img .logo{
+	width:30px;
+	float:left;
+	position:relative;
+}
+
+
+#mid_copy p{
+	
+color: white;
+padding: 0px;
+margin: 10px 0px 20px 0px;
+font-size: 12px;
+line-height: 17px;
+float: left;
+width: 56%;
+	
+}
+
+#mid_copy_fl p{
+	width:315px;
+	position:relative;
+	color: white;
+	/*padding-top: 1.4em;*/
+	font-size: 1.3em;
+	line-height: 1.3em;
+	float:right;
+	
+}
+
+#mid_copy_ca p{
+	width:315px;
+	position:relative;
+	color: white;
+	/*padding-top: 1.4em;*/
+	font-size: 1.3em;
+	line-height: 1.3em;
+	float:right;
+	
+}
+
+
+
+#home_right_col{
+	float: left;
+	display: inline;
+	width: 218px;
+	padding: 33px 0 0 0;
+	margin-left: 35px;
+}
+
+#home_right_col_fl{
+	float: left;
+	display: inline;
+	width: 218px;
+	padding: 0px;
+}
+
+#home_right_col_ca{
+	float: left;
+	display: inline;
+	width: 218px;
+	padding: 0px;
+}
+
+</style>  
+
+</head>
+<body>
+
+<div id="wrapper">
+<div id="logo_container_sub">
+<div id="logo_sub"><a accesskey="s" href="index.html" title="The Scripps Research Institute"><img alt="TSRI Logo" src="http://www.scripps.edu/files/images/logo120.png" /></a></div>
+<div id="banner_picture_sub"><img alt="TSRI Home Banner" height="120" src="files/images/banner_home.jpg" width="1021" /></div>
+<div id="banner">
+<div id="site_map"><script>
+
+/*
+Clear default form value script- by JavaScriptKit.com
+Featured on JavaScript Kit (http://javascriptkit.com)
+Visit javascriptkit.com for 400+ free scripts!
+*/
+
+function clearText(thefield){
+if (thefield.defaultValue==thefield.value)
+thefield.value = ""
+} 
+</script>
+<form action="http://www.googlesyndicatedsearch.com/u/scripps" method="GET">
+<input maxlength="256" name="q" onfocus="clearText(this)" size="24" type="text" value="Site Search" />
+<input name="btnG" type="submit" value="Go" />
+</form></div>
+
+<div id="quicklinks">
+  <a href="/directory/">Directory</a>
+  |
+  <a href="/contact">Contact</a>
+  |
+  <a href="http://hr.scripps.edu">Careers</a>
+  |
+  <a href="https://vpn.scripps.edu/lite">Intranet</a>  |
+  <a href="/">Home</a>
+</div>
+
+ </div>
+</div>
+<div id="nav_container_home"><ul id="nav">
+<li><a href="about/index.html">About</a> 
+<ul>
+<li><a href="http://www.scripps.edu/about/facts.html">Facts-at-a-Glance</a></li>
+<li><a href="http://www.scripps.edu/about/leadership/index.html">Leadership</a></li>
+<li><a href="http://www.scripps.edu/about/achievements.html">Scientific Achievements</a></li>
+<li><a href="about/history/index.html">History</a></li>
+<li><a href="http://www.scripps.edu/about/maps_directions.html">Maps &amp; Directions</a></li>
+</ul>
+</li>
+<li><a href="http://www.scripps.edu/research/index.html">Research &amp; Faculty</a> 
+<ul>
+<li><a href="http://www.scripps.edu/research/faculty/index.php">Faculty</a></li>
+<li><a href="http://www.scripps.edu/research/departments/index.html">Departments</a></li>
+<li><a href="http://www.scripps.edu/research/centers-and-institutes.html">Centers &amp; Institutes</a></li>
+<li><a href="http://www.scripps.edu/research/consortia.html">Consortia</a></li>
+<li><a href="http://www.scripps.edu/research/areas/index.php">Research Areas</a></li>
+<li><a href="http://www.scripps.edu/research/resources/index.html">Technology Cores &amp; Shared Services</a></li>
+<li><a href="http://www.scripps.edu/research/technology/index.html">Technology Development</a> </li>
+<li><a href="http://www.scripps.edu/research/affinity.html">Affinity Groups</a></li>
+<li><a href="http://www.scripps.edu/research/postdoc-resources.html">Postdoctoral Resources</a></li>
+</ul>
+</li>
+<li><a href="http://education.scripps.edu">Education&#160;</a>
+<ul>
+<li><a href="http://education.scripps.edu">PhD Program</a></li>
+<li><a href="http://www.scripps.edu/resources/postdoctoral/">Career and Postdoctoral Services </a></li>
+<li><a href="http://education.scripps.edu/outreach_engagement/index.php">Community Outreach</a></li>
+<li><a href="http://education.scripps.edu/outreach_engagement/ca_surf_overview.php">SURF Program </a></li>
+</ul>
+</li>
+<li><a href="#">Campuses</a> 
+<ul>
+<li><a href="http://www.scripps.edu/california/index.html">La Jolla, California</a></li>
+<li><a href="http://www.scripps.edu/florida/index.html" title="Link to Scripps Florida home">Jupiter, Florida</a></li>
+</ul>
+</li>
+<li><a href="http://www.scripps.edu/news/index.html">News</a> 
+<ul>
+<li><a href="http://www.scripps.edu/news/inthenews.html">In the News</a></li>
+<li><a href="http://www.scripps.edu/news/newsreleases.html">News Releases</a></li>
+<li><a href="http://www.scripps.edu/newsandviews/index.php"><i>News&amp;Views</i> Weekly</a></li>
+<li><a href="http://www.scripps.edu/news/pressroom.html">Press Room</a></li>
+<li><a href="http://www.scripps.edu/news/subscribe.html">Subscribe</a></li>
+</ul>
+</li>
+<li><a href="http://www.scripps.edu/events/index.html">Events</a> 
+<ul>
+<li><a href="http://www.scripps.edu/california/events/index.html">La Jolla, CA Events</a></li>
+<li><a href="http://www.scripps.edu/florida/news/publicevents.html">Jupiter, FL Events</a></li>
+</ul>
+</li>
+<li><a href="http://www.scripps.edu/philanthropy/index.html">Support Us</a> 
+<ul>
+<li><a href="http://www.scripps.edu/philanthropy/donate-now/">Donate Now</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/subscribe/index.html">Subscribe to E-News</a></li>
+<li><a href="http://www.scripps.edu/tribute/home/">Memorial &amp; Tribute Giving</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/giftofstock.html">Gift of Stock</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/major-giving.html">Major Giving</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/planned-giving.html">Planned Giving</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/action.html">Scripps in Action</a> </li>
+<li><a href="http://www.scripps.edu/philanthropy/accountability.html">Accountability</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/events.html">Events</a></li>
+<li><a href="http://www.scripps.edu/philanthropy/philanthropy-staff.html">Contact Us</a></li>
+</ul>
+</li>
+</ul></div>
+<div id="home">
+<div id="home_left_col">
+<div class="home-box" ></div>
+<!-- Cancer Doorway  -->
+<div class="home-box clearfull"><a href="discover/cancer.html" onclick="imageSwap('doorway1',1)" onmouseout="imageSwap('doorway1',1)" onmouseover="imageSwap('doorway1',2)" title="Discover Cancer Research at Scripps"><img alt="Cancer Research" height="107" name="doorway1" src="files/images/doorways/cancer-research.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<!-- Neurological Doorway  -->
+<div class="home-box full"><a href="discover/alzheimers.html" onclick="imageSwap('doorway2',3)" onmouseout="imageSwap('doorway2',3)" onmouseover="imageSwap('doorway2',4)" title="Discover Alzheimer's Research at Scripps"><img alt="Alzheimers Research" height="107" name="doorway2" src="files/images/doorways/alzheimers-research.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<!-- Diabetes Doorway  -->
+<div class="home-box full"><a href="discover/diabetes.html" onclick="imageSwap('doorway3',5)" onmouseout="imageSwap('doorway3',5)" onmouseover="imageSwap('doorway3',6)" title="Discover Diabetes Research at Scripps"><img alt="Diabetes Research at Scripps" height="107" name="doorway3" src="files/images/doorways/diabetes-research.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<!-- Infectious Disease Doorway  -->
+<div class="home-box clearfull"><a href="discover/hiv-aids.html" onclick="imageSwap('doorway4',7)" onmouseout="imageSwap('doorway4',7)" onmouseover="imageSwap('doorway4',8)" title="Discover HIV-AIDS Research at Scripps"><img alt="HIV/AIDS Research" height="107" name="doorway4" src="files/images/doorways/hiv-aids.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<div class="home-box" ></div>
+<div class="home-box" ></div>
+<!-- Heart Disease Doorway  -->
+<div class="home-box full"><a href="discover/parkinsons.html" onclick="imageSwap('doorway5',9)" onmouseout="imageSwap('doorway5',9)" onmouseover="imageSwap('doorway5',10)" title="Discover Parkinson's Research at Scripps"><img alt="Parkinsons" height="107" name="doorway5" src="files/images/doorways/parkinsons.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<!-- Addiction Doorway  -->
+<div class="home-box full"><a href="discover/blindness.html" onclick="imageSwap('doorway6',11)" onmouseout="imageSwap('doorway6',11)" onmouseover="imageSwap('doorway6',12)" title="Discover Blindness Research at Scripps"><img alt="Blindness Research" height="107" name="doorway6" src="files/images/doorways/blindness.png" width="107" /></a></div>
+<div class="home-box" ></div>
+</div>
+<div id="home_mid_col">
+<div id="mid_copy" ></div>
+<div id="slideSection">
+<div id="slideFeature">
+<div id="sliderBorder">
+<div id="slideContainer">
+<div id="slider" ></div>
+</div>
+</div>
+</div>
+<div id="controls" style="float: left; width: 100%; height: 50px;">
+<!--div class="arrow" id="prevSlide" onclick="slide(this.id);" style="position:absolute; top:565px;margin-left:17px;"><img alt="&lt;" src="/files/images/arrow-left.png" /></div-->
+<div id="subTitle">The Scripps Research Institute</div>
+
+<!-- Browser CSS detection Hell !-->
+<style type="text/css"> .arrow2{position: absolute; left: 872px; top: 565px; } </style>
+  
+<!--[if IE]>
+    <style type="text/css">
+     .arrow2{position: absolute; left: 722px; top: 565px;}
+</style> 
+<![endif]-->
+<!--div class="arrow2" id="nextSlide" onclick="slide(this.id);" style=""><img alt="&gt;" src="/files/images/arrow-right.png" /></div-->
+
+</div>
+</div>
+</div>
+<div id="home_right_col">
+<div class="home-box" ></div>
+<div class="home-box" ></div>
+<!-- Basic BioMed Doorway  -->
+<div class="home-box full"><a href="discover/bio_studies.html" onclick="imageSwap('doorway7',13)" onmouseout="imageSwap('doorway7',13)" onmouseover="imageSwap('doorway7',14)" title="Discover Basic Biomedical Research at Scripps"><img alt="Basic Biomedical Research" height="107" name="doorway7" src="files/images/doorways/basic-biomedical-science.png" width="107" /></a></div>
+<div class="home-box" ></div>
+<div class="home-box" ></div>
+<!-- Bench to Bedside Doorway  -->
+<div class="home-box full"><a href="discover/chem_studies.html" onclick="imageSwap('doorway8',15)" onmouseout="imageSwap('doorway8',15)" onmouseover="imageSwap('doorway8',16)" title="Discover Chemical Studies at Scripps"><img alt="Chemical Studies" height="107" name="doorway8" src="files/images/doorways/chm_studies.png" width="107" /></a></div>
+</div>
+<div style="clear: both;" ></div>
+</div>
+<p class="float-divider" ></p>
+<div id="footer">
+<div id="footer_links"><ul>
+<li class="top_link">CONNECT 
+<ul>
+<li><a href="http://www.scripps.edu/events/index.html" title="Link to Public Events">Events</a></li>
+<li><a href="http://www.scripps.edu/news/pressroom.html" title="Link to Scripps Press Room">Press Room</a></li>
+<li><a href="http://www.scripps.edu/resources/procurement/index.html">Procurement</a></li>
+<li><a href="http://www.scripps.edu/resources/gluck/index.html">Gluck Child Care Center</a></li>
+<li><a href="http://www.scripps.edu/contact/index.html" title="Contact Us">Contact Us</a></li>
+<li><a href="http://www.scripps.edu/news/subscribe.html" target="_blank" title="Subscribe to E-News"><img alt="Subscribe Button" height="19" src="files/images/subscribe_button.jpg" width="84" /></a></li>
+<li><a href="http://www.facebook.com/pages/The-Scripps-Research-Institute/22048833712?ref=search&amp;sid=29502982.3156157678..1" target="_blank" title="Facebook Fan Page"><img alt="Facebook Fan Page" height="25" src="files/images/fb_apps.gif" /></a></li>
+<li><a href="http://twitter.com/#!/scrippsresearch" target="_blank" title="Twitter Page"><img alt="Twitter Page" height="22" src="files/images/twitter.png" width="87" /></a></li>
+<li><a href="http://www.youtube.com/ScrippsResearch" target="_blank" title="Youtube Page"><img alt="Youtube Page" height="22" src="files/images/youtube.png" width="87" /></a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link">VISIT 
+<ul>
+<li>CA Campus:</li>
+<li><a href="http://www.scripps.edu/california/about/maps.html">&#8226; Maps &amp; Directions</a></li>
+<li><a href="http://www.scripps.edu/california/about/parking.html">&#8226; Parking</a></li>
+<li>FL Campus:</li>
+<li><a href="http://www.scripps.edu/florida/about/maps.html">&#8226; Maps &amp; Directions</a></li>
+<li><a href="http://www.scripps.edu/florida/about/parking.html" title="Florida Parking">&#8226; Parking</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link">RESEARCH 
+<ul>
+<li><a href="http://www.scripps.edu/research/departments/index.html" title="Link to The Scripps Research Institute Scientific Departments">Scientific Departments</a></li>
+<li><a href="http://www.scripps.edu/research/resources/index.html" title="Link to The Scripps Institute Research Resources">Cores &amp; Shared Services</a></li>
+<li><a href="http://www.scripps.edu/research/technology/index.html" title="Link to The Scripps Research Insititue Office of Technology Development">Technology Development</a></li>
+<li><a href="http://www.scripps.edu/research/faculty/index.php" title="Link to The Scripps Research Institute Faculty Directory">Faculty Directory</a></li>
+<li><a href="http://www.scripps.edu/research/areas/index.php">Faculty Interests</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link">LEARN 
+<ul>
+<li><a href="http://www.scripps.edu/resources/postdoctoral/index.html">Postdoctoral Trainees</a></li>
+<li><a href="http://education.scripps.edu/prospective_students/index.php" ></a><a href="http://education.scripps.edu/community/programs/undergraduate.html" title="Link to Undergraduate Programs">Undergraduate Students</a></li>
+<li><a href="http://education.scripps.edu/kellogg_school/prospective-students/index.html">Prospective Graduate Students</a></li>
+<li><a href="http://education.scripps.edu/community/programs/k12.html" title="Link to The Scripps Research Institute K-12 Programs">High School Students</a></li>
+<li><a href="http://education.scripps.edu/community/programs/k12.html" title="Link to The Scripps Research Institute K-12 Programs">Teachers &amp; Educators</a></li>
+<li><a href="http://education.scripps.edu/alumni/index.php" title="Link to The Scripps Research Institute Alumni">Alumni</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link">WORK 
+<ul>
+<li><a href="http://hr.scripps.edu/">Careers</a></li>
+<li><a href="https://vpn.scripps.edu/lite">Intranet</a></li>
+<li><a href="https://owa.scripps.edu" title="California E-mail Access">CA - Outlook Web Access</a></li>
+<li><a href="https://mail.florida.scripps.edu" title="Florida E-mail Access">FL - Outlook Web Access</a></li>
+<li><a href="http://www.scripps.edu/resources/isso/index.html">International Office</a></li>
+<li><a href="http://www.scripps.edu/california/counseling/index.html" title="Link to Counseling Services">Counseling Services</a></li>
+<li><a href="http://www.scripps.edu/resources/anonreporting/index.html" title="Link to Anonymous Reporting">Anonymous Reporting</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link">CHALLENGE 
+<ul>
+<li><a href="http://www.scripps.edu/discover/cancer.html" title="Discover Cancer">Cancer</a></li>
+<li><a href="http://www.scripps.edu/discover/diabetes.html">Diabetes and Obesity</a></li>
+<li><a href="http://www.scripps.edu/discover/parkinsons.html">Parkinson's Disease</a></li>
+<li><a href="http://www.scripps.edu/discover/deafness.html" title="Discover Deafness">Deafness</a></li>
+<li><a href="http://www.scripps.edu/discover/hiv-aids.html" title="HIV/AIDS">HIV/AIDS</a></li>
+<li><a href="http://www.scripps.edu/discover/addiction.html">Addiction</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="top_link"><a href="https://www.scripps.edu/philanthropy/donate-now/?origin=hp" style="float: right;"><img alt="Donate to Scripps Research" height="26" src="files/images/donate_button_2.png" width="60" /></a> 
+<ul>
+<li><a href="http://www.scripps.edu/discover/heartdisease.html">Heart Disease</a></li>
+<li><a href="http://www.scripps.edu/discover/alzheimers.html">Alzheimer's Disease</a></li>
+<li><a href="http://www.scripps.edu/discover/blindness.html">Blindness</a></li>
+<li><a href="http://www.scripps.edu/discover/arthritis.html">Arthritis</a></li>
+<li><a href="http://www.scripps.edu/research/areas/index.php" title="Link to More Research Topics">More &gt;&gt;</a></li>
+</ul>
+</li>
+</ul>
+<p class="float-divider">&#160;</p>
+<div ></div>
+<div class="legal">
+<p><br /><br /><br /><br /><br />California: 10550 North Torrey Pines Road, La Jolla, CA 92037 - (858) 784-1000<br />Florida: 130 Scripps Way, Jupiter, FL 33458 - (561) 228-2000</p>
+</div>
+<div class="legal">
+<p>Copyright &#169; 2010, The Scripps Research Institute. All Rights Reserved.</p>
+</div>
+<p class="float-divider">&#160;</p>
+<div class="legal">
+<p><a href="http://www.scripps.edu/terms_of_use.html">Terms of Use</a></p>
+</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,1250 @@
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html __expr-val-dir="ltr" dir="ltr">
+<head><meta name="GENERATOR" content="Microsoft SharePoint" /><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="Expires" content="0" /><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /><META NAME="ROBOTS" CONTENT="NOHTMLINDEX"/><title>
+	
+	DCCCD Home
+
+</title><link rel="stylesheet" type="text/css" href="/Style%20Library/en-US/Core%20Styles/controls.css"/>
+<link rel="stylesheet" type="text/css" href="/Style%20Library/en-US/Core%20Styles/DCCCDHome.css"/>
+<link rel="stylesheet" type="text/css" href="/_layouts/1033/styles/HtmlEditorCustomStyles.css?rev=8SKxtNx33FmoDhbbfB27UA%3D%3D"/>
+<link rel="stylesheet" type="text/css" href="/_layouts/1033/styles/HtmlEditorTableFormats.css?rev=guYGdUBUxQit03E2jhSdvA%3D%3D"/>
+<link rel="stylesheet" type="text/css" href="/Style%20Library/en-US/Core%20Styles/pageLayouts.css"/>
+<link rel="stylesheet" type="text/css" href="/Style%20Library/zz1_blue.css"/>
+<link rel="stylesheet" type="text/css" href="/_styles/core.css"/>
+
+	<!--Styles used for positioning, font and spacing definitions-->
+	<link rel="stylesheet" type="text/css" href="/_styles/core.css" /><script src="/_layouts/1033/init.js?rev=SKi7C%2FTrsh1U%2FCnIwkB9Ag%3D%3D"></script>
+<script type="text/javascript" language="javascript" src="/_layouts/1033/ie55up.js?rev=Ni7%2Fj2ZV%2FzCvd09XYSSWvA%3D%3D"></script>
+
+	<!--Placeholder for additional overrides-->
+	
+	<style type="text/css">
+		.ms-pagetitleareaframe table, .ms-titleareaframe
+		{
+			background: none;
+			height: 10px;
+			overflow:hidden;
+		}
+		.ms-pagetitle, .ms-titlearea
+		{
+			display:none;
+		}
+		#ContentTable
+		{
+			font-family:Verdana,Arial,MS Sans Serif;font-size:small;margin:10px 0px 10px 0px;
+		}
+		#ContentTable td
+		{
+			vertical-align:top;
+			
+		}
+		#ContentTable a
+		{
+			 font-family:Verdana,Arial,MS Sans Serif;font-size:small;
+			 		
+		}
+
+	</style>
+	
+
+	<style type="text/css"></style>
+	<!-- This is used to fix png transparency issus with IE 5.5 & 6 -->
+	<!--[if lt IE 7.]>
+		<script defer type="text/javascript" src="/Style Library/pngfix.js"></script>
+	<![endif]-->
+	
+		
+	<script type="text/javascript" src="/SiteCollectionDocuments/Scripts/jquery-1.3.2.min.js"></script>	
+	<script type="text/javascript">
+		$(document).ready(function()
+		{		
+			// To fix text wrapping issue for reusable content in IE
+			$("#__publishingReusableFragment").attr('contentEditable', 'inherit');
+			
+			// HIDE EMPTY SPACES CREATED BY BLANK IMAGE PLACEHOLDER AND CONTENT PLACEHOLDER
+			if(	$(".welcomeImage img").length<1)
+			{						
+				$(".welcomeImage").hide();			
+			}
+			else
+			{
+				$(".caption").css({"width":$(".welcomeImage img").width()}); // SET CAPTION WIDTH
+			}
+			
+			if(	$(".newsImage img").length<1)
+			{				
+				$(".newsImage").parent().hide();			
+			}
+			else
+			{				
+				$(".caption").css({"width":$(".newsImage img").width()}); // SET CAPTION WIDTH
+			}
+			
+			$("#editModeTable").hide();
+						
+			if($("#ctl00_PlaceHolderMain_PageContent__ControlWrapper_RichHtmlField").length>0)
+			{			
+				if($("#ctl00_PlaceHolderMain_PageContent__ControlWrapper_RichHtmlField").html().length<1)
+				{				
+					$("#ctl00_PlaceHolderMain_PageContent__ControlWrapper_RichHtmlField").parent().hide();	
+				}
+				else
+				{					
+					// Keep space between PageContent and PageContent2 plaeholder
+					$(".pageContent2").parent().css({"padding-top":15});
+					
+				}
+			}			
+			
+			if($("#ctl00_PlaceHolderMain_PageContent2__ControlWrapper_RichHtmlField").length>0)
+			{			
+				if($("#ctl00_PlaceHolderMain_PageContent2__ControlWrapper_RichHtmlField").html().length<1)
+				{				
+					$("#ctl00_PlaceHolderMain_PageContent2__ControlWrapper_RichHtmlField").parent().hide();
+					
+				}
+			}
+			
+			if(	$(".floatRight img").length<1)
+			{			
+				$(".floatRight").hide();			
+			}
+			
+			// SET CAPTION WIDTH
+			if($("#ctl00_PlaceHolderMain_PageImageMain__ControlWrapper_RichImageField").length>0)
+			{	
+				var imgWidth1=$("#ctl00_PlaceHolderMain_PageImageMain__ControlWrapper_RichImageField").width();				
+				if(imgWidth1>0)
+				{
+					$(".caption1").css({"width":imgWidth1-6});
+				}
+			}			
+			if($("#ctl00_PlaceHolderMain_PageImage2__ControlWrapper_RichImageField").length>0)
+			{
+				var imgWidth2=$("#ctl00_PlaceHolderMain_PageImage2__ControlWrapper_RichImageField").width();				
+				if(imgWidth2>0)
+				{
+					$(".caption2").css({"width":imgWidth2-6});
+				}
+			}
+		});
+		
+		// Set default page property while creating new page
+		function SetDefaultValue()
+		{
+		$(document).ready(function()
+		{			
+			$("input[title='Web Robots Can Crawl Links']").attr('checked', true);
+			$("input[title='Web Robots Can Index']").attr('checked', true);			
+			$("select[title='Revisit_After']").val("7 days (One week)");
+			$("select[title='Rating']").val("General");			
+		});
+		}
+		
+		//remove tooltip from navigation
+		//$(document).ready(function() { 
+    		//$('[title]').removeAttr('title'); 
+		//}); 
+
+
+	</script>
+
+<meta name="title" content="DCCCD Home" /><meta name="description" content="Dallas County Community College District (DCCCD) is the largest undergraduate institution in the state of Texas. " /><meta name="revisit-after" content="7 days (One week)" /><meta name="rating" content="General" /><meta name="ROBOTS" content="FOLLOW, INDEX" /><style type="text/css">
+	.ctl00_PlaceHolderBanner_TopBannerZone_0 { border-color:Black;border-width:1px;border-style:Solid; }
+	.zz1_GlobalNav_0 { background-color:white;visibility:hidden;display:none;position:absolute;left:0px;top:0px; }
+	.zz1_GlobalNav_1 { text-decoration:none; }
+	.zz1_GlobalNav_2 {  }
+	.zz1_GlobalNav_3 { border-style:none; }
+	.zz1_GlobalNav_4 {  }
+	.zz1_GlobalNav_5 { border-style:none; }
+	.zz1_GlobalNav_6 {  }
+	.zz1_GlobalNav_7 {  }
+	.zz1_GlobalNav_8 { border-style:none; }
+	.zz1_GlobalNav_9 {  }
+	.zz1_GlobalNav_10 { border-style:none; }
+	.zz1_GlobalNav_11 {  }
+	.zz1_GlobalNav_12 { border-style:none; }
+	.zz1_GlobalNav_13 {  }
+	.ctl00_PlaceHolderEmergency_TopEmergencyZone_0 { border-color:Black;border-width:1px;border-style:Solid; }
+	.ctl00_PlaceHolderMain_MiddleMiddleZone_0 { border-color:Black;border-width:1px;border-style:Solid; }
+	.ctl00_PlaceHolderMain_MiddleLeftZone_0 { border-color:Black;border-width:1px;border-style:Solid; }
+
+</style></head>
+<body class="body" onload="javascript:_spBodyOnLoadWrapper();">
+	<form name="aspnetForm" method="post" action="default.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="aspnetForm" autocomplete="off">
+<div>
+<input type="hidden" name="__SPSCEditMenu" id="__SPSCEditMenu" value="true" />
+<input type="hidden" name="MSOWebPartPage_PostbackSource" id="MSOWebPartPage_PostbackSource" value="" />
+<input type="hidden" name="MSOTlPn_SelectedWpId" id="MSOTlPn_SelectedWpId" value="" />
+<input type="hidden" name="MSOTlPn_View" id="MSOTlPn_View" value="0" />
+<input type="hidden" name="MSOTlPn_ShowSettings" id="MSOTlPn_ShowSettings" value="False" />
+<input type="hidden" name="MSOGallery_SelectedLibrary" id="MSOGallery_SelectedLibrary" value="" />
+<input type="hidden" name="MSOGallery_FilterString" id="MSOGallery_FilterString" value="" />
+<input type="hidden" name="MSOTlPn_Button" id="MSOTlPn_Button" value="none" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__REQUESTDIGEST" id="__REQUESTDIGEST" value="0x2C4727751F6DE39280BD28E476B5F62BF447F7E5DE257A44078129AC52CF4A4DA2214F4568DD8177A8297BA79AD7877CFE9CBE56D92CA86213B3F33FF67036F5,06 May 2012 20:24:46 -0000" />
+<input type="hidden" name="MSOAuthoringConsole_FormContext" id="MSOAuthoringConsole_FormContext" value="" />
+<input type="hidden" name="MSOAC_EditDuringWorkflow" id="MSOAC_EditDuringWorkflow" value="" />
+<input type="hidden" name="MSOSPWebPartManager_DisplayModeName" id="MSOSPWebPartManager_DisplayModeName" value="Browse" />
+<input type="hidden" name="MSOWebPartPage_Shared" id="MSOWebPartPage_Shared" value="" />
+<input type="hidden" name="MSOLayout_LayoutChanges" id="MSOLayout_LayoutChanges" value="" />
+<input type="hidden" name="MSOLayout_InDesignMode" id="MSOLayout_InDesignMode" value="" />
+<input type="hidden" name="MSOSPWebPartManager_OldDisplayModeName" id="MSOSPWebPartManager_OldDisplayModeName" value="Browse" />
+<input type="hidden" name="MSOSPWebPartManager_StartWebPartEditingName" id="MSOSPWebPartManager_StartWebPartEditingName" value="false" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMA9kFgJmD2QWAgIBD2QWBAIBD2QWAgIFD2QWAmYPZBYCAgEPFgIeE1ByZXZpb3VzQ29udHJvbE1vZGULKYgBTWljcm9zb2Z0LlNoYXJlUG9pbnQuV2ViQ29udHJvbHMuU1BDb250cm9sTW9kZSwgTWljcm9zb2Z0LlNoYXJlUG9pbnQsIFZlcnNpb249MTIuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49NzFlOWJjZTExMWU5NDI5YwFkAgMPZBYQAgUPZBYCAgEPFgIeB1Zpc2libGVoFgJmD2QWBAICD2QWBgIBDxYCHwFoZAIDDxYCHwFoZAIFDxYCHwFoZAIDDw8WAh4JQWNjZXNzS2V5BQEvZGQCCw9kFgICAQ9kFgICAg8PFgIfAWcWAh4Fc3R5bGUFDmRpc3BsYXk6YmxvY2s7ZAIND2QWAgIBD2QWAmYPD2QWAh4FY2xhc3MFGG1zLXNidGFibGUgbXMtc2J0YWJsZS1leGQCDw9kFgICAw9kFgICAQ8PFgIfAWdkFgQCAQ8PFgIfAWhkFhwCAQ8PFgIfAWhkZAIDDxYCHwFoZAIFDw8WAh8BaGRkAgcPFgIfAWhkAgkPDxYCHwFoZGQCCw8PFgIfAWhkZAINDw8WAh8BaGRkAg8PDxYEHgdFbmFibGVkaB8BaGRkAhEPDxYCHwFoZGQCEw8PFgQfBWgfAWhkZAIVDw8WAh8BaGRkAhcPFgIfAWhkAhkPFgIfAWhkAhsPDxYCHwFnZGQCAw8PFgIfAWdkFgYCAQ8PFgIfAWdkZAIDDw8WBh4YcGVyc2lzdGVkRXJyb3JBY3Rpb25UcmVlZB4bcGVyc2lzdGVkRXJyb3JBY3Rpb25UcmVlSWRzZB8BZ2RkAgUPDxYCHwFnZGQCEQ9kFgICAQ9kFgJmDw8WAh8BaGRkAhMPPCsADQIADxYCHgtfIURhdGFCb3VuZGdkDBQrAAkFHzA6MCwwOjEsMDoyLDA6MywwOjQsMDo1LDA6NiwwOjcUKwACFhAeBFRleHQFBEhvbWUeBVZhbHVlBQRIb21lHgtOYXZpZ2F0ZVVybAUTL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx4KU2VsZWN0YWJsZWceCERhdGFQYXRoBRMvUGFnZXMvZGVmYXVsdC5hc3B4HglEYXRhQm91bmRnHghTZWxlY3RlZGcUKwALBScwOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYsMDo3LDA6OCwwOjkUKwACFg4fCQUNT3VyIExvY2F0aW9ucx8KBQ1PdXIgTG9jYXRpb25zHwsFGS9QYWdlcy9PdXIgTG9jYXRpb25zLmFzcHgfBWcfDGcfDQUZL1BhZ2VzL091ciBMb2NhdGlvbnMuYXNweB8OZ2QUKwACFg4fCQUdQWRtaXNzaW9ucyAmYW1wOyBSZWdpc3RyYXRpb24fCgUdQWRtaXNzaW9ucyAmYW1wOyBSZWdpc3RyYXRpb24fCwUjL1BhZ2VzL0FkbWlzc2lvbnMgUmVnaXN0cmF0aW9uLmFzcHgfBWcfDGcfDQUjL1BhZ2VzL0FkbWlzc2lvbnMgUmVnaXN0cmF0aW9uLmFzcHgfDmdkFCsAAhYOHwkFElBheWluZyBmb3IgQ29sbGVnZR8KBRJQYXlpbmcgZm9yIENvbGxlZ2UfCwUeL1BhZ2VzL1BheWluZyBmb3IgQ29sbGVnZS5hc3B4HwVnHwxnHw0FHi9QYWdlcy9QYXlpbmcgZm9yIENvbGxlZ2UuYXNweB8OZ2QUKwACFg4fCQUQU3R1ZGVudCBTZXJ2aWNlcx8KBRBTdHVkZW50IFNlcnZpY2VzHwsFHC9QYWdlcy9TdHVkZW50IFNlcnZpY2VzLmFzcHgfBWcfDGcfDQUcL1BhZ2VzL1N0dWRlbnQgU2VydmljZXMuYXNweB8OZ2QUKwACFg4fCQUJTGlicmFyaWVzHwoFCUxpYnJhcmllcx8LBRUvUGFnZXMvTGlicmFyaWVzLmFzcHgfBWcfDGcfDQUVL1BhZ2VzL0xpYnJhcmllcy5hc3B4Hw5nZBQrAAIWEB8JBQRKb2JzHwoFBEpvYnMfCwUQL1BhZ2VzL0pvYnMuYXNweB4HVG9vbFRpcAV3RGlzY292ZXIgRENDQ0QgZW1wbG95bWVudCBvcHBvcnR1bml0aWVzLCBwbGFuIHlvdXIgY2FyZWVyLCBvciBsZWFybiBob3cgdG8gcmVjcnVpdCBEQ0NDRCBzdHVkZW50cy4gIEl0IGFsbCBiZWdpbnMgaGVyZS4fBWcfDGcfDQUQL1BhZ2VzL0pvYnMuYXNweB8OZ2QUKwACFhAfCQUJU2NoZWR1bGVzHwoFCVNjaGVkdWxlcx8LBRUvUGFnZXMvZVNjaGVkdWxlLmFzcHgfEAVHQnJvd3NlIGNyZWRpdCBjbGFzcyBzY2hlZHVsZXMgZm9yIGFsbCBEYWxsYXMgQ291bnR5IENvbW11bml0eSBDb2xsZWdlcy4fBWcfDGcfDQUVL1BhZ2VzL2VTY2hlZHVsZS5hc3B4Hw5nZBQrAAIWDh8JBQhlQ29ubmVjdB8KBQhlQ29ubmVjdB8LBRgvUGFnZXMvZUNvbm5lY3RNYWluLmFzcHgfBWcfDGcfDQUYL1BhZ2VzL2VDb25uZWN0TWFpbi5hc3B4Hw5nZBQrAAIWDh8JBQdlQ2FtcHVzHwoFB2VDYW1wdXMfCwUTL1BhZ2VzL2VDYW1wdXMuYXNweB8FZx8MZx8NBRMvUGFnZXMvZUNhbXB1cy5hc3B4Hw5nZBQrAAIWDh8JBQdDYXRhbG9nHwoFB0NhdGFsb2cfCwUWL1BhZ2VzL0NhdGFsb2dUT0MuYXNweB8FZx8MZx8NBRYvUGFnZXMvQ2F0YWxvZ1RPQy5hc3B4Hw5nZBQrAAIWDh8JBQtBYm91dCBEQ0NDRB8KBQtBYm91dCBEQ0NDRB8LBR8vQWJvdXQgRENDQ0QvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FDC9BYm91dCBEQ0NDRB8OZxQrAAsFJzA6MCwwOjEsMDoyLDA6MywwOjQsMDo1LDA6NiwwOjcsMDo4LDA6ORQrAAIWDh8JBRFCb2FyZCBvZiBUcnVzdGVlcx8KBRFCb2FyZCBvZiBUcnVzdGVlcx8LBTEvQWJvdXQgRENDQ0QvQm9hcmQgb2YgVHJ1c3RlZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHi9BYm91dCBEQ0NDRC9Cb2FyZCBvZiBUcnVzdGVlcx8OZ2QUKwACFg4fCQUKQ2hhbmNlbGxvch8KBQpDaGFuY2VsbG9yHwsFKi9BYm91dCBEQ0NDRC9DaGFuY2VsbG9yL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRcvQWJvdXQgRENDQ0QvQ2hhbmNlbGxvch8OZ2QUKwACFg4fCQUNT3VyIExvY2F0aW9ucx8KBQ1PdXIgTG9jYXRpb25zHwsFLS9BYm91dCBEQ0NDRC9PdXIgTG9jYXRpb25zL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRovQWJvdXQgRENDQ0QvT3VyIExvY2F0aW9ucx8OZ2QUKwACFg4fCQUKV2hvIFdlIEFyZR8KBQpXaG8gV2UgQXJlHwsFKi9BYm91dCBEQ0NDRC9XaG8gV2UgQXJlL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRcvQWJvdXQgRENDQ0QvV2hvIFdlIEFyZR8OZ2QUKwACFg4fCQULRENDQ0QgRmFjdHMfCgULRENDQ0QgRmFjdHMfCwUrL0Fib3V0IERDQ0NEL0RDQ0NEIEZhY3RzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRgvQWJvdXQgRENDQ0QvRENDQ0QgRmFjdHMfDmdkFCsAAhYOHwkFB0hpc3RvcnkfCgUHSGlzdG9yeR8LBScvQWJvdXQgRENDQ0QvSGlzdG9yeS9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUUL0Fib3V0IERDQ0NEL0hpc3RvcnkfDmdkFCsAAhYOHwkFEU5ld3MgJmFtcDsgRXZlbnRzHwoFEU5ld3MgJmFtcDsgRXZlbnRzHwsFLy9BYm91dCBEQ0NDRC9OZXdzIGFuZCBFdmVudHMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHC9BYm91dCBEQ0NDRC9OZXdzIGFuZCBFdmVudHMfDmdkFCsAAhYOHwkFCERDQ0NELVRWHwoFCERDQ0NELVRWHwsFIi9BYm91dCBEQ0NDRC9UVi9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUPL0Fib3V0IERDQ0NEL1RWHw5nZBQrAAIWDh8JBQpDb250YWN0IFVzHwoFCkNvbnRhY3QgVXMfCwUqL0Fib3V0IERDQ0NEL0NvbnRhY3QgVXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FFy9BYm91dCBEQ0NDRC9Db250YWN0IFVzHw5nZBQrAAIWEB8JBQpTaXRlIEluZGV4HwoFClNpdGUgSW5kZXgfCwUiL0Fib3V0IERDQ0NEL1BhZ2VzL1NpdGUgSW5kZXguYXNweB8QBUVUaGlzIHNpdGUgaW5kZXggaXMgYSBsaXN0aW5nIG9mIHRoZSBtb3N0IGltcG9ydGFudCBwYWdlcyBvbiBvdXIgc2l0ZS4fBWcfDGcfDQUiL0Fib3V0IERDQ0NEL1BhZ2VzL1NpdGUgSW5kZXguYXNweB8OZ2QUKwACFg4fCQUPRnV0dXJlIFN0dWRlbnRzHwoFD0Z1dHVyZSBTdHVkZW50cx8LBSMvRnV0dXJlIFN0dWRlbnRzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRAvRnV0dXJlIFN0dWRlbnRzHw5nFCsACgUjMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NywwOjgUKwACFg4fCQUKV2h5IERDQ0NEPx8KBQpXaHkgRENDQ0Q/HwsFLS9GdXR1cmUgU3R1ZGVudHMvV2h5IERDQ0NEL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRovRnV0dXJlIFN0dWRlbnRzL1doeSBEQ0NDRB8OZ2QUKwACFg4fCQUdQWRtaXNzaW9ucyAmYW1wOyBSZWdpc3RyYXRpb24fCgUdQWRtaXNzaW9ucyAmYW1wOyBSZWdpc3RyYXRpb24fCwU/L0Z1dHVyZSBTdHVkZW50cy9BZG1pc3Npb25zIGFuZCBSZWdpc3RyYXRpb24vUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FLC9GdXR1cmUgU3R1ZGVudHMvQWRtaXNzaW9ucyBhbmQgUmVnaXN0cmF0aW9uHw5nZBQrAAIWDh8JBRJQYXlpbmcgZm9yIENvbGxlZ2UfCgUSUGF5aW5nIGZvciBDb2xsZWdlHwsFNi9GdXR1cmUgU3R1ZGVudHMvUGF5aW5nIGZvciBDb2xsZWdlL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSMvRnV0dXJlIFN0dWRlbnRzL1BheWluZyBmb3IgQ29sbGVnZR8OZ2QUKwACFg4fCQUbQ3JlZGl0IENvdXJzZXMgJmFtcDsgTWFqb3JzHwoFG0NyZWRpdCBDb3Vyc2VzICZhbXA7IE1ham9ycx8LBTgvRnV0dXJlIFN0dWRlbnRzL0NvdXJzZXMgYW5kIFByb2dyYW1zL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSUvRnV0dXJlIFN0dWRlbnRzL0NvdXJzZXMgYW5kIFByb2dyYW1zHw5nZBQrAAIWDh8JBRBTdHVkZW50IFNlcnZpY2VzHwoFEFN0dWRlbnQgU2VydmljZXMfCwU0L0Z1dHVyZSBTdHVkZW50cy9TdHVkZW50IFNlcnZpY2VzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSEvRnV0dXJlIFN0dWRlbnRzL1N0dWRlbnQgU2VydmljZXMfDmdkFCsAAhYOHwkFDFN0dWRlbnQgTGlmZR8KBQxTdHVkZW50IExpZmUfCwUwL0Z1dHVyZSBTdHVkZW50cy9TdHVkZW50IExpZmUvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHS9GdXR1cmUgU3R1ZGVudHMvU3R1ZGVudCBMaWZlHw5nZBQrAAIWDh8JBQhlQ29ubmVjdB8KBQhlQ29ubmVjdB8LBSYvRnV0dXJlIFN0dWRlbnRzL1BhZ2VzL2VDb25uZWN0QVAuYXNweB8FZx8MZx8NBSYvRnV0dXJlIFN0dWRlbnRzL1BhZ2VzL2VDb25uZWN0QVAuYXNweB8OZ2QUKwACFg4fCQUHQ2F0YWxvZx8KBQdDYXRhbG9nHwsFJi9GdXR1cmUgU3R1ZGVudHMvUGFnZXMvQ2F0YWxvZ1RPQy5hc3B4HwVnHwxnHw0FJi9GdXR1cmUgU3R1ZGVudHMvUGFnZXMvQ2F0YWxvZ1RPQy5hc3B4Hw5nZBQrAAIWDh8JBQVGb3Jtcx8KBQVGb3Jtcx8LBSkvRnV0dXJlIFN0dWRlbnRzL0Zvcm1zL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRYvRnV0dXJlIFN0dWRlbnRzL0Zvcm1zHw5nZBQrAAIWDh8JBRBDdXJyZW50IFN0dWRlbnRzHwoFEEN1cnJlbnQgU3R1ZGVudHMfCwUkL0N1cnJlbnQgU3R1ZGVudHMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FES9DdXJyZW50IFN0dWRlbnRzHw5nFCsACwUnMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NywwOjgsMDo5FCsAAhYOHwkFDFJlZ2lzdHJhdGlvbh8KBQxSZWdpc3RyYXRpb24fCwUxL0N1cnJlbnQgU3R1ZGVudHMvUmVnaXN0cmF0aW9uL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBR4vQ3VycmVudCBTdHVkZW50cy9SZWdpc3RyYXRpb24fDmdkFCsAAhYOHwkFElBheWluZyBmb3IgQ29sbGVnZR8KBRJQYXlpbmcgZm9yIENvbGxlZ2UfCwU3L0N1cnJlbnQgU3R1ZGVudHMvUGF5aW5nIGZvciBDb2xsZWdlL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSQvQ3VycmVudCBTdHVkZW50cy9QYXlpbmcgZm9yIENvbGxlZ2UfDmdkFCsAAhYOHwkFG0NyZWRpdCBDb3Vyc2VzICZhbXA7IE1ham9ycx8KBRtDcmVkaXQgQ291cnNlcyAmYW1wOyBNYWpvcnMfCwU5L0N1cnJlbnQgU3R1ZGVudHMvQ291cnNlcyBhbmQgUHJvZ3JhbXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FJi9DdXJyZW50IFN0dWRlbnRzL0NvdXJzZXMgYW5kIFByb2dyYW1zHw5nZBQrAAIWDh8JBRBTdHVkZW50IFNlcnZpY2VzHwoFEFN0dWRlbnQgU2VydmljZXMfCwU1L0N1cnJlbnQgU3R1ZGVudHMvU3R1ZGVudCBTZXJ2aWNlcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUiL0N1cnJlbnQgU3R1ZGVudHMvU3R1ZGVudCBTZXJ2aWNlcx8OZ2QUKwACFg4fCQUMU3R1ZGVudCBMaWZlHwoFDFN0dWRlbnQgTGlmZR8LBTEvQ3VycmVudCBTdHVkZW50cy9TdHVkZW50IExpZmUvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHi9DdXJyZW50IFN0dWRlbnRzL1N0dWRlbnQgTGlmZR8OZ2QUKwACFg4fCQUJTGlicmFyaWVzHwoFCUxpYnJhcmllcx8LBS4vQ3VycmVudCBTdHVkZW50cy9MaWJyYXJpZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FGy9DdXJyZW50IFN0dWRlbnRzL0xpYnJhcmllcx8OZ2QUKwACFg4fCQUIZUNvbm5lY3QfCgUIZUNvbm5lY3QfCwUnL0N1cnJlbnQgU3R1ZGVudHMvUGFnZXMvZUNvbm5lY3RTVC5hc3B4HwVnHwxnHw0FJy9DdXJyZW50IFN0dWRlbnRzL1BhZ2VzL2VDb25uZWN0U1QuYXNweB8OZ2QUKwACFg4fCQUHZUNhbXB1cx8KBQdlQ2FtcHVzHwsFJC9DdXJyZW50IFN0dWRlbnRzL1BhZ2VzL2VDYW1wdXMuYXNweB8FZx8MZx8NBSQvQ3VycmVudCBTdHVkZW50cy9QYWdlcy9lQ2FtcHVzLmFzcHgfDmdkFCsAAhYOHwkFB0NhdGFsb2cfCgUHQ2F0YWxvZx8LBScvQ3VycmVudCBTdHVkZW50cy9QYWdlcy9DYXRhbG9nVE9DLmFzcHgfBWcfDGcfDQUnL0N1cnJlbnQgU3R1ZGVudHMvUGFnZXMvQ2F0YWxvZ1RPQy5hc3B4Hw5nZBQrAAIWDh8JBQVGb3Jtcx8KBQVGb3Jtcx8LBSovQ3VycmVudCBTdHVkZW50cy9Gb3Jtcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUXL0N1cnJlbnQgU3R1ZGVudHMvRm9ybXMfDmdkFCsAAhYOHwkFFENvbnRpbnVpbmcgRWR1Y2F0aW9uHwoFFENvbnRpbnVpbmcgRWR1Y2F0aW9uHwsFKC9Db250aW51aW5nIEVkdWNhdGlvbi9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUVL0NvbnRpbnVpbmcgRWR1Y2F0aW9uHw5nFCsACQUfMDowLDA6MSwwOjIsMDozLDA6NCwwOjUsMDo2LDA6NxQrAAIWDh8JBRpBYm91dCBDb250aW51aW5nIEVkdWNhdGlvbh8KBRpBYm91dCBDb250aW51aW5nIEVkdWNhdGlvbh8LBUMvQ29udGludWluZyBFZHVjYXRpb24vQWJvdXQgQ29udGludWluZyBFZHVjYXRpb24vUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FMC9Db250aW51aW5nIEVkdWNhdGlvbi9BYm91dCBDb250aW51aW5nIEVkdWNhdGlvbh8OZ2QUKwACFg4fCQUWQ291cnNlcyAmYW1wOyBQcm9ncmFtcx8KBRZDb3Vyc2VzICZhbXA7IFByb2dyYW1zHwsFPS9Db250aW51aW5nIEVkdWNhdGlvbi9Db3Vyc2VzIGFuZCBQcm9ncmFtcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUqL0NvbnRpbnVpbmcgRWR1Y2F0aW9uL0NvdXJzZXMgYW5kIFByb2dyYW1zHw5nZBQrAAIWDh8JBQhlQ29ubmVjdB8KBQhlQ29ubmVjdB8LBSwvQ29udGludWluZyBFZHVjYXRpb24vUGFnZXMvQ0UtZUNvbm5lY3QuYXNweB8FZx8MZx8NBSwvQ29udGludWluZyBFZHVjYXRpb24vUGFnZXMvQ0UtZUNvbm5lY3QuYXNweB8OZ2QUKwACFg4fCQUSUGF5aW5nIGZvciBDb2xsZWdlHwoFElBheWluZyBmb3IgQ29sbGVnZR8LBTsvQ29udGludWluZyBFZHVjYXRpb24vUGF5aW5nIGZvciBDb2xsZWdlL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSgvQ29udGludWluZyBFZHVjYXRpb24vUGF5aW5nIGZvciBDb2xsZWdlHw5nZBQrAAIWDh8JBQxSZWdpc3RyYXRpb24fCgUMUmVnaXN0cmF0aW9uHwsFNS9Db250aW51aW5nIEVkdWNhdGlvbi9SZWdpc3RyYXRpb24vUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FIi9Db250aW51aW5nIEVkdWNhdGlvbi9SZWdpc3RyYXRpb24fDmdkFCsAAhYOHwkFEFN0dWRlbnQgU2VydmljZXMfCgUQU3R1ZGVudCBTZXJ2aWNlcx8LBTkvQ29udGludWluZyBFZHVjYXRpb24vU3R1ZGVudCBTZXJ2aWNlcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUmL0NvbnRpbnVpbmcgRWR1Y2F0aW9uL1N0dWRlbnQgU2VydmljZXMfDmdkFCsAAhYOHwkFDFN0dWRlbnQgTGlmZR8KBQxTdHVkZW50IExpZmUfCwU4L0NvbnRpbnVpbmcgRWR1Y2F0aW9uL1N0dWRlbnQgTGlmZS9QYWdlcy9kZWZhdWx0T0xELmFzcHgfBWcfDGcfDQUiL0NvbnRpbnVpbmcgRWR1Y2F0aW9uL1N0dWRlbnQgTGlmZR8OZ2QUKwACFg4fCQUJTGlicmFyaWVzHwoFCUxpYnJhcmllcx8LBTIvQ29udGludWluZyBFZHVjYXRpb24vTGlicmFyaWVzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBR8vQ29udGludWluZyBFZHVjYXRpb24vTGlicmFyaWVzHw5nZBQrAAIWDh8JBRJCdXNpbmVzcy9Db21tdW5pdHkfCgUSQnVzaW5lc3MvQ29tbXVuaXR5HwsFJi9CdXNpbmVzcyBDb21tdW5pdHkvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FEy9CdXNpbmVzcyBDb21tdW5pdHkfDmcUKwAIBRswOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYUKwACFhAfCQUPRG9uYXRlIHRvIERDQ0NEHwoFD0RvbmF0ZSB0byBEQ0NDRB8LBS4vQnVzaW5lc3MgQ29tbXVuaXR5L1BhZ2VzL0RvbmF0ZSB0byBEQ0NDRC5hc3B4HxAFIUxlYXJuIGFib3V0IHRoZSBEQ0NDRCBGb3VuZGF0aW9uLh8FZx8MZx8NBS4vQnVzaW5lc3MgQ29tbXVuaXR5L1BhZ2VzL0RvbmF0ZSB0byBEQ0NDRC5hc3B4Hw5nZBQrAAIWDh8JBRJCdXNpbmVzcyBSZXNvdXJjZXMfCgUSQnVzaW5lc3MgUmVzb3VyY2VzHwsFOS9CdXNpbmVzcyBDb21tdW5pdHkvQnVzaW5lc3MgUmVzb3VyY2VzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSYvQnVzaW5lc3MgQ29tbXVuaXR5L0J1c2luZXNzIFJlc291cmNlcx8OZ2QUKwACFg4fCQUESm9icx8KBQRKb2JzHwsFKC9CdXNpbmVzcyBDb21tdW5pdHkvSm9icy9QYWdlcy9Kb2JzLmFzcHgfBWcfDGcfDQUYL0J1c2luZXNzIENvbW11bml0eS9Kb2JzHw5nZBQrAAIWDh8JBRJDb21tdW5pdHkgT3V0cmVhY2gfCgUSQ29tbXVuaXR5IE91dHJlYWNoHwsFLy9CdXNpbmVzcyBDb21tdW5pdHkvT3V0cmVhY2gvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHC9CdXNpbmVzcyBDb21tdW5pdHkvT3V0cmVhY2gfDmdkFCsAAhYOHwkFEkNvcnBvcmF0ZSBUcmFpbmluZx8KBRJDb3Jwb3JhdGUgVHJhaW5pbmcfCwU5L0J1c2luZXNzIENvbW11bml0eS9Db3Jwb3JhdGUgVHJhaW5pbmcvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FJi9CdXNpbmVzcyBDb21tdW5pdHkvQ29ycG9yYXRlIFRyYWluaW5nHw5nZBQrAAIWDh8JBQ1PdXIgTG9jYXRpb25zHwoFDU91ciBMb2NhdGlvbnMfCwU0L0J1c2luZXNzIENvbW11bml0eS9PdXIgTG9jYXRpb25zL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSEvQnVzaW5lc3MgQ29tbXVuaXR5L091ciBMb2NhdGlvbnMfDmdkFCsAAhYOHwkFCUxpYnJhcmllcx8KBQlMaWJyYXJpZXMfCwUwL0J1c2luZXNzIENvbW11bml0eS9MaWJyYXJpZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FHS9CdXNpbmVzcyBDb21tdW5pdHkvTGlicmFyaWVzHw5nZBQrAAIWDh8JBQlFbXBsb3llZXMfCgUJRW1wbG95ZWVzHwsFHS9FbXBsb3llZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FCi9FbXBsb3llZXMfDmcUKwAMBSwwOjAsMDoxLDA6MiwwOjMsMDo0LDA6NSwwOjYsMDo3LDA6OCwwOjksMDoxMBQrAAIWDh8JBRVUb29scyAmYW1wOyBSZXNvdXJjZXMfCgUVVG9vbHMgJmFtcDsgUmVzb3VyY2VzHwsFMS9FbXBsb3llZXMvVG9vbHMgYW5kIFJlc291cmNlcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUeL0VtcGxveWVlcy9Ub29scyBhbmQgUmVzb3VyY2VzHw5nZBQrAAIWDh8JBQ9IdW1hbiBSZXNvdXJjZXMfCgUPSHVtYW4gUmVzb3VyY2VzHwsFIC9FbXBsb3llZXMvSFIvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FDS9FbXBsb3llZXMvSFIfDmdkFCsAAhYOHwkFGlRyYWluaW5nICZhbXA7IERldmVsb3BtZW50HwoFGlRyYWluaW5nICZhbXA7IERldmVsb3BtZW50HwsFNi9FbXBsb3llZXMvVHJhaW5pbmcgYW5kIERldmVsb3BtZW50L1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBSMvRW1wbG95ZWVzL1RyYWluaW5nIGFuZCBEZXZlbG9wbWVudB8OZ2QUKwACFg4fCQUXUG9saWN5ICZhbXA7IFByb2NlZHVyZXMfCgUXUG9saWN5ICZhbXA7IFByb2NlZHVyZXMfCwUzL0VtcGxveWVlcy9Qb2xpY3kgYW5kIFByb2NlZHVyZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FIC9FbXBsb3llZXMvUG9saWN5IGFuZCBQcm9jZWR1cmVzHw5nZBQrAAIWDh8JBQtEZXBhcnRtZW50cx8KBQtEZXBhcnRtZW50cx8LBSkvRW1wbG95ZWVzL0RlcGFydG1lbnRzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRYvRW1wbG95ZWVzL0RlcGFydG1lbnRzHw5nZBQrAAIWDh8JBQhDb3VuY2lscx8KBQhDb3VuY2lscx8LBSYvRW1wbG95ZWVzL0NvdW5jaWxzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRMvRW1wbG95ZWVzL0NvdW5jaWxzHw5nZBQrAAIWDh8JBQhJbnRyYW5ldB8KBQhJbnRyYW5ldB8LBSYvRW1wbG95ZWVzL0ludHJhbmV0L1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRMvRW1wbG95ZWVzL0ludHJhbmV0Hw5nZBQrAAIWDh8JBQ1PdXIgTG9jYXRpb25zHwoFDU91ciBMb2NhdGlvbnMfCwUrL0VtcGxveWVlcy9PdXIgTG9jYXRpb25zL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRgvRW1wbG95ZWVzL091ciBMb2NhdGlvbnMfDmdkFCsAAhYOHwkFCUxpYnJhcmllcx8KBQlMaWJyYXJpZXMfCwUnL0VtcGxveWVlcy9MaWJyYXJpZXMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FFC9FbXBsb3llZXMvTGlicmFyaWVzHw5nZBQrAAIWDh8JBQhlQ29ubmVjdB8KBQhlQ29ubmVjdB8LBSAvRW1wbG95ZWVzL1BhZ2VzL2VDb25uZWN0RU0uYXNweB8FZx8MZx8NBSAvRW1wbG95ZWVzL1BhZ2VzL2VDb25uZWN0RU0uYXNweB8OZ2QUKwACFg4fCQUFRm9ybXMfCgUFRm9ybXMfCwUjL0VtcGxveWVlcy9Gb3Jtcy9QYWdlcy9kZWZhdWx0LmFzcHgfBWcfDGcfDQUQL0VtcGxveWVlcy9Gb3Jtcx8OZ2QUKwACFg4fCQUIRXNwYcOxb2wfCgUIRXNwYcOxb2wfCwUbL0VzcGFub2wvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FCC9Fc3Bhbm9sHw5nFCsABQUPMDowLDA6MSwwOjIsMDozFCsAAhYOHwkFD0FjZXJjYSBkZSBEQ0NDRB8KBQ9BY2VyY2EgZGUgRENDQ0QfCwUrL0VzcGFub2wvQWNlcmNhIGRlIERDQ0NEL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRgvRXNwYW5vbC9BY2VyY2EgZGUgRENDQ0QfDmdkFCsAAhYOHwkFE0Z1dHVyb3MgRXN0dWRpYW50ZXMfCgUTRnV0dXJvcyBFc3R1ZGlhbnRlcx8LBS8vRXNwYW5vbC9GdXR1cm9zIEVzdHVkaWFudGVzL1BhZ2VzL2RlZmF1bHQuYXNweB8FZx8MZx8NBRwvRXNwYW5vbC9GdXR1cm9zIEVzdHVkaWFudGVzHw5nZBQrAAIWDh8JBQZQYWRyZXMfCgUGUGFkcmVzHwsFIy9Fc3Bhbm9sL1BhcmVudHMvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FEC9Fc3Bhbm9sL1BhcmVudHMfDmdkFCsAAhYOHwkFE0VkdWNhY2nDs24gQ29udGludWEfCgUTRWR1Y2FjacOzbiBDb250aW51YR8LBS4vRXNwYW5vbC9FZHVjYWNpb24gQ29udGludWEvUGFnZXMvZGVmYXVsdC5hc3B4HwVnHwxnHw0FGy9Fc3Bhbm9sL0VkdWNhY2lvbiBDb250aW51YR8OZ2RkAhcPZBYCAgEPZBYCZg8PFgIfAWhkZAIZD2QWAgIED2QWFgIHDxYCHwALKwQBZAIJDxYCHwALKwQBZAILDxYCHwALKwQBZAINDxYCHwALKwQBZAIPDxYCHwALKwQBZAIRDxYCHwALKwQBZAITD2QWAmYPDxYCHwFoZGQCFQ8WAh8ACysEAWQCFw8WAh8ACysEAWQCGQ9kFgJmDw8WAh8BaGRkAhsPFgIfAAsrBAFkGAEFD2N0bDAwJEdsb2JhbE5hdg8PZAUESG9tZWQpHN4F3Zy2yPufgEpLDtJSe1iIPQ==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=8BGNMiIIkWj7KjIl2BvqsPrxvCUfjN5WlX5BZobAzBfJakhe-8WK6VMza-hWbENpMamI87KWbHGmaduQvUgIhs0kOlA1&amp;t=634605294709717464" type="text/javascript"></script>
+
+<script> var MSOWebPartPageFormName = 'aspnetForm';</script><script type="text/JavaScript" language="JavaScript">
+<!--
+var L_Menu_BaseUrl="";
+var L_Menu_LCID="1033";
+var L_Menu_SiteTheme="";
+//-->
+</script><SCRIPT LANGUAGE='JavaScript' >
+<!--
+//-->
+</SCRIPT>
+<script src="/WebResource.axd?d=pEXRhTBmMEigKX1B-8ujNLVUHv7hR0ftu3c_qZcyRpuohBkpgslzo_chBYKy49fQgKhUlifXhig7PaEbFsCdM-XZRI41&amp;t=634605294709717464" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+UpdateFormDigest('\u002f', 1440000);return _spFormOnSubmitWrapper();
+return true;
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgK6iazXDgLw9Z3WCzQN7afQGtXsjQGUJYaL6nzG+Eqq" />
+</div>
+	
+	
+	<table cellpadding="0" cellspacing="0"  class="master">
+				
+		<tr class="location">
+			<td  align="left" class="headernoprint">
+				<img src="/Style%20Library/Images/visit-1.gif" width="66" height="20" hspace="0" vspace="0" border="0" alt="Image pointing to campuses" align="absmiddle"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Brookhaven.aspx" onmouseover="window.status='http://www.brookhavencollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Brookhaven</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Cedar%20Valley.aspx" onmouseover="window.status='http://www.cedarvalleycollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Cedar Valley</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Eastfield.aspx" onmouseover="window.status='http://www.eastfieldcollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Eastfield</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/El%20Centro.aspx" onmouseover="window.status='http://www.elcentrocollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">El Centro</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Mountain%20View.aspx" onmouseover="window.status='http://www.mountainviewcollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Mountain View</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/North%20Lake.aspx" onmouseover="window.status='http://www.northlakecollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">North Lake</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Richland.aspx" onmouseover="window.status='http://www.richlandcollege.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Richland</a>&nbsp;&nbsp;&nbsp;
+				<a href="http://online.dcccd.edu" onmouseover="window.status='http://dallas.dcccd.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Dallas TeleCollege Online</a>&nbsp;&nbsp;&nbsp;
+				<a href="/About%20DCCCD/LocationRedirects/Pages/Foundation.aspx" onmouseover="window.status='http://www.foundation.dcccd.edu/';return true;" onmouseout="window.status=''; return true;" target="_blank" class="location">Foundation</a>&nbsp;&nbsp;&nbsp;</td>
+
+		</tr>
+		<tr class="rowType1" >			
+			<td  class="authoringRegion" valign="top"  >
+				<div class="DesignModeConsole" >
+					
+
+				</div>
+				<div>
+				<span class="siteActionMenu">
+					
+<!-- Begin Action Menu Markup -->
+<table height=100% class="ms-siteaction" cellpadding=0 cellspacing=0>
+	<tr>
+					   <td class="ms-siteactionsmenu" id="siteactiontd">
+					   
+					</td>
+	</tr>
+</table>
+<!-- End Action Menu Markup -->
+
+				</span>
+				<span class="Logo">
+					<a href="/pages/default.aspx">
+						<img src="/Style%20Library/Images/school_logo.gif"  border="0"/>
+					</a>
+				</span>
+
+				<div class="sharepointLogin">
+						<!--Authentication for Authors only-->
+				<table cellpadding="0" cellspacing="0" >
+					<tr>
+						<td class="ms-globallinks" >
+							
+						</td>
+						<td class="ms-globallinks" >
+							
+						</td>
+						
+						<td class="ms-globallinks">
+							
+						</td>
+						
+					</tr>
+				</table>
+				</div>
+				<div>&nbsp;</div>
+				
+				<div class="searchBox" style="float:right" >
+		  			
+							<div id="SRSB"> <div id="ctl00_PlaceHolderSearchArea_SearchBox">
+	<table class="ms-sbtable ms-sbtable-ex" border="0">
+		<tr class="ms-sbrow">
+			<td class="ms-sbcell ms-sbtext"><span title="Search" style="display:block;">Search</span></td><td class="ms-sbcell"><input name="ctl00$PlaceHolderSearchArea$SearchBox$S622C1022_InputKeywords" type="text" maxlength="200" id="ctl00_PlaceHolderSearchArea_SearchBox_S622C1022_InputKeywords" accesskey="S" title="Enter search words" class="ms-sbplain" alt="Enter search words" onkeypress="javascript:return S622C1022_OSBEK(event);" style="width:200px;" /></td><td class="ms-sbgo ms-sbcell"><a id="ctl00_PlaceHolderSearchArea_SearchBox_S622C1022_go" title="Go Search" href="javascript:S622C1022_Submit()"><img title="Go Search" onmouseover="this.src='/Style Library/Images/Search_Arrow.jpg'" onmouseout="this.src='/Style Library/Images/Search_Arrow.jpg'" alt="Go Search" src="/Style%20Library/Images/Search_Arrow.jpg" style="border-width:0px;" /></a></td><td class="ms-sbLastcell"></td>
+		</tr>
+	</table>
+</div></div>
+		  					  					
+				</div>
+				<div>&nbsp;</div><div>&nbsp;</div>
+
+
+				<div id="topQuickLinks">
+					<span><a href="http://district.custhelp.com/" target="_blank">FAQs/Get Help</a></span>
+					<span>|</span>
+					<span><a href="/About%20DCCCD/Contact%20Us">Contact Us</a></span>
+					<span>|</span>
+					<span><a href="/About%20DCCCD/DCCCD%20Facts/Legal">Legal Notices</a></span>
+				</div>
+				<div class="console">
+					
+<!-- Console -->
+<span id="ctl00_ctl21_publishingContext1"></span>
+
+<!-- Console -->
+
+				</div>				
+			</div>				
+						
+			</td>			
+		</tr>		
+		
+		<tr>
+			<td class="GlobalNavTopBar"></td>
+		</tr>
+		<tr>
+			<td class="middleCol topFixedNavTD">
+				<div class="topFixedNav">
+					<a href="/About%20DCCCD/Our%20Locations"> Our Locations</a>
+					<a href="/Pages/Admissions Registration.aspx"> Admissions & Registration</a>
+					<a href="/Pages/Paying%20for%20College.aspx"> Paying for College</a>
+					<span style="color:white;font-size:12px; font-weight:bold">|</span>
+										
+					<a href="/Pages/Student%20Services.aspx"> Student Services</a>
+					<a href="/current%20students/student%20services/online%20services"> Online Services</a>
+					<a href="/current%20students/student%20services/online%20services/student%20Netmail"> NetMail</a>
+					<a href="/Pages/Libraries.aspx"> Libraries</a>
+					<a href="/Pages/Jobs.aspx"> Jobs</a>
+					<span style="color:white;font-size:12px;font-weight:bold">|</span>
+										
+					<a href="/Pages/eSchedule.aspx"> Schedules</a>
+					<a href="/Pages/eConnectMain.aspx"> eConnect</a>
+					<a href="/Pages/eCampus.aspx"> eCampus</a>
+					<a href="/Pages/CatalogTOC.aspx">Catalog</a>
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				
+	<table width="100%" border="0"  cellpadding="0" cellspacing="0" style="background-color:#003366;font-family:Verdana,Arial,MS Sans Serif;font-size:small;">
+		<tr>
+			<td width="100%" valign="top">
+				<div style="width:800px; margin-left:auto; margin-right:auto">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td id="MSOZoneCell_WebPartctl00_ctl15_g_284db24e_0fd3_4d4d_97f0_18847b24eec7" vAlign="top"><table TOPLEVEL border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td valign="top"><div WebPartID="284db24e-0fd3-4d4d-97f0-18847b24eec7" HasPers="false" id="WebPartctl00_ctl15_g_284db24e_0fd3_4d4d_97f0_18847b24eec7" width="100%" class="ms-WPBody" allowDelete="false" allowExport="false" style="" ><div id="ctl00_ctl15_g_284db24e_0fd3_4d4d_97f0_18847b24eec7">
+					<table id="RotatedBanner" cellpadding="0" cellspacing="0" border="0" ><tr><td id="textTD"><div id="LeadInSentence"><strong>Carl Knight, Ph.D., Professor of Anatomy<br></strong>Carl Knight has been a teacher and mentor to thousands of students who have gone on to become doctors, nurses and other health care professionals.</div><div id="PersonalizedLink"><a href="http://www.dcccd.edu/About DCCCD/News and Events/It All Begins Here/Faculty Profiles/Pages/Knight.aspx">Read more about Carl&nbsp;&nbsp;&#187;</a></div><div id="RegisterNow"><a href="/Future Students/Admissions and Registration/Pages/RegChecklist.aspx"> <img src="/SiteCollectionDocuments/DCCCD/Graphics/IABHregNow_Ani.gif" alt="Register Now!"/></a></div></td><td><a href="http://www.dcccd.edu/About DCCCD/News and Events/It All Begins Here/Faculty Profiles/Pages/Knight.aspx"><img alt="photo of Carl Knight" border="0" src="/SiteCollectionDocuments/DCCCD/Graphics/Photos/It%20all%20begins%20here/2008Faculty/CarlKnight_241x170_003366.jpg" style="BORDER: 0px solid; "></a></div></td></tr></table>
+				</div></div></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+			</td>
+		</tr>
+		
+		<tr class="rowType2">	
+				<td class="middleCol TopNavTD">
+								<a href="#zz1_GlobalNav_SkipLink"><img alt="Skip navigation links" src="/WebResource.axd?d=U6VK1QoIXymg53S1xBS9VS7Vbh9ZHeLShjCLRxQJowqBX6L7TOgwOun02h1D-1WVDJxvqBv5opq9dmK4Dp0yA6ux5OQ1&amp;t=634605294709717464" width="0" height="0" style="border-width:0px;" /></a><table id="zz1_GlobalNav" class="topNav zz1_GlobalNav_2" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn0"><table class="topNavItem zz1_GlobalNav_4 topNavSelected zz1_GlobalNav_9" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3 topNavSelected zz1_GlobalNav_8" href="/Pages/default.aspx" style="border-style:none;font-size:1em;">Home</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn1"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/About%20DCCCD/Pages/default.aspx" style="border-style:none;font-size:1em;">About DCCCD</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn2"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Future%20Students/Pages/default.aspx" style="border-style:none;font-size:1em;">Future Students</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn3"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Current%20Students/Pages/default.aspx" style="border-style:none;font-size:1em;">Current Students</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn4"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Continuing%20Education/Pages/default.aspx" style="border-style:none;font-size:1em;">Continuing Education</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn5"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Business%20Community/Pages/default.aspx" style="border-style:none;font-size:1em;">Business/Community</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn6"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Employees/Pages/default.aspx" style="border-style:none;font-size:1em;">Employees</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td><td style="width:0px;"></td><td onmouseover="Menu_HoverStatic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn7"><table class="topNavItem zz1_GlobalNav_4" cellpadding="0" cellspacing="0" border="0" width="100%">
+			<tr>
+				<td><a class="zz1_GlobalNav_1 topNavItem zz1_GlobalNav_3" href="/Espanol/Pages/default.aspx" style="border-style:none;font-size:1em;">Español</a></td>
+			</tr>
+		</table></td><td style="width:0px;"></td>
+	</tr>
+</table><div id="zz1_GlobalNavn0Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn8">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Our%20Locations.aspx" style="border-style:none;font-size:1em;">Our Locations</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn9">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Admissions%20Registration.aspx" style="border-style:none;font-size:1em;">Admissions &amp; Registration</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn10">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Paying%20for%20College.aspx" style="border-style:none;font-size:1em;">Paying for College</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn11">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Student%20Services.aspx" style="border-style:none;font-size:1em;">Student Services</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn12">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Libraries.aspx" style="border-style:none;font-size:1em;">Libraries</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Discover DCCCD employment opportunities, plan your career, or learn how to recruit DCCCD students.  It all begins here." id="zz1_GlobalNavn13">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/Jobs.aspx" style="border-style:none;font-size:1em;">Jobs</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Browse credit class schedules for all Dallas County Community Colleges." id="zz1_GlobalNavn14">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/eSchedule.aspx" style="border-style:none;font-size:1em;">Schedules</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn15">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/eConnectMain.aspx" style="border-style:none;font-size:1em;">eConnect</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn16">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/eCampus.aspx" style="border-style:none;font-size:1em;">eCampus</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn17">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Pages/CatalogTOC.aspx" style="border-style:none;font-size:1em;">Catalog</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn0ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn0ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn1Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn18">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Board%20of%20Trustees/Pages/default.aspx" style="border-style:none;font-size:1em;">Board of Trustees</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn19">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Chancellor/Pages/default.aspx" style="border-style:none;font-size:1em;">Chancellor</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn20">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Our%20Locations/Pages/default.aspx" style="border-style:none;font-size:1em;">Our Locations</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn21">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Who%20We%20Are/Pages/default.aspx" style="border-style:none;font-size:1em;">Who We Are</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn22">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/DCCCD%20Facts/Pages/default.aspx" style="border-style:none;font-size:1em;">DCCCD Facts</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn23">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/History/Pages/default.aspx" style="border-style:none;font-size:1em;">History</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn24">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/News%20and%20Events/Pages/default.aspx" style="border-style:none;font-size:1em;">News &amp; Events</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn25">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/TV/Pages/default.aspx" style="border-style:none;font-size:1em;">DCCCD-TV</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn26">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Contact%20Us/Pages/default.aspx" style="border-style:none;font-size:1em;">Contact Us</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="This site index is a listing of the most important pages on our site." id="zz1_GlobalNavn27">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/About%20DCCCD/Pages/Site%20Index.aspx" style="border-style:none;font-size:1em;">Site Index</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn1ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn1ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn2Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn28">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Why%20DCCCD/Pages/default.aspx" style="border-style:none;font-size:1em;">Why DCCCD?</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn29">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Admissions%20and%20Registration/Pages/default.aspx" style="border-style:none;font-size:1em;">Admissions &amp; Registration</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn30">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Paying%20for%20College/Pages/default.aspx" style="border-style:none;font-size:1em;">Paying for College</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn31">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Courses%20and%20Programs/Pages/default.aspx" style="border-style:none;font-size:1em;">Credit Courses &amp; Majors</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn32">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Student%20Services/Pages/default.aspx" style="border-style:none;font-size:1em;">Student Services</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn33">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Student%20Life/Pages/default.aspx" style="border-style:none;font-size:1em;">Student Life</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn34">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Pages/eConnectAP.aspx" style="border-style:none;font-size:1em;">eConnect</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn35">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Pages/CatalogTOC.aspx" style="border-style:none;font-size:1em;">Catalog</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn36">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Future%20Students/Forms/Pages/default.aspx" style="border-style:none;font-size:1em;">Forms</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn2ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn2ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn3Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn37">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Registration/Pages/default.aspx" style="border-style:none;font-size:1em;">Registration</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn38">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Paying%20for%20College/Pages/default.aspx" style="border-style:none;font-size:1em;">Paying for College</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn39">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Courses%20and%20Programs/Pages/default.aspx" style="border-style:none;font-size:1em;">Credit Courses &amp; Majors</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn40">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Student%20Services/Pages/default.aspx" style="border-style:none;font-size:1em;">Student Services</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn41">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Student%20Life/Pages/default.aspx" style="border-style:none;font-size:1em;">Student Life</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn42">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Libraries/Pages/default.aspx" style="border-style:none;font-size:1em;">Libraries</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn43">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Pages/eConnectST.aspx" style="border-style:none;font-size:1em;">eConnect</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn44">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Pages/eCampus.aspx" style="border-style:none;font-size:1em;">eCampus</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn45">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Pages/CatalogTOC.aspx" style="border-style:none;font-size:1em;">Catalog</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn46">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Current%20Students/Forms/Pages/default.aspx" style="border-style:none;font-size:1em;">Forms</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn3ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn3ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn4Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn47">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/About%20Continuing%20Education/Pages/default.aspx" style="border-style:none;font-size:1em;">About Continuing Education</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn48">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Courses%20and%20Programs/Pages/default.aspx" style="border-style:none;font-size:1em;">Courses &amp; Programs</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn49">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Pages/CE-eConnect.aspx" style="border-style:none;font-size:1em;">eConnect</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn50">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Paying%20for%20College/Pages/default.aspx" style="border-style:none;font-size:1em;">Paying for College</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn51">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Registration/Pages/default.aspx" style="border-style:none;font-size:1em;">Registration</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn52">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Student%20Services/Pages/default.aspx" style="border-style:none;font-size:1em;">Student Services</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn53">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Student%20Life/Pages/defaultOLD.aspx" style="border-style:none;font-size:1em;">Student Life</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn54">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Continuing%20Education/Libraries/Pages/default.aspx" style="border-style:none;font-size:1em;">Libraries</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn4ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn4ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn5Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" title="Learn about the DCCCD Foundation." id="zz1_GlobalNavn55">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Pages/Donate%20to%20DCCCD.aspx" style="border-style:none;font-size:1em;">Donate to DCCCD</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn56">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Business%20Resources/Pages/default.aspx" style="border-style:none;font-size:1em;">Business Resources</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn57">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Jobs/Pages/Jobs.aspx" style="border-style:none;font-size:1em;">Jobs</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn58">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Outreach/Pages/default.aspx" style="border-style:none;font-size:1em;">Community Outreach</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn59">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Corporate%20Training/Pages/default.aspx" style="border-style:none;font-size:1em;">Corporate Training</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn60">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Our%20Locations/Pages/default.aspx" style="border-style:none;font-size:1em;">Our Locations</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn61">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Business%20Community/Libraries/Pages/default.aspx" style="border-style:none;font-size:1em;">Libraries</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn5ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn5ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn6Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn62">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Tools%20and%20Resources/Pages/default.aspx" style="border-style:none;font-size:1em;">Tools &amp; Resources</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn63">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/HR/Pages/default.aspx" style="border-style:none;font-size:1em;">Human Resources</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn64">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Training%20and%20Development/Pages/default.aspx" style="border-style:none;font-size:1em;">Training &amp; Development</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn65">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Policy%20and%20Procedures/Pages/default.aspx" style="border-style:none;font-size:1em;">Policy &amp; Procedures</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn66">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Departments/Pages/default.aspx" style="border-style:none;font-size:1em;">Departments</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn67">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Councils/Pages/default.aspx" style="border-style:none;font-size:1em;">Councils</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn68">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Intranet/Pages/default.aspx" style="border-style:none;font-size:1em;">Intranet</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn69">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Our%20Locations/Pages/default.aspx" style="border-style:none;font-size:1em;">Our Locations</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn70">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Libraries/Pages/default.aspx" style="border-style:none;font-size:1em;">Libraries</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn71">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Pages/eConnectEM.aspx" style="border-style:none;font-size:1em;">eConnect</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn72">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Employees/Forms/Pages/default.aspx" style="border-style:none;font-size:1em;">Forms</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn6ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn6ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><div id="zz1_GlobalNavn7Items" class="zz1_GlobalNav_0 topNavFlyOuts zz1_GlobalNav_7">
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn73">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Espanol/Acerca%20de%20DCCCD/Pages/default.aspx" style="border-style:none;font-size:1em;">Acerca de DCCCD</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn74">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Espanol/Futuros%20Estudiantes/Pages/default.aspx" style="border-style:none;font-size:1em;">Futuros Estudiantes</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn75">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Espanol/Parents/Pages/default.aspx" style="border-style:none;font-size:1em;">Padres</a></td>
+				</tr>
+			</table></td>
+		</tr><tr onmouseover="Menu_HoverDynamic(this)" onmouseout="Menu_Unhover(this)" onkeyup="Menu_Key(this)" id="zz1_GlobalNavn76">
+			<td><table class="topNavFlyOutsItem zz1_GlobalNav_6" cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr>
+					<td style="width:100%;"><a class="zz1_GlobalNav_1 topNavFlyOutsItem zz1_GlobalNav_5" href="/Espanol/Educacion%20Continua/Pages/default.aspx" style="border-style:none;font-size:1em;">Educación Continua</a></td>
+				</tr>
+			</table></td>
+		</tr>
+	</table><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn7ItemsUp" onmouseover="PopOut_Up(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=GRJZTrVgaMs8W1yuVw6YOy20VmUHsHfpEktDy6Dkci_ydoMboLlxXAivlZ6SH3AUIu_bkiwZ-CdgVurTmeni4D8TIWQ1&amp;t=634605294709717464" alt="Scroll up" />
+	</div><div class="topNavFlyOutsItem zz1_GlobalNav_6 zz1_GlobalNav_0" id="zz1_GlobalNavn7ItemsDn" onmouseover="PopOut_Down(this)" onmouseout="PopOut_Stop(this)" style="text-align:center;">
+		<img src="/WebResource.axd?d=ztFC1u1Pt_c-bunpp1VwJROeIanZFBfXHyB6wbN41byJw0mltXyiFRAr2GJVDAiqOo1Ad4Mk0gNO6IcVozwq0XttEsM1&amp;t=634605294709717464" alt="Scroll down" />
+	</div>
+</div><a id="zz1_GlobalNav_SkipLink"></a>
+							
+								
+			</td>				
+		</tr>
+		<tr>
+			<td>
+					
+	<div class="emergencyDiv" >
+		<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td id="MSOZoneCell_WebPartctl00_ctl15_g_07aee3f4_f48b_41c7_ae10_272e22cb9e91" vAlign="top"><table TOPLEVEL border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td valign="top"><div WebPartID="07aee3f4-f48b-41c7-ae10-272e22cb9e91" HasPers="false" id="WebPartctl00_ctl15_g_07aee3f4_f48b_41c7_ae10_272e22cb9e91" width="100%" class="ms-WPBody" allowDelete="false" allowExport="false" style="" ><div id="ctl00_ctl15_g_07aee3f4_f48b_41c7_ae10_272e22cb9e91">
+
+				</div></div></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+	</div>		
+
+			</td>
+		</tr>
+		<tr class="rowType3">			
+			<td class="middleCol">
+				<div id="ctl00_MSO_ContentDiv" class="mainContainer">
+						<div class="pageTitle">
+							
+	
+
+						</div>
+						<div class="mainContent" style="min-height:500px; ">
+							
+	
+
+	
+	
+	<div class="ms-pagebreadcrumb removeMargins">
+		<span id="ctl00_PlaceHolderMain_siteMapPath"><span class="ms-sitemapdirectional">Home</span></span>
+	</div>
+	
+	
+	
+	
+	
+	<div style="padding-left:24px; padding-right:24px; padding-bottom:5px;">
+	<table id="ContentTable" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td width="30%"  >
+				<table width="100%" cellpadding="0" cellspacing="0">
+					<tr>
+						<td>
+							<div id="ctl00_PlaceHolderMain_ctl01__ControlWrapper_RichHtmlField" style="display:inline"><table cellspacing=0 cellpadding=0 width="100%">
+<tbody>
+<tr>
+<td><a href="/Current%20Students/Courses%20and%20Programs/Programs"><img style="border-bottom:0px solid;border-left:0px solid;border-top:0px solid;border-right:0px solid;padding-top:5px" border=0 src="/SiteCollectionImages/DCCCD/DCCCD%20Homepage/spotlighted_programs.gif"></a></td></tr>
+<tr>
+<tr>
+<td height=4 background="/SiteCollectionImages/DCCCD/DCCCD%20Homepage/dotted_line.gif"></td></tr>
+<tr></tr></tbody></table></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div style="padding-top:15px; text-align:center" >
+								<div id="ctl00_PlaceHolderMain_PageImage__ControlWrapper_RichImageField" style="display:inline"><span dir=""><a href="/Current%20Students/Courses%20and%20Programs/Programs"><img alt="Smart Careers information" border=0 src="/SiteCollectionDocuments/DCCCD/Graphics/Photos/DCCCD%20stock/SmartCareers160x200.jpg" style="border:0px solid"></a></span>&nbsp;</div>
+								<div class="caption">
+									<div id="ctl00_PlaceHolderMain_Caption1__ControlWrapper_RichHtmlField" style="display:inline"></div>
+								</div>
+							</div>
+							<div class="pageContent" style="font-family:Verdana,Arial,MS Sans Serif;color:#000000;display:block;">
+								<div id="ctl00_PlaceHolderMain_PageContent__ControlWrapper_RichHtmlField" style="display:inline"><p>Download our <a title="" href="/SiteCollectionDocuments/DCCCD/Docs/Departments/DO/MarComm/SmartCareersTab2011.pdf" target="_blank">Smart Careers brochure</a> (PDF - 2.9MB) to learn which career is right for you! </p>
+<p><strong><a href="/Future%20Students/Admissions%20and%20Registration">Apply Today!</a> <br></strong><br><strong>Select Your Program<br></strong>Visit the links below for detailed profiles of some of our most popular programs: </p>
+<ul>
+<li><a href="/Current%20Students/Courses%20and%20Programs/Programs">credit classes, certificates and degrees</a> </li>
+<li><a title="Get information about some of our career and continuing education programs." href="/Continuing%20Education/Courses%20and%20Programs/Programs">career and continuing education programs</a></li>
+<li><a href="/Future%20Students/Courses%20and%20Programs/Special%20Programs/High%20School%20Programs">high school programs</a></li></ul>
+<p><a title="" href="/Current%20Students/Courses%20and%20Programs/Flex/Pages/default.aspx">Find Flex Term Classes Starting in May</a><br><br><a title="" href="/Current%20Students/Student%20Services/CSeNews">Sign Up for Our Informative eNewsletters!</a><br><br><a href="/Future%20Students/Why%20DCCCD/Testimonials/Pages/Videos.aspx">View Student Video Testimonials</a></p><a title="" href="http://transfer101.org/" target="_blank">
+<p>Learn About Transferring to a Four-Year University at Transfer101</a></p></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="ctl00_PlaceHolderMain_ctl02__ControlWrapper_RichHtmlField" style="display:inline"><br>
+<hr style="color:#5884a9;height:1px">
+<a style="border-right:0px solid;border-top:0px solid;padding-left:10px;float:right;vertical-align:top;border-left:0px solid;padding-top:10px;border-bottom:0px solid" href="/Current%20Students/Courses%20and%20Programs/Programs">Find out more<img style="padding-left:10px;vertical-align:middle" src="/SiteCollectionImages/DCCCD/DCCCD%20Homepage/blue_arrow.gif" border=0></a> </div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			
+			<td width="24"></td>
+			<td bgcolor="#d4d4d4" width="1"></td>
+			<td width="24"></td>	
+			
+			<td width="30%">
+				<table width="100%">
+					<tr>
+						<td>
+							<div id="ctl00_PlaceHolderMain_ctl03__ControlWrapper_RichHtmlField" style="display:inline"></div>							
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td id="MSOZoneCell_WebPartWPQ2" vAlign="top"><table TOPLEVEL border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td valign="top"><div WebPartID="427c534b-a60a-48ea-8d61-96b8f59078cb" HasPers="false" id="WebPartWPQ2" width="100%" class="ms-WPBody" allowDelete="false" style="" ><div id="ctl00_ctl15_g_427c534b_a60a_48ea_8d61_96b8f59078cb">
+					<a href="/About DCCCD/News and Events/News/" style="margin-top:30px"><img src="/SiteCollectionDocuments/DCCCD/DCCCD%20Homepage/dcccd_news.gif" style="border:none"></img></a><div style="background-image:url('/SiteCollectionDocuments/DCCCD/DCCCD%20Homepage/dotted_line.gif');background-repeat:repeat-x; width:100%;height:4px;"></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="checklist icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/Checklist40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/RegNews2012.aspx">Registration News</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="graduate icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/Graduate40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/Graduation05-03-12.aspx">DCCCD Graduates Include College, High School Students</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="ladybug icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/Ladybug40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/SummerCamps05-03-12.aspx">Parents: Check Out Summer Camps for Kids at DCCCD</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="photo of Dr. Kathryn Eggleston" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/2012/KayEggleston40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/RLCPrezNamed05-02-12.aspx">DCCCD Names New Richland College President</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="studying icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/Studying40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/Scholarships05-02-12.aspx">Students: Apply Now for These Scholarships</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="alert icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/FileFolder40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/ProgramofStudy03-21-12.aspx">Students: Have You Chosen a Program of Study? New State Law Requires It</a></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"><img alt="check writing icon" border="0" src="/About%20DCCCD/News%20and%20Events/News/PublishingImages/WritingACheck40x40.jpg" style="BORDER: 0px solid; "></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/News/Pages/FANews06-14-11.aspx">Financial Aid News</a></div></td></tr></table></div>
+				</div></div></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							<div id="ctl00_PlaceHolderMain_ctl04__ControlWrapper_RichHtmlField" style="display:inline"><p><a title="Get current information about DCCCD's services from our blog!" href="http://dcccdinfo.wordpress.com/" target="_blank">Check out the DCCCD Student Info Blog</a></p>
+<p><a href="/Future%20Students/Paying%20for%20College/Financial%20Aid/Veterans">Veterans: Use Your Benefits to Pay for College</a> <br><a title="" href="/Business%20Community/Business%20Resources/Pages/doBusDCCCD.aspx"><br>How to Do Business With DCCCD</a> <font color="#0000ff"><br><br></font><a title="" href="http://www.foundation.dcccd.edu/giving" target="_blank">Ways to Give to DCCCD</a></p>
+<p align=center><a href="http://www.facebook.com/dcccd" target="_blank"><img border=0 alt="Find us on Facebook!" src="/SiteCollectionDocuments/DCCCD/Graphics/Icons/SocialMedia/32x32/facebook_32.png" width=32 height=32></a> <a href="http://www.twitter.com/dcccd" target="_blank"><img border=0 alt="Follow us on Twitter!" src="/SiteCollectionDocuments/DCCCD/Graphics/Icons/SocialMedia/32x32/twitter_32.png" width=32 height=32></a> <a title="" href="/About%20DCCCD/News%20and%20Events/RSS/Pages/default.aspx" target="_blank"><img border=0 alt="Subscribe to our RSS Feeds!" src="/SiteCollectionDocuments/DCCCD/Graphics/Icons/SocialMedia/32x32/feed_32.png" width=32 height=32></a> <a href="http://www.youtube.com/dcccd" target="_blank"><img border=0 alt="Check out our YouTube videos!" src="/SiteCollectionDocuments/DCCCD/Graphics/Icons/SocialMedia/32x32/youtube_32.png" width=32 height=32></a></p><br>
+<hr style="height:1px;color:#5884a9">
+<a style="border-bottom:0px solid;border-left:0px solid;padding-left:10px;float:right;vertical-align:top;border-top:0px solid;border-right:0px solid;padding-top:10px" href="/about%20dcccd/News%20and%20Events/News">More DCCCD news<img style="padding-left:10px;vertical-align:middle" border=0 src="/SiteCollectionImages/DCCCD/DCCCD%20Homepage/blue_arrow.gif"></a> </div>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="24"></td>
+			<td bgcolor="#d4d4d4" width="1" style="padding:0px 0px 0xp 0px"></td>
+			<td width="24"></td>
+			
+			<td width="30%" >
+				<table width="100%">
+					<tr>
+						<td>
+							<div id="ctl00_PlaceHolderMain_ctl05__ControlWrapper_RichHtmlField" style="display:inline"></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td id="MSOZoneCell_WebPartWPQ3" vAlign="top"><table TOPLEVEL border="0" cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<td valign="top"><div WebPartID="94c13d60-1b25-4690-8f63-9f8b8e8b5b14" HasPers="false" id="WebPartWPQ3" width="100%" class="ms-WPBody" allowDelete="false" style="" ><div id="ctl00_ctl15_g_94c13d60_1b25_4690_8f63_9f8b8e8b5b14">
+					<a href="/About DCCCD/News and Events/Events/" style="margin-top:30px"><img src="/SiteCollectionDocuments/DCCCD/DCCCD%20Homepage/upcoming_events.gif" style="border:none"></img></a><div style="background-image:url('/SiteCollectionDocuments/DCCCD/DCCCD Homepage/dotted_line.gif');background-repeat:repeat-x; width:100%;height:4px;"></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1981">Arts & Letters Live: Texas Bound III: Friday Night Lights</a><div>Monday, May 7, 2012<br/>7:30 p.m. - 10 p.m.<br/></div><div>Horchow Auditorium, Dallas Museum of Art, 1717 N. Harwood St., Dallas</div></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1982">Arts & Letters Live: H.W. Brands and Mark K. Updegrove</a><div>Wednesday, May 9, 2012<br/>7:30 p.m. - 10 p.m.<br/></div><div>Horchow Auditorium, Dallas Museum of Art, 1717 N. Harwood St., Dallas</div></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1933">Semester Ends</a><div>Thursday, May 10, 2012</div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1934">Grades Due</a><div>Monday, May 14, 2012</div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1983">Arts & Letters Live: John Irving</a><div>Tuesday, May 15, 2012<br/>7:30 p.m. - 10 p.m.<br/></div><div>Majestic Theatre, 1925 Elm St., Dallas</div></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1984">Arts & Letters Live: Ben Fountain and Alexander Maksik</a><div>Friday, May 18, 2012<br/>7 p.m. - 10 p.m.<br/></div><div>Horchow Auditorium, Dallas Museum of Art, 1717 N. Harwood St., Dallas</div></div></td></tr></table></div><div id="linkitem" class="item" style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><table cellpadding="0" cellspacing="5" border="0"><tr><td valign="top"></td><td valign="top" width="100%"><div style="font-family:Verdana,Arial,MS Sans Serif;font-size:small"><a href="http://www.dcccd.edu/About DCCCD/News and Events/Events/DCCCD/Lists/Events/EventDisplay.aspx?ID=1985">Arts & Letters Live: Alan Lightman</a><div>Sunday, May 20, 2012<br/>7:30 p.m. - 10 p.m.<br/></div><div>First Presbyterian Church of Dallas, 408 Park Ave., Dallas</div></div></td></tr></table></div>
+				</div></div></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="ctl00_PlaceHolderMain_ctl06__ControlWrapper_RichHtmlField" style="display:inline"><a title="The academic calendar indicates academic deadlines districtwide." href="https://www1.dcccd.edu/catalog/ss/academic_calendar.cfm">View the academic calendar</a><br><br>
+<hr style="color:#5884a9;height:1px">
+<a style="border-right:0px solid;border-top:0px solid;padding-left:10px;float:right;vertical-align:top;border-left:0px solid;padding-top:10px;border-bottom:0px solid" href="/About%20DCCCD/News%20and%20Events/Events">More DCCCD events<img style="padding-left:10px;vertical-align:middle" src="/SiteCollectionImages/DCCCD/DCCCD%20Homepage/blue_arrow.gif" border=0></a> </div>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td>
+			</td>
+		</tr>		
+	</table>
+
+	
+	</div>
+	
+
+						</div>
+				</div>
+			</td>			
+		</tr>
+		<tr>
+			<td>
+				<table cellpadding="5" cellspacing="0" border="0" width="100%">
+					<tr>
+						<td class="footer" >
+							© 2011 Dallas County Community College District.
+							<a href="/Pages/Privacy%20and%20Security%20Commitment.aspx">Privacy & Security Policy Commitment</a>&nbsp;|&nbsp;
+							<a href="https://www1.dcccd.edu/fraudhotline/index.cfm">Report Fraud</a>&nbsp;|&nbsp;
+							<a href="/About%20DCCCD/Who%20We%20Are/Pages/Accreditation.aspx">Accreditation</a>&nbsp;|&nbsp;
+							<a href="/Pages/About%20This%20Website.aspx">About This Website</a>&nbsp;|&nbsp;
+							<a href="/About%20DCCCD/Pages/Site%20Index.aspx">Site Index</a>&nbsp;|&nbsp;
+							<a href="/About%20DCCCD/Contact%20Us">Contact Us</a>
+							<br />
+							<a href="/About%20DCCCD"><span style="font-weight:bold;">About DCCCD</span></a>&nbsp;|&nbsp;
+							<a href="/Future%20Students"><span style="font-weight:bold;">Future Students</span></a>&nbsp;|&nbsp;
+							<a href="/Current%20Students"><span style="font-weight:bold;">Current Students</span></a>&nbsp;|&nbsp;
+							<a href="/Continuing%20Education"><span style="font-weight:bold;">Continuing Education</span></a>&nbsp;|&nbsp;
+							<a href="/Business%20Community"><span style="font-weight:bold;">Business Community</span></a>&nbsp;|&nbsp;
+							<a href="/Employees"><span style="font-weight:bold;">Employees</span></a>&nbsp;|&nbsp;
+							<a href="/Espanol"><span style="font-weight:bold;">Espa&ntilde;ol</span></a>
+						</td>
+					</tr>
+				</table>
+
+			</td>
+		</tr>
+		
+				
+		
+		
+		
+	</table>
+		<div id="ctl00_ctl24_pnlContentTrue">
+	
+				<script type="text/javascript" src="/SiteCollectionDocuments/scripts/Tracking.js">/**/</script> <script type="text/javascript" src="/SiteCollectionDocuments/scripts/urchin.js">/**/</script> <script type="text/javascript" src="https://us1.siteimprove.com/js/siteanalyze_66356246.js">/**/</script> <script type="text/javascript">
+					var axel = Math.random() + "";
+					var a = axel * 10000000000000;
+					document.write(
+						'<iframe ' +
+							'src="http://fls.doubleclick.net/activityi;src=2865295;type=ip107204;cat=homep162;ord=' + a + '?" ' +
+							'width="1" ' +
+							'height="1" ' +
+							'frameborder="0"' +
+						'></iframe>');
+				</script> <noscript>
+					<iframe src="http://fls.doubleclick.net/activityi;src=2865295;type=ip107204;cat=homep162;ord=1?" width="1" height="1" frameborder="0"></iframe>
+				</noscript>
+				<script type="text/javascript">
+				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				</script> <script type="text/javascript">
+				try{
+				
+				var pageTracker = _gat._getTracker("UA-30752529-1");
+				pageTracker._setLocalRemoteServerMode();
+				pageTracker._trackPageview();
+				} catch(err) {}
+				</script> 
+</div>
+
+	
+
+<script type="text/javascript">
+//<![CDATA[
+var __wpmExportWarning='This Web Part Page has been personalized. As a result, one or more Web Part properties may contain confidential information. Make sure the properties contain information that is safe for others to read. After exporting this Web Part, view properties in the Web Part description file (.WebPart) by using a text editor such as Microsoft Notepad.';var __wpmCloseProviderWarning='You are about to close this Web Part.  It is currently providing data to other Web Parts, and these connections will be deleted if this Web Part is closed.  To close this Web Part, click OK.  To keep this Web Part, click Cancel.';var __wpmDeleteWarning='You are about to permanently delete this Web Part.  Are you sure you want to do this?  To delete this Web Part, click OK.  To keep this Web Part, click Cancel.';//]]>
+</script>
+<script type="text/javascript" language="JavaScript" defer>
+<!--
+function S622C1022_Submit() {GoSearch(null,'ctl00_PlaceHolderSearchArea_SearchBox_S622C1022_InputKeywords',null,true,false,null,null,null,null,'\u002fsearch\u002fPages\u002fResults.aspx', 'This Site','This List', 'This Folder', 'Related Sites', '\u002f_layouts\u002fOSSSearchResults.aspx');}
+// -->
+</script><script type="text/javascript" language="JavaScript" >
+// append an onload event handler
+var S622C1022__onload= document.body.onload;
+if(typeof document.body.onload == 'function')
+{
+ document.body.onload = function()
+ {
+S622C1022__onload();        
+  document.getElementById('ctl00_PlaceHolderSearchArea_SearchBox_S622C1022_InputKeywords').name = 'InputKeywords';
+ }
+}
+else
+{
+ document.body.onload = function()
+ {
+  eval(S622C1022__onload);        
+  document.getElementById('ctl00_PlaceHolderSearchArea_SearchBox_S622C1022_InputKeywords').name = 'InputKeywords';
+ }
+}
+
+function S622C1022_OSBEK(event1) { 
+var kCode = String.fromCharCode(event1.keyCode);
+if(kCode == "\n" || kCode == "\r")
+{   
+S622C1022_Submit();
+}
+}
+// -->
+</script>
+<script type="text/javascript">
+//<![CDATA[
+var zz1_GlobalNav_Data = new Object();
+zz1_GlobalNav_Data.disappearAfter = 500;
+zz1_GlobalNav_Data.horizontalOffset = 0;
+zz1_GlobalNav_Data.verticalOffset = -8;
+zz1_GlobalNav_Data.hoverClass = 'zz1_GlobalNav_13 topNavFlyOutsHover';
+zz1_GlobalNav_Data.hoverHyperLinkClass = 'zz1_GlobalNav_12 topNavFlyOutsHover';
+zz1_GlobalNav_Data.staticHoverClass = 'zz1_GlobalNav_11 topNavHover';
+zz1_GlobalNav_Data.staticHoverHyperLinkClass = 'zz1_GlobalNav_10 topNavHover';
+if (typeof(overrideMenu_HoverStatic) == 'function' && typeof(Menu_HoverStatic) == 'function')
+{
+_spBodyOnLoadFunctionNames.push('enableFlyoutsAfterDelay');
+Menu_HoverStatic = overrideMenu_HoverStatic;
+}
+var flyoutsAllowed = false;
+function enableFlyoutsAfterDelay()
+{
+setTimeout('flyoutsAllowed = true;', 50);
+}
+function overrideMenu_HoverStatic(item)
+{
+if (!flyoutsAllowed || (document.readyState != null && document.readyState != 'complete'))
+{
+setTimeout(delayMenu_HoverStatic(item), 50);
+}
+else
+{
+// this code is the default ASP.NET implementation of Menu_HoverStatic
+var node = Menu_HoverRoot(item);
+var data = Menu_GetData(item);
+if (!data) return;
+__disappearAfter = data.disappearAfter;
+Menu_Expand(node, data.horizontalOffset, data.verticalOffset);
+}
+}
+function delayMenu_HoverStatic(item)
+{
+return (function()
+{
+overrideMenu_HoverStatic(item);
+});
+}
+//]]>
+</script>
+<SCRIPT LANGUAGE='JavaScript' >
+<!--
+WPSC.Init(document);
+var varPartWPQ2 = WPSC.WebPartPage.Parts.Register('WPQ2','427c534b-a60a-48ea-8d61-96b8f59078cb',document.all.item('WebPartWPQ2'));
+var varPartWPQ3 = WPSC.WebPartPage.Parts.Register('WPQ3','94c13d60-1b25-4690-8f63-9f8b8e8b5b14',document.all.item('WebPartWPQ3'));
+var varPartWPQ1 = WPSC.WebPartPage.Parts.Register('WPQ1','00000000-0000-0000-0000-000000000000',document.all.item('WebPartWPQ1'));
+WPSC.WebPartPage.WebURL = 'http:\u002f\u002fwww.dcccd.edu';
+WPSC.WebPartPage.WebServerRelativeURL = '\u002f';
+
+//-->
+</SCRIPT><script type="text/javascript" language="javascript" src="/_layouts/1033/core.js?rev=mHKsOQ0iU3Q5jdm9OZNDdg%3D%3D"></script>
+<script type="text/javascript" language="javascript" src="/_layouts/1033/search.js?rev=yqBjpvg%2Foi3KG5XVf%2FStmA%3D%3D"></script>
+</form>
+ </body>
+</html>
+<!-- Rendered using cache profile:Extranet (Published Site) at: 2012-05-06T15:24:47 -->

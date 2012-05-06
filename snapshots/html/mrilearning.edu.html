@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/theme/standard/styles.php" />
+<link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/theme/afterburner/styles.php" />
+<meta name="description" content="
+ Please ensure your computer is setup properly to run MRI-Learning. 
+ System requirements and plug-in information.   FirefoxWindows Media PlayerAcrobat Reader Quicktime Flash Player 10    " />
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/theme/standard/styles_ie7.css" />
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/theme/standard/styles_ie6.css" />
+<![endif]-->
+
+<script type="text/javascript"  src="http://mrilearning.edu/moodle/mod/assignment/type/poodllonline/swfobject.js"></script>
+<script type="text/javascript"  src="http://mrilearning.edu/moodle/mod/assignment/type/poodllonline/javascript.php"></script>
+
+    <meta name="keywords" content="moodle, MRILearning " />
+    <title>MRILearning</title>
+    <link rel="shortcut icon" href="http://mrilearning.edu/moodle/theme/afterburner/favicon.ico" />
+    <!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(http://mrilearning.edu/moodle/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/javascript-static.js"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/javascript-mod.php"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/overlib/overlib.js"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/overlib/overlib_cssstyle.js"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/cookies.js"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/ufo.js"></script>
+<script type="text/javascript" src="http://mrilearning.edu/moodle/lib/dropdown.js"></script>  
+
+<script type="text/javascript" defer="defer">
+//<![CDATA[
+setTimeout('fix_column_widths()', 20);
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function openpopup(url, name, options, fullscreen) {
+    var fullurl = "http://mrilearning.edu/moodle" + url;
+    var windowobj = window.open(fullurl, name, options);
+    if (!windowobj) {
+        return true;
+    }
+    if (fullscreen) {
+        windowobj.moveTo(0, 0);
+        windowobj.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    windowobj.focus();
+    return false;
+}
+
+function uncheckall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+    }
+}
+
+function checkall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+    }
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+
+function getElementsByClassName(oElm, strTagName, oClassNames){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	var arrRegExpClassNames = new Array();
+	if(typeof oClassNames == "object"){
+		for(var i=0; i<oClassNames.length; i++){
+			arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames[i].replace(/\-/g, "\\-") + "(\\s|$)"));
+		}
+	}
+	else{
+		arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames.replace(/\-/g, "\\-") + "(\\s|$)"));
+	}
+	var oElement;
+	var bMatchesAll;
+	for(var j=0; j<arrElements.length; j++){
+		oElement = arrElements[j];
+		bMatchesAll = true;
+		for(var k=0; k<arrRegExpClassNames.length; k++){
+			if(!arrRegExpClassNames[k].test(oElement.className)){
+				bMatchesAll = false;
+				break;
+			}
+		}
+		if(bMatchesAll){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+}
+//]]>
+</script>
+    <link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/lib/yui/menu/assets/menu-core.css" /> 
+    <link rel="stylesheet" type="text/css" href="http://mrilearning.edu/moodle/theme/afterburner/styles_yui_menu.css" /> 
+    <script type="text/javascript" src="http://mrilearning.edu/moodle/lib/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+    <script type="text/javascript" src="http://mrilearning.edu/moodle/lib/yui/container/container_core.js"></script>
+    <script type="text/javascript" src="http://mrilearning.edu/moodle/lib/yui/menu/menu.js"></script>
+    <script type="text/javascript">
+      YAHOO.util.Event.onContentReady("dropdown", function () {
+        var oMenuBar = new YAHOO.widget.MenuBar("dropdown", { 
+          autosubmenudisplay: true, 
+          hidedelay: 750, 
+          lazyload: true });
+        oMenuBar.render();
+      });
+    </script>
+</head>
+
+<body  class="http:--mrilearning.edu course-1 notloggedin dir-ltr lang-en_utf8" id="http:--mrilearning.edu-index">
+
+<div id="page">
+
+      <div id="background"> <!-- closed in footer.html -->
+      <table id="wrapper"> <!-- closed in footer.html -->
+        <tr>
+          <td>
+            <div id="header-home" class="clearfix">
+              <a id="logo" href="http://mrilearning.edu/moodle">&nbsp;</a>
+              <h1 class="headermain">MRILearning</h1>
+              <div class="headermenu"><div class="logininfo">You are not logged in. (<a  href="http://mrilearning.edu/moodle/login/index.php">Login</a>)</div><form action="http://mrilearning.edu/moodle/course/jumpto.php" method="get"  id="chooselang" class="popupform"><div><label for="chooselang_jump"><span class="accesshide " >Language</span></label><select id="chooselang_jump" name="jump" onfocus="initSelect('chooselang',self)">
+   <option value="http://mrilearning.edu/moodle/index.php?lang=en_utf8" selected="selected">English (en)</option>
+   <option value="http://mrilearning.edu/moodle/index.php?lang=es_utf8">Español - Internacional (es)</option>
+</select><input type="hidden" name="sesskey" value="jqXZTqoRnU" /><div id="noscriptchooselang" style="display: inline;"><input type="submit" value="Go" /></div><script type="text/javascript">
+//<![CDATA[
+document.getElementById("noscriptchooselang").style.display = "none";
+//]]>
+</script></div></form></div>
+            </div>
+
+    <div id="dropdown" class="yuimenubar yuimenubarnav">
+      <div class="bd">
+      
+        <ul class="first-of-type">
+        
+        <li class="yuimenubaritem first-of-type"><a class="yuimenubaritemlabel" href="http://mrilearning.edu/moodle">Home</a></li>
+     
+          
+          <li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">About</a>
+            <div class="yuimenu">
+             <div class="bd">
+               <ul>
+                 
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/mod/resource/view.php?id=316">What is MRI</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/mod/resource/view.php?id=317">What is MRILearning</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/mod/resource/view.php?id=320">Location</a></li>              
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="#">Contact</a></li>
+                <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel"href="http://mrilearning.edu/moodle/mod/resource/view.php?id=315">FAQ</a></li>
+
+               </ul>
+              </div>
+            </div>      
+            
+          </li>
+
+
+         * <li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Teacher Resources</a>
+            <div class="yuimenu">
+             <div class="bd">
+               <ul>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://webmail.ntchosting.com/ "target="_blank">Web Mail</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/course/view.php?id=11">Moodle Basic</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/course/view.php?id=9">Moodle for Teacher.</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel"href=http://mrilearning.edu/moodle/course/view.php?id=7">Online Course Template</a></li>
+                 
+               </ul>
+              </div>
+            </div>      
+            
+          </li>
+         
+         <li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="#">Student Resources</a>
+            <div class="yuimenu">
+             <div class="bd">
+               <ul>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://webmail.ntchosting.com/ "target="_blank">Web Mail</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/mod/resource/view.php?id=374 ">MRILearning Introduction</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" href="http://mrilearning.edu/moodle/mod/resource/view.php?id=322 ">Student Tutorial</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" 
+href="http://mrilearning.edu/moodle/mod/resource/view.php?id=323">Student Faqs</a></li>
+                 <li class="yuimenuitem"><a class="yuimenuitemlabel" 
+href="http://longmanenglishinteractive.com/home.html"target="_blank">Longman English Interactive</a></li>
+               
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://www2.cambridge.org/interchangearcade/listunits.do?level=1"target="_blank">Interchange</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://www.classmarker.com/"target="_blank">Clasmarker</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://portal.mypearson.com/cclogin.jsp"target="_blank">Web pearson</a></li>
+                 <li class="yuimenuitem first-of-type"><a class="yuimenuitemlabel" href="http://www.google.com/books?uid=15944754393384028774&source=gbs_lp_bookshelf_list"target="_blank">MediaCenter</a></li>
+
+               </ul>
+              </div>
+            </div>      
+            
+          </li>
+<li class="yuimenubaritem first-of-type"><a class="yuimenubaritemlabel" href="http://mrilearning.edu/moodle/user/editadvanced.php?id=-1">ESL Placement Test</a></li> 
+          
+      
+                    
+         	<li class="yuimenubaritem"><a class="yuimenubaritemlabel" href="http://mrilearning.edu/moodle/my/">My Courses</a></li>
+         	
+         	
+        </ul>     
+               
+      </div>
+    </div>            
+  
+  
+  
+  <!-- END OF HEADER -->
+
+  <div id="content">
+
+
+<table id="layout-table" summary="layout">
+  <tr>
+  <td style="width: 210px;" id="left-column"><div><div  id="inst405" class="block_html sideblock"><div class="content">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript" src="ddaccordion.js"> /*********************************************** * Accordion Content script- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com) * Visit http://www.dynamicDrive.com for hundreds of DHTML scripts * This notice must stay intact for legal use ***********************************************/ </script>
+<script type="text/javascript"> ddaccordion.init({ headerclass: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;headerbar&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, //Shared CSS class name of headers group contentclass: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;submenu&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, //Shared CSS class name of contents group revealtype: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;mouseover&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, //Reveal content when user clicks or onmouseover the header? Valid value: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;click&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;clickgo&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, or &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;mouseover&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot; mouseoverdelay: 200, //if revealtype=&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;mouseover&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, set delay in milliseconds before header expands onMouseover collapseprev: true, //Collapse previous content (so only one open at any time)? true/false defaultexpanded: [0], //index of content(s) open by default [index1, index2, etc] [] denotes no content onemustopen: true, //Specify whether at least one header should be open always (so never all headers closed) animatedefault: false, //Should contents open by default be animated into view? persiststate: true, //persist state of opened contents within browser session? toggleclass: [&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;selected&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively [&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;class1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;class2&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;] togglehtml: [&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;], //Additional HTML added to the header when it's collapsed and expanded, respectively [&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;position&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;html1&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;html2&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;] (see docs) animatespeed: &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;normal&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, //speed of animation: integer in milliseconds (ie: 200), or keywords &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;fast&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;normal&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;, or &amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot;slow&amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;amp;quot; oninit:function(headers, expandedindices){ //custom code to run when headers have initalized //do nothing }, onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed //do nothing } }) </script> <style type="text/css"> .urbangreymenu{ width: 200px; /*width of menu*/ } .urbangreymenu .headerbar{ font: 8px Verdana; color: white; background: #000033 url(arrowstop.gif) no-repeat 8px 6px; /*last 2 values are the x and y coordinates of bullet image*/ margin-bottom: 0; /*bottom spacing between header and rest of content*/ text-transform: normal; padding: 7px 0 7px 25px; /*31px is left indentation of header text*/ } .urbangreymenu .headerbar a{ text-decoration: none; color: white; display: block; } .urbangreymenu ul{ list-style-type: none; margin: 0; padding: 0; margin-bottom: 0; /*bottom spacing between each UL and rest of content*/ } .urbangreymenu ul li{ padding-bottom: 2px; /*bottom spacing between menu items*/ } .urbangreymenu ul li a{ font: normal 12px Arial; color: black; background: #E9E9E9; display: block; padding: 5px 0; line-height: 17px; padding-left: 8px; /*link text is indented 8px*/ text-decoration: none; } .urbangreymenu ul li a:visited{ color: black; } .urbangreymenu ul li a:hover{ /*hover state CSS*/ color: white; background: black; } </style>
+<div class="urbangreymenu">
+  <h3 class="headerbar"><a href="#">Main Menu</a></h3>
+  <ul class="submenu">
+    <li><a href="http://mrilearning.edu/moodle/course/index.php">Learning Areas</a></li>
+    <li><a href="#">Virtual Tour</a></li>
+    <li><a href="http://mrilearning.edu/moodle/course/view.php?id=41&topic=0">Virtual Library</a></li>
+    <li><a href="http://mrilearning.edu/moodle/mod/questionnaire/view.php?id=4020%20">Classroom Student Feedback</a></li>
+  </ul>
+  <h3 class="headerbar"><a href="#">School Information</a></h3>
+  <ul class="submenu">
+    <li><a href="javascript:expandingWindow('http://www.managementresourcesinstitute.com/">A Message from President</a></li>
+    <li><a href="http://mrilearning.edu/moodle/mod/resource/view.php?id=320">Location</a></li>
+    <li><a href="#">Mission</a></li>
+  </ul>
+  <h3 class="headerbar"><a href="#">Prospective Student</a></h3>
+  <ul class="submenu">
+    <li><a href="#">Admision</a></li>
+    <li><a href="http://mrilearning.edu/moodle/mod/resource/view.php?id=374">Student Orientation</a></li>
+  </ul><a href="#"> </a>
+  <h3 class="headerbar"><a href="#"></a><a href="#">Current Student</a></h3>
+  <ul class="submenu">
+    <li><a href="http://mrilearning.edu/moodle/mod/resource/view.php?id=1164">Student Resources</a></li>
+    <li><a href="http://www.google.com/books?uid=15944754393384028774&source=gbs_lp_bookshelf_list" target="_blank">Media Center</a></li>
+    <li><a href="http://mrilearning.edu/moodle/mod/resource/view.php?id=1154">Training Guide</a></li>
+    <li><a href="http://mrilearning.edu/moodle/mod/resource/view.php?id=4239">Manual WebMail</a></li>
+    <li><a href="http://mrilearning.edu/moodle/course/index.php">E-Learning</a></li>
+  </ul> </div> </div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst405","Show  block","Hide  block");
+//]]>
+</script><span id="sb-1" class="skip-block-to"></span><div  id="inst406" class="block_html sideblock"><div class="content">
+<div style="text-align: left;"><a target="_blank" href="http://www.managementresourcesinstitute.com/"><img vspace="0" hspace="0" border="0" src="http://mrilearning.edu/moodle/file.php/1/branding.jpg" alt="management resources institute" title="management resources institute" style="width: 190px; height: 37px;" /></a></div> </div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst406","Show  block","Hide  block");
+//]]>
+</script><span id="sb-2" class="skip-block-to"></span><div  id="inst353" class="block_course_summary sideblock"><div class="content">
+<p style="text-align: center;"> <font size="2"><span style="color: rgb(0, 0, 102); font-weight: bold;">Please ensure your computer is setup properly to run MRI-Learning. </span></font></p>
+<p style="color: rgb(0, 0, 0); font-weight: bold;"><font size="3"> <font size="2">System requirements and plug-in information.</font> </font></p> <strong> <img width="20" vspace="0" hspace="0" height="20" border="0" align="left" src="http://mrilearning.edu/moodle/file.php/1/necesito/firefox.jpg" alt="firefox" title="firefox" /><a target="_blank" href="http://www.mozilla.com/en-US/firefox/">Firefox</a><br /></strong><span style="font-weight: bold;"><img width="20" vspace="0" hspace="0" height="20" border="0" align="left" title="mediaplayer" alt="mediaplayer" src="http://mrilearning.edu/moodle/file.php/1/necesito/mediaplayer.jpg" /></span><a target="_blank" href="http://windows.microsoft.com/en-US/windows/products/windows-media-player"><span style="font-weight: bold;">Windows Media Player</span></a><br /><span style="font-weight: bold;"><img width="20" vspace="0" hspace="0" height="20" border="0" align="left" title="acrobatreader" alt="acrobatreader" src="http://mrilearning.edu/moodle/file.php/1/necesito/acrobatreader.jpg" /></span><a href="http://get.adobe.com/reader/" target="_blank"><span class="nolink">Acrobat Reader </span></a><br /><span style="font-weight: bold;"><img width="20" vspace="0" hspace="0" height="20" border="0" align="left" src="http://mrilearning.edu/moodle/file.php/1/necesito/quicktime.jpg" alt="quicktime" title="quicktime" /></span><a href="http://www.apple.com/quicktime/download/" target="_blank"><span class="nolink">Quicktime </span></a><br /><span style="font-weight: bold;"></span><span style="font-weight: bold;"><img width="20" vspace="0" hspace="0" height="20" border="0" align="left" title="flash" alt="flash" src="http://mrilearning.edu/moodle/file.php/1/necesito/flash.jpg" /><a target="_blank" href="http://www.adobe.com/support/flashplayer/downloads.html">Flash Player 10 </a></span><br style="font-weight: bold;" /> <span style="font-weight: bold;"> </span><br style="font-weight: bold;" /><span style="font-weight: bold;"></span> </div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst353","Show  block","Hide  block");
+//]]>
+</script><span id="sb-3" class="skip-block-to"></span><a href="#sb-4" class="skip-block">Skip MRI Latest Pics</a><div  id="inst523" class="block_jquery_slideshow sideblock"><div class="header"><div class="title"><input type="image" src="http://mrilearning.edu/moodle/pix/t/switch_minus.gif" id="togglehide_inst523" onclick="elementToggleHide(this, true, function(el) {return findParentNode(el, 'DIV', 'sideblock'); }, 'Show MRI Latest Pics block', 'Hide MRI Latest Pics block'); return false;" alt="Hide MRI Latest Pics block" title="Hide MRI Latest Pics block" class="hide-show-image" /><h2>MRI Latest Pics</h2></div></div><div class="content">
+<style type="text/css">
+.slideshow { height: 190px; width: 210px; margin: auto }
+.slideshow img { padding: 15px; border: 1px solid #ccc; background-color: #eee; }
+</style>
+
+<!-- include jQuery library -->
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script-->
+<script src="http://mrilearning.edu/moodle/blocks/jquery_slideshow/jquery.min.js" type="text/javascript"></script>
+<!-- include Cycle plugin -->
+<!--script src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.latest.js" type="text/javascript"></script-->
+<script src="http://mrilearning.edu/moodle/blocks/jquery_slideshow/jquery.cycle.all.latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $('.slideshow').cycle({
+        fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+        timeout: '4000' //
+    });
+</script>
+<div class="slideshow" style="position: relative;"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo1.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo10.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo11.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo12.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo13.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo14.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo15.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo16.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo17.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo18.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo2.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo20.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo21.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo22.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo25.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo26.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo3.jpg"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo4.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo41.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo5.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo6.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo7.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo8.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/photo9.JPG"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/xmas11-29.jpg"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/xmas11-30.jpg"><img width="180" height="160" src="http://mrilearning.edu/moodle/file.php/1/FOTOS_DE_NOTICIAS/xmas11-31.jpg"></div></div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst523","Show MRI Latest Pics block","Hide MRI Latest Pics block");
+//]]>
+</script><span id="sb-4" class="skip-block-to"></span></div></td><td id="middle-column"><span id="maincontent"></span><div><div class="generalbox sitetopic box">
+<div style="text-align: center;">
+  <h1><font size="7" style="color: rgb(0, 51, 102); font-weight: bold; font-family: trebuchet ms,verdana,arial,helvetica,sans-serif;"><span style="color: rgb(0, 0, 51);">Welcome</span> </font></h1> </div><span style="color: rgb(0, 0, 102);"><span class="nolink">Management Resources Institute</span> is pleased to welcome you to MRI Learning.edu. The entire school staff wishes you the best during your stay with us. Our commitment is to teach you and work with you every step to make it possible for you to reach your career dreams. </span>
+<div style="text-align: center;">
+  <div style="text-align: justify;"> </div>
+  <div style="text-align: justify;"><address style="color: rgb(0, 0, 102);">The programs offered at our school will provide you with the skills and knowledge to operate more effectively in today’s business environment. Our goal is to create skills and attitudes where you can achieve your full potential. </address></div>
+  <div style="text-align: justify;"><address style="color: rgb(0, 0, 102);"><span class="nolink">Management Resources Institute</span> has dedicated 20 years training people to become better professionals and achieve their career goals. We offer you all our experience<br /><br /></address></div></div>
+<div style="text-align: center;"><span class="nolink"></span><br /></div> ﻿</div><br /></div></td><td style="width: 210px;" id="right-column"><div><a href="#sb-5" class="skip-block">Skip Login</a><div  id="inst524" class="block_login_logout sideblock"><div class="header"><div class="title"><input type="image" src="http://mrilearning.edu/moodle/pix/t/switch_minus.gif" id="togglehide_inst524" onclick="elementToggleHide(this, true, function(el) {return findParentNode(el, 'DIV', 'sideblock'); }, 'Show Login block', 'Hide Login block'); return false;" alt="Hide Login block" title="Hide Login block" class="hide-show-image" /><h2>Login</h2></div></div><div class="content">
+<form class="loginform" id="login" method="post" action="http://mrilearning.edu/moodle/login/index.php"><div class="c1 fld username"><label for="login_username">Username</label><input type="text" name="username" id="login_username" value="" /></div><div class="c1 fld password"><label for="login_password">Password</label><input type="password" name="password" id="login_password" value="" /></div><div class="c1 btn"><input type="submit" value="&nbsp;&nbsp;Login&nbsp;&nbsp;" /></div></form>
+<div class="footer"><div><a href="http://mrilearning.edu/moodle/login/signup.php">Create new account</a></div><div><a href="http://mrilearning.edu/moodle/login/forgot_password.php">Lost password?</a></div></div></div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst524","Show Login block","Hide Login block");
+//]]>
+</script><span id="sb-5" class="skip-block-to"></span><div  id="inst432" class="block_html sideblock"><div class="content">
+<html>
+<head>
+
+<SCRIPT language=JavaScript>
+<!-- Begin
+
+//Animated Window- By Rizwan Chand (rizwanchand@hotmail.com)
+//Modified by DD for NS compatibility
+//Visit http://www.dynamicdrive.com for this script
+
+function expandingWindow(website) {
+var windowprops='width=100,height=100,scrollbars=yes,status=yes,resizable=yes'
+var heightspeed = 2; // vertical scrolling speed (higher = slower)
+var widthspeed = 7; // horizontal scrolling speed (higher = slower)
+var leftdist = 10; // distance to left edge of window
+var topdist = 10; // distance to top edge of window
+
+if (window.resizeTo&&navigator.userAgent.indexOf("Opera")==-1) {
+var winwidth = window.screen.availWidth - leftdist;
+var winheight = window.screen.availHeight - topdist;
+var sizer = window.open("","","left=" + leftdist + ",top=" + topdist +","+ windowprops);
+for (sizeheight = 1; sizeheight < winheight; sizeheight += heightspeed)
+sizer.resizeTo("1", sizeheight);
+for (sizewidth = 1; sizewidth < winwidth; sizewidth += widthspeed)
+sizer.resizeTo(sizewidth, sizeheight);
+sizer.location = website;
+}
+else
+window.open(website,'mywindow');
+}
+// End -->
+</SCRIPT>
+</head>
+
+<body>
+
+<!-- set up your links, either via text links or form buttons-->
+
+<form>
+<input type="button" value="Management Resources Institute" onClick="expandingWindow
+
+('http://www.mrilearning.edu/jomla/Demo')">
+</form>
+
+</body>
+</html>
+
+</div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst432","Show  block","Hide  block");
+//]]>
+</script><span id="sb-6" class="skip-block-to"></span><a href="#sb-7" class="skip-block">Skip Calendar</a><div  id="inst4" class="block_calendar_month sideblock"><div class="header"><div class="title"><input type="image" src="http://mrilearning.edu/moodle/pix/t/switch_minus.gif" id="togglehide_inst4" onclick="elementToggleHide(this, true, function(el) {return findParentNode(el, 'DIV', 'sideblock'); }, 'Show Calendar block', 'Hide Calendar block'); return false;" alt="Hide Calendar block" title="Hide Calendar block" class="hide-show-image" /><h2>Calendar</h2></div></div><div class="content"><div id="overDiv" style="position: absolute; visibility: hidden; z-index:1000;"></div><script type="text/javascript" src="http://mrilearning.edu/moodle/calendar/overlib.cfg.php"></script>
+<div class="calendar-controls"><a class="previous" href="index.php?cal_m=4&amp;cal_y=2012" title="Previous month"><span class="arrow ">&#x25C4;</span><span class="accesshide " >&nbsp;Previous month</span></a><span class="hide"> | </span><span class="current"><a href="http://mrilearning.edu/moodle/calendar/view.php?view=month&amp;course=1&amp;cal_d=1&amp;cal_m=05&amp;cal_y=2012">May 2012</a></span><span class="hide"> | </span><a class="next" href="index.php?cal_m=6&amp;cal_y=2012" title="Next month"><span class="accesshide " >Next month&nbsp;</span><span class="arrow ">&#x25BA;</span></a>
+<span class="clearer"><!-- --></span></div>
+<table class="minicalendar" summary="Data table, May 2012 Calendar"><tr class="weekdays"><th scope="col"><abbr title="Sunday">Sun</abbr></th>
+<th scope="col"><abbr title="Monday">Mon</abbr></th>
+<th scope="col"><abbr title="Tuesday">Tue</abbr></th>
+<th scope="col"><abbr title="Wednesday">Wed</abbr></th>
+<th scope="col"><abbr title="Thursday">Thu</abbr></th>
+<th scope="col"><abbr title="Friday">Fri</abbr></th>
+<th scope="col"><abbr title="Saturday">Sat</abbr></th>
+</tr><tr><td class="dayblank">&nbsp;</td>
+<td class="dayblank">&nbsp;</td>
+<td class="day">1</td>
+<td class="day">2</td>
+<td class="day">3</td>
+<td class="day">4</td>
+<td class="weekend day">5</td>
+</tr><tr><td class="weekend day today eventnone"><span class="accesshide " >Today Sunday, 6 May </span><a href="#" onmouseover="return overlib('No events', CAPTION, 'Today Sunday, 6 May');" onmouseout="return nd();">6</a></td>
+<td class="day">7</td>
+<td class="day">8</td>
+<td class="day">9</td>
+<td class="day">10</td>
+<td class="day">11</td>
+<td class="weekend day">12</td>
+</tr><tr><td class="weekend day">13</td>
+<td class="day">14</td>
+<td class="day">15</td>
+<td class="day">16</td>
+<td class="day">17</td>
+<td class="day">18</td>
+<td class="weekend day">19</td>
+</tr><tr><td class="weekend day">20</td>
+<td class="day">21</td>
+<td class="day">22</td>
+<td class="day">23</td>
+<td class="day">24</td>
+<td class="day">25</td>
+<td class="weekend day">26</td>
+</tr><tr><td class="weekend day">27</td>
+<td class="day">28</td>
+<td class="day">29</td>
+<td class="day">30</td>
+<td class="day">31</td>
+<td class="dayblank">&nbsp;</td><td class="dayblank">&nbsp;</td></tr></table></div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst4","Show Calendar block","Hide Calendar block");
+//]]>
+</script><span id="sb-7" class="skip-block-to"></span><div  id="inst431" class="block_html sideblock"><div class="content"> <br /> <style type="text/css"> .gallerycontroller{ width: 250px } .gallerycontent{ width: 250px; height: 200px; border: 2px solid black; background-color: #E9E9E9; padding: 3px; display: block; } </style>
+<script type="text/javascript"> /*********************************************** * Advanced Gallery script- © Dynamic Drive DHTML code library (www.dynamicdrive.com) * This notice must stay intact for legal use * Visit http://www.dynamicdrive.com/ for full source code ***********************************************/ var tickspeed=3000 //ticker speed in miliseconds (2000=2 seconds) var displaymode=&quot;auto&quot; //displaymode (&quot;auto&quot; or &quot;manual&quot;). No need to modify as form at the bottom will control it, unless you wish to remove form. if (document.getElementById){ document.write('&lt;style type=&quot;text/css&quot;&gt;\n') document.write('.gallerycontent{display:none;}\n') document.write('&lt;/style&gt;\n') } var selectedDiv=0 var totalDivs=0 function getElementbyClass(classname){ partscollect=new Array() var inc=0 var alltags=document.all? document.all.tags(&quot;DIV&quot;) : document.getElementsByTagName(&quot;*&quot;) for (i=0; i&lt;alltags.length; i++){ if (alltags[i].className==classname) partscollect[inc++]=alltags[i] } } function contractall(){ var inc=0 while (partscollect[inc]){ partscollect[inc].style.display=&quot;none&quot; inc++ } } function expandone(){ var selectedDivObj=partscollect[selectedDiv] contractall() selectedDivObj.style.display=&quot;block&quot; if (document.gallerycontrol) temp.options[selectedDiv].selected=true selectedDiv=(selectedDiv&lt;totalDivs-1)? selectedDiv+1 : 0 if (displaymode==&quot;auto&quot;) autocontrolvar=setTimeout(&quot;expandone()&quot;,tickspeed) } function populatemenu(){ temp=document.gallerycontrol.menu for (m=temp.options.length-1;m&gt;0;m--) temp.options[m]=null for (i=0;i&lt;totalDivs;i++){ var thesubject=partscollect[i].getAttribute(&quot;subject&quot;) thesubject=(thesubject==&quot;&quot; || thesubject==null)? &quot;HTML Content &quot;+(i+1) : thesubject temp.options[i]=new Option(thesubject,&quot;&quot;) } temp.options[0].selected=true } function manualcontrol(menuobj){ if (displaymode==&quot;manual&quot;){ selectedDiv=menuobj expandone() } } function preparemode(themode){ displaymode=themode if (typeof autocontrolvar!=&quot;undefined&quot;) clearTimeout(autocontrolvar) if (themode==&quot;auto&quot;){ document.gallerycontrol.menu.disabled=true autocontrolvar=setTimeout(&quot;expandone()&quot;,tickspeed) } else document.gallerycontrol.menu.disabled=false } function startgallery(){ if (document.getElementById(&quot;controldiv&quot;)) //if it exists document.getElementById(&quot;controldiv&quot;).style.display=&quot;block&quot; getElementbyClass(&quot;gallerycontent&quot;) totalDivs=partscollect.length if (document.gallerycontrol){ populatemenu() if (document.gallerycontrol.mode){ for (i=0; i&lt;document.gallerycontrol.mode.length; i++){ if (document.gallerycontrol.mode[i].checked) displaymode=document.gallerycontrol.mode[i].value } } } if (displaymode==&quot;auto&quot; &amp;&amp; document.gallerycontrol) document.gallerycontrol.menu.disabled=true expandone() } if (window.addEventListener) window.addEventListener(&quot;load&quot;, startgallery, false) else if (window.attachEvent) window.attachEvent(&quot;onload&quot;, startgallery) else if (document.getElementById) window.onload=startgallery </script><style type="text/css"> .gallerycontent{display:none;} </style>
+<div subject="What is MRI?" class="gallerycontent" style="display: none;"> Management Resources Institute (MRI) is a management consulting and human development firm who helps organizations improve their customer satisfaction and profitability through a customized approach. MRI specializes in integrating customer needs with business strategies to achieve total customer loyalty and corporate excellence. Management Resources helps individuals and organizations achieve their full potential. </div>
+<div subject="What is MRI-Learning?" class="gallerycontent" style="display: block;"> MRI-Learning is the use of technology to enable people to learn anytime and anywhere. MRI-Learning can include training, the delivery of just-in-time information and guidance from experts MRI-Learning provides the student or learner with information that can be accessed in a setting free from time and place constraints. The student can go through the lessons at his or her own pace </div>
+<div subject="Location" class="gallerycontent" style="display: none;"> Main Campus and Central Offices (also known as the West Flagler Campus) Phone: 305.442.9223 Fax: 305.442.8723 Miami Lakes Campus Phone: 305.826.9155 Fax: 305.826.110 This campus is located at 15495 Eagle Nest Lane, suite 250, Miami, Florida. </div> <!--HTML for gallery control options below. Remove checkboxes or entire outer DIV if desired -->
+<div class="gallerycontroller" style="display: block;" id="controldiv"> <form name="gallerycontrol"> <select onchange="function onchange(event) { manualcontrol(this.options.selectedIndex); }" name="menu" size="3" class="gallerycontroller" disabled="true"> <option>What is MRI?</option> <option>What is MRI-Learning?</option><option>Location</option></select><br /> Auto: <input type="radio" onclick="function onclick(event) { preparemode("auto"); }" value="auto" name="mode" checked="true" /> Manual: <input type="radio" onclick="function onclick(event) { preparemode("manual"); }" value="manual" name="mode" /> </form> </div> </div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst431","Show  block","Hide  block");
+//]]>
+</script><span id="sb-8" class="skip-block-to"></span><a href="#sb-9" class="skip-block">Skip Online Users</a><div  id="inst1230" class="block_online_users sideblock"><div class="header"><div class="title"><input type="image" src="http://mrilearning.edu/moodle/pix/t/switch_minus.gif" id="togglehide_inst1230" onclick="elementToggleHide(this, true, function(el) {return findParentNode(el, 'DIV', 'sideblock'); }, 'Show Online Users block', 'Hide Online Users block'); return false;" alt="Hide Online Users block" title="Hide Online Users block" class="hide-show-image" /><h2>Online Users</h2></div></div><div class="content"><div class="info">(last 5 minutes)</div><div class="info">None</div></div></div><script type="text/javascript">
+//<![CDATA[
+elementCookieHide("inst1230","Show Online Users block","Hide Online Users block");
+//]]>
+</script><span id="sb-9" class="skip-block-to"></span></div></td>
+  </tr>
+</table>
+

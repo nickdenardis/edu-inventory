@@ -1,0 +1,912 @@
+  
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	     <title> Your Bridge to Success | BATC </title>    <!-- meta data -->    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />    <meta name="keywords" content=" "/>    <meta name="description" content=" "/>	        <!-- load styles -->        <link rel="stylesheet" type="text/css" href="obray/css/obray-base.css"/>            	<link href=" /assets/css/BATC/BATC-20120313032922.css" type="text/css" rel="stylesheet"/>        <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/obray/cssv1/ie/ie7.css"><![endif]-->    <!-- load favicon -->    <!--[if IE]><link rel="Shortcut icon" href="/favicon.ico" type="image/x-icon" /><![endif]-->    <link rel="Shortcut Icon" href="favicon.png" />    <!-- load scripts -->        	<script type="text/javascript" src=" /assets/js/BATC/BATC-20120313032922.js"></script>        	<script type="text/javascript">window.obray = {};  window.obray.amazon_location = ' https://s3.amazonaws.com/batc/images/';</script>    
+    <script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+	
+    <!--[if lt IE 7]>
+		<script src="templates/BATC/javascript/DD_belatedPNG.js"></script>
+		<script type="text/javascript">
+ 			 DD_belatedPNG.fix('img, div, ul, li');
+		</script>
+        <link rel="stylesheet" href="layouts/ie6/css/ie6.css" type="text/css" />
+	<![endif]-->
+    
+    <script type="text/javascript">
+		var open_pdf = function(pdf_location){
+			location.href = pdf_location;
+		}	
+	</script>
+    <script type="text/javascript">
+		MenuNode = new Class({
+			Implements: Options,
+
+			options: {
+				'text':'text',
+				'link':'url',
+				'absolute_positioning': true
+			},
+			
+			initialize: function(options){
+				
+				this.setOptions(options);
+				this.sub_menu_items = [];
+				this.sub_menu_open = false;
+				
+				this.menu_item = new Element('li',{'class':'menu-item'});
+				this.menu_item.setStyles({'position':'relative','z-index':'5001','padding-bottom':'5px'});
+				this.sub_menu = new Element('ul',{'class':'sub-menu'});
+				this.sub_menu.setStyles({'position':'absolute','background-image':'url(components/tree_nav/images/tree_nav_bg.jpg)','width':225,'height':0,'overflow':'hidden','top':27,'left':-18,'font-size':'14px','z-index':1000});
+				if(this.options.absolute_positioning == false){this.sub_menu.setStyles({'left':'205px','top':'5px'});this.menu_item.setStyles({'float':'none'})}
+				this.sub_menu_fx = new Fx.Morph(this.sub_menu,{'duration':500,'transition':Fx.Transitions.Quint.easeOut,'onComplete':function(){
+					if(this.sub_menu_open == true){
+						//alert(this.sub_menu_items.length);
+						if(this.sub_menu_items.length > 0){
+							this.sub_menu.setStyles({'height':'auto','overflow':'visible'});
+						} else {
+							this.sub_menu.setStyles({'height':'0','overflow':'hidden'});
+						}
+					} else {
+						this.sub_menu.setStyles({'overflow':'hidden'});
+					}
+				}.bind(this)});
+				this.menu_item.set('html','<a href="'+this.options.url+'">'+this.options.text+'</a>');
+				this.sub_menu.inject(this.menu_item);
+				
+				if(this.options.absolute_positioning == false){
+					this.menu_item.addEvent('mouseenter',function(){
+						this.sub_menu_open = true;
+						this.sub_menu_fx.pause();
+						if(this.sub_menu_items.length > 0){
+							this.sub_menu_fx.start({'height':this.sub_menu.getScrollSize.y});
+						}
+					}.bind(this));
+					
+					this.menu_item.addEvent('mouseleave',function(){
+						this.sub_menu_open = false;
+						this.sub_menu.setStyles({'overflow':'hidden'});
+						this.sub_menu_fx.pause();
+						this.sub_menu_fx.start({'height':0});
+					}.bind(this));
+					this.sub_menu_fx.pause();
+				} else {
+					this.menu_item.addEvent('mouseenter',function(){
+						this.sub_menu_open = true;
+						this.sub_menu_fx.pause();
+						if(this.sub_menu_items.length > 0){
+							this.sub_menu_fx.start({'height':this.sub_menu.getScrollSize().y});
+						}
+					}.bind(this));
+					
+					this.menu_item.addEvent('mouseleave',function(){
+						this.sub_menu_open = false;
+						this.sub_menu_fx.pause();
+						this.sub_menu_fx.start({'height':0});
+						this.sub_menu.setStyles({'overflow':'hidden'});
+					}.bind(this));
+				}
+			},
+			
+			addMenuItem: function(MenuNode){
+				this.sub_menu_items[this.sub_menu_items.length] = MenuNode;
+				this.sub_menu_items[this.sub_menu_items.length-1].get().inject(this.sub_menu);
+				this.spacer = new Element('div',{'class':'menu_spacer'});
+				this.spacer.setStyles({'margin-left':-20})
+				this.spacer.inject(this.sub_menu_items[this.sub_menu_items.length-1].get());
+			},
+			
+			get: function(){
+				return this.menu_item;
+			}
+		})
+	
+		DropDownMenu = new Class({
+			Implements: Options,
+			
+			options: {},
+			
+			initialize: function(options){
+				//set options
+				this.setOptions(options);
+				this.menu_items = [];
+				
+				//create menu HTML
+				this.searchText = "SEARCH";
+				this.blankText = "";
+				this.menu = new Element('ul',{'class':'main-menu'});
+				this.menu.setStyles({'z-index':5001});
+				this.menu_search = new Element('li',{'class':'search'});
+				
+				this.menu_search.set('html','<input id="genSearchText" type="text" name="search_phrase" value="SEARCH" />'
+											+'<input id="genSearchBtn" type="image"  src="/templates/BATC/images/searchBtn.png" height="13" width="16" />');
+				this.menu_search.inject(this.menu);
+			},
+			
+			get: function(){
+				return this.menu;
+			},
+			
+			addMenuItem: function(MenuNode){
+				this.menu_items[this.menu_items.length] = MenuNode;
+				this.menu_items[this.menu_items.length-1].get().inject(this.menu_search,'before');
+				this.separator = new Element('li',{'class':'li_separator'});
+				this.separator.inject(this.menu_search,'before');
+			}
+		});
+	</script>
+	
+</head>
+<body id="body">
+	<div id="obray"></div>
+    <div id="floor">
+        <div id="header">
+            <div id="logo"><a href="/"><img src="templates/BATC/images/logo_new_white.png" alt="BATC logo" /></a></div>
+            
+                <div id="header-nav">
+                    <ul>
+                        <li><a href="/">HOME</a></li>
+                        <li>|</li>
+                        <li><a href="/index.cfm?page_id=94">FAQ</a></li>
+                        <li>|</li>
+                        <li><a href="/index.cfm?page_id=29">LOCATIONS</a></li>
+                        <li>|</li>
+                        <li><a href="/index.cfm?page_id=103">CONTACT</a></li>
+                        <li>|</li>
+                        <li><a href="/index.cfm?page_id=104">DONATE</a></li>
+                        <li>|</li>
+                        
+                            <li><a href="/index.cfm?action=pages.signin">LOGIN</a>&nbsp;&nbsp;</li>
+                        
+                    </ul>
+                    <br class="clearboth" />
+                </div>
+           	
+            <br /><br /><br />
+            <div id="slogan" class="yellow">
+                Employment Through Training
+            </div>
+            <br class="clearboth" />
+            
+                <div id="nav"></div>
+                <script type="text/javascript">
+                    //main menu =
+                    var main_menu = new DropDownMenu();
+                    var menu_items = [];
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'About Us','url':'/index.cfm?page_id=21'});
+                        
+                            subMenuItem = new MenuNode({'text':'Building House Projects','url':'/index.cfm?page_id=179','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Financial Reports','url':'/index.cfm?page_id=188','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Locations','url':'/index.cfm?page_id=29','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Foundation','url':'/index.cfm?page_id=32','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Donate','url':'/index.cfm?page_id=104','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Governing Boards','url':'/index.cfm?page_id=169','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Directory','url':'/index.cfm?page_id=28','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Custom Fit','url':'/index.cfm?page_id=112','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Contact Us','url':'/index.cfm?page_id=103','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'President\'s Welcome','url':'/index.cfm?page_id=168','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'About Us','url':'/index.cfm?page_id=143','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Academic & Event Calendar','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'Job Fair & Tech Expo','url':'/index.cfm?page_id=190'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'Future Students','url':'/index.cfm?page_id=33'});
+                        
+                            subMenuItem = new MenuNode({'text':'Request Info','url':'/index.cfm?page_id=34','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Not Sure What You Want to Do?','url':'/index.cfm?page_id=35','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Fun Things to do in Cache Valley','url':'/index.cfm?page_id=38','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Community Services','url':'/index.cfm?page_id=37','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Campus Services','url':'/index.cfm?page_id=36','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Class Schedule','url':'/index.cfm?page_id=171','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Programs','url':'/index.cfm?page_id=172','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Why BATC','url':'/index.cfm?page_id=155','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'I Am...','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'...a high school student','url':'/index.cfm?page_id=67'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...looking for a career','url':'/index.cfm?page_id=68'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...wanting to upgrade my skills','url':'/index.cfm?page_id=69'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...wanting to develop personal interests','url':'/index.cfm?page_id=70'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...an employer','url':'/index.cfm?page_id=71'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'New Student Orientation','url':'/index.cfm?page_id=213','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'Current Students','url':'/index.cfm?page_id=23'});
+                        
+                            subMenuItem = new MenuNode({'text':'Tuition','url':'/index.cfm?page_id=40','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Transcript Request','url':'/index.cfm?page_id=114','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Programs','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'FAQ','url':'/index.cfm?page_id=94'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Tuition','url':'/index.cfm?page_id=99'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Financial Aid & Scholarships','url':'/index.cfm?page_id=100'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Faculty & Staff','url':'/index.cfm?page_id=97'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Enroll','url':'/index.cfm?page_id=98'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Programs','url':'/index.cfm?page_id=141'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Assessment Center','url':'/index.cfm?page_id=144'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Online Library','url':'/index.cfm?page_id=45','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Graduation Information','url':'/index.cfm?page_id=44','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'General Information','url':'/index.cfm?page_id=41','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Assessment Center','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'FAQ','url':'/index.cfm?page_id=216'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Assessment Center','url':'/index.cfm?page_id=217'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Test Proctoring','url':'/index.cfm?page_id=218'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Study Guides','url':'/index.cfm?page_id=219'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Financial Aid','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'Financial Aid','url':'/index.cfm?page_id=211'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Green Grant','url':'/index.cfm?page_id=210'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Class Schedule','url':'/index.cfm?page_id=108','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Campus Services','url':'/index.cfm?page_id=46','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'I Am...','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'...not sure','url':'/index.cfm?page_id=146'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...enrolled in a short - term course','url':'/index.cfm?page_id=147'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...enrolled in a program','url':'/index.cfm?page_id=148'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'...a high school student','url':'/index.cfm?page_id=149'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'AAS Degree Pathway','url':'/index.cfm?page_id=207','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'New Student Orientation','url':'/index.cfm?page_id=212','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'e-Learning','url':'/index.cfm?page_id=24'});
+                        
+                            subMenuItem = new MenuNode({'text':'Setting Up an E-Mail Account','url':'/index.cfm?page_id=167','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Blackboard Vista','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'Online Library','url':'/index.cfm?page_id=110'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Vista Tutorials ','url':'/index.cfm?page_id=111'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Student Login','url':'/index.cfm?page_id=170'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Enrollment','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'Registration','url':'/index.cfm?page_id=81'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'FAQ','url':'/index.cfm?page_id=82'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Extension Request','url':'/index.cfm?page_id=85'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Acceptable Use','url':'/index.cfm?page_id=83'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Pre-Enrollment','url':'#','absolute_positioning':false});
+                            
+                                subMenuItem2 = new MenuNode({'text':'Self Assessment','url':'/index.cfm?page_id=78'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Netiquette','url':'/index.cfm?page_id=80'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                                subMenuItem2 = new MenuNode({'text':'Browser Check','url':'/index.cfm?page_id=79'});
+                                subMenuItem.addMenuItem(subMenuItem2);
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'e-Learning at BATC','url':'/index.cfm?page_id=140','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Canvas','url':'/index.cfm?page_id=209','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'Employment','url':'/index.cfm?page_id=25'});
+                        
+                            subMenuItem = new MenuNode({'text':'Cache Business Resource Center','url':'/index.cfm?page_id=55','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Custom Fit','url':'/index.cfm?page_id=53','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Post an Opening','url':'/index.cfm?page_id=54','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'View Listings','url':'/index.cfm?page_id=139','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Alumni Survey','url':'/index.cfm?page_id=201','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                        menu_items[menu_items.length] = new MenuNode({'text':'Register Now','url':'/index.cfm?page_id=57'});
+                        
+                            subMenuItem = new MenuNode({'text':'Class Schedule','url':'/index.cfm?page_id=194','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Programs','url':'/index.cfm?page_id=195','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                            subMenuItem = new MenuNode({'text':'Registration','url':'/index.cfm?page_id=196','absolute_positioning':false});
+                            
+                            menu_items[menu_items.length-1].addMenuItem(subMenuItem);
+                        
+                        main_menu.addMenuItem(menu_items[menu_items.length-1]);
+                    
+                    main_menu.get().inject($('nav'));
+                    var br = new Element('br',{'class':'clearboth'});
+                    br.inject($('nav'));
+                </script>
+           	
+        </div>
+        <div id="container">
+			<div class="leftCol-home">
+   <div class="wideCol-home">
+   		<div class="leftPanel-home">
+			
+            
+						<div class="OImage" id="OImage-3162">
+							
+							
+							
+							<img src="/assets/images/dreamstime_5168986 Web_standard.jpg" alt=""/>
+							
+						</div>
+                	
+    <div class="imgTitleWidget_gray">
+        <div class="title_gray">
+        	<div id="Edit3134"></div>
+			<p><a href="http://www.batc.edu/index.cfm?page_id=155">Why BATC?</a></p> 
+       	</div>
+    </div>
+    
+						<div class="OImage" id="OImage-3109">
+							
+							
+							
+							<img src="/assets/images/Home-Page-Graphic-for-Techn_standard.png" alt=""/>
+							
+						</div>
+                	
+    <div class="imgTitleWidget_gray">
+        <div class="title_gray">
+        	<div id="Edit4515"></div>
+			<p><a href="http://www.batc.edu/index.cfm?page_id=73">Class Schedule</a></p> 
+       	</div>
+    </div>
+    
+						<div class="OImage" id="OImage-6317">
+							
+							<a href="http://www.batc.edu/index.cfm?page_id=73" rel="nofollow"> 
+							
+							<img src="/assets/images/Pig web_standard.jpg" alt=""/>
+							</a> 
+						</div>
+                	
+    <div class="imgTitleWidget_gray">
+        <div class="title_gray">
+        	<div id="Edit6319"></div>
+			<p><a href="http://www.batc.edu/index.cfm?page_id=43">Financial Aid</a></p> 
+       	</div>
+    </div>
+    
+      	</div>
+        <div class="rightPanel-home">
+            
+            
+	<script type="text/ecmascript">
+		window.media_images = [];
+	</script>
+	<div id="main">
+		<div id="mediaEdit5783"></div>
+        
+            <div id="main1" >
+                <div class="media-image">
+                
+                
+						<div class="OImage" id="OImage-6462">
+							
+							<a href="http://www.batc.edu/index.cfm?page_id=67" rel="nofollow"> 
+							
+							<img src="/assets/images/High school summer1_standard.jpg" alt=""/>
+							</a> 
+						</div>
+                	
+                </div>
+            </div>
+        
+            <div id="main2" style="display:none">
+                <div class="media-image">
+                
+                
+						<div class="OImage" id="OImage-6464">
+							
+							<a href="http://www.batc.edu/index.cfm?page_id=151&program_id=583" rel="nofollow"> 
+							
+							<img src="/assets/images/Interior Design Spotlight_standard.jpg" alt=""/>
+							</a> 
+						</div>
+                	
+                </div>
+            </div>
+        
+            <div id="main3" style="display:none">
+                <div class="media-image">
+                
+                
+						<div class="OImage" id="OImage-6463">
+							
+							<a href="http://www.batc.edu/index.cfm?page_id=25" > 
+							
+							<img src="/assets/images/Post-a-Job_standard.png" alt=""/>
+							</a> 
+						</div>
+                	
+                </div>
+            </div>
+        
+		<div id="mainBtns">
+        	<ul>
+				
+			        <li id="mainBtn1">
+			            <div id="mainBtnsIndex">
+			                
+			            </div>
+			            <p>High School Summer Programs</p> 
+			            <br class="clear" />
+			        </li>
+			        <li class="red_button_end"></li>
+			    
+			        <li id="mainBtn2">
+			            <div id="mainBtnsIndex">
+			                
+			            </div>
+			            <p>Interior Design</p> 
+			            <br class="clear" />
+			        </li>
+			        <li class="red_button_end"></li>
+			    
+			        <li id="mainBtn3">
+			            <div id="mainBtnsIndex">
+			                
+			            </div>
+			            <p>Post a Job, Find a Job</p> 
+			            <br class="clear" />
+			        </li>
+			        <li class="red_button_end"></li>
+			    
+                <br class="clear" />
+          	</ul>
+		</div>
+ 	</div>	           
+	<script type="text/javascript">
+        var scrollEl = $('mainWindow');
+        var mainbuttons = [];
+        mainbuttons[0] = $('mainBtn1');
+        mainbuttons[1] = $('mainBtn2');
+        mainbuttons[2] = $('mainBtn3');
+        
+        mainActive(0);
+        var currActive = 0;
+        
+        var main1 = new Fx.Morph($('main1'),{'duration':1000,'transition':Fx.Transitions.Quint.easeOut});
+        var main2 = new Fx.Morph($('main2'),{'duration':1000,'transition':Fx.Transitions.Quint.easeOut});
+        var main3 = new Fx.Morph($('main3'),{'duration':1000,'transition':Fx.Transitions.Quint.easeOut});
+        
+        var fadeIn = function(el){
+            main1.pause();
+            main2.pause();
+            main3.pause();
+            
+            main1.start({'opacity':0,'z-index':0});
+            main2.start({'opacity':0,'z-index':0});
+            main3.start({'opacity':0,'z-index':0});
+            
+            switch(el){
+                case 'main1': main1.pause(); main1.start({'opacity':1,'display':'block','z-index':500}); break;	
+                case 'main2': main2.pause(); main2.start({'opacity':1,'display':'block','z-index':500}); break;	
+                case 'main3': main3.pause(); main3.start({'opacity':1,'display':'block','z-index':500}); break;			
+            }	
+        }
+        
+        function mainActive(i){
+            mainbuttons.each(function(el,index){
+                if(i == index){
+                    el.getFirst().getNext().addClass('mainBtnH');
+					el.getNext().addClass('yellow_button_end');
+					el.getNext().removeClass('red_button_end');
+                } else {
+                    el.getFirst().getNext().removeClass('mainBtnH');
+					el.getNext().addClass('red_button_end');
+					el.getNext().removeClass('yellow_button_end');
+                }
+            }.bind(this));
+        }			
+        
+        $('main1').addEvent('click',function(){
+            $clear(window.periodical);								 
+        })
+        
+        $('mainBtn1').addEvent('click',function(){
+            fadeIn('main1');
+            mainActive(0);
+            $clear(window.periodical);
+        });
+        $('mainBtn2').addEvent('click',function(){
+            fadeIn('main2');
+            mainActive(1);
+            $clear(window.periodical);
+        });
+        $('mainBtn3').addEvent('click',function(){
+            fadeIn('main3');
+            mainActive(2);
+            $clear(window.periodical);
+        });
+        
+        window.index = 0;
+        var switcher = function(){
+            if(index > 2){window.index = 0;}
+            fadeIn('main'+(window.index+1));
+            mainActive(window.index);
+            ++window.index;
+        }
+        window.periodical = switcher.periodical(5000);
+    </script>
+    
+      	</div>
+       	<br class="clear" />
+    </div>
+
+    <div class="firstCol-home">
+		
+        
+    <div class="blogWidget-wrapper">
+        <div id="Edit5864"></div>
+        <h3 class="floatleft red">BATC Buzz</h3>
+        <br class="clear" />
+        <div class="blogWidgetContent">
+            <strong>5/1/12 &bull; Administrative Professional’s Conference </strong>
+            <br />
+            <img class="blog-image" src="/assets/images/IMG_2198_thumb.JPG" alt=""/> BATC Business Technology students gained skills, inspiration, insight, and expertise at the annual Administrative Professional’s Conference on April 19.  Students training to be Administrative Professionals attended conference sessions on dealing with change, balancing stress from work and family, and using color professionally. Each student understands the complexity of a career in today’s workforce and enjoyed walking away with new ideas and tactics to help them achieve their true administrative potential.
+        </div>
+        <a class="archive" href="index.cfm?page_id=75&category_id=422"><div class="viewArchive">Read More</div><img src="components/blog_post/images/viewArchive.jpg" /></a><br class="clear" />
+ 	</div>
+ 	
+	
+    <div class="blogWidget-wrapper">
+        <div id="Edit2965"></div>
+        <h3 class="floatleft red">Student of the Month</h3>
+        <br class="clear" />
+        <div class="blogWidgetContent">
+            <strong>4/9/12 &bull; Cassidy McCulloch</strong>
+            <br />
+            <img class="blog-image" src="/assets/images/April-Cassidy-TV_thumb.png" alt=""/> 
+        </div>
+        <a class="archive" href="index.cfm?page_id=75&category_id=232"><div class="viewArchive">Read More</div><img src="components/blog_post/images/viewArchive.jpg" /></a><br class="clear" />
+ 	</div>
+ 	
+	<p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="247" height="196" id="viddler_htoone04_87"><param name="movie" value="//www.viddler.com/player/1241e2ab/"/><param name="allowScriptAccess" value="always"/><param name="allowNetworking" value="all"/><param name="allowFullScreen"value="true"/><param name="flashVars" value="f=1&openURL=53890865&autoplay=f&loop=false&nologo=false&hd=false"/><embed src="//www.viddler.com/player/1241e2ab/" width="247" height="196" type="application/x-shockwave-flash" allowScriptAccess="always" allowFullScreen="true" allowNetworking="all" name="viddler_htoone04_87" flashVars="f=1&openURL=53890865&autoplay=f&loop=false&nologo=false&hd=false"></embed></object></p> 
+    </div>
+
+    <div class="secondCol-home">
+		
+        
+    <div class="blogWidget-wrapper">
+        <div id="Edit4991"></div>
+        <h3 class="floatleft red">Success</h3>
+        <br class="clear" />
+        <div class="blogWidgetContent">
+            <strong>2/3/12 &bull; Nate Reasch</strong>
+            <br />
+            <img class="blog-image" src="/assets/images/DSCN2278_thumb.JPG" alt=""/> <b>Program:</b> Fire & Rescue Services<p><b>Employment:</b> West Jordan Fire Department</p><p></p>
+        </div>
+        <a class="archive" href="index.cfm?page_id=75&category_id=199"><div class="viewArchive">Read More</div><img src="components/blog_post/images/viewArchive.jpg" /></a><br class="clear" />
+ 	</div>
+ 	
+	
+    <div class="calendarWidget">
+        <div id="Edit6959"></div>
+        
+        <h3 class="floatleft red">Upcoming Events</h3>
+        <a class="archive" href="index.cfm?page_id=101"><div class="viewArchive">VIEW ALL EVENTS</div><img src="components/upcoming_events/images/viewArchive.jpg" /></a>
+        <br class="clear" />
+        <div class="calendarWidgetImg">
+            
+            
+			
+       	</div>
+        
+    </div>
+  	<br class="clear" />
+    
+    
+    </div>
+    <br class="clearboth" />
+</div>
+<div class="rightCol-home">
+    
+	
+    <div class="side-menu-wrapper">
+    	<div id="Edit845"></div>
+    	
+    	
+    		
+    		<div class="career-programs-menu">
+				<div class="side-menu-header">
+					Check out our<br />
+					<span class="yellow italic" style="font-size:20px; letter-spacing:-1px; font-weight:bold">
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Career Programs... 
+					</span><br />
+				</div>
+				
+				<ul class="side-menu-ul">
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=153&program_id=292">Basic Skills / Communications</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=154&program_id=292">Business / Marketing Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=160&program_id=292">Computers / Software Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=162&program_id=292">Drafting / Construction Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=161&program_id=292">Health / Dental Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=163&program_id=292">Manufacturing Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=164&program_id=292">Service Professions</a></li>
+					
+						<li class="side-menu-separator"><!-- --></li>
+						<li class="side-menu-item"><a href="index.cfm?page_id=165&program_id=292">Transportation Professions</a></li>
+					
+				</ul>
+            </div>
+            <div class="side-menu-bottom"><!-- --></div>
+    	
+    	
+    	
+    	<div class="side-menu-static">
+			<ul class="side-menu-ul">
+				<li class="side-menu-item"><a href="index.cfm?page_id=101">Academic &amp; Event Calendar</a></li>
+				
+			</ul>
+		</div>
+    </div>
+    
+  	
+  	
+    <div id="social-media-links-3837" class="social-media-links">
+    	<h3>Stay in touch:</h3>
+        <a href="https://twitter.com/BridgerlandATC"><img src="components/social media links/images/icon-twitter.png" width="40" height="72" alt="Twitter" /></a>
+       	<a href="http://www.facebook.com/pages/Logan-UT/BATC-Bridgerland-Applied-Technology-College/126166986555"><img src="components/social media links/images/icon-facebook.png" width="39" height="72" alt="Facebook" /></a>
+        
+    </div>
+    
+    
+						<div class="OImage" id="OImage-5855">
+							
+							<a href="http://www.batc.edu/assets/docs/Catalog%2011-12%20low2.pdf" rel="nofollow"> 
+							
+							<img src="/assets/images/Catalog-thumbnail-file_standard.png" alt=""/>
+							</a> 
+						</div>
+                	<p><a href="index.cfm?page_id=188">Financial Reports &amp; Transparency Data</a></p> 
+</div>
+
+<br class="clearboth" />
+        </div>
+        <div id="footer" class="white"> 
+            <br class="iehalfkill" />
+            <p>BRIDGERLAND APPLIED TECHNOLOGY COLLEGE  &bull;  1-866-701-1100  &bull;  <a href="mailto:studentservices@batc.edu">studentservices@batc.edu</a>  |  <a href="/index.cfm?page_id=103">CONTACT BATC</a>  |  <a href="">PRIVACY/TERMS</a></p>
+            <br /><br class="iekill" /><br class="iekill" /><br class="iekill" />
+        </div>
+		
+		<div class="clear"><!-- --></div>
+		
+    	<iframe id="upload_target" name="upload_target" src="response.html" style="width:0px;height:0px;border:0px solid #fff;"></iframe>
+   	</div>
+   	
+   	
+	
+   	
+    <script type="text/javascript">
+		// auto delete search text
+		$('genSearchText').addEvent('focus',function(){
+			if(this.getProperty('value') == 'SEARCH'){
+				this.set('value','');
+			}
+		});
+		
+		$('genSearchText').addEvent('blur',function(){
+			if(this.value == ''){
+				this.set('value','SEARCH');
+			}
+		});
+		
+		// submit search text
+		$('genSearchText').addEvent('keypress',function(e){
+			if(e.key == "enter"){ window.location = 'index.cfm?action=pages.search&search_phrase='+$('genSearchText').getProperty('value'); }
+		})
+		$('genSearchBtn').addEvent('click',function(){
+			window.location = 'index.cfm?action=pages.search&search_phrase='+$('genSearchText').getProperty('value');
+		})
+		
+		
+		
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-12948719-1");
+		pageTracker._trackPageview();
+		} catch(err) {}
+  	</script>
+</body>
+</html>

@@ -1,0 +1,908 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+	<link rel="Shortcut Icon" href="favicon.ico" />
+	<title>SVC - Skagit Valley College</title>
+	<style type="text/css" media="all">
+		@import "includes/accordion_style.css";
+		.style1 { color:#c60203; font-weight: bold;}
+	</style>
+	
+	<style type="text/css" media="screen">
+		/* the overlayed element */
+		.simple_overlay {
+			
+			/* must be initially hidden */
+			display:none;
+			
+			/* place overlay on top of other elements */
+			z-index:10000;
+			
+			/* styling */
+			background-color:#FFF;
+			text-align:center;
+			width:675px;	
+			min-height:430px;
+			border:1px solid #666;
+			
+			/* CSS3 styling for latest browsers */
+			-moz-box-shadow:0 0 90px 5px #000;
+			-webkit-box-shadow: 0 0 90px #000;	
+		}
+		
+		/* close button positioned on upper right corner */
+		.simple_overlay .close {
+			background-image:url(images/overlay/close.png);
+			position:absolute;
+			right:-15px;
+			top:-15px;
+			cursor:pointer;
+			height:35px;
+			width:35px;
+		}
+		
+		/* styling for elements inside overlay */
+		.simple_overlay .details {
+			position:absolute;
+			top:15px;
+			right:15px;
+			font-size:11px;
+			color:#000;
+			width:650px;
+		}
+		
+		.simple_overlay .details h3 {
+			color:#006544;
+			font-size:15px;
+			margin:0 0 30px 0;
+		}
+	</style>
+  <link rel="stylesheet" type="text/css" href="includes/slider_style.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="includes/main_styles.css">
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/svcpodcasts">
+	<SCRIPT LANGUAGE="javascript">
+		function opener(loc,name)
+		{
+		s=window.open(loc, name, 'toolbar=no,directories=no,menubar=yes,status=yes,scrollbars=yes,resizable=yes,width=350,height=400,left=300,top=50')
+		s.focus()
+		}
+</SCRIPT>
+	<script language="JavaScript" src="includes/accordion_menu.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-1.4.3.min.js"></script>
+	<script type="text/javascript" src="slider_js/jquery-easing-1.3.pack.js"></script>
+	<script type="text/javascript" src="slider_js/jquery-easing-compatibility.1.2.pack.js"></script>
+	<script type="text/javascript" src="slider_js/coda-slider.1.1.1.pack.js"></script>
+	<script type="text/javascript" src="js/jquery.overlay.js"></script>
+
+	<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+
+	<script language="javascript">
+		function opener(loc,name)
+		{
+			s=window.open(loc, name, 'toolbar=no,directories=no,menubar=yes,status=yes,scrollbars=yes,resizable=yes,width=350,height=400,left=300,top=50')
+			s.focus()
+		}
+	</script>	
+	<script language="javascript" type="text/javascript">
+		function checkJavaScriptValidity()
+		{
+			document.getElementById("jsEnabled").style.display = 'block';
+			document.getElementById("jsDisabled").style.display = 'none';
+		}
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".overlaytrigger").overlay(); 
+		});
+	</script>
+
+	<script type="text/javascript">
+	
+		var theInt = null;
+		var $crosslink, $navthumb;
+		var curclicked = 0;
+
+		function SetSlidePic(curclicked){
+			$crosslink.removeClass("active-thumb");
+			$navthumb.eq(curclicked).parent().addClass("active-thumb");
+			$(".stripNav ul li a").eq(curclicked).trigger('click');
+			curclicked++;
+			if( 6 == curclicked )
+				curclicked = 0;
+		}
+		
+		theInterval = function(cur){
+			clearInterval(theInt);
+			
+			if( typeof cur != 'undefined' )
+				curclicked = cur;
+			
+			$crosslink.removeClass("active-thumb");
+			$navthumb.eq(curclicked).parent().addClass("active-thumb");
+				$(".stripNav ul li a").eq(curclicked).trigger('click');
+
+			//run first time without delay or else it doubles the delay
+			$crosslink.removeClass("active-thumb");
+			$navthumb.eq(curclicked).parent().addClass("active-thumb");
+			$(".stripNav ul li a").eq(curclicked).trigger('click');
+			curclicked++;
+			if( 6 == curclicked )
+				curclicked = 0;			
+
+			//run the rest of the times with a delay
+			theInt = setInterval(function(){
+				$crosslink.removeClass("active-thumb");
+				$navthumb.eq(curclicked).parent().addClass("active-thumb");
+				$(".stripNav ul li a").eq(curclicked).trigger('click');
+				curclicked++;
+				if( 6 == curclicked )
+					curclicked = 0;
+				
+			}, 7000);
+
+					
+		};
+		
+		$(function(){
+			
+			$("#main-photo-slider").codaSlider();
+			
+			$navthumb = $(".nav-thumb");
+			$crosslink = $(".cross-link");
+			
+			$navthumb
+			.click(function() {
+				var $this = $(this);
+				theInterval($this.parent().attr('href').slice(1) - 1);
+				return false;
+			});
+			
+			theInterval();
+		});
+	</script>
+</head>
+
+<body>
+<script type="text/javascript">
+<!--
+function toggleLayer(whichLayer)
+{
+if (document.getElementById)
+{
+// this is the way the standards work
+var style2 = document.getElementById(whichLayer).style;
+style2.display = style2.display? "":"block";
+}
+else if (document.all)
+{
+// this is the way old msie versions work
+var style2 = document.all[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+else if (document.layers)
+{
+// this is the way nn4 works
+var style2 = document.layers[whichLayer].style;
+style2.display = style2.display? "":"block";
+}
+}
+
+function toggleLayer2(whichLayer)
+{
+if (document.getElementById)
+{
+// this is the way the standards work
+var style2 = document.getElementById(whichLayer).style;
+style2.display = style2.display? "":"none";
+}
+else if (document.all)
+{
+// this is the way old msie versions work
+var style2 = document.all[whichLayer].style;
+style2.display = style2.display? "":"none";
+}
+else if (document.layers)
+{
+// this is the way nn4 works
+var style2 = document.layers[whichLayer].style;
+style2.display = style2.display? "":"none";
+}
+}
+
+function toggleLayer3(showLayer,hideLayer1,hideLayer2,hideLayer3)
+{
+	var styleShow, styleHide1, styleHide2, styleHide3;
+
+
+	if (document.getElementById){
+		// this is the way the standards work
+		styleShow = document.getElementById(showLayer).style;
+		styleHide1 = document.getElementById(hideLayer1).style;
+		styleHide2 = document.getElementById(hideLayer2).style;
+		styleHide3 = document.getElementById(hideLayer3).style;
+	}
+	else if (document.all){
+		// this is the way old msie versions work
+		styleShow = document.all[showLayer].style;
+		styleHide1 = document.all[hideLayer1].style;
+		styleHide2 = document.all[hideLayer2].style;
+		styleHide3 = document.all[hideLayer3].style;
+	}
+	else if (document.layers){
+		// this is the way nn4 works
+		styleShow = document.layers[showLayer].style;
+		styleHide1 = document.layers[hideLayer1].style;
+		styleHide2 = document.layers[hideLayer2].style;
+		styleHide3 = document.layers[hideLayer3].style;
+
+	}
+
+	styleShow.display = "";
+	styleHide1.display = "none";
+	styleHide2.display = "none";
+	styleHide3.display = "none";
+}
+
+function toggleLayer4(showLayer,hideLayer1)
+{
+	var styleShow, styleHide1
+
+
+	if (document.getElementById){
+		// this is the way the standards work
+		styleShow = document.getElementById(showLayer).style;
+		styleHide1 = document.getElementById(hideLayer1).style;
+	}
+	else if (document.all){
+		// this is the way old msie versions work
+		styleShow = document.all[showLayer].style;
+		styleHide1 = document.all[hideLayer1].style;
+	}
+	else if (document.layers){
+		// this is the way nn4 works
+		styleShow = document.layers[showLayer].style;
+		styleHide1 = document.layers[hideLayer1].style;
+
+
+	}
+
+	styleShow.display = "block";
+	styleHide1.display = "none";
+}
+
+
+function toggleLayer5(showLayer,hideLayer1,hideLayer2,hideLayer3,hideLayer4)
+{
+	var styleShow, styleHide1, styleHide2, styleHide3;
+
+
+	if (document.getElementById){
+		// this is the way the standards work
+		styleShow = document.getElementById(showLayer).style;
+		styleHide1 = document.getElementById(hideLayer1).style;
+		styleHide2 = document.getElementById(hideLayer2).style;
+		styleHide3 = document.getElementById(hideLayer3).style;
+		styleHide4 = document.getElementById(hideLayer4).style;
+	}
+	else if (document.all){
+		// this is the way old msie versions work
+		styleShow = document.all[showLayer].style;
+		styleHide1 = document.all[hideLayer1].style;
+		styleHide2 = document.all[hideLayer2].style;
+		styleHide3 = document.all[hideLayer3].style;
+		styleHide4 = document.all[hideLayer4].style;
+	}
+	else if (document.layers){
+		// this is the way nn4 works
+		styleShow = document.layers[showLayer].style;
+		styleHide1 = document.layers[hideLayer1].style;
+		styleHide2 = document.layers[hideLayer2].style;
+		styleHide3 = document.layers[hideLayer3].style;
+		styleHide4 = document.layers[hideLayer4].style;
+
+	}
+
+	styleShow.display = "";
+	styleHide1.display = "none";
+	styleHide2.display = "none";
+	styleHide3.display = "none";
+	styleHide4.display = "none";
+}
+// -->
+
+function quickLink() {
+	optval = document.getElementById("sel_quicklink").options[document.getElementById("sel_quicklink").selectedIndex].value;
+	if (optval == 1) {
+		return false;
+	} else {
+		window.location.href = optval;
+	}
+}	
+
+
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+
+
+
+</script>
+
+
+<!-- CENTER EVERYONE NOW! -->
+<!--<body>-->
+<div id="maincontainer" style="padding-bottom:0px;">
+	<div id="iconwrap"><!-- HEADER BEGIN -->
+		<ul>
+			<li>
+				<a href="news3.asp_Q_pagenumber_E_2328" style="text-decoration:none;"><img border="0" src="graphics/globeicon.jpg" alt="Locations Globe Icon" width="30" /><br />
+				Locations</a>&nbsp;&nbsp;&zwnj;
+			</li>
+			<li>
+				<a href="dir1.asp" style="text-decoration:none;"><img border="0" src="graphics/mobileicon.jpg" alt="Phone Directory Icon" width="30" /><br />
+				Directory</a>&nbsp;&nbsp;&nbsp;&zwnj;
+			</li>
+			<li>
+				<a href="schedules.asp_Q_pagenumber_E_1737" style="text-decoration:none;"><img border="0" src="graphics/eventscalendaricon.jpg" alt="Events Calendar Icon" width="30" /><br />
+			Events Calendar</a>&nbsp;&nbsp;&nbsp;&zwnj;
+			</li>
+			<li>
+				<a href="news3.asp_Q_pagenumber_E_1831" target="_blank" style="text-decoration:none;"><img src="graphics/directoryicon.jpg" alt="Online Advisor Icon" width="30" border="0" /><br />Online Advisor</a>&nbsp;&nbsp;&nbsp;&zwnj;
+			</li>
+			<li>
+				<a href="mysvc" target="_blank" style="text-decoration:none;"><img src="graphics/mysvcicon.jpg" alt="My SVC Tools Icon" width="30"border="0" /><br />MySVC</a>&nbsp;&nbsp;&nbsp;&zwnj;
+			</li>
+			<li>
+				<a href="http://portal.skagit.edu" target="_blank" style="text-decoration:none;"><img border="0" src="graphics/intraneticon.jpg" alt="Intranet Group Icon" width="30" /><br />InTraNet</a>
+			</li>
+		</ul>
+    <div style="float:left; margin:0 0 0 15px;" id="google_translate_element"></div>
+		<script>
+			function googleTranslateElementInit() {
+				new google.translate.TranslateElement({
+					pageLanguage: 'en'
+				}, 'google_translate_element');
+			}
+		</script>
+
+<script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	</div>
+  <div id="headerwrap">
+		<div class="logo"><a href="default.asp"><img border="0" src="graphics/logo.png" alt="Skagit Valley College Home Page" /></a><br /></div>
+		<div id="searchandquick">
+
+			<form id="sitesearch" name="searchform" action="http://www.google.com/cse" style="margin:0; padding:0; padding-bottom:10px; float:none;">
+				<input type="hidden" name="cx" value="011600693243208174866:aktkfv-ocqs" />				
+				<label for="q" style="display:none;"></label>
+				<input type="text" name="q" id="q" maxlength="255" value='Search Our Site' onFocus="if(this.value == 'Search Our Site') this.value = ''; this.style.background='#d4d9dc'" onBlur="if(this.value == '') this.value = 'Search Our Site';" style="height:18px; padding:0;" />
+				<a href="javascript:document.searchform.submit();">
+					<img onMouseOver="this.src='graphics/search_go2.gif'" onMouseOut="this.src='graphics/search_go1.gif'" onMouseDown="this.src='graphics/search_go1.gif'" src="graphics/search_go1.gif" alt="" style="margin-top:0;" />
+				</a>
+			</form>
+        
+			<form id="quicklinks" name="quicklinks" style="margin:0; padding:0; color:#fff; -moz-box-shadow:0px 0px 5px rgba(0,0,0, 0.4); -webkit-box-shadow:0px 0px 5px rgba(0,0,0, 0.4); box-shadow:0px 0px 5px rgba(0,0,0, 0.4);">
+			
+				<label for="sel_quicklink" style="display:none;"></label>
+				<select name="sel_quicklink" id="sel_quicklink" onChange="javascript:quickLink();" style="width:242px; border:none; background:#d4d9dc; line-height:120%; font-size:11px;">
+					<option value=1>Quick Jump Menu</option>
+          <option value="1" class="catdrop">Academics</option>
+<option value="news3.asp_Q_pagenumber_E_483">&nbsp;&nbsp;Academic Calendar</option>
+<option value="sched_search.asp">&nbsp;&nbsp;Catalog & Schedule Search</option>
+<option value="directory.asp_Q_pagenumber_E_412">&nbsp;&nbsp;Community Education</option>
+<option value="news4.asp_Q_pagenumber_E_2652">&nbsp;&nbsp;Computer Training</option>
+<option value="http://elearn.skagit.edu">&nbsp;&nbsp;Moodle</option>
+<option value="etutor">&nbsp;&nbsp;Online Tutoring</option>
+<option value="directory.asp_Q_pagenumber_E_243">&nbsp;&nbsp;Professional Technical Programs</option>
+<option value="directory.asp_Q_pagenumber_E_244">&nbsp;&nbsp;Programs & Courses</option>
+<option value="1" class="catdrop">Campus Resources</option>
+<option value="files3.asp_Q_pagenumber_E_2590">&nbsp;&nbsp;Accreditation</option>
+<option value="http://www.cardinalbookstore.com/">&nbsp;&nbsp;Cardinal Bookstore</option>
+<option value="news3.asp_Q_pagenumber_E_2205">&nbsp;&nbsp;Emergency Procedures</option>
+<option value="files4.asp_Q_pagenumber_E_1059">&nbsp;&nbsp;Job Opportunities</option>
+<option value="http://www.ksvr.org/">&nbsp;&nbsp;KSVR Radio</option>
+<option value="http://library.skagit.edu/">&nbsp;&nbsp;Library/Media Services</option>
+<option value="news3.asp_Q_pagenumber_E_1830">&nbsp;&nbsp;Strategic Plan</option>
+<option value="1" class="catdrop">Counseling/Career Services</option>
+<option value="directory.asp_Q_pagenumber_E_52">&nbsp;&nbsp;Career Services</option>
+<option value="directory.asp_Q_pagenumber_E_53">&nbsp;&nbsp;Cooperative Education</option>
+<option value="directory.asp_Q_pagenumber_E_58">&nbsp;&nbsp;Disability Support Services</option>
+<option value="directory.asp_Q_pagenumber_E_59">&nbsp;&nbsp;Learning Into Action</option>
+<option value="directory.asp_Q_pagenumber_E_88">&nbsp;&nbsp;Multicultural Student Services</option>
+<option value="news3.asp_Q_pagenumber_E_1448">&nbsp;&nbsp;Student Job Board</option>
+<option value="directory.asp_Q_pagenumber_E_62">&nbsp;&nbsp;Veteran's Education</option>
+<option value="directory.asp_Q_pagenumber_E_65">&nbsp;&nbsp;Women's Programs</option>
+<option value="1" class="catdrop">Enrollment/Registration</option>
+<option value="directory.asp_Q_pagenumber_E_41">&nbsp;&nbsp;Apply For Admissions</option>
+<option value="directory.asp_Q_pagenumber_E_40">&nbsp;&nbsp;Financial Aid</option>
+<option value="news3.asp_Q_pagenumber_E_1831">&nbsp;&nbsp;Online Advisor</option>
+<option value="directory.asp_Q_pagenumber_E_304">&nbsp;&nbsp;Parent Information</option>
+<option value="directory.asp_Q_pagenumber_E_455">&nbsp;&nbsp;Registration</option>
+<option value="directory.asp_Q_pagenumber_E_60">&nbsp;&nbsp;Running Start</option>
+<option value="directory.asp_Q_pagenumber_E_455">&nbsp;&nbsp;Transcripts</option>
+<option value="news3.asp_Q_pagenumber_E_2765">&nbsp;&nbsp;Tuition & Fees</option>
+<option value="1" class="catdrop">Student Life</option>
+<option value="directory.asp_Q_pagenumber_E_326">&nbsp;&nbsp;Athletics</option>
+<option value="directory.asp_Q_pagenumber_E_327">&nbsp;&nbsp;Campus Housing</option>
+<option value="schedules.asp_Q_pagenumber_E_1737">&nbsp;&nbsp;Events Calendar</option>
+<option value="directory.asp_Q_pagenumber_E_359">&nbsp;&nbsp;Health Services</option>
+<option value="directory.asp_Q_pagenumber_E_308">&nbsp;&nbsp;Student Government</option>
+<option value="directory.asp_Q_pagenumber_E_299">&nbsp;&nbsp;Student Programs</option>
+
+				</select>
+			</form>
+		</div>
+	  <div class="clearjunk"></div>
+	</div> 
+	<!--HEADER END-->
+	
+	
+	<div id="navigation">
+		<!--CONTAINS INDETERMINATE NUMBER OF NAV-ITEMS-->
+		<ul>
+			
+			<li>
+				<a href="directory.asp_Q_pagenumber_E_8" style="width:8.37%;"><span>About SVC</span></a>
+				<ul>
+			<li><a href='http://www.sunnyportal.com/Templates/PublicPageOverview.aspx?page=d934cafa-fb71-4046-b7a8-31daa803b0f1&plant=a6cd59e3-8388-44f8-b1ce-b78452f89b84&splang=en-US' target="_blank">Angst Hall Photovoltaic Stats</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_293">Board of Trustees</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_2329'>Contact Us</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_1830'>Core Themes & Objectives</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_497">Facilities</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_51">Human Resources</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_357">Information Technology</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_458">Institutional Committees</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_292">Institutional Research</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_2328'>Locations</a></li>
+			<li><a href='files3.asp_Q_pagenumber_E_2650'>Operational Policies and Procedures</a></li>
+			<li><a href='files3.asp_Q_pagenumber_E_1902'>President/Foundation Newsletter</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_244">Programs & Courses</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_294">Public Information Office</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_76">Safety & Security</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_295">Student Life</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_409">Student Services</a></li>
+		</ul>
+
+			</li>
+			
+			<li>
+				<a href="directory.asp_Q_pagenumber_E_5" style="width:18.6%;"><span>Business & Community</span></a>
+				<ul>
+			<li><a href="directory.asp_Q_pagenumber_E_412">Community Education</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_291">Community Partners & Affiliates</a></li>
+			<li><a href='news5a.asp_Q_pagenumber_E_2652'>Computer Training MV/WIC</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_309">Customized Training</a></li>
+			<li><a href='/directory.asp_Q_pagenumber_E_467'>Experience China</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_73">Foundation</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_462">GlobalFest 2012</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_411">Leadership Skagit</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_176">Road Scholar Program</a></li>
+		</ul>
+
+			</li>
+			
+			<li>
+				<a href="directory.asp_Q_pagenumber_E_319" style="width:14.88%;"><span>Current Students</span></a>
+				<ul>
+			<li><a href='news3.asp_Q_pagenumber_E_483'>Academic Calendar</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_232'>Advising</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_326'>Athletics</a></li>
+			<li><a href='http://www.cardinalbookstore.com/' target="_blank">Cardinal Bookstore</a></li>
+			<li><a href='sched_search.asp'>Catalog & Schedules</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_38'>Counseling & Career Services</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_40'>Financial Aid</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_526'>How to Register for Classes</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_363'>Learning Communities</a></li>
+			<li><a href='http://library.skagit.edu' target="_blank">Library/Media Center</a></li>
+			<li><a href='mysvc.asp' target="_blank">MySVC</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_243'>Professional/Technical Programs</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_244'>Programs & Courses</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_455'>Registration</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_308'>Student Government</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_295'>Student Life</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_415'>Student Policies Handbook</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_2993'>Student Resource Directory</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_75'>TRiO Student Support Services</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_456'>Tutoring</a></li>
+		</ul>
+
+			</li>
+			
+			<li>
+				<a href="directory.asp_Q_pagenumber_E_318" style="width:13.95%;"><span>Future Students</span></a>
+				<ul>
+			<li><a href='directory.asp_Q_pagenumber_E_41'>Admissions & How to Apply</a></li>
+			<li><a href='generic.asp_Q_pagenumber_E_2811'>Admissions Request for Information Form</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_232'>Advising</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_38'>Counseling & Career Services</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_287'>Degrees & Certificates</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_40'>Financial Aid</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_363'>Learning Communities</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_304'>Parent Information</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_243'>Professional/Technical Programs</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_244'>Programs & Courses</a></li>
+			<li><a href='directory.asp_Q_pagenumber_E_176'>Road Scholar Program</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_235'>Transcripts</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_2765'>Tuition, Fees & Policies</a></li>
+		</ul>
+
+			</li>
+			
+			<li>
+				<a href="directory.asp_Q_pagenumber_E_3" style="width:20.46%;"><span>International Students</span></a>
+				<ul>
+			<li><a href='news3.asp_Q_pagenumber_E_1722'>Airport Pickup Service</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_75'>Application Information</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_71'>Cost of Attendance</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_68'>English Language Requirements</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_1810'>Frequently Asked Questions</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_1809'>High School Completion Program</a></li>
+			<li><a href="directory.asp_Q_pagenumber_E_486">Housing</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_73'>Important Dates</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_817'>Meet the Staff</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_55'>Student Testimonials</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_69'>Transferring Credit</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_1969'>Discover the Surrounding Area</a></li>
+			<li><a href='news3.asp_Q_pagenumber_E_1051'>Clubs and Services</a></li>
+			<li><a href='http://homestay.skagit.edu'>Become a Host Family</a></li>
+		</ul>
+
+			</li>
+						<li class="last">
+<a href='http://faculty.skagit.edu' target="_blank" style="width:12.09%;">Faculty Pages</a></li>
+
+		</ul>
+	</div>
+	<!--<ul id="path">
+	</ul>-->
+	<!--MAINNAV END-->
+		
+	<!--MAIN CONTENT CONTAINER BEGIN-->
+	
+    <div id="contentwrap">
+    
+<!--Main Container-->
+<div id="contentpaneone"> <a name="p_navbar"></a> <a name="maincontent"></a>
+  
+<div id="hpwrapper" style="background-image:url(../graphics/hpwrapper_bg.png); background-repeat:repeat-y;">
+	<div id="side-a" style="width:461px;">
+	<!--Slider Container-->
+		<div>
+			<noscript>
+				<div>
+					<img src="slider_images2/FrontPage.jpg" width="600" height="360" alt="photo of Mount Vernon Campus with the text, Ranked Among the Best Community Colleges in the Nation." id="frontpagephoto" />
+					<p style="color:red"> You have javascript turned off! To view the page correctly, please turn it on in your browser settings, or<a href="http://www.mozilla.com/en-US/firefox/firefox.html" target="_blank"> upgrade</a> to a modern browser.</p>
+				</div>
+			</noscript>
+<script>
+document.write("<div id='frontpageslider'><div id='page-wrap'>");
+document.write("	<div class='slider-wrap'>");
+document.write("		<div id='main-photo-slider' class='csw'>");
+document.write("		<div class='panelContainer'>");
+document.write("				<div class='panel' title='Panel 1'>");
+document.write("					<div class='wrapper'>");
+document.write("						<a href='sched_search.asp'><img width='461' src='images/slider1.jpg' title='Summer and Annual Schedules now available'/></a>");
+document.write("					</div>");
+document.write("				</div>		");
+document.write("				<div class='panel'>");
+document.write("					<div class='wrapper'>");
+document.write("						<a href='directory.asp_Q_pagenumber_E_326'><img width='461' src='images/slider2.jpg' title='Spring Athletics going on now. Click for details and schedules' /></a>");
+document.write("					</div>");
+document.write("				</div>		");
+document.write("				<div class='panel'>");
+document.write("					<div class='wrapper'>");
+document.write("						<img width='461' src='images/slider3.jpg' title='Meet Transfet Student Nallely Carre&oacute;n Carrillo'/>");
+document.write("					</div>");
+document.write("				</div>		");
+document.write("				<div class='panel'>");
+document.write("					<div class='wrapper'>");
+document.write("						<a href='directory.asp_Q_pagenumber_E_485'><img width='461' src='images/slider4.jpg' title='Composite Fundamentals at SVC. Click for Manufacturing Training Information.' /></a>");
+document.write("					</div>");
+document.write("				</div>		");
+document.write("				<div class='panel'>");
+document.write("					<div class='wrapper'>");
+document.write("						<a href='directory.asp_Q_pagenumber_E_62'><img width='461' src='images/slider5.jpg' title='SVC Welcomes Veterans. Click here for Veteran Information.' />");
+document.write("					</div>");
+document.write("				</div>		");
+document.write("				<div class='panel'>");
+document.write("					<div class='wrapper'>");
+document.write("						<a href='mysvc'><img src='images/slider6.jpg' title='Everything you need in one place. Click here to access My S.V.C.'/></a>");
+document.write("					</div>");
+document.write("				</div>");
+document.write("				</div></div>");
+document.write("<div class='firstthumbzindex'>");
+document.write("<a href='#1' title='Thumbnail link to Summer and Annual Schedules Slide' class='cross-link'><img src='images/slider1-thumb.jpg' class='nav-thumb' title='Thumbnail link to Summer and Annual Schedules Slide'/></a></div>");
+document.write("<div id='movers-row'>");
+document.write("			<div><a href='#2' class='cross-link active-thumb'> <img src='images/slider2-thumb.jpg' class='nav-thumb' title='Thumbnail link to Spring Athletics Slide'/></a></div>");
+document.write("			<div><a href='#3' title='Link to Student Profile slide.' class='cross-link'><img src='images/slider3-thumb.jpg' class='nav-thumb'/></a></div>");
+document.write("			<div><a href='#4' class='cross-link'><img src='images/slider4-thumb.jpg' class='nav-thumb' title='Thumbnail link to Composite Fundamentals in Manufacturing Technology'/></a></div>");
+document.write("			<div><a href='#5' class='cross-link'><img src='images/slider5-thumb.jpg' class='nav-thumb' title='Thumbnail link to Welcome Veterans photo slide.'/></a></div>");
+document.write("			<div><a href='#6' class='cross-link'><img src='images/slider6-thumb.jpg' class='nav-thumb' title='Thumbnail link to My SVC Apps photo slide.'/></a></div>");
+document.write("		</div>");
+document.write("	</div>");
+document.write("	</div>");
+document.write("	</div>");
+</script>
+		</div>
+		
+  <!--End of Slider Container-->
+  <div id="side-a-left" style="width:265px;">
+    
+  <!--NEWS & INFORMATION-->
+  	<div class="modheader" style="width:100%;"><h1><span>NEWS</span> & INFORMATION</h1></div>
+		<div class="modcontentwhite" style="width:100%; padding:0;">
+		<div id="newsandevents" style="padding:5px 12px 6px 17px; margin-bottom:0px;">
+    
+    <div class="newseventsitem" style="margin-right:0; padding:0;">
+      
+      <h2>The 2012 Summer & Annual Schedules Are Now Available!</h2>
+      <p>The Summer 2012 course schedule is now available for online searching or as a PDF download. Also available in PDF format, the 2012-13 Mount Vernon and Whidbey Island Campus Annual Schedules.</P>
+      <span class="newslink"><a href="sched_search.asp">visit the schedule search page for details</a></span>
+      
+    </div>
+    
+    <div class="newseventsitem" style="margin-right:0; padding:0;">
+      
+      <h2>Mark your calendar!<BR>85th Commencement Ceremonies</h2>
+      
+      <span class="newsdate">Posted: 5/3/2012</span><br />
+      
+      <span class="newslink"><a href="/imageuploads/file3189.pdf" target="_blank">read more about it</a></span>
+      
+    </div>
+    
+    <div class="newseventsitem" style="margin-right:0; padding:0;">
+      
+      <h2>SVC Center for Non-Profit Excellence continues workshop series</h2>
+      
+      <span class="newsdate">Posted: 5/3/2012</span><br />
+      
+      <span class="newslink"><a href="/imageuploads/file3179.pdf" target="_blank">read more about it</a></span>
+      
+    </div>
+    
+    <div class="newseventsitem" style="margin-right:0; padding:0;">
+      
+      <h2>Calling All Colors music raffle<BR>going on now!</h2>
+      
+      <span class="newsdate">Posted: 4/25/2012</span><br />
+      
+      <span class="newslink"><a href="/imageuploads/file3180.pdf" target="_blank">read more about it</a></span>
+      
+    </div>
+    
+  </div>
+  <span class="small" style="margin:0 0 0 17px;"><a href="files3.asp_Q_pagenumber_E_1595">&raquo;&nbsp;view
+    all press releases</a></span><br /><br /><br />
+
+  </div> 
+   <!--END OF NEWS & INFORMATION-->
+    
+    <script language=JavaScript>
+<!--//
+setMenus();
+//-->
+
+</script>
+    </div>
+    <!--End of Side-A-Left-->
+    <div id="side-a-right" style="width:189px;">
+    
+    <div class="box" style="width:180px; height:120px;">
+		<a href="javascript:void(0);" rel="#vid1" class="overlaytrigger">
+			<img title="Manufacturing Technology Program Video Title Frame" border="0" src="images/Manufacturing_th.jpg" height="120" width="180" />
+		</a>
+    </div>
+    
+    <div class="box" style="width:180px; height:120px;">
+		<a href="javascript:void(0);" rel="#vid2" class="overlaytrigger">
+			<img title="Culinary Arts Program Video Title Frame" border="0" src="images/HP_Culinary_video_icon.jpg" height="120" width="180" />
+		</a>
+    </div>
+ 
+     <div class="box" style="width:180px; height:120px;">
+		<a href="javascript:void(0);" rel="#vid3" class="overlaytrigger">
+			<img title="Human Services Program Video Title Frame" border="0" src="images/HumanServices_th.jpg" height="120" width="180" />
+		</a>
+    </div>   
+    
+    <span class=" newslink"><a href="http://www.youtube.com/user/SkagitValleyCollege" target="_blank">&gt;&gt; see all videos</a></span>
+<!--
+		<div class="box"><a href="https://secure.skagit.edu/hopeinfo.asp"><img src="graphics/taxcredit.jpg" width="255" height="81" alt="2009 Tax Credit Information, click to view" /></a></div>
+-->		
+    </div>	
+    	         
+    <!--End of Side-A-Right-->
+</div>
+		
+<!--	<div id="separator"></div>-->
+	<div id="side-b" style="width:338px; border-left:1px solid #fff;">
+
+	<!--Three Banners Container-->	
+		<div class="modheader"><h1><span> academic</span> resources</h1></div>
+		<div class="academicbox">
+			<a href="sched_search.asp">
+				<img src="graphics/sched.png" align="left" alt="Image of SVC catalog cover" />
+				<p>Quarterly Schedule &amp; Catalog<br /><span>Searchable catalog/schedule lists and downloadable PDFs</span></p>
+			</a>
+			<a href="directory.asp_Q_pagenumber_E_244">
+				<img src="graphics/chalkboard.png" align="left" alt="A chalkboard" />
+				<p>A-Z Programs &amp; Courses List<br /><span>Includes sample schedules, course lists, course descriptions and info guides</span></p>
+			</a>
+			<a href="directory.asp_Q_pagenumber_E_287">
+				<img src="graphics/diploma.png" align="left" alt="A rolled-up diploma" />
+				<p>Degrees &amp; Certificates<br /><span>Complete list of transfer degrees, majors and technical degrees offered by SVC</span></p>
+			</a>
+    </div>
+
+    <div class="modheader"><h1><span> What's</span> New</h1></div>
+    <div class="modcontent" style="background-position:-2px 0;">
+  <div class="whatsnewitem">
+    
+    	<a href="news3.asp_Q_pagenumber_E_1942"><img src="imageuploads/thumbhomepage498.jpg" align="LEFT" border="none" /></a>
+   		
+    			<h1>James M. Ford Golf Classic</h1>
+    		<P>Get Your Game On! &amp; help raise money for scholarships &amp; program enhancements. May 11.</P>
+   		 <a href="news3.asp_Q_pagenumber_E_1942">View Info & Register Online</a>
+    
+    <div class="whatsnewline"></div>
+  </div>
+  <div class="clearjunk"></div>
+  
+  <div class="whatsnewitem">
+    
+    	<a href="currents"><img src="imageuploads/thumbhomepage504.jpg" align="LEFT" border="none" /></a>
+   		
+    			<h1>Currents Magazine</h1>
+    		<P>The new issue of currents is now available for viewing</P>
+   		 <a href="currents">click here to view issue</a>
+    
+    <div class="whatsnewline"></div>
+  </div>
+  <div class="clearjunk"></div>
+  
+  <div class="whatsnewitem">
+    
+    	<a href="http://images/CE-controlLead.pdf"><img src="imageuploads/thumbhomepage506.jpg" align="LEFT" border="none" /></a>
+   		
+    			<h1>CESCL Recertification</h1>
+    		<P>Certified Erosion &amp; Sediment Control Lead refresher course, Friday May 18 at San Juan Center.</P>
+   		 <a href="http://images/CE-controlLead.pdf">Click for details & registration</a>
+    
+    <div class="whatsnewline"></div>
+  </div>
+  <div class="clearjunk"></div>
+  
+  <div class="whatsnewitem">
+    
+    	<a href="directory.asp_Q_pagenumber_E_490"><img src="imageuploads/thumbhomepage494.jpg" align="LEFT" border="none" /></a>
+   		
+    			<h1>Achieving the Dream at SVC</h1>
+    		<P>SVC is now an Achieving the Dream Institution.</P>
+   		 <a href="directory.asp_Q_pagenumber_E_490">Click for more details</a>
+    
+    <div class="whatsnewline"></div>
+  </div>
+  <div class="clearjunk"></div>
+  </div>
+    <!--End of Three Banners Container-->
+
+	  </div>
+		<div class="clearjunk"></div>
+	</div>
+
+<!--END Default Container-->
+
+<!--End Contentwrap from TOP.ASP-->
+	</div>
+	<div class="clearjunk"></div>
+    </div>
+	<div id="footwrap" style="background-image:url(../graphics/footerback.jpg); background-repeat:repeat-x; background-color:#4978a2; border:1px solid #ccc; margin:0 auto; color:white; height:auto; width:798px;">
+		<div id="socialmedia">
+			<a href="http://www.facebook.com/pages/Mount-Vernon-WA/Skagit-Valley-College/195470710173" target="_blank">
+				<img src="graphics/facebook.png" alt="Skagit Valley College on Facebook" />
+			</a>
+			<a href="http://www.youtube.com/user/SkagitValleyCollege" target="_blank">
+				<img src="graphics/youtube.png" alt="Skagit Valley College YouTube Videos" />
+			</a>
+			<a href="http://twitter.com/SVCCollege" target="_blank">
+				<img src="graphics/twitter.png" alt="Skagit Valley College on Twitter" />
+			</a>
+		</div>
+
+    <div style="clear:both"></div>
+
+		<div style="padding-bottom:5px">
+			<ul>
+				<li><a class="quickbut" href="files3.asp_Q_pagenumber_E_2590">Accreditation</a></li>
+				<li><a class="quickbut" href="disclaimer.asp">Copyright / Disclaimer</a></li>
+				<li><a class="quickbut" href="equalaccess.asp">Equal Access</a></li>
+				<li><a class="quickbut" href="non-discrimination.asp">Non-Discrimination</a></li>
+				<li><a class="quickbut" href="privacy_statement.asp">Privacy Statement</a></li>
+				<li><a class="quickbut" href="sitemap.asp">Sitemap</a></li>
+<!--				<li><a class="quickbut" href="news3.asp_Q_pagenumber_E_2329">Contact Us</a></li>-->
+				<li><a class="quickbut" href="news3.asp_Q_pagenumber_E_2205">Emergency Response Plan</a></li>
+			</ul>
+		</div>
+
+	</div>
+<!-- End Bodywrap from TOP.ASP -->
+<div id=no100></div>
+<div id=no200></div>
+<div id=no300></div>
+<div id=no400></div>
+<div id=no500></div>
+<div id=no600></div>
+<div id=no700></div>
+<div id=no701></div>
+<div id=no702></div>
+<div id=no703></div>
+<div id=no704></div>
+<div id=no705></div>
+<div id=no706></div>
+<div id=no707></div>
+<div id=no708></div>
+<div id=no709></div>
+<div id=no710></div>
+<div id=no711></div>
+<div id=no712></div>
+<div id=no713></div>
+<div id=no800></div>
+<div id=no801></div>
+<div id=no802></div>
+<div id=no803></div>
+<div id=no804></div>
+
+
+<!-- Video overlays -->
+
+<div class="simple_overlay" id="vid1">
+	<!-- image details -->
+	<div class="details">
+		<h3>Manufacturing Technology</h3>
+           <object width="450" height="300"><param name="movie" value="http://www.youtube.com/v/pEqXAqAUivw?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/pEqXAqAUivw?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="450" height="300" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+    </div>
+</div>
+
+<div class="simple_overlay" id="vid2">
+	<!-- image details -->
+	<div class="details">
+		<h3>Culinary Arts & Hospitality Mangement (CAHM)</h3>
+          <object width="450" height="300"><param name="movie" value="http://www.youtube-nocookie.com/v/JMH9B-gbBV8?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube-nocookie.com/v/JMH9B-gbBV8?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="450" height="300" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+    </div>
+</div>
+
+<div class="simple_overlay" id="vid3">
+	<!-- image details -->
+	<div class="details">
+		<h3>Human Services</h3>
+            <object width="450" height="300"><param name="movie" value="http://www.youtube.com/v/nJ_jWfzeXQk?version=3&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/nJ_jWfzeXQk?version=3&amp;hl=en_US" type="application/x-shockwave-flash" width="450" height="300" allowscriptaccess="always" allowfullscreen="true"></embed></object>
+   	</div>
+</div>
+
+<!-- End video overlays -->
+
+</body>
+</html>

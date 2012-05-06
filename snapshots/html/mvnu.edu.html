@@ -1,0 +1,833 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+<head>
+
+<title>Mount Vernon Nazarene University - MVNU, Christian University in Ohio, Bachelors, Traditional, Undergraduate, Liberal Arts Education</title>
+<meta name="description" content="Mount Vernon Nazarene University, MVNU is a private, four-year, intentionally Christian teaching university for traditional age students, graduate students and working adults. With a 400-acre main campus in Mount Vernon, Ohio, and additional Graduate and Professional Studies sites throughout the state, MVNU emphasizes affordability, academic excellence, spiritual growth and service to community and church.">
+<meta name="keywords" content="mount vernon nazarene university, christian college, mvnu, ohio, bachelors, masters, traditional undergraduate, alumni, giving, admissions, adult graduate studies, adult degree programs">
+<link href="/common/mvnu.css" rel="stylesheet" type="text/css">
+
+
+<link href="/common/sitemap.css" rel="stylesheet" type="text/css">
+
+<!--[if IE 6]><link href="/common/sitemap_ie.css" rel="stylesheet" type="text/css"><![endif]-->
+			<link rel="stylesheet" href="/common/jquery/jquery.twitter.css" type="text/css" media="all">
+<script type="text/javascript" src="/common/jquery/jquery-1.4.4.min.js"></script>
+<link rel="stylesheet" href="common/jquery/nivo-slider.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/common/jquery/jquery.nivo.slider.js"></script>
+		<script src="common/jquery/jquery.twitter.js" type="text/javascript"></script>
+<script type="text/javascript" src="/common/jquery/jquery.curvycorners.js"></script>
+<script language="JavaScript">
+	jQuery(function(){	// shorthand for $(document).ready() BTW
+        jQuery("#sitemap").corner({
+        	autoPad: false
+			});
+            		
+	        $('#slider').nivoSlider({
+	            controlNavThumbs:true,
+  				 controlNavThumbsReplace: '_t.jpg',
+  				pauseTime:5000,
+  				prevText: '', // Prev directionNav text
+        		nextText: '', // Next directionNav text
+        		afterLoad: function(){
+        				$('#slideWrap').css('background','none');
+        				$('#slider').css('display','block');
+        				$('div.nivo-controlNavView', '#slider').scrollLeft(0);
+        				}
+  			});
+	    
+			$('div.nivo-controlNavLeft','#slider').hover(function(e){
+				var speed = $('div.nivo-controlNav', '#slider').children().length;
+				$('div.nivo-controlNavView', '#slider').animate({scrollLeft: 0}, 900*speed);
+			}, function(){
+				$('div.nivo-controlNavView', '#slider').stop()
+			});
+			$('div.nivo-controlNavRight','#slider').hover(function(e){
+					var width = $('div.nivo-controlNav', '#slider').width();
+					var speed = $('div.nivo-controlNav', '#slider').children().length;
+					
+					$('div.nivo-controlNavView', '#slider').animate({scrollLeft: width}, 900*speed);
+			}, function(){
+				$('div.nivo-controlNavView', '#slider').stop();
+			});
+        
+       });
+</script>
+
+<script language="javascript" src="/common/global.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 8;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Minor version of Flash required
+var requiredRevision = 0;
+// the version of javascript supported
+var jsVersion = 1.0;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+<script language="VBScript" type="text/vbscript">
+<!-- // Visual basic helper required to detect Flash Player ActiveX control version information
+
+Function VBGetSwfVer(i)
+  on error resume next
+  Dim swControl, swVersion
+  swVersion = 0
+  
+  set swControl = CreateObject("ShockwaveFlash.ShockwaveFlash." + CStr(i))
+  if (IsObject(swControl)) then
+    swVersion = swControl.GetVariable("$version")
+  end if
+  VBGetSwfVer = swVersion
+End Function
+// -->
+</script>
+<script language="JavaScript1.1" type="text/javascript">
+<!-- // Detect Client Browser type
+var isIE  = (navigator.appVersion.indexOf("MSIE") != -1) ? true : false;
+var isWin = (navigator.appVersion.toLowerCase().indexOf("win") != -1) ? true : false;
+var isOpera = (navigator.userAgent.indexOf("Opera") != -1) ? true : false;
+jsVersion = 1.1;
+// JavaScript helper required to detect Flash Player PlugIn version information
+function JSGetSwfVer(i){
+	// NS/Opera version >= 3 check for Flash plugin in plugin array
+	if (navigator.plugins != null && navigator.plugins.length > 0) {
+		if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
+			var swVer2 = navigator.plugins["Shockwave Flash 2.0"] ? " 2.0" : "";
+      		var flashDescription = navigator.plugins["Shockwave Flash" + swVer2].description;
+			descArray = flashDescription.split(" ");
+			tempArrayMajor = descArray[2].split(".");
+			versionMajor = tempArrayMajor[0];
+			versionMinor = tempArrayMajor[1];
+			if ( descArray[3] != "" ) {
+				tempArrayMinor = descArray[3].split("r");
+			} else {
+				tempArrayMinor = descArray[4].split("r");
+			}
+      		versionRevision = tempArrayMinor[1] > 0 ? tempArrayMinor[1] : 0;
+            flashVer = versionMajor + "." + versionMinor + "." + versionRevision;
+      	} else {
+			flashVer = -1;
+		}
+	}
+	// MSN/WebTV 2.6 supports Flash 4
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.6") != -1) flashVer = 4;
+	// WebTV 2.5 supports Flash 3
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv/2.5") != -1) flashVer = 3;
+	// older WebTV supports Flash 2
+	else if (navigator.userAgent.toLowerCase().indexOf("webtv") != -1) flashVer = 2;
+	// Can't detect in all other cases
+	else {
+		
+		flashVer = -1;
+	}
+	return flashVer;
+} 
+// When called with reqMajorVer, reqMinorVer, reqRevision returns true if that version or greater is available
+function DetectFlashVer(reqMajorVer, reqMinorVer, reqRevision) 
+{
+ 	reqVer = parseFloat(reqMajorVer + "." + reqRevision);
+   	// loop backwards through the versions until we find the newest version	
+	for (i=25;i>0;i--) {	
+		if (isIE && isWin && !isOpera) {
+			versionStr = VBGetSwfVer(i);
+		} else {
+			versionStr = JSGetSwfVer(i);		
+		}
+		if (versionStr == -1 ) { 
+			return false;
+		} else if (versionStr != 0) {
+			if(isIE && isWin && !isOpera) {
+				tempArray         = versionStr.split(" ");
+				tempString        = tempArray[1];
+				versionArray      = tempString .split(",");				
+			} else {
+				versionArray      = versionStr.split(".");
+			}
+			versionMajor      = versionArray[0];
+			versionMinor      = versionArray[1];
+			versionRevision   = versionArray[2];
+			
+			versionString     = versionMajor + "." + versionRevision;   // 7.0r24 == 7.24
+			versionNum        = parseFloat(versionString);
+        	// is the major.revision >= requested major.revision AND the minor version >= requested minor
+			if ( (versionMajor > reqMajorVer) && (versionNum >= reqVer) ) {
+				return true;
+			} else {
+				return ((versionNum >= reqVer && versionMinor >= reqMinorVer) ? true : false );	
+			}
+		}
+	}	
+}
+// -->
+</script>
+ 
+</head>
+
+<body style="top-margin:0px;background-color:#b0bcc7;" leftmargin="25" topmargin="0" marginwidth="25" marginheight="25">
+<center>
+<table cellpadding="0" cellspacing="0" border="0" width="762" >
+	
+
+<style type="text/css">
+  .mainnav {
+	background:#004466;
+	padding-top: 8px;
+	height: 20px;
+  }
+
+  .mainnav td {
+	font-family: helvetica;
+  }
+
+.mainnav {padding:0px 0px 1px 0px; border-top: 1px solid #989898; border-bottom: 1px solid #989898; color:#FFFFFF; font-weight:bold;}
+.mainnav a:link {padding:6px 0px 6px 0px; color:#FFFFFF; font-weight:bold; text-decoration:none; display:block;}
+.mainnav a:visited {padding:6px 0px 6px 0px; color:#FFFFFF; font-weight:bold; text-decoration:none; display:block;}
+.mainnav a:active {padding:6px 0px 6px 0px; color:#FFFFFF; font-weight:bold; text-decoration:none; display:block;}
+.mainnav a:hover {padding:6px 0px 6px 0px; color:#FFFFFF; font-weight:bold; text-decoration:none; display:block; background-color: #3377dd;}
+.mainnav ul {padding:0px; margin:0px; list-style:none; float:left;}
+.mainnav li {text-align:center; float:left; position:relative;}
+
+.mainnav .flyout li {border-top: 1px solid #ffffff; }
+.mainnav .flyout a {font-size: 10px; background-color:#19416A; color:#FFFFFF;}
+.mainnav .flyout a:hover {font-size: 10px; background-color:#3377dd; color:#FFFFFF;}
+
+.mainnav li.futurestudents {width:100px;}
+.mainnav li.futurestudentsflyout {width:100px;} 
+
+.mainnav li.ags {width:195px; }
+.mainnav li.agsflyout {width:195px; } 
+
+.mainnav li.alumni {width:70px; }
+.mainnav li.alumniflyout {width:70px; } 
+
+.mainnav li.parents {width:128px;}
+.mainnav li.parentsflyout {width:128px;} 
+
+.mainnav li.pastors {width:135px; }
+.mainnav li.pastorsflyout {width:135px; } 
+
+.mainnav li.visitors {width:129px;}
+.mainnav li.visitorsflyout {width:129px; } 
+
+
+.mainnav ul ul {position: absolute; z-index: 500;}
+.mainnav ul ul ul { top: 0; left: 100%;}
+tr.mainnav ul ul, div.mainnav ul li:hover ul ul, div.mainnav ul ul li:hover ul ul{display: none;}
+tr.mainnav ul li:hover ul, div.mainnav ul ul li:hover ul, div.mainnav ul ul ul li:hover ul{display: block;}
+
+  .subnav {
+	background:#004466;
+	padding-top: 8px;
+	height: 20px;
+  }
+
+  .subnav td {
+	font-family: helvetica;
+  }
+
+.subnav {padding:0px 0px 1px 0px; border-top: 1px solid #989898; border-bottom: 1px solid #989898; color:#F4B948; background: #976E09; font-weight:bold;}
+.subnav a:link {padding:6px 0px 6px 0px; color:#F4B948; font-weight:bold; text-decoration:none; display:block;}
+.subnav a:visited {padding:6px 0px 6px 0px; color:#F4B948; font-weight:bold; text-decoration:none; display:block;}
+.subnav a:active {padding:6px 0px 6px 0px; color:#F4B948; font-weight:bold; text-decoration:none; display:block;}
+.subnav a:hover {padding:6px 0px 6px 0px; color:#FFFFFF; font-weight:bold; text-decoration:none; display:block;}
+.subnav ul {padding:0px; margin:0px; list-style:none; float:left;}
+.subnav li {text-align:center; float:left; position:relative;}
+
+.subnav .flyout li {border-top: 1px solid #ffffff; }
+.subnav .flyout a {font-size: 10px; background-image:none; background-color:#976E09; color:#F4B948;}
+.subnav .flyout a:hover {font-size: 10px; background-image:none; background-color:#976E09; color:#FFFFFF;}
+
+.subnav li.academics {width:117px;}
+.subnav li.academicsflyout {width:117px;} 
+
+.subnav li.athletics {width:119px; }
+.subnav li.athleticsflyout {width:119px; } 
+
+.subnav li.calendar {width:92px; }
+.subnav li.calendarflyout {width:92px; } 
+
+.subnav li.giving {width:160px;}
+.subnav li.givingflyout {width:160px;} 
+
+.subnav li.info {width:139px; }
+.subnav li.infoflyout {width:139px; } 
+
+.subnav li.contact {width:135px;}
+.subnav li.contactflyout {width:135px; } 
+
+.subnav ul ul {position: absolute; z-index: 500;}
+.subnav ul ul ul { top: 0; left: 100%;}
+
+tr.subnav ul ul, div.subnav ul li:hover ul ul, div.subnav ul ul li:hover ul ul{display: none;}
+tr.subnav ul li:hover ul, div.subnav ul ul li:hover ul, div.subnav ul ul ul li:hover ul{display: block;}
+
+</style>
+
+
+
+<!--[if IE 7]> 
+<style type="text/css">
+.mainnav ul li {float: left; width: 100%; position: relative; z-index: 600;}
+.mainnav li.futurestudentsflyout {width:100px; float: left; left: -50px;} .mainnav li.whymvnuflyout a { font-size: 10px;}
+.mainnav li.agsflyout {width:195px; float: left; left: -97px;} .mainnav li.aboutagsflyout a { font-size: 10px; }
+.mainnav li.alumniflyout {width:72px; float: left; left: -36px;} .mainnav li.gradprogramsflyout a { font-size: 10px; }
+.mainnav li.parentsflyout {width:132px; float: left; left: -66px;} .mainnav li.ugradprogramsflyout a { font-size: 10px; }
+.mainnav li.pastorsflyout {width:139px; float: left; left: -69px;} .mainnav li.locationsflyout a { font-size: 10px; }
+.mainnav li.visitorsflyout {width:132px; float: left; left: -66px;} .mainnav li.admissionsflyout a { font-size: 10px; }
+.subnav ul li {float: left; width: 100%; position: relative; z-index: 500;}
+.subnav li.academicsflyout {width:117px; float: left; left: -58px; top: 0px;} .subnav li.academicsflyout a { font-size: 10px; }
+.subnav li.athleticsflyout {width:119px; float: left; left: -59px; top: 0px;} .subnav li.athleticsflyout a { font-size: 10px; }
+.subnav li.calendarflyout {width:92px; float: left; left: -46px; top: 0px;} .subnav li.calendarflyout a { font-size: 10px; }
+.subnav li.givingflyout {width:160px; float: left; left: -80px; top: 0px;} .subnav li.givingflyout a { font-size: 10px; }
+.subnav li.infoflyout {width:139px; float: left; left: -70px; top: 0px;} .subnav li.infoflyout a { font-size: 10px; }
+.subnav li.contactflyout {width:135px; float: left; left: -67px; top: 0px;} .subnav li.contactflyout a { font-size: 10px; }
+</style>
+<![endif]-->
+
+
+<!--[if IE 6]> 
+<style type="text/css">
+.mainnav ul li {float: left; width: 100%; position: relative; z-index: 600;}
+.mainnav li.futurestudentsflyout {width:100px; float: left; left: -50px;} .mainnav li.whymvnuflyout a { font-size: 10px;}
+.mainnav li.agsflyout {width:195px; float: left; left: -97px;} .mainnav li.aboutagsflyout a { font-size: 10px; }
+.mainnav li.alumniflyout {width:72px; float: left; left: -36px;} .mainnav li.gradprogramsflyout a { font-size: 10px; }
+.mainnav li.parentsflyout {width:132px; float: left; left: -66px;} .mainnav li.ugradprogramsflyout a { font-size: 10px; }
+.mainnav li.pastorsflyout {width:139px; float: left; left: -69px;} .mainnav li.locationsflyout a { font-size: 10px; }
+.mainnav li.visitorsflyout {width:132px; float: left; left: -66px;} .mainnav li.admissionsflyout a { font-size: 10px; }
+.subnav ul li {float: left; width: 100%; position: relative; z-index: 500;}
+.subnav li.academicsflyout {width:117px; float: left; left: -58px; top: 1px;} .subnav li.academicsflyout a { font-size: 10px; }
+.subnav li.athleticsflyout {width:119px; float: left; left: -59px; top: 1px;} .subnav li.athleticsflyout a { font-size: 10px; }
+.subnav li.calendarflyout {width:92px; float: left; left: -46px; top: 1px;} .subnav li.calendarflyout a { font-size: 10px; }
+.subnav li.givingflyout {width:160px; float: left; left: -80px; top: 1px;} .subnav li.givingflyout a { font-size: 10px; }
+.subnav li.infoflyout {width:139px; float: left; left: -70px; top: 1px;} .subnav li.infoflyout a { font-size: 10px; }
+.subnav li.contactflyout {width:135px; float: left; left: -67px; top: 1px;} .subnav li.contactflyout a { font-size: 10px; }
+.mainnav ul li a {height: 1%;} 
+.subnav ul li a {height: 1%;}
+</style>
+<![endif]-->
+
+
+
+	<tr>
+
+		<td class="header" width="762" colspan="2">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tr>
+					<td width="228"><a href="/"><img src="/images/spacer.gif" border="0" width="228" height="84" alt="Mount Vernon Nazarene University: Life Changing" /></a></td>
+					<td width="523" align="right" valign="top">
+						<img src="/images/spacer.gif" border="0" width="1" height="11" alt="" /><br />
+			<script type="text/JavaScript">
+			<!--
+			function MM_jumpMenu(targ,selObj,restore){ //v3.0
+			  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+			  if (restore) selObj.selectedIndex=0;
+			}
+			//-->
+			</script>
+			<form name="webform01" method="post" action="index.asp">
+	<select name="links" style="width:150px;" onchange="MM_jumpMenu('parent',this,0)">
+	<option value="">Quick Links</option>
+	<option value="http://www.mvnu.edu/catalog">Academic Catalog</option>
+	<option value="http://www.mvnu.edu/spirituallife/">Campus Ministries</option>
+	<option value="http://www.mvnu.edu/services/safety/safety.asp">Campus Safety</option>
+	<option value="http://www.mvnu.edu/academics/classchedule.asp">Class Schedules</option>
+	<option value="http://www.mvnu.edu/commencement">Commencement</option>
+	<option value="http://www.treeoflifebookstores.com/mvnu/">Cougar Corner Bookstore</option>
+	<option value="http://www.mvnu.edu/candc/">Counseling and Career</option>
+	<option value="http://mvnu.edu/services/dining/dining.asp">Dining Commons</option>
+	<option value="http://www.mvnu.edu/preschool/">Esther Jetter Preschool</option>
+	<!--<option value="http://www.mvnu.edu/generalassembly">General Assembly</option>-->
+	<option value="http://www.mvnu.edu/gps/sitelocations.asp">GPS Site Locations</option>
+	<option value="http://www.mvnu.edu/homecoming">Homecoming</option>
+	<option value="http://www.mvnu.edu/jobs/">Human Resources</option>
+	<option value="http://library.mvnu.edu">Library</option>
+	<option value="http://www.mvnu.edu/accreditation/">MVNU Accreditation</option>
+	<option value="https://my.mvnu.edu/ics/">My.MVNU.edu</option>
+	<option value="http://www.mvnu.edu/news/">News</option>
+	<option value="http://orientation.mvnu.edu">Orientation</option>
+	<option value="http://www.mvnu.edu/directory/">Personnel Directory</option>
+	<option value="http://www.mvnu.edu/podcast/">Podcasts</option>
+	<option value="http://www.mvnu.edu/facstaff/admin/presidentsoffice/president.asp">President's Office</option>
+	<option value="http://www.mvnu.edu/crisis/">Safety/Emergency Information</option>	
+	<option value="http://www.mvnu.edu/sitemap.asp">Site Map</option>
+	<option value="http://www.mvnu.edu/news/socialmedia.asp">Social Media</option>
+	<option value="http://www.mvnu.edu/welcomeweek/">Welcome Week</option>
+	<option value="http://www.mvnu.edu/womensaux/index.asp">Women's Auxiliary</option>
+	<option value="http://www.mvnu.edu/wnzr/">WNZR 90.9 FM</option>
+	</select>
+</form>
+					</td>
+					<td width="11"><img src="/images/spacer.gif" border="0" width="11" height="1" alt="" /></td>
+				</tr>
+				<tr class="mainnav"><td colspan="3" style="border-bottom: 1px solid #ffffff; border-top: 1px solid #ffffff;">
+				<ul>
+					<li class="futurestudents" style="border-right: 1px solid #ffffff; "><a href="http://www.gotomvnu.com/">Admissions</a>
+						<ul class="flyout">
+							<li class="futurestudentsflyout"><a href="http://www.gotomvnu.com/">Traditional Undergraduate</a></li>
+							<li class="futurestudentsflyout"><a href="http://www.mvnu.edu/gps/undergraduate_programs/index.asp">Adult Undergraduate</a></li>
+							<li class="futurestudentsflyout"><a href="http://www.mvnu.edu/gps/graduate_programs/index.asp">Adult Graduate</a></li>
+						</ul>
+					</li>
+					<li class="ags" style="border-right: 1px solid #ffffff; "><a href="http://www.mvnu.edu/gps/index.asp">Graduate &amp; Professional Studies</a>
+						<ul class="flyout">
+							<li class="agsflyout"><a href="http://www.mvnu.edu/gps/undergraduate_programs/index.asp">Adult Undergraduate</a></li>
+							<li class="agsflyout"><a href="http://www.mvnu.edu/gps/graduate_programs/index.asp">Adult Graduate</a></li>				
+						</ul>
+					</li>
+					<li class="alumni" style="border-right: 1px solid #ffffff; "><a href="http://www.mvnu.edu/alumni/index.asp">Alumni</a>
+						<ul class="flyout">
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/homecoming">Homecoming</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/alumni/activities.asp">Activities</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/alumni/services.asp">Services</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/news/MVNUNow/" >Mount Vernon NOW</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/downloads.asp" >Multimedia</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/news/socialmedia.asp" >Social Media</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/academics/Services/registrar/Transcripts.asp" >Transcripts</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/alumni/guesthouse.asp" >Couchenour Guest House</a></li>
+							<li class="alumniflyout"><a href="http://www.treeoflifebookstores.com/mvnu/" >Cougar Corner Bookstore</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/univadv/univadv.asp" >University Relations</a></li>
+							<li class="alumniflyout"><a href="http://www.mvnu.edu/alumni/index.asp" >More</a></li>
+						</ul>
+					</li>
+					<li class="parents" style="border-right: 1px solid #ffffff; "><a href="http://www.mvnu.edu/parents/index.asp">Parents &amp; Families</a>
+						<ul class="flyout">
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/parents/welcome.asp">Welcome</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/welcomeweek/index.asp">Welcome Week</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/academics/services/acsupport/acsupport.asp">Academic Support</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/crisis/index.asp">Safety/Emergency</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/parents/faqs.asp">FAQs</a></li>
+							<li class="parentsflyout"><a href="http://www.treeoflifebookstores.com/mvnu/">Cougar Corner Bookstore</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/univadv/univadv.asp">University Relations</a></li>
+							<li class="parentsflyout"><a href="http://www.mvnu.edu/parents/index.asp">More</a></li>
+						</ul>
+					</li>
+					<li class="pastors" style="border-right: 1px solid #ffffff; "><a href="http://www.mvnu.edu/churchrelations/index.asp">Pastors &amp; Churches</a>
+						<ul class="flyout">
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/clear.asp">Upcoming Events</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/faq.asp">FAQs</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/counselors/">Admissions Counselors</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/i21/i21.asp">i21</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/johnaknight">John A. Knight Bible & Theology Conference</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/olivebranches/index.asp">Olive Branches</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/musicandministry.asp">Music & Ministry</a></li>
+							<li class="pastorsflyout"><a href="http://www.treeoflifebookstores.com/mvnu/">Cougar Corner Bookstore</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/univadv/univadv.asp">University Relations</a></li>
+							<li class="pastorsflyout"><a href="http://www.mvnu.edu/churchrelations/index.asp">More</a></li>
+						</ul>
+					</li>
+					<li class="visitors"><a href="http://www.mvnu.edu/visitors/index.asp">Visitors &amp; Friends</a>
+						<ul class="flyout">
+							<li class="visitorsflyout"><a href="http://www.mvnu.edu/tour/tour.asp">Visit MVNU</a></li>
+							<li class="visitorsflyout"><a href="http://www.mvnu.edu/tour/directions.asp">Driving Here?</a></li>
+							<li class="visitorsflyout"><a href="http://maps.google.com/maps?q=800+Martinsburg+Rd.,Mount+Vernon,+OH+43050&hl=en">Google Map</a></li>
+							<li class="visitorsflyout"><a href="http://www.mvnu.edu/MtVernon/mtvohio.asp">Mount Vernon, OH</a></li>
+							<li class="visitorsflyout"><a href="http://www.weather.com/weather/local/43050?lswe=43050&lwsa=WeatherLocalUndeclared&from=searchbox">Weather Forecast</a></li>
+							<li class="visitorsflyout"><a href="http://www.treeoflifebookstores.com/mvnu/" >Cougar Corner Bookstore</a></li>
+							<li class="visitorsflyout"><a href="http://www.mvnu.edu/jobs/index.asp" >Human Resources</a></li>
+							<li class="visitorsflyout"><a href="http://www.mvnu.edu/visitors/index.asp" >More</a></li>
+						</ul>
+					</li>
+				</ul>
+				</td></tr>
+				<tr class="subnav"><td colspan="3" style="border-bottom: 1px solid #ffffff;">
+				<ul>
+					<li class="academics"><a href="http://www.mvnu.edu/academics/index.asp"><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Academics</a>
+						<ul class="flyout">
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/undergraduate.asp">Academic Schools</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/catalog/1112/university-majors.htm">Majors</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/catalog/index.asp">Catalog</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/classchedule.asp">Class Schedules</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/facstaff/facstaff.asp">Faculty & Administration</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/library.asp">Library</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/honors/honorsprogramtoc.asp">Honors Program</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/services/acsupport/acsupport.asp">Academic Support</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/Services/registrar/registrar.asp">Registrar's Office</a></li>
+							<li class="academicsflyout"><a href="http://www.mvnu.edu/academics/index.asp">More</a></li>
+						</ul>
+					</li>
+					<li class="athletics" ><a href="http://www.mvnu.edu/sports/index.asp" ><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Athletics</a>
+						<ul class="flyout">
+							<li class="athleticsflyout"><a href="http://www.mvnu.edu/sports/recruit.asp">Become a Cougar</a></li>
+							<li class="athleticsflyout"><a href="http://mvnu.edu/sports/nazad/news.asp">News</a></li>				
+							<li class="athleticsflyout"><a href="http://mvnu.edu/sports/nazad/mediaguides.asp">Media Guides</a></li>				
+							<li class="athleticsflyout"><a href="http://mvnu.edu/sports/nazad/camps.asp">Camps & Clinics</a></li>				
+							<li class="athleticsflyout"><a href="http://www.mvnu.edu/sports/nazad/csa/info.asp">CSA</a></li>				
+							<li class="athleticsflyout"><a href="http://www.mvnu.edu/sports/index.asp">More</a></li>
+						</ul>
+					</li>
+					<li class="calendar" ><a href="http://mvnu.edu/calendar/index.asp"><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Calendar</a></li>
+					<li class="giving" ><a href="http://mvnu.edu/univadv/giving.asp"><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Giving To MVNU</a>
+						<ul class="flyout">
+							<li class="givingflyout"><a href="http://mvnu.edu/univadv/endowments/index.asp">Endowments</a></li>
+							<li class="givingflyout"><a href="http://mvnu.edu/univadv/giving.asp">Ways to Give</a></li>
+							<li class="givingflyout"><a href="http://mvnu.edu/univadv/stafflisting.asp">University Relations Staff</a></li>
+							<li class="givingflyout"><a href="http://mvnu.edu/univadv/giving.asp">More</a></li>
+						</ul>
+					</li>
+					<li class="info" ><a href="http://mvnu.edu/information.asp"><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Information About</a>
+						<ul class="flyout">
+							<li class="infoflyout"><a href="http://mvnu.edu/about/about.asp">History</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/accreditation">Accreditation</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/facstaff/admin/presidentsoffice/president.asp">President's Office</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/about/facts.asp">Facts & Figures</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/policies/">Policies</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/policies/srk.asp">Federal Disclosure/Student Consumer Information</a></li>
+							<li class="infoflyout"><a href="http://members.ucan-network.org/mvnu">U-Can: National Independent College Site</a></li>
+							<li class="infoflyout"><a href="http://www.mvnu.edu/jobs/">Careers</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/mediaroom/index.asp">Media Room</a></li>
+							<li class="infoflyout"><a href="http://www.mvnu.edu/news/index.asp">News</a></li>
+							<li class="infoflyout"><a href="http://www.mvnu.edu/news/socialmedia.asp" >Social Media</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/spirituallife/index.asp">Campus Ministries</a></li>
+							<li class="infoflyout"><a href="http://mvnu.edu/students/index.asp">Student Life</a></li>
+						</ul>
+					</li>
+					<li class="contact"><a href="http://mvnu.edu/contact.asp"><img src="/images/header/navbar/subnavarrow.jpg" style="border: 0;"/> Contact Us</a></li>
+				</ul>
+				</td></tr>
+			</table>
+		</td>
+	</tr>
+
+
+</table>
+
+				
+					<div id="slideWrap" style="background:url(common/jquery/ajax-loader.gif) no-repeat center center">
+											            
+               	 						<div id="slider" class="nivoSlider">
+												<!--<a width="760px" href="http://www.mvnu.edu/crisis/"><img src="http://www.mvnu.edu/images/header/crisis.jpg" title="#htmlcaption1" width="762px" /> </a>-->
+												<a width="760px" href="http://www.mvnu.edu/commencement/"><img src="http://www.mvnu.edu/images/header/commencement.jpg" title="#htmlcaption48" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/arena/"><img src="http://www.mvnu.edu/images/header/arena.jpg" title="#htmlcaption36" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/applynow.asp"><img src="http://www.mvnu.edu/images/header/apply.jpg" title="#htmlcaption2" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/gps"><img src="http://www.mvnu.edu/images/header/ags.jpg"  title="#htmlcaption3" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/news/PressReleases/1112/martin.asp"><img src="http://www.mvnu.edu/images/header/martin.jpg" title="#htmlcaption40" width="762px" /> </a>
+												<!--<a width="760px" href="http://www.mvnu.edu/news/PressReleases/1112/political_science.asp"><img src="http://www.mvnu.edu/images/header/politicalscience.jpg" title="#htmlcaption27" /></a>-->
+												<a width="760px" href="http://www.mvnu.edu/annualreport/"><img src="http://www.mvnu.edu/images/header/annual.jpg" title="#htmlcaption28" /></a>
+												<a width="760px" href="http://www.mvnu.edu/cwlc/"><img src="http://www.mvnu.edu/images/header/cwlc.jpg"  title="#htmlcaption43" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/news/PressReleases/1112/miller.asp"><img src="http://www.mvnu.edu/images/header/miller.jpg" title="#htmlcaption44" /></a>
+												<a width="760px" href="http://mvnu.edu/art-design/artgallery/index.asp"><img src="http://www.mvnu.edu/images/header/seniorart.jpg" title="#htmlcaption42" /></a>
+												<a width="760px" href="http://www.mvnu.edu/news/PressReleases/1112/treble_concert.asp"><img src="http://www.mvnu.edu/images/header/treble.jpg" title="#htmlcaption46" /></a>
+												<a width="760px" href="http://www.mvnu.edu/news/PressReleases/1112/goliards.asp"><img src="http://www.mvnu.edu/images/header/goliards.jpg" title="#htmlcaption47" /></a>
+												<a width="760px" href="http://www.mvnu.edu/gps/continuing_education/education_workshops.asp"><img src="http://www.mvnu.edu/images/header/edworkshops.jpg" title="#htmlcaption39" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/bibletrips/"><img src="http://www.mvnu.edu/images/header/israeljordan.jpg" title="#htmlcaption26" width="762px" /> </a>
+												<a width="760px" href="http://mvnu.edu/summercamps/"><img src="http://www.mvnu.edu/images/header/summer.jpg" title="#htmlcaption31" /></a>
+												<!--<a width="760px" href="http://digital.watkinsprinting.com/publication/?i=86154"><img src="http://www.mvnu.edu/images/header/love.jpg"  title="#htmlcaption23" width="762px" /> </a>-->
+												<!--<a width="760px" href="http://www.mvnu.edu/sga"><img src="http://www.mvnu.edu/images/header/sga.jpg" title="#htmlcaption17" width="762px" /> </a>-->
+												<a width="760px" href="http://www.facebook.com/bakerbroscoffee"><img src="http://www.mvnu.edu/images/header/baker.jpg" title="#htmlcaption3" width="762px" /> </a>
+												<a width="760px" href="http://www.mvnu.edu/mvnuk"><img src="http://www.mvnu.edu/images/header/mvnuk.jpg"  title="#htmlcaption16" width="762px" /> </a>
+										</div>		
+										
+										<!-- CAPTIONS -->	
+											 	<div id="htmlcaption1" class="nivo-html-caption">
+												 	Updated Crisis Information
+												 </div>
+												 <!--<div id="htmlcaption20" class="nivo-html-caption"> 
+												 MVNU and Rush Concerts bring you SonFest 2012. <br>Tickets on sale now. Click the banner for more information.
+												 </div>-->
+												 <div id="htmlcaption48" class="nivo-html-caption">
+												 MVNU's Spring Commencement is right around the corner! <br>Click the banner for more information.
+												 </div>
+												 <div id="htmlcaption36" class="nivo-html-caption">
+												 MVNU breaks ground on the brand new, state-of-the-art athletic facility, Ariel Arena. <br>Click the banner for photos & video
+												 </div>
+												 <div id="htmlcaption2" class="nivo-html-caption">
+												 Did you know that the sooner you apply the more financial aid you may qualify for?<br>Don't wait any longer, apply now!
+												 </div>
+												 <div id="htmlcaption3" class="nivo-html-caption">
+												 MVNU offers adult and graduate degrees in business, education, ministry, and social work<br>at several convenient Ohio locations.
+												 </div>
+												 <div id="htmlcaption40" class="nivo-html-caption">
+												 MVNU President Dan Martin has resigned to accept the presidency at Seattle Pacific University. <br>To read more, click the banner.
+												 </div>
+												<!--<div id="htmlcaption27" class="nivo-html-caption"> 
+												MVNU debuts new political science program!<br>Click the banner for more details.
+ 												</div>-->
+												 <div id="htmlcaption28" class="nivo-html-caption">
+												 MVNU's 2011 annual report is now available online.<br>Please click banner to read the report.
+												 </div>
+												<div id="htmlcaption43" class="nivo-html-caption"> 
+												MVNU to host "Christian Women's Leadership Conference." <br>Click the banner for more information and to register.
+ 												</div>
+												 <div id="htmlcaption44" class="nivo-html-caption">
+												 Local artists exhibit sculpture, ceramics, watercolors, and photographs. <br>Click the banner for more details.
+												 </div>
+												 <div id="htmlcaption42" class="nivo-html-caption">
+												 The Schnormeier Gallery will present the work of MVNU Art seniors, with a special reception on May 4, from 6-9 p.m. <br>For more info, click  the banner.
+												 </div>
+												 <div id="htmlcaption46" class="nivo-html-caption">
+												 Treble Singers to perform spring concert at MVNU on May 9. <br>For more info please click  the banner.
+												 </div>
+												 <div id="htmlcaption47" class="nivo-html-caption">
+												 Goliards to perform spring concert at MVNU on May 10. <br>For more info please click  the banner.
+												 </div>
+												 <div id="htmlcaption39" class="nivo-html-caption">
+												 Need to renew your license? Our convenient workshops have you covered. <br>Click the banner for details and to register today!
+												 </div>	
+												 <div id="htmlcaption26" class="nivo-html-caption">
+												 Join MVNU's expert faculty, staff, and students on this once in a lifetime journey!<br>Click on the banner for details and to register today!
+												 </div>	
+												<div id="htmlcaption31" class="nivo-html-caption"> 
+												Join us weekdays, 9 a.m. - Noon, for an exciting 2-week adventure. Space is limited.<br>Click the banner for more information and to register.
+ 												</div>
+												 <!--<div id="htmlcaption23" class="nivo-html-caption">
+												 The unofficial, in-no-way comprehensive, fairly random, and moderately accurate list of what we love about MVNU. <br />Click banner for magazine!
+												 </div>
+												 <div id="htmlcaption17" class="nivo-html-caption">
+												 Keep up to date on events, find ways to get involved! <br>Learn more about who SGA is and what we do!
+												 </div>-->
+												 <div id="htmlcaption3" class="nivo-html-caption">
+												 Now open downtown Mount Vernon! <br>Baker Bros., serves Starbucks coffee, sandwiches, salads, and a variety of baked goods. 
+												 </div>	
+												 <div id="htmlcaption16" class="nivo-html-caption">
+												 Sign up today for MVNU.K.'s 2012 trip to England, Scotland, and Ireland (May 29-June 7, 2012)<br> Click banner for details!
+												 </div>
+											</div>
+
+
+</center>
+
+<div id="content" style="clear:both;width:762px;background-color:white;margin:0px auto;padding-top:8px">
+<center>			
+	<!--<tr><b><marquee><font color="red">Due to scheduled maintenance MVNU's websites will be down this Wednesday, February 15 approximately between 7:30 a.m. and 10:00 a.m. EST.</font></marquee><br><br></b>-->								
+	
+	<!--Left column -->
+	<div id="leftcol">					
+
+		<span style="margin-left:15px"><a href="http://www.mvnu.edu/sports/nazad/news/09-10/releases.asp"><img border="0" src="images/home/athletics.gif" border="0" width="136" height="13" alt="MVNU Athletics News" /></a></span><br /><br />
+		<center><a href="http://www.mvnu.edu/sports/"><img src="images/home/cougar_logo.gif" border="0" width="130" height="73" alt="COUGARS" /></a></center>
+		
+			<ul class="ulist">
+				<li><a class="hltlink" href="http://www.mvnu.edu/sports/index.asp">Home of the Cougars</a><br/></li>
+
+				<li><a class="hltlink" href="http://mvnu.edu/sports/recruit.asp">Become a Cougar</a><br/></li>
+			
+				<li><a class="hltlink" href="http://www.facebook.com/MVNU.Cougars">Cougars on Facebook</a><br/></li>
+			
+				<li><a class="hltlink" href="http://mvnu.edu/sports/nazad/mediaguides.asp">Media Guides</a><br/></li>
+			</ul>
+	
+		<br>
+	<!--End left column -->
+	</div>
+	<!--Right Column -->
+	<div id="rightcol">
+	
+		<script type="text/javascript">
+			
+			jQuery(document).ready(function() {
+				jQuery("#twitter").getTwitter({
+					userName: "mvnunews",
+					numTweets: 5,
+					loaderText: "Loading news...",
+					slideIn: false,
+					showHeading: false,
+					showProfileLink: false	
+					});
+				});
+		</script>
+		<span style="margin-left:15px"><a href="/news/"><img src="images/home/mvnunews.gif" border="0" width="79" height="13" alt="MVNU News" /></a></span><br /><br />
+									<center><a href="/news/"><img src="images/home/news.jpg" border="0" width="161" height="60" alt="image" /></a></center>
+		<div id="twitter" style="float:left">
+			  &nbsp;
+		</div><br>
+	&nbsp;
+
+									
+							
+	<!-- end right column -->		
+	</div>		
+	<!-- column spacers -->
+	<div style="width:1px;float:left;text-align:left;background-repeat:repeat-y;background-image:url(images/rule_dots.gif);height:300px;"></div><div style="width:1px;float:right;text-align:left;background-repeat:repeat-y;background-image:url(images/rule_dots.gif);height:300px;"> </div>
+	<!-- middle column -->
+	<div id="middlecol">
+	
+	
+									<span style="margin-left:15px"><a href="http://www.mvnu.edu/applynow.asp"><img src="images/home/mvnuadmissions.gif" border="0" alt="MVNU Admissions" /></a></span><br /><br />
+									<center><a href="https://my.mvnu.edu/ics/Admissions_Payments/"><img src="images/home/deposit.jpg" border="0" width="161" height="60" alt="Deposit Now!" /></a></center><br />
+									
+									<ul class="ulist">
+										<li><a class="hltlink" href="http://www.gotomvnu.com/">Traditional Undergraduate</a><br/>
+										
+										<li><a class="hltlink" href="http://www.mvnu.edu/gps/undergraduate_programs/index.asp">Adult Undergraduate</a><br/>
+																		
+										<li><a class="hltlink" href="http://www.mvnu.edu/gps/graduate_programs/index.asp">Adult Graduate</a><br/>
+							
+										<li><a class="hltlink" href="http://www.mvnu.edu/contact.asp">Contact Us</a><br/>
+								
+										<li><a class="hltlink" href="http://www.mvnu.edu/gps/sitelocations.asp">Graduate and Professional Studies Site Locations</a><br/>
+									</ul>
+									
+								<br>
+	<!--end middle column -->
+	<div style="clear:none;width:762"></div>
+	</div>
+	
+	<div style="clear:none"><BR><BR><BR><BR><BR></div>
+</center>	
+</div>
+<script src="http://cdn.wibiya.com/Toolbars/dir_0376/Toolbar_376381/Loader_376381.js" type="text/javascript"></script>
+<table cellpadding="0" cellspacing="0" border="0" width="762" style="margin:0 auto">
+	</table>
+<div id="newfooter">
+
+<div id="footspacer"><form method="GET" action="/zoom42/search.asp">
+<input type="text" width="25" style="margin-top:5px;height:15px;vertical-align:middle" value="Search MVNU" name="zoom_query" id="zoom_search" onfocus="document.getElementById('zoom_search').focus();document.getElementById('zoom_search').select()">&nbsp;<INPUT type="image" name="search" style="margin-top:5px;vertical-align:middle;border:none;" src="http://www.mvnu.edu/images/footer/arrow_search.gif">
+<a href="http://www.mvnu.edu/news/socialmedia.asp"><img src="http://www.mvnu.edu/images/socialmedia/homepagebar.gif" border="0"></a>
+</form>
+</div>
+
+
+<div id="sitemap" style="padding:0px;">
+<div style="clear:both;padding-bottom:5px;height:2px;"></div>
+<div>
+<ul>
+	<li class="first"><a href="http://www.mvnu.edu/information.asp"><span>About MVNU</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/about/about.asp">MVNU's History</a>
+			<li><a href="http://www.mvnu.edu/about/facts.asp">Facts & Figures</a>
+			<li><a href="http://www.mvnu.edu/news/">News, Sports & Events</a>
+			<li><a href="http://mvnu.edu/univadv/giving.asp">Giving to MVNU</a>
+			<li><a href="http://www.mvnu.edu/tour/directions.asp">Driving Directions</a>
+			<li><a href="http://www.mvnu.edu/tour/map.html">Campus Map</a>
+			<li><a href="http://www.mvnu.edu/news/socialmedia.asp">Social Media</a>
+		</ul>
+	<li><a href="http://www.mvnu.edu/academics/"><span>Academics</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/academics/undergraduate.asp">Academic Schools </a>
+			<li><a href="http://www.mvnu.edu/academics/majors.asp">Majors</a>
+			<li><a href="http://www.mvnu.edu/facstaff/facstaff.asp">Faculty & Administration</a>
+			<li><a href="http://www.mvnu.edu/catalog/">Course Catalog</a>
+			<li><a href="http://www.mvnu.edu/academics/services/acsupport/acsupport.asp">Academic Support</a>
+			<li><a href="http://www.mvnu.edu/academics/Services/registrar/registrar.asp">Registrar's Office</a>
+			<li><a href="http://library.mvnu.edu/">Library</a>
+		</ul>
+	<li><a href="http://www.gotomvnu.com/"><span>Traditional Admissions</span></a>
+		<ul>
+			<li><a href="http://www.gotomvnu.com/preparing/">Tuition & Financial Aid</a>
+			<li><a href="https://admv.mvnu.edu/cgi-bin/public/webinq.cgi">Information Request</a>
+			<li><a href="https://admv.mvnu.edu/cgi-bin/public/webinqtr.cgi">Transfer Info Request</a>
+			<li><a href="http://www.mvnu.edu/academics/Services/registrar/registrar.asp">Registration Information</a>
+			<li><a href="http://www.gotomvnu.com/calendar/activities.asp">Admissions Activities</a>
+			<li><a href="http://www.gotomvnu.com/visit/">Visit MVNU</a>
+			<li><a href="http://www.gotomvnu.com/socialmedia/">Social Media</a>
+		</ul>
+	<li><a href="http://www.mvnu.edu/gps/"><span>Graduate & Prof. Studies</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/gps/undergraduate_programs/index.asp">Undergraduate</a>
+			<li><a href="http://www.mvnu.edu/gps/graduate_programs/index.asp">Graduate</a>
+			<li><a href="http://www.mvnu.edu/gps/continuing_education/ministry_certificates.asp">Certificates of Ministry</a>
+			<li><a href="http://www.mvnu.edu/gps/about_gps/continue_ed.asp">Continuing Education</a>
+			<li><a href="http://www.mvnu.edu/gps/admissions/index.asp">Admissions, Financial Aid</a>
+			<li><a href="http://www.mvnu.edu/gps/sitelocations.asp">MVNU Sites</a>
+			<li><a href="http://www.mvnu.edu/news/socialmedia.asp">Social Media</a>
+		</ul>
+	<li class="last"><a href="http://www.mvnu.edu/alumni/"><span>Alumni</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/alumni/activities.asp">Alumni Activities</a>
+			<li><a href="http://www.mvnu.edu/cgi-bin/reunion_update.pl">Reunion Update Form</a>
+			<li><a href="http://www.mvnu.edu/academics/Services/registrar/Transcripts.asp">Transcript Request</a>
+			<li><a href="http://www.mvnu.edu/news/socialmedia.asp">Social Media</a>
+			<li><a href="http://www.mvnu.edu/news/MVNUNow/">Mount Vernon NOW</a>
+			<li><a href="http://www.treeoflifebookstores.com/mvnu/">Cougar Corner</a>
+			<li><a href="http://mvnu.edu/univadv/giving.asp">Giving to MVNU</a>
+		</ul>
+<div style="clear:both;padding-bottom:5px;padding-top:10px;height:1px;">	</div>
+
+	<li class="first"><a href="http://www.mvnu.edu/sports/"><span>Athletics</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/sports/nazad/teams.asp">MVNU Teams</a>
+			<li><a href="http://mvnu.edu/sports/recruit.asp">Become a Cougar</a>
+			<li><a href="http://www.mvnu.edu/sports/nazad/news.asp">Latest Sports News</a>
+			<li><a href="http://www.mvnu.edu/mediaroom/sportsinfo.asp">Sports Information</a>
+			<li><a href="http://www.mvnu.edu/sports/nazad/camps.asp">Sports Camps/Clinics</a>
+			<li><a href="http://mvnu.edu/sports/nazad/mediaguides.asp">Media Guides</a>
+			<li><a href="http://mvnu.edu/sports/nazad/affiliates.asp">Affiliations</a>
+		</ul>
+	<li><a href="http://www.mvnu.edu/students/"><span>Campus Life</span></a>
+		<ul>
+			<li><a href="http://mvnu.edu/students/clubs/clubs.asp">Clubs & Organizations</a>
+			<li><a href="http://mvnu.edu/services/health/health.asp">Health Services</a>
+			<li><a href="http://mvnu.edu/candc/">Counseling & Career</a>
+			<li><a href="http://www.mvnu.edu/crisis/index.asp">Safety/Emergency</a>
+			<li><a href="http://www.gotomvnu.com/life/">Residential Life</a>
+			<li><a href="http://mvnu.edu/students/commuters/commuters.asp">Student Commuters</a>
+			<li><a href="http://mvnu.edu/services/dining/dining.asp">Dining</a>
+		</ul>
+	<li><a href="http://www.mvnu.edu/spirituallife/"><span>Campus Ministries</span></a>
+		<ul>
+			<li><a href="http://mvnu.edu/spirituallife/missionm2540.asp">Mission Opportunities</a>
+			<li><a href="http://mvnu.edu/spirituallife/smallgr.asp">Small Group Ministries</a>
+			<li><a href="http://www.mvnu.edu/gps/about_gps/gps_chaplaincy.asp">GPS Chaplaincy</a>
+			<li><a href="http://mvnu.edu/students/clubs/ministry/cosmo/">Ministry Clubs</a>
+			<li><a href="http://calendar.mvnu.edu/webevent/scripts/webevent.plx?&cat=&sib=0&sort=e,m,t&ws=0&cf=list&set=1&swe=1&sa=0&de=1&tf=0&sb=0&stz=Default&cmd=calmonth&calID=950">Chapel Schedule</a>
+			<li><a href="http://mvnu.edu/spirituallife/missiontrips.asp">Misson Trips</a>
+			<li><a href="http://www.mvnu.edu/podcast/podlist.asp">Podcasts</a>
+		</ul>
+	<li><a href="http://www.mvnu.edu/churchrelations/"><span>Pastors & Churches</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/churchrelations/clear.asp">Seminars & Workshops</a>
+			<li><a href="http://www.mvnu.edu/churchrelations/faq.asp">FAQs</a>
+			<li><a href="http://www.mvnu.edu/churchrelations/i21/i21.asp">i21</a>
+			<li><a href="http://www.mvnu.edu/churchrelations/musicandministry.asp">Music & Ministry</a>
+			<li><a href="http://www.mvnu.edu/news/socialmedia.asp">Social Media</a>
+			<li><a href="http://www.mvnu.edu/cgi-bin/pastorslibrarycardreg.pl">Library Card Application</a>
+			<li><a href="http://www.nazarene.org/">Church of the Nazarene</a>
+		</ul>
+
+	<li class="last"><a href="http://www.mvnu.edu/parents/"><span>Parents & Families</span></a>
+		<ul>
+			<li><a href="http://www.mvnu.edu/parents/assoc.asp">Parents' Association</a>
+			<li><a href="http://www.mvnu.edu/parents/parentsday.asp">Parents' Day</a>
+			<li><a href="http://www.mvnu.edu/orientation/">Student Orientation</a>
+			<li><a href="http://www.mvnu.edu/news/socialmedia.asp">Social Media</a>
+			<li><a href="http://www.mvnu.edu/crisis/index.asp">Safety/Emergency</a>
+			<li><a href="http://mvnu.edu/services/health/health.asp">Health Services</a>
+			<li><a href="http://mvnu.edu/services/dining/dining.asp">Dining</a>
+			<li><a style="color:#012347;font-weight:bold" href="http://www.mvnu.edu/sitemap.asp">Full Site Map <img style="border:none;width:13%;vertical-align:text-bottom;" src="http://www.mvnu.edu/images/list_arrow.gif"/></a>
+		</ul>
+	
+</ul>
+</div>
+
+	
+
+
+
+
+
+</div>
+
+<table width="100%">
+
+<tr>
+	<td class="botnav">800 Martinsburg Road, Mount Vernon, Ohio, 43050. Tel: 740-392-6868</td>
+		<!--<td class="botnav" width="381" align="left"><img src="/images/spacer.gif" border="0" width="7" height="1" alt="" align="absmiddle" /><a href="/privacy.asp">Privacy Policy</a>&nbsp;&nbsp;<img src="/images/footer/divider.gif" border="0" width="1" height="9" alt="" align="absmiddle" />&nbsp;&nbsp;<a href="/news/rss.asp">RSS</a> &nbsp;&nbsp;<img src="/images/footer/divider.gif" border="0" width="1" height="9" alt="" align="absmiddle" />&nbsp;&nbsp;<a href="http://www.mvnu.edu/podcast/">Podcasts</a> &nbsp;&nbsp;<img src="/images/footer/divider.gif" border="0" width="1" height="9" alt="" align="absmiddle" />&nbsp;&nbsp;<a href="https://www.facebook.com/thisismvnu">Facebook</a></td>-->
+		<td class="botnav" align="right">&copy; 2012 Mount Vernon Nazarene University</td>
+		
+	</tr>
+</table>
+<br/><br/><br/>
+
+
+
+
+
+<!--</center>-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-9433099-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>

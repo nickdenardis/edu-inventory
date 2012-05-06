@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+ <title>WEST VIRGINIA NETWORK - Home</title>
+<meta name="description" content="WVNET - Serving the Computing Needs of Education, Government and non-profit Organizations in West Virginia." />
+<meta name="keywords" content="WVNET, West Virginia Network, Employment, Jobs, Positions, I.T., Banner, Web, Email, Network, Education" />
+<meta name="Generator" content="Joomla! - Copyright (C) 2005 - 2007 Open Source Matters. All rights reserved." />
+<meta name="robots" content="index, follow" />
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/system/jceutils/jscripts/jceutils.js"></script>
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/system/jceutils/jscripts/mootools.js"></script>
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/system/jceutils/jscripts/jceutils_mootools.js"></script>
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/system/jceutils/jscripts/embed.js"></script>
+<link href="http://www.wvnet.edu/mambots/system/jceutils/css/jceutils.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript">
+if(typeof jceUtils != 'undefined'){
+	jceUtils.setConfig({
+		legacyPopup: 1,
+		boxConvert: 0,
+		boxResize: 1,
+		boxIcons: 1,
+		boxOverlayOpacity: 0.8,
+		boxOverlayColor: '#000000',
+		boxFadeSpeed: 500,
+		boxScaleSpeed: 500,
+		tipClass: 'tooltip',
+		tipOpacity: 1,
+		tipFxspeed: 150,
+		tipPosition: 'br',
+		tipOffsets: {'x': 16, 'y': 16},
+		pngFix: 0,
+		imagePath: 'mambots/system/jceutils/images/'
+	});
+}
+</script>
+<!-- JoomlaWorks "Tabs & Slides" Plugin (v2.3) starts here -->		
+<style type="text/css" media="screen">
+	@import "http://www.wvnet.edu/mambots/content/plugin_jw_ts/tabs_slides.css";
+</style>
+<style type="text/css" media="print">.jwts_tabbernav{display:none;}</style>
+<script type="text/javascript">var jwts_slideSpeed=30; var jwts_timer=10;</script>
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/content/plugin_jw_ts/tabs_slides.js"></script>
+<script type="text/javascript" src="http://www.wvnet.edu/mambots/content/plugin_jw_ts/tabs_slides_def_loader.js"></script>
+<!-- JoomlaWorks "Tabs & Slides" Plugin (v2.3) ends here -->
+	<link rel="shortcut icon" href="http://www.wvnet.edu/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" media="all" href="jscal_skins/aqua/theme.css" title="Aqua" />
+
+<!-- import the calendar script -->
+<script type="text/javascript" src="calendar.js"></script>
+
+<!-- import the language module -->
+<script type="text/javascript" src="calendar-en.js"></script>
+
+<!-- helper script that uses the calendar -->
+<script type="text/javascript">
+
+var oldLink = null;
+// code to change the active stylesheet
+function setActiveStyleSheet(link, title) {
+  var i, a, main;
+  for(i=0; (a = document.getElementsByTagName("link")[i]); i++) {
+    if(a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+      a.disabled = true;
+      if(a.getAttribute("title") == title) a.disabled = false;
+    }
+  }
+  if (oldLink) oldLink.style.fontWeight = 'normal';
+  oldLink = link;
+  link.style.fontWeight = 'bold';
+  return false;
+}
+
+// This function gets called when the end-user clicks on some date.
+function selected(cal, date) {
+  var eln = cal.sel.id;
+  var el = document.getElementById(eln);
+  var nm = cal.sel.name;
+//  alert('up ' + nm + ' v ' + cal.sel.value + ' d ' + date);
+  cal.sel.value = date; // just update the date in the input field.
+  if (cal.dateClicked) {
+    // if we add this call we close the calendar on single-click.
+    // just to exemplify both cases, we are using this only for the 1st                           
+    // and the 3rd field, while 2nd and 4th will still require double-click.
+    cal.callCloseHandler();
+    el.onchange();
+  }
+}
+
+function onSelect(cal, date) {
+   var input_field = document.getElementById("date");
+   input_field.value = date;
+   input_field.onChange();
+}
+
+// And this gets called when the end-user clicks on the _selected_ date,
+// or clicks on the "Close" button.  It just hides the calendar without
+// destroying it.
+function closeHandler(cal) {
+  cal.hide();                        // hide the calendar
+//  cal.destroy();
+  _dynarch_popupCalendar = null;
+}
+
+// This function shows the calendar under the element having the given id.
+// It takes care of catching "mousedown" signals on document and hiding the
+// calendar if the click was outside.
+function showCalendar(id, format, showsTime, showsOtherMonths) {
+  var el = document.getElementById(id);
+  if (_dynarch_popupCalendar != null) {
+    // we already have some calendar created
+    _dynarch_popupCalendar.hide();                 // so we hide it first.
+  } else {
+    // first-time call, create the calendar.
+    var cal = new Calendar(1, null, selected, closeHandler);
+    // uncomment the following line to hide the week numbers
+    // cal.weekNumbers = false;
+    if (typeof showsTime == "string") {
+      cal.showsTime = true;
+      cal.time24 = (showsTime == "24");
+    }
+    if (showsOtherMonths) {
+      cal.showsOtherMonths = true;
+    }
+    _dynarch_popupCalendar = cal;                  // remember it in the global var
+    cal.setRange(1900, 2070);        // min/max year allowed.
+    cal.create();
+  }
+  _dynarch_popupCalendar.setDateFormat(format);    // set the specified date format
+  _dynarch_popupCalendar.parseDate(el.value);      // try to parse the text in field
+  _dynarch_popupCalendar.sel = el;                 // inform it what input field we use
+
+  // the reference element that we pass to showAtElement is the button that
+  // triggers the calendar.  In this example we align the calendar bottom-right
+  // to the button.
+  _dynarch_popupCalendar.showAtElement(el.nextSibling, "Br");        // show the calendar
+
+  return false;
+}
+
+var MINUTE = 60 * 1000;
+var HOUR = 60 * MINUTE;
+var DAY = 24 * HOUR;
+var WEEK = 7 * DAY;
+
+// If this handler returns true then the "date" given as
+// parameter will be disabled.  In this example we enable
+// only days within a range of 10 days from the current
+// date.
+// You can use the functions date.getFullYear() -- returns the year
+// as 4 digit number, date.getMonth() -- returns the month as 0..11,
+// and date.getDate() -- returns the date of the month as 1..31, to
+// make heavy calculations here.  However, beware that this function
+// should be very fast, as it is called for each day in a month when
+// the calendar is (re)constructed.
+function isDisabled(date) {
+  var today = new Date();
+  return (Math.abs(date.getTime() - today.getTime()) / DAY) > 10;
+}
+
+function flatdSelected(cal, date) {
+  var el = document.getElementById("preview");
+  el.innerHTML = date;
+}
+
+function showFdlatCalendar() {
+  var parent = document.getElementById("display");
+
+  // construct a calendar giving only the "selected" handler.
+  var cal = new Calendar(0, null, flatSelected);
+
+  // hide week numbers
+  cal.weekNumbers = false;
+
+  // We want some dates to be disabled; see function isDisabled above
+  cal.setDisabledHandler(isDisabled);
+  cal.setDateFormat("%A, %B %e");
+
+  // this call must be the last as it might use data initialized above; if
+  // we specify a parent, as opposite to the "showCalendar" function above,
+  // then we create a flat calendar -- not popup.  Hidden, though, but...
+  cal.create(parent);
+
+  // ... we can show it here.
+  cal.show();
+}
+</script>
+
+<script language="JavaScript"><!--
+function jump(formname,what,where){var fn = document.forms[formname];fn.todo.value=what;fn.jumpto.value=where;fn.submit();}
+--></script> <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <link rel="shortcut icon" href="http://www.wvnet.edu/images/favicon.ico" />
+ <link href="http://www.wvnet.edu/templates/rt_novus/css/template_css.css" rel="stylesheet" type="text/css" />
+ <style type="text/css">
+  div.wrapper { margin: 0 auto; width: 100%px;}
+  #sidecol { width: 185px;}
+  #main-column { margin-left: 185px; }
+ </style> 
+  <!--[if IE]>
+<script type="text/javascript">
+sfHover = function() {
+	var sfEls = document.getElementById("horiznav").getElementsByTagName("LI");
+	for (var i=0; i<sfEls.length; i++) {
+		sfEls[i].onmouseover=function() {
+			this.className+=" sfHover";
+		}
+		sfEls[i].onmouseout=function() {
+			this.className=this.className.replace(new RegExp(" sfHover\\b"), "");
+		}
+	}
+}
+if (window.attachEvent) window.attachEvent("onload", sfHover);
+</script>
+
+<![endif]-->
+ 
+ </head>
+ <body class="f-default ">
+  <!--Begin Inset Area-->
+  <div id="inset">
+   <div class="wrapper">
+    <a href="http://www.wvnet.edu" class="nounder"><img src="http://www.wvnet.edu/templates/rt_novus/images/blank.gif" style="border:0;" alt="" id="logo" /></a>
+    <div class="content">
+         </div>
+   <div id="modarea">
+   <div class="modinner">
+  		<div class="module">
+			<div>
+				<div>
+					<div>
+						<table width="100%" border="0" cellpadding="0" cellspacing="1"><tr><td nowrap="nowrap"><a href="http://www.wvnet.edu/index.php" class="mainlevel-nav" >Home</a><span class="mainlevel-nav"> &nbsp </span><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=276&amp;Itemid=304#Directory" class="mainlevel-nav" >Directory</a><span class="mainlevel-nav"> &nbsp </span><a href="http://www.wvnet.edu/index.php?option=com_contact&amp;task=view&amp;contact_id=2&amp;Itemid=3" class="mainlevel-nav" >Contact Us</a><span class="mainlevel-nav"> &nbsp </span><a href="http://www.wvnet.edu/index.php?option=com_bookmarks&amp;Itemid=107" class="mainlevel-nav" >QuickLinks</a></td></tr></table>					</div>
+				</div>
+			</div>
+		</div>
+				<div class="module">
+			<div>
+				<div>
+					<div>
+						
+<form action="index.php?option=com_search" method="get">
+	<div class="search">
+		<input name="searchword" id="mod_search_searchword" maxlength="20" alt="search" class="inputbox" type="text" size="20" value="search..."  onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';" />	</div>
+
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value="" />	
+</form>					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+   </div>
+   </div>
+  </div>
+  <!--End Inset Area-->
+  <!--Begin Main Content Area-->
+  <!--Left side menu area-->
+  <div id="content">
+   <div class="wrapper">
+         <div id="sidecol">
+      <div id="side-column">
+       <div class="padding">
+        <div class="inner">
+                  		<div class="moduletable">
+			<a href="http://www.wvnet.edu/index.php?option=com_content&task=view&id=169&Itemid=298">
+<font title="Click for Helpdesk information">
+<img src="http://www.wvnet.edu/images/stories/clipart/helpdesk/booker.jpg" title="How May We Help You?" style="margin: 5px; width: 141px; height: 102px" alt="booker.jpg" align="bottom" height="102" width="141" />
+<br />
+<p>
+<b>
+&nbsp;WVNET Helpdesk<br />
+&nbsp;Need Help? Call Now!
+<br />
+&nbsp;304-293-5192
+</b>
+</p>
+</font>
+</a>
+		</div>
+				<div class="moduletable">
+							<h3>
+					Main Menu				</h3>
+				
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_frontpage&amp;Itemid=1" class="mainlevel" id="active_menu">Home</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=276&amp;Itemid=304" class="mainlevel" >About WVNET</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=169&amp;Itemid=298" class="mainlevel" >Help Desk</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=373&amp;Itemid=334" class="mainlevel" >Newsletter</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=347&amp;Itemid=323" class="mainlevel" >Human Resources</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=341&amp;Itemid=333" class="mainlevel" >Jobs</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=75&amp;Itemid=311" class="mainlevel" >Email</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=288&amp;Itemid=317" class="mainlevel" >Spam &amp; Virus Filtering</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=289&amp;Itemid=318" class="mainlevel" >Dial-Up Internet</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=59&amp;Itemid=83" class="mainlevel" >High Speed Internet</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=30&amp;Itemid=60" class="mainlevel" >OZ Tracking System</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=136&amp;Itemid=181" class="mainlevel" >Remote Backups</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=356&amp;Itemid=332" class="mainlevel" >Web Hosting</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=132&amp;Itemid=173" class="mainlevel" >Purchasing</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=61&amp;Itemid=84" class="mainlevel" >Video Conferencing</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=139&amp;Itemid=189" class="mainlevel" >BlackBoard/WebCT</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=140&amp;Itemid=190" class="mainlevel" >HEFIS</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=137&amp;Itemid=184" class="mainlevel" >Conference Mgmt</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=144&amp;Itemid=195" class="mainlevel" >Discussion Lists</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=138&amp;Itemid=185" class="mainlevel" >Training</a></td></tr>
+<tr align="left"><td><a href="http://www.wvnet.edu/index.php?option=com_wrapper&amp;Itemid=330" class="mainlevel" >Banner Support</a></td></tr>
+</table>		</div>
+				<div class="moduletable">
+			<script language="javascript" type="text/javascript">
+<!--
+document.write("<table border=1><tr><td align=center><a href=\"https://epay.wvsto.com/ProcessePay/default.aspx?guid=b0d9c8ea-86ed-4d36-a583-9e5915c0bc23\" target=\"_blank\"><b>Pay your<br/>WVNET Bill<br/><img src=\"http://www.wvnet.edu/images/stories/clipart/new/j0150533.gif\" alt=\"Pay Your Bill Online\" style=\"margin: 5px; width: 62px; height: 62px\" title=\"j0150533.gif\" align=\"bottom\" height=\"62\" width=\"62\" /></a><br/>On-line</b></td></tr></table>")
+//-->
+</script>
+<noscript></noscript>
+		</div>
+				<div class="moduletable">
+					</div>
+				<div class="moduletable">
+							<h3>
+					Login				</h3>
+					<form action="http://www.wvnet.edu/index.php" method="post" name="login" >
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+	<tr>
+		<td>
+			<label for="mod_login_username">
+				Username			</label>
+			<br />
+			<input name="username" id="mod_login_username" type="text" class="inputbox" alt="username" size="10" />
+			<br />
+			<label for="mod_login_password">
+				Password			</label>
+			<br />
+			<input type="password" id="mod_login_password" name="passwd" class="inputbox" size="10" alt="password" />
+			<br />
+			<input type="checkbox" name="remember" id="mod_login_remember" class="inputbox" value="yes" alt="Remember Me" />
+			<label for="mod_login_remember">
+				Remember me			</label>
+			<br />
+			<input type="submit" name="Submit" class="button" value="Login" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<a href="http://www.wvnet.edu/index.php?option=com_registration&amp;task=lostPassword">
+				Lost Password?</a>
+		</td>
+	</tr>
+		</table>
+	
+	<input type="hidden" name="option" value="login" />
+	<input type="hidden" name="op2" value="login" />
+	<input type="hidden" name="lang" value="english" />
+	<input type="hidden" name="return" value="http://www.wvnet.edu/index.php" />
+	<input type="hidden" name="message" value="0" />
+	<input type="hidden" name="force_session" value="1" />
+	<input type="hidden" name="j90f59fd980bd0e16c1956743b81a40fb" value="1" />
+	</form>
+			</div>
+		        </div>
+       </div>
+      </div>
+     </div>
+        <!--Maint content area-->
+    <div id="main-column">
+     <div class="padding">
+      <div class="inner">
+              <div id="top">
+        <!--Area above main content-->
+         
+       </div>
+       <div class="contentpadding">
+        <table class="blog" cellpadding="0" cellspacing="0"><tr><td valign="top"><div>	
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<table border="0">
+	<tbody>
+		<tr>
+			<td>
+			<span style="font-size: 12pt"><b>WVNET</b> is the <b>West Virginia Network</b></span>, a dynamic service
+			organization providing telecommunications and computing services within
+			West Virginia. WVNET was created in 1975 to provide central computing
+			facilities and wide-area network communications linking its &quot;central
+			site&quot; computing resources in Morgantown with the campus computing
+			systems at most of the colleges and universities throughout the state. We have since grown to provide services for K-12 schools, government and non-profit agencies. As you can see in our menu we have a large collection of services to offer, often at prices below those of private industry. Perhaps we may solve some of your computing needs. 
+			</td>
+			<td valign="top" width="25%">
+			<div class="hilite">
+			<b>West Virginia Network<br />
+			837 Chestnut Ridge Road<br />
+			Morgantown, WV 26505<br />
+			304-293-5192<br />
+			<br />
+			WVU Campus Mailbox: 6890</b>
+			</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</div></td></tr><tr><td valign="top"><table width="100%"  cellpadding="0" cellspacing="0"><tr><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<a href="http://conference.wvnet.edu">
+<img src="http://www.wvnet.edu/images/stories/wvstc12.png" title="WVSTC12" style="float: left; width: 425px; height: 375px; margin: 0px 0px 5px 0px" height="375" width="425" alt="WVSTC12" />
+</a>			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<div align="center">
+<a href="http://www.wvnet.edu/files/pdf/wvnets_new_re_network_-rev_2.pdf" target="_blank" title="wvnets_new_re_network_-rev_2" class="jce_file">
+<img src="http://www.wvnet.edu/images/stories/wvnet%20research%20and%20education.jpg" width="407" height="216" align="bottom" title="wvnet research and education.jpg" style="margin: 5px" alt="wvnet research and education.jpg" />
+<p>
+Click to view our Internet2 Presentation
+</p>
+</a>
+<p>
+&nbsp;
+</p>
+<p>
+<a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=373&amp;Itemid=334"><img src="http://www.wvnet.edu/images/stories/Newsletter/network%20101.png" width="425" height="78" align="bottom" title="network 101.png" style="margin: 1px; width: 425px; height: 78px" alt="network 101.png" />
+</a>
+</p>
+<a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=373&amp;Itemid=334">
+<p>
+Find out what's new in our NEWSLETTER! 
+</p>
+</a>
+</div>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td></tr><tr><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<img src="http://www.wvnet.edu/images/stories/internet2_presentation_april_2012_2.jpg" alt="internet2_presentation_april_2012_2.jpg" style="margin: 5px" title="internet2_presentation_april_2012_2.jpg" height="181" width="323" align="bottom" />
+<img src="http://www.wvnet.edu/images/stories/internet2.jpg" alt="internet2.jpg" style="margin: 5px; float: left" title="internet2.jpg" height="64" width="90" /><h3>Internet 2 and You! </h3>
+<p>
+<i>Research networking in West Virginia is being transformed into a world class infrastructure which will change the research and education network landscape in West Virginia forever.</i>
+</p>
+<p>
+<a href="http://www.wvnet.edu/index.php?option=com_content&amp;task=view&amp;id=374&amp;Itemid=1" target="_self">Click to read more...</a>  
+</p>
+<hr id="system-readmore" />
+<p>
+&nbsp;
+</p>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<img src="images/stories/clipart/email/spam.gif" alt="spam.gif" style="margin: 5px; float: left" title="spam.gif" height="105" width="105" />
+<h3><span>Eliminate Unwanted SPAM and Virus Email</span></h3>
+<p align="left">
+<span style="font-family: arial,helvetica,sans-serif">WVNET mail statistics show that the majority of all e-mail is SPAM - unsolicited advertisements and scams. SPAM is a waste of time and resources, causing many problems for internet users and providers. WVNET uses several state-of-the-art scanning tools to detect and eliminate spam before it ever reaches a customer's mailbox.</span>
+</p>
+<p align="left">
+<span style="font-family: arial,helvetica,sans-serif">A small percentage of e-mail contains viruses. It is important to understand that viruses spread mostly through e-mail, and that even one person receiving an infected e-mail can transmit the virus to thousands of other Internet users. WVNET uses up-to-date virus scanners to disinfect e-mail before our customers receive it. <br />
+</span>
+</p>
+<p align="left">
+<a href="index.php?option=com_content&amp;task=view&amp;id=288&amp;Itemid=317" target="_self"><span style="font-family: arial,helvetica,sans-serif">Click to read more.</span></a>  
+</p>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td></tr><tr><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+				<p>
+<img src="images/stories/clipart/web/www.gif" alt="www.gif" style="margin: 5px; float: left" title="www.gif" height="127" width="127" /><b></b>
+</p>
+<p>
+&nbsp;
+</p>
+<h4>Every Organization Needs a Web Presence</h4>
+<h4>WVNET Makes It Easy!&nbsp;</h4>
+<p>
+&nbsp;
+</p>
+<p>
+West Virginia Network (WVNET) offers quality Web services with the budgets, concerns and needs of West Virginia&rsquo;s schools, non-profits, state and county agencies in mind. 
+</p>
+<p>
+&nbsp;We install and maintain the web server software and hardware on our high-speed backbone, protect it from hackers and power failures, back everything up daily, and make sure it all runs smoothly, 24 hours a day, 7 days a week, 365 days a year! Prices start at $20/month and are billed annually.
+</p>
+<p>
+<a href="index.php?option=com_content&amp;task=view&amp;id=356&amp;Itemid=183" target="_self">Learn More about WVNET's Web Hosting Packages</a> 
+</p>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td><td valign="top" width="50%">
+		<table class="contentpaneopen">
+				<tr>
+			<td valign="top" colspan="2">
+						<div class="moduletable">
+			
+<!-- JoomlaWorks "Ultimate Content Display" Module (v1.0) starts here -->
+<style type="text/css" media="screen">
+@import "modules/mod_jw_ucd/ajaxfader/mod_jw_ucd.css";
+#ucd-1 {position:relative;overflow:hidden;width:100%;height:100px;background-color:#e4f3f7;}
+#ucd-1 div {background-color:#e4f3f7;}
+</style>
+<!--[if lt IE 7]>
+<style type="text/css" media="screen">
+* html .udc_ajaxfader_bottomfade {background:none;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://www.wvnet.edu/modules/mod_jw_ucd/ajaxfader/bottomfade.png", sizingMethod="scale");}
+</style>
+<![endif]-->
+<div class="udc">
+  <div class="udc_ajaxfader">
+    <script type="text/javascript" src="modules/mod_jw_ucd/ajaxfader/ajaxfader.js" charset="UTF-8"></script>
+    <script type="text/javascript">
+	var txtfile="modules/mod_jw_ucd/ajaxfader/ucd_content_ucd-1.txt"
+	new udcajaxfader(txtfile,"ucd-1","nothingreally",4500,"fade")
+	</script>
+  </div>
+</div>
+<div class="udc_ajaxfader_bottomfade"></div>
+<!-- JoomlaWorks "Ultimate Content Display" Module (v1.0) ends here -->
+
+		</div>
+		  
+<h3><img src="images/stories/clipart/web/j0239637.gif" alt="j0239637.gif" style="margin: 5px; float: left" title="j0239637.gif" height="68" width="68" />Internet Search Tools and Stuff</h3>
+<p>
+Here is a list of World Wide Web sites recommended by WVNET staff to further your on-line experience.
+</p>
+<p>
+&nbsp;<a href="index.php?option=com_content&amp;task=view&amp;id=282&amp;Itemid=1" target="_self">Click Here to see the list</a>
+</p>
+<p>
+&nbsp;
+</p>
+<p>
+&nbsp;
+</p>
+			</td>
+		</tr>
+				</table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+		</td></tr></table></td></tr></table>       </div>
+       <!--module area under main content-->
+                     <div class="clr"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <!--End Main Content Area-->
+  <div class="clr"></div>
+  <!--Begin Bottom Panel-->
+  <div id="bottom">
+   <div class="wrapper">
+         <div id="footermodules" class="spacer w33">
+     </div>
+       </div>
+  </div>
+  <!--End Bottom Panel-->
+ </body> 
+</html>
+<!-- 1336340688 -->

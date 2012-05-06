@@ -1,0 +1,1294 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	Shaw University
+</title><meta HTTP-EQUIV="refresh" content="86400" /><script id="EktronJS" type="text/javascript" src="/WorkArea/java/ektron.js"></script><script id="EktronSiteDataJS" type="text/javascript" src="/WorkArea/java/ektron.site-data.js.ashx"></script><script id="EktronRegisteredJs" type="text/javascript" src="/workarea/java/ektronJs.ashx?id=EktronWebToolBarJS"></script><script id="AjaxScript" type="text/javascript" src="/WebResource.axd?d=U_kDenBw70Yb2a_K7WaTOeHjaS-Iwxckf9yvqFbw9HgY7owD5z7qq8d_83CLpgHy0iKT2PF3euJrrOLjhvdpU4saqh-Iyrby2FEcZbz26TvJUHV62yhVwFuMuSNwR3ykhNMHsw2&amp;t=634401817480000000"></script><link id="EktronRegisteredCss" rel="stylesheet" type="text/css" href="/workarea/csslib/ektronCss.ashx?id=EktronModalCss+EktronBubbleCss" /><link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon" /><link href="css/styles.css" rel="stylesheet" type="text/css" />   
+    <script language="javascript" type="text/javascript" src="js/menu_OuterTemplate.js"></script>
+    <script language="javascript" type="text/javascript" src="js/mm_menu.js"></script>   
+    <script type="text/javascript">
+    <!--
+    function MM_showHideLayers() { //v9.0
+      var i,p,v,obj,args=MM_showHideLayers.arguments;
+      for (i=0; i<(args.length-2); i+=3) 
+      with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+        if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+        obj.visibility=v; }
+    }
+     function fn_Search()
+    {
+         if (document.getElementById("rdtn_Search_0").checked==true)
+         {
+             if (document.getElementById("ecmBasicKeywords").value!="")
+            {
+                var url="/ShawUniversity/SearchResults.aspx?SearchText=" + 
+
+document.getElementById("ecmBasicKeywords").value.replace(" ","+")
+                document.location.replace(url);
+             }
+             else
+             {
+                alert("Plase enter at least one word to searh")
+             }     
+         }
+     
+         if (document.getElementById("rdtn_Search_1").checked==true)
+         {
+            if (document.getElementById("ecmBasicKeywords").value!="")
+            {
+                var url="http://www.google.co.in/search?hl=en&q=" + 
+
+document.getElementById("ecmBasicKeywords").value.replace(" ","+") + "&meta="
+                window.open(url)
+             }
+             else
+             {
+                alert("Plase enter at least one word to searh")
+             }
+         }
+              
+    } 
+	function fnSeach()
+	
+	{
+		var stype=document.getElementById("rbtnSType").value;
+		var val=document.getElementById("txtsearchText").value;
+		//alert(stype);
+		if (val=="")
+		{
+			alert("Enter at least one word to search.")
+		}
+		else
+		{
+			val=val.replace(" ","+");
+			if (stype=="shaw")
+						document.location.href="/searchresults.aspx?searchtext="+val;
+			else
+			    window.open('http://www.google.com/search?hl=en&source=hp&q='+ val 
+
++'&meta=&aq=f&oq=');					
+		}		
+	} 
+	function fnSeach1()
+	{
+		var KeyID = (window.event) ? event.keyCode : e.keyCode;
+		//alert(KeyID) 
+		if (KeyID==13)
+		{
+			var stype=document.getElementById("rbtnSType").value;
+			var val=document.getElementById("txtsearchText").value;
+			//alert(stype);
+			if (val=="")
+			{
+				alert("Enter at least one word to search.")
+			}
+			else
+			{
+				val=val.replace(" ","+");
+				if (stype=="shaw")
+					document.location.href="/searchresults.aspx?searchtext="+val;
+				else
+				    window.open('http://www.google.com/search?hl=en&source=hp&q='+ val 
+
++'&meta=&aq=f&oq=');
+			}		
+		}
+	}	  
+    //-->
+</script>
+<SCRIPT Language="JavaScript">
+<!-- hide from old browsers
+  function GetDay(intDay){
+    var DayArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", 
+                         "Thursday", "Friday", "Saturday")
+    return DayArray[intDay]
+    }
+
+  function GetMonth(intMonth){
+    var MonthArray = new Array("January", "February", "March",
+                               "April", "May", "June",
+                               "July", "August", "September",
+                               "October", "November", "December") 
+    return MonthArray[intMonth] 	  	 
+    }
+  function getDateStrWithDOW(){
+    var today = new Date()
+    var year = today.getYear()
+    if(year<1000) year+=1900
+    var todayStr = GetDay(today.getDay()) + ", "
+    todayStr += GetMonth(today.getMonth()) + " " + today.getDate()
+    todayStr += ", " + year
+    return todayStr
+    }
+//-->
+</SCRIPT>
+
+<script language="javascript" type="text/javascript">
+    var menuSelected={
+    "Admissions": 0,
+    "Academics": 1,
+    "Students": 2,
+    "Research": 3,
+    "Faculty_Staff": 4,
+    "Parents_Visitors": 5,
+    "Athletics": 6,
+    "Alumni_Friends": 7,
+    "Administration": 8,
+    "ContactShaw" :9  
+    };
+     var menuIDs=new Array(10);
+    menuIDs[0]="Admissions_td";
+    menuIDs[1]="Academics_td";
+    menuIDs[2]="Students_td";
+    menuIDs[3]="Research_td";
+    menuIDs[4]="Faculty_Staff_td";
+    menuIDs[5]="Parents_Visitors_td";
+    menuIDs[6]="Athletics_td";
+    menuIDs[7]="Alumni_Friends_td";
+    menuIDs[8]="Administration_td";
+    menuIDs[9]="ContactShaw_td";    
+  </script>
+</head>
+<body>
+<script language="JavaScript1.2">mmLoadMenus();</script>
+    <form name="aspnetForm" method="post" action="/" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTU0OTMwMzMxNA9kFgJmD2QWAgIDEGRkFgICAQ9kFgJmD2QWBmYPFgIeBXdpZHRoBQMyMzRkAgEPFgIfAAUDOTklZAICDxYCHgdWaXNpYmxlaGRk2xbONJnRLOZhe88E4b5kBZuuPhk=" />
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+__$BubbleCloseIconPath='/WorkArea/';//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+	<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAgK4sO+LDALxpc22CHq9Ut7p0680mTupircRKIHYBSHu" />
+</div>
+      <table width="900" border="0" align="center" cellpadding="0" cellspacing="0" height="100%">
+        <tr>
+          <td valign="top" background="images/top-bg.gif" style="height: 99px"><table bgcolor="maroon" width="100%" border="0" 
+
+cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="99%" valign="top"><a href="Default.aspx"></a><a href="../Default.aspx"><img src="../images/logo.gif" border="0" /></a></td>
+              <td width="40%" rowspan="2" align="right" valign="top"><table width="340" border="0" align="right" 
+
+cellpadding="0" cellspacing="0">
+                  <tr>
+                  <td height="76" colspan="3" valign="top" background="new-images/search-bg.gif"><table 
+
+width="100%" border="0" cellpadding="0" cellspacing="0" class="search">
+                        <tr>
+                          <td height="22" align="right" valign="middle"><span><a 
+
+href="/QuickLinks.aspx" style="color:#FFFFFF; text-decoration:none;">Quick 
+
+Links</a>&nbsp;|&nbsp;<a href="http://www.shawu.edu/Admissions/Admissions.aspx?id=2989" style="color:#FFFFFF; 
+
+text-decoration:none;">Campus Calendar</a>&nbsp;|&nbsp;<a href="../ContactShaw/Departmental_Directories.aspx" 
+
+style="color:#FFFFFF; text-decoration:none;">Directory</a>&nbsp;|&nbsp;<a href="../sitemap.aspx" 
+
+style="color:#FFFFFF; text-decoration:none;">Site Map&nbsp;&nbsp;</a></span></td>
+                        </tr>
+                        <tr>
+                          <td><table width="90%" border="0" align="right" cellpadding="2" cellspacing="2">
+                            <tr>
+                              <td colspan="4" align="right" valign="middle"><table width="100%" border="0" 
+
+cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td width="77%" align="right" valign="middle">Search:&nbsp; </td>
+                                    <td width="77%" align="left" valign="middle"><input name="textfield" 
+
+type="text" class="search-textbox"  onkeyup="fnSeach1()" id="txtsearchText" /></td>
+                                    <td width="4%">&nbsp;</td>
+                                    <td width="19%" align="left" valign="middle"><input name="button" 
+
+type="button" class="search-go-but" id="button" value="Go" onclick="fnSeach()" /></td>
+                                  </tr>
+                              </table></td>
+                            </tr>
+                            <tr>
+                              <td width="35%" align="right" valign="middle"><input type="radio" 
+
+name="rbtnSType" checked="checked" id="rbtnSType" value="shaw" /></td>
+                              <td width="36%" align="left" valign="middle">Shaw University</td>
+                              <td width="9%" align="right" valign="middle"><input type="radio" name="rbtnSType" 
+
+id="rbtnSType" value="google" /></td>
+                              <td width="20%" align="left" valign="middle">Google</td>
+                            </tr>
+                          </table></td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="middle" nowrap="nowrap" class="date">&nbsp;</td>
+                    <td width="99%" height="21" align="right" valign="middle" nowrap="nowrap" class="date"><a href="http://www.shawu.edu/Helpdesk.aspx?id=1882"
+   ></a>&nbsp;<a 
+
+style="color:#FFFFFF;" href="https://artemis.shawu.edu/ics/Apply_Online.jnz" target="_blank">Apply to Shaw 
+
+University</a>&nbsp;&nbsp;
+                    <script language="JavaScript" type="text/javascript">
+<!-- hide from old browsers
+    document.write(getDateStrWithDOW())
+
+
+
+
+//-->
+            </script>&nbsp;</td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr>
+              <td valign="bottom"><table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="999%" type="hidden" align="left" valign="bottom"><a href="http://www.shawu.edu/News_and_Events.aspx?id=2777"><img src="../images/table-left-bg.gif" alt="RFP entrance"  hspace="2" border="0" align="absmiddle" /></a></td>
+                  <td width="999%" align="right" valign="bottom"><a href="http://www.shawuonline.info" target="_blank"><img src="../images/Moodle.gif" alt="Moodle"  hspace="2" border="0" align="absmiddle" /></a></td>
+                  <td align="right" valign="bottom"><a href="https://securedonations.shawu.edu/" target="_blank"><img src="../images/Give-to-Shaw.gif" alt="Give to Shaw"  hspace="2" border="0" align="absmiddle" /></a></td>
+                  <td align="right" valign="bottom">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td height="4" colspan="3"></td>
+                  <td colspan="2"></td>
+                </tr>
+              </table></td>
+            </tr>
+          </table></td>
+    </tr>
+        <tr>
+          <td height="25" valign="top" background="images/menu-bg.gif"><table bgcolor="#880000" width="900" border="0" 
+
+cellpadding="0" cellspacing="0" class="MenuClasslink">
+      <tr>
+        <td align="center" valign="middle" class="MenuClass" id="Admissions_td"><a 
+
+href="#" name="Admissions" class="MenuClasslink" id="Admissions" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508171107_0,-8,18,null,'Admissions')" 
+
+onmouseout="MM_startTimeout();">Admissions</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Academics_td"><a href="#" name="Academics" 
+
+class="MenuClasslink" id="Academics" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508172232_0,-8,18,null,'Academics')" 
+
+onmouseout="MM_startTimeout();">Academics</a></td>
+        <td align="center" valign="middle" class="MenuClass"><img src="images/menu-devider.gif" width="1" 
+
+height="28" /></td>
+        <td align="center" valign="middle" class="MenuClass" id="Students_td"><a 
+
+href="#" name="Students" class="MenuClasslink" id="Students" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508191343_0,-7,18,null,'Students')" 
+
+onmouseout="MM_startTimeout();">Students</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Research_td"><a 
+
+href="#" name="Research" class="MenuClasslink" id="Research" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508172610_0,-7,18,null,'Research')" 
+
+onmouseout="MM_startTimeout();">Research</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Faculty_Staff_td"><a 
+
+href="#" name="Faculty_Staff" class="MenuClasslink" id="Faculty_Staff" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508191200_0,-11,18,null,'Faculty_Staff')" 
+
+onmouseout="MM_startTimeout();">Faculty &amp; Staff</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Parents_Visitors_td"><a 
+
+href="#" name="Parents_Visitors" class="MenuClasslink" id="Parents_Visitors" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508172957_0,-13,18,null,'Parents_Visitors')" 
+
+onmouseout="MM_startTimeout();">Parents &amp; Visitors</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Athletics_td"><a href="#" name="Athletics" 
+
+class="MenuClasslink" id="Athletics" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508173828_0,-7,18,null,'Athletics')" 
+
+onmouseout="MM_startTimeout();">Athletics</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Alumni_Friends_td"><a 
+
+href="#" name="Alumni_Friends" class="MenuClasslink" 
+
+id="Alumni_Friends" onmouseover="MM_showMenu(window.mm_menu_0508174130_0,-12,18,null,'Alumni_Friends')" 
+
+onmouseout="MM_startTimeout();">Alumni &amp; Friends</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="Administration_td"><a 
+
+href="#" name="Administration" class="MenuClasslink" id="Administration" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508174254_0,-122,18,null,'Administration')" 
+
+onmouseout="MM_startTimeout();">Administration</a></td>
+        <td width="1" align="center" valign="middle"><img src="images/menu-devider.gif" width="1" height="28" 
+
+/></td>
+        <td align="center" valign="middle" class="MenuClass" id="ContactShaw_td"><a 
+
+href="#" name="ContactShaw" class="MenuClasslink" id="ContactShaw" 
+
+onmouseover="MM_showMenu(window.mm_menu_0508174430_0,-88,18,null,'ContactShaw')" 
+
+onmouseout="MM_startTimeout();">Contact Shaw</a></td>
+      </tr>
+    </table></td>
+    </tr>
+        <tr>
+          <td height="575" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" 
+
+cellpadding="0" id="TABLE1" height="100%">
+            <tr>
+              <td bgcolor="#f5f5f5" width="234" nowrap="nowrap"></td>
+      <td></td>
+      <td></td>
+    </tr>
+            <tr>
+              <td colspan="3" valign="top"><table id="ctl00_MainTable" width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+	<tr>
+		<td id="ctl00_LeftContentPane" width="234" valign="top" bgcolor="#f5f5f5"><table 
+
+width="234px" border="0" align="center" cellpadding="6" cellspacing="0">
+                    <tr>
+                      <td valign="top">
+    
+              
+          <table width="40%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="width: 247px"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+              <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu">Message from the President</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                      <td height="10" colspan="3" bgcolor="#FFFFFF"><span id="ctl00_LeftContentArea_ContentBlock9" MarkupLanguage="DisplayFunctions/Teaser.ekml"><p align="center">&#160;<img width="89" height="126" border="0" align="bottom" src="/uploadedImages/Home/Message_from_President/Yancy%20Pic.jpg" alt="DCY - Suit" title="DCY - Suit" float="left" style="border-width: 0px; border-style: solid; width: 89px; height: 126px;" /><br /><font style="font-size: 8pt;"><strong>Dr. Dorothy Cowser Yancy</strong>&#160; </font>&#160;<br /><font style="font-size: 8pt;">President, Shaw University&#160;</font><font style="font-size: 8pt;"><br /><em> <a href="/Administration/President.aspx?id=3115" title="Read more...">Read more...</a></em></font> &#160;</p></span>
+                 </td>
+                      <td background="images/table-right-bg.gif"></td>
+                    </tr>
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                    <td colspan="3" bgcolor="#FFFFFF" width="99%">&nbsp;</td>
+                      <td background="images/table-right-bg.gif"></td>
+                </tr>
+                 <tr>
+                    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                    </tr>
+                  </table></td>
+            </tr>
+            <tr>
+              <td height="8" style="width: 247px"></td>
+            </tr>
+            <tr>
+              <td height="10" style="width: 247px">
+            <tr>
+              <td height="8" style="width: 247px"></td>
+            </tr>
+            <tr>
+              <td height="10" style="width: 247px"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+              <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" valign="middle" background="images/table-top-bg.gif" 
+                        class="Sub-menu-1" style="text-align: center">
+                          <!--<a href="http://www.shawbears.com">Shawbears.com</a></td>-->
+                          Commencement 2012<td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                      <td height="10" colspan="3" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        
+                        <tr>
+                          <td width="45%" height="10"></td>
+                          </tr>
+                        <tr>
+                          <td><div align="center"><a href="http://www.shawu.edu/Admissions/Admissions.aspx?id=3513" target="_blank">
+                              </td>
+                          </tr>
+                         <tr height="15"><td>
+                                 <div id="ctl00_LeftContentArea_ContentBlock11" align="center">
+			<div align="center"><h3><a title="Commencement 2012" href="/Commencement.aspx?id=3616">Commencement 2012</a> 
+</h3>
+<p>Commencement will be held on Saturday, May 12,
+2012 at 11:00 a.m. at the J.S. Dorton Arena in Raleigh. </p>
+<a title="Candiates for graduation, 2012" href="/uploadedFiles/Home/CANDIDATES%20FOR%20GRADUATION.pdf">Important information for graduating students.</a>  </div>
+		</div>
+                             </td></tr>           
+
+                        </table></td>
+                      <td background="images/table-right-bg.gif" align="right"></td>
+                    </tr>
+                    <tr>
+                    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                    <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                    <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                  </tr>
+                  </table></td>
+            </tr>
+            <tr>
+              <td height="10" style="width: 247px"></td>
+            </tr>
+            <tr>
+              <td style="width: 247px"><table width="240" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                  <tr>
+                    <td width="8" valign="top"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                    <td width="21" align="center" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                    <td width="168" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1">Shaw Campuses &amp; Centers
+                    <td width="35" valign="top" background="images/table-curve-bg.gif">
+                        <img src="images/table-curve.gif" height="28" align="right" 
+                            style="width: 35px" /></td>
+                    <td width="8" align="left" valign="top"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                  </tr>
+                  
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                    <td colspan="3" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                      
+                      <tr>
+                        <td valign="top"><div class="search" id="Layer" style="position: absolute; left: 300px; top: 420px; vertical-align: top; color: #000000; width: 254px; height: 170px; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td width="66%"><span style="font-weight: bold">AHOSKIE</span></td>
+                                  <td width="26%">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td colspan="2">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                          </table>
+                          </div><br />
+                          
+                          <div class="search" id="Layer1" style="position: absolute; left: 325px; top: 420px; width: 254px; height: 170px; color: #000000; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                    <td width="69%"><span style="font-weight: bold">RALEIGH</span></td>
+                                    <td width="26%">&nbsp;</td>
+                                    <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="3%">&nbsp;</td>
+                                    <td colspan="2"><p> Mr. Nnamdi Onuorah 
+                                      118 East South <br /> 
+                                      St. 
+                                      Raleigh, NC 27601 <br /> 
+                                      Phone 919-546-8340 <br /> 
+                                      Fax 919-546-8552 <br /> 
+                                      Email : <a href="mailto:ahoskiecape@shawu.edu">ahoskiecape@shawu.edu</a></p></td> 
+                                    <td width="2%">&nbsp;</td>
+                              </tr>
+                            </table>
+                          </div>
+                            <div align="center"><a href="Academics/Individual_CAPEsite_Pages.aspx"><img src="images/map.gif" width="206" height="79" border="0" /></a></a>
+                              <map name="Map" id="Map">
+                                <area shape="rect" coords="119,9,139,29" onClick="MM_openBrWindow('maps/RALEIGH.html','RALEIGH','width=900,height=700')" onMouseOver="MM_showHideLayers('Layer','','hide','Layer1','','show')" onMouseOut="MM_showHideLayers('Layer','','hide','Layer1','','hide')" />
+                                <area shape="rect" coords="94,8,114,25" href="#" onClick="MM_openBrWindow('maps/Ahoskie.html','AHOSKIE','width=900,height=700')" onMouseOver="MM_showHideLayers('Layer','','show','Layer1','','hide')" onMouseOut="MM_showHideLayers('Layer','','hide','Layer1','','hide')" />
+                              </map>
+                          </div></td>
+                        </tr>
+                      
+                      <tr>
+                        <td align="right" valign="bottom"><a href="Academics/Individual_CAPEsite_Pages.aspx" class="more">More...</a></td>
+                      </tr>
+                      </table></td>
+                    <td background="images/table-right-bg.gif"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                    <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                    <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                  </tr>
+                  </table></td>
+            </tr>           
+            <tr>
+              <td style="width: 247px;" valign="top"></td>
+            </tr>
+            <tr>
+              <td style="width: 247px; height:10px;" valign="top"></td>
+            </tr>
+
+            </table>
+<table width="240" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                  <tr>
+                    <td width="8" valign="top"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                    <td width="21" align="center" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                    <td width="168" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1">
+                        WSHA Radio Station</td>
+                    <td width="35" valign="top" background="images/table-curve-bg.gif">
+                        <img src="images/table-curve.gif" height="28" align="right" 
+                            style="width: 35px" /></td>
+                    <td width="8" align="left" valign="top"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                  </tr>
+                  
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                    <td colspan="3" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                      
+                      <tr>
+                        <td valign="top"><div class="search" id="Div1" style="position: absolute; left: 300px; top: 420px; vertical-align: top; color: #000000; width: 254px; height: 170px; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td width="66%"><span style="font-weight: bold">AHOSKIE</span></td>
+                                  <td width="26%">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td colspan="2">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                          </table>
+                          </div><br />
+                          
+                          <div class="search" id="Div2" style="position: absolute; left: 325px; top: 420px; width: 254px; height: 170px; color: #000000; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                    <td width="69%"><span style="font-weight: bold">RALEIGH</span></td>
+                                    <td width="26%">&nbsp;</td>
+                                    <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="3%">&nbsp;</td>
+                                    <td colspan="2"><p> Mr. Nnamdi Onuorah 
+                                      118 East South <br /> 
+                                      St. 
+                                      Raleigh, NC 27601 <br /> 
+                                      Phone 919-546-8340 <br /> 
+                                      Fax 919-546-8552 <br /> 
+                                      Email : <a href="mailto:ahoskiecape@shawu.edu">ahoskiecape@shawu.edu</a></p></td> 
+                                    <td width="2%">&nbsp;</td>
+                              </tr>
+                            </table>
+                          </div>
+                            <div align="center"><a href="/WSHA/Home/Default.aspx" target="_blank"><img src="images2/WSHA-Logo.gif" border="0"/></a></a></a>
+                              <map name="Map" id="Map1">
+                                <area shape="rect" coords="119,9,139,29" onClick="MM_openBrWindow('maps/RALEIGH.html','RALEIGH','width=900,height=700')" onMouseOver="MM_showHideLayers('Layer','','hide','Layer1','','show')" onMouseOut="MM_showHideLayers('Layer','','hide','Layer1','','hide')" />
+                                <area shape="rect" coords="94,8,114,25" href="#" onClick="MM_openBrWindow('maps/Ahoskie.html','AHOSKIE','width=900,height=700')" onMouseOver="MM_showHideLayers('Layer','','show','Layer1','','hide')" onMouseOut="MM_showHideLayers('Layer','','hide','Layer1','','hide')" />
+                              </map>
+                          </div></td>
+                        </tr>
+                      
+                      <tr>
+                        <td align="right" valign="bottom"><a href="/WSHA/Home/Default.aspx" class="more">More...</a></td>
+                      </tr>
+                      </table></td>
+                    <td background="images/table-right-bg.gif"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                    <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                    <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                  </tr>
+                  </table>
+          <table width="40%" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="width: 247px;" valign="top"></td>
+            </tr>
+            <tr>
+              <td style="width: 247px; height:10PX" valign="top">
+                  &nbsp;</td>
+            </tr>
+            <tr>
+              <td style="width: 247px;" valign="top"><table width="240" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                  <tr>
+                    <td width="8" valign="top"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                    <td width="21" align="center" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                    <td width="168" valign="middle" background="images/table-top-bg.gif" 
+                          class="Sub-menu-1" style="text-align: center">
+                        Shaw University Divinity School </td>
+                    <td width="35" valign="top" background="images/table-curve-bg.gif">
+                        <img src="images/table-curve.gif" height="28" align="right" 
+                            style="width: 35px" /></td>
+                    <td width="8" align="left" valign="top"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                  </tr>
+                  
+                  <tr>
+                    <td background="images/table-left-bg.gif"></td>
+                    <td colspan="3" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                      
+                      <tr>
+                        <td valign="top"><div class="search" id="Div3" style="position: absolute; left: 300px; top: 420px; vertical-align: top; color: #000000; width: 254px; height: 170px; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td width="66%"><span style="font-weight: bold">AHOSKIE</span></td>
+                                  <td width="26%">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td>&nbsp;</td>
+                                  <td colspan="2">&nbsp;</td>
+                                  <td>&nbsp;</td>
+                            </tr>
+                          </table>
+                          </div><br />
+                          
+                          <div class="search" id="Div4" style="position: absolute; left: 325px; top: 420px; width: 254px; height: 170px; color: #000000; z-index: 1; background-image: url('images/comment.png'); layer-background-image: url(images/comment.png); visibility: hidden; border: 1px none #000000">
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td height="35" colspan="4" align="right" valign="top"><a href="#"><img src="images/close1.gif" width="30" height="25" border="0" align="top" onClick="MM_showHideLayers('Layer','','hide','Layer1','','hide')" /></a>&nbsp;&nbsp;&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td>&nbsp;</td>
+                                    <td width="69%"><span style="font-weight: bold">RALEIGH</span></td>
+                                    <td width="26%">&nbsp;</td>
+                                    <td>&nbsp;</td>
+                              </tr>
+                              <tr>
+                                <td width="3%">&nbsp;</td>
+                                    <td colspan="2"><p> Mr. Nnamdi Onuorah 
+                                      118 East South <br /> 
+                                      St. 
+                                      Raleigh, NC 27601 <br /> 
+                                      Phone 919-546-8340 <br /> 
+                                      Fax 919-546-8552 <br /> 
+                                      Email : <a href="mailto:ahoskiecape@shawu.edu">ahoskiecape@shawu.edu</a></p></td> 
+                                    <td width="2%">&nbsp;</td>
+                              </tr>
+                            </table>
+                          </div>
+                            <div align="center"><a href="http://www.shawu.edu/Academics/Divinity.aspx"><img src="images2/Divinity-School.gif" border="0"/></a></a></a>
+                              
+                          </div></td>
+                        </tr>
+                      
+                      <tr>
+                        <td align="right" valign="bottom"><a href="http://www.shawu.edu/Academics/Divinity.aspx" class="more">More...</a></td>
+                      </tr>
+                      </table></td>
+                    <td background="images/table-right-bg.gif"></td>
+                  </tr>
+                  <tr>
+                    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                    <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                    <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                  </tr>
+                  </table></td>
+              <td style="width: 247px;" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          <tr>
+              <td style="width: 247px;" valign="top"></td>
+              <td style="width: 188px;" valign="top">&nbsp;</td>
+            </tr>
+           <td valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu-1" style="text-align: center">Accreditation</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                             <tr>
+                                  <td background="images/table-left-bg.gif" align="left"></td>
+                                      <td height="8" colspan="3" bgcolor="#FFFFFF"></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif" align="left"></td>
+                                      <td colspan="3" valign="top" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                          <td><div id="ctl00_LeftContentArea_ContentBlock10">
+			<p align="center"><strong>Shaw University is accredited by the Commission on Colleges of the Southern Association of Colleges and Schools to award the associate, bachelor's and master's degrees. </strong> </p>
+<p align="center">SACS COC | 1866 Southern Lane | Decatur, Georgia | 30033 | <a href="http://www.sacscoc.org">www.sacscoc.org</a> </p>
+		</div></td>
+                                        </tr>
+                                  </table></td>
+                                      <td background="images/table-right-bg.gif" align="right"></td>
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                                </tr>
+                              </table></td>
+</td>
+            </tr>
+                  </table></td>
+		<td id="ctl00_CenterContentPane" width="99%" valign="top"><table width="100%" border="0" align="center" 
+
+cellpadding="6" cellspacing="0"  height="100%">
+            <tr>
+              <td valign="top">
+                
+    <script language="javascript" type="text/javascript">
+    var SMenu = menuSelected.Admissions;
+    //alert(SMenu);
+</script>
+              <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="height: 287px"><table width="100%" border="0" cellspacing="1" cellpadding="1" id="BannerAdd">
+<td id="Td1"> <script language="JavaScript" src="js/AC_RunActiveContent.js"></script>
+
+                        <script type="text/javascript">
+                            AC_FL_RunContent('codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0', 'width', '630', 'height', '265', 'align', 'middle', 'src', 'images/main', 'loop', 'false', 'menu', 'true', 'quality', 'high', 'scale', 'noscale', 'bgcolor', '#FFFFFF', 'allowscriptaccess', 'sameDomain', 'pluginspage', 'http://www.macromedia.com/go/getflashplayer', 'wmode', 'transparent', 'movie', 'images/main'); //end AC code
+</script><noscript><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="630" height="265" align="middle">
+  <param name="allowScriptAccess" value="sameDomain" />
+  <param name="movie" value="images/flash/main.swf" />
+  <param name="loop" value="false" />
+  <param name="menu" value="true" />
+  <param name="quality" value="high" />
+  <param name="scale" value="noscale" />
+  <param name="wmode" value="transparent"><param name="BGCOLOR" value="#FFFFFF">
+  <embed src="images/flash/main.swf" width="630" height="265" loop="false" align="middle" menu="true" quality="high" scale="noscale" bgcolor="#FFFFFF" allowscriptaccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" wmode="transparent" />            
+  </object></noscript></td>
+</td>
+  </tr>
+  
+</table>
+</td>
+                </tr>
+                <tr>
+                  <td style="height: 14px">
+                      <div id="ctl00_CenterContentArea_ContentBlock1">
+			<h2>Welcome to Shaw University!</h2>
+<p align="left">Shaw University, founded in 1865, is the first historically black college of the South. Shaw is a private, co-educational, liberal arts university affiliated with the Baptist Church. The University awards degrees at both the undergraduate and graduate levels.<span> </span>  </p>
+<h3 align="center"><a title="Freshman Bridge Program, 2012" href="/Students/FirstYrPrograms.aspx?id=3545">Apply for the Freshman Scholar's Summer Academy!</a></h3>
+<p align="center" style="text-align: center;"><font color="#000000"><strong>July
+8 – August 10, 2012</strong></font> </p>
+<p align="center" style="text-align: center;"><font color="#000000"><strong>Application
+deadline - June 15,
+2012</strong></font> </p>
+<p align="center" style="text-align: center;"><em><font color="#000000"><strong>Applications accepted by
+May 20<sup>th</sup> will be eligible to receive a $1,000 scholarship.</strong></font></em> </p>
+		</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td height="10"></td>
+                </tr>
+                <tr>
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                        <td valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0" background="images/table-top-bg.gif">
+      <tr>
+        <td width="22" nowrap="nowrap">&nbsp;<img src="images/arrow-icon.gif" width="9" height="7" /></td>
+        <td width="99%" class="Sub-menu"><strong>University News</strong></td>
+        <td width="35"><img src="images/table-curve.gif" width="35" height="28" align="right" /></td>
+      </tr>
+    </table></td>
+    <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+  </tr>
+  <tr>
+    <td background="images/table-left-bg.gif"></td>
+    <td bgcolor="#FFFFFF">
+    <script type="text/javascript" language="javascript" defer="defer">  <!-- 
+ function __LoadListSummaryctl00_CenterContentArea_ListSummary1(args,context){args=context+"&"+args;WebForm_DoCallback('ctl00$CenterContentArea$ListSummary1',args,IAjax.DisplayResult,context,IAjax.DisplayError,false)}function OnListSummaryItemShow(id,tag){__LoadListSummaryctl00_CenterContentArea_ListSummary1(IAjax.getArguements(),'pagerequest=showcontent&__ecmid='+id+'&control=ctl00_CenterContentArea_ListSummary1&__ecmdiv='+tag);}function OnListSummaryBubble(id,width,event){__LoadListSummaryctl00_CenterContentArea_ListSummary1(IAjax.getArguements(),'pagerequest=bubble&__ecmid='+id+'&control=ctl00_CenterContentArea_ListSummary1&bubblewidth='+width+'&X='+EBubble.EventX(event)+'&Y='+EBubble.EventY(event));}  
+ // --> 
+  </script><input type="hidden" class="storeuserData" id="__EkAjaxHiddenctl00_CenterContentArea_ListSummary1" name="__EkAjaxHiddenctl00_CenterContentArea_ListSummary1" value=""/><div id="ctl00_CenterContentArea_ListSummary1">
+					<table width="100%" border="0">							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw University to Host Commencement on May 12</strong> </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><img title="ShawBlock_Sealandlogo" style="width: 114px; height: 114px;" alt="ShawBlock_Sealandlogo" src="/uploadedImages/News_and_Events/ShawBlock_Sealandlogo.JPG" />  </td>
+<td><strong>May 2, 2012 –</strong> Shaw University will host its commencement exercise on Saturday, May 12, 2012 at 11:00 a.m. at the J.S. Dorton Arena at the North Carolina Fairgrounds....(<strong><a title="Read more... " href="/News_and_Events.aspx?id=3614">Read more... </a></strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw Receives UNCF Mini-Grant to Host UNCF/Mellon Learning Institute</strong> 
+</td>
+</tr>
+<tr>
+<td><a onkeypress="this.onclick();" onclick="try{window.open('/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/uncf-logo.jpg', 'MyImage', 'resizable=yes, scrollbars=yes, width=790, height=580')}catch(e){};return false;" href="#"><img src="/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/thumb_uncf-logo.jpg" border="0" /></a> </td>
+<td><strong>May 2, 2012 - </strong>Drs. Mercy Fapojuwo, Desire’ Baloubi, and Kandace Harris have received a $30,000 United Negro College Fund (UNCF) Mini-Grant to host a UNCF/Mellon Teaching and Learning Institute Program...(<strong><a href="/News_and_Events.aspx?id=3613" title="Read more... ">Read more... </a></strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw Men's Tennis Advances to NCAA National Tournament</strong>  </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><a href="#" onclick="try{window.open('/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/tennisteam.jpg', 'MyImage', 'resizable=yes, scrollbars=yes, width=790, height=580')}catch(e){};return false;" onkeypress="this.onclick();" title="/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/tennisteam.jpg"><img src="/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/thumb_tennisteam.jpg" border="0" alt="/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/tennisteam.jpg" title="/uploadedImages/Administration/Communications/News_and_Events/News-Events_Archives/tennisteam.jpg" /></a>  </td>
+<td><p><strong>RALEIGH, NC (April 30, 2012)</strong><strong> - </strong>Shaw University men's tennis came back from a 3-0 deficit to down Bloomsburg 5-4 and claim a spot in the Division II NCAA National Tournament.<strong><span style=""></span></strong>  (<strong><a href="/News_and_Events.aspx?id=3610" title="Read more... ">Read more... </a></strong>)</p>
+</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"> <strong>Men's, Women's Tennis Teams in NCAA Action</strong>  </td>
+</tr>
+<tr>
+<td><img style="width: 102px; height: 84px;" src="/uploadedImages/Athletics/Shaw Bears.png" alt="Shaw Bears Athletics Logo" title="Shaw Bears Athletics Logo" /> </td>
+<td><span style="font-weight: bold;">April 27, 2012</span><strong> -</strong>  Shaw Prepares to Host NCAA D-II Men's
+Tennis Regionals; Lady Bears Travel To California, PA
+For Their First Round Match
+...(<strong><a href="/News_and_Events.aspx?id=3604" title="Read more..">Read more..</a>. </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw Men and Women Tennis Teams Win CIAA Championships</strong> </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><img width="102" height="86" src="/uploadedImages/Athletics/Shaw Bears.png" alt="Shaw Bears Athletics Logo" title="Shaw Bears Athletics Logo" />  </td>
+<td><strong>April 25, 2012 </strong>– The
+Shaw men's tennis team claimed it eighth straight CIAA Championship with a 5-0
+win over Winston-Salem State in a match played on the tennis courts of Virginia
+State.  (<strong><a title="Shaw Men and Women Tennis Teams Win CIAA Championships" href="/News_and_Events.aspx?id=3607">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr align="left">
+</tr>
+<tr>
+<td colspan="2"><strong>Childcare Center Receives Sir Walter Raleigh Award 
+</strong> </td>
+</tr>
+<tr>
+<td><a href="#" onclick="try{window.open('/uploadedImages/Administration/Communications/News_and_Events/parking/childcare%20center.jpg', 'MyImage', 'resizable=yes, scrollbars=yes, width=790, height=580')}catch(e){};return false;" onkeypress="this.onclick();" title="/uploadedImages/Administration/Communications/News_and_Events/parking/childcare center.jpg"><img src="/uploadedImages/Administration/Communications/News_and_Events/parking/thumb_childcare center.jpg" border="0" alt="/uploadedImages/Administration/Communications/News_and_Events/parking/childcare center.jpg" title="/uploadedImages/Administration/Communications/News_and_Events/parking/childcare center.jpg" /></a> </td>
+<td><strong>April 24, 2012 – </strong>The Shaw University Center for Early Childhood Education, Development and Research recently received the Sir Walter Raleigh Award from the Raleigh City Council. ...(<strong><a title="Read more..." href="/News_and_Events.aspx?id=3591">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Lady Bears at Governor's Mansion  </strong> </td>
+</tr>
+<tr>
+<td><img title="Lady Bears" alt="Lady Bears" src="/uploadedImages/Administration/Communications/News_and_Events/Current_News_and_Events/lady%20bears.jpg" style="width: 103px; height: 69px;" />  </td>
+<td><strong>April 23, 2012
+– </strong>The national 
+champion Shaw University women's basketball team was welcomed to the 
+North Carolina Governor's Mansion by Governor Bev Perdue (<strong><a title="Read more... " href="/News_and_Events.aspx?id=3563">Read more... </a></strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Annual UNCF Scholarship Gala Honors Community Leaders</strong> </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><img src="/uploadedImages/News_and_Events/parking/UNCF%20Gala.jpg" alt="UNCF Gala - 2012" title="UNCF Gala - 2012" style="width: 154px; height: 102px;" />  </td>
+<td><strong>April 20, 2012
+–</strong>
+ Shaw University’s annual UNCF Scholarship Gala honored several 
+outstanding community and national leaders for their commitment to 
+excellence in
+ education.  (<strong><a href="/News_and_Events.aspx?id=3561" title="Read more...">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw Marks One Year Anniversary of Tornado</strong> </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><img style="width: 102px; height: 171px;" src="/uploadedImages/News_and_Events/parking/Reopen_0034.JPG" alt="Re-open after tornado" title="Re-open after tornado" />  </td>
+<td> <strong><a name="_GoBack"></a>April 17, 2012</strong> –
+ Days after a tornado tore through the Shaw University campus and 
+damaged 27 buildings, admissions officers from other colleges started 
+calling Jeffrey Smith, the school’s vice president of administration and
+ student affairs.  (<strong><a title="Read more..." href="/News_and_Events.aspx?id=3559">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Student Affairs Host Women’s Conference </strong> </td>
+</tr>
+<tr>
+<td><a title="/uploadedImages/Administration/Communications/News_and_Events/Current_News_and_Events/women's conference.JPG"><img border="0" src="/uploadedImages/Administration/Communications/News_and_Events/Current_News_and_Events/thumb_women's conference.JPG" alt="/uploadedImages/Administration/Communications/News_and_Events/Current_News_and_Events/women's conference.JPG" title="/uploadedImages/Administration/Communications/News_and_Events/Current_News_and_Events/women's conference.JPG" /></a> </td>
+<td><strong>April 16, 2012 –</strong>
+ The Office of Student Activities/Greek Life recently hosted a women’s 
+conference geared towards undergraduate students at Shaw University. (<strong><a title="Read more..." href="/News_and_Events.aspx?id=3557">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>							<tr>					<td><table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Shaw Students Participate in College Bound
+ Day  </strong> </td>
+</tr>
+<tr>
+<td><img title="Bugg Elementary -2" alt="Bugg Elementary -2" src="/uploadedImages/Administration/Communications/News_and_Events/parking/Bugg.JPG" style="width: 102px; height: 57px;" />  </td>
+<td><strong>April 12, 2012 </strong><strong>–</strong>
+ Students at Bugg Elementary School are already thinking about college applications.  (<strong><a href="/News_and_Events.aspx?id=3571" title="Read more...">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table></td>				</tr>				<tr>					<td height="2"><hr></td>				</tr>					</table>	<input name="ctl00$CenterContentArea$ListSummary1$ctl00$CenterContentArea$ListSummary1EktronClientManager" type="hidden" id="ctl00_CenterContentArea_ListSummary1_ctl00_CenterContentArea_ListSummary1EktronClientManager" value="EktronJS,AjaxScript" />
+		</div>
+    <td background="images/table-right-bg.gif"></td>
+  </tr>
+  <tr>
+    <td background="images/table-left-bg.gif"></td>
+    <td width="97%" align="right" bgcolor="#FFFFFF"><a href="News_and_EventsDisplay8.aspx" class="more"><strong>Click Here to Read More News...</strong></a></td>
+    <td background="images/table-right-bg.gif"></td>
+  </tr>
+  <tr>
+    <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+    <td background="images/table-bottom-bg.gif"></td>
+    <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+  </tr>
+</table></td>
+                        <td width="226" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                              <td height="18"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    
+                    <td bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu">
+                          Shaw Success</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                             <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td height="8" colspan="3" bgcolor="#FFFFFF"></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td colspan="3" valign="top" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                          <td><div id="ctl00_CenterContentArea_ContentBlock7">
+			<table>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td colspan="2"><strong>Cornwall Receives Highest NC Honor</strong>  </td>
+</tr>
+<tr>
+<td><span class="menu"><span class="menu"><span class="MenuClasslink"><span class="Articles"></span></span></span></span><img style="width: 102px;" src="/uploadedImages/News_and_Events/News-Events_Archives/cornwall.jpg" alt="Cornwall portrait" title="Cornwall portrait" />  </td>
+<td>Dr. Loñieta
+Aurora Thompson Cornwall has received the Order of the
+Long Leaf Pine Award from Governor Bev. Perdue. (<strong><a title="Read more..." href="/News_and_Events.aspx?id=3389">Read more...</a> </strong>)</td>
+</tr>
+</tbody>
+</table>
+		</div></td>
+                                        </tr>
+                                  </table></td>
+                                      <td background="images/table-right-bg.gif" align="right"></td>
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                             <tr>
+                              <td valign="top">&nbsp;</td>
+                          </tr>
+                            <tr>
+                              <td><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu">
+                          Student News</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                             <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td height="8" colspan="3" bgcolor="#FFFFFF"></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td colspan="3" valign="top" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                          <td><div id="ctl00_CenterContentArea_ContentBlock3">
+			<p align="center" style="text-align: center;">Important changes to the major government financial aid programs will be effective beginning the 2012-2013 year.  If you get Federal financial aid, you<font color="#a52a2a"> <u>must</u></font> read our information sheet: <a target="_blank" title="2012-2013 Changes in Federal and State Financial Aid " href="uploadedFiles/Admissions/Financial_Aid/2012-2013%20Changes%20in%20Federal%20and%20State%20Financial%20Aid.pdf"><span style="font-size: 16pt; font-family: &quot;Arial Narrow&quot;,&quot;sans-serif&quot;; color: black;"></span></a> <br /></p>
+<div><h4 align="center"><a title="2012-13 Changes in Federal and State Financial Aid" href="uploadedFiles/Admissions/Financial_Aid/2012-2013%20Changes%20in%20Federal%20and%20State%20Financial%20Aid.pdf"> <font color="#a52a2a">2012-13 Changes in Federal and State Financial Aid</font></a></h4>
+
+
+
+ </div>
+		</div></td>
+                                        </tr>
+                                  </table></td>
+                                      <td background="images/table-right-bg.gif" align="right"></td>
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                            <tr>
+                              <td valign="top">&nbsp;</td>
+                          </tr>
+                            <tr>
+                              <td height="10">&nbsp;</td>
+                              </tr>
+                            <tr>
+                              <td><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu">Campus Events</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td height="8" colspan="3" bgcolor="#FFFFFF"></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td colspan="3" valign="top" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                          <td><div id="ctl00_CenterContentArea_ContentBlock6">
+			<iframe width="250" scrolling="no" height="300" frameborder="0" src="https://www.google.com/calendar/embed?mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=shawweb2012%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FNew_York"></iframe>
+		</div></td>
+                                        </tr>
+                                        <tr style="display:none;">
+                                          <td><p align="right"><a href="/uploadedFiles/Home/Distance_Learning/Returning_students_final-5-11-2010.pdf" class="more" target="_blank">More...</a></p></td>
+                                        </tr>
+                                  </table></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                                </tr>
+                              </table></td>
+                          </tr>
+                            <tr style="display:none;">
+                              <td height="18"></td>
+                            </tr>
+                            <tr style="display:none;">
+                              <td valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td height="18"></td>
+                            </tr>
+                            <tr>
+                              <td valign="top"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                <tr>
+                    <td width="8"><img src="images/table-top-left.gif" width="8" height="28" align="left" /></td>
+                      <td width="14" align="center" valign="middle" background="images/table-top-bg.gif"><img src="images/arrow-icon.gif" width="9" height="7" /></td>
+                      <td width="176" align="left" valign="middle" background="images/table-top-bg.gif" class="Sub-menu">Follow Us</td>
+                      <td width="35" background="images/table-curve-bg.gif"><img src="images/table-curve.gif" width="35" height="28" /></td>
+                      <td width="8"><img src="images/table-top-right.gif" width="8" height="28" align="right" /></td>
+                </tr>
+                             <tr>
+                                  <td background="images/table-left-bg.gif"></td>
+                                      <td height="8" colspan="3" bgcolor="#FFFFFF"></td>
+                                      <td background="images/table-right-bg.gif"></td>
+                                </tr>
+                                <tr>
+                                  <td background="images/table-left-bg.gif" align="left"></td>
+                                      <td colspan="3" valign="top" bgcolor="#FFFFFF"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                          <td><div id="ctl00_CenterContentArea_ContentBlock4">
+			<table border="0" cellspacing="4" cellpadding="4" width="100" align="center">
+<tbody>
+<tr>
+<td align="center"><a href="http://www.facebook.com/ShawUniversity" target="_blank"><img title="Facebook" border="0" alt="Facebook" src="/uploadedImages/Home/Follow_Us/facebook.png?n=7763" /></a> </td>
+<td align="center"><a href="http://www.youtube.com/user/ShawUniv" target="_blank"><img title="Youtube" border="0" alt="Youtube" src="/uploadedImages/Home/Follow_Us/youtube.png?n=9152" /></a> </td>
+<td align="center"><a href="http://twitter.com/ShawUniversity" target="_blank"><img title="Twitter" border="0" alt="Twitter" src="/uploadedImages/Home/Follow_Us/twitter.png?n=8163" /></a> </td>
+<td align="center"><a title="Flickr-icon" href="http://www.flickr.com/photos/shawu/sets/" target="_blank"></a></td>
+</tr>
+</tbody>
+</table>
+		</div></td>
+                                        </tr>
+                                  </table></td>
+                                      <td background="images/table-right-bg.gif" align="right"></td>
+                                </tr>
+                                <tr>
+                                  <td align="left" valign="bottom"><img src="images/table-bottom-left.gif" width="8" height="7" align="left" /></td>
+                                      <td colspan="3" background="images/table-bottom-bg.gif"></td>
+                                      <td align="right" valign="bottom"><img src="images/table-bottom-right.gif" width="8" height="7" align="right" /></td>
+                                </tr>
+                              </table></td>
+                            </tr>
+                            </table></td>
+                      </tr>
+                  </table></td>
+                </tr>
+              </table>
+</td>
+            </tr>
+            </table></td>
+	</tr>
+</table>
+</td>
+      </tr>
+            <tr>
+              <td bgcolor="#f5f5f5" width="234" nowrap="nowrap"></td>
+      <td width="70%"></td>
+      <td></td>
+    </tr>
+  </table>  </td>
+    </tr>
+        <tr>
+          <td height="45" valign="top" bgcolor="#bfc0c0"><table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="8"><img src="../images/footer-left.gif"/></td>
+        <td align="center" valign="middle" background="../images/footer-bg.gif">Copyright © 
+            2012 Shaw University. All rights reserved. <a href="../Privacy_and_Usage_Policy2.aspx">Privacy &amp; Usage Policy</a>  | <a href="../sitemap.aspx">Site Map</a> | <a href="mailto:webmaster@shawu.edu">Webmaster</a><a href="#"></a> <br />
+          Shaw University, 118 East South St. Raleigh, NC  27601</td> 
+        <td width="8"><img src="../images/footer-right.gif" /></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td height="15"></td>
+        <td></td>
+      </tr>
+          </table></td>
+    </tr>
+      </table>
+    <script language="javascript" type="text/javascript">
+     try{    
+	   if (SMenu!="")
+	   {		    
+		    for(i=0;i<=menuIDs.length;i++)
+		    {
+		        if(SMenu==i)
+		            document.getElementById(menuIDs[i]).className="MenuClassSelected";
+		        else
+		            document.getElementById(menuIDs[i]).className="MenuClass";
+		    }     
+		          	    
+		    
+	   }	    
+    }catch(err){ }
+    </script> 
+    <script type="text/javascript">
+	 
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-19311882-1']);
+	_gaq.push(['_trackPageview']);
+	 
+	(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	 
+	</script>
+ 
+
+    
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=igQiCEwP40VqqV-HwfeKJ9heEb7bDhilk1SE8XjJz8hzaq9SE_i9QsT0MEFQEmTMjzog6iex9CK7GAjp0b2xTGJf29I1&amp;t=634386100605881947" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+WebForm_InitCallback();//]]>
+</script>
+</form>
+</body>
+</html>

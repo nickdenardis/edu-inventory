@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- Design by: Nicholas Napier - for MC&TC - 2007 all rights reserved -->
+<!-- Contact: napier79@marshall.edu -->
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" >
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<title>Mountwest Community & Technical College </title>
+<link rel="stylesheet" type="text/css" href="/src/css/default.css" />
+<link rel="stylesheet" type="text/css" href="/src/css/scrollbar.css" />
+<script type="text/javascript" src="/src/js/jquery-1.2.3.min.js"></script>
+<script type="text/javascript" src="/src/js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript" src="/src/js/jquery.printarea.js"></script>
+<script type="text/javascript" src="/src/js/jquery.multi.upload.pack.js"></script>
+<script type="text/javascript" src="/src/js/superfish.js"></script>
+<script type="text/javascript" src="/src/js/multifile_compressed.js"></script>
+<script type="text/javascript" src="/src/js/word-count.js"></script>
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/prototype/1.6.1/prototype.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.2/scriptaculous.js'></script>
+<script type="text/javascript">
+   function slidedown(element){
+	   new Effect.SlideDown(element, {duration:3});
+   }
+   function Request(page, container) {
+		document.getElementById(container).innerHTML = '<img src="/bin/img/icons/loading.gif">Loading...';
+		new Ajax.Updater(container, page, {asynchronous:true, evalScripts:true});
+   }
+</script><script type="text/javascript">
+    $(document).ready(function() {
+    	$('.printdiv').click(function(){ $.jPrintArea('#printable_area') });
+        $("ul.nav").superfish({
+            animation : { opacity:"show", height:"show", delay:10, speed: "fast" }
+        })
+
+    });
+    function set_programs() {
+		Effect.SlideUp('computer_courses', {duration:0});
+		Effect.SlideUp('general_courses', {duration:0});
+		Effect.SlideUp('seminar_courses', {duration:0});
+		Effect.SlideUp('college_courses', {duration:0});
+		Effect.SlideUp('entrepreneurship_courses', {duration:0});
+		Effect.SlideUp('medical_courses', {duration:0});
+		Effect.SlideUp('nohvcc_courses', {duration:0});
+        Effect.SlideUp('life_courses', {duration:0});
+    }
+</script>
+
+</head>	<body onload="set_programs(); return false;">
+<span id="bg"><div id="global"><span id="inner"><span id="body_container">
+
+    <span id="body_area">
+        <span id="p_header"> <!-- Head -->
+            <span id="sub_nav">
+				<img src="/bin/img/icons/phone_icon.gif" alt="1-866-676-5533" class="phone_img" />
+				<span class="phone_number">
+				1-866-676-5533
+				</span>
+				<a href="/faculty_staff">Faculty & Staff</a>
+                <a href="/about/accreditation">Accreditation</a>
+                <a href="/academics/course_listing">Courses</a>
+                <a href="/academics/programs">Programs of Study</a>
+                <a href="/admissions/enrollment_application">Apply Now</a>
+                <a href="/myMCTC">myMCTC</a>
+            </span>
+            <span id="main_header">
+                <a href="http://www.mctc.edu"><img class="logo_img" src="/bin/img/logo-new.png" alt="Mountwest Community & Technical College" /></a>
+                <a href = "http://beta.mctc.edu" target="_blank"><img src = "/bin/img/new.png" alt = "New Website" /></a>
+                <span style="float: right; padding: 15px 10px 10px 10px;">
+                        <a href="http://www.mctc.edu/administration/information_services/help_desk"><img src="/bin/img/helpdesk.gif" alt="MCTC Technical Help Desk" style="float: left;" /></a>
+                        
+                        <a href="/myMCTC"><img src="/bin/img/mymctc.gif" alt="MCTC Self-Service - register for classes and manage your student information" style="float: left; margin-left: 5px" /></a>
+                        <form class="search_field" action="/search/" method="POST" style="float: left;" >
+                        <input type="text" id="search" name="search" accesskey="s" onFocus="if(this.value=='Search the Site..')value=''" onBlur="if(this.value=='')value='Search the Site..';" value="Search the Site.." style="float: left; width: 120px" alt="Search Box" /><input type="submit" class="btn_search" value="Search" tabindex="2" style="float: left" alt = "Search Button" />
+                    </form>
+                </span>
+            </span>
+        </span>
+        <ul class="nav"><li><span id="nav"><a href="http://www.mctc.edu" style="width: 70px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">Home</a></span><li><span id="nav"><a href="/about" style="width: 90px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">About</a></span><ul><li><a href="/about/accreditation">Accreditation</a></li><li><a href="/about/affirmative_action">Affirmative Action</a></li><li><a href="/about/campus_map">Campus Map</a></li><li><a href="/about/college_history">College History</a></li><li><a style="border-top: 1px solid #000;" href="http://www.mctc.edu/foundation">Mountwest Foundation</a></li><li><a href="/about/mupd_statistics">MUPD Statistics</a></li><li><a href="/about/our_mission">Our Mission</a></li></ul></li><li><span id="nav"><a href="/academics" style="width: 90px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">Academics</a></span><ul><li><a href="/academics/academic_calendar">Academic Calendar</a></li><li><a href="/academics/academic_skills_center">Academic Skills Center</a></li><li><a href="/academics/college_catalog">College Catalog</a></li><li><a href="/academics/course_listing">Course Listing</a></li><li><a href="/academics/deans_list">Deans List</a></li><li><a href="/academics/programs">Programs</a><ul></ul></li></ul></li><li><span id="nav"><a href="/administration" style="width: 90px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">Administration</a></span><ul><li><a href="/administration/banner_transition_project">Banner Transition Project</a></li><li><a href="/administration/board_of_governors">Board of Governors</a></li><li><a href="/administration/business_services">Business Services</a><ul></ul></li><li><a href="/administration/classified_staff_council">Classified Staff Council</a></li><li><a href="/administration/departments">Departments</a></li><li><a href="/administration/faculty_council">Faculty Council</a></li><li><a href="/administration/human_resources_and_employee_development">Human Resources and Employee Development</a><ul></ul></li><li><a href="/administration/information_services">Information Services</a><ul></ul></li><li><a href="/administration/institutional_procedures">Institutional Procedures</a></li><li><a href="/administration/presidents_page">President's Page</a></li></ul></li><li><span id="nav"><a href="/contact" style="width: 90px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">Contact</a></span><ul><li><a href="/contact/directory_listing">Directory Listing</a></li><li><a href="/contact/business_services/20">Business Services</a></li><li><a href="/contact/division_of_allied_health_and_life_sciences/3">Division of Allied Health and Life Sciences</a></li><li><a href="/contact/division_of_business_and_info_tech/4">Division of Business and Info. Tech.</a></li><li><a href="/contact/division_of_cont_and_corp_education/12">Division of Cont. and Corp. Education</a></li><li><a href="/contact/division_of_liberal_arts__human_services/6">Division of Liberal Arts & Human Services</a></li><li><a href="/contact/employee_development/21">Employee Development</a></li><li><a href="/contact/information_services/23">Information Services</a></li><li><a href="/contact/mountwest_small_business_development_center/10">Mountwest Small Business Development Center</a></li><li><a href="/contact/off_campus_programs/19">Off Campus Programs</a></li><li><a href="/contact/presidents_office/2">President's Office</a></li><li><a href="/contact/student_services/9">Student Services</a></li></ul></li><li><span id="nav"><a href="/news" style="width: 90px; border: 1px solid #000; border-width: 0 1px 1px 0; margin: 0;">News</a></span><ul style="width: 188px;"></ul></li><li><span style="border-right: 0;" id="nav"><a href="/student_services" style="border: 1px solid #000; border-width: 0 0 1px 0; width: 112px; margin: 0">Student Services</a></span><ul><li><a href="/student_services/admissions">Admissions</a><ul></ul></li><li><a href="/student_services/advising">Advising</a><ul></ul></li><li><a href="/student_services/disabled_student_support">Disabled Student Support</a><ul></ul></li><li><a href="/student_services/financial_aid">Financial Aid</a><ul></ul></li><li><a href="/student_services/frequently_asked_questions">Frequently Asked Questions</a></li><li><a href="/student_services/registrar">Registrar</a><ul></ul></li><li><a href="/student_services/request_information_packet">Request Information Packet</a></li></ul></li></ul>    <div id="printable_area" style="display: inline;"><span id="body">	<span class="index_main">
+		<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" WIDTH="778" HEIGHT="200" id="mctc" ALIGN="">
+		<PARAM NAME=movie VALUE="http://www.mctc.edu/transportation/mctc-full.swf">
+		<PARAM NAME=quality VALUE=high>
+		<PARAM NAME=bgcolor VALUE=#ffffff>
+		<param name="wmode" value="transparent" />
+		
+    <EMBED src="http://www.mctc.edu/transportation/mctc-full.swf" quality=high bgcolor=#ffffff WIDTH="778" HEIGHT="200" NAME="mctc" ALIGN="left" TYPE="application/x-shockwave-flash" wmode="opaque" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer"></EMBED>
+    <NOEMBED></NOEMBED>
+		</OBJECT>
+	</span>
+	
+             
+ <!--MCTC ANNOUNCEMENTS BEGIN-->
+ 
+  <!--<center><img src="/bin/img/collegeGoal.gif" /></center>-->  
+ 
+	<img src="/bin/img/announcements.gif" alt="MCTC Announcements" style="float: left; clear: left; margin: 0 0 10px 10px;" /><br />
+   	<span style="float: left; clear: left; margin: 0 0 20px 10px; width: 760px">
+	<div id="scrollable1">
+	<span id="scroll_contents2">
+	
+<b style="font-size: 16px; text-decoration: none">Due to commencement activities</b>
+
+  all Student Services offices will be closing at
+ Noon on Friday, May 11th, 2012.
+
+We will reopen on Monday, May 14th at 8 a.m.
+
+Thank you. </p>   
+	
+<b style="font-size: 16px; text-decoration: none">Attention All Students:</b>
+<p>
+<b>Elections have begun! Elect your new Board of Governors Student Representative by coming to the Advising Center, with your ID, and casting your ballot, Wednesday May 2nd through Friday, May 5th at 5:00 p.m.</b>
+</p>
+<p> 
+Nominees must have at least an overall GPA of 2.0 to be considered. Elections will be held from Wednesday, May 2nd, through Friday, May 5th. Students may vote for their choice of nominees by coming to the Advising Center on the lower level of the CTC Building between 8:00 a.m. and 5:00 p.m. You must have your Mountwest ID to vote. Votes will be tallied and announcements made on Monday May 7th. Contact Julia Joseph at josephju@mctc.edu if you have questions.
+<p>
+The Board of Governors, Student Representative Nominees are:<br />
+Owen Tillis <a href="mailto:tillis@mctc.edu">tillis@mctc.edu</a><br />
+Kayla Newsome <a href="mailto:newsome8@mctc.edu">newsome8@mctc.edu</a><br />
+Brian Byrd <a href="mailto:byrd40@mctc.edu">byrd40@mctc.edu</a><br />
+Kimberley Patrick <a href="mailto:patrick4@mctc.edu">patrick4@mctc.edu</a><br />
+Kyler Hearon <a href="mailto:hearon@mctc.edu">hearon@mctc.edu</a><br />
+Emaline Hagist <a href="mailto:hagist@mctc.edu">hagist@mctc.edu</a><br />
+Jason Leaor <a href="mailto:leaor@mctc.edu">leaor@mctc.edu</a><br />
+Ka-Desh Jeter <a href="mailto:jeter7@mctc.edu">jeter7@mctc.edu</a><br />
+</p>   
+<p>
+
+<p>
+   
+<b style="font-size: 16px; text-decoration: none">Summer 2012 Payment Deadline</b>
+<p>
+Payment for Summer 2012 tuition must be received in full in the Cashier's Office no later than Friday, May 4, 2012 for registered students. Your courses are subject to cancellation if tuition is not paid in full. You can view your balance by logging into your myMCTC Self-Service. Failure to receive a billing statement will not be accepted as a reason for missing the payment deadline.</p>
+<p>
+Tuition can be paid by cash, check, or money order at the windows of the Cashier's Office; credit card payments can be made by logging onto your myMCTC Self-Service; check payments can also be mailed to: MCTC Business Services, Attn: Cashier's Office, P.O. Box 1539, Huntington, WV 25716-1539.</p>
+<p>
+If your tuition should be covered by financial aid or a third party, please ensure with the Cashier's Office that your tuition has been covered to avoid cancellation of your courses. If you no longer wish to attend Mountwest Community & Technical College for the Summer semester, it is your responsibility to meet with an Academic Advisor to drop your courses in order to avoid being charged for those courses. If you have any questions regarding your account, please contact the Cashier's Office at 304-696-3868 or by emailing <a href="mailto:cashier@mctc.edu">cashier@mctc.edu</a>. </p>
+<b style="font-size: 16px; text-decoration: none">May 2012 Graduation</b><p>
+<p>
+The Mountwest Community and Technical College commencement ceremony will be held on Friday, May 11th, 2012, at 7 p.m., at the Keith Albee Performing Arts Center in downtown, Huntington, West Virginia. Graduates should be present by 6:15 p.m. and must be attired in academic caps and robes. These may be purchased at Stadium Bookstore located at 1949 Fifth Avenue, Huntington, WV 304-529-2665. Stadium will also have formal graduation invitations you can order. 
+<br /><br />
+At the conclusion of the ceremony, refreshments will be served in the lobby of The Fredrick, across the street from the Keith Albee. The faculty and staff are looking forward to helping you celebrate your academic achievement.
+</p>   
+<p>			
+<!--
+	 <p>
+	   <a href="http://www.mctc.edu/student_services/registrar/exam_schedule
+ ">http://www.mctc.edu/student_services/registrar/exam_schedule
+ </a>. 
+   </p>
+   <br />     
+-->
+
+<b style="font-size: 16px; text-decoration: none">Fall 2012 Scholarship Deadline</b><p>
+	 <p>
+	 The deadline for Fall 2012 scholarships available now has been extended to 4:00 PM April 20. <a href = "http://beta.mctc.edu/scholarships-and-tuition-waivers/current-scholarships/">Click here for more details.</a>
+
+   </p>
+
+
+<b style="font-size: 16px; text-decoration: none">Fall 2012 Registration</b><p>
+	 <p>
+	   Registration for Fall 2012 will begin Monday, June 18th. This is a change from the original academic calendar as we prepare for the move to our new building. We encourage you to meet with your advisor as soon as possible to select courses in your program so when June 18th comes around you will only be finalizing the days and times of the courses. If you have any registration questions in the regard to Fall 2012 please call 304-696-6282. We look forward to seeing you soon! 
+   </p>
+
+<b style="font-size: 16px; text-decoration: none">Attention Mountwest Students</b>
+	 <p>
+	   Beginning in January 2012, Mountwest Community & Technical College will be partnering with Higher One, a financial services company 
+     focused solely on higher education, to bring you a new option for receiving your refunds: the EasyRefund card. 
+
+Please do not throw away this important card since it is your ticket to a faster refund.
+
+Simply put, your new EasyRefund card is designed to provide you with increased choices for your Financial Aid or school refunds. <br /><br /><b>These options include:</b>
+<br /><br />1. A same day deposit to the OneAccount, an FDIC Insured, no monthly fee, no minimum balance checking account. With the OneAccount, you 
+receive your funds the same day they are released by Higher One.  The easiest and fastest choice available. 
+<br /><br />2. Transfer to another account. 
+<p>
+<b>Please activate your card as soon as you receive it.</b> 
+<br /><br />
+Remember, even if you are not currently expecting a refund from Mountwest CTC, we may have a refund for you in the future. 
+<br /><br />
+In order to ensure that Mountwest CTC has your current mailing address, please take a moment to visit myMCTC Self-Service to verify and
+ update, if necessary, your address information today. You can also choose to update your address by going to the Registrar's Office in
+  Room 110 of the MCTC building. 
+<br /><br />
+Your new EasyRefund card will be mailed to the address you currently have on file with Mountwest CTC. Therefore, it is critical that you
+ verify your mailing address as soon as possible.  Please note, it is extremely important that you verify your address is entered correctly 
+ as any errors could delay you receiving any future financial aid refunds.
+ <br /><br />
+You can visit <a href="https://mountwest.higheroneaccount.com">https://mountwest.higheroneaccount.com</a>  to learn more about all the great 
+benefits that accompany your all-new EasyRefund card!  Please feel free to contact the Cashier's Office at <a href="mailto:cashier@mctc.edu">cashier@mctc.edu</a> 
+with any other questions you may have regarding this.
+</p>
+    
+<b style="font-size: 16px; text-decoration: none">SPRING 2012 SCHEDULE OF COURSES</b><p>
+	 <p>
+	   To get information on the classes available for Spring 2012 please <a href ="http://www.mctc.edu/academics/course_listing">Click Here</a>. 
+   </p>
+
+
+<b style="font-size: 16px; text-decoration: none">Mountwest Community and Technical College Consolidating</b><p>
+	 <p>
+	   Administrators with the college are excited to get students, faculty and staff in one building.<br>
+HUNTINGTON  - Learning is expanding at Mountwest Community and Technical College.<a href="http://wowktv.com/story.cfm?func=viewstory&storyid=109442" target=_blank>
+ Click here to read more.</a>
+  </p>  
+
+
+<b style="font-size: 16px; text-decoration: none">MCTC celebrates work on new campus</b><p>
+	 <p>
+	   HUNTINGTON - Though no ground was actually broken, a ceremony at Mountwest Community and Technical College on Wednesday represented the same purpose: to kick
+      off the start of the renovation project at the school's new home off 5th Street Road.
+      <a href="http://www.herald-dispatch.com/news/briefs/x1556231611/Former-Arch-Coal-building-expected-to-be-ready-for-classes-next-fall" target=_blank> Click here 
+      to read more.</a>
+   </p> 
+
+<!--  
+<b style="font-size: 16px; text-decoration: none">Mountwest Community and Technical College Consolidating</b><p>
+	 <p>
+	   Administrators with the college are excited to get students, faculty and staff in one building.<br>
+HUNTINGTON  - Learning is expanding at Mountwest Community and Technical College.<a href="http://wowktv.com/story.cfm?func=viewstory&storyid=109442" target=_blank>
+ Click here to read more.</a>
+  </p>  
+
+<b style="font-size: 16px; text-decoration: none">2nd 8 week courses begin Wednesday, October 12, 2011</b><p>
+	 <p>
+	   Second 8 week classes begin on Wednesday, October 12, 2011. We have many available classes still open. For assistance in scheduling, the advising center is
+      open Monday through Friday 8:00 to 5:00. Information can also be obtained by calling 304-696-6282. Come in soon, as classes begin next week. Hope you are having
+       a great semester!  
+	 </p>     
+
+	 
+	 	
+
+
+	
+<b style="font-size: 16px; text-decoration: none">Mountwest Awarded $5 Million Grant:</b><p>
+	 <p>
+	   Mountwest Community & Technical College has been awarded a $5 million grant by the U.S. Department of Labor.  The grant will span a three-year period and will
+      fund a student success plan named "The Beacon Project."
+	 </p>
+	 <p>
+      The Beacon Project is designed to engage students, faculty, staff and corporate partners with students seeking certificate or degree completion.  Teams of
+       individuals will work together to ensure student progress and provide cooperative education, internship and on-the-job training for these students.
+    </p>
+<p>
+     The grant to Mountwest was part of a nearly $500 million award pool by the Department of Labor and the Obama Administration for job training and workforce
+      development.  In all, there were 32 grantees. 23 were consortium awards, many of which went to community college systems. There were 9 individual awards.
+       The $5 million dollar award was the largest of the individual awards.
+</p>
+<p>
+More information, including a list of grantees by state with project descriptions can be found  
+<a href = "http://www.dol.gov/opa/media/press/eta/eta20111409.htm" target = "_blank"> here </a>. 
+</p>
+   <p>	
+	
+
+
+  
+		<b style="font-size: 16px; text-decoration: none">Mountwest Community and Technical College Announces New Transportation
+     Program</b><p>
+	 <p>During a press conference at Tri-State Airport, the school announced its new Transportation Technology Program, 
+   which is set to begin in the fall of 2011. 
+   (<a href="http://www.wowktv.com/story.cfm?func=viewstory&storyid=103542" target="_blank">Read More</a>)
+		<p>   
+
+
+    <b style="font-size: 16px; text-decoration: none">Mountwest board of governors tour upgraded Center for Culinary Arts</b><p>
+	 <p>Larry Perry, Mountwest culinary program director, gave tours of the new Center for Culinary Arts to members of the school's board of governors prior to Friday's
+    monthly board meeting.
+   (<a href="http://www.herald-dispatch.com/news/x1652336692/MCTC-board-of-governors-tour-upgraded-Center-for-Culinary-Arts" target="_blank">Read More</a>)
+		<p>
+    <b style="font-size: 16px; text-decoration: none">Enterprise Donation to Mountwest Foundation</b><p>
+	 <p>The Enterprise Holdings Foundation presented a $1,500 donation to the Mountwest Foundation for student scholarships.  The grant will provide much-needed financial
+    support for current and former military service members 
+   enrolled in an associate degree program at Mountwest Community & Technical College. It will fund three student scholarships of $500 to be awarded this fall. 
+   (<a href="http://blog.mctc.edu/?p=493" target="_blank">Read More</a>)           
+   <p>  
+
+
+	 <b style="font-size: 16px; text-decoration: none">13 Honored with Scholarships</b><p>
+	 <p>The Mountwest Foundation honored 13 students out of Mountwest Community and Technical Colleges enrollment of 3,000 with scholarships during the 2010-2011 academic
+    year at a brunch April 28 at the Cooking and Culinary Institute. The donors who made the scholarships possible were also honored.  
+    (<a href="http://www.herald-dispatch.com/news/x883170881/13-honored-with-scholarships" target="_blank">Read More</a>)           <p>
+	 
+	 <b style="font-size: 16px; text-decoration: none">Hundreds earn degrees from MCTC</b><p>
+	 <p>Hundreds of Mountwest Community and Technical College students received their degrees Friday night in a graduation ceremony at the Keith-Albee Performing Arts
+    Center in Huntington.  (<a href="http://www.herald-dispatch.com/mobile/x425035672/Hundreds-earn-degrees-from-MCTC" target="_blank">Read More</a>)           <p> 
+-->
+ 	</font>
+		</span>
+		</div>
+	
+	
+
+ <!--MCTC ANNOUNCEMENTS END-->
+ 
+
+
+		<div id="track1"><div id="handle1"></div></div>
+		<script type="text/javascript" language="javascript">
+		// <![CDATA[
+
+			// vertical slider control
+			var slider1 = new Control.Slider('handle1', 'track1', {
+				axis: 'vertical',
+				onSlide: function(v) { scrollVertical(v, $('scrollable1'), slider1);  },
+				onChange: function(v) { scrollVertical(v, $('scrollable1'), slider1); }
+			});
+
+			// horizontal slider control
+			var slider2 = new Control.Slider('handle2', 'track2', {
+				onSlide: function(v) { scrollHorizontal(v, $('scrollable1'), slider2);  },
+				onChange: function(v) { scrollHorizontal(v, $('scrollable1'), slider2); }
+			});
+
+			// vertical slider control
+			var slider3 = new Control.Slider('handle3', 'track3', {
+				axis: 'vertical',
+				onSlide: function(v) { scrollVertical(v, $('scrollable2'), slider3);  },
+				onChange: function(v) { scrollVertical(v, $('scrollable2'), slider3); }
+			});
+
+			// horizontal slider control
+			var slider4 = new Control.Slider('handle4', 'track4', {
+				onSlide: function(v) { scrollHorizontal(v, $('scrollable2'), slider4);  },
+				onChange: function(v) { scrollHorizontal(v, $('scrollable2'), slider4); }
+			});
+
+			// scroll the element vertically based on its width and the slider maximum value
+			function scrollVertical(value, element, slider) {
+				element.scrollTop = Math.round(value/slider.maximum*(element.scrollHeight-element.offsetHeight));
+			}
+
+			// scroll the element horizontally based on its width and the slider maximum value
+			function scrollHorizontal(value, element, slider) {
+				element.scrollLeft = Math.round(value/slider.maximum*(element.scrollWidth-element.offsetWidth));
+			}
+
+			// disable vertical scrolling if text doesn't overflow the div
+			if ($('scrollable1').scrollHeight <= $('scrollable1').offsetHeight) {
+				slider1.setDisabled();
+				$('track1').hide();
+			}
+
+			// disable horizontal scrolling if text doesn't overflow the div
+			if ($('scrollable1').scrollWidth <= $('scrollable1').offsetWidth) {
+				slider2.setDisabled();
+				$('track2').hide();
+			}
+
+			// disable vertical scrolling if text doesn't overflow the div
+			if ($('scrollable2').scrollHeight <= $('scrollable2').offsetHeight) {
+				slider3.setDisabled();
+				$('wrap3').hide();
+			}
+
+			// disable horizontal scrolling if text doesn't overflow the div
+			if ($('scrollable2').scrollWidth <= $('scrollable2').offsetWidth) {
+				slider4.setDisabled();
+				$('wrap4').hide();
+			}
+
+
+
+		// ]]>
+		</script>
+	</span>
+
+	<span style="float: left; clear: left; width: 768px; padding: 10px 0 10px 10px; background-color: #0064a4; color: #fff; font-size: 12px;">
+		<span stayle="float: left; width: 768px;">
+			<span class="list_column">
+				<b>Student Services</b>
+				<ul>
+					<li><a href="/student_services/admissions">Admissions</a></li>
+					<li><a href="/student_services/advising">Advising</a></li>
+					<li><a href="/student_services/financial_aid">Financial Aid</a></li>
+					<li><a href="/student_services/frequently_asked_questions">Frequently Asked Questions</a></li>
+					<li><a href="/student_services/registrar">Registrar</a></li>
+					<li><a href="/student_services/request_information_packet">Request Information Packet</a></li>
+				</ul>
+			</span>
+			<span class="list_column">
+				<b>Academics</b>
+				<ul>
+					<li><a href="/academics/academic_calendar">Academic Calendar</a></li>
+					<li><a href="/academics/academic_skills_center">Academic Skills Center</a></li>
+					<li><a href="/academics/college_catalog">College Catalog</a></li>
+					<li><a href="/academics/course_listing">Course Listing</a></li>
+					<li><a href="/academics/deans_list">Deans List</a></li>
+					<li><a href="/academics/programs">Programs of Study</a></li>
+				</ul>
+			</span>
+			<span class="list_column">
+				<b>Administration</b>
+				<ul>
+					<li><a href="/administration/board_of_governors">Board of Governors</a></li>
+					<li><a href="/administration/business_services">Business Services</a></li>
+					<li><a href="/administration/departments">Departments</a></li>
+					<li><a href="/administration/human_resources_and_employee_development">HR & Employee Development</a></li>
+					<li><a href="/administration/information_services">Information Services</a></li>
+					<li><a href="/administration/presidents_page">President's Page</a></li>
+				</ul>
+			</span>
+			<span class="list_column">
+				<b>College Information</b>
+				<ul>
+					<li><a href="/about/accreditation">Accreditation</a></li>
+					<li><a href="/about/affirmative_action">Affirmative Action</a></li>
+					<li><a href="/about/campus_map">Campus Map</a></li>
+					<li><a href="/administration/human_resources_and_employee_development/job_postings">Job Postings</a></li>
+					<li><a href="/about/college_history">College History</a></li>
+					<li><a href="/about/our_mission">Our Mission</a></li>
+				</ul>
+			</span>
+		</span>
+	</span>
+
+	<span id="public_highlight_box2">       
+		<b style="float: left; font-size: 18px; font-family: arial">Interested in Expanding your Knowledge by taking a Public Class?</b><br /><br />
+		<span style="float: left; clear: left; width: 760px; text-align: justify; padding-bottom: 20px; margin-top: 5px" valign="top">
+			<a href="http://www.cookingandculinary.com/classes"><img src="/bin/img/cci_logo.gif" alt="Cooking and Culinary Institute - take a Public Class Today!" align="left" style="padding-right: 10px" /></a>
+
+				<b style="font-size: 14px; margin-bottom: 5px">The Cooking and Culinary Institute</b><br />
+				The Cooking and Culinary Institute offers a wide range of professionally taught public culinary classes and exquisite dining experiences for your enjoyment.<br />
+				<a href="http://www.cookingandculinary.com/classes" style="margin-top: 5px"><b>Click Here to view the classes and to register today!</b></a>
+
+		</span>
+		<span style="float: left; clear: left; width: 760px; text-align: justify; padding-bottom: 0px;" valign="top">
+			<span style="float: left; width: 530px; margin-right: 10px">
+				<b style="font-size: 14px;">The Division of Continuing and Corporate Education</b><br />
+				The Division of Continuing and Corporate Education offers classes for the general public and working professionals to enrich their lives and provide important career training.<br />
+				<a href="http://www.mctc.edu/academics/programs/continuing_and_corporate_education" style="margin-top: 5px"><b>Click Here to view the classes and to register today!</b></a><br /><br />
+			</span>
+			<span style="float: left; width: 209px">
+				<a href="http://www.mctc.edu/academics/programs/continuing_and_corporate_education">
+<p><img src="/bin/docs/image/ccesslogo.jpg" WIDTH="200" HEIGHT="57" alt="Division of Continuing Education and Workforce Development - spring into learning at MCTC!" style="margin-bottom: 10px" /></a></p>
+			</span> 
+      <span style="float: left; clear: left; width: 760px; text-align: justify; padding-bottom: 20px; margin-top: 5px" valign="top">
+			<a href="http://www.mctc.edu/student_services/request_information_packet"><img src="/bin/img/ez_start.jpg" WIDTH="209" HEIGHT="49" alt="E-Z Start your way to success!" align="left" style="padding-right: 10px" /></a>
+
+				<b style="font-size: 14px; margin-bottom: 5px">Thought about college, but unsure how to get started?</b><br />
+				  It's never been easier than now.  Ask about the E-Z Start program, your fast track to a new career.  Scholarships available for a limited time.  
+          304.696.5808 or <a href="mailto:groooms@mctc.edu">groooms@mctc.edu</a>.
+
+		</span>   
+		</span>
+	</span>			</span>
+        </div>
+        <div class="foot_spacer">
+        </div>
+		</span><span id="footer">            <span id="nav_mini">
+                <a href="http://www.mctc.edu" style="margin-left: 3px;">Home</a>
+                <a href="/academics">Academics</a>
+                <a href="/administration">Administration</a>
+                <a href="/student_services/admissions">Admissions</a>
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/news">News</a>
+                <a href="/sitemap">Site Map</a>
+            </span>
+            <span id="copyright" class="white_a">
+                <img src="/bin/img/icons/door.jpg" alt="MC&TC" id="fl" style="margin-right: 5px;" />
+                <span id="fl">
+                    &copy; 2009-2010 MCTC all rights reserved<br />
+                    <a href="/privacy_policy">Privacy Policy</a>
+                </span>
+            </span>
+        </span>
+    </span>
+    <span class="post_foot">
+        <a class="accred_img" href="http://www.ncahlc.org/component/com_directory/Action,ShowBasic/Itemid,/instid,2846/"><img src="/bin/img/nca_accreditation.gif" alt="NCA Accredited School" /></a>
+        <span class="accred_info" id="links_gray_u">
+			MCTC is fully accredited by the Higher Learning Commission of the North Central Association of Colleges and Schools (<a href="http://www.ncahlc.org/component/com_directory/Action,ShowBasic/Itemid,/instid,2846/">HLC</a>) and is
+			a member of <a href="http://www.advantagevalley.com/education/c-u.html">Advantage Valley</a>.
+			For a listing of all institutional and program accreditations, please <a href="/about/accreditation">visit the accreditation section</a>.<br />
+			<b>Mailing Address:</b>One John Marshall Drive, Huntington WV. 25755 <a href="http://maps.google.com/maps?hl=en&q=1+john+marshall+way+huntington+wv+25755&um=1&ie=UTF-8&sa=X&oi=geocode_result&resnum=1&ct=title">(Click for Directions)</a>
+        </span>
+        <span class="support_box">
+            <a href="http://support.mctc.edu">IT Support</a> |
+            <a href="http://support.mctc.edu">Website Update Request</a>
+        </span>
+    </span>
+
+</span></span></div></span>
+
+<!-- google analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-13201800-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

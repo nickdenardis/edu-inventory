@@ -1,0 +1,376 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="Title" content="Startseite">
+	<meta name="description" content="unterstrass.edu stellt Menschen und Werte in den Mittelpunkt. Unser Gymnasium mit musischem Profil und Profil Philosophie/Pädagogik/Psychologie spricht Jugendliche an, die ihre Matura in einem überschaubaren Rahmen, mit Kopf und mit Herz erreichen wollen." />
+
+
+	<title>Startseite : Unterstrass.edu</title>
+
+
+
+	<!-- stylesheets-->
+	<link rel="stylesheet" href="http://www.unterstrass.edu/index.php?css=site/styles_rmx.v.1329472256" type="text/css" media="screen" charset="utf-8">
+	<link rel="stylesheet" href="http://www.unterstrass.edu/index.php?css=site/extranet_tabs.v.1316171307" type="text/css" media="screen" charset="utf-8">
+	
+	<link rel="stylesheet" href="http://www.unterstrass.edu/index.php?css=site/print_styles.v.1316171307" type="text/css" media="print" charset="utf-8">
+	
+	<!--[if lt IE 7]>
+	    <link rel="stylesheet" href="http://www.unterstrass.edu/index.php?css=site/ie6_fix.v.1316171307" type="text/css" media="screen" title="no" charset="utf-8">
+	<![endif]-->
+	
+	<!-- javascript libraries-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+ 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="http://www.unterstrass.edu/js/jquery.autocomplete.js"></script>
+
+
+	<!-- javascript functions-->
+	 
+	<script type="text/javascript">
+		
+		function selectInNav (my_string) {
+			
+				$("a").each(function () {
+					var links = $(this).attr("href").split("/");
+					lastEl = links[links.length-1];
+										
+					if (lastEl == my_string) {
+						var myvar = $(this).parent().attr("class", "selected");
+						return false;
+					}
+
+				});
+		}
+	</script>
+	
+	
+	<script type="text/javascript">
+	$(document).ready(function(){ 
+
+		 $.ajaxSetup({ type: "GET" });
+		 // Autocomplete 
+		 /*
+		$("#quickjump_title").autocomplete("http://www.unterstrass.edu/index.php/_autocomplete/", {
+			width: 260,
+			selectFirst: false
+		});
+		*/
+
+		 $("input#quickjump_title").autocomplete("http://www.unterstrass.edu/index.php/_autocomplete/",{
+		   	width: 223,
+			cacheLength: 0, 
+		   	minChars: 3, 
+		   //formatItem: function (row) { return row[0] }, 
+		   //formatResult: function (row){ return row[1] } 
+		 }).result(function(event, item) { 
+		   //redirect to the URL in the string 
+		   //window.location.href = "http://www.unterstrass.edu/"+item[1]; 
+		 }); 
+
+		
+		$("#tabs").tabs();
+		
+		
+		if(document.location.hash!='') {
+		        //get the index from URL hash
+		      	tabSelect = document.location.hash.substr(1,document.location.hash.length);
+				tabSelect = tabSelect--;
+				$("#tabs").tabs('select', tabSelect);
+		}
+
+		/*
+		$('.ajax').click(function(event){
+				  event.preventDefault();
+		          delEntry(this);
+		        //alert($(this).attr('href'))
+		});
+
+		function delEntry(link){
+	        $this=$(link);
+	        delurl=$this.attr('href');
+			//alert(delurl);
+	        $.ajax({
+	            url: delurl,
+	            success: function(data){
+	                //$('#ajaxContent').append(data);
+	 				//alert('Load was performed.');
+	                //$this.hide();
+					location.reload();
+	                }
+	            });        
+	        };
+		*/
+		
+	}); 
+
+	  </script>
+
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-20393851-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	
+</head>
+
+
+<body class="home">
+	
+	<!-- start wrap -->
+	<div id="wrap" >
+		<!-- start header -->
+		<div id="header">
+			<div id="logo_picture"><a href="http://www.unterstrass.edu/"><img src="http://www.unterstrass.edu/images/uploads/layout/unterstrass_logo.gif" width="338" height="43" alt="Unterstrass Logo"><span>www.unterstrass.edu</span></a></div>
+		
+	<div id="meta_navigation_print">
+	<p>Sie haben folgende Seite ausgedruckt: www.unterstrass.edu///</p>
+</div>
+
+<div id="meta_navigation">
+	<ul><li><a href="/kontakt">Kontakt</a></li><li><a href="/presse">Presse</a></li><li><a href="/spenden">Spenden</a></li><li><a href="/stellen">Stellen</a></li><li class="last"><a href="/extranet/">Extranet</a></li></ul>
+</div>
+		
+	<div id="navigation">
+	
+	
+	
+		<ul><li class="selected first"><a href="/">Start</a></li><li><a href="/gymnasium">Gymnasium</a><ul><li><a href="/gymnasium/ausbildung">Ausbildung</a></li><li><a href="/gymnasium/aufnahme">Aufnahme</a></li><li><a href="/gymnasium/alltag_und_projekte/">Alltag und Projekte</a></li><li><a href="/gymnasium/kosten">Kosten</a></li></ul></li><li><a href="/institut/">Institut</a><ul><li><a href="/institut/ausbildung">Ausbildung</a></li><li><a href="/institut/aufnahme">Aufnahme</a></li><li><a href="/institut/alltag_und_projekte">Alltag und Projekte</a></li><li><a href="/institut/weiterbildung">Weiterbildung</a></li></ul></li><li><a href="/innovation">Innovation</a><ul><li><a href="/projekte/unterstrass_2013">unterstrass.2013</a></li><li><a href="/projekte/chagall">ChagALL</a></li><li><a href="/projekte/kinder_forschen">Kinder forschen</a></li></ul></li><li class="last"><a href="/ueber_uns">Über uns</a><ul><li><a href="/ueber_uns/schulleitung">Schulleitung</a></li><li><a href="/ueber_uns/traegerschaft">Trägerschaft</a></li><li><a href="/ueber_uns/ehemalige">Ehemalige</a></li><li><a href="/news_archive/2012">Aktuelles</a></li></ul></li></ul>
+		
+</div>
+
+<div id="suche">
+	<form id="quickjump" action="http://www.unterstrass.edu/search_results/" method="post"> 
+	  <fieldset> 
+	<!-- <label for="quickjump_title">Suche</label><br /> -->
+	    <input type="search" id="quickjump_title" name="quickjump_title" placeholder="Suche"/>
+	    <button id="header_search_button" type="submit">
+	    	<img src="http://www.unterstrass.edu/images/uploads/layout/magnify.png">
+	
+	
+	    </button>
+	  </fieldset> 
+	</form>
+</div>
+
+	
+	
+<!-- end header -->	
+	</div>		
+	<!-- start content -->
+	<div id="content_wrap">
+		
+		
+		
+
+
+
+		
+
+			
+			
+			
+			
+			
+			<div id="main_feature">
+														<div id="lead_picture" class="bigger_pic"><img src="http://www.unterstrass.edu/images/uploads/layout/home_5.jpg"></div>
+							
+				<div id="introduction_wrapper">
+					<h1>Wo Werte Schule machen</h1>
+					<p>
+	unterstrass.edu stellt Menschen und Werte in den Mittelpunkt.<br />
+	Unser Gymnasium spricht Jugendliche an, die ihre Matura in einem &uuml;berschaubaren Rahmen, mit Kopf und mit Herz erreichen wollen.&nbsp;Als eigenst&auml;ndiges Institut bieten wir einen praxisorientierten Weg zur Lehrperson in Primar- oder Vorschule. <a href="/ueber_uns/">weiter</a></p>
+
+
+				</div>		
+			</div>
+			
+				<div id="haupt_verteiler">
+
+				
+
+					<div class="verteil_gruppe links level1">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+																															<h2 class="level1">Gymnasium</h2>
+							<p>
+	Wir sind eine &uuml;berschaubare Schule mit zwei Klassen pro Jahrgang. Unser spezielles F&auml;cherangebot, die engagierten Lehrpersonen und moderne Unterrichtsmethoden f&ouml;rdern die Entwicklung einer fachlichen wie emotionalen Intelligenz.&nbsp;&gt; <a href="/gymnasium/">weiter</a></p>
+
+						
+
+
+					</div>
+				
+
+					<div class="verteil_gruppe mitte level1">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+																															<h2 class="level1">Institut</h2>
+							<p>
+	Als eigenst&auml;ndiges Institut, das mit der P&auml;dagogischen Hochschule Z&uuml;rich zusammenarbeitet, setzen wir auf &uuml;berschaubare Strukturen, konstante Lerngruppen, viel Kontakt zu Kindern und auf engagiertes Mitwirken.&nbsp;&gt; <a href="/institut">weiter</a></p>
+
+						
+
+
+					</div>
+				
+
+					<div class="verteil_gruppe last level1">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+																															<h2 class="level1">Innovation</h2>
+							<p>
+	Wie k&ouml;nnen evangelische Werte in einer pluralen und offenen Gesellschaft glaubhaft gelebt und weiter gegeben werden? Wie gelingt personales Lernen und die F&ouml;rderung von Gemeinschafts-f&auml;higkeit gleichzeitig?&nbsp;&gt; <a href="/innovation">weiter</a></p>
+
+						
+
+
+					</div>
+				
+
+					<div class="verteil_gruppe links level2">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+																			<h2 class="level2">Unsere Schülerinnen und Schüler</h2>
+							<p>
+	Die Sch&uuml;lerinnen und Sch&uuml;ler unseres Gymnasiums sind vielf&auml;ltig begabt und engagiert. Davon zeugt auch der Gymiblog. Er ist 2007 als Maturarbeit entstanden und wird weiterhin von Sch&uuml;lerseite betreut.</p>
+
+							
+
+<p>Der Gymiblog: <a href="http://www.gymiblog.ch" target="_blank">Introduction to Shakespeare</a></p>
+
+
+
+
+
+																		
+
+
+					</div>
+				
+
+					<div class="verteil_gruppe mitte level2">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+													<div id="facebook_likebox">
+										<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fpages%2Funterstrassedu%2F121188934597682&amp;width=318&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=false&amp;height=183" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:318px; height:183px;" allowTransparency="true"></iframe>
+							</div>
+
+																								
+
+
+					</div>
+				
+
+					<div class="verteil_gruppe last level2">
+						<!-- flavia bitte anhand des verteilgruppen wertes if's basteln :) -->
+																									<h2 class="level2">Aktuelles</h2>
+							<div id="news">
+	
+		<div class="news_list">
+			<!--span class="news_date">13.04.2012</span-->
+			<span class="news_excerpt"><a href="/news_entry/chagall">Migrantenförderprogramm ChagALL: Anmeldeschluss neu 25. Mai 2011
+
+</a></span>
+		</div>
+	
+		<div class="news_list">
+			<!--span class="news_date">01.03.2012</span-->
+			<span class="news_excerpt"><a href="/news_entry/swisw_schulen">„Auf dem Weg zu einer SWiSE-Schule“
+Infoveranstaltung am 8. März 2012</a></span>
+		</div>
+	
+		<div class="news_list">
+			<!--span class="news_date">19.10.2011</span-->
+			<span class="news_excerpt"><a href="/news_entry/dido_aeneas2"></a></span>
+		</div>
+	
+		<div class="news_list">
+			<!--span class="news_date">30.06.2011</span-->
+			<span class="news_excerpt"><a href="/news_entry/news_2">Master-Studiengang "Umgang mit Heterogenität" Start Herbst 2011</a></span>
+		</div>
+	
+</div>
+							<a href="/news_archive/2012">zum Archiv</a>
+												
+
+
+					</div>
+				
+
+
+			</div>
+		
+
+		
+
+
+		
+		
+		
+		
+
+			
+		
+		
+		
+
+
+	<!-- end content -->
+	</div>
+
+	<div class="clear"></div>
+
+
+	
+	<div id="footer">
+	<div class="footer_links">	
+		<a href="/impressum">Impressum</a><span> | Weiterleiten:&nbsp;</span> 
+	</div>	
+	
+
+	<!-- AddThis Button BEGIN -->
+	<div class="addthis_toolbox addthis_default_style">
+		
+			<a class="addthis_button_email" title="Email"></a>
+			<a class="addthis_button_print" title="Drucken"></a>
+			<a class="addthis_button_facebook" title="Facebook"></a>
+			<a class="addthis_button_twitter" title="Tweet"></a>
+			<!-- <span class="addthis_separator">&nbsp;</span>
+			<a class="addthis_button_compact" title="More Choices">Mehr</a> -->
+	</div>
+	<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d07ace65e91d9a2"></script>
+	<!-- AddThis Button END -->
+    
+	
+<div id="facebook_like"><iframe src="http://www.facebook.com/plugins/like.php?href=www.unterstrass.edu&amp;layout=standard&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true"></iframe></div>
+
+		
+		
+	</div>
+	
+	
+	
+
+
+	<!-- end wrap -->
+	</div>
+	<!-- das ende-->
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,583 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=802" />  <!-- Tell iPod Touch, iPhone, etc. to display 802px wide -->
+<meta property="fb:page_id" content="84674909237" />  <!-- Facebook tracker -->
+<title>
+	Shoreline Community College
+</title><link href="/css/default.css" rel="stylesheet" type="text/css" /><link href="/jquery/superfish-1.4.8/css/superfishHomePageNumbersUnder.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="/jquery/jquery-1.4.2.min.js"></script> 
+<script type="text/javascript" src="/jquery/superfish-1.4.8/js/jquery-1.2.6.min.js"></script> 
+<script type="text/javascript" src="/jquery/superfish-1.4.8/js/hoverIntent.js"></script> 
+<script type="text/javascript" src="/jquery/superfish-1.4.8/js/superfish.js"></script> 
+<style type="text/css">
+
+
+/* Centered body containers for most webpages */
+.oneColFixCtr #container {
+	width: 800px;  /* using 20px less than a full 800px width allows for browser chrome and avoids a horizontal scroll bar */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	/* border: 1px solid #000000; */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	height: 600px;
+	background-image: url(images/home_page_banners/slide_001_app.jpg);
+}
+
+.oneColFixCtr #mainContent {
+	/* padding: 0 20px; /* remember that padding is the space inside the div box and margin is the space outside the div box */
+	padding: 0;	
+}
+
+.ourColleges {
+	position: absolute; 
+	top: 512px; 
+	left: 25px; 
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #00665B;
+	z-index: 3;
+	-webkit-text-size-adjust: none; /* Fix text size on iPod Touch & iPhone */
+}
+.ourColleges a { 
+	font-size: 12px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #00665B;
+}
+.ourColleges a:link {
+}
+.ourColleges a:visited {
+}
+.ourColleges a:hover   {
+	text-decoration:underline;
+}
+.ourColleges a:active  {
+	text-decoration:underline;
+}
+
+.homeFooter {
+	position: absolute;
+	top: 545px;
+	left: 0px;
+	width: 800px;
+	text-align: center;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #00665B;
+	line-height: normal;
+	z-index: 3;
+	-webkit-text-size-adjust: none;	/* Fix text size on iPod Touch & iPhone */
+}
+.homeFooter a {
+	font-size: 10px;
+	font-weight: bold; 
+	text-decoration: none;
+	color: #00665B;
+}
+.homeFooter a:link {
+}
+.homeFooter a:visited {
+}
+.homeFooter a:hover   {
+	text-decoration:underline;
+}
+.homeFooter a:active  {
+	text-decoration:underline;
+}
+
+</style>
+<script type="text/javascript" language="javascript">
+
+/* *****************************************************************
+Name       : google_site_search
+Version	   : 1.0
+Author	   : Gavin Smith
+Created	   : 05/19/2009
+Description: Contains standard site search code. Include on any 
+           : page that has a search box
+***************************************************************** */
+
+window.onload = function() 
+{
+	var f = document.getElementById('cse-search-box');
+	if (f) 
+	{
+		var q = document.getElementById('q');
+		var n = navigator;
+		var l = location;
+		if (n.platform == 'Win32') 
+		{
+			q.style.cssText = 'border: 1px solid #7e9db9; padding: 2px;';
+		}
+
+		var b = function() 
+		{
+			if (q.value == '') 
+			{
+				q.style.background = '#FFFFFF url(http:\x2F\x2Fwww.google.com\x2Fcoop\x2Fintl\x2Fen\x2Fimages\x2Fgoogle_custom_search_watermark.gif) left no-repeat';
+			}
+		};
+
+		var f = function() 
+		{
+			q.style.background = '#ffffff';
+		};
+		
+		q.onfocus = f;
+		q.onblur = b;
+		
+		if (!/[&?]q=[^&]/.test(l.search)) 
+		{
+			b();
+		}
+	}
+}
+
+ function SubmitOnEnter(myfield, e) 
+ {  
+	 var keycode;  
+	 if (window.event)  
+		 keycode = window.event.keyCode;  
+	 else if (e)  
+		 keycode = e.which;  
+	 else  
+		 return true;  
+	 if (keycode == 13)  
+	 {  
+		 googlesearch();  
+		 return false;  
+	 }  
+	 else  
+		 return true;  
+ }  
+
+googlesearch = function() 
+{
+    /*
+	window.location=
+		'http://www.shoreline.edu/Search.aspx?q=' + 
+		escape(document.getElementById('q').value) + 
+		'&cx=015329721119690393978:cdpqebfl09w&cof=FORID:11&sa=Search';
+    */
+	window.location=
+		'http://search.shoreline.edu/search?q=' + 
+		escape(document.getElementById('q').value) + 
+		'&site=default_collection&client=default_frontend&output=xml_no_dtd&proxystylesheet=default_frontend';
+}
+
+
+function makeDoubleDelegate(function1, function2) {
+    return function() {
+        if (function1)
+            function1();
+        if (function2)
+            function2();
+    }
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------
+//-- Rotating Image Code
+//-----------------------------------------------------------------------------------------------
+
+// (C) 2002 www.CodeLifter.com
+// http://www.codelifter.com
+// Free for all users, but leave in this header.
+
+	function ImgOnClick()  
+	{ 
+	   url = ImgLink.href;
+	   window.open(url,"PopupWindow","width=350,height=370,scrollbars=1"); 
+		return false; 
+	} 
+	
+	function runSlideShow()
+	{
+		if (document.all)
+		{
+			document.images.PictureBox.style.filter="blendTrans(duration=2)";
+			document.images.PictureBox.style.filter="blendTrans(duration=CrossFadeDuration)";
+			document.images.PictureBox.filters.blendTrans.Apply();
+		}
+		document.images.PictureBox.src = preLoad[jss].src;
+	
+		var ImgLink = document.getElementById("ImgLink");
+		var ImgRef = document.getElementById("ImgRef");
+		ImgLink.href = Link[jss];
+		ImgRef.alt = Alt[jss];
+		ImgLink.onclick = ImgOnClick;
+	
+		// if (document.getElementById) 
+		//	document.getElementById("CaptionBox").innerHTML= Caption[jss];
+		if (document.all) 
+			document.images.PictureBox.filters.blendTrans.Play();
+		jss = jss + 1;
+		if (jss > (pss)) 
+			jss=1;
+		tss = setTimeout('runSlideShow()', SlideShowSpeed);
+	}
+
+
+        
+/* *****************************************************************
+Name       : mm_rollovers
+Version	   : 1.0
+Author	   : Gavin Smith
+Created	   : 05/19/2009
+Description: Contains standard Macromedia Rollover code. Include on 
+           : any page that uses rollovers.
+***************************************************************** */
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+
+
+
+/* *****************************************************************
+Name       : fix_iPod_BG_Image_3Column
+Version	   : 1.0
+Author	   : Gavin Smith
+Created	   : 10/08/2009
+Description: iPod and iPod touch have a limit to the size image they will display. 
+             This function detects iPod/iPod touch and substitutes a smaller image 
+             that will display so that the user doesn't just see a white background. 
+             
+             This version of the function is for three-column backgrounds
+***************************************************************** */
+function fix_iPod_BG_Image_3Column()
+{
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i)) || (navigator.userAgent.match(/iPad/i)))
+	{
+		document.getElementById("mainContainer").style.backgroundImage = "url(/images/StandardBG_iPod.gif)";
+	}
+}
+
+
+/* *****************************************************************
+Name       : fix_iPod_BG_Image_LeftRailOnly
+Version	   : 1.0
+Author	   : Gavin Smith
+Created	   : 10/08/2009
+Description: iPod and iPod touch have a limit to the size image they will display. 
+             This function detects iPod/iPod touch and substitutes a smaller image 
+             that will display so that the user doesn't just see a white background. 
+             
+             This version of the function is for left-rail-only backgrounds
+***************************************************************** */
+function fix_iPod_BG_Image_LeftRailOnly()
+{
+	if((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))  || (navigator.userAgent.match(/iPad/i)))
+	{
+		document.getElementById("mainContainerLeftRailOnly").style.backgroundImage = "url(/images/LeftRailOnlyBG_iPod.gif)";
+	}
+}
+
+</script>
+<script type="text/javascript" language="javascript">
+    loadImages = function() {
+        MM_preloadImages('/images/BigButtonRollover.gif');
+     }
+    
+    /********************************************************************************************
+    * If you change the array below, you must identically change the array in DefaultBanner.aspx.cs     
+    *********************************************************************************************/
+    var bgArr = [
+        ["slide_001_app.jpg", "Gone Mobile: Phone apps are now available at www.shoreline.edu/mobile", "http://www.shoreline.edu/mobile"],
+        ["slide_002_connect.jpg", "Get Connect-ED: Stay Safe and Informed. www.shoreline.edu/connect", "http://www.shoreline.edu/connect"],
+        ["slide_003_greatdisc.jpg", "Great Discussions 2012: Six global issues, six Thursday evenings starting April 19", "http://www.shoreline.edu/gac"],
+        ["slide_004_sports.jpg", "Spring into sports: SCC's baseball, softball, and tennis take on the league", "http://new.shoreline.edu/athletics/"],
+        ["slide_005_multicultural.jpg", "Multicultural Week: Shaping Our World: One Struggle at a Time", "http://new.shoreline.edu/multicultural/"],
+        ["slide_006_cnc.jpg", "Rise of the Machinist: CNC program leads with national accreditation", "http://www.shoreline.edu/AcademicsNews/blog/default.aspx?id=104&t=Shoreline-leads-state-nation-with-job"],
+        ["slide_007_vets.jpg", "A veteran-friendly campus: Veteran Resource Center now open at Shoreline", "http://www.shoreline.edu/OnCampus/blog/default.aspx?id=150&t=Shoreline-Community-College-reaches-ou"],
+        ["slide_008_programs.jpg", "On a High Note: SCC's Music Technology Program students master the recording arts", "http://new.shoreline.edu/programs"],
+        ["slide_009_spring.jpg", "Register now! Summer quarter classes start June 25", "http://new.shoreline.edu/steps"]
+        ];
+               
+    //--- Get starting slide set in code behind
+    var i = 0 + 1; // 1;
+
+    /*
+    //--- Determine whether user is browsing with an iPod Touch or iPhone
+    var agent=navigator.userAgent.toLowerCase();
+    var is_iphone = ((agent.indexOf('iphone')!=-1));
+
+    //--- Start the slide show unless this is an iPhone/iPod Touch
+    if (!is_iphone)
+    {
+        var interval = self.setInterval("swapBkgnd()", 7500)
+    }
+    */
+    var interval = self.setInterval("swapBkgnd()", 7500)
+
+    /* *************************************************************
+    Name   : swapBkgnd
+    Purpose: Swap in the next image and its URL and Alt tag
+           :
+    Inputs : 
+    Returns: void
+    Author : Gavin Smith
+    Created: 04/05/2010
+    Modified by:
+    Modification:
+    ************************************************************ */    
+    function swapBkgnd() {      
+        if (i > (bgArr.length - 1)) {
+            i = 0;
+        }
+        var nextImage = "url(/images/home_page_banners/" + bgArr[i][0] + ")";
+
+        //--- Set background div image same as front div image
+        $("#back").css("backgroundImage",  $("#front").css("backgroundImage"));
+
+        //--- Hide front div
+        $("#front").css("display", "none");
+
+        //--- Set front div image to new image
+        $("#front").css("backgroundImage", nextImage);
+
+        //--- Now fade in front div
+        $("#front").fadeIn("200", function(){});
+
+        //--- Set the URL and alt tag for the caption
+        $("a#storyCaption").attr('alt', bgArr[i][1]);
+        $("a#storyCaption").attr('href', bgArr[i][2]);
+
+        //--- Highlight the menu item for the selected slide
+        $("li").attr("class", "");
+        $("li#slide" + (i + 1)).attr("class", "current");
+
+        //--- Set cookie with last story index so we can load next story next time user loads page
+        setCookie('shoreline.edu_homepage_laststory', i.toString(), 90);
+
+        i++;        
+    };
+
+    /* *************************************************************
+    Name   : goToSlide
+    Purpose: Display selected slide
+           :
+    Inputs : slide - integer next slide
+    Returns: void
+    Author : Gavin Smith
+    Created: 04/05/2010
+    Modified by:
+    Modification:
+    ************************************************************ */       
+    function goToSlide(slide) {
+        i = slide-1;
+        swapBkgnd();
+
+        //--- Stop slideshow
+        self.clearInterval(interval);
+    }
+
+    /* *************************************************************
+    Name   : setCookie
+    Purpose: Set cookie
+           :
+    Inputs : c_name     - cookie name
+           : value      - cookie value
+           : expiredays - days to expiration
+    Returns: void
+    Author : Gavin Smith
+    Created: 04/05/2010
+    Modified by:
+    Modification:
+    ************************************************************ */      
+    function setCookie(c_name, value, expiredays) {
+        var exdate = new Date();
+        exdate.setDate(exdate.getDate() + expiredays);
+        document.cookie = c_name + "=" + escape(value) +
+        ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString());
+    }    
+
+    //--- Initialize plugins
+    jQuery(function() {
+        jQuery('ul.sf-menu').superfish();
+    });    
+
+    window.onload = makeDoubleDelegate(window.onload, loadImages);
+</script>
+</head>
+<body class="oneColFixCtr">
+    
+<form name="form1" method="post" action="default.aspx" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTE1NDQ1NTk5MQ9kFgICAw9kFgICAQ8WAh4FY2xhc3MFB2N1cnJlbnRkZAGDFbyGs8U+xy6VAl03sPjieVQL" />
+</div>
+
+<div id="container" >
+
+<div id="back" style="position:relative; background-image: url(images/home_page_banners/slide_001_app.jpg); z-index: 0; height: 100%"; >
+
+     <!-- Google CSE Search Box Begins  -->
+    <div id="cse-search-box" style="position: absolute; top: 12px; left: 600px; z-index: 3">
+    	<table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+        <td valign="middle">
+        <input id="q" type="text" style="width: 150px; border: solid 1px #999999; margin: 0" onKeyPress="return SubmitOnEnter(this,event)" />
+        </td>
+        <td valign="middle">
+        <img style="margin-left: 3px;" src="/images/SearchGoButton.gif" onClick="googlesearch();return false;" alt="Go (Perform Search)" width="28" height="22" />
+        </td>
+        </tr>
+        </table>
+        <a href="http://new.shoreline.edu/sitemap/" class="searchAToZHomePage">A to Z Index</a>
+        <!-- <input id="q" type="text" style="width: 100px; border: solid 1px #999999; margin: 0" onkeydown="searchkeydown();" /><button style="width: 30px; margin-left: 2px;" onclick="googlesearch();return false;">Go</button> -->
+    </div>               
+    <!-- Google CSE Search Box Ends  -->
+
+    
+
+<div id="front" style="position:relative; z-index: 1; height: 100%; background-image: url(/images/home_page_banners/slide_001_app.jpg); height: 100%"" >
+
+
+    <div id="mainContent" style="position:relative; z-index: 2">
+    
+            
+<img alt="" src="/images/Transparent10x10.gif" width="769" height="150" border="0" usemap="#Map" style="position: relative; left: 10px; top: 47px" />
+<map name="Map" id="Map">
+  <area shape="rect" coords="645,7,745,45" href="http://new.shoreline.edu/pio/" alt="News and Events" />
+	<area shape="rect" coords="540,4,620,25" href="http://new.shoreline.edu/community/" alt="Community" />
+	<area shape="rect" coords="415,3,515,25" href="http://www.shoreline.edu/eLearning/" alt="Online Classes" />
+  <area shape="rect" coords="120,40,230,85" href="http://new.shoreline.edu/currentstudents/" alt="Current Students" />
+	<area shape="rect" coords="-37,85,120,149" href="http://new.shoreline.edu/steps/" alt="Future Students" />
+	<area shape="rect" coords="250,12,385,47" href="http://www.international.shoreline.edu/" alt="International Programs" />
+</map>
+
+<a style="position: absolute; left: 88px; top: 154px" href="http://new.shoreline.edu/whatcanilearn/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Learn','','/images/BigButtonRollover.gif',1)"><img src="/images/BigButton.gif" alt="What Can I Learn?" name="Learn" width="337" height="50" border="0" id="LearnArrow" /></a><br />
+
+
+<a style="position: absolute; left: 11px; top: 240px" href="http://new.shoreline.edu/steps/Pay-Tuition.aspx" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Cost','','/images/BigButtonRollover.gif',1)"><img src="/images/BigButton.gif" alt="How Much Will It Cost?" name="Cost" width="337" height="50" border="0" id="LearnArrow" /></a><br />
+
+
+<a style="position: absolute; left: 47px; top: 330px" href="http://new.shoreline.edu/steps/" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Start','','/images/BigButtonRollover.gif',1)"><img src="/images/BigButton.gif" alt="How Do I Start?" name="Start" width="337" height="50" border="0" id="LearnArrow" /></a><br />
+
+<a id="storyCaption" style="position: absolute; left: 300px; top: 440px" 
+    href="http://www.shoreline.edu/mobile"> 
+    <img src="/images/BigButton.gif" alt="Gone Mobile: Phone apps are now available at www.shoreline.edu/mobile" width="470" height="55" border="0" /></a><br />
+
+        <!-- HomePageNotice Was here --> 
+        
+
+    <!-- end #mainContent --></div>
+    
+
+</div>
+
+
+
+    <ul class="sf-menu" style="position: absolute; left:548px; top: 480px; font-size: 10px; z-index: 3"> 
+			<li id="slide1" class="current"> 
+				<a href="#" onClick="goToSlide(1)">1</a> 
+			</li>
+			<li id="slide2"> 
+				<a href="#" onClick="goToSlide(2)">2</a> 
+			</li>	
+			<li id="slide3"> 
+				<a href="#" onClick="goToSlide(3)">3</a> 
+			</li>	
+			<li id="slide4"> 
+				<a href="#" onClick="goToSlide(4)">4</a> 
+			</li>	
+			<li id="slide5"> 
+				<a href="#" onClick="goToSlide(5)">5</a> 
+			</li>	
+			<li id="slide6"> 
+				<a href="#" onClick="goToSlide(6)">6</a> 
+			</li>													
+			<li id="slide7"> 
+				<a href="#" onClick="goToSlide(7)">7</a> 
+			</li>													
+			<li id="slide8"> 
+				<a href="#" onClick="goToSlide(8)">8</a> 
+			</li>													
+			<li id="slide9"> 
+				<a href="#" onClick="goToSlide(9)">9</a> 
+			</li>			
+            <!-- 										
+			<li id="slide10"> 
+				<a href="#" onclick="goToSlide(10)">10</a> 
+			</li>
+            -->													
+		</ul> 
+
+      <h1>&nbsp;</h1>
+      <!--
+      <div id="ourColleges" class="ourColleges" style="font-size: ">&nbsp;&nbsp;<a href="http://www.international.shoreline.edu/">International Programs</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.shoreline.edu/CourseProgramDesignSystem/ClassSchedulePublic/ClassScheduleLive.aspx">Class Schedule</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/programsofstudyproftech.aspx">Professional/Technical Programs</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/degree01b.aspx">University Transfer</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.shoreline.edu/foundation/GiveOnline/">Foundation &#151; Make a Gift</a> 
+      </div>
+      -->
+      <div id="ourColleges" class="ourColleges" style="font-size: ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://new.shoreline.edu/programs/">Programs</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://new.shoreline.edu/CourseProgramDesignSystem/ClassSchedulePublic/ClassScheduleLive.aspx">Class Schedule</a>&nbsp;&nbsp;|&nbsp; 
+          <a href="http://new.shoreline.edu/calendars/">Calendars</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/workforce/">Workforce Education</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.shoreline.edu/foundation/GiveOnline/">Foundation &#151; Make a Gift</a> 
+      </div>
+      <div id="homeFooter" class="homeFooter">
+      &copy; 2012 Shoreline Community College &#8226; 16101 Greenwood Avenue North &#8226; Shoreline, WA 98133-5696<br />
+      Tel: (206) 546-4101 &nbsp; Fax: (206) 546-4630<br>
+      <div style="margin-bottom: 2px; text-align:center">
+		<br />
+        <a target="_blank" href="http://www.facebook.com/ShorelineCommunityCollege"><img src="images/SocialMediaBadges/facebook-25.jpg" alt="Visit our FaceBook site" width="25" height="25" /></a>
+        &nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="http://www.youtube.com/user/ShorelineCCvideos"><img src="images/SocialMediaBadges/youtube-25.png" alt="Visit our YouTube channel" /></a>
+        &nbsp;&nbsp;&nbsp;
+		<a target="_blank" href="http://twitter.com/#!/shorelinecc"><img src="images/SocialMediaBadges/twitter-25.jpg" alt="Follow us on Twitter" width="25" height="25" /></a>
+        &nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="http://www.flickr.com/photos/28500175@N07/collections/"><img src="images/SocialMediaBadges/flickr-25.jpg" alt="Visit our Flickr photostream" width="25" height="25" /></a>
+        &nbsp;&nbsp;&nbsp;
+        <a target="_blank" href="http://www.linkedin.com/groups?about=&gid=4420614"><img src="images/SocialMediaBadges/linkedin27.jpg" alt="Visit our LinkedIn Group" width="25" height="25" /></a>
+	  </div>
+      <br />
+      <a href="http://new.shoreline.edu/About-Shoreline/">About Us</a> | <a href="http://new.shoreline.edu/about-shoreline/accreditation.aspx">Accreditation</a> |&nbsp;<a href="http://new.shoreline.edu/About-Shoreline/strategic-plan.aspx">Mission</a> | <a href="http://new.shoreline.edu/currentstudents/privacyandnondiscrimination.aspx">Privacy and Non-Discrimination Statements</a> 
+          | <a href="http://intranet.shoreline.edu/intranethome/">Intranet</a></div>
+
+
+
+
+</div>
+    
+    
+    
+  <!-- end #container --></div>
+
+
+
+</form>
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-4212217-1");
+        pageTracker._trackPageview();
+    } catch (err) { }</script>
+</body>
+</html>
+

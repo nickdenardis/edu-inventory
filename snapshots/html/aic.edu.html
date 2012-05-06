@@ -1,0 +1,336 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html><head>
+
+<title>American International College</title>
+
+<link href="/aic3/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<link rel=stylesheet type="text/css" href="/aic3/css/home_page.css">
+<script type="text/javascript" src="/aic3/js/calendar.js"></script>
+<script type="text/javascript" src="/aic3/js/lang/calendar-en.js"></script>
+<script type="text/javascript" src="/aic3/js/calendar-setup.js"></script>
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-167797-3";
+urchinTracker();
+</script>
+
+
+<!-- include jQuery library for drop nav -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.js" type="text/javascript"></script>
+
+<!-- include jQuery library for drop nav local -->
+<script src="/aic3/new2/jquery.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+var timeout         = 500;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+
+function jsddm_open()
+{	jsddm_canceltimer();
+	jsddm_close();
+	ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible');}
+
+function jsddm_close()
+{	if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');}
+
+function jsddm_timer()
+{	closetimer = window.setTimeout(jsddm_close, timeout);}
+
+function jsddm_canceltimer()
+{	if(closetimer)
+	{	window.clearTimeout(closetimer);
+		closetimer = null;}}
+
+$(document).ready(function()
+{	$('#jsddm > li').bind('mouseover', jsddm_open);
+	$('#jsddm > li').bind('mouseout',  jsddm_timer);});
+
+document.onclick = jsddm_close;
+</script>
+
+
+<!-- include jQuery library -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.2.72.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade', // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		speed: 4500
+	});
+});
+</script>
+
+
+
+</head>
+
+<!-- full open -->
+<div id="full">
+
+<!-- top-nav open -->
+<div id="top-nav">
+<a href="/sitemap">SITE MAP</a> | 
+<a href="/campusalerts">ALERTS</a> | 
+<a href="/visitors/directions">DIRECTIONS</a> | 
+<a href="/library">LIBRARY</a> |
+<form action="/search/handler" method="get" style="display: inline; ">
+<input type="text" name="search" size="20" 
+  value="SEARCH"
+  style="margin: 6px; padding: 2px; font-size: x-small; font-weight: normal; 
+  border: 1px dotted #aaa; color: #000; background-color: white;"
+  onfocus="this.value=''"
+  onblur="this.value='SEARCH'"
+/>
+</form> 
+</div>
+
+<div id="main-nav">
+<ul id="jsddm">
+    <li><a href="/admissions">Admissions</a>
+        <ul>
+            <li><a href="/admissions/undergraduate">Undergraduates</a></li>
+            <li><a href="/admissions/transfer">Transfers</a></li>
+            <li><a href="/admissions/graduate">Graduate Students</a></li>
+            <li><a href="/xcp">XCP Programs</a></li>
+            <li><a href="/academics/ce">Undergraduate Degree Completion</a></li>
+            <li><a href="/admissions/international">International Students</a></li>
+            <li><a href="/financialaid">Financial Aid</a></li>
+        </ul>
+    </li>
+    <li><a href="/academics">Academics</a>
+        <ul>
+            <li><a href="/majors_programs">Majors & Programs</a></li>
+            <li><a href="/academics/aes">Arts Education & Sciences</a></li>
+            <li><a href="/academics/ba">Business Administration</a></li>
+            <li><a href="/academics/ce">Continuing Education</a></li>
+            <li><a href="/academics/hs">Health Sciences</a></li>
+            <li><a href="/academics/xcp">Extended Campus Programs (XCP)</a></li>
+            <li><a href="/registrar">Registrar's Office</a></li>
+            <li><a href="/cas">Center for Academic Success</a></li>
+            <li><a href="/curtisblake">Curtis Blake Center</a></li>
+        </ul>
+    </li>
+    <li><a href="/athletics">Athletics</a>
+        <ul>
+            <li><a href="/athletics/yellowjackets">Yellow Jackets Website</a></li>
+            <li><a href="/athletics/clubsports">Clubs Sports</a></li>
+            <li><a href="/athletics/intramurals">Intramurals</a></li>
+        </ul>
+    </li>
+    <li><a href="/campuslife">Campus Life</a>
+        <ul>
+            <li><a href="/campuslife/living_on_campus">Living on Campus</a></li>
+            <li><a href="/campuslife/student_activities">Student Activities</a></li>
+            <li><a href="/student_handbook">Student Handbook</a></li>
+            <li><a href="/athletics/intramurals">Campus Recreation</a></li>
+            <li><a href="/campuslife/contact">Contact Us</a></li>
+        </ul>
+    </li>
+    <li><a href="/alumni">Alumni</a>
+        <ul>
+            <li><a href="/alumni/calendar">Alumni Events</a></li>
+            <li><a href="/alumni/giving">Give</a></li>
+            <li><a href="/alumni/sendinfo">News & Updates</a></li>
+            <li><a href="/alumni/photos">Photos & Media</a></li>
+            <li><a href="/alumni/bookstore">Bookstore</a></li>
+            <li><a href="/alumni/transcript_request">Transcript Request</a></li>
+            <li><a href="/alumni/contact">Contact Us</a></li>
+        </ul>
+    </li>
+
+    <li><a href="/visitors">Visitors</a>
+        <ul>
+            <li><a href="/visitors/directions">Directions</a></li>
+            <li><a href="/visitors/campus_map">Campus Map</a></li>
+            <li><a href="/calendars">Calendars</a></li>
+            <li><a href="/visitors/lodging">Places to Stay</a></li>
+            <li><a href="/safety">Campus Safety</a></li>
+            <li><a href="/bookstore">Bookstore</a></li>
+        </ul>
+    
+    </li>
+    <li><a href="/ecampus">ECampus</a>
+        <ul>
+            <li><a href="/ecampus/firstclass">FirstClass Email</a></li>
+            <li><a href="http://cams.aic.edu/estudent">Student Registration Portal</a></li>
+            <li><a href="http://cams.aic.edu/efaculty">Faculty Registration Portal</a></li>
+            <li><a href="/blackboard">Blackboard</a></li>
+            <li><a href="/ecampus">More</a></li>
+        </ul>
+    </li>
+</ul>
+
+
+</div> <!-- main-nav close -->
+
+
+
+<!-- header container -->
+<div id="header">
+<div id="logo">
+<img width="280px" height="280px" src="/aic3/new2/logo.jpg">
+</div>
+
+<div id="header_img">
+	<div class="slideshow" style="z-index: -1; float: right">
+		<img src="/aic3/new2/headers/critical_thinking.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/my_aic_success.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/instant_friends.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/small_classes.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/learn_how_to_learn.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/my_aic_achievements.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/thrive_on_community.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/thrive_on_potential.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/my_aic_opportunities.jpg" width="620" height="280" />
+		<img src="/aic3/new2/headers/thrive_on_possibility.jpg" width="620" height="280" />
+	</div>
+</div> <!--close header_img-->
+
+<!-- close header container -->
+</div>
+
+
+<!-- action open -->
+<div id="iwant"><img width="280px" src="/aic3/new2/action/iwant.jpg"><a title="Request information" href="/requestinfo"><img height="40px" src="/aic3/new2/action/request-action.jpg"></a><a title="Schedule a visit" href="/admissions/visit"><img height="40px" src="/aic3/new2/action/visit-action.jpg"></a><a title="Apply now" href="/apply"><img height="40px" src="/aic3/new2/action/apply-action.jpg"></a><a title="Support the College" href="/give"><img height="40px" src="/aic3/new2/action/give-action.jpg"></a></div>
+
+<br>
+<!-- spot open -->
+
+<div id="spots">
+
+<div id="spot1">
+<h1>News</h1>
+
+<h2>Run for Education</h2>
+<p>
+<b>Jun 10</b> 5k race highlights importance of PreK-12 educators in our children's lives and our communities
+<span class="more"><a href="/run">More...</a></span>
+</p>
+<br>
+<h2>Commencement</h2>
+<p>
+<b>May 20</b> Commencement 
+<span class="more"><a href="/commencement">More...</a></span>
+</p>
+
+<p class="viewall">
+<a href="/news">View more News</a> 
+</p>
+
+
+</div>
+
+<div id="spotsep"></div>
+<div id="spot2">
+<h1>Events & Calendar</h1>
+
+<h2>Veterans Ribbon Ceremony</h2>
+<p>
+This year's ribbon ceremony will honor eight graduating seniors <b>May 2</b>. 
+<span class="more"><a href="/news/2012_admiral_hines_alumni_veterans_ribbon_ceremony">More...</a></span> 
+</p>
+
+<p class="viewall">
+<a href="/calendars">View more Events</a> 
+</p>
+
+
+<h2>President's Cup</h2>
+<p>
+<b>Jun 7</b> Event benefits AIC's student-athletes. 
+<span class="more"><a href="/presidentscup">More...</a></span>
+</p>
+
+<p class="viewall">
+<a href="/news">View more News</a> 
+</p>
+
+
+
+</div>
+
+<div id="spotsep"></div>
+
+<div id="spot3">
+<a title="Open House" href="/admissions/graduate/events/?id=2096"><img src="/aic3/grad_open_house.jpg"></a>
+</div>
+
+
+<div id="spotsep"></div>
+
+<div id="spot4">
+<a title="Transfer to AIC" href="/admissions/transfer"><img src="/aic3/new2/transfer.jpg"></a>
+</div>
+
+
+</div>
+
+<div id="contact">
+AMERICAN INTERNATIONAL COLLEGE | 1000 State Street | Springfield MA 01109 | 800.242.3142 | <span class="gold">TRANSFORMING LIVES SINCE 1885</span>
+</div>
+
+
+
+<!-- foot open -->
+<div id="footers">
+
+<div id="foot1">
+<h1>Schools</h1>
+<p><a href="/academics/aes">Arts, Education & Sciences</a></p>
+<p><a href="/academics/ba">Business Administration</a></p>
+<p><a href="/academics/hs">Health Sciences</a></p>
+<p><a href="/academics/ce">Continuing Education</a></p>
+<p><a href="/academics/xcp">XCP Programs</a></p>
+</div>
+
+
+<!-- <div id="foot2"> </div> -->
+
+
+<div id="foot3">
+<h1>Popular</h1>
+<p><a href="/commencement">Commencement</a></p> 
+<p><a href="/calendars/academic_calendar">Academic Calendar</a></p> 
+<p><a href="/catalogs/2011-2013">Academic Catalog</a></p> 
+<p><a href="/courseschedules">Course Schedules</a></p> 
+<p><a href="/ecampus">ECampus</a></p> 
+<p><a href="/spotlight">Spotlight</a></p> 
+<p><a href="/athletics/yellowjackets">Sports info</a></p>
+<p><a href="/sitemap">Everything</a> </p>
+</div>
+
+<div id="foot4">
+<h1>The Campus</h1>
+<p><a href="/about">About the College</a></p> 
+<p><a href="/directories">Directories</a></p> 
+<p><a href="/visitors/campus_map">Campus map</a></p>
+<p><a href="/visitors/directions">Directions</a></p>
+<p><a href="/visitors">Visitor info</a></p>
+<p><a href="/jobs">Employment Opportunities</a></p>
+</div>
+
+<div id="social">
+<h1>Social</h1>
+<p><a title="Facebook" href="/facebook"><img src="/aic3/new2/facebook_32.png"></a> 
+<a title="Twitter" href="/twitter"><img src="/aic3/new2/twitter_32.png"></a></p> 
+<p><a title="Flickr" href="/flickr"><img src="/aic3/new2/flickr_32.png"></a> 
+<a title="YouTube" href="/youtube"><img src="/aic3/new2/youtube_32.png"></a></p> 
+</div>
+
+
+<!-- footers close  -->
+</div>
+
+
+
+<!-- full close -->
+<div>
+
+</html>

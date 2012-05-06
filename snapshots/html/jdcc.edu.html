@@ -1,0 +1,589 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Jefferson Davis Community College</title>
+	<meta name="description" content=" " >
+	<meta name="keywords" content=" " >
+	<meta name="verify-v1" content="c2X8aBEhGLGlKDLlVplB5HAhGyM0nTIWoHrlQSC3qHk=" >
+	<script type="text/javascript" language="JavaScript">
+<!--
+
+// This gpa calculator script was written by Matt Stueve, mstueve@blue.weeg.uiowa.edu
+// Feel free to re-distribute, but please leave this notice in place
+
+// Modified by Andy Wilkerson (enzin.com) Sept. 29, 2008
+
+
+function round2d(n){return(.01* Math.round(100*n));}
+
+var gr = ["A", "B", "C", "D", "F",];
+var cr = [4, 3, 2, 1, 0];
+
+function gpacalc(method) {
+
+	// user inputs
+	var ingr = [document.GPACalcForm.GR1.value, document.GPACalcForm.GR2.value, document.GPACalcForm.GR3.value, document.GPACalcForm.GR4.value, document.GPACalcForm.GR5.value, document.GPACalcForm.GR6.value];
+	var incr = [document.GPACalcForm.CR1.value, document.GPACalcForm.CR2.value, document.GPACalcForm.CR3.value, document.GPACalcForm.CR4.value, document.GPACalcForm.CR5.value, document.GPACalcForm.CR6.value];
+
+	// Calculate GPA
+	var allgr = 0;
+	var allcr = 0;
+	var gpa = 0;
+	for (var x = 0; x < ingr.length; x++) {
+		if (ingr[x] == 0) {break;}
+		if (incr[x] == "") {incr[x] = 0;}
+		if (incr[x] == parseFloat(incr[x])) {
+			allgr = allgr + (parseInt(incr[x],10) * ingr[x]);
+			allcr = allcr + parseInt(incr[x],10);
+		}else {
+			alert("Oops! You've entered an invalid character.");
+		}
+	}
+
+	// this if-check prevents a divide by zero error
+	if (allcr == 0 && method == 'clicked') {
+		alert("Error- You did not enter any credit values! GPA = N/A");
+		return 0;
+	}
+
+	var gpa = round2d(allgr / allcr);
+	var gpa = Math.round(10000*eval(gpa))/10000;
+
+	document.getElementById('EstGPA').innerHTML = (gpa == parseFloat(gpa)) ? gpa : "-";
+
+
+	// Cumulative GPA
+
+	// set variables
+	var cumGPAnum = 0;
+	var cumCredTotal = 0;
+
+	// retrieve user input
+	cumGPAnum = parseFloat(document.GPACalcForm.cumGPA.value);
+	cumCredTotal = parseFloat(document.GPACalcForm.cumCredits.value);
+	if (method == 'clicked') {
+		if (document.GPACalcForm.cumGPA.value == "") {
+			alert("You need to enter your previous cumulative gpa in order to calculate your new one.");
+			return 0;
+		}
+		if (document.GPACalcForm.cumCredits.value == "") {
+			alert("You need to enter the total number of credits you earned prior to this semester.");
+			return 0;
+		}
+		if (document.GPACalcForm.cumGPA.value == gpa) {
+			if (confirm("Are you sure you are entering your previous cumulative GPA, and not your new semester GPA?" + " Hit OK if your sure, otherwise hit Cancel to change your values.")) {
+			} else {
+				return 0;
+			}
+		}
+	}
+
+	// find total points
+	var points = 0;
+	points = (cumGPAnum * cumCredTotal);
+
+	// Add semester values to cumulative
+	points = points + allgr;
+	var credits = 0;
+	credits = cumCredTotal + allcr;
+
+	// Calculate new cumulative gpa
+	var newCum = 0;
+	newCum = round2d(points / credits);
+	var newCum = Math.round(10000*eval(newCum))/10000;
+
+	document.getElementById('EstCumGPA').innerHTML = (newCum == parseFloat(newCum)) ? newCum : "-";
+
+	return 0;
+}
+
+function UpdateGpa(method) {gpacalc(method);}
+
+function ResetGPA() {
+	document.getElementById('EstGPA').innerHTML = "-";
+	document.getElementById('EstCumGPA').innerHTML = "-";
+}
+
+//-->
+
+
+		function replaceAll(str, from, to)
+		{
+			var idx = str.indexOf(from);
+
+			while (idx > -1)
+			{
+				str = str.replace(from, to);
+				idx = str.indexOf(from);
+			}
+
+			return str;
+		}
+
+		function CacheImage(ImageSource)// TURNS THE STRING INTO AN IMAGE OBJECT
+		{
+			var ImageObject = new Image();
+
+			ImageObject.src = ImageSource;
+			altText = ImageSource.substring(ImageSource.lastIndexOf("/") + 1, ImageSource.lastIndexOf("."));
+			ImageObject.alt = replaceAll(altText, "_", " ");
+
+			return ImageObject;
+		}
+
+		function ShowSlide(Direction)
+		{
+			if (SlideReady)
+			{
+				NextSlide = CurrentSlide + Direction;
+
+				if (NextSlide >= 0 && NextSlide < Slides.length)
+				{
+					document.images['Screen'].src = Slides[NextSlide].src;
+					document.images['Screen'].alt = Slides[NextSlide].alt;
+					CurrentSlide = NextSlide++;
+
+					if (Direction == 1)
+					{
+						CacheNextSlide();
+					}
+				}
+				else
+				{
+					document.images['Screen'].src = Slides[0].src;
+					document.images['Screen'].alt = Slides[0].alt;
+					CurrentSlide = 0;
+					NextSlide = 1;
+
+					if (Direction == 1)
+					{
+						CacheNextSlide();
+					}
+				}
+
+				return true;
+			}
+		}
+
+		function Download()
+		{
+			if (Slides[NextSlide].complete)
+			{
+				SlideReady = true;
+			}
+			else
+			{
+				setTimeout("Download()", 100); // CHECKS DOWNLOAD STATUS EVERY 100 MS
+			}
+
+			return true;
+		}
+
+		function CacheNextSlide()
+		{
+			if (NextSlide < Slides.length && typeof Slides[NextSlide] == 'string')// ONLY CACHES THE IMAGES ONCE
+			{
+				SlideReady = false;
+				Slides[NextSlide] = CacheImage(Slides[NextSlide]);
+				Download();
+			}
+
+			return true;
+		}
+
+		function StartSlideShow()
+		{
+			CurrentSlide = -1;
+			Slides[0] = CacheImage(Slides[0]);
+			SlideReady = true;
+			ShowSlide(1);
+		}
+		function send_email_f(emailto,subject){
+			var popurl="http://www.jdcc.edu/includes/email.php?subject=" + subject + "&email=" + emailto
+			winpops=window.open(popurl,"","width=500,height=480")
+		}
+		<!-- // FUNCTIONS IN THIS SECTION ARE FOR Bb INTEGRATION TO LINK TO FACULTY PAGES -->
+function wait(msecs)
+{
+var start = new Date().getTime();
+var cur = start
+while(cur - start < msecs)
+{
+cur = new Date().getTime();
+}
+}
+var newwindow;
+function openlogin(url)
+{
+	newwindow=window.open('https://blackboard.jdcc.edu/webapps/login?action=guest_login','guestlogin','height=1,width=1');
+	wait(500);
+	if (window.focus) {window.focus()}
+	newwindow.location='https://blackboard.jdcc.edu/webapps/login?action=guest_login';
+	window.location='https://blackboard.jdcc.edu/webapps/blackboard/execute/courseMain?course_id='+url;
+	wait(1000);
+	newwindow.close();
+}
+<!-- // END Bb INTEGRATION SECTION -->
+
+	</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0" marginheight="0" onLoad=StartSlideShow();>	<script language="javascript" type="text/javascript">
+		shuffle = function(v)
+		{
+			for(var j, x, i = v.length; i; j = parseInt(Math.random() * i), x = v[--i], v[i] = v[j], v[j] = x); return v;
+		};
+
+		var tempSlides = new Array('/images/main_golf.jpg','/images/main_2011-nursing-full.jpg','/images/main_2009-athletics.jpg','/images/main_2009-students2.jpg','/images/main_2011-math-full.jpg','/images/main_2011-sign-full.jpg','/images/main_quad.jpg','/images/main_2011-technical-double.jpg','/images/main_2011-nursing-triplet.jpg','/images/main_basketball.jpg');
+		var Slides = shuffle(tempSlides);
+	</script>
+	<map id="mainImage" name="mainImage" alt="Various pictures">
+		<area shape="rect" coords="536,216,573,233" href="#" title="Next" onclick="ShowSlide(1)" alt="click to see the next picture">
+		<area shape="default" nohref="nohref" alt="click to see the next picture" >
+	</map>
+	<div align="center">
+		<table cellspacing="0" cellpadding="0" width="760">
+			<tr>
+				<td align="left">	<script type="text/javascript" src="/anylink.js">
+
+/***********************************************
+* AnyLink CSS Menu script-  Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+
+</script>
+<script type="text/javascript" language="javascript">
+function goSearch()
+{
+	//alert(document.SlideShow.searchType[0].checked);
+	//alert(document.Search.formInputBox.value);
+	//if (document.Search.searchType[0].checked)
+	//{
+		//alert('test');
+		//document.SlideShow.action='';
+		//document.location.href='http://www.google.com/search?sourceid=navclient&ie=UTF-8&rlz=1T4GGLF_en___US220&q=site%3awww%2ejdcc%2eedu+' + document.SlideShow.formInputBox.value;
+		document.location.href='/?tag=search&action=0&submitsearch=1&search_for=' + document.Search.formInputBox.value;
+		return false;
+	//}
+	//else
+	//{
+		//document.Search.submit();
+		//return true;
+	//}
+}
+
+</script>
+<!-- <style> .anylinkcss{ position:absolute; visibility: hidden; border:1px solid black; border-bottom-width: 0; font:normal 10px Verdana; line-height: 12px; z-index: 100; background-color: #a2daf0; width: 205px; font-color:white; }
+	.anylinkcss a{ width: 100%; display: block; text-indent: 3px; border-bottom: 1px solid black; padding: 1px 0; text-decoration: none; font-weight: bold; text-indent: 5px; }
+	.anylinkcss a:hover{ /*hover background color*/ background-color: black; color: white; }
+	</style>
+-->
+<div id="anylinkmenu2" class="anylinkcss" style="WIDTH: 130px; BACKGROUND-COLOR: white">
+	<a href="https://blackboard.jdcc.edu/webapps/login/">Blackboard</a>
+	<a href="https://mail.google.com/a/warhawks.jdcc.edu/">Email for Students</a>
+	<a href="https://mail.google.com/a/warhawks.jdcc.edu/">Email for Employees</a>
+	<a href="https://www.jdcc.edu/hawksnest/">Hawk's Nest</a>
+    <a href="https://www.myschoolcast.com/go/jdcc/">JD Alert</a>
+	<a href="/?tag=login&action=">JD Warhawk Login</a>
+	<a href="http://www.mathxl.com/login_acct.htm">MyAccountingLab</a>
+	<a href="http://www.coursecompass.com">MyMathLab</a>
+	<a href="http://www.myreadinglab.com">MyReadingLab</a>
+	<a href="http://www.mywritinglab.com">MyWritingLab</a>
+    <a href="https://www.jdcc.edu/hawksnest">Register Online</a>
+	<a href="http://stars.troy.edu/">STARS</a>
+	<A href="https://mail.google.com/a/warhawks.jdcc.edu/" target=_self>Google E-mail/Apps</A>
+
+</div>
+<map id="jdcc_home_top_nav_bar" name="jdcc_home_top_nav_bar" alt="Links to various components of the JDCC Website">
+	<area shape="RECT" coords="120,10,240,32" href="/future/" title="Future Students" alt="Future Students">
+	<area shape="RECT" coords="270,10,395,32" href="/current/" title="Current Students" alt="Current Students">
+	<area shape="RECT" coords="420,10,530,32" href="/employees/" title="Faculty &amp; Staff" alt="Faculty and Staff">
+	<area shape="RECT" coords="550,10,650,32" href="/hawksnest/" title="Hawk's Nest" alt="Hawk's Nest">
+	<area shape="RECT" coords="676,10,740,32" href="/visitors/" title="Visitors" alt="Visitors">
+
+</map>
+<map id="jdcc_logo" name="jdcc_logo" alt="The JDCC logo, linking back to the main page">
+	<area alt="The JDCC logo, linking back to the main page" shape="RECT" coords="0,0,175,85" href="/" title="Jefferson Davis Community College">
+	<area alt="JDCC Facebook" shape="RECT" coords="265,6,285,26" href="http://goo.gl/Oyntf" target="_blank" title="JDCC Facebook">
+	<area alt="JDCC Twitter" shape="RECT" coords="288,5,308,26" href="http://goo.gl/q2Ytt" target="_blank" title="JDCC Twitter">
+	<area alt="JDCC Google+" shape="RECT" coords="311,5,334,26" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC Google+">
+	<area alt="JDCC YouTube" shape="RECT" coords="265,30,334,50" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC YouTube">
+</map>
+
+<map id="jdcc_social" name="jdcc_social" alt="The JDCC social network">
+	<area alt="JDCC Facebook" shape="RECT" coords="265,6,285,26" href="http://goo.gl/Oyntf" target="_blank" title="JDCC Facebook">
+	<area alt="JDCC Twitter" shape="RECT" coords="288,5,308,26" href="http://goo.gl/q2Ytt" target="_blank" title="JDCC Twitter">
+	<area alt="JDCC Google+" shape="RECT" coords="311,5,334,26" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC Google+">
+	<area alt="JDCC YouTube" shape="RECT" coords="265,30,334,50" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC YouTube">
+	<area alt="JDCC LinkedIn" shape="RECT" coords="265,52,334,67" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC LinkedIn">
+</map>
+
+<map id="jdcc_social_ie" name="jdcc_social_ie" alt="The JDCC social network">
+	<area alt="JDCC Facebook" shape="RECT" coords="34,6,54,26" href="http://goo.gl/Oyntf" target="_blank" title="JDCC Facebook">
+	<area alt="JDCC Twitter" shape="RECT" coords="57,5,77,26" href="http://goo.gl/q2Ytt" target="_blank" title="JDCC Twitter">
+	<area alt="JDCC Google+" shape="RECT" coords="80,5,103,26" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC Google+">
+	<area alt="JDCC YouTube" shape="RECT" coords="165,30,234,50" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC YouTube">
+	<area alt="JDCC LinkedIn" shape="RECT" coords="165,52,234,67" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC LinkedIn">
+</map>
+
+<table border="0" cellpadding="0" cellspacing="0"  style="background-image:url('/images/jdcc_top-new-top-only8.gif');" width="760">
+
+	<tr>
+		<td><img alt="this is a spacer" src="/images/27by21.gif" border="0" height="85" width="150" usemap="#jdcc_logo"></td>
+		<td valign="top" align="center">
+
+			<table border="0" cellpadding="0" cellspacing="0" id="masthead">
+				<tr>
+					<td>
+								<div id="jdccsmall">
+								<form action="" method="post" name="Search" onsubmit="return goSearch();">
+								<input type="hidden" name=submitsearch value="1">
+								<input type="hidden" name=search value="lname">
+								<input type="hidden" name="searchType" id="searchType" ALT="Search the JDCC WebSite" value="">
+								<img alt="this is a spacer3 /mainindex.php" src="/images/20by334.gif" border="0" height="25" width="150" usemap="#jdcc_social_ie"><br>&nbsp;
+
+
+
+
+								<img alt="this is a spacer" src="/images/27by21.gif" border="0" height="1" width="410"><input type="text" name="formInputBox" id="formInputBox" value="Search JDCC" onFocus="this.value=''" alt="Input your search value">
+								<!-- <a href="javascript:goSearch();"><img src="/images/btn_go.gif" alt="Click to search" width="21" height="21" border="0" align="middle"></a> -->
+								&nbsp;
+								<img alt="this is a spacer" src="/images/27by21.gif" border="0" height="1" width="410"><img alt="Down Arrow" src="/images/arrow_down_rednew.gif" width="16" height="6"><a href="http://www.jdcc.edu/contact/">Contact Us</a> &nbsp;&nbsp;&nbsp;&nbsp; <img alt="Down Arrow" src="/images/arrow_down_rednew.gif" width="16" height="6"><a href="#" onClick="return clickreturnvalue()" onMouseover="dropdownmenu(this, event, 'anylinkmenu2')">JD &nbsp;Tools</a>
+								</form>
+								</div>
+
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+	<tr>
+		<td><img src="/images/jdcc_top-new-middle-only7.gif" alt="top_nav_bar" width="760" height="33" border="0" usemap="#jdcc_home_top_nav_bar"></td>
+	</tr>
+</table><script type="text/javascript">
+	function newspop(newsurl){
+		window.open(newsurl,"Window1","menubar=no,location=no,scrollbars=yes,titlebar=no,toolbar=no,directories=no,width=650,height=300,toolbar=no");
+	}
+</script>
+					<table cellspacing="0" cellpadding="0" width="760" border="0">
+						<tr>
+							<td valign="top" align="left">
+								<table cellspacing="0" cellpadding="0" width="186" style="background-image: url(images/jdcc_home_left_nav_bkg-white.jpg);" border="0">
+									<tr>
+										<td height="234"><img height="1" src="images/1x1.gif" width="1" alt="this is a spacer" ></td>
+										<td class="whitejdccLinks" valign="top">
+											<a href="/about/">About JDCC</a><br>
+											<a href="/athletics/">Athletics</a><br>
+											<a href="/catalog/">Catalog</a><br>
+											<a href="/calendar/">Calendars</a><br>
+											<a href="/employment/">Employment</a><br>
+											<a href="http://directory.jdcc.edu">Faculty/Staff Directory</a><br>
+											<a href="/library/">Library</a><br>
+											<a href="/programs/">Programs</a><br>
+											<a href="/schedule/">Schedule</a><br>
+											<a href="/activities/">Student Activities</a>
+											<a href="/workforce/">Workforce Development</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+							<td bgcolor="C30F00" valign="top">
+								<table cellspacing="0" cellpadding="0" border="0">
+									<tr>
+										<td valign="top"><img name="Screen" usemap="#mainImage" border="0" alt="this is a spacer" src="images/1x1.gif" ></td>
+									</tr>
+								</table>
+						  </td>
+						</tr>
+					</table>
+<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+		<td valign="top" class=""><img src="images/1x1.gif" width="45" height="5" alt="this is a spacer">
+		</td>
+	</tr>
+<!-- ANNOUNCEMENT ROW -->
+					<!-- SPACER ROW -->
+	<tr>
+		<td colspan='3' class="" height='5' bgcolor='#FFFFFF'>
+		</td>
+	</tr>
+<!-- Header ROW -->
+	<tr>
+		<td valign="top" width=50% bgcolor=#083678>
+		</td>
+		<td valign="top" class=""><img src="images/1x1.gif" width="2" height="15" alt="this is a spacer">
+		</td>
+		<td valign="top" width=50% bgcolor=#083678>
+		</td>
+	</tr>
+<!-- COL1 -->
+	<tr>
+		<td valign="top" class="" bgcolor='#eff2f5'>
+				<table border="0">
+					<tr>
+						<td colspan="2"><img height="12" src="images/1x1.gif" width="10" alt="this is a spacer" ></td>
+					</tr>
+					<tr>
+						<td>
+							<table border='0'>
+								<tr>
+									<td><a href='http://www.jdcc.edu/netpricecalculator/'><img alt="Net Price Calculator" src='/images/netprice.jpg' border='0'></a>
+									</td>
+									<td class='Spotlight' style='PADDING-LEFT: 10px'>
+												<h3><a href="http://www.jdcc.edu/netpricecalculator/">Net Price Calculator</a></h3>
+												<img border='0' align='bottom' src='images/arrow_right_red.gif' alt='red right arrow' > &nbsp;The JDCC Net Price Calculator can show you real costs for attending college (including estimated living expenses!).<br>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td><hr width="310" size="1"></td>
+					</tr>
+					<tr>
+						<td>
+							<table border='0'>
+								<tr>
+									<td>
+										<a href='/ww/'><img alt='Warhawk Word' src='images/warhawk.gif' border='0'></a>
+									</td>
+									<td class='Spotlight' style='PADDING-LEFT: 10px'>
+										<h3><a href="/ww">Warhawk Word Online</a></h3><img border='0' align='bottom' src='images/arrow_right_red.gif' alt='red right arrow' > &nbsp;<a href='/ww/12_may.pdf'>The Warhawk Word May 2012 issue</a> is now available.
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					</tr>
+					<tr>
+						<td>
+							<hr width="310" size="1">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table border='0'>
+								<tr>
+									<td>
+										<a href='http://www.jdcc.edu/arra/'><img src="/arra/arralogo.png" border="0" alt="American Reinvestment and Recovery Act of 2009"></a>
+									</td>
+									<td class='Spotlight' style='PADDING-LEFT: 10px'>
+										<h3><a href="http://www.jdcc.edu/arra">American Recovery and Reinvestment Act of 2009</a></h3>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<hr width="310" size="1">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<table border='0'>
+								<tr>
+									<td>
+										<a href='https://www.jdcc.edu/hea/ConsumerInformation.pdf'><img src="/images/consumer-information.jpg" border="0" alt="JDCC Consumer Information"></a>
+									</td>
+									<td class='Spotlight' style='PADDING-LEFT: 10px'>
+										<h3><a href="https://www.jdcc.edu/hea/ConsumerInformation.pdf">Consumer Information</a></h3>
+										<img border='0' align='bottom' src='images/arrow_right_red.gif' alt='red right arrow' >Thinking about college?  Visit the <a href="https://www.jdcc.edu/hea/ConsumerInformation.pdf">JDCC Consumer Information</a> page!
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+			</table>
+
+<!-- COL1 END -->
+			</td>
+			<td>
+			</td>
+			<td valign="top" bgcolor='#eff2f5'>
+<!-- COL2 -->
+<!-- EVENTS START -->
+					<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+							<td><img src="images/1x1.gif" width="1" height="12" alt="this is a spacer"></td>
+						</tr>
+						<tr>
+							<td></td>
+						</tr>
+						<tr>
+							<td>
+								<table border='0' cellspacing='0' cellpadding='0'>
+										<tr><td class='NewsBullets'><img src='images/1x1.gif' width='20' height='1' alt='this is a spacer'><b>Apr 09 - May 11</b><br><table border='0' cellpadding='0'><tr><td><img src='images/1x1.gif' width='30' height='1' alt='this is a spacer'></td><td class='Spotlight'> <img border='0' align='bottom' src='/images/arrow_right_red.gif' alt='red right arrow' > &nbsp; <a href="/includes/download.php?action=212&download_file_id=6838">Summer 2012 Pre-Registration </a></td></tr></table></td></tr><tr><td class='NewsBullets'><img src='images/1x1.gif' width='20' height='1' alt='this is a spacer'><b>Apr 09 - Aug 03</b><br><table border='0' cellpadding='0'><tr><td><img src='images/1x1.gif' width='30' height='1' alt='this is a spacer'></td><td class='Spotlight'> <img border='0' align='bottom' src='/images/arrow_right_red.gif' alt='red right arrow' > &nbsp; <a href="/includes/download.php?action=212&download_file_id=6846">Fall 2012 Pre-Registration  </a></td></tr></table></td></tr><tr><td class='NewsBullets'><img src='images/1x1.gif' width='20' height='1' alt='this is a spacer'><b>May 11</b><br><table border='0' cellpadding='0'><tr><td><img src='images/1x1.gif' width='30' height='1' alt='this is a spacer'></td><td class='Spotlight'> <img border='0' align='bottom' src='/images/arrow_right_red.gif' alt='red right arrow' > &nbsp; <a href="/includes/download.php?action=212&download_file_id=6839">Summer Pre-Reg Payment Deadline - 3:30pm </a></td></tr></table></td></tr><tr><td class='NewsBullets'><img src='images/1x1.gif' width='20' height='1' alt='this is a spacer'><b>May 17</b><br><table border='0' cellpadding='0'><tr><td><img src='images/1x1.gif' width='30' height='1' alt='this is a spacer'></td><td class='Spotlight'> <img border='0' align='bottom' src='/images/arrow_right_red.gif' alt='red right arrow' > &nbsp; <a href="/includes/download.php?action=212&download_file_id=6837">Summer 2012 Registration Day until 6pm </a></td></tr></table></td></tr>								</table>
+							</td>
+						</tr>
+						<tr>
+							<td align='right' class='Spotlight'>
+								<br>
+									    <a  href='/events'><u>More events . . .</u></a>
+							</td>
+						</tr>
+					</table>
+<!-- EVENTS END -->
+<!-- COL2 END -->
+			</td>
+		</tr>
+		</table>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">
+
+<map id="jdcc_social_footer" name="jdcc_social_footer" alt="The JDCC social network">
+	<area alt="JDCC Facebook" shape="RECT" coords="25,133,48,153" href="http://goo.gl/Oyntf" target="_blank" title="JDCC Facebook">
+	<area alt="JDCC Twitter" shape="RECT" coords="51,137,74,153" href="http://goo.gl/q2Ytt" target="_blank" title="JDCC Twitter">
+	<area alt="JDCC Google+" shape="RECT" coords="77,137,100,153" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC Google+">
+	<area alt="JDCC YouTube" shape="RECT" coords="25,161,90,176" href="http://goo.gl/uMBVG" target="_blank" title="JDCC YouTube">
+</map>
+<map id="jdcc_social_footer_ie" name="jdcc_social_footer_ie" alt="The JDCC social network">
+	<area alt="JDCC Facebook" shape="RECT" coords="17,133,40,156" href="http://goo.gl/Oyntf" target="_blank" title="JDCC Facebook">
+	<area alt="JDCC Twitter" shape="RECT" coords="43,137,66,156" href="http://goo.gl/q2Ytt" target="_blank" title="JDCC Twitter">
+	<area alt="JDCC Google+" shape="RECT" coords="69,137,93,156" href="http://goo.gl/ZMTNC" target="_blank" title="JDCC Google+">
+	<area alt="JDCC YouTube" shape="RECT" coords="17,161,90,176" href="http://goo.gl/uMBVG" target="_blank" title="JDCC YouTube">
+</map>
+
+		<table width="760" height="188" style="background-image:url('/images/bottom_bar7.gif '); color:#FFFFFF; font-size:0.78em; font-family:Verdana, Arial, Helvetica, sans-serif; text-decoration:none;">
+		<tr>
+		  <td align="left" style="padding-left:16px; padding-top:65px;" ><br >
+		  <div class="content_text"><font color="#fffff"><br> &nbsp;<br>&nbsp;<br>
+		<a href="mailto:information@jdcc.edu" style="color:#FFFFFF;">Questions?</a> |
+<a href="/contact/" style="color:#FFFFFF;">Contact Us</a> | <a href="https://www.jdcc.edu/hea/ConsumerInformation.pdf" style="color:#FFFFFF;">Consumer Information</a> | P.O. Box 958 Brewton, AL 36427<br >
+			<a href="/admissions" style="color:#FFFFFF;">Admissions</a>: 251-809-1594 | College Information: 251-867-4832 | &copy; 2012 JDCC<br >
+			<a href="/files/EMERGENCY NOTIFICATION.pdf" style="color:#FFFFFF;">Emergency Communications</a> | <a href="https://www.myschoolcast.com/go/jdcc/" style="color:#FFFFFF;">JD Alert</a> | <a href="http://www.facebook.com/jeffdaviscc" style="color:#FFFFFF;">Check us out on Facebook!</a>  <br >
+			</font>
+			</div>
+			</td>
+			<td>
+								<img valign=bottom halign=left alt="this is a spacer2" src="/images/27by21.gif" border="0" height="180" width="284" usemap="#jdcc_social_footer_ie">
+			</td>
+		</tr>
+		</table><div class="content_text">
+<br>
+<center><a border="0" href="http://www.accs.cc"><img border="0" valign=middle src="/images/accs.jpg" alt="Alabama Community College Logo"></a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</center>
+<center>Jefferson Davis Community College is an Equal Opportunity Employer.</center>
+</div>
+
+</td>
+			</tr>
+		</table>
+	</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3838497-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

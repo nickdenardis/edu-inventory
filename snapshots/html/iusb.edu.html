@@ -1,0 +1,646 @@
+ 
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="en" http-equiv="content-language" />
+<meta content="English" name="language" />
+
+
+
+ 
+
+<title>Indiana University South Bend</title>
+
+
+
+
+<!-- BEGIN INDIANA UNIVERSITY BRANDING BAR AND FOOTER STYLES -->
+
+<link href="_common/iusb-branding/css/styles.css" rel="stylesheet" type="text/css" />
+<link href="_common/iusb-branding/css/print.css" media="print" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<link href="_common/iusb-branding/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<!-- END INDIANA UNIVERSITY BRANDING BAR AND FOOTER STYLES -->
+
+<link href="_common/fonts/fonts.css" rel="stylesheet" type="text/css" />
+<link href="_common/css/iusb-global.css" rel="stylesheet" type="text/css" />
+<link href="_common/scripts/menu/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+
+
+<link href="_common/css/homepage.css" rel="stylesheet" type="text/css" />
+
+
+
+<!-- local combo of jQuery + jQueryTools caused incorrect behavior of homepage video grid. Use jQueryTools containing jQuery instead. -->
+<!--
+<script src="_common/scripts/jquery-1.6.1.min.js" type="text/javascript"></script>
+<script src="_common/scripts/jquery.tools.full.nojquery.min.js" type="text/javascript"></script>
+-->
+
+<!-- can't use CDN because of https requirement (IE) -->
+<!-- <script src="http://cdn.jquerytools.org/1.2.5/full/jquery.tools.min.js" type="text/javascript"></script> -->
+
+<script src="_common/scripts/jquery.tools.min-1.2.5.js" type="text/javascript" ></script><!-- includes jQuery -->
+<script src="_common/scripts/menu/ddsmoothmenu.js" type="text/javascript" ></script>
+<script src="_common/scripts/iusbLib.js" type="text/javascript" ></script>
+<script src="_common/jwplayer/jwplayer.js" type="text/javascript" ></script>
+
+<script type="text/javascript">
+
+//<![CDATA[
+
+
+var featureMode = "";
+var primaryFeatureTabsApi;
+
+//init stuff that needs inittin
+
+$(document).ready(function(){
+
+    //setFeatureMode("image-rotator");
+    
+    
+    //build video grid based on youtube playlist
+    //Pull JSON-C feed from youtube.
+    //http://code.google.com/apis/youtube/2.0/developers_guide_jsonc.html#Playlist
+    //callback=? is necessary to avoid "access denied" errors
+    
+    var url = "https://gdata.youtube.com/feeds/api/playlists/222449E06C77CEA0?alt=jsonc&v=2&callback=?&max-results=6";
+
+    $.getJSON(url, function(response) {
+            $.each(response.data.items, function(i, item) {
+                    var ytid = item.video.id;
+                    var updated = item.video.updated;
+                    //var url = item.player.default;
+                    var url = "https://www.youtube.com/watch?v=" + item.video.id;
+                    var thumb = item.video.thumbnail.sqDefault;
+                    var title = item.video.title;
+                    var description = truncate(item.video.description,150);
+                    var duration = convertSecondsToDuration(parseInt(item.video.duration));
+                    //var numViews = item['yt$statistics']['viewCount'];
+                                        
+                    $("div#video-thumb-grid").append('<div class="video-thumb-box"><img class="thumb" src="'+thumb+'" alt="'+title+'" title="'+title+'" /><a href="'+url+'" onclick="playVideo(\''+url+'\'); return false;"><h3>'+ title +' <span class="duration">'+ duration +'</span></h3></a><p class="videodescription">' + description + '</p></div>');
+            });
+            
+            
+            //ON VIDEO PLAYER: make video-player-box div clickable; use href of a found inside
+            //http://css-tricks.com/snippets/jquery/make-entire-div-clickable/
+            $(".video-thumb-box").mouseover(function(){
+                     if($.cookie("textOnly")!="true") $(this).css("background","#222");
+                     return false;
+            });
+            
+            $(".video-thumb-box").mouseout(function(){
+                     if($.cookie("textOnly")!="true") $(this).css("background","#111");
+                     return false;
+            });
+            
+            $(".video-thumb-box").click(function(){
+                        playVideo($(this).find("a").attr("href"));
+                        //return false;
+            });
+        
+
+            
+    }); // end json call
+    
+    
+    
+    
+    
+    // initialize feature box selector (jQueryTools Tabs) on homepage:
+        // http://flowplayer.org/tools/tabs/
+        if($("#primary-feature-tabs").length){
+            $("#primary-feature-tabs").tabs("div#primary-feature-panes > div.primary-feature-pane", {
+                effect: 'horizontal',
+                easing: 100
+            });
+            
+            
+            // get handle to the api for primary feature tabs (must have been constructed before this call)
+            primaryFeatureTabsApi = $("#primary-feature-tabs").data("tabs");
+            
+            //set up event driven stuff for the primary feature tabs
+            //This hides and shows the "MORE VIDEOS" tab link as appropriate
+            
+            primaryFeatureTabsApi.onBeforeClick(function(index) {
+                if(primaryFeatureTabsApi.getIndex()==0){
+                    closeVideo();
+                    $("a#show-video-player").hide();
+                }
+            });
+            
+            primaryFeatureTabsApi.onClick(function(index) {
+                if(primaryFeatureTabsApi.getIndex()==0){
+                    $("a#show-video-player").fadeIn(10);
+                }
+            });
+            
+            
+        }
+        
+        
+    
+        
+        // initialize image rotator slideshow (jQueryTools Tabs) on homepage:
+        // http://flowplayer.org/tools/tabs/slideshow.html
+        if($("#image-rotator-controller-tabs").length){
+            $("#image-rotator-controller-tabs").tabs("div#image-rotator-panes > div.image-rotator-pane", {
+        
+                // enable "cross-fading" effect
+                effect: 'fade',
+                fadeInSpeed: 1000,
+                fadeOutSpeed: 1000,
+            
+                // start from the beginning after the last tab
+                rotate: true
+        
+            }).slideshow({
+                
+                autoplay: true,
+                interval: 4000,
+                clickable: false
+                
+            });
+        }
+
+        pickRandomImage();
+    
+
+}); // end doc ready
+
+
+
+
+function playVideo(thefile){
+    if($.cookie("textOnly")!="true") {
+            jwplayer("jwplayer").setup({
+                    flashplayer: "/_common/jwplayer/player.swf",
+                    file:thefile,
+                    image:"/_common/jwplayer/black.jpg",
+                    height: 372,
+                    width: 680,
+                    provider:"youtube",
+                    autostart:true,
+                    skin: "/_common/jwplayer/beelden.zip",
+                    events: {
+                     onComplete: function() {
+                        closeVideo();
+                     }
+                    }
+        
+            });
+            
+            $("#video-player-box").fadeIn(600);
+            
+            return false;
+            
+    } else {
+        //let link proceed to video (youtube)
+        return true;
+    }
+}
+
+function closeVideo(){
+    $("#video-player-box").fadeOut(600);
+    jwplayer("jwplayer").remove();
+}
+
+
+function closeVideoGrid(){
+    closeVideo();
+    primaryFeatureTabsApi.click(0);
+}
+
+
+
+
+
+
+//]]>
+
+</script>
+
+
+</head>
+
+<!-- Use CSS class to apply browser specific CSS -->
+
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <body> <!--<![endif]-->
+
+
+
+
+
+<div id="skipnav">
+    <a href="#navSkip">Skip to main site navigation</a><br />
+  <a href="#mainSkip">Skip to main content</a><br />
+  <a href="#" onclick="setTextOnly(true);">Switch to text-only view</a><br />
+  <a href="#" onclick="setTextOnly(false);">Switch to default view</a>
+    <hr />
+</div>
+
+<!-- BEGIN INDIANA UNIVERSITY SOUTH BEND BRANDING BAR -->
+
+<div id="identity">
+    <div id="signature">
+        
+            
+        
+        
+        <!-- BEGIN BASIC IU SEARCH BOX WITH CAMPUS SCOPE OPTION -->
+        <!-- UPDATED TO FAST SEARCH FROM GSA: 04/2012 -->
+        <form id="iusearch" method="get" action="https://search.sharepoint.iu.edu/sites/iusb/Pages/results.aspx">
+          <fieldset id="set1">
+                <ul>
+                    <li class="first"><a href="https://www.iusb.edu/portal/biglist.php">A-Z Index</a></li>
+                  <li><a href="http://people.iu.edu/" class="people">Find People</a></li>
+                </ul>
+                
+                 <input type="hidden" name="s" value="IUSB" />
+                 
+            </fieldset>
+    
+          <fieldset id="set2">
+           
+            <label for="searchtxt" class="hide">Search</label>
+            <input  type="text" 
+              name="k" 
+              id="searchtxt" 
+              maxlength="255" 
+              value="Search IU South Bend" 
+              onfocus="if(this.value=='Search IU South Bend')this.value='';" 
+              onblur="if(this.value=='')this.value='Search IU South Bend';"  />
+            
+            <input type="image" name="btnG" id="go" src="/_common/images/template/go-button-white-on-crimson.gif" alt="GO" />
+          </fieldset>
+        </form>
+      <!-- END BASIC IU SEARCH BOX WITH CAMPUS SCOPE OPTION -->
+        
+
+        
+    </div>
+    <hr />
+</div>
+
+<!-- END INDIANA UNIVERSITY SOUTH BEND BRANDING BAR -->
+
+
+ 
+ 
+
+
+<!-- BEGIN OUTER WRAPPER -->
+<div class="homepage" id="outer-wrapper">
+  
+  <div id="header-strip">
+    <div id="home-header">
+        <h1><a href="https://www.iusb.edu"><span class="hide">Indiana University South Bend</span></a></h1>
+      <p class="hide">Personal Attention, The Power of an IU Degree</p>
+    </div>
+  </div>
+  
+  <div id="menu-strip">
+  
+    <div class="ddsmoothmenu" id="menu-wrapper">
+            
+    
+
+            <a name="navSkip" id="navSkip"></a>
+            <ul>
+        <li class="about"><a href="https://www.iusb.edu/portal/about">About</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/portal/maps/index.php">Maps &amp; Directions</a></li>
+            <li><a href="https://www.iusb.edu/news/">News</a></li>
+            <li><a href="https://www.iusb.edu/portal/events.php">Events</a></li>
+            <li><a href="https://www.iusb.edu/human-resources/jobopportunities.php">Employment</a></li>
+            <li><a href="https://www.iusb.edu/chancellor/index.php">Chancellor</a></li>
+            <li><a href="https://www.iusb.edu/portal/fastfacts.php">Fast Facts</a></li>
+            <li><a href="https://www.iusb.edu/development/index.php">Giving</a></li> 
+          </ul>
+        </li>
+        <li class="academics"><a href="https://www.iusb.edu/portal/academics.php">Academics</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/majors-programs/index.php">Majors &amp; Programs</a></li>
+            <li><a href="https://www.iusb.edu/library/index.php">Library</a></li>
+            <li><a href="https://www.iusb.edu/bulletin/index.php">Course Catalog</a></li>
+            <li><a href="https://www.iusb.edu/registrar/schedulelanding.php">Schedule of Classes</a></li>
+            <li><a href="https://www.iusb.edu/portal/academics.php">Academics index</a></li>
+          </ul>
+        </li>
+        <li class="admissions"><a href="https://www.iusb.edu/portal/admissions.php">Admissions</a>
+            <ul>                          
+            <li><a href="https://www.iusb.edu/portal/apply.php">Apply Online</a></li>
+            <li><a href="https://www.iusb.edu/admissions/index.php">Undergraduate students</a></li>
+            <li><a href="https://www.iusb.edu/graduate-studies/index.php">Graduate Students</a></li>
+            <li><a href="https://www.iusb.edu/oiss/index.php">International Students</a></li>
+            <li><a href="https://www.iusb.edu/admissions/hs_students.php">High School Students</a></li>
+            <li><a href="https://www.iusb.edu/portal/veterans.php">Veterans</a></li>
+            <li><a href="https://www.iusb.edu/distance-learning/index.php">Distance Learners</a></li>
+            <li><a href="https://www.iusb.edu/admissions/adult.php">Adult Learners</a></li>
+            <li><a href="https://www.iusb.edu/admissions/transfer.php">Transfer Students</a></li>
+            <li><a href="https://www.iusb.edu/portal/visitors.php">Plan a visit</a></li>
+            <li><a href="https://www.iusb.edu/portal/request.php">Request Information</a></li>
+                    </ul>
+        </li>
+        <li class="studentlife"><a href="https://www.iusb.edu/portal/student/index.php">Campus Life</a>
+            <ul>
+            <li><a href="http://www.iusbtitans.com/">Titan Athletics</a></li>
+            <li><a href="http://www.iusbtitans.com/f/Student_Activities_Center/Student_Activities_Center.php">Student Activities Center</a></li>
+            <li><a href="https://www.iusb.edu/housing/index.php">Housing</a></li>
+            <li><a href="https://www.iusb.edu/studentlife/index.php">Student Life</a></li>
+            <li><a href="https://www.iusb.edu/gateway/index.php">Resources &amp; Services</a></li>
+            <li><a href="https://www.iusb.edu/portal/biglist.php">A-Z Index</a></li>
+          </ul>
+        </li>
+        <li class="payingforcollege"><a href="https://www.iusb.edu/portal/costs.php">Paying for College</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/bursar/tuition_and_fee_rates/new2012fees.php">Costs and Tuition</a></li>
+            <li><a href="https://www.iusb.edu/finaid/index.php">Financial Aid</a></li>
+            <li><a href="https://www.iusb.edu/bursar/index.php">Paying Bills</a></li>
+            <li><a href="https://www.iusb.edu/scholarships/index.php">Scholarships</a></li>
+          </ul>
+        </li>
+        <li class="library"><a href="https://www.iusb.edu/library/index.php">Library</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/library/services/research/index.php">Reference</a></li>
+            <li><a href="https://www.iusb.edu/library/about/collection/index.php">Collections</a></li>
+            <li><a href="https://www.iusb.edu/library/services/index.php">Services</a></li>
+          </ul>
+        </li>
+        <li class="giving"><a href="https://www.iusb.edu/development/index.php">Giving</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/development/index.php">Office of Development</a></li>
+            <li><a href="http://iufoundation.iu.edu/">IU Foundation</a></li>
+          </ul>
+        </li>
+        <li class="administration"><a href="https://www.iusb.edu/chancellor/index.php">Administration</a>
+            <ul>
+            <li><a href="https://www.iusb.edu/chancellor/index.php">Chancellor</a></li>
+            <li><a href="https://www.iusb.edu/academic-affairs/index.php">Academic Affairs</a></li>
+            <li><a href="https://www.iusb.edu/fiscalaff/index.php">Fiscal Affairs</a></li>
+            <li><a href="https://www.iusb.edu/paua/index.php">Public Affairs</a></li>
+            <li><a href="https://www.iusb.edu/stuaff/index.php">Student Affairs</a></li>
+            <li><a href="https://www.iusb.edu/uits/index.php">Information Technology</a></li>
+            <li><a href="http://www.indiana.edu/~trustees/">IU Trustees</a></li>
+          </ul>
+        </li>
+      </ul>
+
+ 
+ 
+      
+    </div>
+  
+  </div>
+    
+    
+  <div id="main-wrapper">
+
+    <!-- this is the OUTER tab pane box -->
+    <div id="primary-feature-wrapper">
+      
+      <div id="primary-feature-panes">
+     
+        <!-- BEGIN IMAGE ROTATOR PANE -->
+        
+        <div class="primary-feature-pane" id="image-rotator-box" style="width: 680px;">
+          <div id="image-rotator-controller-box">
+            
+            <a class="play" href="#" onclick="$(&quot;#image-rotator-controller-tabs&quot;).data(&quot;slideshow&quot;).play(); return false"><span class="hide">Play slideshow</span></a>
+            <a class="pause" href="#" onclick="$(&quot;#image-rotator-controller-tabs&quot;).data(&quot;slideshow&quot;).stop(); return false"><span class="hide">Pause slideshow</span></a>
+            
+            <!-- wrapper for image rotator tabs -->
+            <div id="image-rotator-controller-tabs">
+              <a href="#image01"><span class="hide">Go to image 1</span></a>
+              <a href="#image02"><span class="hide">Go to image 2</span></a>
+              <a href="#image03"><span class="hide">Go to image 3</span></a>
+              <a href="#image04"><span class="hide">Go to image 4</span></a>
+            </div>
+          </div><!-- end image-rotator-controller-box -->
+          
+          
+          <a id="images" name="images" ></a>
+          <h2 class="hide">Featured Stories</h2>
+          <!-- root element for feature tab panes -->
+          <div id="image-rotator-panes">    
+              
+              <div class="image-rotator-pane"><a href="portal/redirect2.php" title="this is an image of a student graduating at commencement at IU South Bend"><img alt="this is an image of a student graduating at commencement at IU South Bend" src="_teir2_images/home_images/commencement.jpg" /></a></div><div class="image-rotator-pane"><a href="housing/prospective-residents/tours.php" title="This is an image of a kitchen at River Crossing Campus Housing"><img alt="This is an image of a kitchen at River Crossing Campus Housing" src="_teir2_images/home_images/housing_image.jpg" /></a></div><div class="image-rotator-pane"><a href="portal/redirect1.php" title="this is an image of the education and arts building rendering"><img alt="this is an image of the education and arts building rendering" src="_teir2_images/home_images/constructioncam.jpg" /></a></div><div class="image-rotator-pane"><a href="portal/redirect3.php" title="this is an image of students working on alternative spring break"><img alt="this is an image of students working on alternative spring break" src="_teir2_images/home_images/alternative.jpg" /></a></div>
+              
+          </div><!-- end image-rotator-panes -->
+    
+          
+        </div><!-- end image-rotator-box -->
+
+                
+        <a id="videos" name="videos" ></a>
+        <h2 class="hide">Featured Videos</h2>
+        <!-- VIDEO GRID PANE -->
+        <div class="primary-feature-pane" id="video-thumb-grid-box">
+            <div id="video-thumb-grid" ></div>
+            <a href="http://www.youtube.com/user/IUSouthBend" id="show-all-videos" target="_blank">See all videos</a> <a href="#" id="show-image-rotator" onclick="closeVideoGrid(); return false">CLOSE &gt;&gt;</a>
+    </div>
+        
+      </div><!-- end primary-feature-panes -->
+    
+    
+    
+    
+    
+    
+    
+    
+        <!-- Video player is not a tab pane. 
+            Instead, it is always absolutely positioned over the feature area, hidden, and shown when needed -->
+      <div id="video-player-box">
+        
+        <a class="playerCloseButton" href="#" onclick="closeVideo(); return false">X</a>
+        <div id="jwplayer" ></div>
+      
+      </div>
+    
+    
+    
+    
+    
+      
+      
+    
+    </div><!-- end #primary-feature-wrapper -->  
+     
+      
+      
+    <div id="secondary-feature-box"> 
+      
+      <!-- use the default region for the spotlight image -->
+      <a href="summer/index.php" title="Summer enrollment 25% off"><img alt="Summer enrollment 25% off" height="170" src="_teir2_images/home_images/summer_updated.jpg" width="275" /></a>
+      <a href="http://www.youtube.com/watch?v=vNhunBeoG78&amp;feature=plcp&amp;context=C4a37088VDvjVQa1PpcFPzO6FZdZDMC0O7OIx4jbBlOW99cIrmpnU%3D" onclick="playVideo('http://www.youtube.com/watch?v=vNhunBeoG78&amp;feature=plcp&amp;context=C4a37088VDvjVQa1PpcFPzO6FZdZDMC0O7OIx4jbBlOW99cIrmpnU%3D'); return false;" title="River Crossing Students Share Their Thoughts"><img alt="River Crossing Students Share Their Thoughts" height="170" src="_teir2_images/home_images/rivercrossing.jpg" width="275" /></a>
+      
+      <div id="primary-feature-tabs">
+        <a class="hide" href="#">X Close</a>
+        <a href="#" id="show-video-player">&lt;&lt; More Videos</a>
+      </div>
+      
+    </div>
+    
+    
+    <a id="mainSkip" name="mainSkip" ></a>
+    <h2 class="hide">Information Lists</h2>
+      <div id="main">
+        <div id="column1">
+        <h3>Information for</h3>
+        <div class="text-box">
+          <ul class="plainlist">
+<li><a href="portal/student/index.php">Prospective Students</a></li>
+<li><a href="portal/student/current.php">Current Students</a></li>
+<li><a href="portal/facstaff.php">Faculty &amp; Staff</a></li>
+<li><a href="portal/parents.php">Parents</a></li>
+<li><a href="portal/alumni.php">Alumni &amp; Friends</a></li>
+<li><a href="portal/visitors.php">Visitors &amp; Community</a></li>
+</ul>
+        </div>
+      </div>
+      
+      <div id="column2">
+        <h3><a class="rss" href="https://ws1.iusb.edu/news/?feed=rss2" target="_blank" title="subscribe to news feed">News</a></h3>
+        <div class="text-box">
+            
+            <ul class='plainlist'><li><a href='https://www.iusb.edu/news/?p=415'>Governor’s Arts Awards a Night to Remember</a></li><li><a href='https://www.iusb.edu/news/?p=407'>Residential Summer Arts Camp</a></li><li><a href='https://www.iusb.edu/news/?p=399'>Summer Arts Camp</a></li><li><a href='https://www.iusb.edu/news/?p=396'>Two Faculty Members Honored</a></li><li><a href='https://www.iusb.edu/news/?p=391'>Commencement Ceremonies on May 8</a></li></ul>            
+            
+            <!--
+            <ul class="plainlist">
+                <li><a href="https://www.iusb.edu/news/?p=41">New Website Launched</a></li>
+                <li><a href="https://www.iusb.edu/news/?p=26">Classes Begin Jan. 9</a></li>
+                <li><a href="https://www.iusb.edu/news/?p=29">Mettetal Receives Teaching Award</a></li>
+                <li><a href="https://www.iusb.edu/news/?p=18">MLK Celebration Concert</a></li>
+            </ul>
+            -->
+            
+          <p><strong><a href="https://www.iusb.edu/news/">more <span class="hide">stories</span> </a></strong></p>
+        </div>
+      </div>
+      
+      <div id="column3">
+        <h3><a class="rss" href="https://onestart.iu.edu/ccl-prd/SyndicationWriter.do?pubCalId=GRP744&amp;dayLimit=365" target="_blank" title="subscribe to events feed">Events</a></h3>
+        <div class="text-box">
+          
+          <ul class='plainlist'><li><a href='https://onestart.iu.edu:443/ccl-prd/EventMaintenance.do?methodToCall=viewEvent&eventId=3344752&pubCalId=GRP744'>Deadline for SEED Grant application</a><br/><span style='color:#555; font-size:90%;'>Mon, May 7</span></li><li><a href='https://onestart.iu.edu:443/ccl-prd/EventMaintenance.do?methodToCall=viewEvent&eventId=3357364&pubCalId=GRP744'>Commencement 2012</a><br/><span style='color:#555; font-size:90%;'>Tue, May 8</span></li><li><a href='https://onestart.iu.edu:443/ccl-prd/EventMaintenance.do?methodToCall=viewEvent&eventId=3379325&pubCalId=GRP744'>e-Waste Fest</a><br/><span style='color:#555; font-size:90%;'>Sat, May 12</span></li><li><a href='https://onestart.iu.edu:443/ccl-prd/EventMaintenance.do?methodToCall=viewEvent&eventId=2687941&pubCalId=GRP744'>A Lover's Fancy:  Music and Poetry of the Elizabethan Era</a><br/><span style='color:#555; font-size:90%;'>Sat, May 19</span></li></ul>            
+          <p><strong><a href="https://onestart.iu.edu/ccl-prd/MonthlyView.do?methodToCall=monthlyListView&amp;pubCalId=GRP744">more <span class="hide">events</span> </a></strong></p>
+        </div>
+      </div>
+      
+      <div id="column4">
+        <h3>Campus Tools</h3>
+<div class="text-box">
+<ul class="plainlist">
+<li><a href="http://iusb.bncollege.com/webapp/wcs/stores/servlet/BNCBHomePage?storeId=35557&amp;catalogId=10001">Bookstore</a></li>
+<li><a href="https://proxy.iusb.edu:2443/login?qurl=https%3a%2f%2fbb.iusb.edu">Bulletin Board</a></li>
+<li><a href="bulletin/index.php">Campus Bulletin</a></li>
+<li><a href="registrar/schedulelanding.php">Class Schedule</a></li>
+<li><a href="portal/email.php">E-mail</a></li>
+<li><a href="http://www.iucat.iu.edu/uhtbin/cgisirsi/x/SIRSI/0/57/60/1173/X?user_id=WEBSERVER">IUCAT</a></li>
+<li><a href="http://phonebook.iu.edu/dept/listing.cfm?cc=SB">Directories</a></li>
+</ul>
+<ul class="plainlist">
+<li><a href="https://m.iu.edu">IUSB Mobile</a></li>
+<li><a href="http://kb.iu.edu/">Knowledge Base</a></li>
+<li><a href="https://oncourse.iu.edu/portal">Oncourse</a></li>
+<li><a href="https://onestart.iu.edu/">OneStart</a></li>
+<li><a href="http://www.indianacollegecosts.org/calculate-your-college-costs">Cost Calculator</a></li>
+<li><a href="https://www.iusb.edu/portal/construction.php">Construction Cam</a></li>
+</ul>
+</div>
+      </div>
+      
+      
+    </div><!-- end main -->
+    
+    
+    
+    <div class="clear" ></div>
+  </div><!-- end main-wrapper -->
+  
+  
+  <div id="footer-strip">
+  
+    
+
+<!-- BEGIN INDIANA UNIVERSITY FOOTER -->
+    
+    <div id="footer-wrapper">
+      <hr />
+      
+      <div id="icons"> 
+        <h3 class="hide">Social networking links:</h3>
+        <a target="_blank" href="#" title="Blogger"><img src="/_common/images/template/icon-blogger.gif" alt="Blogger" width="24" height="24" /></a>
+        <a target="_blank" href="#" title="Flickr"><img src="/_common/images/template/icon-flickr.gif" alt="Flickr" width="24" height="24" /></a>
+        <a target="_blank" href="http://www.youtube.com/user/IUSouthBend" title="YouTube"><img src="/_common/images/template/icon-youtube.gif" alt="YouTube" width="24" height="24" /></a>
+        <a target="_blank" href="http://twitter.com/#!/IUSouthBend" title="Twitter"><img src="/_common/images/template/icon-twitter.gif" alt="Twitter" width="24" height="24" /></a>
+        <a target="_blank" href="http://www.facebook.com/pages/Indiana-University-South-Bend/116828985000129" title="Facebook"><img src="/_common/images/template/icon-facebook.gif" alt="Facebook" width="24" height="24" /></a>
+      </div>
+      
+      <div id="copyright">
+        <p>
+        <a href="http://www.iu.edu/" title="Indiana University" id="blockiu">
+            <img src="/_common/iusb-branding/img/blockiu_white.gif" alt="Block IU" width="22" height="28" />
+        </a>
+        <a href="http://www.iu.edu/comments/copyright.shtml">
+            Copyright</a> &copy; 2012 The Trustees of <a href="http://www.indiana.edu/">Indiana University
+        </a>
+        <br />
+        <a href="#" onclick="setTextOnly(true); return false">Text Only</a> | 
+        <a href="http://www.iu.edu/comments/copyright.shtml">Copyright Complaints</a> | 
+        <a href="https://www.iusb.edu/portal/privacy_policy">Privacy Notice</a> | 
+        <a href="https://www.iusb.edu/police/clery_security_report.php">Clery Report </a> | 
+        <a href="http://www.iusb.edu/portal/contact.php">Contact Us</a>
+        </p>
+      </div>
+      
+    </div>
+    
+    <!-- END INDIANA UNIVERSITY FOOTER -->
+
+ 
+ 
+    
+  </div><!-- end footer-strip -->
+
+</div><!-- end outer-wrapper -->
+
+
+<div class="video_overlay" id="overlay">
+
+    <!-- the external content is loaded inside this tag -->
+    <div class="contentWrap" ></div>
+
+</div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21241748-1']);
+  _gaq.push(['_setDomainName', '.iusb.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

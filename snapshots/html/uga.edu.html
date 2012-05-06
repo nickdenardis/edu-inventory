@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+	<title>University Of Georgia</title>
+    <meta charset="UTF-8">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    <meta property="og:image" content="http://www-c0-images.cc.uga.edu/uga/img/UGA_fbLogo.jpg" /> 
+<meta property="og:site_name" content="UGA.EDU" /> 
+<meta property="og:title" content="University of Georgia | Home" /> 
+<meta property="og:url" content="http://uga.edu" />
+<meta property="og:description" content="The University of Georgia, a land-grant and sea-grant university with state-wide commitments and responsibilities, is Georgia's flagship institution of higher education. It is also the state's oldest, most comprehensive and most diversified institution of higher education." /> 
+<meta property="og:type" content="university" />
+<meta property="fb:admins" content="689874901" />
+<meta name="description" content="The University of Georgia, a land-grant and sea-grant university with state-wide commitments and responsibilities, is Georgia's flagship institution of higher education. It is also the state's oldest, most comprehensive and most diversified institution of higher education." />
+        <link type="text/css" href="http://www-c0-css.cc.uga.edu/uga/css/core-1.css" rel="Stylesheet" />
+    <link rel="stylesheet" href="http://www-c0-scripts.cc.uga.edu/uga/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" /> 
+    <link type="text/css" href="http://www-c0-css.cc.uga.edu/uga/css/ugastyle-7.css" rel="Stylesheet" />
+	    <!--[if lt IE 9]><link type="text/css" href="http://www-c0-css.cc.uga.edu/uga/css/ie.css" rel="Stylesheet" /><![endif]-->
+    <!--[if lt IE 8]><link type="text/css" href="http://www-c0-css.cc.uga.edu/uga/css/ie7-2.css" rel="Stylesheet" /><![endif]-->
+    <!--[if IE 6]><link type="text/css" href="http://www-c0-css.cc.uga.edu/uga/css/ie6.css" rel="Stylesheet" /><![endif]-->
+        <script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/jquery.hoverIntent.minified.js"></script>
+    <script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/uga_ui-1.js"></script>
+    <script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/jquery.zweatherfeed.js"></script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2622296-32']);
+  _gaq.push(['_setDomainName', 'uga.edu']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+	<script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/jquery-ui-1.8.14.custom.min.js"></script>
+    <script type="text/javascript" src="http://www-c0-scripts.cc.uga.edu/uga/js/jquery.lava.js"></script>
+        <script type="text/javascript">
+	   <!--	
+		var slideSwitch;
+		var slideLock = false;		
+		var d = new Date();
+		day = d.getDay();
+		slideCount = Math.floor(day/2);
+		if(slideCount>2) slideCount=2;
+		
+		function pageReady()
+		{
+			$("#eventstab").hide();			
+			$("#eventscalnext").click(function(){
+				$win = $("#eventswindow");
+				$cal = $win.find("table");
+				pos = $cal.position();
+				maxTop = -1 * ($cal.height() - $win.innerHeight());
+				
+				newTop = Math.max(pos.top-185,maxTop);
+				$cal.animate({"top":(newTop)+"px"},350);
+			});
+			$("#eventscalprev").click(function(){
+				$cal = $("#eventswindow").find("table");
+				pos = $cal.position();				
+				newTop = Math.min(pos.top+185,0);
+				$cal.animate({"top":(newTop)+"px"},350);
+			});
+			
+			$("#nontabs").spasticNav();
+			$("#tabs .tabnav li").click(function(){
+				i = $(this).index();
+				$contents = $("#tabs > div");
+				if($contents.eq(i).is(":hidden"))
+				{
+					$("#tabs .tabnav li").toggleClass("active");
+					$contents.css("display","none");
+					$contents.eq(i).fadeIn(400);
+				}
+			});
+			
+			$("#featuretypes li").click(function(){
+				changeSlide($(this).index());
+				slideCount = ($(this).index()+1)%3;
+				clearInterval(slideSwitch);
+				slideSwitch = setInterval("changeSlide('auto')",13000);
+			});
+			
+			$('#profilenav li').click(function(){
+				$target = $("#profilecontent > div").eq($(this).index());
+				$("#profilecontent > div:visible").fadeOut(590,function(){$target.fadeIn(600);})
+			});
+			
+			profileSwitch = (Math.floor(day/3.1))^1;
+			$("#profilecontent > div").eq(profileSwitch).show();
+			
+			$.ajax({
+				method: "get",
+				dataType: "text",
+				processData:false,
+				url: "/static/osep_rss/feed.xml",
+				//url: "/osep_rss_feed.xml", //for testing
+				success: function(html){
+					xml = $.parseXML(html);
+					$xml = $(xml);
+					$items = $xml.find("item");
+					if($items.size()>0)
+					{					
+						$("#slideshow .alert p").text($items.eq(0).find("description").text());
+						$("#slideshow .alert").show();
+						$("#slideshow .slide, #slidestrip").hide();		
+						$("#slideshow").css("backgroundColor","#000000");				
+					}					
+				}/*,
+				error: function(x,t,e){alert("Failed: " + e + " * " + x + " * " + t);}*/
+			});	
+			
+			showFirstSlide();
+			slideSwitch = setInterval("changeSlide('auto')",13000);
+		}
+		function showFirstSlide()
+		{			
+			$slide = $("#slideshow .slide").eq(slideCount);
+			$("#slideshow").css("backgroundColor", $slide.css("backgroundColor"));
+			$slide.show();
+			$slide.find("*").show();
+			$("#featuretypes li").eq(slideCount).addClass("active");
+		}
+		function changeSlide(t)
+		{
+			var index;
+			$allSlides = $("#slideshow .slide");
+			$previous = $allSlides.filter(":visible");
+			if(t!="auto") index = t;
+			else index = ($previous.index())%3;
+				
+			$target = $("#slideshow .slide").eq(index);			
+			$("#featuretypes li").removeClass("active");
+			$("#featuretypes li").eq(index).addClass("active");
+			$previous.fadeOut(500, function(){
+				$previous.find(".featurecopy, .overlay, img.background").hide();
+				$("#slideshow").animate({ backgroundColor: $target.css("backgroundColor") }, 300, function(){
+					$target.show();
+					$target.find("img.background").fadeIn(800);
+					$target.find(".overlay").slideDown(800, function(){$target.find(".featurecopy").fadeIn(600);});
+				});
+			});			
+		}
+	-->
+	</script>
+</head>
+<body>
+	<div id="container">
+		<a class="skiplink" href="#startcontent">Skip over navigation</a>
+<div id="quicklinks">
+	<div id="linkmenu">
+		<div class="wrap">
+			<div>
+				<h4>About UGA</h4>
+				<ul>
+					<li><a href="http://visit.uga.edu/">Visit UGA</a></li>
+					<li><a href="http://www.architects.uga.edu/maps/current ">Campus Maps</a></li>
+					<li><a href="http://calendar.uga.edu">Master Calendar</a></li>
+					<li><a href="http://www.georgiadogs.com/">Athletic Association</a></li>
+					<li><a href="http://www.hr.uga.edu/recruitment/employment/Employment.html">Employment</a></li>
+				</ul>
+			</div>
+			<div>
+			  <h4>Academics</h4>
+				<ul>
+					<li><a href="https://my.uga.edu">MyUGA</a></li>
+					<li><a href="https://oasisweb.uga.edu/">Oasis</a></li>
+					<li><a href="https://www.elc.uga.edu/webct/entryPageIns.dowebct">ELC</a></li>
+					<li><a href="http://www.bulletin.uga.edu/">UGA Bulletin</a></li>
+					<li><a href="http://www.reg.uga.edu/calendars">Academic Calendars</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Student Life</h4>
+				<ul>
+					<li><a href="http://www.ugamail.uga.edu/">UGA Mail</a></li>
+					<li><a href="http://www.uga.edu/foodservice/">Food Services</a></li>
+					<li><a href="http://www.uga.edu/campuslife/">Campus Life</a></li>
+					<li><a href="http://www.recsports.uga.edu/">Recreational Sports</a></li>
+					<li><a href="https://studentacct.uga.edu/PCSA/index.jsp">Student Accounts</a></li>
+				</ul>
+			</div>
+			<div>
+				<h4>Helpful Links</h4>
+				<ul>
+					<li><a href="http://www.uga.edu/osfa/index.html">Financial Aid</a></li>
+					<li><a href="http://www.uga.edu/oie/">International Education</a></li>
+					<li><a href="http://uga.edu/honors/">Honors Program</a></li>
+					<li><a href="http://www.libs.uga.edu/">Library</a></li>
+					<li><a href="http://t.uga.edu/">TinyUGA URL Shortener</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="blackstrip">
+		<div id="quicktab">Quick Links</div>                
+		<div id="todayinfo">
+			<div id="todaydate">Sun. May 6, 2012</div>
+			<div id="todaytemp"></div>
+		</div>
+	</div>
+</div>
+<div id="headermain">
+	<div class="wrap">
+		<div id="toplinks">
+			<a href="https://my.uga.edu/uPortal/render.userLayoutRootNode.uP">MyUGA</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://my.uga.edu/LiveSSO/">UGA MAIL</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/a-z/a">A-Z INDEX</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://text.usg.edu:8080/tt/www.uga.edu">TEXT ONLY</a>           		
+		</div>            
+		<a href="/" id="ugahead"><img src="http://www-c0-images.cc.uga.edu/uga/img/ugahead.jpg" alt="The University of Georgia" /></a>
+		<form action="/search.php" id="searchbox">
+			<input type="text" name="q" size="31" id="searchtext" value="Search UGA sites and people" tabindex="0" />
+			<input type="hidden" name="cx" value="012234864659315907956:e4iixykxuly" />
+			<input type="hidden" name="cof" value="FORID:10" />
+			<input type="hidden" name="ie" value="UTF-8" />
+			<input type="submit" value="Search" tabindex="10" />
+		</form>
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div id="navbar">
+	<div class="wrap">
+		<ul>
+			<li id="nav0" tabindex="20">
+				<a href="">About UGA</a>
+				<div class="megamenu">
+					<div>
+						<h3>About UGA</h3>
+						<p>UGA is the birthplace of the American system of public higher education.</p>
+						<ul class="bluemenu">
+							<li><a href="/profile/mission/">Mission</a></li>
+							<li><a href="/profile/history/">History &amp; traditions</a></li>
+							<li><a href="/profile/facts/">Quick facts</a></li>
+							<li><a href="/profile/pride/">Points of pride</a></li>
+							<li><a href="/about_uga/directory/">About UGA</a></li>
+							<li><a href="http://uga.edu/livinghistory/">UGA's Living History</a></li>
+							<li><a href="/amazing/directory/">Amazing students</a></li>
+						     <li><a href="http://provost.uga.edu/index.php/consumerinfo/">Consumer Information</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/ugaf/">UGA Foundation</a></li>
+							<li><a href="http://news.uga.edu/">UGA News</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Offices</h3>
+						<p>UGA is tied for 20th in U.S. News &amp; World Report&rsquo;s 2010 list of the 50 top public universities in America.</p>
+						<ul class="bluemenu">
+							<li><a href="http://president.uga.edu/">Office of the President</a></li>
+							<li><a href="http://provost.uga.edu/">Provost and Academic Affairs</a></li>
+							<li><a href="http://president.uga.edu/index.php/president_office/vice_presidents/">Senior administration</a></li>
+							<li><a href="http://president.uga.edu/index.php/president_office/schools_and_colleges/">Deans of schools and colleges</a></li>
+							<li><a href="http://www.busfin.uga.edu/">Finance and Administration</a></li>
+							<li><a href="http://www.eits.uga.edu/">Enterprise Information Technology Services</a></li>
+							<li><a href="http://www.hr.uga.edu/">Human Resources</a></li>
+							<li><a href="/a-z/">All Offices</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Visiting UGA</h3>
+						<p>Last year the Visitor's Center booked more than 32,000 tours. Book your tour now and discover UGA!</p>
+						<ul class="bluemenu">
+							<li><a href="http://visit.uga.edu/">Visitor's Center</a></li>
+							<li><a href="http://www.camplan.uga.edu/gis_campusmaps.html">Campus maps</a></li>
+							<li><a href="http://visit.uga.edu/index.php/plan/directions/">Directions to campus</a></li>
+							<li><a href="http://visit.uga.edu/index.php/plan/parking/">Parking on campus</a></li>
+							<li><a href="http://www.transit.uga.edu/">Campus Transit</a></li>
+							<li><a href="http://eits.uga.edu/dms/ugarama/north/index.php?c=north">Virtual Tour</a></li>
+							<li><a href="http://visit.uga.edu/index.php/plan/athens/">Dining and accommodations</a></li>
+							<li><a href="http://www.georgiacenter.uga.edu/cch">The Georgia Center</a></li>
+							<li><a href="http://visit.uga.edu/index.php/plan/accessibility/">Accessibility</a></li>
+							<li><a href="http://visit.uga.edu/index.php/plan/athens/">About Athens</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Proud to say Georgia</h3>
+						<p>Since 1851, 25 governors of Georgia have been graduates of Georgia. At least 17 UGA alumni are presidents or provosts of colleges and universities in 
+						the U.S. Nine UGA graduates have received the Pulitzer Prize. Four UGA alumni have been elected to the National Academy of Sciences.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php">Alumni Association</a></li>
+							<li><a href="https://www.externalaffairs.uga.edu/ea/index.php/site/pf_index/home/">Parents and Families Association</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/georgiafund/senior_signature/">Student Alumni Association</a></li>
+							<li><a href="https://www.externalaffairs.uga.edu/development/georgiafund/senior_signature/plaque/index.php">Senior Signature</a></li>
+							<li><a href="http://www.alumniconnections.com/olc/pub/GAU/">Alumni Online Community</a></li>
+							<li><a href="http://www.career.uga.edu/">Career Center</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav1" tabindex="30">
+				<a href="">Admissions</a>
+				<div class="megamenu">
+					<div>
+						<h3>Undergraduate Admissions</h3>
+						<p>The University of Georgia continues to be a national leader in the number of students each year who receive the very top national academic 
+						scholarships. Since 1996, UGA has produced seven Rhodes Scholars, plus 37 Goldwater, ten Truman, seven Udall, six Merage, five Gates Cambridge, 
+						four Marshall and three Mitchell Scholars. UGA has produced 21 Fulbright Scholars in the past two years.</p>
+						<ul class="bluemenu">
+							<li><a href="https://www.admissions.uga.edu/index.html">Undergraduate admissions</a></li>
+						</ul>
+					</div>    
+					<div>
+						<h3>Graduate Admissions</h3>
+						<p>UGA graduate programs remained among the best in the nation, according to <em>U.S. News &amp; World Report's</em> 2012 edition of America's Best Graduate Schools.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.grad.uga.edu/">The Graduate School</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Continuing Education</h3>
+						<p>Whether you are looking for personal improvement, seeking a credential or wanting to change your career path, the University of Georgia Center for Continuing 
+						Education delivers a variety of educational programs to meet your learning needs.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.georgiacenter.uga.edu/ppd">Center for Continuing Education</a></li>
+							<li><a href="http://www.athenslir.org/">Osher Lifelong Learning Institute</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>International Students</h3>
+						<p>The University of Georgia has approximately 180 International Cooperative Agreements (ICAs) in over 50 countries. These agreements allow for the formal 
+						development of activities such as faculty and student exchanges, collaborative research, seminars and workshops, and/or service programs.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.uga.edu/oie/index.htm">Office of International Education</a></li>
+						</ul>
+					</div>                  
+				</div>
+			</li>
+			<li id="nav2" tabindex="40">
+				<a href="">Academics</a>
+				<div class="megamenu">
+					<div>
+						<h3>Schools &amp; Colleges</h3>
+						<ul class="bluemenu">
+							<li><a href="http://www.caes.uga.edu">Agricultural and Environmental Sciences</a></li>
+							<li><a href="http://www.franklin.uga.edu/">Arts and Sciences</a></li>
+							<li><a href="http://www.terry.uga.edu/">Business</a></li>
+							<li><a href="http://www.ecology.uga.edu/">Ecology</a></li>
+							<li><a href="http://www.coe.uga.edu/">Education</a></li>
+							<li><a href="http://www.ced.uga.edu/">Environment and Design</a></li>
+							<li><a href="http://www.fcs.uga.edu/">Family and Consumer Sciences</a></li>
+							<li><a href="http://www.warnell.uga.edu/">Forestry and Natural Resources</a></li>
+							<li><a href="http://www.grad.uga.edu/">Graduate School</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>&nbsp;</h3>
+						<ul class="bluemenu">
+							<li><a href="http://www.grady.uga.edu/">Journalism and Mass Communication</a></li>
+							<li><a href="http://www.law.uga.edu/">Law</a></li>
+							<li><a href="http://www.rx.uga.edu/">Pharmacy</a></li>
+							<li><a href="http://www.publichealth.uga.edu/">Public Health</a></li>
+							<li><a href="http://spia.uga.edu/">Public and International Affairs</a></li>
+							<li><a href="http://ssw.uga.edu">Social Work</a></li>
+							<li><a href="http://www.vet.uga.edu/">Veterinary Medicine</a></li>
+							<li style='border-top:1px solid #444444;margin-top:6px'><a href="http://www.engineering.uga.edu/">Faculty of Engineering</a></li>
+							<li><a href="http://medicalpartnership.usg.edu/">Medical Partnership</a></li>
+							<li><a href="http://ihe.uga.edu/">Institute of Higher Education</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Extended Campuses</h3>
+						<ul class="bluemenu">
+							<li><a href="http://goterry.org/">Terry College of Business/Atlanta</a></li>
+							<li><a href="http://www.uga.edu/gwinnett/">Gwinnett Campus</a></li>
+							<li><a href="http://www.uga.edu/griffin/">Griffin Campus</a></li>
+							<li><a href="http://www.caes.uga.edu/campus/tifton/index.html">Tifton Campus</a></li>
+						</ul>
+						<h3>Programs</h3>
+						<ul class="bluemenu">
+							<li><a href="http://www.uga.edu/honors/">Honors Program</a></li>
+							<li><a href="http://www.uga.edu/oie/studyabroad.htm">Study Abroad Programs</a></li>
+							<li><a href="https://fyo.uga.edu/">First Year Odyssey</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Academic Resources</h3>
+						<ul class="bluemenu">
+							<li><a href="https://my.uga.edu">myUGA</a></li>
+							<li><a href="http://bulletin.uga.edu/">UGA Bulletin</a></li>
+							<li><a href="https://www.elc.uga.edu/webct/entryPageIns.dowebct">eLearning Commons</a></li>
+							<li><a href="https://oasisweb.uga.edu/">OASIS</a></li>
+							<li><a href="http://www.reg.uga.edu/calendars">Academic Calendars</a></li>
+							<li><a href="http://provost.uga.edu/">Provost and Academic Affairs</a></li>
+							<li><a href="http://www.uga.edu/dae/">Academic Enhancement</a></li>
+							<li><a href="http://www.uga.edu/studentaffairs/">Division of Student Affairs</a></li>
+							<li><a href="http://drc.uga.edu/">Disability Resource Center</a></li>
+							<li><a href="http://www.reg.uga.edu/veterans">Veterans Certification</a></li>
+							<li><a href="http://www.bookstore.uga.edu/">Bookstore</a></li>
+							<li><a href="http://www.libs.uga.edu/">Libraries</a></li>
+							<li><a href="http://www.distance.uga.edu/">Distance Education</a></li>
+							<li><a href="http://www.georgiacenter.uga.edu/idl">Independent and Distance Learning</a></li>
+						</ul>
+					</div> 
+				</div>
+			</li>
+			<li id="nav3" tabindex="50">
+				<a href="">Research</a>
+				<div class="megamenu">
+					<div>
+						<h3>Research at UGA</h3>
+						<p>The Office of the Vice President for Research encourages and supports UGA research, scholarship and creative activities by assisting with the recruitment of research-intensive faculty, and providing infrastructure for sponsored research. We help to move UGA innovations into the marketplace, encourage research-based economic development, and ensure responsible conduct in research.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.ovpr.uga.edu/">Office of Vice-President for Research (OVPR)</a></li>
+						   <li><a href="http://ovpr.uga.edu/ugarf/">University of Georgia Research Foundation (UGARF)</a></li>
+							<li><a href="http://ovpr.uga.edu/osp/">Sponsored Programs</a></li>
+							<li><a href="http://ovpr.uga.edu/iga/">Internal Grants and Awards</a></li>
+							<li><a href="http://ovpr.uga.edu/technology/">Technology Development</a></li>
+							<li><a href="http://ovpr.uga.edu/compliance/">Research Compliance</a></li>
+							<li><a href="http://ovpr.uga.edu/rcr/">Responsible Conduct in Research</a></li>
+							<li><a href="http://ovpr.uga.edu/about/affiliations">Affiliations</a></li>
+							<li><a href="http://researchnewsletter.uga.edu/">Research Funding Opportunities and Announcements</a></li>
+
+						</ul>
+					</div>
+					<div>
+						<h3>Centers &amp; Institutes</h3>
+						<p>UGA research addresses real-life problems, including the grand challenges associated with water, food, fuel, environment and health.  It also enriches the soul through the arts, humanities and social sciences. OVPR's Interdisciplinary centers, institutes and research initiatives provide enhanced interactions and focus on advanced areas of research.    
+</p>
+						<ul class="bluemenu">
+							<li><a href="http://ovpr.uga.edu/centers-institutes/"> OVPR Centers, Institutes and Initiatives</a></li>
+							<li><a href="http://www.oap.uga.edu/C&I_report.htm">UGA Centers and Institutes</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Research Resources</h3>
+						<p>Access to state-of-the-art core facilities and technologies, as well as campus experts, is essential for cutting-edge research.</p>
+						<ul class="bluemenu">
+							<li><a href="http://ovpr.uga.edu/resources/core-facilities">Core Facilities</a></li>
+							<li><a href="http://ors.uga.edu/">Office of Research Services</a></li>
+							<li><a href="http://rcc.uga.edu/">Research Computing Center</a></li>
+							<li><a href="http://fred.ovpr.uga.edu/">Faculty Research Expertise Database (FRED)</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Student and Postdoctoral Research</h3>
+						<p>Undergraduate students, graduate students and postdoctoral scholars are critical to the successful pursuit of research and scholarship at the University of Georgia. They contribute in multiple ways and to research and scholarship in the physical, life and social sciences, as well as the arts and humanities. </p>
+						<ul class="bluemenu">
+							<li><a href="http://www.ovpr.uga.edu/resources/student/">Undergraduate Research</a></li>
+							<li><a href="http://www.ovpr.uga.edu/opa/">Office of Postdoctoral Affairs</a></li>
+							<li><a href="http://postdocs.uga.edu/">Postdoc Portal</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav4" tabindex="60">
+				<a href="">Outreach</a>
+				<div class="megamenu">
+					<div>
+						<h3>Public Service &amp; Outreach at UGA</h3>
+						<p>UGA Public Service and Outreach enhances quality of life in Georgia by applying the knowledge of the University to the state&rsquo;s evolving economic, social, and community needs.</p>
+						<ul class="bluemenu">
+							<li><a href="http://outreach.uga.edu/">Public Service and Outreach (PSO)</a></li>
+							<li><a href="http://extension.uga.edu">Cooperative Extension</a></li>
+							<li><a href="http://www.vet.uga.edu/hospital/">UGA Veterinary Teaching Hospital</a></li>
+							<li><a href="/about_uga/directory/9/section/440/">About UGA: Competing in a Global Economy</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>PSO Units</h3>
+						<p>For over 80 years, PSO has led the University in bringing its resources to each of Georgia&rsquo;s 159 counties, 500+ cities, and around the world, 
+						serving more than 110,000 individuals annually to improve the quality of life in Georgia and beyond.</p>
+						<ul class="bluemenu">
+							<li><a href="http://archwaypartnership.uga.edu/">Archway Partnership</a></li>
+							<li><a href="http://www.cviog.uga.edu/">Carl Vinson Institute of Government</a></li>
+							<li><a href="http://www.fanning.uga.edu/">Fanning Institute</a></li>
+							<li><a href="http://www.georgiacenter.uga.edu/">Georgia Center</a></li>
+							<li><a href="http://www.marex.uga.edu/">Marine Extension Service</a></li>
+							<li><a href="http://www.servicelearning.uga.edu/blog/">Office of Service-Learning</a></li>
+							<li><a href="http://www.georgiasbdc.org/index.aspx">Small Business Development Center</a></li>
+							<li><a href="http://www.uga.edu/botgarden/">The State Botanical Garden of Georgia</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Service-Learning</h3>
+						<p>The University of Georgia has been recognized by the Carnegie Foundation for its institutional commitment to community engagement through teaching,
+						 research, and public service with the Community Engagement Classification. UGA is one of only 115 colleges and universities to achieve this elective 
+						 classification in 2010 and will join the ranks of only 311 institutions nationally.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.servicelearning.uga.edu/">Office of Service-Learning</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Programs</h3>
+						<p>Georgia is committed to building a service program that embodies the historical ideals of outreach and engagement through community access to the university&rsquo;s resources.</p>
+						<ul class="bluemenu">
+						  <li><a href="http://outreach.uga.edu/index.php/programs/government/">Government</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/econ_development/">Community Economic Development</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/environment/">Environment</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/continuing_education/">Adult and Continuing Education</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/youth_programs/">Youth Programs</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/health_wellbeing/">Health and Well-being</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/student_programs/">UGA Student Programs</a></li>
+						  <li><a href="http://outreach.uga.edu/index.php/programs/faculty_programs/">UGA Faculty Programs</a></li>
+					</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav5" tabindex="70">
+				<a href="">Student Life</a>
+				<div class="megamenu">
+					<div>
+						<h3>Campus LIfe</h3>
+						<p>Campus Life is a primary point of contact for students through more than 600 registered student organizations; student programming groups; social 
+						fraternities and sororities; student leadership programs and volunteer services; and international and multicultural programs.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.uga.edu/campuslife/">Campus Life</a></li>
+							<li><a href="http://www.transit.uga.edu/">Campus Transit</a></li>
+							<li><a href="http://www.uga.edu/housing">Housing</a></li>
+							<li><a href="http://www.uga.edu/foodservice/">Food Services</a></li>
+							<li><a href="http://www.parking.uga.edu/">Parking Services</a></li>
+							<li><a href="http://sts.uga.edu/">Student Technology Support</a></li>
+							<li><a href="http://uga.edu/safeandsecure/">Campus Safety</a></li>
+							<li><a href="http://www.conduct.uga.edu/">Office of Student Conduct</a></li>
+						   <li><a href="/information/students/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Health &amp; Recreation</h3>
+						<p>The 440,000-square-foot Bernard B. and Eugenia A. Ramsey Student Center for Physical Activities is one of the largest and most comprehensive 
+						fitness/exercise facilities for students and faculty in the country, and has been rated by Sports Illustrated as the nation's best such facility.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.uhs.uga.edu/">Health Center</a></li>
+							<li><a href="http://www.recsports.uga.edu/">Recreational Sports</a></li>
+							<li><a href="http://www.recsports.uga.edu/outdoor_rec.php">Outdoor Recreation</a></li>
+							<li><a href="http://www.georgiadogs.com/">UGA Athletics</a></li>
+						   <li><a href="/information/students/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Get Involved</h3>
+						<p>In 2000, UGA was the first university in the nation to organize a collegiate Relay For Life. It raised more than $115,000. UGA Relay now has over 3,200 
+						student volunteers and has raised more than $2.3 million, benefiting The American Cancer Society.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.uga.edu/stuorgs/">Student Organizations</a></li>
+							<li><a href="http://www.uga.edu/sga/">Student Government Association (SGA)</a></li>
+							<li><a href="http://www.uga.edu/greeklife/">Greek Life</a></li>
+							<li><a href="http://www.uga.edu/isl/">International Student Life</a></li>
+							<li><a href="http://www.uga.edu/cma/">Campus Ministry Association</a></li>
+							<li><a href="http://www.uga.edu/ica/">Intercultural Affairs</a></li>
+						   <li><a href="/information/students/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Money Matters</h3>
+						<p>The Food Service program here at the University of Georgia is nationally recognized as being one of the best in the nation.</p>
+						<ul class="bluemenu">
+							<li><a href="https://studentacct.uga.edu/PCSA/index.jsp">Student Accounts</a></li>
+							<li><a href="http://bulldogbucks.uga.edu/">Bulldog Bucks</a></li>
+							<li><a href="http://www.uga.edu/foodservice/mealplan/index.html">Food Services Meal Plan</a></li>
+							<li><a href="http://www.uga.edu/osfa/index.html">Financial Aid</a></li>
+							<li><a href="http://www.uga.edu/osfa/pfc/seminar.html">Peer Financial Counseling</a></li>
+							<li><a href="http://www.career.uga.edu/">DAWGLink: Jobs/Internships</a></li>
+						   <li><a href="/information/students/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav6" tabindex="80">
+				<a href="">Working at UGA</a>
+				<div class="megamenu">
+					<div>
+						<h3>Resources &amp; Services</h3>
+						<ul class="bluemenu">
+							<li><a href="http://www.hr.uga.edu/recruitment/employment/Employment.html">Employment</a></li>
+							<li><a href="http://www.hr.uga.edu/recruitment/efsg/efsg.html">Executive and Faculty Search Group</a></li>
+							<li><a href="http://www.hr.uga.edu/fmec_intro.html">Employment Benefits</a></li>
+							<li><a href="http://www.busfin.uga.edu/payroll/">Payroll Office</a></li>
+							<li><a href="http://www.hr.uga.edu/careerdev/career.html">Training &amp; Development</a></li>
+							<li><a href="http://www.usg.edu/hr/benefits/tuition_assistance_program_tap/">Tuition Assistant Program (TAP)</a></li>
+							<li><a href="http://www.ctl.uga.edu/">Center for Teaching and Learning (CTL)</a></li>
+							<li><a href="http://www.uga.edu/ugasc/">Staff Council</a></li>
+							<li><a href="https://apps.reg.uga.edu/UniversityCouncil/">University Council</a></li>
+							<li><a href="/holiday_schedule/">Holiday Schedule</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>&nbsp;</h3>
+						<ul class="bluemenu">
+							<li><a href="https://my.uga.edu/LiveSSO/">UGA Mail</a></li>
+							<li><a href="https://busfin1.busfin.uga.edu/mail/index.cfm">Campus Mail</a></li>
+							<li><a href="http://www.transit.uga.edu/">Campus Transit</a></li>
+							<li><a href="http://www.parking.uga.edu/">Parking Services</a></li>
+							<li><a href="http://askuga.uga.edu/">Ask UGA</a></li>
+							<li><a href="http://www.georgiadogs.com/tickets/geo-faculty-tix.html">Athletic Tickets</a></li>
+							<li><a href="http://www.uga.edu/foodservice/">Food Services</a></li>
+							<li><a href="http://wiki.eits.uga.edu/help/index.php/Main_Page">Technology Services Help Desk</a></li> 
+							<li><a href="http://www.srs.usg.edu/">Software Resources & Services</a></li>
+							<li><a href="http://www2.beneplace.com/uga">Discount Programs</a></li>
+							<li><a href="http://www.recsports.uga.edu/">Wellness and Fitness</a></li>
+							<li><a href="http://www.libs.uga.edu/athens/">Athens-Clarke County Guide</a></li>
+						   <li><a href="/information/faculty-staff/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Facilities</h3>
+						<ul class="bluemenu">
+							<li><a href="http://www.georgiacenter.uga.edu/cch">The Georgia Center</a></li>
+							<li><a href="http://www.bookstore.uga.edu/">Bookstore</a></li>
+							<li><a href="http://www.libs.uga.edu/">Libraries</a></li>
+							<li><a href="http://www.uga.edu/botgarden/">State Botanical Garden</a></li>
+							<li><a href="http://georgiamuseum.org/">Georgia Museum of Art</a></li>
+							<li><a href="http://www.uga.edu/pac/">Performing Arts Center</a></li>
+							<li><a href="http://www.recsports.uga.edu/">Ramsey Student Center </a></li>
+							<li><a href="http://www.fanning.uga.edu/">The Fanning Institute</a></li>
+							<li><a href="http://www.caes.uga.edu/extension/">Cooperative Extension</a></li>
+							<li><a href="http://www.georgiasbdc.org/">Small Business Development Center</a></li>
+							<li><a href="http://www.rockeagle4h.org/">Rock Eagle 4-H Center</a></li>
+						   <li><a href="/a-z/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Policies &amp; Procedures</h3>
+						<ul class="bluemenu">
+							<li><a href="http://provost.uga.edu/index.php/policies-procedures/academic/">Academic</a></li>
+							<li><a href="http://www.ovpr.uga.edu/docs/">Research</a></li>
+							<li><a href="http://askuga.uga.edu/default.asp?id=924&amp;Lang=1&amp;SID=">Human Resources</a></li>
+							<li><a href="http://www.eits.uga.edu/policies/">Computing and Networking</a></li>
+							<li><a href="http://www.uga.edu/eoo/">EOO/AA</a></li>
+							<li><a href="https://infosec.uga.edu/policies/ferpa.php">FERPA</a></li>
+							<li><a href="http://legal.uga.edu/hotline/">Compliance, Ethics and Reporting Hotline</a></li>
+						   <li><a href="http://www.usg.edu/">Board of Regents</a></li>
+						   <li><a href="/information/faculty-staff/">MORE &rarr;</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav7" tabindex="90">
+				<a href="">Giving to UGA</a>
+				<div class="megamenu">
+					<div>
+						<h3>Ways of giving</h3>
+						<p>Private support from individuals, foundations, and corporations provides the margin of excellence that distinguishes great universities from good ones.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.externalaffairs.uga.edu/ea/">Division of External Affairs</a></li>
+							<li><a href="http://www.alumni.uga.edu/ugaf/">UGA Foundation</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/">Office of Development</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/donor_relations/">Office of Donor Relations & Stewardship</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/corpfound/home.html">Corporate and Foundation Relations</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Lasting legacies</h3>
+						<p>You can become a part of Georgia's lasting legacy by strengthening your school, college, or academic unit today, through your contributions.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.plan.gs/Home.do?orgId=5035">Gift & Estate Planning</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/georgiafund/">Georgia Fund</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/sections/giving/index.php">Impact of Giving</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/sections/recognition/index.php">Donor Recognition</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/sections/endowment/index.php">Endowment</a></li>
+							<li><a href="http://www.externalaffairs.uga.edu/development/sections/news/index.php">UGA Development News</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Proud to say Georgia</h3>
+						<p>With over 100 alumni organizations in major cities around the world, it's easy to keep your connection to UGA, lifelong and worldwide.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php">Alumni Association</a></li>
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php/site/programs">Alumni Programs</a></li>
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php/site/saa/saa_about">Student Engagement</a></li>
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php/content2/uga_alumni_multicultural_programs">Alumni Multicultural Programs</a></li>
+							<li><a href="http://www.alumni.uga.edu/alumni/index.php/chapters/chapter_search">Community Projects</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Online giving</h3>
+						<p>Make your gift through a safe, secure and efficient process. Then easily track them through your bank statement.</p>
+						<ul class="bluemenu">
+							<li><a href="https://www.externalaffairs.uga.edu/os/makegift">Give Online</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav8" tabindex="100">
+				<a href="">Arts</a>
+				<div class="megamenu">
+					<div>
+						<h3>The Arts at UGA</h3>
+						<p>UGA's Performing and Visual Arts Complex provides some of the finest facilities in the South for teaching, research and performance in the 
+						fine arts. The Complex includes the Hodgson School of Music; the Performing Arts Center, which has a 1,100-seat auditorium for major concerts 
+						and musical performances; the Lamar Dodd School of Art, which opened in 2008 and includes studios, lecture halls, galleries, a media center and 
+						an eco-friendly "green roof;" and the Georgia Museum of Art with 9,000 square feet of exhibition space.</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.music.uga.edu/">Hugh Hodgson School of Music</a></li>
+							<li><a href="http://www.uga.edu/pac/">Performing Arts Center</a></li>
+							<li><a href="http://art.uga.edu/">Lamar Dodd School of Art</a></li>
+							<li><a href="http://georgiamuseum.org/">Georgia Museum of Art</a></li>
+							<li><a href="http://www.dance.uga.edu/">Department of Dance</a></li>
+							<li><a href="http://www.drama.uga.edu/">Department of Theatre &amp; Film Studies</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Galleries, Performance Halls, Theatres</h3>
+						<p>During the fall of 2011, the UGA Libraries' three special collections libraries will relocate from the Main Library to the new Special Collections 
+						Libraries building currently under construction at 300 Hull Street. The Special Collections Libraries Building plans to open fully to the public with 
+						normal service and access to exhibit galleries in January 2012.</p>
+						<ul class="bluemenu">
+							<li><a href="http://georgiamuseum.org/">Georgia Museum of Art</a></li>
+							<li><a href="http://art.uga.edu/index.php?cat=52&amp;nav=1">Lamar Dodd School of Art Galleries</a></li>
+							<li><a href="http://art.uga.edu/index.php?pt=1&amp;id=408&amp;nav=1">Lamar Dodd School of Art Orbit Galleries</a></li>
+							<li><a href="http://www.ced.uga.edu/index.php/facilities/detail/circle_gallery/">Circle Gallery</a></li>
+							<li><a href="http://www.libs.uga.edu/special_collections/index.shtml">Special Collections</a></li>
+							<li><a href="http://www.music.uga.edu/facilities/">Hugh Hodgson Performance Halls</a></li>
+							<li><a href="http://www.drama.uga.edu/events/productions.php">Arena and Cellar Theatres</a></li>
+							<li><a href="http://www.drama.uga.edu/events/productions.php">Fine Arts Theatre</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Music, Dance and Drama</h3>
+						<p>"Hodgson Hall is, by far, the best concert hall in Georgia, and one of the finest in the country. If you hear the Atlanta Symphony in this hall, you 
+						hear it for the first time."—Yoel Levi, Music Director Emeritus, Atlanta Symphony Orchestra</p>
+						<ul class="bluemenu">
+							<li><a href="http://www.music.uga.edu/">Hugh Hodgson School of Music</a></li>
+							<li><a href="http://www.music.uga.edu/ensembles/Orchestra/SymphonyOrchestra/">University of Georgia Symphony Orchestra (UGASO)</a></li>
+							<li><a href="http://bands.music.uga.edu/">University Philharmonia</a></li>
+							<li><a href="http://www.ugaca.uga.edu/home.html">The UGA Choral Association</a></li>
+							<li><a href="http://bands.music.uga.edu/">University Bands</a></li>
+							<li><a href="http://www.uga.edu/pac/mastercalendar.html">Performing Arts Series</a></li>
+							<li><a href="http://www.dance.uga.edu/companies/core/index.htm">CORE Concert Dance Company</a></li>
+							<li><a href="http://www.dance.uga.edu/companies/index.htm">UGA Ballet Ensemble</a></li>
+							<li><a href="http://www.ugaballroom.com/">UGA Ballroom Performance Group</a></li>
+							<li><a href="http://www.dance.uga.edu/companies/youngchor.htm">Young Choreographer's Series</a></li>
+							<li><a href="http://www.drama.uga.edu/events/productions.php">University Theatre Productions</a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>Calendars</h3>
+						<p>The Performing Arts Center embarks on its 15th season of bringing the world's finest entertainers to Athens.</p>
+						<ul class="bluemenu">
+							<li><a href="http://calendar.uga.edu">Master Calendar</a></li>
+							<li><a href="http://www.georgiamuseum.org/art/exhibitions/on-view">Georgia Museum of Art Calendar</a></li>
+							<li><a href="http://art.uga.edu/cal.php">School of Art Calendar</a></li>
+							<li><a href="http://www.dance.uga.edu/calendar/">Dance Performance Calendar</a></li>
+							<li><a href="http://www.uga.edu/pac/mastercalendar.html">Performing Arts Series</a></li>
+							<li><a href="http://www.drama.uga.edu/events/calendar.php">University Theatre Productions</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="nav9"  tabindex="110"><a href="http://www.georgiadogs.com/">Athletics</a></li>
+	   </ul>            
+	</div>
+</div>
+<a id="startcontent"></a>        <div id="slideshow">
+        	<div class="wrap">
+				<div class="alert">
+					<h2>UGA <strong>ALERT</strong></h2>
+					<p></p>
+				</div>		
+				
+								<div class='slide' style='background-color:#3f2e20'>
+									<img src="/images/sized/images/uploads/specialcollections_class960-960x350.jpg" width="960" height="350"  alt="Rare opportunities" class="background" />
+									<div class='overlay'>
+										<div class='featurecopy'>
+											<h2>Rare opportunities</h2>
+											<p>&#8216;Mom, I&#8217;m holding a Bible from the 1500s,&#8217;&#8201; texted Melissa Manson, a second-year theatre and broadcast journalism major. Melissa is a member of the first class to be taught in the new Richard B. Russell Special Collections Libraries Building.
+</p>
+											<a href='http://www.uga.edu/about_uga/profile/rare-opportunities' class='readmore'>READ MORE&nbsp;&nbsp;<img src='http://www-c0-images.cc.uga.edu/uga/img/header_arrow_white.png' alt='Continue' /></a>
+										</div>
+									</div>
+								</div>
+							
+								<div class='slide' style='background-color:#006559'>
+									<img src="/images/sized/images/uploads/frontpage-882x350.jpg" width="881" height="350"  alt="UGA&#8217;s &#8220;Morrill&#8221; Obligation" class="background" />
+									<div class='overlay'>
+										<div class='featurecopy'>
+											<h2>UGA&#8217;s &#8220;Morrill&#8221; Obligation</h2>
+											<p>The university is honoring the 150th anniversary of the creation of the land-grant college system, which provides the basis for it service mission.
+</p>
+											<a href='http://www.uga.edu/about_uga/profile/ugas-morrill-obligation' class='readmore'>READ MORE&nbsp;&nbsp;<img src='http://www-c0-images.cc.uga.edu/uga/img/header_arrow_white.png' alt='Continue' /></a>
+										</div>
+									</div>
+								</div>
+							
+								<div class='slide' style='background-color:#579b5c'>
+									<img src="/images/sized/images/uploads/cubs_UGAresearch960-960x350.jpg" width="960" height="350"  alt="Cub scouts" class="background" />
+									<div class='overlay'>
+										<div class='featurecopy'>
+											<h2>Cub scouts</h2>
+											<p>Researchers at UGA are working on a strategy to protect a black bear population in middle Georgia threatened by a state road-widening project.
+</p>
+											<a href='http://www.uga.edu/about_uga/profile/cub-scouts' class='readmore'>READ MORE&nbsp;&nbsp;<img src='http://www-c0-images.cc.uga.edu/uga/img/header_arrow_white.png' alt='Continue' /></a>
+										</div>
+									</div>
+								</div>
+											
+                <div id="slidestrip">
+                    <a id="donatenow" href="https://www.externalaffairs.uga.edu/os/makegift">Support UGA's<br />Academic Excellence</a>
+                    <ul id="featuretypes">
+                        <li>TEACHING</li>
+                        <li>SERVICE</li>
+                        <li>RESEARCH</li>
+                    </ul>
+                </div>
+            </div>            
+        </div>
+        <div id="content">
+   	  		<div class="wrap">
+                <ul id="nontabs">
+                    <li id="active_nontab"><a href="/information/students/">Students</a></li>
+                    <li><a href="/information/faculty-staff/">Faculty &amp; Staff</a></li>
+                    <li><a href="/information/alumni/">Alumni</a></li>
+                    <li><a href="/information/parents/">Parents &amp; Families</a></li>
+                    <li><a href="http://visit.uga.edu">Visitors &amp; Community</a></li>
+                    <li><a href="http://www.externalaffairs.uga.edu/corporate/">Corporations &amp; Businesses</a></li>
+                </ul>
+                <div id="tabs">
+                    <ul class="tabnav">    
+                        <li class="active">News</li>
+                        <li>Events</li>
+                    </ul>    
+                    <div id="newstab">
+                        <div id="newsmain">
+							<h3><a href="http://news.uga.edu">UGA Today</a></h3>
+							
+																		
+										<div class='newsfeature'>					
+										<img src="/images/sized/media/news_panels/adams_feature3-302x174.jpg" width="302" height="174"  alt="np_photo_sub" class="bordered" />										
+											<h4><a href="http://news.uga.edu/releases/article/uga-president-adams-announces-plans-to-step-down-next-year/">UGA President Adams announces plans to step down</a></h4>
+																						<p>University of Georgia President Michael F. Adams informed the campus today that he will step down as president at the conclusion of the next fiscal year. At the end of his 16 years in office on June 30, 2013, Adams will stand fifth in length of service among the university's 21 presidents, tied with founding president Abraham Baldwin.</p>
+										</div>
+									
+																<div class="newsmodule ugatoday">
+									<h4 class='todaystory'><a href='http://news.uga.edu/releases/article/mountain-stage-episode-taped-at-uga-airs-sunday'>Mountain Stage episode taped at UGA to air Sunday</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/portuguese-flagship-program-highlighted-at-conference'>UGA Portuguese flagship program highlighted at Conference of the Americas</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/alumni-athletic-associations-to-hold-uga-day-in-birmingham'>Alumni, Athletic associations to hold UGA Day in Birmingham</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/alumni-athletic-associations-to-hold-uga-day-in-tampa'>Alumni, Athletic associations to hold UGA Day in Tampa</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/uga-college-of-environment-and-design-professor-wins-local-stormwater-award'>UGA College of Environment and Design professor wins local stormwater award</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/study-suggests-new-approach-to-explain-cancer-growth-low-oxygen-levels'>Study suggests new approach to explain cancer growth: low oxygen levels</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/uga-president-adams-announces-plans-to-step-down-next-year'>UGA President Adams announces plans to step down next year</a></h4><h4 class='todaystory'><a href='http://news.uga.edu/releases/article/gmoa-to-exhibit-prints-by-northern-renaissance-masters'>GMOA to exhibit prints by Northern Renaissance masters</a></h4>								</div>								
+								<div class="newsmodule feature">
+																		<div class="clearfix"></div>
+								</div>
+								<div class="newsmodule discover">
+									<h3 class="nofloat" style="font-size:2em; width:550px; letter-spacing: 0em;"><a href="/about_uga/directory/">UGA is making a difference in the lives of Georgians</a></h3>
+									<div class="blurbs">
+										
+											<div>
+												<a href="http://commencement.uga.edu/"><img src="/images/sized/media/discover_uga/DSC-grads_footer-126x83.jpg" width="126" height="83"  alt="" class="bordered" /></a>
+												
+												<p style="font-style:normal"><a href="http://commencement.uga.edu/">From speakers to parking, we have information on spring commencement.</a></p>
+											</div>
+										
+											<div>
+												<a href="http://www.georgiacenter.uga.edu/ppd/summer-academy"><img src="/images/sized/media/discover_uga/DSC_Summer_Academy-126x83.jpg" width="126" height="83"  alt="" class="bordered" /></a>
+												
+												<p style="font-style:normal"><a href="http://www.georgiacenter.uga.edu/ppd/summer-academy">Middle, high school students can explore new ideas at Summer Academy.</a></p>
+											</div>
+										
+											<div>
+												<a href="http://healthsciences.uga.edu/"><img src="/images/sized/media/discover_uga/DSC-healthscienceswebsite-126x83.jpg" width="126" height="83"  alt="" class="bordered" /></a>
+												
+												<p style="font-style:normal"><a href="http://healthsciences.uga.edu/">UGA is building a better Georgia through its health sciences programs. </a></p>
+											</div>
+										
+											<div>
+												<a href="http://news.uga.edu/releases/article/health-sciences-campus-update1/"><img src="/images/sized/media/discover_uga/Discover_HSCampus_sign3-126x83.jpg" width="126" height="83"  alt="" class="bordered" /></a>
+												
+												<p style="font-style:normal"><a href="http://news.uga.edu/releases/article/health-sciences-campus-update1/">The College of Public Health moves to Health Sciences Campus, renovations continue.</a></p>
+											</div>
+										
+									</div><div class="clearfix"></div>
+								</div>
+							
+                        </div>
+                        <div id="newsprofiles">
+                            <ul id="profilenav">
+                                <li>AMAZING<br />STUDENT</li>
+                                <li class="mid">FOCUS ON<br />FACULTY</li>
+                                <li>CAMPUS<br />CLOSEUP</li>
+                            </ul>
+                            <div id="profilecontent">
+                                <div id="amazingstudent">
+									
+										<h3><a href="/amazing/directory">Amazing Student</a></h3>
+                                        <div class="profilepic"><img src="/media/images/danielle_sobol_tb-247x191.jpg" width="247" height="191"  alt="Sobol, Danielle-tb" /></div>
+										<h3 class="profilename"><a href="/amazing/profile/sobol-danielle">Danielle Sobol</a></h3>
+										<p>Danielle Sobol will graduate with Highest Honors during UGA&#8217;s spring Commencement ceremony in May. The Ball Ground native attributes her scholastic success to the opportunities UGA has provided her, including a teaching assistantship in the chemistry department, international education and numerous volunteers experiences.
+</p>
+										<a href="/amazing/profile/sobol-danielle" class="readmore">READ MORE&nbsp;&nbsp;<img src="http://www-c0-images.cc.uga.edu/uga/img/header_arrow_red99.png" alt="Continue" /></a>
+									
+                                </div>
+                                <div id="facultyprofile">
+									
+										<h3><a href="/faculty/directory">Focus on Faculty</a></h3>
+										<div class="profilepic"><img src="/media/images/munneke_tb-247x191.jpg" width="247" height="191"  alt="Munneke, Henry-tb" /></div>
+										<h3 class="profilename"><a href="/faculty/profile/henry-munneke">Henry Munneke</a></h3>
+										<p>Henry Munneke holds a chaired position in the Terry College of Business and enjoys teaching and research in the areas of real estate and urban economics &#8211; timely topics in today&rsquo;s economic environment.
+</p>
+										<a href="/faculty/profile/henry-munneke" class="readmore">READ MORE&nbsp;&nbsp;<img src="http://www-c0-images.cc.uga.edu/uga/img/header_arrow_red99.png" alt="Continue" /></a>
+									
+								</div>
+								<div class="campuscloseup">
+									
+										<h3><a href="http://columns.uga.edu/news/category/campus-closeups/">Campus Closeup</a></h3>
+										
+										<div class="profilepic"><img src="/media/images/albanese_greg28683-005-247x191.jpg" width="247" height="191"  alt="Albanese, Greg-H.Env.Portrait" /></div>
+										
+										<h3 class="profilename"><a href="http://columns.uga.edu/news/article/taking-care-tate-manager">Albanese, Greg</a></h3>
+										<p>It's not unusual for the UGA police to call Greg Albanese at 3 in the morning. As associate director for the Tate Student Center facilities, it's part of the job.</p>
+										<a href="http://columns.uga.edu/news/article/taking-care-tate-manager" class="readmore">READ MORE&nbsp;&nbsp;<img src="http://www-c0-images.cc.uga.edu/uga/img/header_arrow_red99.png" alt="Continue" /></a>
+									
+								</div>
+                            </div>
+                        </div>
+                    </div>    
+                    <div id="eventstab">
+						
+							
+								<div id="eventsleft" class="eventside">
+									<a href="http://georgiachildrenschorus.org/"><h4>Georgia Children&#8217;s Chorus to perform</h4></a>
+																		<img src="/images/event_photos/georgia_childrens_chorus-122x91.jpg" width="122" height="91"  alt="Photo" class="bordered" />
+									<p>The Georgia Children&#8217;s Chorus will perform May 6 at 7 p.m. at the Hugh Hodgson Performing Arts Center. A 100-voice children's chorus comprised of children in the Athens area ages 8 -18, the Georgia Children&#8217;s Chorus is in-residence at the UGA Hugh Hodgson School of Music.</p>
+								</div>
+							
+								<div id="eventsright" class="eventside">
+									<a href="http://www.georgiadogs.com/sports/w-softbl/geo-w-softbl-body.html"><h4>UGA softball team plays Arkansas</h4></a>
+																		<img src="/images/event_photos/softball122_1-122x91.jpg" width="122" height="91"  alt="Photo" class="bordered" />
+									<p>The UGA Lady Dogs softball team will play Arkansas three times in two days.  On May 5, a doubleheader will get underway at 2:30 p.m. in the Jack Turner Stadium, with the second game starting at 5 p.m. that day.  And on May 6 starting at 1:30, a third game with the Arkansas team will get underway, also at Jack Turner Stadium.</p>
+								</div>
+							
+							<div id="eventsmain">
+								<div id="eventsfeature">
+																			
+											<img src="/images/event_photos/stadion-classic-250stadion-classic-250-249x209." width="249" height="209"  alt="Photo" class="bordered" />
+											<p><strong><a href="http://www.stadionclassic.uga.edu ">Stadion Classic continues, supports scholarships</a></strong><br />Play continues through May 6 at the UGA golf course for the Stadion Golf Tournament, a stop on the PGA Nationwide Tour. The university is serving as one of the major leaders of the tournament, and proceeds will support needs-based scholarships through the UGA Foundation.</p>
+										
+																	</div>
+						
+                            <div id="eventscal">
+                                <h3>Today's events</h3><a href="http://calendar.uga.edu" id="masterlink">DETAILS IN MASTER CALENDAR</a>
+                                <div id="eventswindow">
+									<table>
+										
+											<tr>
+												<td>1:30 pm</td>
+												<td>
+													<h5>Softball vs. Arkansas</h5>
+													<em>
+																													Jack Turner Stadium
+																											</em>
+												</td>
+											</tr>
+										
+											<tr>
+												<td>2:00 pm</td>
+												<td>
+													<h5>Baseball vs. Auburn</h5>
+													<em>
+																													Foley Field
+																											</em>
+												</td>
+											</tr>
+										
+									</table>
+                                </div>
+                                <span id="eventscalprev"><img src="http://www-c0-images.cc.uga.edu/uga/img/up_arrows.gif" alt="up" /> PREVIOUS</span><span id="eventscalnext">NEXT <img src="http://www-c0-images.cc.uga.edu/uga/img/down_arrows.gif" alt="down" /></span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+					</div>                 
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    	<div id="push"></div>
+    </div>
+    	<div id="footer">
+		<div id="connectbar">
+			<span>Connect with UGA on: 
+			<a href="http://www.facebook.com/uga.edu">Facebook</a>, 
+			<a href="http://twitter.com/#!/universityofga">Twitter</a>, 
+			<a href="https://www.admissions.uga.edu/article/admissions-iphone-app.html">iPhone</a>, 
+			<a href="http://www.itunes.uga.edu/">iTunes U</a>, and 
+			<a href="http://www.youtube.com/universityofgeorgia">YouTube</a>
+                   </span>
+		</div>
+
+		<div class="wrap">
+            <div id='leftfoot'>
+                <div class="vcard">
+                    <div class="org">The University of Georgia</div>
+                    <div class="adr">
+                        <span class="locality">Athens</span>, 
+                        <span class="region">GA</span>, 
+                        <span class="postal-code">30602</span>			
+                    </div>
+                    <div class="tel">706-542-3000</div>
+                </div>
+                This site is maintained by:
+                <div class="vcard">
+                    <div class="org"><a href="https://www.externalaffairs.uga.edu/ea/index.php/site/public_affairs/">Office of Public Affairs</a></div>
+                </div>
+                <a href="mailto:jbeckley@uga.edu">Comments, suggestions?</a>
+                <br /><br />
+                <a href="http://www.externalaffairs.uga.edu/policies/nodes/view/260/Web-Site-Development-and-Design">Copyright</a> | 
+				<a href="https://infosec.uga.edu/policies/privacy.php">Privacy</a> | 
+				<a href="http://wiki.eits.uga.edu/campuswebhelp/index.php/Web_Accessibility_and_Persons_with_Disabilities">Accessibility</a> |  
+				<a href="http://www.uga.edu/eoo">The University of Georgia is an equal opportunity/affirmative action employer.</a>
+            </div>
+            <div id='rightfoot'>
+                           <div class="addthis_toolbox addthis_default_style">
+							<a href="http://addthis.com/bookmark.php?v=250" class="addthis_button_compact">Share</a>
+							<span class="addthis_separator">&nbsp;</span>
+							<a class="addthis_button_facebook"></a>
+							<a class="addthis_button_twitter"></a>
+							<a class="addthis_button_email"></a>
+							<span class="addthis_separator">&nbsp;</span>
+							<a class="addthis_button_facebook_like"></a>
+						</div>
+<script src="http://s7.addthis.com/js/250/addthis_widget.js" type="text/javascript" charset="utf-8"></script> 
+                <a href="http://www.hr.uga.edu/recruitment/employment/Employment.html">Employment Opportunities</a><br />
+                <a href="http://www.uga.edu/eoo/pdfs/NDAH.pdf">Non-Discrimination Policy [pdf]</a><br />
+                <a href="http://legal.uga.edu/hotline/">Compliance, Ethics, &amp; Reporting Hotline</a><br />
+                <a href="http://provost.uga.edu/index.php/consumerinfo/">UGA Consumer Information</a><br />
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</body>
+</html>

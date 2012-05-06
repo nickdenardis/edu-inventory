@@ -1,0 +1,494 @@
+
+
+<html>
+<head>
+<!--stylesheet-->
+<link rel="stylesheet" type="text/css" href="/style.css" />		 
+<script>parent.window.scrollTo(0,0);</script>
+<script type="text/javascript">		 			
+function imageSwap(daImage, daSrc){
+ 	var obj;
+ 	if(document.images){
+		// Check to see whether you are using a name, number, or object
+		if (typeof(daImage) == 'string') {
+	   		obj = 'document.' + daImage;
+	   		obj = eval(obj);
+	   		obj.src = daSrc;
+	   	} 
+		else if ((typeof(daImage) == 'object') && daImage && daImage.src) {
+			daImage.src = daSrc;
+	   	}
+ 	}
+}		
+</script>
+<script type="text/javascript">		
+//Podium MML OPEN
+function openMML(consoleid, galleryid, mediaid, mediatype) {
+	var pGallery = (galleryid > 0)?'&gallery_id=' + galleryid:'';
+	var pMedia = (mediaid > 0)?'&mediatype=' + mediatype +'&mediaid=' + mediaid:'';
+	window.open('/podium/MediaLibrary/player/default.aspx?console_id=' + consoleid + pGallery + pMedia + '&browse=yes&recent=yes', '_blank', 'location=no, menubar=no, scrollbar=no, status=no, resizable=no, height=497, width=700');
+}
+//Submit Form from Select statment		
+function jump(f) {
+	f.submit();
+}
+//Check for added variable to podium url
+function CheckForID(VarType) {
+	var beginValue,mylocation,MyID,FoundAnd
+	mylocation = new String(parent.window.location);
+	beginValue = mylocation.search(VarType);
+	if(beginValue > 0){
+		MyID = mylocation.substring(beginValue+VarType.length+1,mylocation.length);
+		FoundAnd = MyID.search("&");
+		if(FoundAnd > 0){
+			MyID = MyID.substring(0,FoundAnd);
+		}
+	}
+	if(MyID == null){
+		return 0;
+	}
+	else{
+		return MyID;
+	}
+}
+//Get Object
+function fe_getobj(obj) {
+	if (document.getElementById)
+		return document.getElementById(obj)
+	else if (document.all)
+		return document.all[obj]
+}
+//swap add remove and check to see if a css class is added to an object
+//fe_css('swap',objectname,'class1','class2')
+function fe_css(a,m,c1,c2) {
+	var o =  new fe_getobj(m);
+	switch (a){
+		case 'swap':
+			o.className=!fe_css('check',o,c1)?o.className.replace(c2,c1):o.className.replace(c1,c2);
+		break;
+		case 'add':
+			if(!fe_css('check',o,c1)){o.className+=o.className?' '+c1:c1;}
+		break;
+		case 'remove':
+			var rep=o.className.match(' '+c1)?' '+c1:c1;
+			o.className=o.className.replace(rep,'');
+		break;
+		case 'check':
+			return new RegExp('\\b'+c1+'\\b').test(o.className)
+		break;
+	}
+}
+//
+function ReSizeIFRAME() {
+	var aIF = window.parent.document.getElementsByTagName('IFRAME')
+	var objIF
+	for (x=0; x<aIF.length;x++) {
+		if(aIF[x].id.substring(0,2) == 'if') objIF = aIF[x]
+	}
+	var objBody = document.getElementById('__pdIFRAMEarea') 
+	objIF.style.height = objBody.offsetHeight;
+}
+
+function sendEmail(address, linkto) {
+   	var aryAddress = new Array
+   	var mailTo = new String;
+   	address = address.replace(/x/g, ',64');address = address.replace(/y/g, ',46');address = address.replace(/z/g, ',');
+   	aryAddress = address.split(',') 
+   	for (q=1; q<aryAddress.length;q++) {  
+		mailTo = mailTo + String.fromCharCode(aryAddress[q]);   
+	}
+	linkto.href = 'mailto:'+mailTo;
+} 
+
+function __pdL(taskid, taskname, tasktypeid, taskargs, path, clearhistory, subtaskid, subtaskname) {
+	parent.window.location = "/podium/default.aspx?t=" + taskid;
+}
+
+function MS_swap(Mitem,Mtype){
+  Mitem.src=Mitem.getAttribute(Mtype || "origsrc");
+}
+
+function MS(img_swap){
+	img_swap.setAttribute("origsrc",img_swap.src);
+	img_swap.setAttribute("onload","");
+   	img_swap.oversrc_img = new Image();
+  	img_swap.oversrc_img.src=img_swap.getAttribute("oversrc");
+    img_swap.onmouseover = new Function("MS_swap(this,'oversrc');");
+    img_swap.onmouseout = new Function("MS_swap(this);");
+	img_swap.style.cursor = 'pointer';
+}
+
+function M_object(obj){
+		if (document.getElementById)
+			return document.getElementById(obj)
+		else if (document.all)
+			return document.all[obj]
+	}
+function openMML2() {
+	window.open('/podium/MediaLibrary/player/default.aspx?browse=yes&recent=yes', '_blank', 'location=no, menubar=no, scrollbar=no, status=no, resizable=no, height=497, width=700');
+}
+
+</script>	
+<link rel="shortcut icon" href="http://www.fvs.edu/favicon.ico" /><title>
+	Fountain Valley School of Colorado
+</title>
+	<style type="text/css">
+		#gallery { position: relative; width:448px; height:278px; margin:0; padding:0; }
+		#gallery li { display: block; }
+	</style>
+     
+        <script type="text/javascript" src="swfobject.js"></script>
+	    <script type="text/javascript">
+		    var flashvars = {skipIntro: 'False'};
+			var params = {menu: 'false', wmode: 'transparent'};
+			var attributes = {id: 'explorecontent'};
+		    swfobject.embedSWF("/flash/home_real6.swf", "nonflashcontent", "100%", "100%", "9.0.0", false, flashvars,params,attributes);
+	    </script>
+    
+    <script type="text/javascript">
+        function getFLASH(obj){
+			if (document.getElementById)
+				return document.getElementById(obj)
+			else if (document.all)
+				return document.all[obj]
+		}
+			function getWinSize()
+		{
+			var myWidth = 0, myHeight = 0;
+			if( typeof( window.innerWidth ) == 'number' )
+			{
+			 //Non-IE
+			 myWidth = window.innerWidth;
+			 myHeight = window.innerHeight;
+			}
+			else if(document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight))
+			{
+			  //IE 6+ in 'standards compliant mode'
+			  myWidth = document.documentElement.clientWidth;
+			  myHeight = document.documentElement.clientHeight;
+			}
+			else if(document.body && (document.body.clientWidth || document.body.clientHeight))
+			{
+			  //IE 4 compatible
+			  myWidth = document.body.clientWidth;
+			  myHeight = document.body.clientHeight;
+			}
+			return {w:myWidth,h:myHeight}
+		}
+	   // keeps full-window flash from becoming smaller than 1024 browsers size
+	   function adjustFlashSize(id)
+	   {
+	      var winSizes = getWinSize();
+	      
+	      var flashObj = document.getElementById(id);
+		  
+	      if(winSizes.w < 1000)
+	      {
+	         flashObj.style.width = "1000px";
+	      }
+	      else
+	      {
+	         flashObj.style.width = winSizes.w;
+	      }
+		  
+	      if(winSizes.h < 700)
+	      {
+	        flashObj.style.height = "700px";
+	      }
+	      else
+	      {
+	         flashObj.style.height = winSizes.h;
+	      }
+	   }
+    </script>
+    <script type="text/javascript">
+		function Fswitch(){
+		//alert('');
+            var flashvars = {IP_path: '/&photoBlogPath=photo_blog.asp', directLink: ''};
+			var params = {menu: 'false', wmode: 'transparent'};
+			var attributes = {id: 'flashcontent'};
+		    swfobject.embedSWF("/index.swf", "explorecontent", "1100", "700", "9.0.0", false, flashvars,params,attributes);
+	    }
+		/* general variables */
+		var galleryId = 'gallery'; /* change this to the ID of the gallery list */
+		var	gallery; /* this will be the object reference to the list later on */
+		var galleryImages; /* array that will hold all child elements of the list */
+		var currentImage; /* keeps track of which image should currently be showing */
+		var previousImage;
+		preInit();
+		/* functions */
+		function preInit() {
+			/* an inspired kludge that - in most cases - manages to initially hide the image gallery list
+			   before even onload is triggered (at which point it's normally too late, and the whole list already
+			   appeared to the user before being remolded) */
+			if ((document.getElementById)&&(gallery=document.getElementById(galleryId))) {
+				gallery.style.visibility = "hidden";
+				clearTimeout(preInitTimer);
+			} else {
+				preInitTimer = setTimeout("preInit()",2);
+			}
+		}
+		function fader(imageNumber,opacity) {
+			/* helper function to deal specifically with images and the cross-browser differences in opacity handling */
+			var obj=galleryImages[imageNumber];
+			if (obj.style.MozOpacity!=null) {  
+				/* Mozilla's pre-CSS3 proprietary rule */
+				obj.style.MozOpacity = (opacity/100) - .001;
+			} else if (obj.style.opacity!=null) {
+				/* CSS3 compatible */
+				obj.style.opacity = (opacity/100) - .001;
+			} else if (obj.style.filter!=null) {
+				/* IE's proprietary filter */
+				obj.style.filter = "alpha(opacity="+opacity+")";
+			}
+		}
+		function fadeInit() {
+		    preInit(); 
+			if (document.getElementById && gallery) {
+				/* shouldn't be necessary, but IE can sometimes get ahead of itself and trigger fadeInit first */
+				/* get all child nodes...yes, lazy, as i should really check that they're the "proper" type
+				of child nodes (i.e. filter out duff text only nodes, such as white space) */
+				galleryImages = gallery.childNodes;
+				for(i=0;i<galleryImages.length;i++) {
+					/* loop through all these child nodes and set up their styles */
+					galleryImages[i].style.position='absolute';
+					galleryImages[i].style.top=0;
+					galleryImages[i].style.zIndex=0;
+					/* set their opacity to transparent */
+					fader(i,0);
+				}
+				/* make the list visible again */
+				gallery.style.display = '';
+				gallery.style.visibility = 'visible';
+				/* initialise a few parameters to get the cycle going */
+				currentImage=0;
+				previousImage=galleryImages.length-1;
+				opacity=100;
+				fader(currentImage,100);
+				/* start the whole crossfade process after a second's pause */
+				window.setTimeout("crossfade(100)", 1000);
+			}
+		}
+		function crossfade(opacity) {
+			if (opacity < 100) {
+				/* current image not faded up fully yet...so increase its opacity */
+				fader(currentImage,opacity);
+				/* fader(previousImage,100-opacity); */
+				opacity += 10;
+				window.setTimeout("crossfade("+opacity+")", 30);
+			} else {
+				/* make the previous image - which is now covered by the current one fully - transparent */
+				fader(previousImage,0);
+				/* current image is now previous image, as we advance in the list of images */
+				previousImage=currentImage;
+				currentImage+=1;
+				if (currentImage>=galleryImages.length) {
+					/* start over from first image if we cycled through all images in the list */
+					currentImage=0;
+				}
+				/* make sure the current image is on top of the previous one */
+				galleryImages[previousImage].style.zIndex = 0;
+				galleryImages[currentImage].style.zIndex = 0;
+				/* and start the crossfade after a second's pause */
+				opacity=0;
+				window.setTimeout("crossfade("+opacity+")", 5000);
+			}
+		}
+		/* initialise fader by hiding image object first */
+		addEvent (window,'load',fadeInit)
+		/* addEvent handler for IE and other browsers */
+		function addEvent(elm, evType, fn, useCapture) 
+		// addEvent and removeEvent
+		// cross-browser event handling for IE5+,  NS6 and Mozilla
+		// By Scott Andrew
+		{
+		 if (elm.addEventListener){
+		   elm.addEventListener(evType, fn, useCapture);
+		   return true;
+		 } else if (elm.attachEvent){
+		   var r = elm.attachEvent("on"+evType, fn);
+		   return r;
+		 }
+		} 
+	</script>
+	<link rel="shortcut icon" href="/favicon.ico" /></head>
+<body class="homebody" style="background-image:url(/images/home_fvs_back.gif);" onresize="adjustFlashSize('pagecontent');" onload="adjustFlashSize('pagecontent');">
+    <form method="post" action="default.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg1NzUxMzYzOGRkyMewIVoBtkpsEsbgn56u4c0e9uI=" />
+</div>
+
+    
+			    
+            <div id="pagecontent">
+			    <div id="nonflashcontent">
+    				
+				    <div id="container" style="height: auto;">
+					    <div style="height:504px;">
+						    <div style="position:absolute; top:8px; left:861px;">
+							    <table cellpadding="0" cellspacing="0" border="0">
+								    <tr>
+									    <td align="left" valign="top"><div><a href="/podium/default.aspx?t=46323"><img src='/images/home_omni_1_off.gif' oversrc="/images/home_omni_1_on.gif" onload="MS(this);" alt='' name='homni_1' id='homni_1' border='0'></a></div></td>
+										<!-- 12/10/2010 Updated gCli link KAQ -->
+									    <!--<td align="left" valign="top"><div><a href="/podium/default.aspx?t=39654"><img src='/images/home_omni_2_off.gif' oversrc="/images/home_omni_2_on.gif" onload="MS(this);" alt='' name='homni_2' id='homni_2' border='0'></a></div></td>-->
+										<td align="left" valign="top"><div><a href="http://www.gclileadership.org" target="_blank"><img src='/images/home_omni_2_off.gif' oversrc="/images/home_omni_2_on.gif" onload="MS(this);" alt='' name='homni_2' id='homni_2' border='0'></a></div></td>
+									    <td align="left" valign="top"><div><a href="/podium/default.aspx"><img src='/images/home_omni_3_off.gif' oversrc="/images/home_omni_3_on.gif" onload="MS(this);" alt='' name='homni_3' id='Img1' border='0'></a></div></td>
+								    </tr>
+							    </table>
+						    </div>
+						    <div><img src='/images/home_top.gif' border='0'></div>
+						    <table cellpadding="0" cellspacing="0" border="0">
+							    <tr>
+								    <td align="left" valign="top"><div><img src='/images/home_left.gif' border='0'></div></td>
+								    <td align="left" valign="top" width="735">
+									    
+									    
+											    <ul id="gallery" style="display:none;"><li><img src="/ftpimages/49/photo/large_photo47995_1011815.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_331120.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_331122.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_331123.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_331119.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_331124.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_1011816.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_1011818.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_1011858.jpg" width="735" height="396" border="0"></li><li><img src="/ftpimages/49/photo/large_photo47995_1011860.jpg" width="735" height="396" border="0"></li></ul>
+									    
+									    
+								    </td>
+								    <td align="left" valign="top"><div><img src='/images/home_right.gif' border='0'></div></td>
+							    </tr>
+						    </table>
+						    <table border='0' cellspacing='0' cellpadding='0'>
+							    <tr>
+								    <td align='left' valign='top'><div><img src='/images/home_nav_left.gif' border='0'></div></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39643'><img src='/images/home_L1_1_off.gif' oversrc="/images/home_L1_1_on.gif" onload="MS(this);" alt='' name='L1_1' id='L1_1' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39644'><img src='/images/home_L1_2_off.gif' oversrc="/images/home_L1_2_on.gif" onload="MS(this);" alt='' name='L1_2' id='L1_2' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39645'><img src='/images/home_L1_3_off.gif' oversrc="/images/home_L1_3_on.gif" onload="MS(this);" alt='' name='L1_3' id='L1_3' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39646'><img src='/images/home_L1_4_off.gif' oversrc="/images/home_L1_4_on.gif" onload="MS(this);" alt='' name='L1_4' id='L1_4' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39647'><img src='/images/home_L1_5_off.gif' oversrc="/images/home_L1_5_on.gif" onload="MS(this);" alt='' name='L1_5' id='L1_5' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39650'><img src='/images/home_L1_6_off.gif' oversrc="/images/home_L1_6_on.gif" onload="MS(this);" alt='' name='L1_6' id='L1_6' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39651'><img src='/images/home_L1_7_off.gif' oversrc="/images/home_L1_7_on.gif" onload="MS(this);" alt='' name='L1_7' id='L1_7' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><a href='/podium/default.aspx?t=39652'><img src='/images/home_L1_8_off.gif' oversrc="/images/home_L1_8_on.gif" onload="MS(this);" alt='' name='L1_8' id='L1_8' height='36' border='0'></a></td>
+								    <td align='left' valign='top'><div><img src='/images/home_nav_right.gif' border='0'></div></td>
+							    </tr>	
+						    </table> 
+						    <div><img src='/images/home_address.gif' border='0'></div>
+					    </div>
+				    </div>
+    				
+				    <div style="position: absolute; bottom: 0px; left: 0px;">
+				    <div id="footerminheight">
+				        
+					        <div class="maintext" style="width: 100%; line-height: 20px; background-image:url(/images/news_background.gif); background-repeat:repeat-x; padding-top:4px;">
+    								
+						    <script language="JavaScript1.2">
+							    //Specify the marquee's width (in pixels)
+							    var marqueewidth="1000px"
+							    //Specify the marquee's height
+							    var marqueeheight="20px"
+							    //Specify the marquee's marquee speed (larger is faster 1-10)
+							    var marqueespeed=2
+							    //configure background color:
+							    var marqueebgcolor=""
+							    //Pause marquee onMousever (0=no. 1=yes)?
+							    var pauseit=1
+							    //Specify the marquee's content (don't delete <nobr> tag)
+							    //Keep all content on ONE line, and backslash any single quotations (ie: that\'s great):
+							    var marqueecontent='<nobr><a href="/podium/default.aspx?t=41715&newsid=77289">Saudi Arabia Focus of All-School Presentation</a><img src="/images/home_bullet.gif" border="0"><a href="/podium/default.aspx?t=41715&newsid=21065">Tibetan Buddhist Monks Visit Fountain Valley School</a><img src="/images/home_bullet.gif" border="0"></nobr>'		
+							    ////NO NEED TO EDIT BELOW THIS LINE////////////
+							    marqueespeed=(document.all)? marqueespeed : Math.max(1, marqueespeed-1) //slow speed down by 1 for NS
+							    var copyspeed=marqueespeed
+							    var pausespeed=(pauseit==0)? copyspeed: 0
+							    var iedom=document.all||document.getElementById
+							    if (iedom)
+							    document.write('<span id="temp" style="visibility:hidden;position:absolute;top:-100px;left:-9000px">'+marqueecontent+'</span>')
+							    var actualwidth=''
+							    var cross_marquee, ns_marquee
+							    function populate(){
+							    if (iedom){
+							    cross_marquee=document.getElementById? document.getElementById("iemarquee") : document.all.iemarquee
+							    if(cross_marquee){
+							    cross_marquee.style.left=parseInt(marqueewidth)+8+"px"
+							    cross_marquee.innerHTML=marqueecontent;
+							    actualwidth=document.all? temp.offsetWidth : document.getElementById("temp").offsetWidth;
+							    lefttime=setInterval("scrollmarquee()",20);
+							    }
+							    }
+							    else if (document.layers){
+							    ns_marquee=document.ns_marquee.document.ns_marquee2
+							    if(ns_marquee){
+							    ns_marquee.left=parseInt(marqueewidth)+8
+							    ns_marquee.document.write(marqueecontent)
+							    ns_marquee.document.close()
+							    actualwidth=ns_marquee.document.width;
+							    lefttime=setInterval("scrollmarquee()",20);
+							    }
+							    }
+							    }
+							    window.onload=populate
+							    function scrollmarquee(){
+							    if (iedom){
+							    if (parseInt(cross_marquee.style.left)>(actualwidth*(-1)+8))
+							    cross_marquee.style.left=parseInt(cross_marquee.style.left)-copyspeed+"px"
+							    else
+							    cross_marquee.style.left=parseInt(marqueewidth)+8+"px"
+							    }
+							    else if (document.layers){
+							    if (ns_marquee.left>(actualwidth*(-1)+8))
+							    ns_marquee.left-=copyspeed
+							    else
+							    ns_marquee.left=parseInt(marqueewidth)+8
+							    }
+							    }
+							    if (iedom||document.layers){
+							    with (document){
+							    document.write('<table border="0" cellspacing="0" cellpadding="0"><td align="left" valign="middle">')
+							    if (iedom){
+							    write('<div style="position:relative;width:'+marqueewidth+';height:'+marqueeheight+';overflow:hidden">')
+							    write('<div style="position:absolute;width:'+marqueewidth+';height:'+marqueeheight+';background-color:'+marqueebgcolor+'" onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed">')
+							    write('<div id="iemarquee" style="position:absolute;left:0px;top:0px"></div>')
+							    write('</div></div>')
+							    }
+							    else if (document.layers){
+							    write('<ilayer width='+marqueewidth+' height='+marqueeheight+' name="ns_marquee" bgColor='+marqueebgcolor+'>')
+							    write('<layer name="ns_marquee2" left=0 top=0 onMouseover="copyspeed=pausespeed" onMouseout="copyspeed=marqueespeed"></layer>')
+							    write('</ilayer>')
+							    }
+							    document.write('</td></table>')
+							    }
+							    }
+						    </script>
+					        </div>
+				        
+						
+						<!--CSP sdb 020510 this was missing, I copied this from default2.asp -->
+						<script>
+				    	
+						</script>
+						
+				    </div>
+				    </div>
+			    </div>
+            </div>
+    
+    
+
+
+<!-- SiteCatalyst code version: G.5.
+Copyright 1997-2003 Omniture, Inc. More info available at
+http://www.omniture.com --><script language="JavaScript"><!--
+/* You may give each page an identifying name, server, and channel on
+the next lines. */
+var s_pageName="Homepage"
+var s_server=""
+var s_channel=""
+var s_pageType=""
+var s_prop1=""
+var s_prop2=""
+var s_prop3=""
+var s_prop4=""
+var s_prop5=""
+var s_prop6=""
+var s_prop7=""
+var s_prop8=""
+var s_prop9=""
+var s_prop10=""
+/********* INSERT THE DOMAIN AND PATH TO YOUR CODE BELOW ************/
+//--></script><script language="JavaScript" src="/ftpimages/49/omniture/s_code_remote.js"></script>
+<!-- End SiteCatalyst code version: G.5. -->
+
+</form>
+</body>
+</html>

@@ -1,0 +1,639 @@
+<html>
+<head>
+	
+	<style type="text/css" media="screen">
+		body{
+	margin: 0;
+	padding: 25px 0 0 0;}
+div#ToggleNav{
+	position:absolute; /* only effects browsers that cannot accept Fixed positioning */
+	top: 0; /* only effects browsers that cannot accept Fixed positioning */
+	left: 0; /* only effects browsers that cannot accept Fixed positioning */
+	background: #666 url(/images/Admin/Skins/HardCandyBlack/images/ToggleLoginBg.gif) repeat-x top left;
+	border-bottom: 0px solid #333;
+	border-top: 0px solid #FFFFFF;
+	width:100%;
+	height:25px;
+	z-index: 1000;
+	overflow:hidden;}
+div#ToggleNav td{
+	font: bold 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #9EA8C3;}
+div#ToggleNav input {
+	margin: 0;
+	padding: 0;
+	font: normal 9px Verdana, Arial, Helvetica, sans-serif;
+	color: #303040;
+	vertical-align:middle;}
+div#ToggleNav .formUsername {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/UsernameBg.gif) no-repeat top left;}
+div#ToggleNav .formPassword {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/PasswordBg.gif) no-repeat top left;}
+div#ToggleNav .formSelected {
+	height: 16px;
+	width: 106px;
+	border: none;
+	margin: 3px 1px 3px 1px;
+	padding: 2px 2px 0 3px;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/LoginFieldBlank.gif) repeat-x top left;}
+div#ToggleNav .formButton {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat 0 0;}
+div#ToggleNav .formButtonHover {
+	height: 16px;
+	width: 46px;
+	border: 0;
+	margin: 4px 0;
+	padding: 0;
+	background: transparent url(/images/Admin/Skins/HardCandyBlack/images/ToggleNavGoButton.gif) no-repeat -46px 0;}
+div#ToggleNav a.help:link, div#ToggleNav a.help:visited {
+	display:block;
+	height: 16px;
+	color: #D9D8E6;
+	border: 0;
+	margin: 4px 5px 0 1px;}
+div#ToggleNav a.help:hover, div#ToggleNav a.help:active {
+	display: block;
+	height: 16px;
+	border: 0;}
+body > div#ToggleNav .formUsername {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formPassword {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formSelected {margin-top: 4px;}/* non-IE browsers only */
+body > div#ToggleNav .formButton {margin-bottom: 3px;}/* non-IE browsers only */
+body > div#ToggleNav .formButtonHover {margin-bottom: 3px;}/* non-IE browsers only */
+@media screen {
+	body > div#ToggleNav{
+		position:fixed;}
+}
+* html body {
+	overflow:hidden;} 
+* html div#AdminDefaultIncludes{
+	position: fixed;
+	top: 25px;
+	bottom:0;
+ 	width: 100%;
+	overflow: auto;	
+	_position: absolute;
+	_top: expression( ( 25 + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );
+	_height: expression( ( -25 + ( document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop ) ) + 'px' );}
+	</style>
+    
+	<script type="text/javascript" src="/JavaScripts/JavaScripts.js"></script>
+
+	<script type="text/javascript" src="/JavaScripts/NiceTitles.js"></script>
+	
+	
+
+	<div id="ToggleNav">
+	
+		<table cellpadding="0" cellspacing="0" align="right">
+			<tr>
+				<form name="frmLogin" method="post" action="https://securesite.pcmac.org/login/" style="margin:0;">				
+					<td align="right" valign="top">
+						<input type="text" name="Username" value="" class="formUsername" onFocus="this.className='formSelected';CheckLoginFields();" onBlur="if(this.value==''){this.className='formUsername'};CheckLoginFields();" />
+						<input type="Password" name="Password" value="" class="formPassword" onFocus="this.className='formSelected'" onBlur="if(this.value==''){this.className='formPassword'}">
+						<input type="submit" name="Submit" value="" class="formButton" onMouseOver="this.className='formButtonHover'" onMouseOut="this.className='formButton'"> &nbsp;
+						<input type="hidden" name="ClientID" value="270" class="formitem">
+						<input type="hidden" name="SiteID" value="486" class="formitem">
+						<input type="hidden" name="SessID" value="829525107" class="formitem">
+						<input type="hidden" name="DestURL" value="http://www.ortn.edu" class="formitem">
+						<input type="hidden" name="SiteServerName" value="www.ortn.edu" class="formitem">
+						<input type="hidden" name="ProductName" value="SAMO" class="formitem">
+						<input type="hidden" name="ProductVersion" value="4.2.0.0" class="formitem">
+						<input type="hidden" name="ProductBuild" value="110929 (x64)" class="formitem">
+						<input type="hidden" name="AuthType" size="40" value="" class="formitem" />
+					</td>
+					<td align="left" valign="middle" class="smalltxt">
+						<a href="http://www.ortn.edu/Admin1/PasswordReminder.asp" title="Forgot Password?" class="help">Forgot Password?</a> &nbsp;
+						<!--span class="formButtonHover" style="visibility:hidden; position:absolute; left:-1234px;">preload button background image</span>
+						<span class="formSelected" style="visibility:hidden; position:absolute; left:-1234px;">preload input background image</span-->
+					</td>
+				</form>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			function CheckLoginFields() {
+				//document.frmLogin.Username.focus();
+				if(document.frmLogin.Username.value!='') {
+					document.frmLogin.Username.className='formSelected';
+				}
+				if(document.frmLogin.Password.value!='') {
+					document.frmLogin.Password.className='formSelected';
+				}
+			}
+			
+			CheckLoginFields();
+		</script>
+	
+	</div>
+	
+	<div id="AdminDefaultIncludes">
+
+	<title>Welcome to the Oak Ridge Schools Website :: </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<meta name="Keywords" content="Oak Ridge Schools" />
+	<meta name="Description" content="Oak Ridge Schools" />
+	<meta name="Author" content="Oak Ridge Schools" />
+	<meta name="ROBOTS" content="INDEX, FOLLOW" />
+	<meta http-equiv="imagetoolbar" content="no" />
+	<link href="/CommonTemplates/SiteElements/Styles/Include-Styles.asp" type="text/css" rel="stylesheet" />
+	<link href="http://images.pcmac.org/Websites/OakRidge/OakRidge/Styles.css" rel="stylesheet" type="text/css" />
+	<!--script src="http://images.pcmac.org/Websites/OakRidge/OakRidge/JavaScripts.js" type="text/javascript"></script-->
+	 
+	<script type="text/javascript"><!--//--><![CDATA[//><!--
+	startList = function() {
+		if (document.all&&document.getElementById) {
+			navRoot = document.getElementById("nav");
+			for (i=0; i<navRoot.childNodes.length; i++) {
+				node = navRoot.childNodes[i];
+				if (node.nodeName=="LI") {
+					node.onmouseover=function() {
+						this.className+=" over";
+					}
+					node.onmouseout=function() {
+						this.className=this.className.replace(" over", "");
+					}
+				}
+			}
+		}
+	}
+	window.onload=startList;
+	
+	//--><!]]></script>
+</head>
+
+<body>
+<div align="center">
+<table width="770" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" id="SiteWrapper">
+	<tr>
+		<td height="88" style="padding: 10px 10px 2px 10px">
+			<div align="right" id="HeaderSearch" >
+				<!-- Search, Staff Only, and other key universal site navigation areas -->
+				<form action="Default.asp?PN='AdvancedSearch'&amp;Act='SearchNow'" method="post" name="frmSearch" target="_top" style="margin:8px 0;">
+					<input name="SearchModule" type="hidden" value="0">
+					<strong>SEARCH</strong> &nbsp;<input name="Keyword" type="text" value="" style="width: 130px; "> <input class="button" name="Search" type="submit" onClick="if(Keyword.length&lt;4){alert('Your Keyword has to be atleast 4 characters long.\n\nPlease enter a valid Keyword.');};" value="Go">
+				</form>
+				<a href="Default.asp?PN=AdvancedSearch">Advanced Search</a> | 
+				<!--a href="Default.asp?PN=StaffOnly&amp;L=-1">Staff Only</a> &nbsp;--> 
+				<a href="Default.asp?PN=SiteMap">Site Map</a>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 0 3px; height: 25px;">
+			<!-- Main Navigation -->
+<ul id="nav">
+
+	<li class="TopNav"><a href="/" target="" class="Active">Home</a></li></li>
+	<li class="TopNav"><a href="/?PN=Schools2" >Schools</a>
+		<ul>
+			<li class="DropTitle">Pre-School</li>
+			<li><a href="http://preschool.ortn.edu/" target="_blank">Oak Ridge Schools' Preschool</a></li>
+			<li class="DropTitle">Elementary Schools</li>		
+			<li><a href="http://glenwood.ortn.edu/" target="_blank">Glenwood Elementary School</a></li>
+			<li><a href="http://linden.ortn.edu/" target="_blank">Linden Elementary School</a></li>
+			<li><a href="http://willowbrook.ortn.edu/" target="_blank">Willow Brook Elementary School</a></li>
+			<li><a href="http://woodland.ortn.edu/" target="_blank">Woodland Elementary School</a></li>
+			<li class="DropTitle">Middle Schools</li>
+			<li><a href="http://jefferson.ortn.edu/" target="_blank">Jefferson Middle School</a></li>
+			<li><a href="http://rms.ortn.edu/" target="_blank">Robertsville Middle School</a></li>
+			<li class="DropTitle">High Schools</li>
+			<li><a href="http://highschool.ortn.edu/" target="_blank">Oak Ridge High School</a></li> 
+	</ul>
+<!--	<li class="TopNav"><a href="/?PN=Schools2" >Schools</a>
+		<ul>
+			
+							<li class="DropTitle">Elementary Schools</li>
+							
+				<li><a href="http://glenwood.ortn.edu" target="_blank">Glenwood Elementary School</a></li>
+				
+				<li><a href="http://linden.ortn.edu" target="_blank">Linden Elementary School</a></li>
+				
+				<li><a href="http://preschool.ortn.edu" target="_blank">Oak Ridge Schools' Preschool</a></li>
+				
+				<li><a href="http://willowbrook.ortn.edu" target="_blank">Willow Brook Elementary School</a></li>
+				
+				<li><a href="http://woodland.ortn.edu" target="_blank">Woodland Elementary School</a></li>
+				
+							<li class="DropTitle">Middle Schools</li>
+							
+				<li><a href="http://jefferson.ortn.edu" target="_blank">Jefferson Middle School</a></li>
+				
+				<li><a href="http://rms.ortn.edu" target="_blank">Robertsville Middle School</a></li>
+				
+							<li class="DropTitle">High Schools</li>
+							
+				<li><a href="http://highschool.ortn.edu" target="_blank">Oak Ridge High School</a></li>
+				
+		</ul>
+	</li>		
+ -->	
+ <li class="TopNav"><a href="?PN=ParentInfo"><span>Parent Info</span></a></li>
+	<li class="TopNav"><a href="?PN=News2"><span>News</span></a></li>
+	<li class="TopNav"><a href="?PN=Calendar&amp;ShowNav=Yes&amp;"><span>Calendar</span></a></li>
+		
+				<li class="TopNav"><a href="Default.asp?PN=''&amp;DivisionID=4790" >Online@ORS</a></li>
+			
+	<li class="TopNav"><a href="?PN=AboutUs"><span>About ORS</span></a></li>
+	<li class="TopNav"><a href="?PN=Directory"><span>Directory</span></a></li>
+	<li class="TopNav"><a href="?PN=Contact"><span>Contact</span></a></li>
+
+</div>
+
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 7px 10px 2px 10px;">
+			<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		
+		<td width="554" height="7"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/images/spacer.gif" width="1" height="1" alt=""></td>
+		<td width="4"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="4" height="1" alt=""></td>
+		<td height="7" class="AccentColor2"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="192" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td colspan="3" width="100%" height="4"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="1" height="4" alt=""></td>
+	</tr>
+	<tr>
+		<td width="554" align="left" valign="top">
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr>
+					<td width="554" colspan="2" height="211" bgcolor="#CCCCCC">
+						<div id="SlideShow">
+							
+	<div style="width:544px; height:211px; overflow:hidden;">
+		<script type="text/javascript" src="/JavaScripts/UltimateFadeSlideshow.js"></script>
+<script type="text/javascript">
+		 
+	var fadeimages=new Array()
+	//SET IMAGE PATHS. Extend or contract array as needed
+	//fadeimages[#]=["Image URL", "Link URL", "Link Target", "Tool Tip Text"]
+	
+		fadeimages[0]=["http://images.schoolinsites.com/cache/Site_486/700e3108a3512d9e0a74485c0d1ceb92.jpg", "", "_self", ""]
+		
+		fadeimages[1]=["http://images.schoolinsites.com/cache/Site_486/c82613562604cf46c5ac178eaeb72071.jpg", "", "_self", ""]
+		
+		fadeimages[2]=["http://images.schoolinsites.com/cache/Site_486/e61d6361e7e7252b8e05a7b380ebfb8b.jpg", "", "_self", ""]
+		
+		fadeimages[3]=["http://images.schoolinsites.com/cache/Site_486/41037265d097f6e2984c089f542298ce.jpg", "", "_self", ""]
+		
+		fadeimages[4]=["http://images.schoolinsites.com/cache/Site_486/85f9455cace2bd3927a9e83ce0dd2c24.jpg", "", "_self", ""]
+		
+		fadeimages[5]=["http://images.schoolinsites.com/cache/Site_486/b84325bf6a2d58bdaae9b4dcd6e4ceb5.jpg", "", "_self", ""]
+		
+		fadeimages[6]=["http://images.schoolinsites.com/cache/Site_486/995386ea3f1923268abb544c4a703e4f.jpg", "", "_self", ""]
+		
+		fadeimages[7]=["http://images.schoolinsites.com/cache/Site_486/c41364242a0fa38a22cc8126bef5da28.jpg", "", "_self", ""]
+		
+		fadeimages[8]=["http://images.schoolinsites.com/cache/Site_486/3e24e0131fc5ecc8ee0c0a4d65eb33c9.jpg", "", "_self", ""]
+		
+		fadeimages[9]=["http://images.schoolinsites.com/cache/Site_486/c9937ca38841694d6d3b6e16f7ab18cc.jpg", "", "_self", ""]
+		
+		fadeimages[10]=["http://images.schoolinsites.com/cache/Site_486/f9dc84b916f9450e9e06041ed789a67e.jpg", "", "_self", ""]
+		
+		fadeimages[11]=["http://images.schoolinsites.com/cache/Site_486/84e6298103c497156f1bba8addf6aaa4.jpg", "", "_self", ""]
+		
+		fadeimages[12]=["http://images.schoolinsites.com/cache/Site_486/e65f93b5a51e21e2fda24fd9a0c96b0c.jpg", "", "_self", ""]
+		
+		fadeimages[13]=["http://images.schoolinsites.com/cache/Site_486/d3215967544f9bdd301038873df95eb0.jpg", "", "_self", ""]
+		
+		fadeimages[14]=["http://images.schoolinsites.com/cache/Site_486/a1229ec690b760cb46dcd4ed236e7eda.jpg", "", "_self", ""]
+		
+		fadeimages[15]=["http://images.schoolinsites.com/cache/Site_486/77d6340a9386be23eed0cda9531fa0b5.jpg", "", "_self", ""]
+		
+		fadeimages[16]=["http://images.schoolinsites.com/cache/Site_486/8dc0d965bd361ae7c41ddb0942201973.jpg", "", "_self", ""]
+		
+		fadeimages[17]=["http://images.schoolinsites.com/cache/Site_486/b21a8764980b9ca14f170ef8459b3a2e.jpg", "", "_self", ""]
+		
+		fadeimages[18]=["http://images.schoolinsites.com/cache/Site_486/b191e92d20224fc7c5a17414da8683d1.jpg", "", "_self", ""]
+			
+	
+	var fadebgcolor="white"
+</script>
+<script type="text/javascript">
+	//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause on mouseover (0=no, 1=yes), optionalRandomOrder)
+	new fadeshow(fadeimages, 544, 211, 0, 5000, 0)
+</script>
+	</div>
+	
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td height="4" colspan="2"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="554" height="1" alt=""></td>
+				</tr>
+				<tr>
+				
+					<td style="padding: 0 4px 0 0;" valign="top">
+						<div style="height:7px; overflow:hidden;" class="AccentColor2"></div>
+						<div id="DefaultIncludes" style="padding: 8px 5px; ">
+							<span class="header" style="display:block; padding: 0; margin:0;"></span>
+							<p><font size="1"><strong>Welcome Students, Parents, Staff, Community and Prospective Patrons to Oak Ridge City Schools.</strong> </font></p><p><font size="1">We believe you will find this site informative and hope that it will help you acquire a snapshot of the quality of the Oak Ridge school district.&nbsp; The story of Oak Ridge City Schools began in July, 1943, not in Oak Ridge, but in New York City when the United States Army interviewed Mr. A. H. Blankenship at Columbia College to be the first leader of Oak Ridge Schools. Today, Oak Ridge City Schools are comprised of a preschool serving 216 students (ages 3-4), four elementary schools serving 1,694 students, two middle schools serving 1,337 students, and one high school serving 1,480 students. With a support staff of 300 and a licensed staff of 427, our 727 employees work hard each day for our students. &nbsp;Seventy-six percent of our teachers hold a masters level degree. <a href="http://www.ortn.edu/?DivisionID=4666&amp;DepartmentID=4967&amp;ToggleSideNav=ShowAll">Please click here to read Superintendent Dr. Tom Bailey&#39;s complete welcome message.</a></font></p>
+						</div>
+					</td>
+					<td width="48%" align="left" valign="top">
+				
+						<div style="height:7px; overflow:hidden;" class="AccentColor1"></div>
+						<div id="IndexNewsPortalDistrict">
+							
+	<div class="IndexNewsPortalDistrict">
+	<a href="Default.asp?PN=News2">District News</a>
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=35825&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				Dr. Marian Phillips Named Interim Assistant Superintendent
+			</a>
+		</span>							
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=35800&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				Kindergarten Pre-Registration
+			</a>
+		</span>							
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=26179&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				Announcement of Bids
+			</a>
+		</span>							
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=35974&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				Earth Day In Oak Ridge
+			</a>
+		</span>							
+	
+		<span>
+			<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=33982&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+				Advanced Placement Institute for Teachers
+			</a>
+		</span>							
+	
+	</div>
+
+							<br>
+						</div>
+						<div style="height:7px; overflow:hidden; margin-top: 5px;" class="AccentColor1"></div>
+						<div id="IndexNewsPortalSchool">
+							
+	<div class="IndexNewsPortalSchool">
+	<a href="/?PN=News2&SubP=SNews&SubSubP=SchoolsNews&DisplayType=Selected&ShowNav=''&StoryGroup=Archived">School News</a>
+	
+		<span>
+				<a href="javascript:;" onclick="openme('news','/Common/News2/HomePagePopUps/Default.asp?ItemID=35585&ISrc=District&Itype=News',540,400); return false;" class="atnav">
+					Linden Team Wins eWellness Competition
+				</a>	
+		</span>
+							
+	
+	</div>
+
+							<br>
+						</div>
+						<div style="height:7px; overflow:hidden; margin-top: 5px;" class="AccentColor1"></div>
+						<div id="IndexNewsPortalEvents">
+							
+<div class="IndexNewsPortalEvents">
+<a href="Default.asp?PN='Calendar'&ShowNav='Yes'">Top Events</a>
+
+    <span>
+		<a href="/?PN=MeetingSchedule&amp;DivisionID=4665&amp;DepartmentID=4518&amp;SubDepartmentID=0">Special Board Meeting
+		</a>	
+	</span>
+	
+    
+    <span>
+		<a href="/?PN=MeetingSchedule&amp;DivisionID=4665&amp;DepartmentID=4518&amp;SubDepartmentID=0">Special Board Meeting
+		</a>	
+	</span>
+	
+    
+    <span>
+		<a href="/?PN=MeetingSchedule&amp;DivisionID=4665&amp;DepartmentID=4518&amp;SubDepartmentID=0">Regular Board Meeting
+		</a>	
+	</span>
+	
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/9/2011 4:34:42 AM&amp;CalendarID=479708',540,400); return false;" class="atnav">Memorial Day
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/9/2011 4:35:11 AM&amp;CalendarID=479709',540,400); return false;" class="atnav">Commencement
+		</a>	
+	</span>
+    
+	<span>
+		<a href="javascript:;" onclick="openme('events','/Common/Calendar/DisplayEvent.asp?DivisionID=0&amp;DepartmentID=0&amp;SubDepartmentID=0&amp;EventsTimeStamp=5/9/2011 4:35:57 AM&amp;CalendarID=479710',540,400); return false;" class="atnav">Last Day for Students
+		</a>	
+	</span>
+    
+</div>
+
+							<br>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+		<td width="4">
+			<img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="4" height="1" alt="">
+		</td>
+		<td height="100%" align="center" valign="top" class="AccentColor3 SideNavigation">
+			<div id="SideNavigation">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr><td>
+
+
+	<div id="NavDivisions">
+	
+		<a href="/?DivisionID=4665&ToggleSideNav=" class="IncNavDivision">
+			Board of Education
+		</a>
+			
+		<a href="/?DivisionID=4666&ToggleSideNav=" class="IncNavDivision">
+			Central Office
+		</a>
+			
+		<a href="/?DivisionID=5033&ToggleSideNav=" class="IncNavDivision">
+			Alternative Program
+		</a>
+			
+		<a href="/?DivisionID=4673&ToggleSideNav=" class="IncNavDivision">
+			Business & Support Services
+		</a>
+			
+		<a href="/?DivisionID=4762&ToggleSideNav=" class="IncNavDivision">
+			Curriculum
+		</a>
+			
+		<a href="/?DivisionID=4710&ToggleSideNav=" class="IncNavDivision">
+			Employment
+		</a>
+			
+		<a href="/?DivisionID=4789&ToggleSideNav=" class="IncNavDivision">
+			Extended Child Care
+		</a>
+			
+		<a href="/?DivisionID=4713&ToggleSideNav=" class="IncNavDivision">
+			Food Services
+		</a>
+			
+		<a href="/?DivisionID=4674&ToggleSideNav=" class="IncNavDivision">
+			Human Resources
+		</a>
+			
+		<a href="/?DivisionID=4715&ToggleSideNav=" class="IncNavDivision">
+			Maintenance & Custodial Operations
+		</a>
+			
+		<a href="/?DivisionID=4667&ToggleSideNav=" class="IncNavDivision">
+			Pupil Services
+		</a>
+			
+		<a href="/?DivisionID=4714&ToggleSideNav=" class="IncNavDivision">
+			School Calendars
+		</a>
+			
+		<a href="/?DivisionID=4712&ToggleSideNav=" class="IncNavDivision">
+			Special Education
+		</a>
+			
+		<a href="/?DivisionID=4662&ToggleSideNav=" class="IncNavDivision">
+			Teacher Center
+		</a>
+			
+		<a href="/?DivisionID=4663&ToggleSideNav=" class="IncNavDivision">
+			Technology Department
+		</a>
+			
+		<a href="/?DivisionID=4711&ToggleSideNav=" class="IncNavDivision">
+			Transportation
+		</a>
+			
+		<a href="/?DivisionID=4675&ToggleSideNav=" class="IncNavDivision">
+			Education Foundation
+		</a>
+			
+	</div> <!-- End: id="NavDivisions" -->
+	
+	<span id="UserLinksMenu">
+		
+	</span>
+	 
+			<div id="UniversalQuickLinks"> 
+				 
+						<div class="UniversalQuickLinksTitle"><span>Quick Links</span></div>
+					 
+						<a href="http://www.tn.gov/firsttothetop/" target="_blank" class="UniversalQuickLinks">
+							First to the Top 
+						</a> 
+						 
+						<a href="http://www.ortn.edu/?DivisionID=4762&DepartmentID=4724&ToggleSideNav=ShowAll" target="_blank" class="UniversalQuickLinks">
+							2011 State Report Card 
+						</a> 
+						 
+						<a href="http://www.ortn.edu/?DivisionID=4673&DepartmentID=6902&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							FY 2012 Budget Information 
+						</a> 
+						 
+						<a href="http://www.ortn.edu/?DivisionID=4673&DepartmentID=9242&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							FY 2013 Budget Information 
+						</a> 
+						 
+						<a href="http://www.ortn.edu/?DivisionID=4665&DepartmentID=4518&SubDepartmentID=2058&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							School Board Agenda 
+						</a> 
+						 
+						<a href="http://oakridge.schoolinsites.com/?DivisionID=4665&DepartmentID=4519&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							School Board Minutes 
+						</a> 
+						 
+						<a href="http://www.ortn.edu/?DivisionID=4673&DepartmentID=7044&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							Business & Support Services Forms 
+						</a> 
+						 
+						<a href="http://oakridge.schoolinsites.com/?DivisionID=4673&DepartmentID=4547&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							Employee Forms 
+						</a> 
+						 
+						<a href="http://oakridge.schoolinsites.com/?DivisionID=4711&DepartmentID=4586&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							Bus Routes 
+						</a> 
+						 
+						<a href="http://oakridge.schoolinsites.com/?DivisionID=4713&DepartmentID=4552&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							School Menus 
+						</a> 
+						 
+						<a href="http://www.oakridgetenn.org/" target="_blank" class="UniversalQuickLinks">
+							City of Oak Ridge 
+						</a> 
+						 
+						<a href="http://oakridge.schoolinsites.com/?DivisionID=4667&DepartmentID=4636&ToggleSideNav=ShowAll" target="" class="UniversalQuickLinks">
+							Street Listings 
+						</a> 
+						 
+						<div class="UniversalQuickLinksTitle"><span>Online Services</span></div>
+					 
+						<a href="http://www.ortn.edu/?L=1&PN=Links&DivisionID=4790&DepartmentID=&SubDepartmentID=&CategoryID=2772&TabNo=2" target="" class="UniversalQuickLinks">
+							Online@ORS 
+						</a> 
+						 
+			</div> 
+		</td></tr></table>
+</div>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" height="4"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+	<tr>
+		<td width="554" height="7"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="1" height="1" alt=""></td>
+		<td width="4"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="4" height="1" alt=""></td>
+		<td height="7" class="AccentColor2"><img src="http://images.pcmac.org/Websites/OakRidge/OakRidge/Images/spacer.gif" width="1" height="1" alt=""></td>
+	</tr>
+</table>
+		</td>
+	</tr>
+	<tr>
+		<td style="padding: 2px 10px 10px 10px" class="LegalText">
+			<div id="Legal">
+	<a  href="http://www.schoolinsites.com/"><img src="/images/SisPoweredSmall.png" id="PoweredBy" height="30" width="120" alt="Powered and Designed by SCHOOLinSITES"/></a>
+	
+	<p class="right">
+		Copyright &copy; 2011-2012 &nbsp;Oak Ridge Schools
+	</p>
+</div>
+
+		</td>
+	</tr>
+</table>
+</div>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19851815-1']);
+  _gaq.push(['_setDomainName', '.ortn.edu']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>

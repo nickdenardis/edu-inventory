@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Presbyterian College | Clinton, South Carolina</title>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="title" content="Presbyterian College" />
+<meta name="description" content="Presbyterian College focuses on service, leadership, building character, and educating the whole person, not just the intellect." />
+<meta name="keywords" content="Presbyterian College, Blue Hose, Liberal Arts College, Southern College, Colleges in South Carolina, Upstate, Presbyterian Church(USA), Honor Code." />
+<meta name="author" content="Presbyterian College" />
+<meta name="copyright" content="Presbyterian College" />
+<meta name="robots" content="ALL" />
+<meta name="revisit-after" content="7 days" />
+<meta name="document-type" content="Public" />
+<meta name="document-rating" content="All" />
+<meta name="document-distribution" content="Global" />
+<script type="text/javascript" src="styleswitcher.js"></script>
+
+<!--******************************** ADDED FOR ROTATING IMAGES *************************************-->
+<script type="text/javascript">
+	//Preload all of the images so we don't end up with missing images when we start scrolling
+	if (document.images)
+	{
+pic1 = new Image(1,1)
+pic1.src = 'images/banner/main-micro.jpg';
+pic01 = new Image(1,1)
+pic01.src = 'images/banner/rotate-size-middle.jpg';
+pic2 = new Image(1,1)
+pic2.src = 'images/banner/home_banner-Service3.jpg';
+pic02 = new Image(1,1)
+pic02.src = 'images/banner/rotate-size-service3.jpg';
+pic3 = new Image(1,1)
+pic3.src = 'images/banner/home_banner-academics1.jpg';
+pic03 = new Image(1,1)
+pic03.src = 'images/banner/rotate-size-academic1.jpg';
+pic4 = new Image(1,1)
+pic4.src = 'images/banner/home_banner_map.jpg';
+pic04 = new Image(1,1)
+pic04.src = 'images/banner/rotate-size-map.jpg';
+pic5 = new Image(1,1)
+pic5.src = 'images/banner/relationship1.jpg';
+pic05 = new Image(1,1)
+pic05.src = 'images/banner/rotate-size-relationship1.jpg';
+pic6 = new Image(1,1)
+pic6.src = 'images/banner/main2.jpg';
+pic06 = new Image(1,1)
+pic06.src = 'images/banner/rotate-size-neville.jpg';
+	}
+</script>
+<!-- include jQuery library -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<!-- include Cycle plugin -->
+<script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.2.72.js"></script>
+
+<script type="text/javascript">
+var car;
+var start;
+
+	start = 6; // find out how many total images we are working with
+
+	//This number(4) need to match the number of images shown on the right of the carousel
+	//If you adjust the image sizes to only show 3, Update this number to 3
+
+	//Set start to be in alignment with the next image that will be shown
+	start = start - 4;
+
+	//If start is less than 0, it won't work, so we need to have at least an index of 1
+	if ((start) <= 1)
+	{
+		start = 1;
+	}
+
+$(document).ready(function() {
+    $('.slideshow').cycle({
+		fx: 'fade',
+		pause: 1,
+		timeout: 6000,		//Amount of time to pause on each slide in milliseconds
+		before: onBefore
+	});
+});
+function onBefore() {
+	if (car != null)
+	{
+		car.prev();
+	}
+	//
+    //$('#output').html("Scrolling image:<br>" + this.src);
+}
+// Ride the carousel...
+jQuery(document).ready(function() {
+    jQuery("#mycarousel").jcarousel({
+        scroll: 1,
+        vertical: 1,
+        start: start,	//Need to jump to the correct starting spot if we have more images than 5
+        wrap: 'circular',
+        itemVisibleInCallback: {onBeforeAnimation: mycarousel_itemVisibleInCallback},
+        itemVisibleOutCallback: {onAfterAnimation: mycarousel_itemVisibleOutCallback},
+        initCallback: mycarousel_initCallback,
+        buttonNextHTML: null,
+        buttonPrevHTML: null
+    });
+});
+
+var mycarousel_itemList = [{url: 'images/banner/rotate-size-neville.jpg', title: 'Heart of Campus', link: '/admissions/index.html'},
+{url: 'images/banner/rotate-size-relationship1.jpg', title: 'Relationships', link: '/admissions/index.html'},
+{url: 'images/banner/rotate-size-map.jpg', title: 'See the campus right now - videos, images, and more', link: '/map/'},
+{url: 'images/banner/rotate-size-academic1.jpg', title: 'Challenging Academics', link: '/admissions/index.html'},
+{url: 'images/banner/rotate-size-service3.jpg', title: 'Service is an important part of a PC education', link: '/newsroom/senior-finds-joy-in-africa/'},
+{url: 'images/banner/rotate-size-middle.jpg', title: 'A great place to start learning about PC', link: 'http://www.mybluepride.com/'}];
+
+function mycarousel_itemVisibleInCallback(carousel, item, i, state, evt)
+{
+    // The index() method calculates the index from a
+    // given index who is out of the actual item range.
+    var idx = carousel.index(i, mycarousel_itemList.length);
+    carousel.add(i, mycarousel_getItemHTML(mycarousel_itemList[idx - 1]));
+};
+
+function mycarousel_itemVisibleOutCallback(carousel, item, i, state, evt)
+{
+    carousel.remove(i);
+};
+
+/**
+ * Item html creation helper.
+ */
+function mycarousel_getItemHTML(item)
+{
+    return '<a href="' + item.link + '"><img border="0" src="' + item.url + '" width="190" height="72" alt="' + item.title + '" /></a>';
+};
+function mycarousel_initCallback(carousel) {
+    car = carousel;
+};
+</script>
+<script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.jcarousel.css" />
+<link rel="stylesheet" type="text/css" href="css/skin.css" />
+
+<!--******************************** DONE WITH ADDITION ********************************************-->
+
+<link href="style-temp.css" rel="stylesheet" type="text/css" media="screen" />
+
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.presby.edu/newsroom/">
+		<meta name="google-site-verification" content="WBGwY9TBwwJTENklqSiR07XXwd7fgifwrj6SNc1j5aI" />
+<!-- [if gte IE 5.5]
+<style type="text/css" media="screen">
+@import url("iepngfix.css");
+</style>
+[endif] -->
+</head>
+<body>
+		<div id="wrapper">
+  <div id="headerHome">
+    <div id="logo"><a href="http://www.presby.edu/index.php"><img src="images/presby_logo.png" alt="Presbyterian College Logo" title="Presbyterian College" width="255" height="126" /></a></div>
+    <div id="headerRight">
+      <div id="searchBox">
+        <div id="googlesearchBox">
+<div id="cse-search-form" style="width: 100%;">Loading</div>
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+  google.setOnLoadCallback(function() {
+    var customSearchControl = new google.search.CustomSearchControl(
+      '004878880699717657062:xbei30kxxx8');
+
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+    options.enableSearchboxOnly("http://www.presby.edu/about/results.html");
+    customSearchControl.draw('cse-search-form', options);
+  }, true);
+</script>
+</div>
+      </div>
+      <div id="topNav">
+        <ul class="navElements" style="margin-bottom: 0">
+
+          <li class="navLine"><a href="site_map.html" title="Site Map">Site Map</a></li>
+          <li class="navLine"><a href="http://mail.presby.edu/" title="Email">Email</a></li>
+          <li class="navLine"><a href="directory.html" title="Directory">Directory</a></li>
+          <li class="navLine"><a href="contact_us.html" title="Contact Us">Contact Us</a></li>
+          <li class="navLine"><a href="http://www.facebook.com/PresbyterianCollege" title="Facebook">Facebook</a></li>
+		  <li class="navLine"><a href="http://www.presby.edu/hr/job-opportunities" title="Job Opportunities">Jobs</a></li>
+		  <li class="noLine"><a href="http://www.presby.edu/cultural-events/calendar" title="Events">Events</a></li>
+        </ul>
+
+      </div>
+<div id="quicklinks_homepage">Quick Links: <a href="a.html"> A </a>|<a href="b.html"> B </a>|<a href="c.html"> C </a>|<a href="d.html"> D </a>|<a href="e.html"> E </a>|<a href="f.html"> F </a>|<a href="g.html"> G </a><a href="h.html"> H </a>|<a href="i.html"> I </a>|<a href="j.html"> J </a>|<a href="k.html"> K </a>|<a href="l.html"> L </a>|<a href="m.html"> M </a>|<a href="n.html"> N </a>|<a href="o.html"> O </a>|<a href="p.html"> P </a>|<a href="q.html"> Q </a>|<a href="r.html"> R </a>|<a href="s.html"> S </a>|<a href="t.html"> T </a>|<a href="u.html"> U </a>|<a href="v.html"> V </a>|<a href="w.html"> W </a>|<a href="x.html"> X </a>|<a href="y.html"> Y | </a><a href="z.html"> Z </a></div>
+    </div>
+    <div id="navContainer">
+      <div>
+        <ul id="navButtons" style="margin-bottom: 0">
+          <li id="navFutureStudents"><a href="admissions/index.html" title="Future Students"><span>Future Students</span></a></li>
+          <li id="navPharmacy"><a href="http://pharmacy.presby.edu" target="_blank" title="Pharmacy Students"><span>Pharmacy Students</span></a></li>
+          <li id="navAlumni"><a href="alumni/index.html" title="Alumni"><span>Alumni</span></a></li>
+          <li id="navFriends"><a href="map" title="Map of the College"><span>Map of the College</span></a></li>
+          <li id="navCommunity"><a href="community/index.html" title="Campus Community"><span>Campus Community</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ <div id="pagewidth">
+    <div id="twocols" class="clearfix">
+    <!--******************************** ADDED FOR ROTATING IMAGES *************************************-->
+		<div class="slideshow" style="float: left; width: 598px; height: 288px; overflow: hidden;">
+	 		<a href="http://www.mybluepride.com/" title=""><img src="images/banner/main-micro.jpg" alt="A great place to start learning about PC" width="598" height="288" /></a><a href="/newsroom/senior-finds-joy-in-africa/" title=""><img src="images/banner/home_banner-Service3.jpg" alt="Service is an important part of a PC education" width="598" height="288" /></a><a href="/admissions/index.html" title=""><img src="images/banner/home_banner-academics1.jpg" alt="Challenging Academics" width="598" height="288" /></a><a href="/map/" title=""><img src="images/banner/home_banner_map.jpg" alt="See the campus right now - videos, images, and more" width="598" height="288" /></a><a href="/admissions/index.html" title=""><img src="images/banner/relationship1.jpg" alt="Relationships" width="598" height="288" /></a><a href="/admissions/index.html" title=""><img src="images/banner/main2.jpg" alt="Heart of Campus" width="598" height="288" /></a>	 	</div>
+	 	<div style="float: right; width: 190px;">
+			<ul class="jcarousel-skin-tango" id="mycarousel" style="margin-bottom: 0">
+			</ul>
+		</div>
+    	<br style="clear: both;" />
+    <!--******************************** DONE WITH ADDITION ********************************************-->
+      </div>
+	 <div id="leftcol">
+    <div id="menuWrapper">
+          <div id="sideBarLeftHome">
+         <div id="menuContainer">
+              <ul id="menu">
+                <li class="titleElement"><a href="about/index.html" title="About PC"><span>About PC</span></a></li>
+                <li class="titleElement"><a href="acad/index.html" title="Academics"><span>Academics</span></a></li>
+                <li class="titleElement"><a href="admissions/index.html" title="Admissions"><span>Admissions</span></a></li>
+                <li class="titleElement2"><a href="http://www.presby.edu/admissions/process.html" title="Apply Now"><span>Apply Now</span></a></li>
+                <li class="titleElement"><a href="http://www.gobluehose.com/" title="Athletics"><span>Athletics</span></a></li>
+                <li class="titleElement"><a href="campus/index.html" title="Campus Life"><span>Campus Life</span></a></li>
+                <li class="titleElement"><a href="giving/index.html" title="Giving to PC"><span>Giving to PC</span></a></li>
+<li class="titleElement"><a href="/search" title="About alot of PC"><span>Presidential Search</span></a></li>
+              </ul>
+    <div id="menu-bottomHome2"></div>
+            </div>
+          </div>
+     </div>
+    </div>
+  </div>
+
+     <div class="clearClass"></div>
+
+
+ <div id="news">
+    <div id="newsHeading">
+      <div class="advertTitle">
+						<a href="http://www.presby.edu/newsroom/">&gt;&gt; View More Here</a></div>
+    </div>
+    <div class="clearfix advertBodyBottom">
+      <div class="clearfix advertBodyHome">
+						<div class="adColRightHome">
+						  <h1 class="advertHeading">Bethel drafted by NFL</h1>
+                          <p>Justin Bethel  was selected by the Arizona Cardinals in the sixth round of the National Football League's 2012 draft.  He was the 177th overall pick and the first for the Blue Hose since 1969.</p>
+                          <div class="readmore"> <a href="http://www.gobluehose.com/ViewArticle.dbml?DB_OEM_ID=18100&ATCLID=205421102">&gt;&gt;&gt; read more</a><!--</p>
+<div class="readmore">
+  <a href="http://www.presby.edu/newsroom/new-faculty-introduced-at-pc’s-132nd-opening-convocation/">>>> new faculty</a></div>!-->						</div>
+						</div>
+						<div class="adColLeftHome">
+						  <h1 class="advertHeading">Student wins distinct award</h1>
+						  <p>Lucia Leahy, a rising junior double majoring in psychology and elementary education, was recently named a Young Woman of Distinction.</p>
+<div class="readmore">
+  <a href="http://www.presby.edu/newsroom/student-wins-distinct-award/">>>> read more</a></div>
+<!--</p>
+<div class="readmore">
+  <a href="http://www.presby.edu/newsroom/new-faculty-introduced-at-pc’s-132nd-opening-convocation/">>>> new faculty</a></div>-->
+
+		</div>
+						<div class="adColCenterHome">
+						  <h1 class="advertHeading">Students present Big research</h1>
+                          <p>Fourteen students were among the 300 students attending the Big South Undergraduate Research Symposium held on April 13-14th at Winthrop University.<br />
+                          </p>
+<div class="readmore"> <a href="http://www.presby.edu/newsroom/big-sur/">&gt;&gt;&gt; read more</a></div>
+						</div>
+	  </div>
+    </div>
+  </div>
+
+  <!--news div ends-->
+  
+  <!--event div begins-->
+  <div id="events">
+    <div id="eventsHeading">
+      <div class="advertTitle"><a href="cultural-events/calendar" title="View More Here">&gt;&gt; View More Here</a></div>
+    </div>
+    <div class="advertBodyBottom">
+					<div class="clearfix advertBodyHome">
+						<div class="adColLeftHome">
+						  <div class="adImage">
+								<img src="images/eventart/home-page-athletics.jpg" alt="" width="125" height="99" /></div>
+					        <p>Baseball vs. Gardner-Webb<br />
+					        May 11 - 3:00 pm</p>
+<br />
+</div>
+						<div class="adColRightHome"> <div class="adImage"><img src="/images/eventart/home-page-art-graduation.jpg" alt="" width="125" height="99" /></div>
+						  <p><strong>Commencement 2012</strong><br />
+					     <br/ >
+					      May 11-12</p>
+					      <div class="readmore"><a href="http://www.presby.edu/commencement/">&gt;&gt;&gt; More information</a></div>
+<div class="readmore">
+													  </div>
+						</div>
+						<div class="adColCenterHome">
+          <div class="adImage"><img src="images/home-page-art-NEVILLE.jpg" alt="" width="125" height="99" /></div>
+						  	<p><strong>Undergraduate Academic Calendar<br />
+						  	  <br />
+Final Exams - April 30 through May 4 <br />
+							</p>
+						  <!--<div class="readmore"> <a href="http://www.presby.edu/getmore/open-house-dates/">&gt;&gt;&gt; Register</a></div>!-->					  </p>
+					  </div>
+					</div>
+				</div>
+  </div>
+		<!-- event div ends -->
+		<div id="footerContainer"  style="margin-bottom: 0">
+    <ul class="footerLink" id="footerOne">
+      <li class="navFooter"><a href="index.php" title="Home">Home</a></li>
+      <li class="navFooter"><a href="site_map.html" title="Site Map">Site Map</a></li>
+      <li class="navFooter"><a href="http://mail.presby.edu/" title="Email">Email</a></li>
+      <li class="navFooter"><a href="directory.html" title="Directory">Directory</a></li>
+	<li class="footerNoLine"><a href="library/index.html" title="Library">Library</a></li>
+    </ul>
+    <ul class="footerLink" id="footerTwo">
+      <li class="navFooter"><a href="about/index.html" title="About PC">About PC</a></li>
+      <li class="navFooter"><a href="acad/index.html" title="Academics">Academics</a></li>
+      <li class="navFooter"><a href="admissions/index.html" title="Admissions">Admissions</a></li>
+      <li class="navFooter"><a href="http://www.gobluehose.com/" title="Athletics">Athletics</a></li>
+      <li class="navFooter"><a href="campus/index.html" title="Campus Life">Campus Life</a></li>
+      <li class="navFooter"><a href="church_relations/index.html" title="Church Relations">Church Relations</a></li>
+      <li class="navFooter"><a href="events.html" title="Cultural Events">Cultural Events</a></li>
+      <li class="footerNoLine"><a href="giving/index.html" title="Giving to PC">Giving to PC</a></li>
+    </ul>
+<ul class="footerLink" id="footerThree">
+      <li class="navFooter"><a href="community/index.html" title="Current Student">Current Students</a></li>
+      <li class="navFooter"><a href="takeiton/index.html" title="Future Students">Future Students</a></li>
+      <li class="navFooter"><a href="http://pharmacy.presby.edu" target="_blank" title="Pharmacy Students">Pharmacy Students</a></li>
+      <li class="navFooter"><a href="alumni/index.html" title="Alumni">Alumni</a></li>
+</ul>
+<ul id="footerFour" style="margin-bottom: 0;">
+				<li class="footerNoLine">Copyright 2011 by Presbyterian College 503 South Broad Street, Clinton, South Carolina 29325 864-833-2820 <br />
+				  <p style="margin-bottom: 0"><a href="http://www.facebook.com/PresbyterianCollege"><img src="images/facebook.jpg" alt="facebook logo link" width="66" height="25" /></a> <img src="images/spacer.gif" alt="spacer" width="14" height="10" /><a href="http://twitter.com/presbycollege"><img src="images/twitter.gif" alt="twitter logo link" width="108" height="25" /></a>  <a href="https://bluehouse.presby.edu/Default.aspx"><img src="images/blue-house.gif" alt="logo blue house community" width="55" height="58" /></a></p>
+			    </li>
+</ul>
+
+  </div>
+
+</div>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+_uacct = "UA-620678-1";
+urchinTracker();
+//--><!]]>
+</script>
+</body>
+</html>

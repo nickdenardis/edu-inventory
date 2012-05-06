@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Haskell Indian Nations University</title>
+<link rel="stylesheet" type="text/css" href="style/style.css" />
+<link rel="stylesheet" type="text/css" href="style/homepage.css" />
+<link rel="shortcut icon" href="images/favicon.ico">
+<script type="text/javascript">
+      
+/***********************************************
+* Ultimate Fade-In Slideshow (v1.51): © Dynamic Drive (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit http://www.dynamicdrive.com/ for this script and 100s more.
+***********************************************/
+ 
+var fadeimages=new Array()
+//SET IMAGE PATHS. Extend or contract array as needed
+fadeimages[0]=["images/spring01.jpg", "", ""] //plain image syntax
+fadeimages[1]=["images/spring02.jpg", "", ""] //plain image syntax
+fadeimages[2]=["images/spring03.jpg", "", ""] //plain image syntax
+fadeimages[3]=["images/spring04.jpg", "", ""] //plain image syntax
+fadeimages[4]=["images/spring05.jpg", "", ""] //plain image syntax
+fadeimages[5]=["images/spring06.jpg", "", ""] //plain image syntax
+fadeimages[6]=["images/spring07.jpg", "", ""] //plain image syntax
+fadeimages[7]=["images/spring08.jpg", "", ""] //plain image syntax
+fadeimages[8]=["images/spring09.jpg", "", ""] //plain image syntax
+fadeimages[9]=["images/spring10.jpg", "", ""] //plain image syntax
+fadeimages[10]=["images/spring11.jpg", "", ""] //plain image syntax
+fadeimages[11]=["images/spring12.jpg", "", ""] //plain image syntax
+fadeimages[12]=["images/spring13.jpg", "", ""] //plain image syntax
+fadeimages[13]=["images/spring14.jpg", "", ""] //plain image syntax
+fadeimages[14]=["images/spring15.jpg", "", ""] //plain image syntax
+fadeimages[15]=["images/spring16.jpg", "", ""] //plain image syntax
+var fadebgcolor="white"
+
+////NO need to edit beyond here/////////////
+ 
+var fadearray=new Array() //array to cache fadeshow instances
+var fadeclear=new Array() //array to cache corresponding clearinterval pointers
+ 
+var dom=(document.getElementById) //modern dom browsers
+var iebrowser=document.all
+ 
+function fadeshow(theimages, fadewidth, fadeheight, borderwidth, delay, pause, displayorder){
+this.pausecheck=pause
+this.mouseovercheck=0
+this.delay=delay
+this.degree=10 //initial opacity degree (10%)
+this.curimageindex=0
+this.nextimageindex=1
+fadearray[fadearray.length]=this
+this.slideshowid=fadearray.length-1
+this.canvasbase="canvas"+this.slideshowid
+this.curcanvas=this.canvasbase+"_0"
+if (typeof displayorder!="undefined")
+theimages.sort(function() {return 0.5 - Math.random();}) //thanks to Mike (aka Mwinter) :)
+this.theimages=theimages
+this.imageborder=parseInt(borderwidth)
+this.postimages=new Array() //preload images
+for (p=0;p<theimages.length;p++){
+this.postimages[p]=new Image()
+this.postimages[p].src=theimages[p][0]
+}
+ 
+var fadewidth=fadewidth+this.imageborder*2
+var fadeheight=fadeheight+this.imageborder*2
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers (ie: Firefox)
+document.write('<div id="master'+this.slideshowid+'" style="position:relative;width:'+fadewidth+'px;height:'+fadeheight+'px;overflow:hidden;"><div id="'+this.canvasbase+'_0" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div><div id="'+this.canvasbase+'_1" style="position:absolute;width:'+fadewidth+'px;height:'+fadeheight+'px;top:0;left:0;filter:progid:DXImageTransform.Microsoft.alpha(opacity=10);opacity:0.1;-moz-opacity:0.1;-khtml-opacity:0.1;background-color:'+fadebgcolor+'"></div></div>')
+else
+document.write('<div><img name="defaultslide'+this.slideshowid+'" src="'+this.postimages[0].src+'"></div>')
+ 
+if (iebrowser&&dom||dom) //if IE5+ or modern browsers such as Firefox
+this.startit()
+else{
+this.curimageindex++
+setInterval("fadearray["+this.slideshowid+"].rotateimage()", this.delay)
+}
+}
+
+function fadepic(obj){
+if (obj.degree<100){
+obj.degree+=10
+if (obj.tempobj.filters&&obj.tempobj.filters[0]){
+if (typeof obj.tempobj.filters[0].opacity=="number") //if IE6+
+obj.tempobj.filters[0].opacity=obj.degree
+else //else if IE5.5-
+obj.tempobj.style.filter="alpha(opacity="+obj.degree+")"
+}
+else if (obj.tempobj.style.MozOpacity)
+obj.tempobj.style.MozOpacity=obj.degree/101
+else if (obj.tempobj.style.KhtmlOpacity)
+obj.tempobj.style.KhtmlOpacity=obj.degree/100
+else if (obj.tempobj.style.opacity&&!obj.tempobj.filters)
+obj.tempobj.style.opacity=obj.degree/101
+}
+else{
+clearInterval(fadeclear[obj.slideshowid])
+obj.nextcanvas=(obj.curcanvas==obj.canvasbase+"_0")? obj.canvasbase+"_0" : obj.canvasbase+"_1"
+obj.tempobj=iebrowser? iebrowser[obj.nextcanvas] : document.getElementById(obj.nextcanvas)
+obj.populateslide(obj.tempobj, obj.nextimageindex)
+obj.nextimageindex=(obj.nextimageindex<obj.postimages.length-1)? obj.nextimageindex+1 : 0
+setTimeout("fadearray["+obj.slideshowid+"].rotateimage()", obj.delay)
+}
+}
+ 
+fadeshow.prototype.populateslide=function(picobj, picindex){
+var slideHTML=""
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML='<a href="'+this.theimages[picindex][1]+'" target="'+this.theimages[picindex][2]+'">'
+slideHTML+='<img src="'+this.postimages[picindex].src+'" border="'+this.imageborder+'px">'
+if (this.theimages[picindex][1]!="") //if associated link exists for image
+slideHTML+='</a>'
+picobj.innerHTML=slideHTML
+}
+ 
+ 
+fadeshow.prototype.rotateimage=function(){
+if (this.pausecheck==1) //if pause onMouseover enabled, cache object
+var cacheobj=this
+if (this.mouseovercheck==1)
+setTimeout(function(){cacheobj.rotateimage()}, 100)
+else if (iebrowser&&dom||dom){
+this.resetit()
+var crossobj=this.tempobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+crossobj.style.zIndex++
+fadeclear[this.slideshowid]=setInterval("fadepic(fadearray["+this.slideshowid+"])",50)
+this.curcanvas=(this.curcanvas==this.canvasbase+"_0")? this.canvasbase+"_1" : this.canvasbase+"_0"
+}
+else{
+var ns4imgobj=document.images['defaultslide'+this.slideshowid]
+ns4imgobj.src=this.postimages[this.curimageindex].src
+}
+this.curimageindex=(this.curimageindex<this.postimages.length-1)? this.curimageindex+1 : 0
+}
+ 
+fadeshow.prototype.resetit=function(){
+this.degree=10
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+if (crossobj.filters&&crossobj.filters[0]){
+if (typeof crossobj.filters[0].opacity=="number") //if IE6+
+crossobj.filters(0).opacity=this.degree
+else //else if IE5.5-
+crossobj.style.filter="alpha(opacity="+this.degree+")"
+}
+else if (crossobj.style.MozOpacity)
+crossobj.style.MozOpacity=this.degree/101
+else if (crossobj.style.KhtmlOpacity)
+crossobj.style.KhtmlOpacity=this.degree/100
+else if (crossobj.style.opacity&&!crossobj.filters)
+crossobj.style.opacity=this.degree/101
+}
+ 
+ 
+fadeshow.prototype.startit=function(){
+var crossobj=iebrowser? iebrowser[this.curcanvas] : document.getElementById(this.curcanvas)
+this.populateslide(crossobj, this.curimageindex)
+if (this.pausecheck==1){ //IF SLIDESHOW SHOULD PAUSE ONMOUSEOVER
+var cacheobj=this
+var crossobjcontainer=iebrowser? iebrowser["master"+this.slideshowid] : document.getElementById("master"+this.slideshowid)
+crossobjcontainer.onmouseover=function(){cacheobj.mouseovercheck=1}
+crossobjcontainer.onmouseout=function(){cacheobj.mouseovercheck=0}
+}
+this.rotateimage()
+}
+
+</script>
+<style type="text/css">
+<!--
+.style8 {font-size: .8}
+.style9 {font-size: 0.8em}
+-->
+</style>
+</head>
+  <body>
+  
+  <!-- start #container -->
+  <div id="container">
+	
+	 <div id="logo"><a href="http://www.haskell.edu/index.html"><img src="http://www.haskell.edu/images/header_logo.jpg" alt="Home" width="85" height="114" border="0" /></a></div>
+	
+	<!-- start header content lined up to the right of the logo -->
+	<div id="floatHeaderRight">
+    <table width="695" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+		<!-- start menu1 -->
+          <td width="565">
+	<div id="menu1">
+		<ul>
+			<li><a href="http://www.haskell.edu/index.html">Home</a></li>
+			<li><a href="https://owa.haskell.edu/exchange" target="_blank">Webmail</a></li>
+			<li><a href="http://www.haskell.edu/technology/index.html">Technology</a></li>
+			<li><a href="http://www.e2campus.com/my/haskell/" target="_blank">E2 Campus Login</a></li>
+			<li><a href="http://courses.haskell.edu/" target="_blank">Blackboard</a></li>
+			<li><a href="http://www.haskell.edu/directory.html">Directory</a></li>
+			<li><a href="http://www.haskell.edu/calendar/index.html">Calendar & Events</a></li>
+		</ul>
+	</div></td>
+		<!-- end menu1 -->
+		<!-- start search box -->
+		 <form action="http://www.haskell.edu/results.html" id="cse-search-box">
+    			<input type="hidden" name="cx" value="012122472046420747082:su16lh2iu54" />
+    			<input type="hidden" name="cof" value="FORID:11" />
+    			<input type="hidden" name="ie" value="UTF-8" />
+          <td width="130"><table id="search" width="195" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="105"><input class="searchbox" type="text" name="q" value="" /></td>
+                <td width="25"><input class="searchbutton" type="image" name="sa" width="20" height="20" src="http://www.haskell.edu/images/search_button3.gif" /></td>
+              </tr>
+          </table></td>
+ </form>
+        </tr>
+      </table>
+	  <!-- end search box -->
+	
+	<div id="header"></div>
+	
+	<!-- start #menu2 -->
+	<table width="695" border="0" cellspacing="0" cellpadding="0" id="menu2">
+      <tr>
+        <td><a href="http://www.haskell.edu/about.html">About Haskell</a></td>
+        <td><a href="http://www.haskell.edu/academics/index.html">Academics</a></td>
+        <td><a href="http://www.haskell.edu/administration/index.html">Administration</a></td>
+        <td><a href="http://www.haskell.edu/admission/index.html">Admissions</a></td>
+        <td><a href="http://www.haskell.edu/registrar/index.html">Registrar</a></td>
+        <td><a href="http://www.haskellathletics.com/index.php" target="_blank">Athletics</a></td>
+        <td><a href="http://www.haskell.edu/library/index.html">Library</a></td>
+        <td><a href="../cultural/index.html">Cultural Center</a></td>
+        <td><a href="http://www.haskell.edu/student_life/index.html">Student Life</a></td>
+      </tr>
+    </table>
+	<!-- end #menu2 -->
+	
+	</div>
+	<!-- end header content lined up to the right of the logo -->
+	
+	<div class="clearfloat"></div>
+
+	
+	<table width="780" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+	  <!-- start Info and Schedules column -->
+        <td width="194" align="left" valign="top"><div id="homeInfo">
+		<div class="homeHeading" style="width:172px">Info and Schedules</div>
+         <h2><strong>Spring 2012</strong></h2>
+         <ul>
+            <li><a href="http://www.haskell.edu/academics/calendar.html">Spring 2012 Academic Calendar</a></li>
+            <li><a href="downloads/Final Exam Schedule Spring 2012.pdf">Spring 2012 Final Schedule</a></li>
+            <li><strong>Summer 2012</strong></li>
+            <li><a href="http://www.haskell.edu/downloads/summer_school_2012.pdf" target="_blank">Summer School 2012</a></li>
+            <li><a href="downloads/SU-CourseOfferList-4-25-12.pdf">Summer Course Listing</a></li>
+            <li></li>
+            <li><strong>Fall</strong> <strong>2012</strong></li>
+            <li><a href="downloads/FA-12-CourseOfferList-4-25-12.pdf">Fall 2012 Course Listing</a></li>
+            <li><strong>Academic Calendar</strong></li>
+            <li><a href="downloads/AcademicCalendar2012-2013.pdf">Academic Calendar 2012- 2013<br />
+            </a></li>
+         </ul>
+        </div><!-- Powered by: Crafty Syntax Live Help        http://www.craftysyntax.com/ -->
+
+<!-- copyright 2003 - 2011 by Eric Gerdes --> 
+</td>
+        <!-- end left sidebar menu -->
+		<!-- start photo column -->
+        <td colspan="2" valign="top"><div id="homePhoto">
+		<script type="text/javascript">
+//new fadeshow(IMAGES_ARRAY_NAME, slideshow_width, slideshow_height, borderwidth, delay, pause (0=no, 1=yes), optionalRandomOrder)
+new fadeshow(fadeimages, 390, 260, 0, 2000, 0, "R")
+</script><noscript>
+<img src="images/IMG_6791.JPG" alt="Haskell Indian Nations University" width="390" height="260" />
+</noscript>
+
+        </div></td>
+		<!-- end photo column -->
+		<td width="194" valign="top"><div id="homeNews">
+		<div class="homeHeading">Haskell In the News</div>
+		<p><a href="http://www2.ljworld.com/news/2011/jul/01/upward-bound-program-helps-students-prepare-higher/">Upward Bound Program helps students prepare for Higher  Education</a>		</p>
+		<p><a href="http://yosemite.epa.gov/opa/admpress.nsf/beebc0b489d357e08525735900400c2f/ddec5e17aae743f48525799100640b23!OpenDocument">HINU and EPA</a><br />
+</p>
+<div class="homeHeading">Haskell Live Chat</div>
+		<center><div id="craftysyntax">
+<script type="text/javascript" src="/livehelp/livehelp_js.php?eo=1&relative=Y&amp;department=2&amp;serversession=1&amp;pingtimes=15"></script>
+<br><font style="font-family: verdana, helvetica, sans-serif; font-size: 8px; color: #000000;"></font></center>
+
+</div></td>
+      </tr>
+      <tr>
+        <td width="194" height="174" valign="top" id="homeUV">
+		<div class="homeHeading" style="width:171px">University Vision</div>
+		  <ul>
+            <li><a href="university_vision/vision_statement.html">Vision Statement  </a></li>
+            <li><a href="university_vision/mission_statement.html">Mission Statement  </a></li>
+            <li><a href="university_vision/code.html">Institutional Values and Code </a></li>
+            <li><a href="university_vision/initiatives.html">Strategic Plan Initiatives</a></li>
+          </ul>        </td>
+        <td width="197" align="center" valign="top" id="homePresident">
+		<div class="homeHeading">
+		  <div align="right">O U T <br />
+          </div>
+		</div>
+		<ul>
+	        <li class="selected">
+	          <div align="right"><a href="trio/index.html">TRIO </a></div>
+	        </li>
+	      <li class="selected">
+	        <div align="right"><a href="extension/index.html">Extension </a></div>
+	      </li>
+	      <li class="selected">
+	        <div align="right"><a href="hh/index.html">Healthier Haskell</a></div>
+	      </li>
+	      <li class="selected">
+	        <div align="right"><a href="http://www.theindianleader.com">The Indian Leader</a></div>
+          </li>
+		</ul></td>
+        <td width="195" valign="top" id="homePresident">
+		<div class="homeHeading">R E A C H</div>
+		  <ul>
+		    <li class="selected">
+		      <div align="left"><a href="climate/index.html">American Indian &amp; Alaska Native Climate Change Working Group </a></div>
+		    </li>
+		  <li class="selected"><a href="http://www.haskell.edu/art_market/">Haskell Indian Art market</a></li>
+         
+		  </ul>
+	    <p>&nbsp;</p></td>
+        <td width="194" valign="top" id="homeCalendar">
+		<div class="homeHeading">Calendar & Events</div>
+		  <ul>
+		  <li><a href="downloads/TW@H - 04-30-12-2.pdf">This Week @ Haskell</a></li>
+		  <li><a href="downloads/Haskell PW Flyer 2012.pdf">2012 Spring Pow-wow</a></li>
+		  <li><a href="downloads/2012 Vendor App.pdf">Pow-wow Vendor application</a></li>
+		  <li> <a href="downloads/DOI Employee 2012 RM Conference Flyer.pdf">OST National Records Management Conference</a></li>
+		  <li> <a href="downloads/Tribal Flyer 2012 RM Conf Flyer.pdf">OST National Records Management Conference-Tribal</a><br />
+            </a></a><br />
+		    </a></a></li>
+		  </ul>		
+	    <p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td colspan="4" valign="top" id="homeUV2"><div align="left">
+          <iframe style="background-color:#FFFFFF;" scrolling="no" frameborder="0" src="http://www.mylocker.net/shop_myl_iframe.cfm?sc_id=ES500692&primary=0xFF5A2E77&second=0xFFFEBD11&third=0xFFEEEEEE&hsname=Haskell Indian Nations University&mascot=Haskell Indian Nations University" width="100%" height="285" marginwidth="0"></iframe>
+        </div></td>
+      </tr>
+    </table>
+	<!-- start footer -->
+	
+	<div id="footer">
+		<ul>
+			<li><a href="http://www.haskell.edu/contact.html">Contact</a></li>
+			<li><a href="http://ehaskell/" target="_blank">Helpdesk</a></li>
+		  <li><a href="http://www.haskell.edu/directions/index.html">Maps & Directions</a></li>
+			<li><a href="http://www.haskell.edu/hr/index.html">Human Resources</a></li>
+			<li><a href="https://app.weaveonline.com/haskell/login.aspx">Weave</a></li>
+			
+			<li><a href="../administration/store.html">Pay Online</a></li>
+			<li><a href="http://www.facebook.com/#!/pages/Haskell-Indian-Nations-University/159728684063239"><img src="http://www.haskell.edu/images/facebook.jpg"/></a></li>
+           <li><a href="http://twitter.com/#!/OnwardHaskell"><img src="http://www.haskell.edu/images/twitter-logo-1.jpg" /></a></li>
+  </ul>
+<br />
+		<span class="copyright">Copyright &copy; 2012 Haskell Indian Nations University&nbsp;&nbsp;&nbsp
+	</div>
+
+	
+	<!-- end footer -->
+	
+	</div>
+	<!-- end #container -->
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html">
+<title>Document Moved</title>
+<meta name="id" content="docJump" >
+<link rel=stylesheet href="swl_styles-5.0o-791405375.css" TYPE="text/css">
+<script type="text/JavaScript">
+setTimeout("goJump();", 1000);
+function goJump() {
+	var jumpURL = "https://bmg.edu/auth.html";
+	var jumpProt = jumpURL.substr(0,6).toLowerCase();
+	var ix;
+	if (jumpProt.substr(0,4) == "http" && (ix = jumpProt.indexOf(":")) != -1) {
+		jumpProt = jumpProt.substr(0,ix+1);
+		if (location.protocol.toLowerCase() != jumpProt) {
+			window.opener = null;
+			top.opener = null;
+		}
+	}
+	top.location.href = jumpURL;
+}
+</script>
+</head>
+<body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" rightmargin="0" marginwidth="0" marginheight="0" class="popup_error_bg">
+<div align="center"><br>
+	<br>
+	<table width="400"  border="0" cellpadding="1" cellspacing="0" bgcolor="#CCCCCC" summary="">
+		<tr>
+			<td>
+				<table width="100&#37;"  border="0" cellpadding="20" cellspacing="0" bgcolor="#FFFFFF" summary="">
+					<tr>
+						<td>Please be patient as you are being re-directed to <a href="https://bmg.edu/auth.html" target="_top">a secure login page</a></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

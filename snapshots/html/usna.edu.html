@@ -1,0 +1,370 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--
+<script type="text/javascript" src="/templates/standard/script/firebug-lite/build/firebug-lite.js"></script>
+-->
+
+<!--
+<script src="/templates/standard/script/jquery/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/templates/standard/script/jquery/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+<script src="/templates/standard/script/basic.js" type="text/javascript"></script>
+<script type="text/javascript" src="scripts/jquery.nivo.slider.js"></script>
+<script type="text/javascript" src="scripts/site.js"></script>
+<script type="text/javascript" src="scripts/jquery.ticker.js"></script>
+-->
+<meta name="Navy Website Registration System (NWRS)" content="NWRS number 2369">
+<meta name="description" content="The United States Naval Academy, established in 1845, is the undergraduate college for theNavy that prepares young men and women to become professional officers in the US Navy and Marine Corps.">
+<meta name="keywords" content="United States Naval Academy, Annapolis, College of the Navy and Marine Corps, Honor,Courage, Commitment, Navy, Naval, Marine Corps, Semper Fi, Midshipmen, Midshipman, Mids, Officer,Officer training, Leadership, Patriotism, Aviation, Surface Warfare, Submarine Warfare, Special Operations,SEAL, jets, ships, subs, BEAT ARMY !">
+<meta name="USNA" content="Page Revised : May 02, 2012 09:53:52">
+<meta name="version" content="USNA Web Team, Custom based on v2.1.0">
+
+
+
+<link rel="alternate" media="handheld" href="http://www.usna.edu/Mobile/">
+
+
+
+
+
+
+
+<script src="/templates/standard/script/head.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+head.js(
+"/templates/standard/script/jquery/js/jquery-1.7.1.min.js",
+"/templates/standard/script/jquery/js/jquery-ui-1.8.18.custom.min.js",
+"/templates/standard/script/basic.js",
+"scripts/jquery.nivo.slider.js",
+"scripts/site.js",
+"scripts/jquery.ticker.js",
+"scripts/jquery.flexslider.js"
+);
+
+
+
+</script>
+
+<script language="javascript" type="text/javascript">
+function announceFullView() {
+head.ready('jquery-1.7.1.min.js',function(){
+    $.ajax({
+        url: "/rss.php?dept=PAO&new=1",
+        type: "GET",
+        dataType: "xml",
+        success: function(data) {
+		
+	    $(".announcements").html("");
+	    $('item', data).each(function(){
+	    	var title = $('title',this).text();
+	    	var description = $('description',this).text();
+	    	var linkHREF = $('link',this).text();
+				
+		var patt1=/HIGH PRIORITY/gi;
+		if(linkHREF!=""){
+	                var link = " &nbsp;&nbsp;[<a href='"+linkHREF+"'>Read More</a>]";                
+                }else{
+			var link = "";
+		}
+		
+		var annClass = 'normalAnn';
+		if (title.match(patt1))
+		{
+			$(".announcements").append("<div class='flagAnn flagAnnAlert'>HIGH PRIORITY</div>");
+			annClass = 'highPriorityAnn';
+			
+		} else {
+			$(".announcements").append("<div class='flagAnn'>&nbsp;</div>");
+		}
+		$(".announcements").append("<div class='singleAnn "+annClass+"'><div class='descAnn'>"+description+" "+link+"</div></div>");
+	     });
+        }
+    });
+    return;
+ });
+}
+
+//announceFullView();
+
+</script>
+
+
+
+
+<link rel="stylesheet" media="screen" href="/templates/standard/styles/reset.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/nivo-slider_home.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/style_home.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/ticker-style_home.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/home.css" type="text/css">
+<link rel="stylesheet" media="screen" href="themes/default/default.css" type="text/css">
+<link rel="stylesheet" media="screen" href="./styles/social.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/flexslider_home.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/ie6.css" type="text/css">
+<link rel="stylesheet" media="screen" href="styles/ie7.css" type="text/css">
+<link rel="stylesheet" media="print" href="styles/homeprint.css" type="text/css">
+<link rel="stylesheet" media="print" href="/templates/standard/styles/print.css" type="text/css">
+</head>
+
+<body class="ie ie7 win"><div id="homeContainer">
+	<div id="header">
+				<a name="top" id="top" class="plain">&nbsp;</a> 
+<a href="feedback/"><div class="feedbtab" onmouseover="this.className='feedbhovering feedbtab'" onmouseout="this.className='feedbtab'">W<br>e<br>b<br>s<br>i<br>t<br>e<br><br>F<br>e<br>e<br>d<br>b<br>a<br>c<br>k</div></a>
+<div id="banner"><a href="./" class="plain"><img src="./images/toptop.jpg" alt="United States Naval Academy page banner"></a></div>
+				<div id="top">
+				<div class="topcontainer">
+				<div class="topcontent" id="searchbar">
+				<form class="search" action="//webster-new.dmz.usna.edu:8765/query.html" method="get">
+				<a id="branding" alt="Back to Top" title="Back to Top" href="#top" class="plain">&nbsp;</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="/directionstousna.htm">Maps</a>
+				<a href="/PAO/calendars.htm">Calendars</a>
+				<a href="/toc.html">A-Z Index</a>
+				<!--<input id="siteSearch" class="searchBox" type="text" size="17" onblur="clearHelp();" onfocus="clearHelp();" maxlength="2033" name="qt" title="Search USNA" value="Search USNA" placeholder="Search USNA">-->
+				<input type="text" size="17" onblur="clearHelp();" onfocus="clearHelp();" class="searchBox" maxlength="2033" name="qt" title="Search USNA" value="Search USNA" id="siteSearch" placeholder="Search USNA">
+				<input class="submitButton" border="0" type="image" title="Click to submit" alt="Click to submit" name="Submit" src="/templates/standard/images/search_button.gif" value="go">
+				<input type="hidden" value="" name="qs">
+				<input type="hidden" value="usna" name="col">
+				<input type="hidden" value="" name="qc">
+				<input type="hidden" value="100%" name="pw">
+				<input type="hidden" value="0" name="ws">
+				<input type="hidden" value="" name="la">
+				<input type="hidden" value="0" name="qm">
+				<input type="hidden" value="1" name="st">
+				<input type="hidden" value="10" name="nh">
+				<input type="hidden" value="1" name="lk">
+				<input type="hidden" value="0" name="rf">
+				<input type="hidden" value="" name="oq">
+				<input type="hidden" value="0" name="rq">
+				<input type="hidden" value="url:www.usna.edu" name="qp">
+				<input type="hidden" value="url:webster-new.dmz.usna.edu" name="qp">
+				</form>
+				</div>
+				</div>
+				</div>
+    </div>
+	
+	<div id="maincont">
+		<ul id="js-news" class="js-hidden">
+			<li class="news-item"></li>
+		</ul>
+
+		<noscript>
+			<h2>Latest News</h2>
+			<ul id="no-js-news">
+				<li class="news-item">Please enable Javascript to view the announcements.</li>
+			</ul>
+		</noscript>
+
+		<div class="openannounce" onclick="return showAnnouncements()" title="Show All Announcements"></div>
+
+		<div id="wrapper2">
+			<div class="slider-wrapper theme-default">
+				<div id="slider" class="nivoSlider">
+					<img src="images/news/5thGraders_865x330.jpg" alt="Midshipmen Mentor 5th Grade Class" title="#5thCaption"/>
+					<img src="images/news/cw_02.jpg" alt="Commissioning Week" title="#cwCaption"/>
+					<img src="images/news/pl_championships_2012_02.jpg" alt="Patriot League Championship Winners" title="#plCaption" />
+					<img src="images/news/chile_865x330.jpg" alt="Oyster Restoration" title="#chileCaption"/>
+             		<img src="images/news/kotlikoff865x330.jpg" alt="Truman Scholar" title="#trumanScholarCaption"/>
+				</div>
+							
+				<div id="5thCaption" class="nivo-html-caption">
+					<h1>Midshipmen Mentor 5th Grade Class</h1>
+					<blockquote>Forty-three midshipmen took time out of their hectic academic schedule to write unique letters of inspiration and encouragement to students of a fifth grade class.
+					<a href="http://www.usna.edu/PAO/newsarticles/2012.04.27-01-Mids_Mentor_5th_Grade_Class.html">Read More</a></blockquote>
+				</div>
+				
+				<div id="cwCaption" class="nivo-html-caption">
+					<h1>Naval Academy Commissioning Week 2012</h1>
+					<blockquote>The complete Commissioning Week 2012 schedule of events is out! Discover all you need to know about 
+					graduation by <a href="http://www.usna.edu/SpecialEvents/CommWeek">clicking here</a>.</blockquote>
+				</div>
+                    
+		  <div id="plCaption" class="nivo-html-caption">
+       				<h1>Patriot League Championship Wins in Lacrosse, Golf, &amp; Tennis</h1>
+					<blockquote>The Navy <a href="http://www.usna.edu/templates/standard/goodbye.php?url=http://www.navysports.com/sports/w-lacros/recaps/042912aaa.html">women's lacrosse team</a>, <a href="http://www.usna.edu/templates/standard/goodbye.php?url=http://www.navysports.com/sports/m-golf/recaps/042912aaa.html">men's golf</a>, and <a href="http://www.usna.edu/templates/standard/goodbye.php?url=http://www.navysports.com/sports/m-tennis/recaps/042912aab.html">men's tennis</a>, all captured the Patriot League Championship title this past Sunday.
+					<a href="http://www.usna.edu/templates/standard/goodbye.php?url=http://www.navysports.com/" target="_blank">Read More</a></blockquote>
+			  </div> 
+
+		  <div id="chileCaption" class="nivo-html-caption">
+					<h1>Midshipmen Build Leadership Skills in Chile</h1>
+					<blockquote>Ten Midshipmen traveled to Chile this spring as part of a cultural immersion program in order to develop local language  proficiency  and gain regional expertise and perspective. 
+					<a href="http://www.usna.edu/PAO/newsarticles/2012.04.12-01-Midshipmen_Build_Leadership_Skills_in_Chile.htm">Read More</a></blockquote>
+			  </div>
+                        
+		  <div id="trumanScholarCaption" class="nivo-html-caption">
+					<h1>Midshipman Selected For 2012 Truman Scholarship</h1>
+					<blockquote>MIDN  Kotlikoff is one of 54 students selected as a  Truman Scholar. Exceptional college juniors committed to public service careers are considered for this honor.
+					<a href="http://www.usna.edu/PAO/newsarticles/2012.04.05-01-Midshipman_Selected_For_2012_Truman_Scholarship.htm">Read More</a></blockquote>
+				</div>     
+						  
+          
+		  </div>
+		<script type="text/javascript">
+		//	$(document).ready('jquery-1.7.1.min.js',function(){
+				//if(console)	console.log('head.ready');
+			
+			//	$(document).ready(function() {
+					//if(console)	console.log('document.ready');
+			//		$(document).ready('jquery.nivo.slider.js',function(){
+						//if(console)	console.log('nivoSlider.ready');
+			//			$('#slider').nivoSlider();
+			//		});
+			//	});
+			//});
+		function showAnnouncements(){
+			announceFullView();
+
+			$('div.announcements').slideToggle('slow'); 
+			$('div.openannounce').attr('title', 'Close Announcements'); 
+			$('div.closeannounce').attr('title', 'Show All Announcements'); 
+			$('div.openannounce').toggleClass('closeannounce'); 
+			$('div.ticker').toggleClass('tickerhide');
+			return false;
+		}
+		</script>	
+		<script type="text/javascript">
+		head.ready('jquery-1.7.1.min.js',function(){
+			//$(document).ready(function() {
+				$(window).load(function() {
+					$('#slider').nivoSlider();
+				});
+			//});
+		});
+		</script>
+		<div class="announcements">
+			<div><br><br></div>
+		
+		</div>
+		
+	<!-- homepage.php -->
+<div class='navBar'>
+
+<ul>
+<li><a href="/welcome.htm">Welcome</a></li>
+<li><a href="/about.htm">About USNA</a></li>
+<li><a href="/academics.htm">Academics</a></li>
+<li><a href="/admin.htm">Administration</a></li>
+<li><a href="http://www.usna.edu/Admissions/">Admissions</a></li>
+<li><a href="/alumni.htm">Alumni &amp; Foundation</a></li>
+<li><a href="/athletics.htm">Athletics</a></li>
+<li><a href="http://www.usna.edu/Library/">Library</a></li>
+<li><a href="http://www.usna.edu/PAO/">Public Affairs &amp; Events</a></li>
+<li><a href="/midlife.htm">Student Life</a></li>
+<li><a href="/visit.htm">Visit USNA</a></li>
+<li><a href="/faq.htm" class="dividerAbove">FAQs</a></li>
+<li><a href="http://www.usna.edu/homepage.php">USNA Home</a></li>
+</ul>
+<a href="#top" class="hideText">Back to top</a></div>
+	<div class="oldbrowserie6">
+	<img src="images/500x300.jpg">
+	
+	</div>
+
+	<!-- START Social block -->
+		<div class="socialblockcont">
+			<div class="SocialContent">
+			<div class="socialUSNA"><iframe name="socialiframe" src="index_fb.htm" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe></div>
+			<div class="tabbyFB socialtabby" ID="fbtab"><a href="index_fb.htm" target="socialiframe" class="plain" OnClick="document.getElementById('fkrtab').className = 'tabby2Inactive socialtabbyinact'; document.getElementById('yttab').className = 'tabby3Inactive socialtabbyinact'; document.getElementById('nntab').className = 'tabby4Inactive socialtabbyinact'; document.getElementById('fbtab').className = 'tabbyFB socialtabby'; document.getElementById('fbtabicon').src= '/templates/standardv2/images/fb_32.png'; document.getElementById('fkrtabicon').src= '/templates/standardv2/images/flickr_32_blue.png'; document.getElementById('yttabicon').src= '/templates/standardv2/images/youtube_32_blue.png'; document.getElementById('nntabicon').src= '/templates/standardv2/images/navy_news_32_blue.png';"><img src="/templates/standardv2/images/fb_32.png" class="no-border" id="fbtabicon" alt="View USNA News on Facebook"></a></div>
+			
+			<div class="tabby2Inactive socialtabbyinact" ID="fkrtab"><a href="index_fkr.html" target="socialiframe" class="plain" OnClick="document.getElementById('fbtab').className = 'tabby1Inactive socialtabbyinact'; document.getElementById('yttab').className = 'tabby3Inactive socialtabbyinact'; document.getElementById('nntab').className = 'tabby4Inactive socialtabbyinact'; document.getElementById('fkrtab').className = 'tabbyFKR socialtabby'; document.getElementById('fbtabicon').src= '/templates/standardv2/images/fb_32_blue.png'; document.getElementById('fkrtabicon').src= '/templates/standardv2/images/flickr_32.png'; document.getElementById('yttabicon').src= '/templates/standardv2/images/youtube_32_blue.png'; document.getElementById('nntabicon').src= '/templates/standardv2/images/navy_news_32_blue.png';"><img src="/templates/standardv2/images/flickr_32_blue.png" class="no-border" id="fkrtabicon" alt="View New Photos on Flickr"></a></div>
+			
+			<div class="tabby3Inactive socialtabbyinact" ID="yttab"><a href="index_yt.htm" target="socialiframe" class="plain" OnClick="document.getElementById('fbtab').className = 'tabby1Inactive socialtabbyinact'; document.getElementById('fkrtab').className = 'tabby2Inactiveb socialtabbyinact'; document.getElementById('nntab').className = 'tabby4Inactiveb socialtabbyinact'; document.getElementById('yttab').className = 'tabbyYT socialtabby'; document.getElementById('fbtabicon').src= '/templates/standardv2/images/fb_32_blue.png'; document.getElementById('fkrtabicon').src= '/templates/standardv2/images/flickr_32_blue.png'; document.getElementById('yttabicon').src= '/templates/standardv2/images/youtube_32.png'; document.getElementById('nntabicon').src= '/templates/standardv2/images/navy_news_32_blue.png';"><img src="/templates/standardv2/images/youtube_32_blue.png" class="no-border" id="yttabicon"  alt="View USNA Video on YouTube"></a></div>
+			
+			<div class="tabby4Inactive socialtabbyinact" ID="nntab"><a href="index_nn.htm" target="socialiframe" class="plain" OnClick="document.getElementById('fbtab').className = 'tabby1Inactive socialtabbyinact'; document.getElementById('fkrtab').className = 'tabby2Inactiveb socialtabbyinact'; document.getElementById('yttab').className = 'tabby3Inactiveb socialtabbyinact'; document.getElementById('nntab').className = 'tabbynn socialtabby'; document.getElementById('fbtabicon').src= '/templates/standardv2/images/fb_32_blue.png'; document.getElementById('fkrtabicon').src= '/templates/standardv2/images/flickr_32_blue.png'; document.getElementById('yttabicon').src= '/templates/standardv2/images/youtube_32_blue.png'; document.getElementById('nntabicon').src= '/templates/standardv2/images/nn_tab.png';"><img src="/templates/standardv2/images/navy_news_32_blue.png" class="no-border" id="nntabicon"  alt="View USNA News from the Navy"></a></div>
+			</div>
+		</div>
+	<!-- END Social block -->
+			</div>
+
+		<img src="images/home_corner_ur.png" class="homeCornerTR" alt=""/>
+		<img src="images/home_corner_ul.png" class="homeCornerTL" alt=""/>
+		<a href="http://www.usna.edu/rss.php?dept=PAO" class="rssicon plain"><img src="/templates/standardv2/images/feed-icon.png" alt="RSS Feed of Announcements" title="RSS Feed of Announcements"/></a>
+	</div>
+</div> 
+	<div id="footer">
+	
+<div class="homepagefooter">
+<div class="hpcenterfoot">
+<div class="float-right footrightconthp">
+<br>
+
+	      <div class="flex-container">
+		  <div class="flexslider">
+		    <ul class="slides">
+			<li>
+		    		<a href="./atfp.htm" class="plain"><img src="images/atfp_seal.png" class="float-right footlifeline" alt="Anti-Terrorism Force Protection (ATFP) - Report crimes by text by texting NCIS to 274637 (CRIMES)"></a>
+		    	</li>
+		    	<li>
+		    		<a href="http://www.suicidepreventionlifeline.org/Veterans/Default.aspx" class="plain"><img src="images/life.png" class="float-right footlifeline" alt="Life is Worth Living - Veterans Suicide Hotline"></a>
+		    	</li>
+		    </ul>
+		  </div>
+	 	</div>
+
+<div class="footsocialhp">
+<p class="footerfollow"><i><b>Follow USNA on&nbsp;&nbsp;</b></i></p>
+<a href="http://www.facebook.com/USNavalAcademy" class="plain"><img src="/templates/standard/images/fb_32.png" style="padding-right:5px;" alt="Facebook Icon" title="USNA News on Facebook"></a> 
+<a href="http://www.flickr.com/photos/unitedstatesnavalacademy" class="plain"><img src="/templates/standard/images/flickr_32.png" style="padding-right:5px;" alt="Flickr Icon" title="USNA Photos on Flickr"></a>
+<a href="https://twitter.com/#!/NavalAcademy" class="plain"><img src="/templates/standard/images/twitter_32.png" style="padding-right:5px;" alt="Twitter Icon" title="USNA News on Twitter"></a>
+<a href="http://www.youtube.com/user/usnapao" class="plain"><img src="/templates/standard/images/youtube_32.png" alt="Youtube Icon" title="USNA Videos on YouTube"></a>
+</div>
+
+
+</div>
+<div class="align-left float-left footaddresshp">
+<address>
+U.S. Naval Academy<br>
+121 Blake Road<br>
+Annapolis, MD 21402<br>
+<a href="mailto:pao@usna.edu" class="plain">Contact USNA</a>
+</address>
+</div>
+<div class="align-left float-right footlinkshp"><br>
+<a href="employment.php" class="plain">Employment Opportunities with USNA</a><br>
+<a href="http://www.usna.edu/AdminSuport/foia.htm" class="plain">Naval Academy FOIA Program</a><br>
+<a href="http://www.usna.edu/warning.htm" class="plain">Please read our Privacy Policy Notice </a><br>
+<a href="http://www.usna.edu/accessibility.htm" class="plain">Accessibility Information</a>
+</div>
+<p style="clear:both"></p>
+<div class="footerquiethp">This is an official <a href="http://www.navy.mil/" class="plain"> U.S. Navy Web Site</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; URL : <a href="http://www.usna.edu" class="plain">http://www.usna.edu</a></div>
+</div>
+</div>
+
+
+	<script type="text/javascript">
+		head.ready('jquery-1.7.1.min.js',function(){
+			$(window).load(function() {
+				$('.flexslider').flexslider({
+			 		 animation: "fade",
+				 	 controlsContainer: ".flex-container",
+					 slideshowSpeed: 8000, 
+					 animationDuration: 400
+			 	 });
+			});
+		});
+		//$('.flexslider').ready(function() {
+			//	setTimeout(function(){$('.flexslider').flexslider({animation: "slide", slideshowSpeed: 8000, animationDuration: 800});}, 50);
+		
+
+   		// });
+		//$('.flexslider').ready(function() {
+		//		$('.flexslider').flexslider({animation: "slide", slideshowSpeed: 8000, animationDuration: 800});
+		
+
+   		// });
+
+</script>
+	</div>
+	
+
+
+
+
+
+
+</body>
+
+</html>

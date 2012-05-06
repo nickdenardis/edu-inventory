@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Improving The Lives of Children and Families
+          | Wheelock College, Boston MA
+        </title><base href="http://www.wheelock.edu/"></base><meta name="description" content="Wheelock strives to be the premier college educating people to create a safe, caring, and just world for children and families.">
+<meta name="keywords" content="Wheelock, Early Childhood, Social Work, Wheelock Family Theater, Child Advocacy, Passion For Action, Service Learning, Undergraduate Admissions, Colleges of the Fenway, MSW, Center For Career &amp; Professional Development, college in Boston, weelock, whelock.edu, wheellock college, weelock college, wheelcok.edu, wheelcock, whelock.edu, wheel lock college">
+<meta name="robots" content="">
+<link rel="stylesheet" type="text/css" href="prebuilt/anythingslider/css/anythingslider.css">
+<link rel="stylesheet" type="text/css" href="prebuilt/style_2.css">
+<link rel="stylesheet" type="text/css" href="prebuilt/style_homepage_2.css"><!-- [if lte IE 6]>
+		<link rel="stylesheet" type="text/css" media="screen" href="prebuilt/ie6.css" /> 
+	    <![endif] --><script language="javascript" src="prebuilt/dojo/dojo.js"></script><script type="text/javascript" src="prebuilt/NewHome/jquery-1.6.4.min.js"></script><script type="text/javascript" src="prebuilt/customSelect.jquery.js"></script><script type="text/javascript" src="prebuilt/NewHome/jquery.easing.js"></script><script type="text/javascript" src="prebuilt/NewHome/jquery-ui-1.7.custom.min.js"></script><script type="text/javascript" src="prebuilt/NewHome/behaviors2.js"></script><script type="text/javascript" src="prebuilt/NewHome/flashobject.js"></script><script type="text/javascript" src="prebuilt/jq_url.js"></script><script type="text/javascript" src="prebuilt/flowplayer-3.2.4.min.js"></script><script type="text/javascript" src="prebuilt/anythingslider/js/jquery.anythingslider.min.js"></script><script type="text/javascript">
+            $(function(){
+            $('#valueProp ul.carousel').anythingSlider({
+            autoPlay: false,
+            hashTags: false,
+            expand: true,
+            resizeContents: false,
+            buildStartStop: false,
+            buildArrows: true,
+            easing: 'easeOutQuint',
+            appendNavigationTo: $('#valueProp .navContainer'),
+            showMultiple: 2,
+            easing: 'easeOutQuint',
+            animationTime: 750,
+            delay: 5000,
+            onInitialized: function(e, slider){
+            $(".carousel").show();
+            $('#valueProp .thumbNav span').fadeTo(0, 0.3).eq(0).fadeTo(0, 0.01);
+            $('#valueProp .thumbNav span').bind('mouseenter', function(){
+            $(this).stop().fadeTo(250, 0.01);
+            });
+            $('#valueProp .thumbNav span').bind('mouseleave', function(){
+            if ($(this).parent().hasClass('cur')) return false;
+            $(this).stop().fadeTo(250, 0.3);
+            });
+            $('#valueProp .foreground').css('left', '-1500px');
+            $('#valueProp .copy').hide();
+            $('#valueProp .more').hide();
+            setTimeout(function(){
+            animateSlideIn(1);
+            }, 250);
+            },
+            onSlideBegin: function(e, slider) {
+            animateSlideOut(slider.currentPage);
+            animateSlideIn(slider.exactPage);
+            $('#valueProp .thumbNav .cur span').stop().fadeTo(250, 0.3);
+            },
+            onSlideComplete: function(slider) {
+            $('#valueProp .thumbNav .cur span').stop().fadeTo(0, 0.01);
+            }
+            });
+            function animateSlideOut(i) {
+            $('#valueProp .foreground').eq(i).stop().animate({left: -1500}, 1500, 'easeOutQuint');
+            $('#valueProp .copy').eq(i).fadeOut(750);
+            $('#valueProp .more').eq(i).fadeOut(750);
+            }
+            function animateSlideIn(i) {
+            if (i == 0) i = 5;
+            if (i > 5) i = 1;
+            $('#valueProp .foreground').eq(i).stop().animate({left: 0}, 1500, 'easeOutQuint');
+            $('#valueProp .copy').eq(i).fadeIn(750);
+            $('#valueProp .more').eq(i).fadeIn(750);
+            }
+            });
+            $(function(){
+            var duration = 8000;
+            var speed = 1500;
+            var i = 0;
+            var n = $('.slideshow .body li').length;
+            var timer = null;
+            function play() {
+            clearTimeout(timer);
+            nextIndex = i + 1;
+            if (i == (n - 1)) nextIndex = 0;
+            $('.slideshow .titleBar li').removeClass('on').eq(i);
+            $('.slideshow .body li').eq(i).fadeOut(speed);
+            $('.slideshow .body li').eq(nextIndex).fadeIn(speed, function(){
+            $('.slideshow .titleBar li').eq(nextIndex).addClass('on');
+            timer = setTimeout(play, duration);
+            });
+            i++;
+            if (i == n) i = 0;
+            }
+            var timer = setTimeout(play, duration);
+
+            $('.slideshow .titleBar a').map(function(index){
+            $(this).bind('click', function(){
+            if (index == i) return false;
+            clearTimeout(timer);
+            $('.slideshow .body li').eq(i).stop().fadeOut(speed);
+            $('.slideshow .body li').eq(index).stop().fadeIn(speed);
+            $('.slideshow .titleBar li').removeClass('on').eq(index).addClass('on');
+            i = index;
+            return false;
+            });
+            });
+
+
+            $('.slideshow .photo a.spotlightVideo').map(function(index){
+            $(this).bind('click', function(){
+            //alert("WORKED!");
+            //if (index == i) return false;
+            clearTimeout(timer);
+            $('.slideshow .body li').eq(i).stop().fadeOut(speed);
+            $('.slideshow .body li').eq(i).stop().fadeIn(speed);
+            $('.slideshow .titleBar li').eq(i).addClass('on');
+            //i = index;
+            return false;
+            });
+            });
+
+
+            });
+          </script><script type="text/javascript" src="prebuilt/fancybox/jquery.fancybox-1.3.4.pack.js"></script><link rel="stylesheet" href="prebuilt/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen"><script type="text/javascript">
+
+
+            $(document).ready(function() {
+
+
+            $(".slideshow .photo a.spotlightVideo").click(function() {
+            $.fancybox({
+            'padding'		    : 5,
+            'autoScale'		    : false,
+            'transitionIn'	    : 'none',
+            'transitionOut'	    : 'none',
+            'width'		        : 560,
+            'height'		    : 315,
+            'href'              : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+            'type'			    : 'swf',
+            'swf'			    : {
+				'wmode'		        : 'transparent',
+				'allowfullscreen'	: 'true'
+            }
+            });
+
+            return false;
+            });
+
+            });
+
+
+
+
+          </script><script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-10286486-4']);
+          _gaq.push(['_setSiteSpeedSampleRate', 5]);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script></head>
+<body>
+<div class="width">
+<div class="minwidth">
+<div class="layout">
+<div class="container">
+<div class="page">
+<div class="leftcol">
+<h1 id="logo"><a href="">Wheelock College</a></h1>
+<div class="leftnavigation">
+<ul class="primary">
+<li class="apply"><a href="admissions">Apply Now</a></li>
+<li class="visit"><a href="admissions/admissions-events">Visit Wheelock</a></li>
+<li class="support"><a href="giving">Support Us</a></li>
+</ul>
+<ul class="secondary">
+<li><a href="http://www.wheelock.edu/x3104.xml">What Student Success Means to Us »
+                        </a></li>
+<li><a href="http://info.wheelock.edu/wheelockblog">Wheelock Blog »
+                        </a></li>
+</ul>
+<ul class="badges">
+<li><a href="http://www.wheelock.edu/wheelock-student-teacher-program-cited-as-model" Target="_blank"><img src="images/shared/teacher-quality.png" alt="" title="" width="139" height="126"></a></li>
+<li><a href="http://colleges.usnews.rankingsandreviews.com/best-colleges/wheelock-college-2228" Target="_blank"><img src="images/shared/us-news-best-colleges-badge.png" alt="" title="" width="139" height="126"></a></li>
+<li><a href="http://collegesofdistinction.com/college-profiles/MA-massachusetts/308-wheelock-college.html" Target="_blank"><img src="images/Home/Colleges of Distinction.png" alt="" title="" width="139" height="126"></a></li>
+</ul>
+</div>
+</div>
+<div class="maincol">
+<div id="header">
+<div class="global">
+<div>
+<ul id="utilityNav">
+<li><a href="http://portal.wheelock.edu/ics">My Wheelock</a></li>
+<li><a href="directories">Directories</a></li>
+<li><a href="http://www.wheelock.edu/library">Library</a></li>
+<li><a href="http://wheelock.interviewexchange.com/">Work@Wheelock</a></li>
+<li><a href="http://www.wheelockfamilytheatre.org/">Wheelock Family Theatre</a></li>
+</ul>
+<ul class="socialNav" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">
+<li class="facebook"><a href="http://www.facebook.com/wheelockcollege" title="Connect with us on Facebook" target="_blank">Connect with us on Facebook</a></li>
+<li class="twitter"><a href="http://twitter.com/wheelockcollege" title="Follow us on Twitter" target="_blank">Follow us on Twitter</a></li>
+<li class="youtube"><a href="http://www.youtube.com/user/wheelockmarketing1" title="Connect with us on YouTube" target="_blank">Connect with us on YouTube</a></li>
+<li class="linkedin"><a href="http://www.linkedin.com/company/wheelock-college" title="Connect with us on LinkedIn" target="_blank">Connect with us on LinkedIn</a></li>
+</ul>
+<div id="searchBoxLocation" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">
+<form action="http://www.wheelock.edu/search/" id="cref_iframe"><input type="hidden" value="http://www.wheelock.edu/search/cse.xml" name="cref"><input type="hidden" value="FORID:11" name="cof"><input type="text" value="Search Wheelock" id="searchBox" name="q"><input type="submit" value="Go" id="searchBox-GO" name="sa"><input type="hidden" name="siteurl" value="http://www.wheelock.edu"></form>
+</div>
+</div>
+</div>
+<div class="topnav">
+<div>
+<ul id="globalNav">
+<li class="item0 purpleTab" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="admissions">Admissions</a><div class="menu">
+<div>
+<div>
+<div class="body clearfix">
+<div class="col col0">
+<ul>
+<li><a href="admissions/undergraduate">Undergraduate</a></li>
+<li><a href="admissions/graduate">Graduate</a></li>
+<li><a href="admissions/admissions-events">Admissions Events</a></li>
+<li><a href="admissions/financial-aid-undergraduate">Financial Aid Undergraduate</a></li>
+<li><a href="admissions/financial-aid-graduate">Financial Aid Graduate</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item1 purpleTab tabSpace" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="academics">Academics</a><div class="menu">
+<div>
+<div>
+<div class="body cols3 clearfix">
+<div class="col col0">
+<ul>
+<li><a href="academics/undergraduate">Undergraduate</a></li>
+<li><a href="academics/graduate">Graduate</a></li>
+<li><a href="academics/online-learning">Online Learning</a></li>
+<li><a href="academics/continuing-studies">Continuing Studies</a></li>
+<li><a href="academics/summer-sessions">Summer Sessions</a></li>
+<li><a href="academics/faculty-and-administration">Faculty and Administration</a></li>
+</ul>
+</div>
+<div class="col col1">
+<ul>
+<li><a href="academics/field-experience">Field Experience</a></li>
+<li><a href="academics/service-learning-and-study-abroad">Service Learning and Study Abroad</a></li>
+<li><a href="academics/academic-services">Academic Services</a></li>
+<li><a href="academics/career-services">Career Services</a></li>
+<li><a href="academics/international-programs">International Programs</a></li>
+<li><a href="academics/registrar">Registrar</a></li>
+</ul>
+</div>
+<div class="col col2">
+<ul>
+<li><a href="academics/centers-and-institutes">Centers and Institutes</a></li>
+<li><a href="http://www.wheelock.edu/library">Library</a></li>
+<li><a href="academics/information-technology">Information Technology</a></li>
+<li><a href="academics/mtel">MTEL</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item2 greenTab" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="student-life">Student Life</a><div class="menu">
+<div>
+<div>
+<div class="body cols2 clearfix">
+<div class="col col0">
+<ul>
+<li><a href="student-life/residence-life">Residence Life</a></li>
+<li><a href="http://www.wheelockdining.com/" Target="_blank">Dining</a></li>
+<li><a href="student-life/boston">Boston</a></li>
+<li><a href="student-life/health-and-wellness">Health &amp; Wellness</a></li>
+<li><a href="student-life/activities-and-organizations">Activities and Organizations</a></li>
+<li><a href="student-life/public-safety">Public Safety</a></li>
+</ul>
+</div>
+<div class="col col1">
+<ul>
+<li><a href="student-life/for-new-students">For New Students</a></li>
+<li><a href="student-life/parents-and-families">Parents and Families</a></li>
+<li><a href="student-life/student-handbook">Student Handbook</a></li>
+<li><a href="student-life/commencement-2012">Commencement 2012</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item3 greenTab tabSpace" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="http://www.wheelockwildcats.com" Target="_blank">Athletics</a></li>
+<li class="item4 blueTab" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="about">About</a><div class="menu">
+<div>
+<div>
+<div class="body cols3 clearfix">
+<div class="col col0">
+<ul>
+<li><a href="about/presidents-office">President's Office</a></li>
+<li><a href="about/at-a-glance">At A Glance</a></li>
+<li><a href="about/mission-and-history">Mission &amp; History</a></li>
+<li><a href="about/the-wheelock-compact">The Wheelock Compact</a></li>
+<li><a href="about/diversity-at-wheelock">Diversity at Wheelock</a></li>
+<li><a href="about/towne-art-gallery">Towne Art Gallery</a></li>
+</ul>
+</div>
+<div class="col col1">
+<ul>
+<li><a href="http://www2.wheelock.edu/wheelock/x1873.xml">Policy Connection</a></li>
+<li><a href="about/community-engagement">Community Engagement</a></li>
+<li><a href="about/sustainability">Sustainability</a></li>
+<li><a href="x3494.xml">Centers and Institutes</a></li>
+<li><a href="about/visit-us">Visit Us</a></li>
+<li><a href="about/social-media">Social Media</a></li>
+</ul>
+</div>
+<div class="col col2">
+<ul>
+<li><a href="about/board-of-trustees">Board of Trustees</a></li>
+<li><a href="about/honorary-degree-recipients">Honorary Degree Recipients</a></li>
+<li><a href="about/financial-statements">Financial Statements</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item5 blueTab tabSpace" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="news-and-events">News &amp; Events</a><div class="menu">
+<div>
+<div>
+<div class="body clearfix">
+<div class="col col0">
+<ul>
+<li><a href="news-and-events/events-calendar">Calendar</a></li>
+<li><a href="news-and-events/news-archive">News Archive</a></li>
+<li><a href="http://www.wheelock.edu/regcal/acadcal_ay.asp?academicYear=2011">Academic Calendar</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item6 orangeTab" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="alumni">Alumni</a><div class="menu">
+<div>
+<div>
+<div class="body cols2 clearfix">
+<div class="col col0">
+<ul>
+<li><a href="alumni/reunion">Reunion</a></li>
+<li><a href="alumni/wheelock-world-service-weekend">Wheelock World Service Weekend</a></li>
+<li><a href="alumni/alumni-resources">Alumni Resources</a></li>
+<li><a href="alumni/wheelock-magazine">Wheelock Magazine</a></li>
+<li><a href="x4185.xml">Campaign for Wheelock</a></li>
+<li><a href="alumni/class-notes">Class Notes</a></li>
+</ul>
+</div>
+<div class="col col1">
+<ul>
+<li><a href="alumni/alumni-association">Alumni Association</a></li>
+<li><a href="x131.xml?category=Alumni">Calendar of Events</a></li>
+<li><a href="alumni/contact">Contact</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li class="item7 orangeTab" xmlns:msxsl="urn:schemas-microsoft-com:xslt"><a href="giving">Giving</a><div class="menu">
+<div>
+<div>
+<div class="body clearfix">
+<div class="col col0">
+<ul>
+<li><a href="giving/campaign-for-wheelock">Campaign for Wheelock</a></li>
+<li><a href="giving/ways-to-give">Ways to Give</a></li>
+<li><a href="giving/giving-programs-and-societies">Giving Programs and Societies</a></li>
+<li><a href="giving/reunion-and-class-giving">Reunion and Class Giving</a></li>
+<li><a href="giving/passion-for-action">Passion for Action</a></li>
+<li><a href="giving/contact-us">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<li xmlns:msxsl="urn:schemas-microsoft-com:xslt"></li>
+<li xmlns:msxsl="urn:schemas-microsoft-com:xslt"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="content">
+<div id="valueProp">
+<div>
+<div class="navContainer">
+<ul class="nav">
+<li><img src="images/shared/photo-02.jpg" alt="" width="43" height="43"></li>
+<li><img src="images/shared/photo-05.jpg" alt="" width="43" height="43"></li>
+<li><img src="images/shared/photo-04.jpg" alt="" width="43" height="43"></li>
+<li><img src="images/shared/photo-01.jpg" alt="" width="43" height="43"></li>
+<li><img src="images/shared/photo-03.jpg" alt="" width="43" height="43"></li>
+</ul>
+</div>
+<div class="carouselContainer">
+<div>
+<ul class="carousel anythingBase">
+<li class="dark">
+<div class="background" style="background-image: url(images/shared/photo-21.jpg);"></div>
+<div class="foreground" style="background-image: url(images/shared/photo-26.png);"></div>
+<h1 class="theme global">Global</h1>
+<div class="copy">I'm helping to rebuild New Orleans with my own hands.&#8221;
+                                  <div class="author">
+                                    &#8212;Peter Bartmon</div>
+</div><a class="more" href="service--change">Learn More »
+                                </a></li>
+<li>
+<div class="background" style="background-image: url(images/shared/photo-22.jpg);"></div>
+<div class="foreground" style="background-image: url(images/shared/photo-25.png);"></div>
+<h1 class="theme passion">Passion</h1>
+<div class="copy">Wheelock goes the extra mile to make sure I succeed.&#8221;
+                                  <div class="author">
+                                    &#8212;Ashley Armstrong</div>
+</div><a class="more" href="support--success">Learn More »
+                                </a></li>
+<li>
+<div class="background" style="background-image: url(images/shared/photo-23.jpg);"></div>
+<div class="foreground" style="background-image: url(images/shared/photo-24.png);"></div>
+<h1 class="theme value">Value</h1>
+<div class="copy">I get the best of both worlds&#8212; a close-knit community within a big city.&#8221;
+                                  <div class="author">
+                                    &#8212;Anne Grenham</div>
+</div><a class="more" href="commmunity--boston">Learn More »
+                                </a></li>
+<li>
+<div class="background" style="background-image: url(images/shared/photo-20.jpg);"></div>
+<div class="foreground" style="background-image: url(images/shared/photo-27.png);"></div>
+<h1 class="theme success">Success</h1>
+<div class="copy">I've always dreamed of making a difference in a child's life.&#8221;
+                                  <div class="author">
+                                    &#8212;Ava Jennings</div>
+</div><a class="more" href="passion--action" style="color: #000;">Learn More »
+                                </a></li>
+<li>
+<div class="background" style="background-image: url(images/shared/photo-19.jpg);"></div>
+<div class="foreground" style="background-image: url(images/shared/photo-28.png);"></div>
+<h1 class="theme impact">Impact</h1>
+<div class="copy">Wheelock gave me the courage to pursue my career abroad.&#8221;
+                                  <div class="author">
+                                    &#8212;Caroline Hargrave MS'09</div>
+</div><a class="more" href="knowledge--confidence">Learn More »
+                                </a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="homepage_content" class="front">
+<div class="slideshow">
+<div class="titleBar clearfix">
+<div class="left">
+<h2>What Makes Wheelock Different</h2>
+</div>
+<div class="right">
+<ul>
+<li class="on"><a href="javascript:void(0);">1</a></li>
+<li><a href="javascript:void(0);">2</a></li>
+<li><a href="javascript:void(0);">3</a></li>
+<li><a href="javascript:void(0);">4</a></li>
+<li><a href="javascript:void(0);">5</a></li>
+<li class="last"><a href="javascript:void(0);">6</a></li>
+</ul>
+</div>
+</div>
+<div class="body">
+<ul>
+<li class="clearfix">
+<div class="photo" style="background:URL(images/Spotlight/ChangeTheWorld_VideoSpotlight.jpg) center center black; background-size:342px 185px;"><a class="spotlightVideo" title="Watch the video!" alt="Watch the video!" href="http://www.youtube.com/watch?v=2orUsL3aVZ4&amp;autoplay=1"><img src="images/play.png" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="http://www.wheelock.edu/mystory" Target="_blank">A Tradition of Service</a></h3>
+<p>Wheelock College students and alumni have been improving the lives of children and families since the College was founded in 1888 in Boston by education pioneer Lucy Wheelock. Watch our story&mdash;and then share yours!<br /></p>
+</div>
+</li>
+<li class="clearfix" style="display: none;">
+<div class="photo"><a href="academics/career-services"><img src="images/Spotlight/career services.jpg" alt="" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="academics/career-services">Commitment to Your Future</a></h3>
+<p>Wheelock's Center for Career and Professional Development works closely with students&#8212;as well as alumni&#8212;to help them attain their goals, whether those goals are employment or graduate school.</p>
+</div>
+</li>
+<li class="clearfix" style="display: none;">
+<div class="photo"><a href="academics/undergraduate"><img src="images/Spotlight/undergrad academics.jpg" alt="" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="academics/undergraduate">Innovative Academic Programs</a></h3>
+<p>Wheelock continues to invest in new, innovative programs&#8212;such as our Political Science and Global Studies major launching in September 2012&#8212;that provide our students with a wider range of job opportunities and career paths.</p>
+</div>
+</li>
+<li class="clearfix" style="display: none;">
+<div class="photo"><a href="about/community-engagement"><img src="images/Spotlight/community engagement.JPG" alt="" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="about/community-engagement">Community Engagement</a></h3>
+<p>Wheelock&#8217;s impact on students, education quality, and child/family well-being far outstrips our physical size. Our initiatives include a high school arts outreach program and a partnership that is revitalizing a community center in one of Boston's most underserved neighborhoods.</p>
+</div>
+</li>
+<li class="clearfix" style="display: none;">
+<div class="photo"><a href="academics/field-experience"><img src="images/Spotlight/field service.jpg" alt="" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="academics/field-experience">Field Experience = Industry Experience</a></h3>
+<p>Our students do their field work in schools, hospitals, community agencies, and other diverse and inclusive settings near our Boston campus, learning how to work effectively with all of America's children and families.</p>
+</div>
+</li>
+<li class="clearfix" style="display: none;">
+<div class="photo"><a href="academics/faculty-and-administration"><img src="images/Spotlight/faculty.jpg" alt="" width="342" height="185"></a></div>
+<div class="slideContent">
+<h3><a href="academics/faculty-and-administration">Talented Faculty Mentors</a></h3>
+<p>Undergraduates may join with their professors to participate in closely mentored faculty research projects, learning to design and implement research projects that result in published papers and presentations.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="clearfix">
+<div class="contentLeft">
+<div class="titleBar blueTitleBar clearfix">
+<div class="left">
+<h2>News</h2>
+</div>
+<div class="right"><a class="more" href="x471.xml">All News »</a></div>
+</div>
+<ul class="news">
+<li class="clearfix">
+<div class="excerpt" style="float: left; width: 470px;">
+<h3><a href="teacher-bound-scholarship">Wheelock Teacher Bound Student Wins Scholarship</a></h3>
+<p>Ashani Logan, a senior in the Wheelock College Teacher Bound Upward Bound program, was one of just 15 students in Massachusetts to be awarded a Gates Millennium Scholarship.</p>
+</div>
+</li>
+<li class="clearfix">
+<div class="photo"><a href="early-education-for-english-language-learners"><img src="images/News/mac conference thumb.JPG" alt="" width="140" height="105"></a></div>
+<div class="excerpt">
+<h3><a href="early-education-for-english-language-learners">Early Education Conference</a></h3>
+<p>A conference on the developmental characteristics of children in early childhood with a special emphasis on language development brought 120-130 early childhood practioners to Wheelock College.</p>
+</div>
+</li>
+<li class="clearfix">
+<div class="photo"><a href="commencement-honorees"><img src="images/News/Commencement_News hompage.jpg" alt="" width="140" height="105"></a></div>
+<div class="excerpt">
+<h3><a href="commencement-honorees">Commencement 2012 Honorees</a></h3>
+<p>Wheelock will be bestowing honorary degrees on three leaders from the arts world at its May 11 Commencement Ceremony: Actor Jane Alexander, Vocal Artist Wintley Phipps, and Author Kathryn Lasky.</p>
+</div>
+</li>
+<li class="clearfix">
+<div class="photo"><a href="summer-courses-2012"><img src="images/Spotlight/summer 180x135.jpg" alt="" width="140" height="105"></a></div>
+<div class="excerpt">
+<h3><a href="summer-courses-2012">Summer Courses 2012</a></h3>
+<p>Registration is now open for Wheelock's Summer 2012 undergraduate and graduate courses and professional development institutes. Get ahead in your studies or career&#8212;or just learn something new!</p>
+</div>
+</li>
+<li class="clearfix">
+<div class="excerpt" style="float: left; width: 470px;">
+<h3><a href="worcester-faculty">Wheelock Announces Worcester MSW Faculty</a></h3>
+<p>Wheelock College's Department of Social Work announced the faculty for its off campus Master of Social Work program in Worcester, MA. Classes begin in September 2012.</p>
+</div>
+</li>
+<li class="clearfix">
+<div class="photo"><a href="presidents-honor-roll"><img src="images/News/president_award.jpg" alt="" width="140" height="105"></a></div>
+<div class="excerpt">
+<h3><a href="presidents-honor-roll">Wheelock Named a Leading Community Service Institution</a></h3>
+<p>Wheelock College was named to President Obama's 2012 Higher Education Community Service Honor Roll with Distinction for the College's commitment to community service and civic engagement.</p>
+</div>
+</li>
+</ul>
+<div class="titleBar purpleTitleBar clearfix">
+<div class="left">
+<h2>Video</h2>
+</div>
+<div class="right"><a class="more" href="http://www.youtube.com/user/wheelockmarketing1/">YouTube Channel »</a></div>
+</div>
+<div class="videoContainer clearfix">
+<div class="video">
+<iframe width="240" height="135" src="http://youtube.com/embed/mEbE98g8Fe0" frameborder="0"></iframe>
+</div>
+<div class="excerpt">
+<h3><a href="http://youtu.be/mEbE98g8Fe0">The Wheelock Experience</a></h3>
+<p><p>Wheelock's acclaimed <a href="academics/graduate" title="Graduate Programs">graduate</a> and <a href="academics/undergraduate" title="Undergraduate Programs">undergraduate</a> programs, showcased in  this WBZ program, prepare you for a career in teaching, social  work, nonprofit leadership, government, communications, and other  fields.</p></p>
+</div>
+</div>
+</div>
+<div class="contentRight">
+<div class="titleBar orangeTitleBar clearfix">
+<div class="left">
+<h2>Calendar</h2>
+</div>
+<div class="right"><a class="more" href="x131.xml">All Events »</a></div>
+</div>
+<ul class="events">
+<li>
+<h3><a href="state-agency-retreat">Fulfilling the Promise to Our Youngest Citizens Retreat</a></h3><span id="may" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">May </span>14, 2012<br></li>
+<li>
+<h3><a href="transfer-open-house-3">Transfer Open House</a></h3><span id="may" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">May </span>15, 2012<br></li>
+<li>
+<h3><a href="military-child-prof-development-institute-may">Military Child Professional Development Institute</a></h3><span id="may" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">May </span>18, 2012 - <span id="may" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">May </span>18, 2012<br></li>
+<li>
+<h3><a href="annual-community-dialogue">Seventh Annual Community Dialogue on Early Education and Care</a></h3><span id="may" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">May </span>24, 2012<br></li>
+<li>
+<h3><a href="reunion-weekend-2012">Reunion Weekend 2012</a></h3><span id="jun" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">June </span>01, 2012 - <span id="jun" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:igxlib="urn:igxlibns">June </span>03, 2012<br></li>
+</ul>
+<div class="titleBar greenTitleBar clearfix">
+<div class="left">
+<h2>Blog</h2>
+</div>
+<div class="right"><a class="more" href="http://info.wheelock.edu/wheelockblog">Read the Blog »</a></div>
+</div>
+<ul class="blog">
+<li>
+<h3><a href="http://info.wheelock.edu/wheelockblog/bid/137740/More-Stories-From-Wheelock-Seniors">More Stories From Wheelock Seniors</a></h3>Voranan Mongkolpumirat
+Hometown: I am originally from a small province in Thailand. I immigrated to the United States (San Antonio, Texas) when I was eleven years old.
+Major: I have a double major: Social Work and Human Development with a focus in Ps...</li>
+</ul>
+<div class="box quickLinksBox">
+<div>
+<h3>Quick Links for:</h3>
+<form id="formQuickLinks" action=""><select id="quickLinksSelect1" name="quickLinksSelect" onchange="jumpTo(this.form)"><option value="">Students</option>
+<option value="http://www.wheelock.edu/regcal/acadcal_ay.asp?academicYear=2011">Academic Calendar</option>
+<option value="http://wheelock.textbookx.com/restart.php">Bookstore</option>
+<option value="http://www.wheelock.edu/cat/">Course Catalog</option>
+<option value="student-life/health-and-wellness/counseling-center">Counseling Center</option>
+<option value="http://www.wheelockdining.com/">Dining</option>
+<option value="about/visit-us/directions-to-campus">Directions</option>
+<option value="http://mail.wheelock.edu">Email</option>
+<option value="http://outlook.com/my.wheelock.edu">NEW Student Email</option>
+<option value="http://www.fenwaycard.com/wheelock.htm">Fenway Card</option>
+<option value="academics/information-technology">Information Technology</option>
+<option value="http://www.wheelock.edu/library">Library</option>
+<option value="http://www.wheelock.edu/faci/">Room Reservation Form</option>
+<option value="http://www.universityhealthplans.com/intro/Wheelock.html">Student Health Plans</option>
+<option value="http://portal.wheelock.edu/ics">Student Portal</option>
+<option value="academics/registrar/faqs">Transcript Requests</option>
+<option value="academics/information-technology/wheelock-ct">Wheelock-CT Directions</option>
+<option value="https://learning.umassonline.net/webct/logon/43243898">Wheelock-CT Login</option></select><select id="quickLinksSelect2" name="quickLinksSelect" onchange="jumpTo2(this.form)"><option value="">Faculty and Staff</option>
+<option value="http://www.wheelock.edu/regcal/acadcal_ay.asp?academicYear=2011">Academic Calendar</option>
+<option value="http://wheelock.textbookx.com/restart.php">Bookstore</option>
+<option value="http://www.wheelock.edu/cat/">Catalog</option>
+<option value="http://www.wheelockdining.com/">Dining</option>
+<option value="about/visit-us/directions-to-campus">Directions</option>
+<option value="https://webmail.wheelock.edu/owa">Email</option>
+<option value="http://www.fenwaycard.com/wheelock.htm">Fenway Card</option>
+<option value="academics/information-technology">Information Technology</option>
+<option value="http://www.interactiveprint.com/">Interactive Print Partner</option>
+<option value="http://www.wheelock.edu/library">Library</option>
+<option value="http://portal.wheelock.edu/">Portal</option>
+<option value="http://www.wheelock.edu/faci/">Room Reservation Form</option>
+<option value="academics/information-technology/wheelock-ct">Wheelock-CT</option></select></form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contentfooter">
+<div>
+<div id="fenwayLogo"><a href="http://www.colleges-fenway.org/" target="_blank"><span>Colleges of the Fenway</span></a></div>
+<p>
+                        200 The Riverway, Boston, Massachusetts 02215 phone: 617-879-2000 <br>Copyright 2012 Wheelock College is a registered trademark.
+                      </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><script type="text/javascript" language="javascript">
+          var hs_portalid=137321;
+          var hs_salog_version = "2.00";
+          var hs_ppa = "wheelock.app11.hubspot.com";
+          document.write(unescape("%3Cscript src='" + document.location.protocol + "//" + hs_ppa + "/salog.js.aspx' type='text/javascript'%3E%3C/script%3E"));
+        </script></body>
+</html>

@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="ctl00_Head1"><title>
+	Lebanon Valley College
+</title>
+    <script type="text/javascript">
+        //Global Variable to stop the dots when one is clicked
+        var stopTheDots = 0;
+    </script>
+    <script type="text/javascript" src="/javascript/jquery.js"></script>
+
+    <script type="text/javascript" src="/javascript//ui.core.js"></script>
+
+    <script type="text/javascript" src="/javascript//ui.tabs.js"></script>
+
+    <script type="text/javascript" src="/javascript//jquery.cross-slide.js"></script>
+
+    <script type="text/javascript" src="/javascript//jquery.cycle.all.min.js"></script>
+
+    <script type="text/javascript" src="/javascript/jquery.marquee.js"></script>
+
+<script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-2512296-4");
+        pageTracker._trackPageview();
+    } catch (err) { }</script>
+
+
+
+    <script type="text/javascript">
+
+        var headline_count;
+        var headline_interval;
+        var old_headline = 0;
+        var current_headline = 0;
+
+        var image = new Array();
+        var link = new Array();
+        var alts = new Array();
+
+        //Add & Update Pictures and Links here. If you add or subtract, 
+        //you also need to update the crossSlide code below
+
+        image[0] = "http://www.lvc.edu/images/Quad_219_6144.jpg";
+        link[0] = "/about-lvc";
+        alts[0] = "About LVC";
+
+        image[4] = "http://www.lvc.edu/images/live.jpg"
+        link[4] = "http://www.lvc.edu/live-calendar/"
+        alts[4] = "Pink Game 2012";
+
+        image[1] = "http://www.lvc.edu/images/commencement2012.jpg"
+        link[1] = "http://www.lvc.edu/commencement"
+        alts[1] = "Lebanon Valley College Commencement 2012";
+
+        image[5] = "http://www.lvc.edu/images/presrept.jpg"
+        link[5] = "http://issuu.com/lebanonvalleycollege/docs/2012_presidents_report?mode=window&backgroundColor=%23222222"
+        alts[5] = "LVC President's Report";
+
+        image[2] = "http://www.lvc.edu/images/work-hard.jpg"
+        link[2] = "http://www.lvc.edu/News/index.aspx?newsid=1113b0a2-4e62-4743-be01-66e800ed55b6"
+        alts[2] = "Presidential Scholarships Reward Students";
+
+        image[3] = "http://www.lvc.edu/images/NewZealand.jpg"
+        link[3] = "http://blogs.lvc.edu/newzealand2012"
+        alts[3] = "New Zealand 2012";
+
+
+
+
+        $(document).ready(function () {
+
+            $('#TopFeature').crossSlide({
+                sleep: 5,
+                fade: 3,
+                stop: 0,
+                dotmove: 1
+            }, [
+                  {
+                      src: image[0],
+                      href: link[0],
+                      alt: alts[0]
+
+                  }, {
+                      src: image[1],
+                      href: link[1],
+                      alt: alts[1]
+                  }, {
+                      src: image[2],
+                      href: link[2],
+                      alt: alts[2]
+                  }, {
+                      src: image[3],
+                      href: link[3],
+                      alt: alts[3]
+                  }, {
+                      src: image[4],
+                      href: link[4],
+                      alt: alts[4]
+                  }, {
+                      src: image[5],
+                      href: link[5],
+                      alt: alts[5]
+                  }
+            ]);
+
+            $('#rotate').tabs({ fx: { opacity: 'toggle'} }).tabs('rotate', 7000, true);
+            $('#rotate a').click(function () {
+                //Removed Pause/Play with the Circle Update -JG 10/6/2011
+                // $('#newsPause').css('display', 'block');
+                // $('#newsPlay').css('display', 'none');
+                var $tabs = $('#rotate').tabs();
+                $tabs.tabs('rotate', 0, false);
+            });
+            $('#newsPause').click(function () {
+                var $tabs = $('#rotate').tabs();
+                $tabs.tabs('rotate', 0, false);
+                this.style.display = 'none';
+                $('#newsPlay').css('display', 'block');
+            });
+            $('#newsPlay').click(function () {
+                var $tabs = $('#rotate').tabs();
+                $tabs.tabs('rotate', 7000, true);
+                this.style.display = 'none';
+                $('#newsPause').css('display', 'block');
+            });
+            $('marquee').marquee('pointer').mouseover(function () {
+                $(this).trigger('stop');
+            }).mouseout(function () {
+                $(this).trigger('start');
+            });
+
+            //Code For Top Graphic dot imges
+            $('#TopNavigation').append('<div>');
+            var arrayLength = image.length - 1;
+            var i = 0;
+            for (i = 0; i <= arrayLength; i++) {
+                $('#TopNavigation').append('<a href="#Images" id="TopInactive-' + i + '" onclick="DotClick(' + i + ')"><img src="/images/inactivedot.png" /></a><a id="TopActive-' + i + '" style="display: none"><img  src="/images/activedot.png" /></a>');
+            }
+            $('#TopNavigation').append('</div>');
+
+        });
+
+        function DotClick(imageNum) {
+            $('#TopFeature').crossSlideStop();
+
+            var arrayLength = image.length - 1;
+            var i = 0;
+            for (i = 0; i <= arrayLength; i++) {
+                $('#TopActive-' + i).css('display', 'none');
+                $('#TopInactive-' + i).css('display', 'inline');
+            }
+            $('#TopActive-' + imageNum).css('display', 'inline');
+            $('#TopInactive-' + imageNum).css('display', 'none');
+
+
+            $('#TopFeature').crossSlide({
+                sleep: 999999,
+                fade: 1,
+                stop: 1,
+                dotmove: 0
+            }, [
+                  {
+                      src: image[imageNum],
+                      href: link[imageNum]
+                  }
+            ]);
+        }
+
+
+    </script>
+
+    <!--[if IE]>
+<style type="text/css" media="screen">
+	#menu{float:none;} /* This is required for IE to avoid positioning bug when placing content first in source. */
+	/* IE Menu CSS */
+	/* csshover.htc file version: V1.21.041022 - Available for download from: http://www.xs4all.nl/~peterned/csshover.html */
+	body{behavior:url(/css/csshover.htc);
+	}
+	#menu ul li{float:left;width:100%;}
+	#menu h2, #menu a{height:1%;}
+</style>
+<![endif]-->
+    <!--[if IE]>
+<style type="text/css" media="screen">
+	#menuTask{float:none;} /* This is required for IE to avoid positioning bug when placing content first in source. */
+	/* IE Menu CSS */
+	/* csshover.htc file version: V1.21.041022 - Available for download from: http://www.xs4all.nl/~peterned/csshover.html */
+	body{behavior:url(/css/csshover.htc);
+	}
+	#menuTask ul li{float:left;width:100%;}
+	#menuTask h2, #menuTask a{height:1%;}
+</style>
+<![endif]-->
+    <link rel="stylesheet" href="css/ui.tabs.css" type="text/css" media="print, projection, screen" /><link rel="StyleSheet" href="css/LVC.css" type="text/css" media="screen" /><link rel="StyleSheet" href="css/LVCHomePage.css" type="text/css" media="screen" /><link rel="StyleSheet" href="css/headersAndLinks.css" type="text/css" media="screen" /><link rel="StyleSheet" href="css/LVCHomePage.css" type="text/css" media="Print" /><link rel="StyleSheet" href="css/LVC.css" type="text/css" media="Print" /><link rel="StyleSheet" href="css/headersAndLinks.css" type="text/css" media="Print" />
+    <style type="text/css">
+
+
+
+    </style>
+    <link rel="SHORTCUT ICON" href="/images/favicon.ico" /><link rel="alternate" type="application/rss+xml" title="LVC RSS News Feed" href="http://www.lvc.edu/news-events/LVC_news.rss" /><meta name="keywords" content="LEBANON, VALLEY, COLLEGE, ANNVILLE, Hershey, Education, Best Colleges, College Search, PENNSYLVANIA, FOUR, YEAR, INSTITUTION, HIGHER, EDUCATION, PRIVATE, LIBERAL, ARTS, Music, Find a College, College List, Best in PA, Best Colleges in PA, Colleges and Universities, Scholarships, Best Value, Athletics, Money for College, Regional Liberal Arts" /><meta name="description" content="Founded in 1866, Lebanon Valley College in Annville PA is ranked as one of the top 10 regional four-year, private liberal arts colleges in the North." /></head>
+<body>
+
+
+
+    <form name="aspnetForm" method="post" action="index.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTc1Mjg0NzE3Ng9kFgJmD2QWAgIDD2QWBAIDD2QWBmYPFgIeB1Zpc2libGVoFgICAQ8PFgQeBFRleHQFywI8IURPQ1RZUEUgaHRtbCBQVUJMSUMgIi0vL1czQy8vRFREIFhIVE1MIDEuMCBUcmFuc2l0aW9uYWwvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvVFIveGh0bWwxL0RURC94aHRtbDEtdHJhbnNpdGlvbmFsLmR0ZCI+PGh0bWwgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGh0bWwiPjxoZWFkPjx0aXRsZT48L3RpdGxlPjwvaGVhZD48Ym9keT4gICAgPCEtLSBUaGlzIGlzIHRoZSBuZXcgbWV0aG9kIHVzaW5nIHRoZSBpbmRpdmlkdWFsIGNvbHVtbnMgZm9yIGVhY2ggcGFnZSAtLT4gICAgICAgICAgICAgICAgPHNwYW4gaWQ9InRlc3QxIj48L3NwYW4+IDwvYm9keT48L2h0bWw+HwBoZGQCAQ8WAh8BBc0WPGRpdiBpZD0nZnJhZ21lbnQtMSc+PGltZyBzcmM9Jy9OZXdzL0ltYWdlcy8yMDEyL011cnBoeSBGRUFUVVJFLmpwZycgc3R5bGU9J2Zsb2F0OiBsZWZ0OyBtYXJnaW4tcmlnaHQ6IDVweDsnIGFsdD0nJyAvPjxoMT41LzQvMjAxMjwvaDE+PGgyPjxhIHN0eWxlPSd3aGl0ZS1zcGFjZTpub3JtYWw7dGV4dC1hbGlnbjpsZWZ0JyBocmVmPScvTmV3cy9JbmRleC5hc3B4P25ld3NJRD00ZmVlZTJkZS1jNTJmLTQyNDQtYmZhMC00YWIwYzU4MTZmY2MnPkNhaXRsaW4gTXVycGh5ICcxMiBTZXRzIE91dCB0byBTZWUgYW5kIFVuZGVyc3RhbmQgdGhlIFdvcmxkPC9hPjwvaDI+PHA+Q2FpdGxpbiBNdXJwaHkgJiM4MjE3OzEyIGlzIHdpZGVseSBrbm93biBhcm91bmQgTGViYW5vbiBWYWxsZXkgQ29sbGVnZSYjODIxNztzIGNhbXB1cyBmb3IgaGVyIHBsYXkgb24gdGhlIHdvbWVuJiM4MjE3O3MgYmFza2V0YmFsbCB0ZWFtLiBJbiAuLi48L3A+PGgzPjxhIHN0eWxlPSd0ZXh0LWFsaWduOmxlZnQnIGhyZWY9Jy9OZXdzL0luZGV4LmFzcHg/bmV3c0lEPTRmZWVlMmRlLWM1MmYtNDI0NC1iZmEwLTRhYjBjNTgxNmZjYyc+UmVhZCBGdWxsIFN0b3J5PC9hPjxhIHN0eWxlPSd0ZXh0LWFsaWduOmxlZnQnIGhyZWY9Jy9OZXdzL0luZGV4LmFzcHgnPk1vcmUgTmV3cy4uLjwvYT48L2gzPjwvZGl2PjxkaXYgaWQ9J2ZyYWdtZW50LTInPjxpbWcgc3JjPScvTmV3cy9JbWFnZXMvMjAxMi9TdHVkZW50QWZmYWlyc0F3YXJkcy1mZWF0dXJlLmpwZycgc3R5bGU9J2Zsb2F0OiBsZWZ0OyBtYXJnaW4tcmlnaHQ6IDVweDsnIGFsdD0nJyAvPjxoMT41LzQvMjAxMjwvaDE+PGgyPjxhIHN0eWxlPSd3aGl0ZS1zcGFjZTpub3JtYWw7dGV4dC1hbGlnbjpsZWZ0JyBocmVmPScvTmV3cy9JbmRleC5hc3B4P25ld3NJRD1lZDVkMGIwYy01Y2U1LTRlODUtYTU1ZS1mNjgyZDA3MWZjMTQnPlN0dWRlbnQgQWZmYWlycyBMZWFkZXJzaGlwIGFuZCBTZXJ2aWNlIEF3YXJkIFdpbm5lcnMgTmFtZWQ8L2E+PC9oMj48cD5UaGUgc2l4dGggYW5udWFsIFN0dWRlbnQgQWZmYWlycyBMZWFkZXJzaGlwIGFuZCBTZXJ2aWNlIEF3YXJkcyBDZXJlbW9ueSB3YXMgaGVsZCBUaHVyc2RheSwgTWF5IDMsIHRvIHJlY29nbml6ZSB0aGUgb3V0c3RhbmRpbmcgbGVhZGVyc2hpcCBhbi4uLjwvcD48aDM+PGEgc3R5bGU9J3RleHQtYWxpZ246bGVmdCcgaHJlZj0nL05ld3MvSW5kZXguYXNweD9uZXdzSUQ9ZWQ1ZDBiMGMtNWNlNS00ZTg1LWE1NWUtZjY4MmQwNzFmYzE0Jz5SZWFkIEZ1bGwgU3Rvcnk8L2E+PGEgc3R5bGU9J3RleHQtYWxpZ246bGVmdCcgaHJlZj0nL05ld3MvSW5kZXguYXNweCc+TW9yZSBOZXdzLi4uPC9hPjwvaDM+PC9kaXY+PGRpdiBpZD0nZnJhZ21lbnQtMyc+PGltZyBzcmM9Jy9OZXdzL0ltYWdlcy8yMDEyL0Fkb3B0LWZlYXR1cmUuanBnJyBzdHlsZT0nZmxvYXQ6IGxlZnQ7IG1hcmdpbi1yaWdodDogNXB4OycgYWx0PScnIC8+PGgxPjUvMi8yMDEyPC9oMT48aDI+PGEgc3R5bGU9J3doaXRlLXNwYWNlOm5vcm1hbDt0ZXh0LWFsaWduOmxlZnQnIGhyZWY9Jy9OZXdzL0luZGV4LmFzcHg/bmV3c0lEPTJkZThjZjQ1LWY0OTAtNDMzOS04YTkwLTUyMzUyMDM3YzcxYSc+UHN5Y2hvbG9neSBDb3Vyc2UgVW5pdGVzIExlYXJuaW5nIGFuZCBTZXJ2aWNlPC9hPjwvaDI+PHA+UHN5Y2hvbG9neSB0ZWFjaGluZyBmZWxsb3cgRHIuIFN0ZXZlIEJ1emluc2tpICcwNSBhbmQgaGlzIHN0dWRlbnRzIGhhdmUgYnJpZGdlZCB0aGUgZ2FwIGJldHdlZW4gbGVhcm5pbmcgaW4gdGhlIGNsYXNzcm9vbSBhbmQgc2VydmluZyB0aGUgY28uLi48L3A+PGgzPjxhIHN0eWxlPSd0ZXh0LWFsaWduOmxlZnQnIGhyZWY9Jy9OZXdzL0luZGV4LmFzcHg/bmV3c0lEPTJkZThjZjQ1LWY0OTAtNDMzOS04YTkwLTUyMzUyMDM3YzcxYSc+UmVhZCBGdWxsIFN0b3J5PC9hPjxhIHN0eWxlPSd0ZXh0LWFsaWduOmxlZnQnIGhyZWY9Jy9OZXdzL0luZGV4LmFzcHgnPk1vcmUgTmV3cy4uLjwvYT48L2gzPjwvZGl2Pjx1bD48bGk+PGEgaWQ9J2luYWN0aXZlRG90LTEnIGhyZWY9JyNmcmFnbWVudC0xJyBzdHlsZT0nZGlzcGxheTpub25lJz48aW1nIHNyYz0nL2ltYWdlcy9pbmFjdGl2ZWRvdC5wbmcnPjwvYT48YSBpZD0nYWN0aXZlRG90LTEnIGhyZWY9JyNmcmFnbWVudC0xJyBzdHlsZT0nZGlzcGxheTppbmxpbmUnPjxpbWcgc3JjPScvaW1hZ2VzL2FjdGl2ZWRvdC5wbmcnPjwvYT48L2xpPjxsaT48YSBpZD0naW5hY3RpdmVEb3QtMicgaHJlZj0nI2ZyYWdtZW50LTInIHN0eWxlPSdkaXNwbGF5OmlubGluZSc+PGltZyBzcmM9Jy9pbWFnZXMvaW5hY3RpdmVkb3QucG5nJz48L2E+PGEgaWQ9J2FjdGl2ZURvdC0yJyBocmVmPScjZnJhZ21lbnQtMicgc3R5bGU9J2Rpc3BsYXk6bm9uZSc+PGltZyBzcmM9Jy9pbWFnZXMvYWN0aXZlZG90LnBuZyc+PC9hPjwvbGk+PGxpPjxhIGlkPSdpbmFjdGl2ZURvdC0zJyBocmVmPScjZnJhZ21lbnQtMycgc3R5bGU9J2Rpc3BsYXk6aW5saW5lJz48aW1nIHNyYz0nL2ltYWdlcy9pbmFjdGl2ZWRvdC5wbmcnPjwvYT48YSBpZD0nYWN0aXZlRG90LTMnIGhyZWY9JyNmcmFnbWVudC0zJyBzdHlsZT0nZGlzcGxheTpub25lJz48aW1nIHNyYz0nL2ltYWdlcy9hY3RpdmVkb3QucG5nJz48L2E+PC9saT48bGk+PGEgaWQ9J25ld3NQYXVzZScgc3R5bGU9J2N1cnNvcjpwb2ludGVyO2Rpc3BsYXk6bm9uZSc+PGltZyBhbHQ9J1BhdXNlJyBzdHlsZT0ncGFkZGluZy10b3A6MXB4JyBzcmM9Jy9pbWFnZXMvcGF1c2UucG5nJyAvPjwvYT48YSBpZD0nbmV3c1BsYXknIHN0eWxlPSdjdXJzb3I6cG9pbnRlcjtkaXNwbGF5Om5vbmUnPjxpbWcgYWx0PSdSZXN1bWUnIHN0eWxlPSdwYWRkaW5nLXRvcDoxcHgnIHNyYz0nL2ltYWdlcy9wbGF5LnBuZycgLz48L2E+PC9saT48L3VsPmQCAg8WAh8BBYEJPGRpdiBpZD0naGVhZGxpbmUnPuKAnEthcmVuIFJpY2ggQmVhbGwgYW5kIERlYm9yYWggU2lnZWw6IEJvdGFuaWNhbCBGb3Jtc+KAnSwgMDUvMDQgLSAwNi8yNDxiciAvPkJpc2hvcCBMaWJyYXJ5IEV4dGVuZGVkIEhvdXJzIGZvciBSZWFkaW5nIERheXMgYW5kIEZpbmFscywgMDUvMDYgLSAwNS8wNiwgMTIgcC5tLiAtIDIgYS5tLjxiciAvPkJpc2hvcCBMaWJyYXJ5IEV4dGVuZGVkIEhvdXJzIGZvciBSZWFkaW5nIERheXMgYW5kIEZpbmFscywgMDUvMDcgLSAwNS8wNywgNyBhLm0uIC0gMiBhLm0uPGJyIC8+QmlzaG9wIExpYnJhcnkgRXh0ZW5kZWQgSG91cnMgZm9yIFJlYWRpbmcgRGF5cyBhbmQgRmluYWxzLCAwNS8wOCAtIDA1LzA4LCA3IGEubS4gLSAyIGEubS48YnIgLz5CaXNob3AgTGlicmFyeSBFeHRlbmRlZCBIb3VycyBmb3IgUmVhZGluZyBEYXlzIGFuZCBGaW5hbHMsIDA1LzA5IC0gMDUvMDksIDcgYS5tLiAtIDEyIGEubS48YnIgLz5FdmVuaW5nIGNsYXNzZXMgZW5kOyBTZW1lc3RlciBlbmRzLCAwNS8xMCwgOSBwLm0uPGJyIC8+TGlicmFyeSBIb3VycywgMDUvMTAgLSAwNS8xMCwgNzozMCBhLm0uIC0gNDozMCBwLm0uPGJyIC8+TGlicmFyeSBIb3VycywgMDUvMTEgLSAwNS8xMSwgNzozMCBhLm0uIC0gNDozMCBwLm0uPGJyIC8+QmFjY2FsYXVyZWF0ZSBTZXJ2aWNlLCAwNS8xMiwgOSBhLm0uPGJyIC8+MTQzcmQgQ29tbWVuY2VtZW50LCAwNS8xMiwgMTEgYS5tLjxiciAvPk1vdGhlcidzIERheSwgMDUvMTM8YnIgLz5OZXcgU3R1ZGVudCBBZHZpc2luZyBEYXksIDA1LzE1LCA5IGEubS4gLSAyIHAubS48YnIgLz5OZXcgU3R1ZGVudCBBZHZpc2luZyBEYXksIDA1LzE2LCA5IGEubS4gLSAyIHAubS48YnIgLz5UcmFjayAmIEZpZWxkIGF0IEVDQUNzLCAwNS8xNzxiciAvPkZpbmFsIGdyYWRlcyBkdWUsIDA1LzE4LCAxMiBwLm0uPGJyIC8+4oCcTmF0dXJlIEpvdXJuYWxpbmc6IE9ic2VydmluZyB0aGUgV29ybGQgYXJvdW5kIFlvdeKAnSwgMDUvMTksIDEwIGEubS4gLSAzIHAubS48YnIgLz5OZXcgU3R1ZGVudCBBZHZpc2luZyBEYXksIDA1LzE5LCA5IGEubS4gLSAyIHAubS48YnIgLz5Bbm52aWxsZS1DbGVvbmEgQ291bmNpbCBvZiBDaHVyY2hlcywgMDUvMjIsIDc6MzAgcC5tLiAtIDk6MzAgcC5tLjxiciAvPjwvZGl2PmQCBQ9kFgoCAQ8WAh8AaGQCAw9kFgYCAw8WAh8BBQQyMDEyZAIFDxYCHwFlZAIHDzwrAAoBAA8WAh8AaGRkAgUPFgIfAGhkAgcPFgIfAGhkAgkPZBYEAgEPFgIfAGgWBAIDDxYCHwEFBDIwMTJkAgUPFgIfAWVkAgMPPCsACgEADxYCHwBoZGQYAQUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgIFI2N0bDAwJEhlYWRlcldpZGdldDEkU2VhcmNoSW1nQnV0dG9uBSRjdGwwMCRIZWFkZXJXaWRnZXQxJFNlYXJjaEltZ0J1dHRvbjJOrSyWCuXQWwXLQ6tn71aeNbsKVw==" />
+</div>
+
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBQLq0cXDBQKBrrTRCgKmtpziDwKmtrRDAq/L/pMHNPflvvhIiBVMqrVxau6wxTgWSBE=" />
+</div>
+    <div id="homePageContainer">
+        
+<!--[if IE 7]>
+<style type="text/css">
+	#searchform {
+		position:relative;
+		top:-5px;
+		}
+		#LogoExt{
+		}
+		#LVCLogo{
+		}
+	#social {
+		top:-23px;
+		left:180px;
+		background-color:none;
+	}
+</style>
+<![endif]-->
+
+<div id="header">
+   
+   <!--Original Logo Code-->
+   <!-- <div id="logo">
+        <a href="/index.aspx">
+            <img src="/images/lvc.png" alt="LVC Logo" border="0" /></a>
+    </div> -->
+	 
+	 <!--New Logo Code as of April 18 2010-->
+	<div id="logo">
+
+	<div id="LVCLogo">
+	 <a href="/index.aspx">
+            <img src="/images/lvc.png" alt="LVC Logo" border="0" /></a>
+	</div>
+	
+	<!--<div id="LogoExt">
+	 
+	<a href="http://www.lvc.edu/sustainability/"><img src=/images/earth-day.png></a>
+	</div>-->
+			
+    </div>
+	
+	
+    <div id="quicklinks">
+        <a href="/admission/apply.aspx" class="white">Apply Online</a> <a href="/calendar" class="white">Calendar</a>
+        <a href="/directories/directory.aspx" class="white">Directory</a> <a href="/admission/visit.aspx" class="white">Visit LVC</a>
+        <a href="/library" class="white">Library</a> <a href="http://www.lvc.edu/supportlvc" class="white">Give to LVC</a>
+        <br />
+        <div id="MyLVC">
+			<a href="http://mylvc.lvc.edu">
+                <img src="/images/mylvc_oval.png" border="0" alt="MyLVC"/></a>
+        </div>
+        <div id="search">
+		
+            <div id="searchform">
+
+                <input name="ctl00$HeaderWidget1$Gsearch" type="text" id="ctl00_HeaderWidget1_Gsearch" size="19" style="border: None" />
+				
+				
+                <!--
+                <input type="image" name="ctl00$HeaderWidget1$SearchImgButton" id="ctl00_HeaderWidget1_SearchImgButton" src="/images/search2.png" src="" style="border-width:0px;" />
+                -->
+			
+			<div id=social>
+			
+			<a href="http://www.lvc.edu/facebook"><img src="/images/facebook icon.png" border="0" alt="Facebook"/></a>
+			<a href="http://www.twitter.com/lvc"><img src="/images/twitter icon.png" border="0" alt="Twitter"/></a>
+			<a href="http://www.linkedin.com/groups?about=&gid=108882&trk=anet_ug_grppro"><img src="/images/linkedinicon.png" border="0" alt="LinkedIn"/></a>
+			<a href="http://www.youtube.com/lebanonvalleycollege"><img src="/images/youtube icon.png" border="0" alt="YouTube"/></a>
+			
+			</div>
+			<!--<div id=Sbutton>
+			<input type="image" name="ctl00$HeaderWidget1$SearchImgButton2" id="ctl00_HeaderWidget1_SearchImgButton2" src="/images/trans.png" src="" style="height:23px;width:24px;border-width:0px;" />
+			</div>-->
+            </div>
+        </div>
+							        <!-- Googles Orig Form <form action="http://www.lvc.edu/search.aspx" id="cse-search-box">
+							        <input type="hidden" name="cx" value="015377488382629876741:8mnrzx1lqzi" />
+							        <input type="hidden" name="cof" value="FORID:9" />
+							        <input type="hidden" name="ie" value="UTF-8" />
+							        <input type="text" name="q" size="20" value="Search LVC" />
+							        <input type="image" src="/images/search.png" border="0" value="submit" alt="submit" >
+							   			</form>-->
+    </div>
+</div>
+<div id="menuTask">
+    <ul>
+        <li><a href="/about-lvc/" class="centerA">About LVC</a> </li>
+    </ul>
+    <ul>
+        <li><a href="/academics/" class="centerA">Academics</a></li>
+    </ul>
+    <ul>
+        <li><a href="/admission/" class="centerA">Admission</a> </li>
+    </ul>
+    <ul>
+        <li><a href="http://godutchmen.com" class="centerA" target="_blank" title="Athletics">Athletics</a></li>
+    </ul>
+    <ul>
+        <li><a href="/news/" class="centerA" title="News">News</a> </li>
+    </ul>
+    <ul>
+        <li><a href="/offices/" class="centerA" title="Offices">Offices</a> </li>
+    </ul>
+    <ul>
+        <li><a href="/student-affairs/" class="centerA" title="Student Life">Student Life</a></li>
+    </ul>
+</div>
+
+        
+<meta name="verify-v1" content="LKeZJbq2eEREXEnQt6PNkls2zBeeHrnxwRlgXEl9kpg=" />  
+
+<script type="text/javascript">
+
+    var date;
+    var readtext;
+    var comparetext;
+    //var scriptlocation = "tmp/testhtml.html";
+    var scriptlocation = "http://www.lvc.edu/alertsystem/alertQuery.aspx?location=Main";
+    var currenttime = new Date();
+    var time = currenttime.getTime();
+
+    ReadAlertFile();
+
+    function ReadAlertFile() {
+
+        var xml = false;
+        var loop = true;
+
+
+        // JScript gives us Conditional compilation, we can cope with old IE versions.
+        // and security blocked creation of the objects.
+        try {
+            xml = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xml = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (E) {
+                xml = false;
+            }
+        }
+        if (!xml && typeof XMLHttpRequest != 'undefined') {
+            xml = new XMLHttpRequest();
+        } else { } //ie alert("not MOZILLA");
+        
+        xml.open("GET", scriptlocation + "&" + time, false); xml.send(null);
+
+        
+        readtext = xml.responseText;
+
+        //comparetext = 'No';
+        self.setInterval("checkStatus()", 10000);
+
+        //document.getElementById('LastModified').innerHTML = "*****<br>" + readtext;
+    }
+
+    function checkStatus() {
+
+        var currenttime2 = new Date();
+        var time2 = currenttime2.getTime();
+
+        // JScript gives us Conditional compilation, we can cope with old IE versions.
+        // and security blocked creation of the objects.
+        try {
+            xml = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch (e) {
+            try {
+                xml = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (E) {
+                xml = false;
+            }
+        }
+        if (!xml && typeof XMLHttpRequest != 'undefined') {
+            xml = new XMLHttpRequest();
+        } else { } //ie alert("not MOZILLA");
+        xml = new XMLHttpRequest();
+        xml.open("GET", "" + scriptlocation + "&" + time2, false); xml.send(null);
+        comparetext = xml.responseText;
+
+        //alert(comparetext);
+        if (readtext != comparetext) {
+            //alert("Change!")
+            location.reload(true);
+        }
+        comparetext = '';
+        xml = '';
+    }
+</script>
+<style>
+#announcement
+{
+ position: relative;
+ background-color: #990000;
+ font-size: 14px;
+ font-family: Verdana,Arial,Helvetica,sans-serif;
+ color: white;
+ padding-left: 10px;
+ padding-top: 0px;
+ width: 993px;
+ margin-left: 0px;
+ 
+}
+.announcement
+{
+ position: relative;
+ background-color: #990000;
+ font-size: 14px;
+ font-family: Verdana,Arial,Helvetica,sans-serif;
+ color: white;
+ padding-left: 10px;
+ padding-top: 0px;
+ width: 993px;
+ margin-left: 0px;
+ 
+}
+  
+</style>
+
+
+
+<!--Div Tag for the Navigation Dots -->
+<div id="TopNavigation"></div>
+
+<div id="TopFeature">
+        <!--featured jquery shows here -->
+    </div>
+<!--<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
+<META HTTP-EQUIV="Pragma-directive" CONTENT="no-cache">
+<META HTTP-EQUIV="Cache-Directive" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="0">-->
+    
+    <div id="audience">
+        <div id="menu">
+            <a href="/admission" class="centerA" title="Prospective Students">Prospective Students</a>
+            <a href="/newstudents" class="centerA" title="New Students">New Students</a>
+            <a href="/gsce" class="centerA" title="Graduate & Part-time Students">Graduate & Part-time Students</a> 
+            <a href="/alumni"class="centerA" title="Alumni">Alumni</a> 
+            <a href="/parents" class="centerA" title="Parents & Family">Parents &amp; Family</a> 
+            <a href="/visitors" class="centerA" title="Visitors & Community">Visitors
+                        &amp; Community</a>
+        </div>
+    </div>
+    <div id="mainBodyContainer">
+        <div id="featureWrapper">
+            <div id="features">
+                                          
+                <p>
+                    <a href="http://www.lvc.edu/News/index.aspx?newsid=f5c8b271-4243-4925-92c2-94fb0bf6f8c4">
+					<img src="/images/visit.jpg" style="float: left; margin-right: 5px; margin-left: 3px;"
+                        alt="" /></a>
+                    <span class="featureHeader">Plan Your Visit Today</span><br />
+                    <span class="featureBody">Come visit this spring and see for yourself all that LVC has to offer. <a href="http://www.lvc.edu/News/index.aspx?newsid=f5c8b271-4243-4925-92c2-94fb0bf6f8c4"> MORE...</a></span></p>
+                
+                <p>
+                    <a href="/admission/scholarshipcalculator.aspx">
+					<img src="/images/f1.png" style="float: left; margin-right: 5px; margin-left: 3px;"
+                        alt="" /></a>
+                    <span class="featureHeader">Calculate Your Scholarship</span><br />
+                    <span class="featureBody">See our outstanding merit-based scholarship program that recognizes academic achievement. <a href="/admission/scholarshipcalculator.aspx">MORE...</a></span></p>
+               <p>
+                    <a href="https://www.golvc.org/applynow/">
+					<img src="/images/apply.jpg" style="float: left; margin-right: 5px; margin-left: 3px;"
+                        alt="" /></a>
+                    <span class="featureHeader">Apply Now!</span><br />
+                    <span class="featureBody">Our application process is rolling. We encourage applying by Mar. 1 for fall and Dec. 1 for spring admission.  <a href="https://www.golvc.org/applynow/">MORE...</a></span></p>
+
+                <p>
+                    <a href="http://www.lvc.edu/study-abroad">
+					<img src="/images/study-abroad-icon.jpg" style="float: left; margin-right: 5px; margin-left: 3px;"
+                        alt="" /></a>
+                    <span class="featureHeader">Study Abroad Opportunities</span><br />
+                    <span class="featureBody">Want to study abroad while at LVC? Check out the Valley's programs around the world. <a href="http://www.lvc.edu/study-abroad">MORE...</a></span></p>
+
+                
+                
+                
+                    
+            </div>
+        </div>
+        <div id="leftColumn">
+            <div id="newsEventsBant">
+                <div id="newsEvents">
+                    <div id="news">
+                        <!--<img src="/images/news.png" border="0" />-->
+                        <div id="rotate">
+                            <div id='fragment-1'><img src='/News/Images/2012/Murphy FEATURE.jpg' style='float: left; margin-right: 5px;' alt='' /><h1>5/4/2012</h1><h2><a style='white-space:normal;text-align:left' href='/News/Index.aspx?newsID=4feee2de-c52f-4244-bfa0-4ab0c5816fcc'>Caitlin Murphy '12 Sets Out to See and Understand the World</a></h2><p>Caitlin Murphy &#8217;12 is widely known around Lebanon Valley College&#8217;s campus for her play on the women&#8217;s basketball team. In ...</p><h3><a style='text-align:left' href='/News/Index.aspx?newsID=4feee2de-c52f-4244-bfa0-4ab0c5816fcc'>Read Full Story</a><a style='text-align:left' href='/News/Index.aspx'>More News...</a></h3></div><div id='fragment-2'><img src='/News/Images/2012/StudentAffairsAwards-feature.jpg' style='float: left; margin-right: 5px;' alt='' /><h1>5/4/2012</h1><h2><a style='white-space:normal;text-align:left' href='/News/Index.aspx?newsID=ed5d0b0c-5ce5-4e85-a55e-f682d071fc14'>Student Affairs Leadership and Service Award Winners Named</a></h2><p>The sixth annual Student Affairs Leadership and Service Awards Ceremony was held Thursday, May 3, to recognize the outstanding leadership an...</p><h3><a style='text-align:left' href='/News/Index.aspx?newsID=ed5d0b0c-5ce5-4e85-a55e-f682d071fc14'>Read Full Story</a><a style='text-align:left' href='/News/Index.aspx'>More News...</a></h3></div><div id='fragment-3'><img src='/News/Images/2012/Adopt-feature.jpg' style='float: left; margin-right: 5px;' alt='' /><h1>5/2/2012</h1><h2><a style='white-space:normal;text-align:left' href='/News/Index.aspx?newsID=2de8cf45-f490-4339-8a90-52352037c71a'>Psychology Course Unites Learning and Service</a></h2><p>Psychology teaching fellow Dr. Steve Buzinski '05 and his students have bridged the gap between learning in the classroom and serving the co...</p><h3><a style='text-align:left' href='/News/Index.aspx?newsID=2de8cf45-f490-4339-8a90-52352037c71a'>Read Full Story</a><a style='text-align:left' href='/News/Index.aspx'>More News...</a></h3></div><ul><li><a id='inactiveDot-1' href='#fragment-1' style='display:none'><img src='/images/inactivedot.png'></a><a id='activeDot-1' href='#fragment-1' style='display:inline'><img src='/images/activedot.png'></a></li><li><a id='inactiveDot-2' href='#fragment-2' style='display:inline'><img src='/images/inactivedot.png'></a><a id='activeDot-2' href='#fragment-2' style='display:none'><img src='/images/activedot.png'></a></li><li><a id='inactiveDot-3' href='#fragment-3' style='display:inline'><img src='/images/inactivedot.png'></a><a id='activeDot-3' href='#fragment-3' style='display:none'><img src='/images/activedot.png'></a></li><li><a id='newsPause' style='cursor:pointer;display:none'><img alt='Pause' style='padding-top:1px' src='/images/pause.png' /></a><a id='newsPlay' style='cursor:pointer;display:none'><img alt='Resume' style='padding-top:1px' src='/images/play.png' /></a></li></ul>
+                        </div>
+						</strong><!--note: /strong is to destroy any leftover bad code-->
+						</i></em><!--note: /i and /em is to destroy any leftover bad code-->
+                    </div>
+                    <div id="events" style="cursor:pointer" onclick="window.location.href = '/Calendar';">
+                        <span class="EventHeader"><a href="/calendar" style="color:#4c4c4c;text-decoration:none">EVENTS@LVC</a><br />
+                        </span>
+                        <div id="scrollup">
+                            <marquee behavior="scroll" direction="up" scrollamount="1" width="500" height="60">
+                                <div id='headline'>“Karen Rich Beall and Deborah Sigel: Botanical Forms”, 05/04 - 06/24<br />Bishop Library Extended Hours for Reading Days and Finals, 05/06 - 05/06, 12 p.m. - 2 a.m.<br />Bishop Library Extended Hours for Reading Days and Finals, 05/07 - 05/07, 7 a.m. - 2 a.m.<br />Bishop Library Extended Hours for Reading Days and Finals, 05/08 - 05/08, 7 a.m. - 2 a.m.<br />Bishop Library Extended Hours for Reading Days and Finals, 05/09 - 05/09, 7 a.m. - 12 a.m.<br />Evening classes end; Semester ends, 05/10, 9 p.m.<br />Library Hours, 05/10 - 05/10, 7:30 a.m. - 4:30 p.m.<br />Library Hours, 05/11 - 05/11, 7:30 a.m. - 4:30 p.m.<br />Baccalaureate Service, 05/12, 9 a.m.<br />143rd Commencement, 05/12, 11 a.m.<br />Mother's Day, 05/13<br />New Student Advising Day, 05/15, 9 a.m. - 2 p.m.<br />New Student Advising Day, 05/16, 9 a.m. - 2 p.m.<br />Track & Field at ECACs, 05/17<br />Final grades due, 05/18, 12 p.m.<br />“Nature Journaling: Observing the World around You”, 05/19, 10 a.m. - 3 p.m.<br />New Student Advising Day, 05/19, 9 a.m. - 2 p.m.<br />Annville-Cleona Council of Churches, 05/22, 7:30 p.m. - 9:30 p.m.<br /></div>
+                            </marquee>
+                        </div>
+                    </div>
+                </div>
+                <div id="bant">
+				<br />
+           <div id="bant-text">
+                    <h1>
+                        <span style="color: #4c4c4c">Presidential Update</span>
+					</h1>
+					LVC has extended its search to find a new leader to replace its 17th president, 
+					Stephen C. MacDonald who plans to retire later this year.  
+				<br />
+                        <br />
+					Learn about this process, read a detailed profile of LVC, or discover more about the distinguished history of our great institution by visiting the 
+					<a href="/presidential-search">Presidential Search Website.<img src="/images/bluearrow.png"></a>
+				<br />
+                        <br />
+						<a href="http://issuu.com/lebanonvalleycollege/docs/thevalley_fall?mode=window&backgroundColor=%23222222" target="_blank">
+						<img src="/images/valleyfall11.png" style="float: left; margin-right: 5px; margin-left: 3px;"
+                        alt="" /></a>
+					To learn about the tenure of President MacDonald, see the feature in the latest issue of LVC’s 
+					<a href="http://issuu.com/lebanonvalleycollege/docs/thevalley_fall?mode=window&backgroundColor=%23222222" target="_blank"><i>The Valley</i> magazine.<img src="/images/bluearrow.png"></a>
+</div>
+					
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    
+<div id="footer">
+
+<style type="text/css">
+
+</style>
+
+
+	<!---->
+	<!--background-image:url('http://www.lvc.edu/images/footer.jpeg');-->
+	<div id="ctl00_FooterWidget1_modified" style="z-index:4000; background:#395A7D url('http://www.lvc.edu/images/footer.jpeg') no-repeat; height:155px;">
+        
+		<div id="ml" style="float:left; margin-left:0px; height:144px; width:303px; font-size:9pt;">
+		<div id="mli" style="padding-top:25px;padding-left:20px;">
+		
+<img id="footerMap" src="http://www.lvc.edu/images/footericons.png" usemap="#footerMap" border="0" width="225" height="45" alt="" />
+<map id="_footerMap" name="footerMap">
+<area shape="rect" coords="3,0,95,18" href="http://www.lvc.edu/employment" alt="Employment Opportunities" title="Work@LVC"    />
+<area shape="rect" coords="138,0,220,18" href="http://collegestore.lvc.edu" alt="College Store" title="College Store"    />
+<area shape="rect" coords="3,22,106,40" href="http://www.lvc.edu/sustainability/" alt="Sustainability" title="Sustainability"    />
+<area shape="rect" coords="138,22,225,40" href="mailto:webmaster@lvc.edu" alt="Contact Us" title="Contact Us"    />
+</map></div>
+		
+		</div>
+		
+		<div id="mc" style="float:left; line-height:160%; padding:10px;margin-top:10px;height:144px; width:353px; font-family:arial;font-size:8pt;">
+		
+		<font size=2>Lebanon Valley College&#8482;</font><font color="#cfe1a7"> in Annville, Pa., welcomes 1,630 full-time undergraduates studying more than 30 majors, as well as self-designed majors. 
+		Founded in 1866, LVC has graduate programs in physical therapy, business, and music and science education. 
+		Annville is 15 minutes east of Hershey and 35 minutes east of Harrisburg; Philadelphia, Washington, D.C., and Baltimore are within two hours.</font></div>
+		
+		<div id="mr" style="float:left; width:318px;height:144px; margin-top:22px; font-family:arial;font-size:8pt;">
+			
+			
+				<div id="mrl" style="position:relative;float:left; width:150px; margin-left:3px; margin-top:0px;line-height:1.5;">
+				<a href="mailto:admission@lvc.edu"><img src="http://www.lvc.edu/images/footericonsRight.png" alt="admissions" /></a>
+				</div>
+				
+				<div id="mrr" style="float:left; width:163px; margin-top:3px; line-height:1.5;text-align: right;">
+				<p>
+				<font>Lebanon Valley College<br>
+				101 N. College Avenue<br>
+				Annville, PA 17003-1400</font>	<br>
+				
+<font color="white"><input type="submit" name="ctl00$FooterWidget1$btn_logon2" value="©" id="ctl00_FooterWidget1_btn_logon2" style="border-width:0px;border-style:None;text-decoration: none; vertical-align:middle; color: white; background-color: #395A7D" />1995-2012</font>				
+				<br> <br />
+				
+				
+			<div style="float: right">
+            
+        </div>
+				
+				</div>
+				
+				
+			
+		
+			</div>
+    
+	</div>
+	
+    
+    
+    <div id="ctl00_FooterWidget1_copyright" style="text-align: right; position: relative; width: 300px; float: right; color: white; top: -24px;
+        font-size: 12px; margin-right: 5px">
+        
+        <div style="float: right">
+            
+        </div>
+    </div>
+	
+
+	
+	
+</div>
+
+    </div>
+    </form>
+</body>
+</html>

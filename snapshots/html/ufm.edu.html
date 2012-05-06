@@ -1,0 +1,621 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="es" dir="ltr">
+<head>
+<title>Portal - Universidad Francisco Marroquín</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="MediaWiki 1.16.5" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Universidad Francisco Marroquín (es)" />
+<link title="Creative Commons" type="application/rdf+xml" href="/index.php?title=Portal&amp;action=creativecommons" rel="meta" />
+<link rel="alternate" type="application/atom+xml" title="Universidad Francisco Marroquín Fuente Atom" href="/index.php?title=Especial:CambiosRecientes&amp;feed=atom" />
+<link rel="stylesheet" href="/sites/ufm2011/versions/desktop/estilos.css?270" media="screen" />
+<link rel="stylesheet" href="/index.php?title=MediaWiki:Desktop.css&amp;usemsgcache=yes&amp;ctype=text%2Fcss&amp;smaxage=18000&amp;action=raw&amp;maxage=18000" />
+<link rel="stylesheet" href="/index.php?title=-&amp;action=raw&amp;maxage=18000&amp;gen=css" />
+<script>
+var skin="desktop",
+stylepath="/sites",
+wgUrlProtocols="http\\:\\/\\/|https\\:\\/\\/|ftp\\:\\/\\/|irc\\:\\/\\/|gopher\\:\\/\\/|telnet\\:\\/\\/|nntp\\:\\/\\/|worldwind\\:\\/\\/|mailto\\:|news\\:|svn\\:\\/\\/",
+wgArticlePath="/index.php/$1",
+wgScriptPath="",
+wgScriptExtension=".php",
+wgScript="/index.php",
+wgVariantArticlePath=false,
+wgActionPaths={},
+wgServer="https://www.ufm.edu",
+wgCanonicalNamespace="",
+wgCanonicalSpecialPageName=false,
+wgNamespaceNumber=0,
+wgPageName="Portal",
+wgTitle="Portal",
+wgAction="view",
+wgArticleId=1,
+wgIsArticle=true,
+wgUserName=null,
+wgUserGroups=null,
+wgUserLanguage="es",
+wgContentLanguage="es",
+wgBreakFrames=false,
+wgCurRevisionId=888,
+wgVersion="1.16.5",
+wgEnableAPI=true,
+wgEnableWriteAPI=true,
+wgSeparatorTransformTable=[",	.", ".	,"],
+wgDigitTransformTable=["", ""],
+wgMainPageTitle="Portal",
+wgFormattedNamespaces={"-2": "Media", "-1": "Especial", "0": "", "1": "Discusión", "2": "Usuario", "3": "Usuario Discusión", "4": "Universidad Francisco Marroquín", "5": "Universidad Francisco Marroquín Discusión", "6": "Archivo", "7": "Archivo Discusión", "8": "MediaWiki", "9": "MediaWiki Discusión", "10": "Plantilla", "11": "Plantilla Discusión", "12": "Ayuda", "13": "Ayuda Discusión", "14": "Categoría", "15": "Categoría Discusión"},
+wgNamespaceIds={"media": -2, "especial": -1, "": 0, "discusión": 1, "usuario": 2, "usuario_discusión": 3, "universidad_francisco_marroquín": 4, "universidad_francisco_marroquín_discusión": 5, "archivo": 6, "archivo_discusión": 7, "mediawiki": 8, "mediawiki_discusión": 9, "plantilla": 10, "plantilla_discusión": 11, "ayuda": 12, "ayuda_discusión": 13, "categoría": 14, "categoría_discusión": 15, "imagen": 6, "imagen_discusión": 7, "image": 6, "image_talk": 7},
+wgSiteName="Universidad Francisco Marroquín",
+wgCategories=[],
+wgRestrictionEdit=[],
+wgRestrictionMove=[];
+</script>
+<script type="text/javascript" src="/sites/shared/jquery/javascripts.js"></script>
+<script type='text/javascript'>
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-404175-1']);
+			  _gaq.push(['_trackPageview']);
+			
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+			</script>
+<script src="/index.php?title=-&amp;action=raw&amp;gen=js&amp;useskin=desktop&amp;270"></script>
+
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Portal skin-desktop">
+					
+			<script type="text/javascript">
+				if(window.isMSIE55){
+					fixalpha();
+				}
+			</script>           
+			            
+			 
+<script type="text/javascript">
+/*--carousel*/
+function mycarousel_initCallback(carousel) {
+jQuery('#actual').bind('click', function() {
+carousel.scroll(jQuery.jcarousel.intval(48));
+return false;
+});
+};
+function mycarousel_itemLoadCallback(carousel, state){
+if (carousel.has(carousel.first, carousel.last)){return;}
+jQuery.get('/dynamic_ajax_php.php', {
+first: carousel.first,
+last: carousel.last
+},
+function(xml) {
+mycarousel_itemAddCallback(carousel, carousel.first, carousel.last, xml);
+}, 'xml');
+};
+function mycarousel_itemAddCallback(carousel, first, last, xml){
+carousel.size(parseInt(jQuery('total', xml).text()));
+jQuery('image', xml).each(function(i) {
+carousel.add(first + i, mycarousel_getItemHTML(jQuery(this).text()));
+});
+};
+function mycarousel_getItemHTML(url){
+return '<div style="padding:20px 17px 0 17px;">' + url + '</div>';
+};
+/*--login*/
+function obtenerCampos(){
+ufmmail=jQuery("#ufmail");
+linkmiu=jQuery("#miu");
+miforma=jQuery('form#formufm');
+usuario = jQuery("input#usuario");
+clave = jQuery("input#password");
+clave2 = jQuery("input#clave2");
+recordarme = jQuery("#recordarme");
+marco=jQuery("#login");
+if(recordarme.is(':checked')) {
+recordarme.attr('checked', 'checked');
+recordarme.attr('value','on');
+}else{
+recordarme.attr('checked', '');
+recordarme.attr('value','off');
+}
+}
+function procesaRecordarme(){
+obtenerCampos();
+recordarme = jQuery('#recordarme');
+var dataString = 'usuario='+ usuario.val();
+jQuery.ajax({
+type: "POST",
+url: "/autenticacion/validarecuerdame.php",
+data: dataString,
+success: function(retorno) {
+res = retorno.split('|');
+if (res[1] != 'false' && res[1] != "" && res[1].length > 0){
+clave.attr("value",res[1]);
+recordarme.attr('checked','checked');
+recordarme.attr('value','on');
+}else{
+recordarme.attr("ckecked",'');
+recordarme.attr('value','off');
+}
+}
+});
+return true;
+}
+
+function validarMisdts(cliente){
+obtenerCampos();
+if(recordarme.val()=="off")
+var dataString = miforma.serialize()+'&cliente='+cliente+'&recordarme=off';
+else
+var dataString = miforma.serialize()+'&cliente='+cliente;
+jQuery.ajax({
+type: "POST",
+url: "/autenticacion/validar-gxml.php",
+data: dataString,
+success: function(retorno) {
+res = retorno.split('|');
+if(res[0] == 'exito'){
+if(cliente=='miu') {
+miforma.attr({action: res[1]});
+miforma.submit();
+}else{
+window.location.href = res[1];
+}
+}else{
+jQuery("#cargandox").fadeOut("slow");
+jQuery("#mensajex").html("<div class='error_login'>"+res[1]+"</div>").fadeIn();
+}
+}
+});
+return true;
+} 
+function validarCampos(){
+obtenerCampos();
+error=0;
+if (usuario.val() == "") {
+usuario.focus();
+error=error+1;
+}
+if (clave.val() == "") {
+clave.focus();
+error=error+1;
+}
+if (error > 0  || usuario.val() == "Usuario" || clave.val() == "Clave") {
+jQuery("#mensajex").html('<div class="error_login">Debe ingresar: usuario y clave.</div>').fadeOut('fast').fadeIn('fast');
+return false;
+}
+return true;
+}    
+function procesaValidar(cliente){
+obtenerCampos();
+if (validarCampos()){
+jQuery("#mensajex").fadeOut('slow');
+jQuery("#cargandox").fadeIn('slow');
+validarMisdts(cliente);
+}
+return false;
+} 
+//Document Ready
+jQuery(document).ready(function(){
+
+jQuery(function() {
+       var zIndexNumber = 1000;
+       // Put your target element(s) in the selector below!
+       jQuery("div").each(function() {
+               jQuery(this).css('zIndex', zIndexNumber);
+               zIndexNumber -= 10;
+       });
+});
+
+//ini-background acordeon
+background_dinamico='url(/feeds/rss_' + jQuery('#tabla_datos').attr('class') + '.jpg)';
+jQuery('#acordeon .imagen, #acordeon .thumb').css('background-image',background_dinamico);
+//fin-background acordeon
+$("#enlacefoto").click(
+function()
+{window.location = $(this).attr("http://curenta.ufm.edu");});
+$('#loading').hide()
+.ajaxStart(function() {	
+$(this).fadeIn('fast');
+})
+.ajaxStop(function() {
+$(this).fadeOut('fast');
+});
+var pathBg ="url(/images/d/da/2-Graduaciones-2011.jpg)";		  
+var config = {    
+sensitivity: 1,    
+interval: 100,    
+over: megaHoverOver,    
+timeout: 500,    
+out: megaHoverOut    
+};
+jQuery('#contenttop').css("background-image", pathBg); 
+jQuery('#contenttop').hide().fadeIn('slow');				 					 								
+jQuery("#mainmenu ul#nav li .sub").css({'opacity':'0'});					
+jQuery("#mainmenu ul#nav li").hoverIntent(config);
+jQuery("div.noticias").find("dt:first").attr("id","starter");
+/*--share*/
+jQuery('#share a.compartir').click(function(){				
+jQuery('#listaredes:hidden').fadeIn('slow'); 	
+});
+jQuery('#listaredes').mouseover(function(){
+jQuery('#listaredes').css('display','block');
+});
+jQuery('#listaredes').mouseout(function(){
+jQuery('#listaredes').css('display','none');	
+});
+/*--jcarousel*/
+
+jQuery('#mycarousel').jcarousel({
+itemLoadCallback: mycarousel_itemLoadCallback,
+initCallback: mycarousel_initCallback,
+scroll: 1,
+start: 48});
+
+/*--noticias, eventos, videos*/
+jQuery('.item.active').find('.width').each(function(){
+jQuery(this).width(272);
+});
+jQuery('.item.inicial').find('.width').each(function(){
+jQuery(this).width(272);
+});
+jQuery('.titulo').hover(function(){
+activo = jQuery(this).parent().find('.titulo.active');
+activo.removeClass('active');
+jQuery('.item.inicial').find('.width').each(function(){
+jQuery(this).stop().animate({
+width: '200px'
+}, 500);
+});
+jQuery('.item.inicial').removeClass('inicial');
+jQuery(this).addClass('active');	
+},function(){		
+jQuery(this).removeClass('active');
+activo.addClass('active');
+});
+jQuery('.pic').height(140).css('overflow', 'hidden');
+jQuery('.item').hover(function(){
+jQuery('.item.inicial').find('.width').each(function(){
+jQuery(this).stop().animate({
+width: '200px'
+}, 500);
+});
+jQuery('.item.inicial').removeClass('inicial');
+td = jQuery(this);
+if(!td.hasClass('active')){
+active = jQuery('.item.active');
+active.removeClass('active').find('.width').each(function(){
+jQuery(this).stop().animate({
+width: '200px'
+}, 500);
+});
+td.addClass('active').find('.width').each(function(){
+jQuery(this).stop().animate({
+width: '272px'
+},500);
+});
+}
+});
+jQuery(".titulo").hover(function(){
+iactual = jQuery(this).parent().find('.pics.active');
+inueva = jQuery('.pics:eq(' + jQuery(this).index('.titulo') + ')');
+iactual.hide();
+inueva.show();
+/* onclick fix */
+jQuery(this).find('a').click(function(){
+inueva.hide();
+iactual.show();
+jQuery(this).parent().parent().removeClass('active').parent().find('.titulo:first').addClass('active');
+});
+/* onclick fix */
+},function(){
+inueva.hide();
+iactual.show();
+});
+/*--login*/	
+obtenerCampos();
+usuario.blur(function() {
+if(usuario.val().length > 0)
+procesaRecordarme();
+else
+return false;
+});
+clave.keypress(function(event){
+if (event.keyCode == 13) {
+linkmiu.click();
+return false;
+}
+});
+ufmmail.click(function() {
+procesaValidar('ufmail');
+return false;
+});
+linkmiu.click(function() {
+procesaValidar('miu');
+return false;
+});			 
+});
+</script>	
+<div id="globalWrapper" >		
+	<div id="logo">
+		<p><a href="https://www.ufm.edu"><img alt="Ufm.png" src="/images/9/92/Ufm.png" width="180" height="130" /></a>
+</p>			
+	</div>		
+	<div id="topb">
+	   <div id="buscar">			
+			<form id="searchform" method="GET" action="/index.php/Especial:Busqueda">
+					<input id="qs" name="q" type="text" value="" />				
+			</form>					
+	   </div>
+	   <div id="share">	
+			<ul class="linea">							
+				<li class="flotar salir"><a href="#" class="compartir"> Compartir	</a>
+					<ul id="listaredes">
+						<li><a href="http://www.facebook.com/sharer.php?u=https://www.ufm.edu/&t=Universidad%20Francisco%20Marroquín" class="sfb" target="_blank">Facebook</a></li>
+						<li><a href="http://twitter.com/home?status=Universidad%20Francisco%20Marroquín,%20https://www.ufm.edu/" class="stwt" target="_blank">Twitter</a></li>
+						<li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https://www.ufm.edu&title=Universidad%20Francisco%20Marroqu%C3%ADn" class="slkl" target="_blank">LinkedIn</a></li>
+					</ul>
+					</li>
+			</ul>					
+		</div><!-- End share -->
+			<div id="topmenu">
+				<ul><li><a href="https://miu.ufm.edu/donaciones/" class="external text" rel="nofollow" target="_blank">Donaciones</a>
+</li><li><a href="https://miu.ufm.edu/mfasociety/" class="external text" rel="nofollow" target="_blank">Manuel F. Ayau Society</a> 
+</li><li><span class="division"><a href="/index.php/Especial:Sugerencias" title="Especial:Sugerencias"> Sugerencias</a></span>
+</li></ul>
+	
+			</div><!-- End topmenu -->			
+		<div id="search-results"></div>				
+			<div id="separar" class="visualClear"></div>			
+			<div id="mainmenu">			
+				<ul id="nav">
+<li><b><a href="http://admisiones.ufm.edu" class="external text" rel="nofollow" target="_blank">Admisiones</a></b></li>
+<li><span>Facultades</span>
+<div class="sub">
+<ul><li><a href="http://arquitectura.ufm.edu" class="external text" rel="nofollow" target="_blank">Arquitectura</a>
+</li><li><a href="http://fce.ufm.edu" class="external text" rel="nofollow" target="_blank">Ciencias Económicas</a>
+</li><li><a href="http://escs.ufm.edu" class="external text" rel="nofollow" target="_blank">Ciencias Sociales</a>
+</li><li><a href="http://derecho.ufm.edu" class="external text" rel="nofollow" target="_blank">Derecho</a>
+</li><li><a href="http://educacion.ufm.edu" class="external text" rel="nofollow" target="_blank">Educación</a>
+</li><li><a href="http://en.ufm.edu" class="external text" rel="nofollow" target="_blank">Escuela de Negocios</a>
+</li><li><a href="http://epri.ufm.edu" class="external text" rel="nofollow" target="_blank">Estudios Políticos</a>
+</li><li><a href="http://medicina.ufm.edu" class="external text" rel="nofollow" target="_blank">Medicina</a>
+</li><li><a href="http://nutricion.ufm.edu" class="external text" rel="nofollow" target="_blank">Nutrición</a>
+</li><li><a href="http://odontologia.ufm.edu" class="external text" rel="nofollow" target="_blank">Odontología</a>
+</li><li><a href="http://psicologia.ufm.edu" class="external text" rel="nofollow" target="_blank">Psicología</a>
+</li></ul>
+<ul><li><a href="http://actonmba.ufm.edu" class="external text" rel="nofollow" target="_blank">Acton MBA</a>
+</li><li><a href="/index.php/Charles_Stillman" title="Charles Stillman"> Concurso Charles L. Stillman</a>
+</li><li><a href="/index.php/Cursos_Libres" title="Cursos Libres">Cursos Libres</a>
+</li><li><a href="http://doctoradofilosofia.ufm.edu" class="external text" rel="nofollow" target="_blank">Doctorado en Filosofía</a>
+</li><li><a href="http://heroes.ufm.edu" class="external text" rel="nofollow" target="_blank">Héroes</a>
+</li><li><a href="http://posgradoderecho.ufm.edu" class="external text" rel="nofollow" target="_blank">Posgrados en Derecho</a>
+</li><li><a href="http://ita.ufm.edu" class="external text" rel="nofollow" target="_blank">Programa ITA</a>
+</li><li><a href="/index.php/Publicaciones" title="Publicaciones">Publicaciones</a>
+</li><li><a href="http://salvadoraguado.ufm.edu" class="external text" rel="nofollow" target="_blank">Salvador Aguado</a>
+</li><li><a href="http://filosofia.ufm.edu" class="external text" rel="nofollow" target="_blank">Seminario de Filosofía</a>
+</li><li><a href="http://summerschool.ufm.edu" class="external text" rel="nofollow" target="_blank">Summer School</a>
+</li></ul>
+<ul><li><h2> <span class="mw-headline" id="Centros">Centros</span></h2>
+</li><li><a href="http://cadep.ufm.edu" class="external text" rel="nofollow" target="_blank">CADEP</a>
+</li><li><a href="http://hume.ufm.edu" class="external text" rel="nofollow" target="_blank">Centro de Ética David Hume</a>
+</li><li><a href="http://capitalismo.ufm.edu" class="external text" rel="nofollow" target="_blank">Centro del Capitalismo</a>
+</li><li><a href="http://centroik.ufm.edu" class="external text" rel="nofollow" target="_blank">Centro  Ibn Khaldun</a>
+</li><li><a href="http://chh.ufm.edu" class="external text" rel="nofollow" target="_blank">Centro Henry Hazlitt</a>
+</li><li><a href="http://fce.ufm.edu/cms/es/inicio-ee" class="external text" rel="nofollow" target="_blank">Centro Vernon Smith de Economía Experimental</a>
+</li><li><a href="http://fce.ufm.edu/cms/es/descripcion-KEC" class="external text" rel="nofollow" target="_blank">Kirzner Entrepreneurship Center</a>
+</li></ul>
+<p><br />
+</p>
+</div>					       
+</li>
+<li><span class="m68">Recursos</span>
+<div class="sub">
+<ul><li><a href="http://akademeia.ufm.edu/index.php/P%C3%A1gina_principal" class="external text" rel="nofollow" target="_blank">Akademeia</a>
+</li><li><a href="http://arboretum.ufm.edu" class="external text" rel="nofollow" target="_blank">Arboretum</a>
+</li><li><a href="http://biblioteca.ufm.edu" class="external text" rel="nofollow" target="_blank">Biblioteca</a>
+</li><li><a href="http://bookstore.ufm.edu" class="external text" rel="nofollow" target="_blank">Bookstore</a>
+</li><li><a href="http://carrerazombis.ufm.edu" class="external text" rel="nofollow" target="_blank">Carrera zombis</a>
+</li><li><a href="http://cuarenta.ufm.edu" class="external text" rel="nofollow" target="_blank">Cuarenta años 1 misión</a>
+</li><li><a href="http://www.ceta.ufm.edu" class="external text" rel="nofollow" target="_blank">CETA</a>
+</li><li><a href="http://gt.creativecommons.org" class="external text" rel="nofollow" target="_blank">Creative Commons</a>
+</li><li><a href="http://www.freecities.org/" class="external text" rel="nofollow" target="_blank">Free Cities Institute</a>
+</li><li><a href="http://www.freedomsphilosopher.ufm.edu/index.php/Main_Page" class="external text" rel="nofollow" target="_blank">Hayek Freedom's Philosopher</a>
+</li><li><a href="http://hazlitt.ufm.edu" class="external text" rel="nofollow" target="_blank">Henry Hazlitt Archives</a>
+</li><li><a href="http://heroes.ufm.edu" class="external text" rel="nofollow" target="_blank">Héroes</a>
+</li><li><a href="http://newmedia.ufm.edu" class="external text" rel="nofollow" target="_blank">New Media</a>
+</li><li><a href="http://www.ommayau.com" class="external text" rel="nofollow" target="_blank">OMMA</a>
+</li><li><a href="http://povertycure.org" class="external text" rel="nofollow" target="_blank">PovertyCure</a>
+</li><li><a href="http://www.ita.ufm.edu" class="external text" rel="nofollow" target="_blank">Programa ITA</a>
+</li><li><a href="http://summerschool.ufm.edu/" class="external text" rel="nofollow" target="_blank">Summer School</a>
+</li><li><a href="http://tedx.ufm.edu" class="external text" rel="nofollow" target="_blank">TEDxUFM</a>
+</li><li><a href="http://hayek.ufm.edu" class="external text" rel="nofollow" target="_blank">The Hayek Interviews</a>
+</li><li><a href="http://journal.apee.org" class="external text" rel="nofollow" target="_blank">The Journal of Private Enterprise</a>
+</li><li><a href="http://su.ufm.edu" class="external text" rel="nofollow" target="_blank">UFM - Singularity</a>
+</li><li><a href="http://wiki.ufm.edu/chh/index.php/Portada" class="external text" rel="nofollow" target="_blank">Wiki diccionario</a>
+</li></ul>
+<p><br />
+</p>
+<ul><li><a href="/index.php/Asociaciones_Estudiantiles" title="Asociaciones Estudiantiles"> Asociación de Estudiantes</a>
+</li><li><a href="/index.php/Calendario" title="Calendario">Calendario</a>
+</li><li><a href="/index.php/Cr%C3%A9dito_Educativo" title="Crédito Educativo">Crédito Educativo</a>
+</li><li><a href="/index.php/Directorio" title="Directorio">Directorio</a>
+</li><li><a href="/index.php/Especial:Eventos" title="Especial:Eventos"> Eventos</a>
+</li><li><a href="/index.php/Graduaciones" title="Graduaciones">Graduaciones</a>
+</li><li><a href="/index.php/Mapa_Campus" title="Mapa Campus">Mapa Campus</a>
+</li><li><a href="/index.php/Reglamentos" title="Reglamentos">Reglamentos</a>
+</li><li><a href="/index.php/Tarifario_2012" title="Tarifario 2012">Tarifario 2012</a>
+</li><li><a href="/index.php/Especial:Sugerencias" title="Especial:Sugerencias"> Sugerencias</a>
+</li></ul>
+</div>
+</li>
+<li><span class="m40">Blogs</span>
+<div class="sub">
+<ul><li><a href="http://www.admisiones.ufm.edu/cms/es/blogs" class="external text" rel="nofollow" target="_blank">Admisiones</a>
+</li><li><a href="http://centrodecapitalismo.wordpress.com/" class="external text" rel="nofollow" target="_blank">Capitalismo</a>
+</li><li><a href="http://centrodavidhume.blogspot.com/" class="external text" rel="nofollow" target="_blank">Centro de Ética David Hume</a>
+</li><li><a href="http://erasmus.ufm.edu/" class="external text" rel="nofollow" target="_blank">Erasmus</a>
+</li><li><a href="http://fce.ufm.edu/lavoz" class="external text" rel="nofollow" target="_blank">La Voz</a>
+</li><li><a href="http://librolibertate.wordpress.com/" class="external text" rel="nofollow" target="_blank">Libro Libertate</a>
+</li><li><a href="http://naturalorder.ufm.edu/" class="external text" rel="nofollow" target="_blank">Natural Order</a>
+</li><li><a href="http://escs.ufm.edu/blog" class="external text" rel="nofollow" target="_blank">Pensar es Crecer</a>
+</li><li><a href="http://chh.ufm.edu/blogchh/" class="external text" rel="nofollow" target="_blank">Proceso Económico</a>
+</li></ul>
+</div>
+</li>
+<li><span class="m53">Cultura</span>
+<div class="sub">
+<ul><li><a href="http://www.atlaslibertas.ufm.edu/" class="external text" rel="nofollow" target="_blank">Atlas Libertas</a> 
+</li><li><a href="http://www.carrera.ufm.edu/" class="external text" rel="nofollow" target="_blank">Carrera por la Libertad</a> 
+</li><li><a href="/index.php/Especial:Eventos" title="Especial:Eventos"> Eventos</a>
+</li><li><a href="http://lienzo.ufm.edu/" class="external text" rel="nofollow" target="_blank">Lienzo</a>
+</li><li><a href="http://www.organizacionparalasartes.org" class="external text" rel="nofollow" target="_blank">Organización para las Artes</a>
+</li><li><a href="http://www.popolvuh.ufm.edu" class="external text" rel="nofollow" target="_blank">Museo Popol Vuh</a>
+</li><li><a href="http://www.plazalibertad.ufm.edu" class="external text" rel="nofollow" target="_blank">Plaza de la Libertad</a>
+</li><li><a href="http://escolasticos.ufm.edu" class="external text" rel="nofollow" target="_blank">Sitio Escolástico</a>
+</li></ul>
+</div>
+</li>
+<li class="mover"><span class="m23">UFM</span>
+<div class="sub">
+<ul><li><a href="/index.php/At_a_Glance" title="At a Glance">At a Glance</a>
+</li><li><a href="http://www.carrera.ufm.edu/" class="external text" rel="nofollow" target="_blank">Carrera por la Libertad</a> 
+</li><li><a href="http://cuarenta.ufm.edu" class="external text" rel="nofollow" target="_blank">Cuarenta años 1 misión</a>
+</li><li><a href="https://www.ufm.edu/images/3/3c/Discursorectoral.pdf" class="external text" rel="nofollow" target="_blank">Discurso del Rector</a>
+</li><li><a href="/index.php/Discurso_Inaugural" title="Discurso Inaugural">Discurso Inaugural</a>
+</li><li><a href="/index.php/Doctorados_Honoris_Causa" title="Doctorados Honoris Causa">Doctorados Honoris Causa</a>
+</li><li><a href="https://www.ufm.edu/images/d/d5/Excelencia.pdf" class="external text" rel="nofollow" target="_blank">Excelencia</a>
+</li><li><a href="http://friendsofufm.org" class="external text" rel="nofollow" target="_blank">Friends UFM</a>
+</li><li><a href="http://fiduciarios.ufm.edu" class="external text" rel="nofollow" target="_blank">Fiduciarios</a>
+</li><li><a href="http://heroes.ufm.edu" class="external text" rel="nofollow" target="_blank">Héroes</a>
+</li><li><a href="/index.php/Himno" title="Himno">Himno</a>
+</li><li><a href="https://www.ufm.edu/images/d/d7/Ideario.pdf" class="external text" rel="nofollow" target="_blank">Ideario</a>
+</li></ul>
+<ul><li><a href="/index.php/Informe_Financiero" title="Informe Financiero">Informe Financiero</a>
+</li><li><a href="http://muso.ufm.edu" class="external text" rel="nofollow" target="_blank">Manuel F. Ayau</a>
+</li><li><a href="/index.php/Reglamentos" title="Reglamentos">Reglamentos</a>
+</li><li><a href="https://www.ufm.edu/images/0/0e/Loa_Fco_Marroquin.pdf" class="external text" rel="nofollow" target="_blank">Semblanza y Loa de Francisco Marroquín</a>
+</li><li><a href="http://escolasticos.ufm.edu/index.php/Portada" class="external text" rel="nofollow" target="_blank">Sitio Escolástico</a>
+</li><li><a href="/index.php/Tradiciones_UFM" title="Tradiciones UFM"> Tradiciones</a>
+</li><li><a href="http://newmedia.ufm.edu/ayaucapsula2" class="external text" rel="nofollow" target="_blank">¿Por qué la UFM?</a>
+</li></ul>
+</div>
+</li>
+</ul>
+				
+			</div><!-- End mainmenu -->
+		</div><!-- End top -->
+		<div class="visualClear"></div>
+	<div id="contenttop">
+	<!--<div style='background: url(/sites/ufm2011/versions/desktop/images/cinto_pesame.png); width: 156px; height: 168px; position: absolute; left: 764px; top: 0; z-index:50; '></div>-->
+		<div id="left">
+		  <div id="mycarousel" class="jcarousel-skin-ie7">
+		    	<div id="loading">
+					<!--  <img id="imgcarga" src="/sites/ufm2011/versions/desktop/images/loading51.gif" /> --> 
+					 <h1 id="imgcarga">Cargando....</h1>
+				</div>
+		    <ul></ul>
+		  </div>
+		  <div id="actual">Actual</div>		
+		</div><!-- End left -->
+		
+	</div><!-- End content -->
+	<div class="visualClear"></div>
+	<div id="leftbottom">
+		<div id="donaciones">
+			<a href="https://miu.ufm.edu/donaciones/" class="external text" rel="nofollow" target="_blank">Donaciones</a>
+			
+		</div>
+		<div id="login">
+		<form id="formufm" method="post">
+			<p>
+				Usuario<br/>
+				<input type="text" id="usuario" name="usuario" onBlur="" value="" /><br/>
+				Clave<br/>
+				<input type="password" id="password" name="password" value=""  />
+			</p>
+			<div id="mensajex" class="nodesplegar"></div>
+			<p>
+				<input type="checkbox" id="recordarme" name="recordarme" />Recordarme
+				<a href="#" id="ufmail" >UFMail</a>
+				<a href="#" id="miu" >MiU</a>
+			</p>
+			</form>
+			<div id="cargandox" class="nodesplegar"> Cargando ...</div>
+		</div>
+		<div id="mision">
+					<p>Nuestra <b>misión</b> es la enseñanza y difusión de los principios <b>éticos</b>, <b>jurídicos</b> y <b>económicos</b> de una sociedad de <b>personas</b> <b>libres</b> y <b>responsables</b>.
+</p>	
+		</div>
+	</div><!-- End lefbottom -->
+	<div id="contentbottom">
+		<div id="bottommenu">
+			<ul><li><b><a href="http://cuarenta.ufm.edu" class="external text" rel="nofollow" target="_blank">UFM 40 años</a></b>
+</li><li><a href="http://biblioteca.ufm.edu" class="external text" rel="nofollow" target="_blank">Biblioteca</a>
+</li><li><a href="http://newmedia.ufm.edu" class="external text" rel="nofollow" target="_blank">New Media</a>
+</li><li><b><a href="/index.php/Calendario" title="Calendario">Calendario</a></b>
+</li><li><b><a href="/index.php/Directorio" title="Directorio">Directorio</a></b>
+</li></ul>
+		</div>
+		<div id="otro" >		
+			<div id="opciones">	
+				<div id="acordeon">
+          <table id='tabla_datos' class='20120504200536'>
+      <tr>
+      <td class='item inicial'><div class="category width active"><div class="texto">Noticias</div></div><div class="category width"><div class="texto"><a href="http://noticias.ufm.edu" target="_blank" >El Amigo de la Marro</a></div></div><div class="pics active"><div class="pic imagen width item1 img1"></div><div class="pic thumb width item1"></div></div><div class="pics"><div class="pic imagen width item1 img2"></div></div><div class="pics"><div class="pic imagen width item1 img3"></div></div><div class="titulo width active"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=Peter_J._Boettke_recibir%C3%A1_doctorado_%27%27honoris_causa%27%27">Peter J. Boettke recibirá doctorado ''honoris causa''</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=La_UFM_de_fiesta_por_graduaci%C3%B3n">La UFM de fiesta por graduación</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=Curso_de_ballet_intensivo">Curso de ballet intensivo</a></div></div></td>
+      <td class='espacio'></td>
+      <td class='item'><div class="category width active"><div class="texto">Eventos</div></div><div class="category width"><div class="texto"><a href="https://www.ufm.edu/index.php/Especial:Eventos" target="_blank" >Eventos UFM</a></div></div><div class="pics active"><div class="pic imagen width item2 img1"></div><div class="pic thumb width item2"></div></div><div class="pics"><div class="pic imagen width item2 img2"></div></div><div class="pics"><div class="pic imagen width item2 img3"></div></div><div class="titulo width active"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=Mises_Night_presenta_%22El_d%C3%ADa_que_Mises_temi%C3%B3%22">Mises Night presenta "El día que Mises temió"</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=La_Utop%C3%ADa_de_Francisco_Marroqu%C3%ADn">La Utopía de Francisco Marroquín</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://noticias.ufm.edu/index.php?title=El_arte_religioso_hispano_en_el_Corregimiento_de_Verapaz">El arte religioso hispano en el Corregimiento de Verapaz</a></div></div></td>
+      <td class='espacio'></td>
+      <td class='item'><div class="category width active"><div class="texto">Videos</div></div><div class="category width"><div class="texto"><a href="http://newmedia.ufm.edu" target="_blank" >New Media</a></div></div><div class="pics active"><div class="pic imagen width item3 img1"></div><div class="pic thumb width item3"></div></div><div class="pics"><div class="pic imagen width item3 img2"></div></div><div class="pics"><div class="pic imagen width item3 img3"></div></div><div class="titulo width active"><div class="texto"><a target="_blank" href="http://feedproxy.google.com/~r/feedsufmpage/~3/RvzI5KyuO50/solisetiquetasconservacion">Etiquetas de conservación para libros antiguos</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://feedproxy.google.com/~r/feedsufmpage/~3/-DsOOHivLZs/bradypublichoice">Public Choice: What Motivates Politicians?</a></div></div><div class="titulo width"><div class="texto"><a target="_blank" href="http://feedproxy.google.com/~r/feedsufmpage/~3/vzNt_Y1Yw6o/gonzalezpreservacion">Preservación de documentos históricos</a></div></div></td>
+      </tr>
+    </table>				</div>
+			</div><!-- opciones -->	
+		</div>		
+</div><!-- End bottommenu -->	
+</div><!-- End wrapper -->
+<div class="visualClear"></div>
+</div><div class="visualClear"></div>
+	<div id="footer" >
+		<div id="veritas"></div>	
+					
+		    <table>
+				<tbody>
+				<tr>
+				<td class="logoufm">
+					<p><a href="http://cuarenta.ufm.edu"><img alt="Logo40sf.png" src="/images/5/54/Logo40sf.png" width="185" height="70" /></a>
+</p>				</td>
+					<td class="contacto">
+					<p><b>Universidad Francisco Marroquín</b><br />
+Calle Manuel F. Ayau <span class="pequeno">(6 Calle final)</span>, zona 10<br />
+Guatemala, Guatemala 01010<br />
+</p>					</td>
+					<td class="licencia">						
+					<p>Teléfono: (+502) 2338-7700<br />
+Fax: (+502) 2334-6896
+</p>					</td>
+					<td class="creditos">
+						<!--<ul>						
+														<li><a href="/index.php/Especial:Entrar">Ingresar</a></li>								
+						 						</ul>-->
+					</td>
+					<td class="redes">
+						<ul>
+							<li><a href ="https://www.facebook.com/UFMedu" class="facebook" target="_blank"><span>Facebook</span></a></li>
+							<li><a href ="https://twitter.com/#!/ufmedu" class="twitter" target="_blank"><span>Twitter</span></a></li>
+							<li><a href ="http://www.youtube.com/newmediaufm" class="youtube" target="_blank"><span>Youtube</span></a></li>
+							<li><a href ="http://noticias.ufm.edu/index.php/Especial:GSMNewsFeeds" class="rss" target="_blank"><span>RSS</span></a></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" class="cyl">
+						<p><a href="http://creativecommons.org/licenses/by-nc/3.0/gt/" class="external text" rel="nofollow" target="_blank">El contenido de este sitio está bajo licencia de Creative Commons.</a> © 1998 Universidad Francisco Marroquín, | <a href="/index.php/Mapa_Campus" title="Mapa Campus">Mapa Campus</a> | <a href="mailto:inf@ufm.edu" class="external text" rel="nofollow" target="_blank">inf@ufm.edu</a> | <a href="mailto:webmaster@ufm.edu" class="external text" rel="nofollow" target="_blank">webmaster@ufm.edu</a> <a href="/index.php/Archivo:Cc.png" class="image"><img alt="Cc.png" src="/images/1/15/Cc.png" width="80" height="15" /></a>
+</p>					</td>
+				</tr>
+			</tbody></table>
+	</div><!-- End footer -->
+
+<script>if (window.runOnloadHook) runOnloadHook();</script>
+<!-- Served in 0.313 secs. -->	
+			</body>
+      </html>
+   

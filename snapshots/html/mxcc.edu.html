@@ -1,0 +1,526 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" >
+<title>Middlesex Community College</title>
+<META NAME="KEYWORDS" CONTENT=" Home">
+<META NAME="Description" CONTENT=" Home">
+
+<link href="includes/style.css" rel="stylesheet" type="text/css" media="screen" >
+<link href="includes/combo.css" rel="stylesheet" type="text/css" >
+<link href="includes/style_print.css" rel="stylesheet" type="text/css" media="print" >
+<link rel="shortcut icon" href="favicon.ico">
+<script type="text/javascript" src="includes/mootools.js"></script>
+<script type="text/javascript" src="includes/combo.js"></script>
+<script type="text/javascript" src="includes/nav.js"></script>
+<script type="text/javascript" src="Scripts/swfobject.js"></script>
+<script>
+	var selected = 0;
+	var opened = false;
+	window.addEvent('domready', function(){
+		
+		var p;
+		var i = 5 * 1000;
+		var a = $$('.rotatorSlides a');
+		
+		var ch = function (){
+			var f = a[0];
+			a.shift(a[0]);
+			a.push(f);
+		}
+		
+		a.setStyle('opacity', 0);
+		a[0].addClass('on');
+		a[0].setStyle('opacity', 1);
+		$$('.rotatorControl a')[a[0].get('rel').toInt()].addClass('on');
+		
+		var fx = function() {
+			new Fx.Tween(a[1], {property: 'opacity', duration: 'long', onStart: function(){
+				a[1].addClass('on');
+				a[0].removeClass('on');
+				$$('.rotatorControl a').removeClass('on');
+				$$('.rotatorControl a')[a[1].get('rel').toInt()].addClass('on');
+			}, onComplete: function(){
+				ch();
+				a[a.length - 1].setStyle('opacity', 0);
+			}}).start(1);
+		}
+		p = fx.periodical(i);
+		
+		
+		$$('.rotatorControl a').each(function(l, z){
+			l.addEvent('click', function(e){
+				new Event(e).stop();
+				$clear(p);
+				
+				var o = 0;
+				$$('.rotatorControl a').each(function(q, w){
+					if(q.hasClass('on')){
+						o = w;
+					}
+				});
+				
+				if(z != $$('.rotatorSlides a')[o].get('rel').toInt()){
+					var n = z;
+				
+
+					a.empty();
+					a.push($$('.rotatorSlides a')[o]);
+					a.push($$('.rotatorSlides a')[n]);
+				
+					new Fx.Tween(a[1], {property: 'opacity', duration: 'long', onStart: function(){
+						a[1].addClass('on');
+						a[0].removeClass('on');
+					}, onComplete: function(){
+						a[0].setStyle('opacity', 0);
+					}}).start(1);				
+				
+					$$('.rotatorControl a').removeClass('on');
+					$$('.rotatorControl a')[z].addClass('on');
+				}
+			});
+		});
+		
+		a.setStyle('display', 'block');
+		
+		$('middleLinks').getElements('a').each(function(tab){
+			tab.addEvent('click', function(event){
+				new Event(event).stop();
+				hideTabs();
+				$(tab.getChildren()[0].get('alt').toLowerCase()).setStyle('display', 'block');
+				tab.getChildren()[0].set('src', tab.getChildren()[0].get('src').replace('_off', '_on'));
+			});
+		});
+		if($defined($('QuickLinks'))){
+			new mooCombo($('QuickLinks'));
+		}
+		$('CommunitySearchBox').addEvent('focus', function() {
+			if($('CommunitySearchBox').get('value') == 'Search') {
+				$('CommunitySearchBox').set('value', '')
+			}
+		});
+		$('CommunitySearchBox').addEvent('blur', function() {
+			if($('CommunitySearchBox').get('value') == '') {
+				$('CommunitySearchBox').set('value', 'Search')
+			}
+		});
+
+		if($defined($('Alert'))){
+			var shrinkAlert = function(){
+				new Fx.Morph('Alert', {duration: 500, transition: Fx.Transitions.linear}).start('.WarningSmall');
+			};
+			var alertTimer = shrinkAlert.delay(15000);
+		}
+
+		if(readCookie('Accordion') == null){
+			AccordionStart = 3;
+		}else{
+			AccordionStart = readCookie('Accordion').toInt();
+		}
+		var myAccordion = new Accordion($('accordion'), 'div.toggler', 'ul.element', {
+			opacity: false, show: AccordionStart,
+			onActive: function(toggler, element){
+				toggler.setStyle('background', '#fff url(images/AccordianToggler.gif) no-repeat 0 0');
+				toggler.getElement('img.arrow').set('src', 'images/icons/NewsArrowBlue.gif');
+				createCookie('Accordion', $('accordian').getElements('.toggler').indexOf(toggler), 120);
+			},
+			onBackground: function(toggler, element){
+				toggler.setStyle('background', 'none');
+				toggler.getElement('img.arrow').set('src', 'images/icons/NewsArrowGold.gif');
+			}
+		});
+
+	});
+	function hideTabs(){
+		$('middleLinks').getElements('a').each(function(tab){
+			$(tab.getChildren()[0].get('alt').toLowerCase()).setStyle('display', 'none');
+			tab.getChildren()[0].set('src', tab.getChildren()[0].get('src').replace('_on', '_off'));
+		});
+	}
+	function createCookie(name,value,days) {
+		if(days){
+			var date = new Date();
+			date.setTime(date.getTime()+(days*24*60*60*1000));
+			var expires = "; expires="+date.toGMTString();
+		}else{
+			var expires = "";
+		}
+		document.cookie = name+"="+value+expires+"; path=/";
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + "=";
+		var ca = document.cookie.split(';');
+		for(var i=0; i < ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+		}
+		return null;
+	}
+</script>
+
+
+<!--Mobile Site-->
+<script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "http://www.mxcc.edu/defaultmobile.asp";
+}
+//-->
+</script>
+
+<script language=javascript>
+<!--
+if ((navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+   location.replace("http://www.mxcc.edu/defaultmobile.asp");
+}
+-->
+</script>
+
+<!-- AddThis Button BEGIN -->
+<script type="text/javascript">
+addthis_pub  = 'WebSolutionsInc';
+addthis_options = 'email,favorites,facebook,myspace,digg,google,linkedin,more';
+addthis_logo = 'http://www.websolutions.com/images/WebSolutions-logo.gif';
+addthis_logo_color = '666666';
+</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+<!-- AddThis Button END -->
+</head>
+<body id="main_body" class="ThemeBlue">
+<!--Mobile Site-->
+<script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "http://www.mxcc.edu/defaultmobile.asp";
+}
+//-->
+</script>
+<a name="top"></a>
+<div id="CommunityBar">
+  <div id="CommunityContainer">
+      <table id="CommunityRight" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td id="CommunitySwoosh" class="CommunityText"><a href="Content/Admissions_1.asp">Apply to MxCC</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Events/">Calendars</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Meriden_Center.asp">Meriden Center</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.mxcc.commnet.edu/distance/index.html">Distance Learning</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
+          <td>
+	    	    		<select name="QuickLinks" id="QuickLinks" style="height: 18px;">
+	    	    		
+	    	    			<option value="http://www.mxcc.commnet.edu/Content/Upcoming_Registration_Dates.asp">Upcoming Registration ...</option>
+	    	    		
+	    	    			<option value="http://www.mxcc.commnet.edu/Content/Inauguration.asp">Inauguration Information</option>
+	    	    		
+	    	    			<option value="/Content/Programs_of_Study.asp">Degrees & Certificates</option>
+	    	    		
+	    	    			<option value="/Content/Art_Exhibits.asp">Art Exhibits</option>
+	    	    		
+	    	    			<option value="http://www.bkstr.com/webapp/wcs/stores/servlet/StoreCatalogDisplay?storeId=10724&langId=-1&catalogId=10001">Bookstore</option>
+	    	    		
+	    	    			<option value="/Content/Center_for_Business_and_Industry_Services.asp">Business & Industry Tr...</option>
+	    	    		
+	    	    			<option value="http://www.mxcc.commnet.edu/Content/Meriden_Center.asp">Meriden Center</option>
+	    	    		
+	    	    			<option value="/Content/Catalogs_Courses_and_Calendars.asp">Catalog, Schedules, & ...</option>
+	    	    		
+	    	    			<option value="/Content/Contacts.asp">Contact Us</option>
+	    	    		
+	    	    			<option value="http://www.mxcc.commnet.edu/Content/College_Learning_Center.asp">College Learning Center</option>
+	    	    		
+	    	    			<option value="/Content/Financial_Aid_2.asp">Financial Aid</option>
+	    	    		
+	    	    			<option value="/Content/Form_Depot.asp">Forms & Documents</option>
+	    	    		
+	    	    			<option value="/Content/MxCC_Employment_Opportunities.asp">Jobs at MxCC</option>
+	    	    		
+	    	    			<option value="/Content/Jean_Burr_Smith_Library.asp">Library</option>
+	    	    		
+	    	    			<option value="/Content/Preschool_and_Laboratory_School.asp">Childcare</option>
+	    	    		
+	    	    			<option value="http://www.mxcc.commnet.edu/Content/Catalogs_Courses_and_Calendars.asp">Search for Courses</option>
+	    	    		
+	    	    		</select>
+	    	    		</td>
+        </tr>
+      </table>
+    <table id="CommunityLeft" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td class="CommunityText"></td>
+        <td><a href="http://my.commnet.edu/" target="_blank"><img src="images/mycommnet.gif" width="109" height="19" alt="mycomm.net"></a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="ClearDiv"></div>
+</div>
+
+<img src="images/print_header.gif" id="print_header" alt="Middlesex Community College">
+<div id="main_container">
+  <div id="main_container2">
+  <table border="0" cellpadding="0" cellspacing="0" id="main_container3" class="text">
+    <tr>
+      <td valign="top" class="header"><table border="0" cellspacing="0" cellpadding="0" width="100%">
+          <tr>
+            <td><a href="default.asp"><img src="images/logo.gif" width="423" height="74" alt=" "></a></td>
+            <td align="right" style="padding-right:20px"><div id="cse-search-form" style="width: 80%;">Loading</div>
+<script src="//www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript"> 
+  google.load('search', '1', {language : 'en', style : google.loader.themes.MINIMALIST});
+  google.setOnLoadCallback(function() {
+    var customSearchOptions = {};
+    var imageSearchOptions = {};
+    imageSearchOptions['layout'] = google.search.ImageSearch.LAYOUT_CLASSIC;
+    customSearchOptions['enableImageSearch'] = true;
+    customSearchOptions['imageSearchOptions'] = imageSearchOptions;  var customSearchControl = new google.search.CustomSearchControl(
+      '009166593686771463402:fcyuajhvwbg', customSearchOptions);
+    customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+    var options = new google.search.DrawOptions();
+    options.enableSearchboxOnly("http://www.mxcc.commnet.edu/searchresults.asp");
+    customSearchControl.draw('cse-search-form', options);
+  }, true);
+</script>
+
+<style type="text/css">
+  input.gsc-input {
+    border-color: #000000;
+  }
+  input.gsc-search-button {
+    border-color: #996633;
+    background-color: #c0c0c0;
+  }
+</style></td>
+          </tr>
+        </table></td>
+    </tr>
+    <tr>
+      <td valign="top" class="t1"><a id="Menu1" href="default.asp" target="_self" class="Menu"><img src="images/navigation/bb-home.gif" width="85" height="30" border="0" alt=" Home"></a><a id="Menu2" href="Content/Current_Students.asp" target="_self" class="Menu"><img src="images/navigation/b-CurrentStudents.gif" width="125" height="30" border="0" alt="Current Students" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img2" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a><a id="Menu3" href="Content/Future_Students.asp" target="_self" class="Menu"><img src="images/navigation/b-futurestudents.gif" width="118" height="30" border="0" alt="Future Students" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img3" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a><a id="Menu4" href="Content/Foundation_and_Alumni.asp" target="_self" class="Menu"><img src="images/navigation/b-foundation.gif" width="144" height="30" border="0" alt="Foundation & Alumni" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img4" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a><a id="Menu5" href="Content/Faculty_and_Staff.asp" target="_self" class="Menu"><img src="images/navigation/b-faculty.gif" width="110" height="30" border="0" alt="Faculty & Staff" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img5" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a><a id="Menu6" href="Content/Business_and_Community.asp" target="_self" class="Menu"><img src="images/navigation/b-continuinged.gif" width="280" height="30" border="0" alt="Continuing Education / Workforce Development" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img6" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a><a id="Menu7" href="Content/About_Us.asp" target="_self" class="Menu"><img src="images/navigation/b-about.gif" width="88" height="30" border="0" alt="About Us" onMouseOver="this.src = this.src.replace('b-', 'bb-');" name="img7" onMouseOut = "this.src = this.src.replace('bb-', 'b-');"></a></td>
+    </tr>
+    <tr>
+      <td>
+        <div class="rotator">
+		<div class="rotatorSlides"><a href="http://www.mxcc.edu/Content/Patrick_Bryan_1.asp" rel="0" style="background-image:url(JavascriptRotator/Customer-Images/bryan.jpg);display: none;">
+              <span>
+                <strong>Meet Your Professors!</strong>
+                <span>Assistant Professor Patrick Bryan teaches Biology and Zoology courses at Mxcc as well as coordinating the Biotechnology program.<br /><em>Learn More &raquo;</em></span>
+              </span>
+            </a><a href="http://www.mxcc.commnet.edu/Content/Learn_More_2.asp" rel="1" style="background-image:url(JavascriptRotator/Customer-Images/biotechnology.jpg);display: none;">
+              <span>
+                <strong>Biotechnology</strong>
+                <span>Do you enjoy science, research and technology? Check out the Biotechnology degree with Forensic Science track at MxCC.<br /><em>Learn More &raquo;</em></span>
+              </span>
+            </a><a href="http://www.mxcc.commnet.edu/Content/CEspotlight.asp" rel="2" style="background-image:url(JavascriptRotator/Customer-Images/mobilemoviemaking.jpg);display: none;">
+              <span>
+                <strong>Mobile Movie Making</strong>
+                <span>Learn how to shoot, edit, and broadcast videos using the iPhone, iPad, and iPod Touch in this exciting Continuing Education course.<br /><em>Learn More &raquo;</em></span>
+              </span>
+            </a><a href="http://www.mxcc.commnet.edu/Content/Catalogs_Courses_and_Calendars.asp" rel="3" style="background-image:url(JavascriptRotator/Customer-Images/summer_courses.jpg);display: none;">
+              <span>
+                <strong>Take a Summer Course!</strong>
+                <span>Just because it&#39;s summer doesn&#39;t mean you have to stop learning. MxCC offers summer courses too. Earn college credits and still have time for the beach!<br /><em>Learn More &raquo;</em></span>
+              </span>
+            </a></div><div class="rotatorControl"><a href="#" rel="0"></a><a href="#" rel="1"></a><a href="#" rel="2"></a><a href="#" rel="3"></a></div>
+
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+      <table width="950" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td valign="top" style="background:url(../images/home/left_bkg_bottom.gif) repeat-y left">
+          <div id="homeLeft">
+              <div class="quicklinksTitle">Quicklinks</div>
+              <ul class="quicklinks">
+                
+	    	    			<li><a href="http://www.mxcc.commnet.edu/Content/Upcoming_Registration_Dates.asp"><span>Upcoming Registration Dates</span></a></li>
+	    	    		
+	    	    			<li><a href="http://www.mxcc.commnet.edu/Content/Inauguration.asp"><span>Inauguration Information</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Programs_of_Study.asp"><span>Degrees & Certificates</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Art_Exhibits.asp"><span>Art Exhibits</span></a></li>
+	    	    		
+	    	    			<li><a href="http://www.bkstr.com/webapp/wcs/stores/servlet/StoreCatalogDisplay?storeId=10724&langId=-1&catalogId=10001"><span>Bookstore</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Center_for_Business_and_Industry_Services.asp"><span>Business & Industry Training</span></a></li>
+	    	    		
+	    	    			<li><a href="http://www.mxcc.commnet.edu/Content/Meriden_Center.asp"><span>Meriden Center</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Catalogs_Courses_and_Calendars.asp"><span>Catalog, Schedules, & Publications</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Contacts.asp"><span>Contact Us</span></a></li>
+	    	    		
+	    	    			<li><a href="http://www.mxcc.commnet.edu/Content/College_Learning_Center.asp"><span>College Learning Center</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Financial_Aid_2.asp"><span>Financial Aid</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Form_Depot.asp"><span>Forms & Documents</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/MxCC_Employment_Opportunities.asp"><span>Jobs at MxCC</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Jean_Burr_Smith_Library.asp"><span>Library</span></a></li>
+	    	    		
+	    	    			<li><a href="/Content/Preschool_and_Laboratory_School.asp"><span>Childcare</span></a></li>
+	    	    		
+	    	    			<li><a href="http://www.mxcc.commnet.edu/Content/Catalogs_Courses_and_Calendars.asp"><span>Search for Courses</span></a></li>
+	    	    		
+              </ul>
+            </div>
+        
+        
+        <td valign="top" id="homeMiddle"><div id="middleLinks"><a href="#"><img src="images/home/welcome_on.gif" width="127" height="49" alt="Welcome"></a><a href="#"><img src="images/home/news_off.gif" width="80" height="49" alt="News"></a><a href="#"><img src="images/home/events_off.gif" width="92" height="49" alt="Events"></a></div>
+            <div id="welcome">
+            <h2>Get an Affordable, Quality Education- Right in your Backyard.</h2>
+At Middlesex Community College you’ll get personal attention from dedicated professors in small class settings; guidance from experienced counselors and advisors who will help you clearly define- and achieve your goals; programs that will help you launch or build your career in some of today’s fastest-growing fields; and, affordable tuition that saves thousands over the average cost of most other two- and four-year colleges.<br><br>Middlesex offers access to cutting-edge technology and state-of-the-art educational facilities in a suburban setting located in the scenic heart of the Connecticut River Valley. Work on the latest computer systems in our computer and business laboratories in Wheaton Hall. Cater to your curiosity as you study in the bright and modern Jean Burr Smith Library facility.&nbsp; We have everything you need to succeed. From support services, career placement assistance and child care- to activities and services that help you reach your greatest potential- come see what Middlesex Community College has for you!<noscript></noscript><!-- END MICROPOLL JAVASCRIPT CODE -->
+            </div>
+            <div id="news" style="display:none">
+			  
+				<ul>
+				
+						<li><a href="News/newsView.asp?NewsId=40968180"><span>Students Receive Academic Awards from MxCC&raquo;</span> <em>Wednesday, May 02, 2012</em> MIDDLETOWN, CONN., (May 2, 2012) – Nineteen students were selected as 2012 Academic Award recipients from Middlesex Community College.  Awards were presented to students during a ceremony at MxCC on April 27 that recognized their high-level of academic performance at the College.  The annual Mathematics Award was presented to Nicholas (Nick) Vecchitto from Middletown; the Social Science Division Award was given to Peter Woolard from Haddam; and the overall Business Division Award was presented to Papa Yaw Ntorinkansah of Meriden. </a></li>
+						
+						<li><a href="News/newsView.asp?NewsId=40968179"><span>Dr. Anna M. Wasescha Inaugurated as Middlesex Community College Sixth President &raquo;</span> <em>Tuesday, April 24, 2012</em> In a room filled with elected officials, members of the board of regents, former trustees, alumni, friends, faculty, staff, and supporters, Dr. Anna M. Wasescha was formally presented as the sixth president of Middlesex Community College. The ceremony, which can be viewed at http://www.ustream.tv/recorded/22013839, was held on Saturday, April 21 in Chapman Hall on the MxCC campus. Dr. Jonathan M. Daube, president emeritus for Manchester Community College (and former interim president at MxCC) presided over the ceremonies.</a></li>
+						
+						<li><a href="News/newsView.asp?NewsId=40968178"><span>Middlesex Community College Celebrates Inauguration and Earth Week&raquo;</span> <em>Tuesday, April 17, 2012</em> Anna M. Wasescha, Ph.D., will be inaugurated as the sixth president of Middlesex Community College on Saturday, April 21, 2012 at 10 a.m. in Chapman Hall on the Middletown campus.  The theme of the inaugural celebration is “Going Green,” with a focus on achieving climate neutrality.  During Earth Week, which leads up to the inauguration, MxCC will host lectures, workshops and discussions that model ways to eliminate global warming emissions, and provide knowledge and education to students and the greater community. All events will explore the connections between the cause and effect of global warming and the leadership role higher education plays in making a commitment to achieving climate neutrality.</a></li>
+						
+						<li><a href="News/newsView.asp?NewsId=40968177"><span>Middlesex Community College Students Deliver Free Eye Care to 75 Middletown Residents&raquo;</span> <em>Tuesday, March 27, 2012</em> Middletown, CT – Seventy-five area residents are enjoying free eyeglasses, thanks to Ophthalmic Design and Dispensing (OD&D) students at Middlesex Community College (MxCC).  These students held their 19th annual Community Eye Care Day at the on-campus Eye Clinic, which included free eye consultations and exams, courtesy of Dr. Duane F. Austin, ophthalmologist from the Connecticut Eye Center in West Hartford and Avon.</a></li>
+						
+				<li><a href="News/default.asp" class="blue">More</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="News/newsfeed.xml" target="_blank" class="blue">Subscribe <img src="images/home/rss.gif" width="9" height="9" alt="rss" class="blue"></a></li>
+				</ul>
+				
+              
+            </div>
+            <div id="events" style="display:none">
+                
+		    <ul>
+        	
+				<li><a href="Events/EventView.asp?EventID=551"><span>SAVE THE DATE: Classic Golf Tournament &raquo;</span> <em>Wednesday, April 25, 2012 &ndash; Friday, June 01, 2012, 8:30 AM</em>
+SAVE THE DATE for the 10th Annual MxCC Classic&nbsp;Golf Tournament scheduled for June 1, 2012, at 8:30 a.m., at Lyman Orchards in Middlefield.&nbsp; The registration deadline is Friday...</a></li>
+		    		
+				<li><a href="Events/EventView.asp?EventID=556"><span>MxCC Acting Students Present 20th Century Theatre &raquo;</span> <em>Tuesday, May 08, 2012, 12:30 PM</em>Theatre 110 (Acting One) presents a semester-ending presentation of scenes from 20th Century Theatre on Tuesday, May 8, at 12:30 p.m., Chapman Hall, Room 808D.&nbsp; All are invited to su...</a></li>
+		    		
+				<li><a href="Events/EventView.asp?EventID=246"><span>Foundation Scholarship Awards Night &raquo;</span> <em>Friday, May 11, 2012, 6:00 PM</em></a></li>
+		    		
+				<li><a href="Events/EventView.asp?EventID=247"><span>Last Day of Classes &raquo;</span> <em>Monday, May 14, 2012</em></a></li>
+		    		
+				<li><a href="Events/EventView.asp?EventID=251"><span>Grades Due  &raquo;</span> <em>Wednesday, May 16, 2012</em></a></li>
+		    		
+        	<li><a href="Events/default.asp" class="blue">More</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Events/eventsfeed.xml" target="_blank" class="blue">Subscribe <img src="images/home/rss.gif" width="9" height="9" alt="rss" class="blue"></a></li>
+        	</ul>
+        	
+            </div></td>
+          <td id="homeRight" valign="top"><img src="images/home/schools.jpg" alt="Campus Locations" width="245" height="110" border="0" usemap="#Map" style="line-height:0; font-size:0; padding:0; margin:0; float:left">
+            <div class="HomeAddress">
+              <p>Middlesex Community College<br>
+                100 Training Hill Road<br>
+                Middletown, CT 06457</p>
+              <p><a href="Content/Directions_and_Maps.asp">Directions and Bus Schedule <span class="GoldText">&raquo;</span></a><br>
+                860.343.5800</p>
+            </div>
+            <div class="social"> <a href="http://www.youtube.com/user/MiddlesexCommCollege" target="_blank"><img src="images/home/utube.gif" width="119" height="27" alt="utube"></a> <a href="http://www.facebook.com/MiddlesexCommunityCollege" target="_blank"><img src="images/home/fb.gif" width="113" height="29" alt="Facebook"></a> <a href="http://twitter.com/MxCC_CT" target="_blank"><img src="images/home/twitter.gif" width="145" height="30" alt="Twitter"></a> <a href="http://www.addthis.com" onMouseOver="return addthis_open(this, '', '[URL]', '[TITLE]')" onMouseOut="addthis_close()" onClick="return addthis_sendto()"><img src="images/home/share.gif" width="72" height="11" alt="Share"></a> </div></td>
+        </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td height="10" valign="top" class="Footer"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="99%" valign="top" class="FooterText"><p class="DontPrint"><a href="Content/Current_Students.asp">Current Students</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Future_Students.asp">Future Students</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Foundation_and_Alumni.asp">Foundation &amp; Alumni</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Facility_and_Staff.asp">Faculty &amp; Staff</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Business_and_Community.asp">Continuing Education</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/About_Us.asp">About Us</a>
+
+	<br>
+	
+   	<a href="http://www.mxcc.commnet.edu/Content/Upcoming_Registration_Dates.asp">Upcoming Registration Dates</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="http://www.mxcc.commnet.edu/Content/Inauguration.asp">Inauguration Information</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Programs_of_Study.asp">Degrees & Certificates</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Art_Exhibits.asp">Art Exhibits</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="http://www.bkstr.com/webapp/wcs/stores/servlet/StoreCatalogDisplay?storeId=10724&langId=-1&catalogId=10001">Bookstore</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Center_for_Business_and_Industry_Services.asp">Business & Industry Training</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="http://www.mxcc.commnet.edu/Content/Meriden_Center.asp">Meriden Center</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Catalogs_Courses_and_Calendars.asp">Catalog, Schedules, & Publications</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Contacts.asp">Contact Us</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="http://www.mxcc.commnet.edu/Content/College_Learning_Center.asp">College Learning Center</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Financial_Aid_2.asp">Financial Aid</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Form_Depot.asp">Forms & Documents</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/MxCC_Employment_Opportunities.asp">Jobs at MxCC</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Jean_Burr_Smith_Library.asp">Library</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="/Content/Preschool_and_Laboratory_School.asp">Childcare</a>
+
+			&nbsp;|&nbsp;
+			
+   	<a href="http://www.mxcc.commnet.edu/Content/Catalogs_Courses_and_Calendars.asp">Search for Courses</a>
+
+			&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.mxcc.commnet.edu/Content/Resources_for_Faculty_and_Staff.asp">Resources For Faculty & Staff</a></p>
+              <p>&copy; 2008-2012&nbsp;Middlesex Community College, 100 Training Hill Road, Middletown, CT 06457. 860-343-5800<span class="DontPrint">&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#"><img src="images/icon-top.gif" alt="top" width="5" height="8"> Top</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="Content/Privacy_Policy.asp">Privacy Policy</a></span></p><br></td>
+    <td width="1%" align="right" valign="top" class="DontPrint"><a href="http://www.commnet.edu/" target="_blank"><img src="images/ConnecticutCommunityCollege.gif" alt="Connecticut Community College" width="246" height="23"></a><br>
+    <br>
+<a href="http://www.mxcc.commnet.edu/online_forms/contact_webmaster.htm" target="_blank"><img src="images/Customer-Images/contact-webmaster.gif" alt="contact web master" width="120" height="20"></a></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</div>
+<div class="ClearDiv"></div>
+</div>
+<map name="Map">
+<area shape="rect" coords="63,68,192,96" href="DrivingDirections/default.asp?LocationID=2" alt="Old Saybrook">
+<area shape="poly" coords="50,20,50,55,115,55,115,40,90,20" href="DrivingDirections/default.asp?LocationID=1" alt="Meriden">
+<area shape="rect" coords="115,20,228,46" href="DrivingDirections/default.asp?LocationID=0" alt="Middletown">
+</map>
+<ul id="Sub2" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="Content/Catalogs_Courses_and_Calendars.asp" target="_self" title="Catalogs & Schedules" id="lnk1220">Catalogs & Schedules</a></li><li><a class="mouseoverdhtml" href="Content/Programs_of_Study.asp" target="_self" title="Academic Programs" id="lnk53">Academic Programs</a></li><li><a class="mouseoverdhtml" href="Content/Academic_Advising.asp" target="_self" title="Academic Advising" id="lnk1089">Academic Advising</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Academic_Calendar.asp" target="_self" title="Academic Calendar" id="lnk1402">Academic Calendar</a></li><li><a class="mouseoverdhtml" href="Content/Academic_Policies_1.asp" target="_self" title="Academic Policies" id="lnk1616">Academic Policies</a></li><li><a class="mouseoverdhtml" href="Content/Academic_Standing_2.asp" target="_self" title="Academic Standing" id="lnk1617">Academic Standing</a></li><li><a class="mouseoverdhtml" href="Content/Academic_Support.asp" target="_self" title="Academic Support" id="lnk165">Academic Support</a></li><li><a class="mouseoverdhtml" href="Content/Campuses.asp" target="_self" title="Campus & Learning Centers" id="lnk530">Campus & Learning Centers</a></li><li><a class="mouseoverdhtml" href="Content/Campus_Policies_1.asp" target="_self" title="Campus Policies" id="lnk514">Campus Policies</a></li><li><a class="mouseoverdhtml" href="Content/Career_Development_and_Counseling_Center_1.asp" target="_self" title="Career Development & Counseling Center" id="lnk367">Career Development & Counseling Center</a></li><li><a class="mouseoverdhtml" href="Content/Continuing_Education_and_Community_Servcies.asp" target="_self" title="Workforce Development, Continuing Education and Community Services" id="lnk1505">Workforce Development, Continuing Education and Community Services</a></li><li><a class="mouseoverdhtml" href="Content/Distance_Learning.asp" target="_self" title="Distance Learning" id="lnk700">Distance Learning</a></li><li><a class="mouseoverdhtml" href="Content/Financial_Aid_2.asp" target="_self" title="Financial Aid" id="lnk328">Financial Aid</a></li><li><a class="mouseoverdhtml" href="Content/First_Year_Experience.asp" target="_self" title="First Year Experience" id="lnk215">First Year Experience</a></li><li><a class="mouseoverdhtml" href="Content/Registration_and_Grades.asp" target="_self" title="Registration & Grades" id="lnk203">Registration & Grades</a></li><li><a class="mouseoverdhtml" href="Content/Student_Activities.asp" target="_self" title="Student Activities " id="lnk218">Student Activities </a></li><li><a class="mouseoverdhtml" href="Content/STechResources.asp" target="_self" title="Student Technology Resources" id="lnk688">Student Technology Resources</a></li><li><a class="mouseoverdhtml" href="Content/Student_Services.asp" target="_self" title="Student Services" id="lnk109">Student Services</a></li><li><a class="mouseoverdhtml" href="Content/Transfer_Planning.asp" target="_self" title="Transfer Planning" id="lnk778">Transfer Planning</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Tuition_and_Fees_1.asp" target="_self" title="Tuition and Fees" id="lnk523">Tuition and Fees</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Experiential_Learning_Credits_1.asp" target="_self" title="Experiential Learning Credits" id="lnk1668">Experiential Learning Credits</a></li><li><a class="mouseoverdhtml" href="Content/Systemwide_Transfer_Appeals_Committee.asp" target="_self" title="Systemwide Transfer Appeals Committee" id="lnk1669">Systemwide Transfer Appeals Committee</a></li><li><a class="mouseoverdhtml" href="Content/myCommNet_2.asp" target="_self" title="myCommNet" id="lnk1692">myCommNet</a></li></ul><ul id="Sub3" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Welcome_from_the_President_1.asp" target="_self" title="Welcome from the President" id="lnk534">Welcome from the President</a></li><li><a class="mouseoverdhtml" href="Content/Admissions_1.asp" target="_self" title="College Admissions" id="lnk193">College Admissions</a></li><li><a class="mouseoverdhtml" href="Content/Programs_of_Study.asp" target="_self" title="Academic Programs" id="lnk537">Academic Programs</a></li><li><a class="mouseoverdhtml" href="Content/Basic_Skills_Assessment.asp" target="_self" title="Basic Skills / Placement Test" id="lnk532">Basic Skills / Placement Test</a></li><li><a class="mouseoverdhtml" href="Content/Catalogs_Courses_and_Calendars.asp" target="_self" title="Catalogs & Schedules" id="lnk1221">Catalogs & Schedules</a></li><li><a class="mouseoverdhtml" href="Content/Workforce_Development_and_Continuing_Education.asp" target="_self" title="Continuing Education & Workforce Development" id="lnk540">Continuing Education & Workforce Development</a></li><li><a class="mouseoverdhtml" href="DrivingDirections/default.asp" target="_self" title="Directions and Maps" id="lnk531">Directions and Maps</a></li><li><a class="mouseoverdhtml" href="Content/Distance_Learning.asp" target="_self" title="Distance Learning" id="lnk980">Distance Learning</a></li><li><a class="mouseoverdhtml" href="Content/Financial_Aid_2.asp" target="_self" title="Financial Aid" id="lnk110">Financial Aid</a></li><li><a class="mouseoverdhtml" href="Content/Preschool_and_Laboratory_School.asp" target="_self" title="Preschool   " id="lnk609">Preschool   </a></li><li><a class="mouseoverdhtml" href="Content/New_Student_Orientation.asp" target="_self" title="New Student Orientation" id="lnk535">New Student Orientation</a></li><li><a class="mouseoverdhtml" href="Content/Registration_Information_for_New_Students_1.asp" target="_self" title="Registration for Classes" id="lnk329">Registration for Classes</a></li><li><a class="mouseoverdhtml" href="images/customer-files/regist_form_nc.pdf " target="_self" title="Registration for Non-Credit Courses" id="lnk567">Registration for Non-Credit Courses</a></li><li><a class="mouseoverdhtml" href="Content/College_Information_and_Communications_Center_1.asp" target="_self" title="College Information and Communications Center" id="lnk1334">College Information and Communications Center</a></li><li><a class="mouseoverdhtml" href="Content/Summer_Bridge_Program.asp" target="_self" title="Summer Bridge Program" id="lnk1494">Summer Bridge Program</a></li><li><a class="mouseoverdhtml" href="Content/Experiential_Learning_Credits_1.asp" target="_self" title="Experiential Learning Credits" id="lnk1667">Experiential Learning Credits</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Systemwide_Transfer_Appeals_Committee.asp" target="_self" title="Systemwide Transfer Appeals Committee" id="lnk1670">Systemwide Transfer Appeals Committee</a></li><li><a class="mouseoverdhtml" href="Content/Become_a_Student.asp" target="_self" title="Become a Student" id="lnk2612">Become a Student</a></li></ul><ul id="Sub4" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="Content/MxCC_Foundation_Inc_.asp" target="_self" title="MxCC Foundation, Inc. " id="lnk1490">MxCC Foundation, Inc. </a></li><li><a class="mouseoverdhtml" href="Content/Foundation_Scholarship_Opportunities.asp" target="_self" title="MxCC Foundation Scholarship Opportunities" id="lnk1621">MxCC Foundation Scholarship Opportunities</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Content/Foundation_Board_of_Directors.asp" target="_self" title="Foundation Board of Directors" id="lnk569">Foundation Board of Directors</a></li><li><a class="mouseoverdhtml" href="images/customer-files/college-annual-report0809.pdf" target="_self" title="College Annual Report" id="lnk365">College Annual Report</a></li><li><a class="mouseoverdhtml" href="http://www.mxccfoundation.org" target="_blank" title="Foundation Web Site" id="lnk366">Foundation Web Site</a></li><li><a class="mouseoverdhtml" href="Content/Institutional_Advancement_Video_1.asp" target="_self" title="Institutional Advancement Video" id="lnk2296">Institutional Advancement Video</a></li><li><a class="mouseoverdhtml" href="http://www.mxccfoundation.org/pages/donate.html" target="_blank" title="Donate" id="lnk2386">Donate</a></li></ul><ul id="Sub5" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="Content/Faculties.asp" target="_self" title="Faculty Bio Pages" id="lnk1460">Faculty Bio Pages</a></li><li><a class="mouseoverdhtml" href="http://www.mxcc.commnet.edu/Directory/default.asp" target="_self" title="Faculty and Staff Search" id="lnk2360">Faculty and Staff Search</a></li><li><a class="mouseoverdhtml" href="Content/Administration.asp" target="_self" title="Administration, Academic Divisions & College Staff" id="lnk181">Administration, Academic Divisions & College Staff</a></li><li><a class="mouseoverdhtml" href="Content/Emeriti_1.asp" target="_self" title="Emeriti" id="lnk1412">Emeriti</a></li><li><a class="mouseoverdhtml" href="Content/Boards.asp" target="_self" title="Advisory Boards" id="lnk1467">Advisory Boards</a></li><li><a class="mouseoverdhtml" href="Content/Educational_Technology_Training.asp" target="_self" title="Educational Technology Training" id="lnk701">Educational Technology Training</a></li><li><a class="mouseoverdhtml" href="Content/FacultyOnline.asp" target="_self" title="Faculty Online Teaching" id="lnk981">Faculty Online Teaching</a></li><li><a class="mouseoverdhtml" href="Content/FTechResources.asp" target="_self" title="Faculty Technology Resources " id="lnk599">Faculty Technology Resources </a></li><li><a class="mouseoverdhtml" href="Content/Resources_for_Faculty_and_Staff.asp" target="_self" title="Resources for Faculty & Staff" id="lnk2425">Resources for Faculty & Staff</a></li></ul><ul id="Sub6" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="Content/Office_of_Worksforce_Development_Continuing_Education_and_Community_Services_1.asp" target="_self" title="About Us" id="lnk1980">About Us</a></li><li><a class="mouseoverdhtml" href="Content/Continuing_Education_2.asp" target="_self" title="Non-Credit Courses" id="lnk558">Non-Credit Courses</a></li><li><a class="mouseoverdhtml" href="Content/Center_for_Business_and_Industry_Services.asp" target="_self" title="Business & Industry Training" id="lnk17">Business & Industry Training</a></li><li><a class="mouseoverdhtml" href="Content/Healthcare_Training.asp" target="_self" title="Healthcare, Veterinary, & Human Services" id="lnk1981">Healthcare, Veterinary, & Human Services</a></li><li><a class="mouseoverdhtml" href="Content/Corporate_Media_Center.asp" target="_self" title="Video Production Services" id="lnk1982">Video Production Services</a></li><li><a class="mouseoverdhtml" href="Content/Lifelong_Learning.asp" target="_self" title="Lifelong Learning" id="lnk1983">Lifelong Learning</a></li></ul><ul id="Sub7" class="DHTMLMenu"><li><a class="mouseoverdhtml" href="Content/Campuses.asp" target="_self" title="Campus & Learning Centers" id="lnk226">Campus & Learning Centers</a></li><li><a class="mouseoverdhtml" href="Content/Contacts.asp" target="_self" title="Contact Us" id="lnk175">Contact Us</a></li><li><a class="mouseoverdhtml" href="Content/Hours.asp" target="_self" title="Hours" id="lnk2465">Hours</a></li><li><a class="mouseoverdhtml" href="Content/About_the_College_1.asp" target="_self" title="About the College" id="lnk1403">About the College</a></li><li><a class="mouseoverdhtml" href="Content/fastfacts.asp" target="_self" title="MxCC Fast Facts" id="lnk2299">MxCC Fast Facts</a></li><li><a class="mouseoverdhtml" href="Content/College_Vision_and_Mission.asp" target="_self" title="College Vision and Mission" id="lnk779">College Vision and Mission</a></li><li><a class="mouseoverdhtml" href="Content/College_Catalogs.asp" target="_self" title="Publications" id="lnk64">Publications</a></li><li><a class="mouseoverdhtml" href="Content/Art_Exhibits.asp" target="_self" title="Art Exhibits" id="lnk610">Art Exhibits</a></li><li><a class="mouseoverdhtml" href="Events/default.asp" target="_self" title="Campus Events" id="lnk12">Campus Events</a></li><li><a class="mouseoverdhtml" href="Content/Jean_Burr_Smith_Library.asp" target="_self" title="Jean Burr Smith Library" id="lnk658">Jean Burr Smith Library</a></li><li><a class="mouseoverdhtml" href="Site-Map/default.asp" target="_self" title="Site Index" id="lnk10">Site Index</a></li><li><a class="mouseoverdhtml" href="http://www.ct.gov" target="_blank" title="State of Connecticut" id="lnk48">State of Connecticut</a></li><li><a class="mouseoverdhtml" href="Content/Catalogs_Courses_and_Calendars.asp" target="_self" title="Catalogs and Schedules" id="lnk1203">Catalogs and Schedules</a></li><li><a class="mouseoverdhtml" href="Content/College_Catalog_HTML_Format.asp" target="_self" title="College Catalog " id="lnk1703">College Catalog </a></li><li><a class="mouseoverdhtml" href="Content/Campus_Safety.asp" target="_self" title="Campus Safety" id="lnk1312">Campus Safety</a></li><li><a class="mouseoverdhtml" href="Content/Directions_and_Maps.asp" target="_self" title="Directions & Maps" id="lnk1693">Directions & Maps</a></li><li><a class="mouseoverdhtml" href="News/default.asp" target="_self" title="News" id="lnk2037">News</a></li><li><a class="mouseoverdhtml" href="Content/Form_Depot.asp" target="_self" title="Forms & Documents" id="lnk2346">Forms & Documents</a></li></ul>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2708590-7']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

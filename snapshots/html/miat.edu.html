@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml">
+<!--<html lang='en' xml:lang='en' xmlns="http://www.w3.org/1999/xhtml">-->
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+   <title>Aviation | Powerplant | Schools | Training</title>
+    <meta name="description" content="Train Today at MIAT for a Career in Aviation, Power, or Transportation Dispatch. Campus Locations in Michigan and Texas."> 
+    <meta name="keywords" content="">    
+   <link rel="Shortcut Icon" href="http://miat.edu/images/favicon.ico" type="image/x-icon" />
+   <link href="http://www.miat.edu/css/main.css" rel="stylesheet" type="text/css" />
+   <link href="http://www.miat.edu/css/nav.css" rel="stylesheet" type="text/css" />
+   <link href="http://www.miat.edu/css/carousel.css" rel="stylesheet" type="text/css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.flash.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.easing.1.3.js"></script>
+   <script type="text/javascript" src="/javascript/jquery.coda-slider-2.0.js"></script>
+	<script type="text/javascript" src="/javascript/jquery.jcarousel.min.js"></script>
+	<link media="screen" rel="stylesheet" href="/css/colorbox.css" />
+	<script src="/javascript/jquery.colorbox.js"></script>
+	<script>
+		$(document).ready(function(){
+			//Examples of how to assign the ColorBox event to elements
+			$("a[rel='app']").colorbox();
+			$("a[rel='ptp']").colorbox();
+			$("a[rel='tds']").colorbox();
+		});
+	</script>
+   <!-- Initialize each slider on the page. Each slider must have a unique id -->
+	<script type="text/javascript" src="http://www.miat.edu/javascript/validator.js"></script>
+   <script type="text/javascript" src="http://www.miat.edu/javascript/masked_input.js"></script>
+   <script type="text/javascript">
+        $(document).ready(function() {
+            var showText='read more';
+            var hideText='hide';
+            var is_visible = false;
+            $('.toggle').prev().append(' (<a href="#" class="toggleLink">'+showText+'</a>)');
+            $('.toggle').hide();
+            $('a.toggleLink').click(function() {
+                is_visible = !is_visible;
+                $(this).html( (!is_visible) ? showText : hideText);
+                $(this).parent().next('.toggle').toggle('slow');
+                return false;
+            });
+        });
+
+        // FORM MASKING FOR PHONE NUMBERS
+        jQuery(function($){
+           $("#phone").mask("(999) 999-9999");
+           $("#emergency_phone").mask("(999) 999-9999");
+        });
+        // SUBMIT FORMS AFTER VALIDATION
+          $.validator.setDefaults({
+            submitHandler: function() {  
+                form.submit(); 
+            }
+        });       
+        // SHORT FORM REQS/VALIDATION
+        $(document).ready(function() {
+            $("#miniForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    program: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    email: "",
+						  program: "",
+                    fname: "",
+                    lname: ""
+                }
+            });    
+        }); 
+        
+        $(document).ready(function() {
+            $("#referFriend").validate({  
+                rules: {
+                    rafemail: {
+                        required: true,
+                        email: true
+                    },                                               
+                    friendname: "required",
+                    //phone: "required",
+                    friendemail: {
+                        required: true,
+                        email: true
+                    }                                                
+                },
+                messages: {
+                    rafemail: "",
+                    friendname: "",
+                    friendemail: ""
+                    //phone: ""
+                }
+            });    
+        });         
+        
+        // REMOVE AND RETURN VALUES FROM TEXT INPUTS
+        $(document).ready(function(){
+            $('input, textarea').focus(function() {
+                    value=$(this).val();
+                    $(this).attr("value","");
+                });
+            $('input, textarea').blur(function() {
+                if($(this).val()=="") {
+                    $(this).val(value);
+                }
+            });
+        });
+        // CONTACT FORM REQS/VALIDATION    
+        $(document).ready(function() {        
+            $("#contactform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    city: "required",
+                    program: "required",
+                    referral: "required",
+                    valid_license: "required",
+                    felony: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    campus: "",
+                    program: "",
+                    city: "",
+                    email: "",
+                    referral: "",
+                    address: "",
+                    zip: "",
+                    phone: "",
+                    valid_license: "",
+                    felony: ""                    
+                }
+            });    
+        });         
+
+        // APPLICATION FORM REQS        
+        $(document).ready(function() {       
+            $("#appform").validate({  
+                rules: {
+                    campus: "required",
+                    program: "required",
+                    fname: "required",
+                    lname: "required",
+                    gradyear: "required",                                                
+					referral: "required",                                                
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone_day: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    campus: "",
+                    program: "",
+                    fname: "",
+                    lname: "",
+                    referral: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone_day: "",
+						  grad_year: ""
+                }
+            });             
+        });     
+        // HS FORM REQS        
+        $(document).ready(function() {       
+            $("#hsform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    phone: {
+                        required: true
+                    },
+                    address: "required", 
+                    zip: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 5   
+                    }                                                   
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    address: "",
+                    zip: "",
+                    phone: ""
+                }
+            });             
+        });     
+        // RAF FORM REQS
+        $(document).ready(function() {      
+            $("#rafform").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone_day: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    phone_day: ""
+                }
+            });     
+        });
+        
+        // TESTIMONIAL FORM REQS
+        $(document).ready(function() {      
+            $("#testimonialForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    program: "required",
+                    campus: "required",
+                    testimonial: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone_day: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    program: "",
+                    campus: "",
+                    phone_day: "",
+                    testimonial: ""
+                }
+            });     
+        });        
+
+        // ALUMNI UPDATE FORM REQS
+        $(document).ready(function() {      
+            $("#alumniUpdateForm ").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    program2: "required",
+                    campus2: "required",
+                    zip: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email2: "",
+                    program2: "",
+                    campus: "",
+                    phone: "",
+                    zip: ""
+                }
+            });     
+        });              
+ 
+         // ALUMNI TRANSCRIPT FORM REQS
+        $(document).ready(function() {      
+            $("#alumniTranscriptForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    program3: "required",
+                    campus3: "required",
+                    zip: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },                    
+                    phone: "required"
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    program3: "",
+                    campus3: "",
+                    phone: "",
+                    zip: ""
+                }
+            });     
+        });    
+        
+         // ALUMNI EMAIL FORM REQS
+        $(document).ready(function() {      
+            $("#alumniEmailForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    campus: ""
+                }
+            });     
+        });    
+                 // ALUMNI EMAIL FORM REQS
+        $(document).ready(function() {      
+            $("#alumniJobsForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    campus: ""
+                }
+            });     
+        });    
+         // ALUMNI EMAIL FORM REQS
+        $(document).ready(function() {      
+            $("#alumniFaaForm").validate({  
+                rules: {
+                    fname: "required",
+                    lname: "required",
+                    campus: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    }
+                },
+                messages: {
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    campus: ""
+                }
+            });     
+        });    
+
+
+        // SWAP PROGRAMS BASED ON CAMPUS
+        $(document).ready(function() {         
+            $("select#campus").change(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/select.php",
+                    data:   "id=" + document.getElementById("campus").value,
+                    success: function(html){     
+                        $("select#program").html(html);
+                    }
+                });               
+            });
+        });   
+
+        // SWAP PROGRAMS BASED ON CAMPUS
+        $(document).ready(function() {         
+            $("select#campus2").change(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/select.php",
+                    data:   "id=" + document.getElementById("campus2").value,
+                    success: function(html){     
+                        $("select#program2").html(html);
+                    }
+                });               
+            });
+        }); 
+
+        // SWAP PROGRAMS BASED ON CAMPUS
+        $(document).ready(function() {         
+            $("select#campus3").change(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "/select.php",
+                    data:   "id=" + document.getElementById("campus3").value,
+                    success: function(html){     
+                        $("select#program3").html(html);
+                    }
+                });               
+            });
+        }); 
+		  		  
+		//flash embed
+        /*
+			$(document).ready(function(){
+				$('#videoWrapper').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 270,
+					height: 176,
+					allowFullScreen: 'true',
+					wmode: 'transparent',
+					flashvars: {file: 'video/MIAT-HS.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/preview.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+			 */
+			//flash embed home video
+			$(document).ready(function(){
+				$('#videoWrapper2').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 270,
+					height: 228,
+					allowFullScreen: 'true',
+					wmode: 'transparent',
+					flashvars: {file: 'http://miat.edu/media/video/tia/tia_1.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/tia/preview2.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+			
+			//flash embed - testimonials
+		    $(document).ready(function(){
+				$('#mcAmerVideo').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 353,
+					height: 289,
+					wmode: 'transparent',
+					flashvars: {file: 'video/tia/tia_1.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/tia/preview2.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+			
+		//flash embed - testimonials
+			$(document).ready(function(){
+				$('#profVideo').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 359,
+					height: 227,
+					wmode: 'transparent',
+					flashvars: {file: 'video/ScreeningAndProfessionalism_r3.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/preview2.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#custCurrVideo').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 359,
+					height: 227,
+					wmode: 'transparent',
+					flashvars: {file: 'video/CustomizedCurriculum_r3.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/preview3.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+	
+			$(document).ready(function(){
+				$('#advSkillVideo').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 359,
+					height: 227,
+					wmode: 'transparent',
+					flashvars: {file: 'video/AdvancedSkillLevel_r3.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/preview1.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+	
+			$(document).ready(function(){
+				$('#handsOnVideo').flash({ 
+					src: 'http://www.miat.edu/media/player-licensed.swf',
+					width: 359,
+					height: 227,
+					wmode: 'transparent',
+					flashvars: {file: 'video/HandsOnExperience_r3.flv', autostart: 'false', image: 'http://www.miat.edu/media/video/preview4.jpg', expressInstall: 'true', volume: '30' }
+				},
+				{
+					version: 8
+				});
+			});
+	
+		//carousel
+			$(document).ready(function() {
+				 $('#carousel').jcarousel(
+				 );
+			});
+		
+		//slider
+			$().ready(function() {
+				$('#coda-slider-1').codaSlider({
+					  autoSlide: true,
+					  autoSlideInterval: 10000,
+					  autoSlideStopWhenClicked: true,
+					  dynamicArrows: false,
+   				  dynamicTabs: true
+				 });
+			//});
+			//$().ready(function() {
+				$('#coda-slider-2').codaSlider({
+					  autoSlide: true,
+					  autoSlideInterval: 15000,
+					  autoSlideStopWhenClicked: true,
+					  dynamicArrows: true,
+   				  dynamicTabs: false
+				 });
+			});
+
+			//Show Hide Snav, etc 
+			$(document).ready(function(){
+				$("#showSnavNews").click(function(){
+					$("#snavNews").toggleClass("show");
+					$(this).toggleClass("collapse-subhdr");
+					//$(".show-bkg-img").toggleClass("hide-bkg-img");
+				});
+				$("#showSnavCal").click(function(){
+					$("#snavCal").toggleClass("show");
+					$(this).toggleClass("collapse-subhdr");
+					//$(".show-bkg-img").toggleClass("hide-bkg-img");
+				});
+						
+			});
+</script>
+
+     
+    <style type="text/css">
+        input.error { border:1px solid red !important; } 
+        textarea.error { border:1px solid red !important; } 
+        select.error { border:1px solid red !important; } 
+        radio.error { border:1px solid red !important; } 
+    </style>           
+<link href="http://www.miat.edu/css/coda-slider.css" rel="stylesheet" type="text/css" />
+</head>
+<body id="home">
+
+<div id="top">
+   <div id="logo">
+      <a href="/"><img src="/images/logo_miat.png" border="0" alt="MIAT" style="float:left;" /></a>
+   <!-- /logo -->
+   </div>
+   <div id="ctaPhone">
+   	1.800.447.1310
+   </div>
+   <div id="topLinks">
+         <a title="photo gallery" href="/media-center/gallery" class="photos">Photo Gallery</a>
+         <!--<a title="chat" href="" class="chat">Chat Live!</a>-->
+			<div class="chat">
+				<!-- Embedded WhosOn: Insert the script below at the point on your page where you want the Click To Chat link to appear -->
+				<script type='text/javascript' src='http://graggadvertising.whoson.com/include.js?domain=www.miat.edu'></script>
+				<script type='text/javascript' >
+				if(typeof sWOTrackPage=='function')sWOTrackPage();
+				</script>
+				<!-- End of embedded WhosOn -->
+			</div>
+         <!--
+         <a title="Campus Locations" href="/campuses/" class="campus">Campuses</a>
+         -->
+         <a title="Request Info" href="/contact-us/" class="rfi">Contact Us</a>
+         <a href="http://www.facebook.com/MIATConnection" class="facebook" target="_blank">&nbsp;</a>
+         <a href="http://twitter.com/#!/miat_connection" class="twitter" target="_blank">&nbsp;</a>
+         <a href="http://www.youtube.com/user/miatonline" class="youtube" target="_blank">&nbsp;</a>
+   <!-- /topLinks -->
+   </div>
+<!-- /top -->
+</div>
+<div id="mainNav">
+   <ul>
+       <li class="nav-end-l"></li>
+       <li><a class="isactive" href="http://www.miat.edu/">Home</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/programs/">Programs</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/why-miat/">Why MIAT?</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/fast-facts/">Fast Facts</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/services/">Student &amp; Alumni Services</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/employers/">Employers</a></li>
+       <li class="nav-div"></li>
+       <li><a  href="http://www.miat.edu/news-events/">News</a></li>
+       <li id="searchWrapper">
+            <form name="kwsearch" id="kwSearch" action="http://www.miat.edu/index/search-site" method="post">  
+                 <input class="search" type="text" name="kwBox" id="kwBox" onblur="if(this.value == '')this.value='Keyword Search';" onfocus="if(this.value == 'Keyword Search')this.value='';" value="Keyword Search"/>
+         
+                 <input type="image" src="/images/icon_search.gif" name="submit" id="searchBtn" /> 
+            </form>
+       </li>
+   </ul>
+</div>
+
+<div class="cleaner"></div>
+<div id="container">
+	<noscript>
+	<div>
+        <p>Unfortunately your browser does not have JavaScript capabilities which are required to render the full functionality of our site. This could be the result of two possible scenarios:</p>
+        <ol>
+            <li>You are using an old web browser, in which case you should upgrade it to a newer version. We recommend the latest version of <a href="http://www.getfirefox.com">Mozilla Firefox</a>.</li>
+            <li>You have disabled JavaScript in you browser, in which case you will have to enable it to properly use our site. <a href="http://www.google.com/support/bin/answer.py?answer=23852">Learn how to enable JavaScript</a>.</li>
+        </ol>
+    </div>
+</noscript>
+
+<div class="coda-slider-wrapper" id="sliderWrapper">
+      <div class="coda-slider preload" id="coda-slider-1">
+         
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slide-text">
+                        <h2 class="title future">Careers Built Around Your Future</h2>
+                        <p><strong>Prepare for a unique career that is in demand!</strong></p>
+
+								<p>MIAT will provide you with the training to develop and refine your skills before you enter the job market. Hands-on training develops the critical skills that are essential to taking on professional responsibilities.</p>
+                        <p><a href="/programs/" class="red">Learn More &raquo;</a></p>
+                     </div>
+                     <div class="slides">
+                        <img src="/images/miatintrotop3.gif" width="924" alt="Career Training" border="0" />                           
+                     <!-- /slides -->
+                     </div>
+           </div><!-- / .wrapper --> 
+        </div>
+       <!-- / .panel -->  
+               
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/aviation2.jpg" width="924" alt="Airframe and Powerplant" border="0" />                     </div>
+                     <div class="slide-text">
+                        <h2 class="title avim">Airframe &amp; Powerplant</h2>
+                        <p><strong>If job security is your top priority, ask about our Airframe &amp; Powerplant program.</strong></p>
+                        <p>MIAT Aviation graduates are able to choose from multiple employment opportunities offering competitive salaries and benefits due to worldwide demand for aviation technicians.</p>
+                        <p><a href="/programs/aviation-technology" class="red">Learn More &raquo;</a></p>
+                     </div>
+                  </div><!-- / .wrapper --> 
+               </div>
+       <!-- / .panel -->  
+         
+              
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/powerplant1.jpg" width="924" alt="Power Technician" border="0" />                     </div>
+                     <div class="slide-text">
+                        <h2 class="title powt">Power Technician</h2>
+                        <p><strong>Learn about Alternative, Green, and Clean careers today.</strong></p>
+                        <p>This program provides the building blocks for the knowledge and skills required for most entry-level positions in the  <strong>growing</strong> power industry.								</p>
+                        <p><a href="/programs/power-technology" class="green">Learn More &raquo;</a></p>
+                     </div>
+           </div><!-- / .wrapper --> 
+         </div>
+       <!-- / .panel -->  
+         
+         
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                         <img src="/images/slide_dispatch2.jpg" width="924" alt="Global Logistics &amp; Dispatch Specialist" border="0" />                     </div>
+                     <!-- /slides -->
+                     <div class="slide-text">
+                        <h2 class="title trad">Global Logistics &amp; Dispatch Specialist</h2>
+                        <p><strong>Do you enjoy a challenge? Problem-solving and decision-making are all part of a day's work in this job.</strong></p>
+                        <p>A graduate of the program will choose from many career opportunities in a variety of specialties within the transportation and public service industries.</p>
+                        <p><a href="/programs/global-logistics-dispatch" class="blue">Learn More &raquo;</a></p>
+                     </div>
+           </div><!-- / .wrapper --> 
+        </div>
+    <!-- / .panel --> 
+    
+         <div class="panel">
+            <div class="panel-wrapper">
+                     <div class="slides">
+                        <img src="/images/powerplant1.jpg" width="924" alt="Energy Technician" border="0" />                     </div>
+                     <div class="slide-text">
+                        <h2 class="title powt">Energy Technician</h2>
+                        <p><strong>Learn about Alternative, Green, and Clean careers today.</strong></p>
+                        <p>This program provides the building blocks for the knowledge and skills required for most entry-level positions in the  <strong>growing</strong> energy industry.                                </p>
+                        <p><a href="/programs/energy-technology" class="green">Learn More &raquo;</a></p>
+                     </div>
+           </div><!-- / .wrapper --> 
+         </div>    
+    
+      
+            </div><!-- .panelContainer -->
+        <div id="ssDiv"></div>
+         <div id="ssButtons">
+            <a href="/programs/"><img src="/images/btn_ss_learnmore-d.png" height="34" alt="Learn More" /></a>
+            <a href="/contact-us/apply-online"><img src="/images/btn_ss_enroll-d.png" height="34" alt="Sign Up for FREE" /></a>      </div>
+</div>
+<!-- #sliderWrap -->
+   <div id="mainCol">
+      <div id="newsWrapper">
+      	<h2 class="news">News &amp; Events</h2>
+			<!--<div class="news-item">
+				<p> </p>
+				<div class="post-date">June 21, 2011 </div>
+				<a href="/news-events/#36">
+				<strong>MIAT Student, Jeff Sedgwick Receives 2011 Imagine America LDRSHIP Award</strong>
+				<br>
+				</a>
+				<a href="/news-events/#36">Read more...</a>
+			</div>-->
+        
+                <div class='news-item'> 
+                    <p>
+                        <div class='post-date'>April 30, 2012 </div> 
+                        <a href='/news-events/#105'><strong>MIAT 7th Annual Career Expo, Tuesday May 8, 2012 from 12pm-5pm  </strong><br/><a href='/news-events/#105'>Read more...</a> 
+                    </p> 
+                </div>                         
+            
+                <div class='news-item'> 
+                    <p>
+                        <div class='post-date'>April 4, 2012 </div> 
+                        <a href='/news-events/#104'><strong>Aviation, Energy and Logistics Industries Career Training Open House April 28, 2012</strong><br/><a href='/news-events/#104'>Read more...</a> 
+                    </p> 
+                </div>                         
+            
+                <div class='news-item'> 
+                    <p>
+                        <div class='post-date'>April 3, 2012 </div> 
+                        <a href='/news-events/#103'><strong>Congatulations to our Scholarship Winners</strong><br/><a href='/news-events/#103'>Read more...</a> 
+                    </p> 
+                </div>                         
+                  </div>
+      <div id="mediaWrapper">
+      	<div id="videoWrapper">
+        <iframe width="270" height="176" src="http://www.youtube.com/embed/mehNYmF6pw4" frameborder="0" allowfullscreen></iframe>        
+        </div>
+         <p style="margin-top:2px; text-align:center;"><a href="/media-center/"><strong>View more MIAT video and media.</strong></a></p>
+      <!-- /#mediaWrapper -->
+      </div>
+      
+      <div id="mediaWrapper">
+      	<div id="videoWrapper1">
+        <iframe width="270" height="176" src="http://www.youtube.com/embed/z-DThkqDdN0" frameborder="0" allowfullscreen></iframe></div>
+        <p style="margin-top:2px; text-align:center;"><a href="/media-center/"><strong>View more MIAT video and media.</strong></a></p>
+      </div>
+      
+      <h2 class="clear">&nbsp;</h2>
+         <!-- /mainCol-->
+   </div>
+   <div id="sideBar">
+      <div id="sForm" class="shortform">
+      <h2 class="info red"><strong>Request Information</strong></h2>
+         <form id="miniForm" method="post" action="/index/submit-short-form">
+            <fieldset>
+               <legend>Request Info</legend>
+                 <div>  
+                  <label for="fname">First Name *</label> 
+                  <input name="fname" id="fname" class="name" value=""/>
+               </div>
+               <div>
+                  <label for="lname">Last Name *</label> 
+                  <input name="lname" id="lname" class="name" value=""/>            
+               </div>
+               <div>
+                  <label for="email">Your Email *</label>
+                  <input name="email" id="email" class="eml" value=""/>
+               </div>
+               <div>
+                  <input type="image" src="/images/btn_rfi-red-d.png" name="submit" id="submit" />
+               </div>
+           </fieldset>
+         </form>
+      </div>
+   <!-- /sideBar-->
+   </div>     
+   <div class="final-cta">
+      <h2>Prepare Yourself for a Unique Career that is <strong>In Demand</strong>!</h2>
+   </div>
+<!-- / CONTAINER -->  
+</div>
+<div id="fb-root"></div><!-- Req'd Facebook Connect Div -->
+<div id="footerWrapper">
+    <div id="footer">
+      <div id="colAddress">
+         <p>&copy; 2010 Michigan Institute of Aviation and Technology</p> 
+         <p>Call Us: 1.800.447.1310 / 
+			<a href="/">miat.edu <img src="http://www.miat.edu/images/icon_footer_home.png" alt="home" border="0" align="absmiddle" /></a></p>
+         <p><img src="/images/military-friendly_sm.png" alt="MIAT named to Military-Friendly Schools list 2012" /></p>
+         
+      </div>
+      <div id="colNav">
+         <p align="right">
+          	<a href="http://www.miat.edu/programs/aviation-technology">Airframe &amp; Powerplant Technician</a> &nbsp;/&nbsp; 
+            <a href="http://www.miat.edu/programs/energy-technology">Energy Technician</a>
+            <br />
+            <a href="http://www.miat.edu/programs/power-technology">Power Technician</a> &nbsp;/&nbsp; 
+			<a href="http://www.miat.edu/programs/global-logistics-dispatch">Global Logistics &amp; Dispatch Specialist</a>         
+         </p>
+         <p align="right">
+         	<a href="http://www.miat.edu/media-center/gallery">Photo Gallery</a> &nbsp;/&nbsp;
+         	<a href="http://www.miat.edu/campuses/">Campus Locations</a> &nbsp;/&nbsp;
+            <a href="http://www.miat.edu/contact-us/">Contact Us</a> &nbsp;/&nbsp; 
+         	<a href="http://www.miat.edu/services/high-school">High School</a> 
+         </p> 
+         <p align="right">
+            <a href="http://www.miat.edu/contact-us/code-of-conduct">Code of Conduct</a> &nbsp;/&nbsp; 
+            <a href="http://www.miat.edu/contact-us/privacy-policy">Privacy Policy</a> &nbsp;/&nbsp;  
+            <a href="http://www.miat.edu/disclosures">Disclosures</a> &nbsp;/&nbsp;
+            <!--<a href="javascript:void(0);" rel="nofollow" onclick="javascript:window.open ('http://www.miat.edu/calculator/index.html', 'mywindow','location=0,status=0,scrollbars=0, width=900,height=800');">Net Price Calculator</a>--> 
+            <a href="http://www.miat.edu/net-calculator">Net Price Calculator</a>
+            &nbsp;/&nbsp;
+            <a href="http://www.miat.edu/pdf/student-complaint-policy.pdf" target="_blank">Texas Student Complaint Policy</a>
+				<!--
+				&nbsp;/&nbsp; 
+            <a href="http://www.miat.edu/sitemap">Sitemap</a>    
+				-->
+         </p>
+         <p align="right" style="padding-top:5px;">
+         	<a href="http://twitter.com/#!/miat_connection" target="_blank"><img src="/images/icon_twitter-on.png" align="absmiddle" alt="Twitter" border="0" />
+            &nbsp; Follow Us on Twitter</a> &nbsp;/&nbsp; 
+         	<a href="http://www.facebook.com/MIATConnection" target="_blank"><img src="/images/icon_facebook-on.png" align="absmiddle" alt="Facebook" border="0" /> &nbsp; Become a Fan on Facebook</a>         
+         </p>
+      <!-- /colNav -->
+      </div>
+      <div class="clear">&nbsp;</div>
+         <p class="top-div accreds">
+         	<a href="http://www.miat.edu/services/financial-aid#accreds" class="img-link">Accredited by <img class="acc-logo" src="/images/logo_accsc.png" align="absmiddle" alt="ACCSC" border="0" /> Accrediting Commission of Career Schools and Colleges</a>         
+         </p>
+         <p class="accreds">
+         	<a href="http://www.miat.edu/services/financial-aid#accreds" class="img-link">Airframe &amp; Powerplant and Global Logistics &amp; Dispatch programs 
+				<img class="acc-logo" style="margin-left:0;" src="/images/logo_faa.png" align="absmiddle" alt="FAA" border="0" /> FAA-Federal Aviation Administration certificated</a></p>
+         <p class="accreds">
+         	<a href="http://www.miat.edu/services/financial-aid#accreds" class="img-link">Airframe &amp; Powerplant program accredited by <img class="acc-logo" src="/images/logo_ncatt.png" align="absmiddle" alt="NCATT" border="0" /> National Center for Aerospace &amp; Transportation Technologies</a>         
+         </p> 
+    <!-- /FOOTER-->       
+   </div>
+<!-- /footerWRAPPER-->       
+</div>
+
+<script>
+//App Name:	MIAT dev
+//App URL:	http://newmiat.graggadv.com/
+//App ID:	181270168564117
+//App Secret:	6ace9c43fa049374edd30d972f1ddb21
+/*
+   window.fbAsyncInit = function() {
+     FB.init({
+       appId  : '181270168564117',
+       status : true, // check login status
+       cookie : true, // enable cookies to allow the server to access the session
+       xfbml  : true  // parse XFBML
+     });
+   };
+   (function() {
+     var e = document.createElement('script');
+     e.type = 'text/javascript';
+     e.src = document.location.protocol +
+       '//connect.facebook.net/en_US/all.js';
+     e.async = true;
+     document.getElementById('fb-root').appendChild(e);
+   }());
+	*/
+</script>
+<!-- Google Analytics -->       
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-15075130-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!-- Crazy Egg --> 
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0009/9764.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+
+
+          
+</body>
+</html>

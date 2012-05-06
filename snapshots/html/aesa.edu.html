@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>AESA World Clock</TITLE>
+<LINK REL="SHORTCUT ICON" href="http://www.rainbow.arch.scriptmania.com/favicon.ico">
+<STYLE type="text/css">
+<!--
+
+.butt1 {
+	BACKGROUND: #003399; BORDER-BOTTOM: #0080ff 1px solid; BORDER-LEFT: #177fff 1px solid; BORDER-RIGHT: #0080ff 1px solid; BORDER-TOP: #177fff 1px solid; COLOR: #ffffff; FONT-SIZE: 10pt; CURSOR: hand; FONT-WEIGHT: bold;
+}
+
+-->
+</STYLE>
+
+
+</head>
+
+<BODY bgcolor="#000035" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" onLoad="setTimeout('ClockAndAssign()',1000)">
+<!--  London Rome Cairo Moscow Karachi Bangkok Hong Kong Tokyo Sydney Fiji Hawaii San Francisco Arizona Chicargo New York Buenos Aires -->
+
+<table border="0" cellspacing="0" cellpadding="3" width="100%" height="135">
+	<tr>
+		<td Valign="top"><Font size="1"></font><div id="OffSet" style="position:absolute;width:60px;height:20px">
+<form name="where">
+<select name="city" size="1" width="100" style="font-family:Arial;font-size:12px;width:100" onchange="lcl(this);nsixampm()"> 
+<option value="" selected>Your time</option>
+<option value="0">London GMT</option> 
+<option value="1">Rome</option>
+<option value="2">Cairo</option>  
+<option value="3">Moscow</option>
+
+<option value="5">Karachi</option>
+<option value="7">Bangkok</option>
+<option value="8">Hong Kong</option>
+<option value="9">Tokyo</option> 
+<option value="10">Sydney</option>
+<option value="12">Fiji</option>
+<option value="-10">Hawaii</option>
+<option value="-8">San Francisco</option> 
+<option value="-7">Arizona</option>
+
+<option value="-6">Chicargo</option>
+<option value="-5">New York</option>
+<option value="-3">Buenos Aires</option>
+</select>
+</form>
+<!-- /end removable world time -->
+
+</div>
+<script language="JavaScript">
+<!-- hide the script from old browsers --
+ns=(document.layers);
+ns6=(document.getElementById&&!document.all);
+ie=(document.all);
+
+/*Alter clock here!***********************
+Try to view in Netscape 4 & Explorer when 
+manually positioning the clock. There are 
+slight differences. N6 is same as IE!
+Top=(ns)? Netscape 4 : N6/IE ;
+Left=(ns)? Netscape 4 : N6/IE ;
+******************************************/
+
+Top=(ns)?90:92;
+Left=(ns)?67:60;
+Scroll=false;     //true or false. Top and Left void if true!
+civCol='#ffff00'; //12 colour.
+dotCol='#00ffff'; //dot colour.
+hCol='#00ff00';   //hours colour.
+mCol='#00cc00';   //minutes colour.
+sCol='#ff0080';   //seconds colour.
+ampmCol='#006090';//am-pm colour.
+
+//Alter nothing below! Alignments will be lost!
+h=3;
+m=4;
+s=5;
+civ='1 2 3 4 5 6 7 8 9 10 11 12';
+civ=civ.split(' ');
+n=civ.length;
+ClockHeight=30;
+ClockWidth=30;
+f12="<font face='Arial' size=1 color="+civCol+">";
+e=360/n;
+HandHeight=ClockHeight/4;
+HandWidth=ClockWidth/4;
+y=0;
+x=0;
+zone=0;
+isitlocal=true;
+ampm='';
+n6timer=null;
+if (!ns)
+document.write("<div id='disp' style='position:absolute;width:50px;height:20px;text-align:center'></div>");
+else
+document.write("<layer name='disp' top=0 left=0 width=50 height=20></layer>");
+for (i=0; i < n; i++){
+if (!ns)
+document.write('<div id="Civ'+i+'" style="position:absolute;width:15px;height:15px;text-align:center;color:#0000dd">'+f12+civ[i]+'</font></div>');
+else
+document.write('<layer name="Civ'+i+'" width=15 height=15><center>'+f12+civ[i]+'</font></center></layer>');
+}
+for (i=0; i < n; i++){
+if (!ns)
+document.write('<div id="D'+i+'" style="position:absolute;width:3px;height:3px;font-size:3px;background:'+dotCol+'"></div>');
+else
+document.write('<layer name="D'+i+'" bgcolor='+dotCol+' width=2 height=2></layer>');
+}
+for (i=0; i < h; i++){
+if (!ns)
+document.write('<div id="H'+i+'" style="position:absolute;width:3px;height:3px;font-size:2px;background:'+hCol+'"></div>');
+else
+document.write('<layer name="H'+i+'" bgcolor='+hCol+' width=2 height=2></layer>');
+}
+for (i=0; i < m; i++){
+if (!ns)
+document.write('<div id="M'+i+'" style="position:absolute;width:3px;height:3px;font-size:2px;background:'+mCol+'"></div>');
+else
+document.write('<layer name="M'+i+'" bgcolor='+mCol+' width=2 height=2></layer>');
+}
+for (i=0; i < s; i++){
+if (!ns)
+document.write('<div id="S'+i+'" style="position:absolute;width:3px;height:3px;font-size:2px;background:'+sCol+'"></div>');
+else
+document.write('<layer name="S'+i+'" bgcolor='+sCol+' width=2 height=2></layer>');
+}
+
+function lcl(z){
+zone=z.options[z.selectedIndex].value;
+isitlocal=(z.options[0].selected)?true:false;
+clearTimeout(n6timer);
+}
+var _d=(ns||ie)?'document.':'document.getElementById("';
+var _a=(ns||ns6)?'':'all.';
+var _n6r=(ns6)?'")':'';
+var _s=(ns)?'':'.style';
+var Dsp=eval(_d+_a+"disp"+_n6r+_s);
+var O=eval(_d+_a+"OffSet"+_n6r+_s);
+function ClockAndAssign(){
+now=new Date();
+ofst=now.getTimezoneOffset()/60;
+secs=now.getSeconds();
+sec=-1.57+Math.PI*secs/30;
+mins=now.getMinutes();
+min=-1.57+Math.PI*mins/30;
+hr=(isitlocal)?now.getHours():(now.getHours() + parseInt(ofst)) + parseInt(zone);
+hrs=-1.575+Math.PI*hr/6+Math.PI*parseInt(now.getMinutes())/360;
+if (hr < 0) hr+=24;
+if (hr > 23) hr-=24;
+ampm = (hr > 11)?"PM":"AM";
+statusampm = ampm.toLowerCase();
+
+hr2 = hr;
+if (hr2 == 0) hr2=12;
+(hr2 < 13)?hr2:hr2 %= 12;
+
+
+var Q1=hr2+':'+((mins < 10)?"0"+mins:mins)+':'+((secs < 10)?"0"+secs:secs)+' '+statusampm;
+var Q2=((hr < 10)?"0"+hr:hr)+':'+((mins < 10)?"0"+mins:mins)+':'+((secs < 10)?"0"+secs:secs);
+sy=(ie)?document.body.scrollTop+window.document.body.clientHeight-ClockHeight*2:window.pageYOffset+window.innerHeight-ClockHeight*2;
+sx=(ie)?document.body.scrollLeft+window.document.body.clientWidth-ClockWidth*2:window.pageXOffset+window.innerWidth-ClockWidth*3;
+y=(Scroll)?sy:Top;
+x=(Scroll)?sx:Left;
+Dsp.top=y-17;
+Dsp.left=x-24;
+O.top=y-80;
+O.left=(ns)?x-57:x-49;
+for (i=0; i < s; i++){var d1=eval(_d+_a+"S"+i+_n6r+_s);d1.top=y+(i*HandHeight)*Math.sin(sec);d1.left=x+(i*HandWidth)*Math.cos(sec)}
+for (i=0; i < m; i++){var d2=eval(_d+_a+"M"+i+_n6r+_s);d2.top=y+(i*HandHeight)*Math.sin(min);d2.left=x+(i*HandWidth)*Math.cos(min)}
+for (i=0; i < h; i++){var d3=eval(_d+_a+"H"+i+_n6r+_s);d3.top=y+(i*HandHeight)*Math.sin(hrs);d3.left=x+(i*HandWidth)*Math.cos(hrs)}
+for (i=0; i < n; i++){var d4=eval(_d+_a+"D"+i+_n6r+_s);d4.top=y+ ClockHeight*Math.sin(-1.0471+i*e*Math.PI/180);d4.left=x+ ClockWidth*Math.cos(-1.0471+i*e*Math.PI/180)}
+for (i=0; i < n; i++){var d5=eval(_d+_a+"Civ"+i+_n6r+_s);d5.top=y-6+ClockHeight*1.4*Math.sin(-1.0471+i*e*Math.PI/180);d5.left=x-6+ClockWidth*1.4*Math.cos(-1.0471+i*e*Math.PI/180)}
+if (ie)disp.innerHTML="<font face='Arial' size='6' color='"+ampmCol+"'>"+ampm+"</font>";
+if (ns){
+ Dsp.document.write("<font face='Arial' size='6' color='"+ampmCol+"'>"+ampm+"</font>");
+ Dsp.document.close();
+ }
+
+//***status=Q1 is 24hr. ***** status=Q2 is 12hr. ***
+
+window.status=Q1+'   '+Q2
+setTimeout('ClockAndAssign()',100);
+}
+//N6 AM/PM flashes when included above. Make slower?
+function nsixampm(){
+ if (ns6){
+ document.getElementById("disp").innerHTML="<font face='Arial' size='6' color='"+ampmCol+"'>"+ampm+"</font>";
+ n6timer=setTimeout('nsixampm()',10000);
+ }
+}
+if (ns6)nsixampm();
+window.onresize=function(){
+if(ns){window.location.reload()}
+}
+//-->
+</script>
+
+</td>
+		<td width="15%" valign="top"></td><TD width="50%" valign="top">
+
+			
+
+
+
+
+
+
+
+
+
+<p><img alt="" src="animagephp.gif" align="right" /> <br />
+<br /><br />
+<br /><font color="#000045"><font face="wp_bogus_font">http://www.escuelaaeronautica.cl/&nbsp;<br />
+<br />Escuela Aeronautica Vitar<br />
+<br />Escuela Aeronautica<br />
+<br />Escuela Aeronautica Del Pacifico Sc<br />
+<br />Dirección General de Aeronáutica Civil, Escuela Técnica Aeronáutica</font></p>
+<p><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><font color="#000045">&nbsp;</font></p><font color="#000035">
+How to Assess Nonprofit Financial Performance
+Elizabeth K. Keating, CPA
+Assistant Professor of Accounting and Information Systems
+Kellogg Graduate School of Management
+Northwestern University
+2001 Sheridan Drive, Room 6226
+Evanston, IL 60208-2002
+Tel: (847) 467-3343
+Fax: (847) 467-1202
+E-Mail: e-keating@nwu.edu</font>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><br />
+</font></div>
+<div><font color="#000035"><font face="wp_bogus_font"><br />
+</font></font></div>
+<div><font color="#000045"><font face="wp_bogus_font">Hosting by: JTL</font></font></div>
+</body>
+</html>

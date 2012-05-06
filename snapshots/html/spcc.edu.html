@@ -1,0 +1,804 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>SPCC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content=" - SPCC" />
+
+<meta name="keywords" content="" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />	
+	
+<link type="text/css" href="/css/style.css" rel="stylesheet" media="all" />
+<link type="text/css" href="/css/nivo-slider.css" rel="stylesheet" media="all" />
+<link type="text/css" href="/css/ee_style.css" rel="stylesheet" media="all" />
+
+<script type="text/javascript" src="/scripts/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/scripts/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="/scripts/jquery.combobox.js"></script>
+<script type="text/javascript" src="/scripts/jquery.validate.js"></script>
+<script type="text/javascript" src="/scripts/preloadCssImages.jQuery_v5.js"></script>
+<script type="text/javascript" src="/scripts/functions.js"></script>
+<script type="text/javascript" src="/scripts/jquery.domwindow.js"></script>
+<script type="text/javascript">
+
+
+	$(document).ready(function(){
+		$(".choice").hide();		
+	});
+			
+	$(document).ready(function(){		
+	
+stage = 1;
+forwardStep = ("#step");
+	
+		$("#block1").click(function(){
+			$("#step1.choice").show();
+			$("#quiz_main").hide();
+			return false;
+			});
+			
+		// when choice is clicked +1	
+		$(forwardStep + stage).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+		$(forwardStep + 2).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+		$(forwardStep + 3).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+	
+			});
+			
+			$(forwardStep + 4).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+	
+			});
+		$(forwardStep + 5).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+			$(forwardStep + 6).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+			$(forwardStep + 7).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+			$(forwardStep + 8).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+			
+			$(forwardStep + 9).click(function(){
+			$(forwardStep + stage).hide();
+			stage = stage + 1;
+			$(forwardStep + stage).show();
+			});
+
+		// when backBtn is clicked -1
+		$(".backBtn").click(function(){
+			if(stage == 1)
+			{
+				goHome();
+				exit();
+			}
+			$("#step" + stage).hide();
+			backStep = ("#step") + (stage - 1);
+			$(backStep).show();
+			stage = stage - 1;
+			return false;
+		});
+		
+		function goHome(){
+			$(".choice").hide();	
+			$("#quiz_main").show();
+			stage = 1;
+			return false;
+		}
+		$(".homeBtn").click(function(){
+			$(".choice").hide();	
+			$("#quiz_main").show();
+			stage = 1;
+			return false;
+		});
+	});
+	
+	$(document).ready(function(){
+$('.defaultDOMWindow').openDOMWindow({ 
+		eventType:'click', 
+		loader:1,
+		loaderImagePath:'animationProcessing.gif', 
+		loaderHeight:16, 
+		windowBGColor:'#22238F',
+		loaderWidth:17,
+		windowPadding:0,
+		width:800
+	}); 
+}); 
+	$(document).ready(function(){
+	$('.closeBtn').closeDOMWindow({
+		eventType:'click' 
+	}); 
+	}); 
+</script>
+<style type="text/css">
+
+/* styles for error box */
+.error_ie6 {
+	background:#FBE3E4;
+	color:#8a1f11;
+	border-color:#FBC2C4;
+	padding:20px;
+	border:dashed 2px red;
+	width:90%;
+	margin:0px auto;
+	font-family:Arial, Arial, Helvetica, sans-serif;
+	font-size:1em;
+	line-height:1.3em;
+}
+
+.error a, .error a:hover{
+	color:#8a1f11;
+}
+
+/* simply moves close box to right */
+.kickRight {
+	text-align:right;
+}
+</style>
+<script type="text/javascript">
+
+	// uses jquery fade 
+   	function killIt(item){
+		$('#'+item).fadeOut(1000);
+	}			
+</script>	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25912901-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<!-- IE6 Detect Advise Notice -->
+	<!-- // end IE6 Detect Advise Notice -->
+<div id="top-container">
+	<div class="wrapper">
+		<div id="top-content-container">
+			<div id="logo"><a href="/" title="Home"><img src="/images/logo.gif" id="logo-img" name="logo-img" title="Home" alt="Home" border="0" /></a></div>
+							<div id="top-picture" style="background-image: url('/cms_wfc/uploads/1-photo-105.jpg');"><img src="/images/top-pic-mask.png" id="top-pic-img-mask" name="top-pic-img-mask" title="" alt="" /></div>
+			<div id="top-links-container">
+				<div id="top-links" class="blue bold px12" nowrap><a href="/" title="Home" class="link blue bold px12">Home</a>  |  <a href="/4-faculty-and-staff.html" title="Contact Us" class="link blue bold px12">Contact Us</a>  |  <a href="/future-students/adult-basic-skills-(ged-adult-high-school)/89-servicio-en-espanol.html" title="Español" class="link blue bold 12px">Español</a></div>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('#topSearchInput').focus(function() {
+							if ($(this).val() == 'Search')
+							{
+								$(this).val('');
+							}
+						}).blur(function() {
+							if ($(this).val() == '')
+							{
+								$(this).val('Search');
+							}
+						});
+					});
+				</script>
+				<div id="search-form">
+					<form method="post" action="/search.php" style="position:relative;">
+                    <input type="hidden" name="process" value="1" />
+					<div style="float:left;position:absolute;top:8px;left:4px;"><input type="text" name="search" class="textInput" value="Search" id="topSearchInput" style="line-height:16px;margin:0; padding:0; height:16px;" /></div>
+					<div style="float:right;"><input type="image" src="/images/search-bt.gif" value="Search" class="search-image" /></div>
+					<div style="clear:both"></div>
+					</form>
+				</div>
+				<script type="text/javascript">
+					$(document).ready(function() {
+						$('#index-a-z-select').getSetSSValue('A-to-Z index').sSelect({ddMaxHeight: 400}).change(function() {
+							if ($(this).val())
+							{
+								document.location.href = $(this).val();
+							}
+						});
+					});
+				</script>
+				<style>
+					ul.newList li{
+						text-indent:7px;
+					}
+				</style>
+				<div id="index-a-z"><select id="index-a-z-select" style="display:none;">
+						<option value="" selected="selected">A-to-Z index</option>
+						<option value="/cce/careercruiser/">>&nbsp; Career Cruiser</option><option value="/1066-2005-2006.html">>&nbsp;2005-2006</option><option value="/1072-2006-2007.html">>&nbsp;2006-2007</option><option value="/443-2010-2011.html">>&nbsp;2010-2011</option><option value="/1009-2011-2012.html">>&nbsp;2011-2012</option><option value="/493-23-finish-ready-for-college-summer-program.html">>&nbsp;23 finish Ready for College summer program</option><option value="/1337-450-attend-union-county-career-fair.html">>&nbsp;450 attend Union County Career Fair</option><option value="/771-a-message-from-the-president.html">>&nbsp;A Message From the President</option><option value="/156-a-welcome-from-the-president.html">>&nbsp;A welcome from the president</option><option value="/386-about-spcc-distance-learning.html">>&nbsp;About SPCC Distance Learning</option><option value="/1222-about-the-asc.html">>&nbsp;About the ASC</option><option value="/758-academic-advising.html">>&nbsp;Academic Advising</option><option value="http://www.spcc.edu/future-students/758-academic-advising.html">>&nbsp;Academic Advising</option><option value="/future-students/academic-support/">>&nbsp;Academic Support</option><option value="/future-students/academic-support/">>&nbsp;Academic Support</option><option value="/1226-academic-support-resources.html">>&nbsp;Academic Support Resources</option><option value="/235-accounting.html">>&nbsp;Accounting</option><option value="http://www.spcc.edu/future-students/www.spcc.edu/future-students/235-accounting.html">>&nbsp;Accounting at SPCC</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/acct/">>&nbsp;Accounting Research Guide</option><option value="/157-accreditations.html">>&nbsp;Accreditations</option><option value="/cce/medical/acls/">>&nbsp;ACLS</option><option value="/352-activity-centers.html">>&nbsp;Activity Centers</option><option value="/cce/nclicense/activitycoordinator/">>&nbsp;Activity Coordinator</option><option value="/601-add-google-email-to-your-google-homepage.html">>&nbsp;Add Google email to your Google homepage</option><option value="/1282-adjunct-instructors-for-art.html">>&nbsp;Adjunct Instructors for Art</option><option value="/1283-adjunct-instructors-for-biology.html">>&nbsp;Adjunct Instructors for Biology</option><option value="/1284-adjunct-instructors-for-communication.html">>&nbsp;Adjunct Instructors for Communication</option><option value="/1285-adjunct-instructors-for-developmental-english-and-reading.html">>&nbsp;Adjunct Instructors for Developmental English and Reading</option><option value="/1286-adjunct-instructors-for-developmental-mathematics.html">>&nbsp;Adjunct Instructors for Developmental Mathematics</option><option value="/1287-adjunct-instructors-for-english-and-humanities.html">>&nbsp;Adjunct Instructors for English and Humanities</option><option value="/1288-adjunct-instructors-for-geography.html">>&nbsp;Adjunct Instructors for Geography</option><option value="/628-adjunct-instructors-for-health-technologies-classes-and-clinicals.html">>&nbsp;Adjunct Instructors for Health Technologies Classes and Clinicals</option><option value="/1289-adjunct-instructors-for-history.html">>&nbsp;Adjunct Instructors for History</option><option value="/1290-adjunct-instructors-for-mathematics.html">>&nbsp;Adjunct Instructors for Mathematics</option><option value="/1291-adjunct-instructors-for-music.html">>&nbsp;Adjunct Instructors for Music</option><option value="/1293-adjunct-instructors-for-philosophy.html">>&nbsp;Adjunct Instructors for Philosophy</option><option value="/1294-adjunct-instructors-for-political-science.html">>&nbsp;Adjunct Instructors for Political Science</option><option value="/1295-adjunct-instructors-for-psychology.html">>&nbsp;Adjunct Instructors for Psychology</option><option value="/1296-adjunct-instructors-for-religion.html">>&nbsp;Adjunct Instructors for Religion</option><option value="/1297-adjunct-instructors-for-sociology.html">>&nbsp;Adjunct Instructors for Sociology</option><option value="/1292-adjunct-instructors-for-spanish.html">>&nbsp;Adjunct Instructors for Spanish</option><option value="/future-students/admission-health-programs/">>&nbsp;Admission to Health Programs</option><option value="/1127-adn-club-makes-gift-to-turning-point.html">>&nbsp;ADN Club makes gift to Turning Point</option><option value="/1146-adn-pinning-ceremony.html">>&nbsp;ADN pinning ceremony</option><option value="/174-adult-basic-education-(abe).html">>&nbsp;Adult Basic Education (ABE)</option><option value="/1268-adult-basic-education-ged-instructor---lanesboro.html">>&nbsp;Adult Basic Education/GED Instructor - Lanesboro</option><option value="/1309-adult-basic-education-ged-instructors---monroe.html">>&nbsp;Adult Basic Education/GED Instructors - Monroe</option><option value="/future-students/8-adult-basic-skills-(ged-adult-high-school).html">>&nbsp;Adult Basic Skills</option><option value="/8-adult-basic-skills-(ged-adult-h.s.).html">>&nbsp;Adult Basic Skills (GED/Adult H.S.)</option><option value="/69-adult-high-school-(ahs).html">>&nbsp;Adult High School (AHS)</option><option value="/740-adult-high-school,-ged-transcripts.html">>&nbsp;Adult High School, GED transcripts</option><option value="/1047-advanced-placement-course-credit-(ap).html">>&nbsp;Advanced Placement Course Credit (AP)</option><option value="/236-advertising-and-graphic-design.html">>&nbsp;Advertising and Graphic Design</option><option value="/358-advertising-and-graphic-design-club.html">>&nbsp;Advertising and Graphic Design Club</option><option value="/cce/massage/advisoryboard/">>&nbsp;Advisory Board Members</option><option value="/706-aerospace-program-coordinator.html">>&nbsp;Aerospace Program Coordinator</option><option value="/180-ahs-or-ged---which-do-you-need.html">>&nbsp;AHS or GED - which do you need</option><option value="/cce/hrd/transitions/">>&nbsp;AHS/GED Transitions Program</option><option value="/850-ahs-ged-transitions-program.html">>&nbsp;AHS/GED Transitions Program</option><option value="/860-ahs-ged-videos.html">>&nbsp;AHS/GED videos</option><option value="/237-air-conditioning,-heating,-and-refrigeration-technology.html">>&nbsp;Air Conditioning, Heating, and Refrigeration Technology</option><option value="/cce/altenergy/">>&nbsp;Alternative Energy - Solar Technology</option><option value="/1125-ambulance-simulator-offers-real-world-training.html">>&nbsp;Ambulance simulator offers real-world training</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/ap/">>&nbsp;Anatomy and Physiology Research Guide</option><option value="/586-announcements.html">>&nbsp;Announcements</option><option value="/1073-anson-community-kitchen-open-house-scheduled.html">>&nbsp;Anson Community Kitchen open house scheduled</option><option value="/1258-anson-county-arts-council---sscs1103.html">>&nbsp;Anson County Arts Council - SSCS1103</option><option value="/1302-anson-county-career-fair-set-for-april-18.html">>&nbsp;Anson County Career Fair set for April 18</option><option value="/57-application-process.html">>&nbsp;Application Process</option><option value="/54-apply-online.html">>&nbsp;Apply online</option><option value="/410-applying-for-financial-aid.html">>&nbsp;Applying for Financial Aid</option><option value="/656-april-2010.html">>&nbsp;April 2010</option><option value="/764-april-2011.html">>&nbsp;April 2011</option><option value="/1315-april-2012.html">>&nbsp;April 2012</option><option value="/506-art-and-quilt-show-held-at-lockhart-taylor-center.html">>&nbsp;Art & Quilt Show held at Lockhart-Taylor Center</option><option value="/614-art-and-design-showcase.html">>&nbsp;Art and Design Showcase</option><option value="/510-art-for-all-at-ltc.html">>&nbsp;Art for All at LTC</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/art/">>&nbsp;Art Research Guide</option><option value="/996-article-one.html">>&nbsp;Article One</option><option value="/998-article-three.html">>&nbsp;Article Three</option><option value="/997-article-two.html">>&nbsp;Article Two</option><option value="/744-asc-home.html">>&nbsp;ASC Home</option><option value="/390-ask-a-librarian.html">>&nbsp;Ask a Librarian</option><option value="/future-students/libraries/ask/">>&nbsp;Ask a Librarian</option><option value="/892-ask-a-librarian-form.html">>&nbsp;Ask a Librarian Form</option><option value="/1324-assistant-to-the-vp,-school-of-applied-science-and-technology.html">>&nbsp;Assistant to the VP, School of Applied Science and Technology</option><option value="/238-associate-degree-nursing.html">>&nbsp;Associate Degree Nursing</option><option value="http://www.spcc.edu/future-students/www.spcc.edu/future-students/238-associate-degree-nursing.html">>&nbsp;Associate Degree Nursing</option><option value="/359-associate-degree-nursing-club.html">>&nbsp;Associate Degree Nursing Club</option><option value="/453-associate-in-arts.html">>&nbsp;Associate in Arts</option><option value="/1304-associate-in-arts---criminal-justice.html">>&nbsp;Associate in Arts - Criminal Justice</option><option value="/456-associate-in-arts---elementary-education.html">>&nbsp;Associate in Arts - Elementary Education</option><option value="/1249-associate-in-arts---pre-major-social-work.html">>&nbsp;Associate in Arts - Pre-Major Social Work</option><option value="/1305-associate-in-arts-–-information-systems.html">>&nbsp;Associate in Arts – Information Systems</option><option value="/1306-associate-in-arts-–-nursing.html">>&nbsp;Associate in Arts – Nursing</option><option value="/454-associate-in-science.html">>&nbsp;Associate in Science</option><option value="/1307-associate-in-science-–-engineering.html">>&nbsp;Associate in Science – Engineering</option><option value="/1328-associate-in-science-–-pre-pharmacy-pathway.html">>&nbsp;Associate in Science – Pre-Pharmacy Pathway</option><option value="/592-athletes-wanted-for-extreme-players-club.html">>&nbsp;Athletes wanted for Extreme Players Club</option><option value="/381-auditing-a-course.html">>&nbsp;Auditing a Course</option><option value="/652-august-2010.html">>&nbsp;August 2010</option><option value="/929-august-2011.html">>&nbsp;August 2011</option><option value="/cce/autobody/news/">>&nbsp;Auto Body News and Upcoming Classes</option><option value="/725-auto-body-open-house-to-demo-new-diagnostic-tool.html">>&nbsp;Auto Body Open House to Demo New Diagnostic Tool</option><option value="/cce/autobody/">>&nbsp;Auto Body Program</option><option value="/cce/autobody/projects/">>&nbsp;Auto Body Student Projects</option><option value="/cce/nclicense/autodealer/">>&nbsp;Auto Dealer</option><option value="/457-basic-law-enforcement-training.html">>&nbsp;Basic Law Enforcement Training</option><option value="/918-basic-skills-grading.html">>&nbsp;Basic Skills Grading</option><option value="/1325-battle-of-the-bands-entry-deadline-drawing-near.html">>&nbsp;Battle of the Bands entry deadline drawing near</option><option value="/1335-battle-of-the-bands-rescheduled-for-aug.-17.html">>&nbsp;Battle of the Bands rescheduled for Aug. 17</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/bio/">>&nbsp;Biology Research Guide</option><option value="/460-biomedical-equipment-technology-degree.html">>&nbsp;Biomedical Equipment Technology Degree</option><option value="/462-biotechnology.html">>&nbsp;Biotechnology</option><option value="http://www.spcc.edu/future-students/www.spcc.edu/future-students/457-basic-law-enforcement-training.html">>&nbsp;BLET at SPCC</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/blet/">>&nbsp;BLET Research Guide</option><option value="/737-board-members.html">>&nbsp;Board members</option><option value="/491-bookstore.html">>&nbsp;Bookstore</option><option value="/993-brain-teaser.html">>&nbsp;Brain Teaser</option><option value="/cce/bit/">>&nbsp;Business & Industry Training</option><option value="/239-business-administration.html">>&nbsp;Business Administration</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/biz/">>&nbsp;Business Administration Research Guide</option><option value="/10-business-office.html">>&nbsp;Business Office</option><option value="http://www.spcc.edu/future-students/10-business-office.html">>&nbsp;Business Office Home</option><option value="/92-business-office-hours.html">>&nbsp;Business Office Hours</option><option value="/calendar.php">>&nbsp;Calendar</option><option value="/1090-camp-treasure-fun-begins.html">>&nbsp;Camp Treasure Fun Begins</option><option value="/360-campus-crusade-for-christ.html">>&nbsp;Campus Crusade for Christ</option><option value="/692-campus-maps.html">>&nbsp;Campus Maps</option><option value="/1197-career-and-college-promise.html">>&nbsp;Career and College Promise</option><option value="/1198-career-and-college-promise-faq.html">>&nbsp;Career and College Promise FAQ</option><option value="/1201-career-and-college-promise-provides-jump-start-for-high-school-students.html">>&nbsp;Career and College Promise provides jump-start for high school students</option><option value="/968-career-assessments.html">>&nbsp;Career Assessments</option><option value="/973-career-connections-fairs.html">>&nbsp;Career Connections Fairs</option><option value="/967-career-counseling.html">>&nbsp;Career Counseling</option><option value="/499-career-cruiser-2010-2011-schedule.html">>&nbsp;Career Cruiser 2010-2011 schedule</option><option value="/801-career-cruiser-reaches-crc-goal.html">>&nbsp;Career Cruiser reaches CRC goal</option><option value="/843-career-cruiser-releases-summer-2011-schedule.html">>&nbsp;Career Cruiser releases summer 2011 schedule</option><option value="/cce/careercruiser/schedule/">>&nbsp;Career Cruiser Schedule</option><option value="/881-career-focus.html">>&nbsp;Career Focus</option><option value="/580-career-focus.html">>&nbsp;Career Focus</option><option value="http://www.spcc.edu/1191-career-focus-winter-2011.html">>&nbsp;Career Focus</option><option value="/636-career-focus-summer-2006.html">>&nbsp;Career Focus Summer 2006</option><option value="/638-career-focus-summer-2007.html">>&nbsp;Career Focus Summer 2007</option><option value="/642-career-focus-summer-2008.html">>&nbsp;Career Focus Summer 2008</option><option value="/644-career-focus-summer-2010.html">>&nbsp;Career Focus Summer 2010</option><option value="/897-career-focus-summer-2011.html">>&nbsp;Career Focus Summer 2011</option><option value="/635-career-focus-winter-2006.html">>&nbsp;Career Focus Winter 2006</option><option value="/637-career-focus-winter-2007.html">>&nbsp;Career Focus Winter 2007</option><option value="/639-career-focus-winter-2008.html">>&nbsp;Career Focus Winter 2008</option><option value="/641-career-focus-winter-2010.html">>&nbsp;Career Focus Winter 2010</option><option value="/1191-career-focus-winter-2011.html">>&nbsp;Career Focus Winter 2011</option><option value="/cce/careercruiser/careerreadiness/">>&nbsp;Career Readiness Certification</option><option value="/970-career-related-links.html">>&nbsp;Career Related Links</option><option value="/966-career-services.html">>&nbsp;Career Services</option><option value="/969-career-workshops.html">>&nbsp;Career Workshops</option><option value="/cce/careers/">>&nbsp;Careers</option><option value="/spcc-in-the-news/ambulance-simulator/">>&nbsp;Carolina Fire Rescue EMS Journal: Ambulance Simulator Gives EMS Students Real World Experience</option><option value="/511-carolinas-writers-conference-2011.html">>&nbsp;Carolinas Writers Conference 2011</option><option value="/cce/construction/carpentry/">>&nbsp;Carpentry</option><option value="/380-change-of-name-and-address.html">>&nbsp;Change of Name and Address</option><option value="/1202-changes-coming-in-financial-aid-application-process.html">>&nbsp;Changes coming in financial aid application process</option><option value="/1203-changes-coming-in-financial-aid-application-process.html">>&nbsp;Changes coming in financial aid application process</option><option value="/885-charlotte-observer.html">>&nbsp;Charlotte Observer</option><option value="/567-charlotte-regional-partnership-honors-spcc-with-jerry-award.html">>&nbsp;Charlotte Regional Partnership Honors SPCC With Jerry Award</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/chem/">>&nbsp;Chemistry Research Guide</option><option value="/351-class-rings.html">>&nbsp;Class Rings</option><option value="/1046-clep.html">>&nbsp;CLEP</option><option value="/591-club-sandwich-days-are-aug.-24-and-25.html">>&nbsp;Club Sandwich Days are Aug. 24 and 25</option><option value="/353-clubs-and-organizations.html">>&nbsp;Clubs and Organizations</option><option value="/cce/medical/cnarefresher/">>&nbsp;CNA I Refresher</option><option value="/707-cnc-instructor-for-customized-training-programs.html">>&nbsp;CNC Instructor for Customized Training Programs</option><option value="/cce/medical/codingbilling/">>&nbsp;Coding and Billing</option><option value="http://www.spcc.edu/calendar.php">>&nbsp;College Calendars</option><option value="http://www.spcc.edu/about-spcc/news-and-publications/572-college-catalog.html">>&nbsp;College Catalog</option><option value="/572-college-catalog.html">>&nbsp;College Catalog</option><option value="http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&type=P&pid=ST-XWESTS12A">>&nbsp;College Class Schedule</option><option value="http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&type=P&pid=ST-XWESTS12A">>&nbsp;College Class Schedule</option><option value="/232-college-credit-programs.html">>&nbsp;College Credit Programs</option><option value="/455-college-transfer.html">>&nbsp;College Transfer</option><option value="/991-college-transfer-club.html">>&nbsp;College Transfer Club</option><option value="/cce/bit/commteam/">>&nbsp;Communication and Teamwork</option><option value="/299-communication-and-teamwork.html">>&nbsp;Communication and Teamwork</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/comm/">>&nbsp;Communications Research Guide</option><option value="/cce/hrd/commbridge/">>&nbsp;Community Bridge Program</option><option value="/917-community-links.html">>&nbsp;Community Links</option><option value="/1109-community-service-(acpc)---sscs11-02.html">>&nbsp;Community Service (ACPC) - SSCS11-02</option><option value="/314-comp-education-faq.html">>&nbsp;Comp Education FAQ</option><option value="/75-compensatory-education.html">>&nbsp;Compensatory Education</option><option value="/1257-compensatory-education---slab1102.html">>&nbsp;Compensatory Education - SLAB1102</option><option value="/1215-compensatory-education-class-visits-science-center.html">>&nbsp;Compensatory Education class visits science center</option><option value="/cce/medical/ct/">>&nbsp;Computed Tomography</option><option value="/college-credit-programs/cit/">>&nbsp;Computer Information Technology</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/cit/">>&nbsp;Computer Information Technology Research Guide</option><option value="/1225-computer-assisted-supplemental-instruction.html">>&nbsp;Computer-assisted Supplemental Instruction</option><option value="/cce/computers/">>&nbsp;Computers (Short-Term Training Options)</option><option value="/199-confidentiality.html">>&nbsp;Confidentiality</option><option value="/805-congratulations-to-our-newly-published-authors!.html">>&nbsp;Congratulations to our newly published authors!</option><option value="/1223-connect-with-the-asc.html">>&nbsp;Connect with the ASC</option><option value="/1045-consumer-information.html">>&nbsp;Consumer Information</option><option value="/55-contact-admissions.html">>&nbsp;Contact Admissions</option><option value="/cce/contact/">>&nbsp;Contact CCE</option><option value="/409-contact-financial-aid.html">>&nbsp;Contact Financial Aid</option><option value="/65-contact-health-admissions.html">>&nbsp;Contact Health Admissions</option><option value="/cce/sbec/contact/">>&nbsp;Contact SBEC</option><option value="/future-students/libraries/directory/">>&nbsp;Contact the Library</option><option value="/705-continuing-education-adjunct-faculty-openings.html">>&nbsp;Continuing Education Adjunct Faculty Openings</option><option value="http://www.spcc.edu/3-corporate-and-continuing-education-programs.html">>&nbsp;Continuing Education Programs</option><option value="/195-continuing-education-tuition-and-fees.html">>&nbsp;Continuing Education Tuition and Fees</option><option value="/cce/profcertifications/contractorlicense/">>&nbsp;Contractor License Courses</option><option value="/306-contractors-license-exam-commercial.html">>&nbsp;Contractors License Exam-Commercial</option><option value="/cce/">>&nbsp;Corporate and Continuing Education</option><option value="/14-counseling.html">>&nbsp;Counseling</option><option value="/cce/sbec/courses/">>&nbsp;Courses</option><option value="/971-cover-letters-and-r�sum�s.html">>&nbsp;Cover Letters & Résumés</option><option value="/1320-crane-juggles-life-as-spcc's-academic-excellence-award-winner.html">>&nbsp;Crane juggles life as SPCC's Academic Excellence Award winner</option><option value="/585-creating-success.html">>&nbsp;Creating Success</option><option value="/1042-credit-for-high-school-courses.html">>&nbsp;Credit for High School Courses</option><option value="/383-credit-transfer.html">>&nbsp;Credit Transfer</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/cjc/">>&nbsp;Criminal Justice Research Guide</option><option value="/241-criminal-justice-technology.html">>&nbsp;Criminal Justice Technology</option><option value="/cce/careercruiser/news/">>&nbsp;Cruiser News</option><option value="/cce/careercruiser/services/">>&nbsp;Cruiser Services</option><option value="/current-students/">>&nbsp;Current Students</option><option value="/837-curriculum-tuition-and-fees.html">>&nbsp;Curriculum Tuition and Fees</option><option value="/504-davis-up-next-for-morning-conversations.html">>&nbsp;Davis up next for Morning Conversations</option><option value="/648-december-2010.html">>&nbsp;December 2010</option><option value="/1196-december-2011.html">>&nbsp;December 2011</option><option value="/future-students/academic-support/developmental-studies/">>&nbsp;Developmental Studies</option><option value="/1063-digital-photography-class-slated-in-november.html">>&nbsp;Digital photography class slated in November</option><option value="/158-directions-and-campus-maps.html">>&nbsp;Directions & Campus Maps</option><option value="/faculty-and-staff/directory.php">>&nbsp;Directory</option><option value="/203-disability-services.html">>&nbsp;Disability Services</option><option value="/future-students/distance-learning/faculty-procedure-manual/">>&nbsp;Distance Learning Faculty Procedure Manual</option><option value="/307-driver-education-instructor.html">>&nbsp;Driver Education Instructor</option><option value="/382-drop-add-withdrawal.html">>&nbsp;Drop/Add/Withdrawal</option><option value="/824-e-counseling-services.html">>&nbsp;e-Counseling Services</option><option value="/349-e-mail-accounts.html">>&nbsp;E-mail Accounts</option><option value="/cce/nclicense/notarypublic/enotary/">>&nbsp;E-Notary Public</option><option value="/242-early-childhood-education.html">>&nbsp;Early Childhood Education</option><option value="http://www.spcc.edu/future-students/programs-of-study/college-credit-programs/242-early-childhood-education.html">>&nbsp;Early Childhood Education</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/edu/">>&nbsp;Early Childhood Education Research Guide</option><option value="/58-early-college-admissions.html">>&nbsp;Early College admissions</option><option value="/cce/nclicense/eec/">>&nbsp;Early Educator Certification (EEC)</option><option value="/419-education-tax-credits.html">>&nbsp;Education Tax Credits</option><option value="/cce/medical/ekg/">>&nbsp;EKG Technician</option><option value="/cce/construction/electrical/">>&nbsp;Electrical</option><option value="/cce/nclicense/electrical/">>&nbsp;Electrical Renewal</option><option value="/243-electrical-electronics-technology.html">>&nbsp;Electrical/Electronics Technology</option><option value="http://www.spcc.edu/future-students/www.spcc.edu/future-students/243-electrical-and-electronics-technology.html">>&nbsp;Electrical/Electronics Technology</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/elc/">>&nbsp;Electrical/Electronics Technology Research Guide</option><option value="/330-electronic-books.html">>&nbsp;Electronic Books</option><option value="/future-students/distance-learning/elluminate/">>&nbsp;Elluminate Live!</option><option value="/cce/emergencyservices/">>&nbsp;Emergency Services</option><option value="/494-employee-awards-presented-during-convocation.html">>&nbsp;Employee awards presented during convocation</option><option value="/995-employee-news.html">>&nbsp;Employee News</option><option value="/cce/hrd/postjob/">>&nbsp;Employers Post a Job Here</option><option value="/cce/emergencyservices/simulator/">>&nbsp;EMS Simulator</option><option value="/cce/emergencyservices/affiliationform/">>&nbsp;EMS/Fire/Law Enforcement Affiliation Form</option><option value="/cce/emergencyservices/emt/">>&nbsp;EMT, Paramedic Certification and Continuing Education</option><option value="/878-endowed-scholarship-established-to-honor-mckay.html">>&nbsp;Endowed scholarship established to honor McKay</option><option value="/1150-endowed-scholarship-established-to-honor-mckay.html">>&nbsp;Endowed scholarship established to honor McKay</option><option value="/77-english-for-speakers-of-other-languages-(esol).html">>&nbsp;English for Speakers of Other Languages (ESOL)</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/eng/">>&nbsp;English Research Guide</option><option value="/384-enrollment-degree-verification.html">>&nbsp;Enrollment/Degree Verification</option><option value="/244-entrepreneurship.html">>&nbsp;Entrepreneurship</option><option value="/cce/nclicense/escortvehicle/">>&nbsp;Escort Vehicle Operator</option><option value="/81-esol-distance-learning.html">>&nbsp;ESOL Distance Learning</option><option value="/1166-esol-instructor.html">>&nbsp;ESOL Instructor</option><option value="/full-time-job-openings/esol-instructor/">>&nbsp;ESOL Instructor</option><option value="http://www.spcc.edu/uploads/Basic%20Skills/Spring-2012-ESOL-Class-Schedule-English.pdf">>&nbsp;ESOL Schedule (English)</option><option value="http://www.spcc.edu/uploads/Basic%20Skills/Spring-2012-ESOL-Class-Schedule-Spanish.pdf">>&nbsp;ESOL Schedule (Spanish)</option><option value="/362-extreme-players-club.html">>&nbsp;Extreme Players Club</option><option value="/159-facts-about-spcc.html">>&nbsp;Facts About SPCC</option><option value="/faculty-and-staff/">>&nbsp;Faculty & Staff</option><option value="/498-fall-entrepreneurship-programs-scheduled.html">>&nbsp;Fall Entrepreneurship Programs Scheduled</option><option value="/76-faq.html">>&nbsp;FAQ</option><option value="/200-faq.html">>&nbsp;FAQ</option><option value="/779-fast-forward---business.html">>&nbsp;Fast Forward - Business</option><option value="/780-fast-forward---computers.html">>&nbsp;Fast Forward - Computers</option><option value="/778-fast-forward---education-and-human-services.html">>&nbsp;Fast Forward - Education and Human Services</option><option value="/777-fast-forward---emergency-services.html">>&nbsp;Fast Forward - Emergency Services</option><option value="/776-fast-forward---healthcare.html">>&nbsp;Fast Forward - Healthcare</option><option value="/785-fast-forward---industrial.html">>&nbsp;Fast Forward - Industrial</option><option value="/767-fast-forward-short-term-training.html">>&nbsp;Fast Forward Short Term Training</option><option value="http://www.spcc.edu/future-students/767-fast-forward-short-term-training.html">>&nbsp;Fast Forward Short Term Training</option><option value="/658-february-2010.html">>&nbsp;February 2010</option><option value="/646-february-2011.html">>&nbsp;February 2011</option><option value="/1254-february-2012.html">>&nbsp;February 2012</option><option value="/cce/medical/feedingassistant/">>&nbsp;Feeding Assistant Program</option><option value="/1326-fifth-battle-of-the-bands-is-april-21.html">>&nbsp;Fifth Battle of the Bands is April 21</option><option value="/418-financial-aid-calendar.html">>&nbsp;Financial Aid Calendar</option><option value="/fafsa-day/">>&nbsp;Financial Aid Help Available at SPCC on Feb. 19</option><option value="/cce/massage/graduates/">>&nbsp;Find a Massage Therapy Graduate</option><option value="/323-finding-articles-and-e-books.html">>&nbsp;Finding Articles & E-Books</option><option value="/1148-fire-for-effect-wins-battle-of-the-bands.html">>&nbsp;Fire for Effect wins Battle of the Bands</option><option value="/962-fire-protection-technology.html">>&nbsp;Fire Protection Technology</option><option value="/cce/emergencyservices/fire/">>&nbsp;Firefighter Training Schedule</option><option value="/597-flu-information-and-protocol.html">>&nbsp;Flu Information and Protocol</option><option value="/590-food-drive-starts-aug.-24.html">>&nbsp;Food drive starts Aug. 24</option><option value="/415-forms.html">>&nbsp;Forms</option><option value="/1256-four-from-spcc-chosen-for-state-art-show.html">>&nbsp;Four from SPCC chosen for state art show</option><option value="/1236-free-college-day-2012.html">>&nbsp;Free College Day 2012</option><option value="/1245-free-college-day-set-for-saturday,-feb.-18.html">>&nbsp;Free College Day set for Saturday, Feb. 18</option><option value="/726-free-income-tax-filing-assistance-in-ansonville-march-10.html">>&nbsp;Free Income Tax Filing Assistance in Ansonville March 10</option><option value="/623-full-time-job-openings.html">>&nbsp;Full-Time Job Openings</option><option value="/363-future-educators-club.html">>&nbsp;Future Educators Club</option><option value="/1204-future-educators-club-makes-donation-to-east-elementary.html">>&nbsp;Future Educators Club makes donation to East Elementary</option><option value="/future-students/">>&nbsp;Future Students</option><option value="/923-gainful-employment.html">>&nbsp;Gainful Employment</option><option value="/uploads/Basic%20Skills/GED-Fall-2011-schedule-Spanish.pdf">>&nbsp;GED en Español Schedule</option><option value="/86-general-education-development-(ged).html">>&nbsp;General Education Development (GED)</option><option value="/963-general-occupational-technology.html">>&nbsp;General Occupational Technology</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/geo/">>&nbsp;Geography Research Guide</option><option value="/current-students/go.spcc.edu/">>&nbsp;GO Student Portal</option><option value="http://www.spcc.edu/current-students/go.spcc.edu/">>&nbsp;GO! Labs</option><option value="/40-graduation.html">>&nbsp;Graduation</option><option value="/1300-grainger-donates-$10,000-for-scholarships.html">>&nbsp;Grainger donates $10,000 for scholarships</option><option value="/810-graphic-design-portfolio-show-may-9,-2011.html">>&nbsp;Graphic Design Portfolio Show May 9, 2011</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/grd/">>&nbsp;Graphic Design Research Guide</option><option value="/595-have-you-gotten-your-library-card-yet.html">>&nbsp;Have you gotten your library card yet</option><option value="/724-health-programs-deadline-extended.html">>&nbsp;Health Programs Deadline Extended</option><option value="/508-high-fidelity-mannequin-seems-almost-human.html">>&nbsp;High-fidelity mannequin seems almost human</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/his/">>&nbsp;History Research Guide</option><option value="/833-holcombe’s-award-linked-to-spcc-education.html">>&nbsp;Holcombe’s award linked to SPCC education</option><option value="/1267-holla---sscs1105.html">>&nbsp;HOLLA - SSCS1105</option><option value="/495-honor-rolls-for-2010-summer-term-released.html">>&nbsp;Honor Rolls for 2010 Summer Term Released</option><option value="/796-horticulture-spring-plant-sale.html">>&nbsp;Horticulture Spring Plant Sale</option><option value="/201-hours.html">>&nbsp;Hours</option><option value="/161-hours-of-operation.html">>&nbsp;Hours of Operation</option><option value="/173-how-to-start---basic-skills-placement-testing-and-orientation.html">>&nbsp;How to start - Basic Skills Placement Testing and Orientation</option><option value="/cce/hrd/anson/">>&nbsp;HRD Classes - Anson Co.</option><option value="/cce/hrd/union/">>&nbsp;HRD Classes - Union Co.</option><option value="/1250-human-resources.html">>&nbsp;Human Resources</option><option value="/cce/hrd/">>&nbsp;Human Resources Development</option><option value="/596-human-service-technology-fall-2009-lecture-series-.html">>&nbsp;Human Service Technology Fall 2009 Lecture Series </option><option value="/393-human-services-research-guide.html">>&nbsp;Human Services Research Guide</option><option value="/245-human-services-technology.html">>&nbsp;Human Services Technology</option><option value="http://www.spcc.edu/future-students/programs-of-study/college-credit-programs/245-human-services-technology.html">>&nbsp;Human Services Technology</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/hum/">>&nbsp;Humanities Research Guide</option><option value="http://www.spcc.edu/future-students/programs-of-study/college-credit-programs/237-air-conditioning,-heating,-and-refrigeration-technology.html">>&nbsp;HVAC at SPCC</option><option value="/cce/autobody/icar/">>&nbsp;I-CAR Classes</option><option value="/745-i-car-training-at-spcc.html">>&nbsp;I-CAR Training at SPCC</option><option value="/350-id-cards.html">>&nbsp;ID Cards</option><option value="/364-impact.html">>&nbsp;IMPACT</option><option value="/1271-impact-hosts-spcc's-black-history-month-celebration.html">>&nbsp;IMPACT hosts SPCC's Black History Month celebration</option><option value="/617-inclement-weather-closings.html">>&nbsp;Inclement Weather Closings</option><option value="/246-infant-and-toddler-care-certificate.html">>&nbsp;Infant and Toddler Care Certificate</option><option value="/584-information-gateway-library-newsletter.html">>&nbsp;Information Gateway-Library Newsletter</option><option value="/future-students/libraries/infolit/">>&nbsp;Information Literacy</option><option value="/future-students/libraries/illform/">>&nbsp;Interlibrary Loan Form</option><option value="/940-intro-to-auto-body-repair-careers.html">>&nbsp;Intro to Auto Body Repair Careers</option><option value="/cce/medical/intromassage/">>&nbsp;Introduction to Massage Therapy</option><option value="/994-iron-the-shirt-award.html">>&nbsp;Iron the Shirt Award</option><option value="/659-january-2010.html">>&nbsp;January 2010</option><option value="/647-january-2011.html">>&nbsp;January 2011</option><option value="/1232-january-2012.html">>&nbsp;January 2012</option><option value="/1213-jerry-thomas-appointed-to-spcc-board-of-trustees.html">>&nbsp;Jerry Thomas appointed to SPCC Board of Trustees</option><option value="/faculty-and-staff/jobs/">>&nbsp;Jobs @SPCC</option><option value="/653-july-2010.html">>&nbsp;July 2010</option><option value="/891-july-2011.html">>&nbsp;July 2011</option><option value="/654-june-2010.html">>&nbsp;June 2010</option><option value="/840-june-2011.html">>&nbsp;June 2011</option><option value="/411-keeping-financial-aid.html">>&nbsp;Keeping Financial Aid</option><option value="/cce/emergencyservices/lawenforcement/">>&nbsp;Law Enforcement</option><option value="/cce/bit/leadmanage/">>&nbsp;Leadership and Management</option><option value="/301-lean-sigma-institute.html">>&nbsp;Lean-Sigma Institute</option><option value="/cce/bit/leansigma/">>&nbsp;Lean/Sigma Institute</option><option value="/770-learning-college.html">>&nbsp;Learning College</option><option value="/772-learning-college-core-skills.html">>&nbsp;Learning College Core Skills</option><option value="/775-learning-college-language-definitions.html">>&nbsp;Learning College Language Definitions</option><option value="/773-learning-college-reading-suggestions.html">>&nbsp;Learning College Reading Suggestions</option><option value="/future-students/libraries/">>&nbsp;Libraries</option><option value="/future-students/libraries/">>&nbsp;Libraries</option><option value="/future-students/libraries/faq/">>&nbsp;Library FAQ's</option><option value="/327-library-locations-and-hours.html">>&nbsp;Library Locations and Hours</option><option value="/1314-library-technician---(internal-applicants-only).html">>&nbsp;Library Technician - (Internal applicants only)</option><option value="/819-library-tutorials.html">>&nbsp;Library Tutorials</option><option value="/1138-lighting-the-way-conference-set-for-aug.-26-at-spcc.html">>&nbsp;Lighting the Way conference set for Aug. 26 at SPCC</option><option value="/806-lineup-announced-for-spcc-battle-of-the-bands.html">>&nbsp;Lineup announced for SPCC Battle of the Bands</option><option value="/1057-links.html">>&nbsp;Links</option><option value="/366-literary-arts-club.html">>&nbsp;Literary Arts Club</option><option value="/1049-locally-articulated-course-credit.html">>&nbsp;Locally Articulated Course Credit</option><option value="/1087-lockhart-taylor-center-to-host-open-house.html">>&nbsp;Lockhart-Taylor Center to Host Open House</option><option value="/387-login-and-access-dates.html">>&nbsp;Login and Access Dates</option><option value="/604-low-cost-massage-clinics.html">>&nbsp;Low-cost massage clinics</option><option value="/cce/manufacturing/machining/">>&nbsp;Machining Technology - CNC</option><option value="/cce/manufacturing/">>&nbsp;Manufacturing - Advanced Technologies</option><option value="/657-march-2010.html">>&nbsp;March 2010</option><option value="/728-march-2011.html">>&nbsp;March 2011</option><option value="/1279-march-2012.html">>&nbsp;March 2012</option><option value="/977-marketing---crmc1101.html">>&nbsp;Marketing - CRMC1101</option><option value="/cce/construction/masonry/">>&nbsp;Masonry</option><option value="/cce/massage/">>&nbsp;Massage Therapy</option><option value="/cce/personalinterest/massageintro/">>&nbsp;Massage Therapy - Intro</option><option value="/cce/massage/clinicinfo/">>&nbsp;Massage Therapy Clinic Information</option><option value="/1252-massage-therapy-program-graduates-17.html">>&nbsp;Massage Therapy program graduates 17</option><option value="/1260-massage-therapy-program-offering-low-cost-massages.html">>&nbsp;Massage Therapy program offering low-cost massages</option><option value="/cce/massage/stats/">>&nbsp;Massage Therapy Statistics</option><option value="/1216-massage-therapy-students-show-their-muscles.html">>&nbsp;Massage Therapy students show their muscles</option><option value="/future-students/libraries/mrform/">>&nbsp;Material Request Form</option><option value="/cce/personalinterest/mathrefresher/">>&nbsp;Math Refresher</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/mat/">>&nbsp;Math Research Guide</option><option value="/655-may-2010.html">>&nbsp;May 2010</option><option value="/808-may-2011.html">>&nbsp;May 2011</option><option value="/1341-may-2012.html">>&nbsp;May 2012</option><option value="/cce/nclicense/hvac/">>&nbsp;Mechanical (HVAC) Renewal</option><option value="http://216.119.108.63/corporate-and-continuing-education/111-mechatronics---industrial-maintenance.html">>&nbsp;Mechatronics</option><option value="/cce/manufacturing/mechatronics/">>&nbsp;Mechatronics - Industrial Maintenance</option><option value="/1187-medcenter-air-helicopter-visits-spcc-class.html">>&nbsp;MedCenter Air helicopter visits SPCC class</option><option value="/cce/medical/medcaladmin/">>&nbsp;Medical Administrative Assistant</option><option value="/247-medical-assisting.html">>&nbsp;Medical Assisting</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/ma/">>&nbsp;Medical Assisting Research Guide</option><option value="/1327-medical-assisting-students-to-conduct-health-and-wellness-fair.html">>&nbsp;Medical Assisting students to conduct Health and Wellness Fair</option><option value="/368-medical-assisting-mla-club.html">>&nbsp;Medical Assisting/MLA Club</option><option value="/cce/profcertifications/medicalcoding/">>&nbsp;Medical Coding - Online</option><option value="/cce/medical/mla/">>&nbsp;Medical Laboratory Assistant</option><option value="/248-medical-office-administration.html">>&nbsp;Medical Office Administration</option><option value="http://www.spcc.edu/future-students/248-medical-office-administration.html">>&nbsp;Medical Office Administration</option><option value="/cce/medical/">>&nbsp;Medical Professions</option><option value="http://www.spcc.edu/future-students/249-medical-sonography.html">>&nbsp;Medical Sonography</option><option value="/249-medical-sonography.html">>&nbsp;Medical Sonography</option><option value="/374-medical-sonography-club.html">>&nbsp;Medical Sonography Club</option><option value="/1145-medical-sonography-pinning-ceremony.html">>&nbsp;Medical Sonography pinning ceremony</option><option value="/cce/medical/transcription/">>&nbsp;Medical Transcription</option><option value="/cce/medical/medicationaide/">>&nbsp;Medication Aide</option><option value="/202-meet-the-counselors.html">>&nbsp;Meet the Counselors</option><option value="/579-micah-eubanks-nominated-for-academic-excellence-award.html">>&nbsp;Micah Eubanks nominated for Academic Excellence award</option><option value="/162-mission-statement.html">>&nbsp;Mission Statement</option><option value="/cce/moodle/">>&nbsp;Moodle</option><option value="/388-moodle-help.html">>&nbsp;Moodle Help</option><option value="/589-moodle-instruction-labs-offered.html">>&nbsp;Moodle instruction labs offered</option><option value="/future-students/libraries/moodle/">>&nbsp;Moodle Tutorials</option><option value="/1338-more-than-100-attend-anson-county-career-fair.html">>&nbsp;More than 100 attend Anson County Career Fair</option><option value="/1333-more-than-50-exhibitors-slated-for-union-county-career-fair.html">>&nbsp;More than 50 exhibitors slated for Union County Career Fair</option><option value="/139-motorcycle-rider-safety-training.html">>&nbsp;Motorcycle Rider Safety Training</option><option value="/cce/medical/multiskillna/">>&nbsp;Multi-Skilled Nursing Assistant</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/mus/">>&nbsp;Music Research Guide</option><option value="/future-students/libraries/finding-articles-and-e-books/nc-live-quick-links/moodle/">>&nbsp;NC LIVE Help</option><option value="/future-students/libraries/ncpasswordrequest/">>&nbsp;NC LIVE Password Request Form</option><option value="/331-nc-live-quick-links.html">>&nbsp;NC Live Quick Links</option><option value="/future-students/libraries/nclivetutorials/">>&nbsp;NC LIVE Tutorials</option><option value="/cce/nclicense/">>&nbsp;NC Professional Licensing/Renewal</option><option value="/1200-ncren-could-have-significant-impact-on-anson-county.html">>&nbsp;NCREN could have significant impact on Anson County</option><option value="/196-nelnet-tuition-payment-option.html">>&nbsp;Nelnet Tuition Payment Option</option><option value="/956-net-price-calculator-tool.html">>&nbsp;Net Price Calculator Tool</option><option value="/750-new-auto-repair-technology.html">>&nbsp;New auto repair technology</option><option value="/cce/autobody/tech/">>&nbsp;New Auto Repair Technology</option><option value="/cce/hrd/upcoming/">>&nbsp;New Upcoming Classes</option><option value="/163-news-and-publications.html">>&nbsp;News & Publications</option><option value="/517-news-archives.html">>&nbsp;News Archives</option><option value="/329-newsletter.html">>&nbsp;Newsletter</option><option value="/803-night-owl-carnival-2011-video.html">>&nbsp;Night Owl Carnival 2011 Video</option><option value="/389-north-carolina-elearning-portal.html">>&nbsp;North Carolina eLearning Portal</option><option value="/571-north-carolina-now-unc-tv---advanced-manufacturing-training-at-spcc.html">>&nbsp;North Carolina NOW-UNC-TV - Advanced Manufacturing Training at SPCC</option><option value="/496-norwood-joins-spcc-board-of-trustees.html">>&nbsp;Norwood Joins SPCC Board of Trustees</option><option value="/cce/nclicense/notarypublic/">>&nbsp;Notary Public</option><option value="/649-november-2010.html">>&nbsp;November 2010</option><option value="/1120-november-2011.html">>&nbsp;November 2011</option><option value="/cce/medical/na1/">>&nbsp;Nurse Assistant I (CNA)</option><option value="/cce/medical/na2/">>&nbsp;Nurse Assistant II</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/nur/">>&nbsp;Nursing Research Guide</option><option value="/650-october-2010.html">>&nbsp;October 2010</option><option value="/1043-october-2011.html">>&nbsp;October 2011</option><option value="/164-offices-of-the-college-organizational-charts.html">>&nbsp;Offices of the College-Organizational Charts</option><option value="/575-official-2006---2007-spcc-college-catalog.html">>&nbsp;Official 2006 - 2007 SPCC College Catalog</option><option value="/574-official-2007---2008-spcc-college-catalog.html">>&nbsp;Official 2007 - 2008 SPCC College Catalog</option><option value="/576-official-2008---2009-spcc-college-catalog.html">>&nbsp;Official 2008 - 2009 SPCC College Catalog</option><option value="/577-official-2009-2010-spcc-college-catalog.html">>&nbsp;Official 2009-2010 SPCC College Catalog</option><option value="/578-official-2010-2011-spcc-college-catalog.html">>&nbsp;Official 2010-2011 SPCC College Catalog</option><option value="/938-official-2011-2012-spcc-college-catalog.html">>&nbsp;Official 2011-2012 SPCC College Catalog</option><option value="/1218-one-week-left-to-register-for-spring-classes.html">>&nbsp;One week left to register for spring classes</option><option value="/1004-online-learner-handbook.html">>&nbsp;Online Learner Handbook</option><option value="/cce/onlinelearning/">>&nbsp;Online Learning</option><option value="/391-online-library-orientation.html">>&nbsp;Online Library Orientation</option><option value="/future-students/libraries/orientation/">>&nbsp;Online Library Orientation</option><option value="/501-open-house-at-aerospace-and-advanced-manufacturing-training-center-draws-large-crowd.html">>&nbsp;Open House at Aerospace and Advanced Manufacturing Training Center Draws Large Crowd</option><option value="/369-organization-of-human-service-education.html">>&nbsp;Organization of Human Service Education</option><option value="/18-orientation.html">>&nbsp;Orientation</option><option value="/cce/medical/pals/">>&nbsp;PALS</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/lex/">>&nbsp;Paralegal Research Guide</option><option value="/250-paralegal-technology.html">>&nbsp;Paralegal Technology</option><option value="http://www.spcc.edu/future-students/www.spcc.edu/future-students/250-paralegal-technology.html">>&nbsp;Paralegal Technology</option><option value="/355-parking.html">>&nbsp;Parking</option><option value="/626-part-time-job-openings.html">>&nbsp;Part-Time Job Openings</option><option value="/198-payments.html">>&nbsp;Payments</option><option value="/cce/medical/pears/">>&nbsp;PEARS</option><option value="/916-peer-tutors.html">>&nbsp;Peer tutors</option><option value="/165-performance-measures.html">>&nbsp;Performance Measures</option><option value="/cce/personalinterest/">>&nbsp;Personal Interest</option><option value="/607-personal-interest-classes-begin-in-october.html">>&nbsp;Personal interest classes begin in October</option><option value="/370-phi-theta-kappa.html">>&nbsp;Phi Theta Kappa</option><option value="/588-phi-theta-kappa-accepting-school-supplies.html">>&nbsp;Phi Theta Kappa accepting school supplies</option><option value="/507-phi-theta-kappa-helps-fire-victims.html">>&nbsp;Phi Theta Kappa helps fire victims</option><option value="/1075-phi-theta-kappa-helps-fire-victims.html">>&nbsp;Phi Theta Kappa helps fire victims</option><option value="/719-photos.html">>&nbsp;Photos</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/phy/">>&nbsp;Physics Research Guide</option><option value="/600-plan-your-trip-to-scotland-with-spcc.html">>&nbsp;Plan Your Trip To Scotland with SPCC</option><option value="/cce/nclicense/plumbingrenewal/">>&nbsp;Plumbing Renewal</option><option value="/871-podcasts---learning-tips.html">>&nbsp;Podcasts - Learning Tips</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/pol/">>&nbsp;Political Science Research Guide</option><option value="/251-practical-nursing.html">>&nbsp;Practical Nursing</option><option value="/371-practical-nursing-club.html">>&nbsp;Practical Nursing Club</option><option value="http://www.spcc.edu/future-students/programs-of-study/college-credit-programs/251-practical-nursing.html">>&nbsp;Practical Nursing Diploma</option><option value="/1139-practical-nursing-pinning-ceremony.html">>&nbsp;Practical Nursing pinning ceremony</option><option value="/cce/massage/press/">>&nbsp;Press Room</option><option value="/cce/altenergy/press/">>&nbsp;Press Room</option><option value="/uploads/2010 Library Procedures.pdf">>&nbsp;Procedures</option><option value="/cce/profcertifications/">>&nbsp;Professional Certifications</option><option value="/915-professional-tutors.html">>&nbsp;Professional Tutors</option><option value="/19-programs-of-study.html">>&nbsp;Programs of Study</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/psy/">>&nbsp;Psychology Research Guide</option><option value="/518-qep.html">>&nbsp;QEP</option><option value="/1261-quiet-study-rooms.html">>&nbsp;Quiet Study Rooms</option><option value="/1135-raye-resigns-from-board-of-trustees;-two-reappointed.html">>&nbsp;Raye resigns from Board of Trustees; two reappointed</option><option value="/486-refunds.html">>&nbsp;Refunds</option><option value="/1186-register-for-spring-classes,-earn-a-chance-at-great-prizes.html">>&nbsp;Register for spring classes, earn a chance at great prizes</option><option value="/1298-registration-for-summer,-fall-begins-april-10.html">>&nbsp;Registration for summer, fall begins April 10</option><option value="/announcements/registration-summer-fall/">>&nbsp;Registration Information</option><option value="/599-relay-for-life-shirts-and-cups-available.html">>&nbsp;Relay for Life shirts and cups available</option><option value="/1006-release-of-information.html">>&nbsp;Release of Information</option><option value="/895-report-to-the-community.html">>&nbsp;Report to the Community</option><option value="/1270-request-for-proposal---mobile-concession-unit.html">>&nbsp;Request for Proposal - Mobile Concession Unit</option><option value="/332-research-guides-by-subject-.html">>&nbsp;Research Guides by Subject </option><option value="/cce/sbec/resources/">>&nbsp;Resources</option><option value="/466-rn-to-bsn-through-winston-salem-state-university.html">>&nbsp;RN to BSN through Winston-Salem State University</option><option value="/503-ruiz-wins-great-100-scholarship.html">>&nbsp;Ruiz wins Great 100 scholarship</option><option value="/836-rumble-named-spcc-learning-college-faculty-of-the-year.html">>&nbsp;Rumble named SPCC Learning College Faculty of the Year</option><option value="/about-spcc/safety/">>&nbsp;Safety at SPCC</option><option value="/373-saving-graces-club-(moa).html">>&nbsp;Saving Graces Club (MOA)</option><option value="/509-sbc-line-up---spring-11.html">>&nbsp;SBC Line Up - Spring 11</option><option value="/cce/sbec/summercamp/">>&nbsp;SBEC Summer Camp 2012</option><option value="/412-scholarships.html">>&nbsp;Scholarships</option><option value="/467-school-age-education.html">>&nbsp;School-Age Education</option><option value="/cce/register/">>&nbsp;Search, Register, and Pay for Classes</option><option value="/cce/sbec/seminars/">>&nbsp;Seminars</option><option value="/651-september-2010.html">>&nbsp;September 2010</option><option value="/965-september-2011.html">>&nbsp;September 2011</option><option value="/89-servicio-en-espa�ol.html">>&nbsp;Servicio en Español</option><option value="/cce/nclicense/servsafe/">>&nbsp;ServSafe Training</option><option value="/1220-sga-adopts-families-for-christmas.html">>&nbsp;SGA adopts families for Christmas</option><option value="/1000-sga-events.html">>&nbsp;SGA Events</option><option value="/1008-sga-past-events.html">>&nbsp;SGA Past Events</option><option value="/1110-shop-assistant---ceam11-01.html">>&nbsp;Shop Assistant - CEAM11-01</option><option value="/1169-simulation-and-game-development.html">>&nbsp;Simulation and Game Development</option><option value="http://www.spcc.edu/college-credit-programs/cit/1169-simulation-and-game-development-certificate.html">>&nbsp;Simulation and Game Development</option><option value="/cce/sbec/">>&nbsp;Small Business and Entrepreneurship Center</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/soc/">>&nbsp;Sociology Research Guide</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/son/">>&nbsp;Sonography Research Guide</option><option value="/cce/medical/sonographyshadow/">>&nbsp;Sonography Shadow Class</option><option value="/406-spanish-research-guide.html">>&nbsp;Spanish Research Guide</option><option value="/1311-spcc-adds-multimedia,-web-design-certificates.html">>&nbsp;SPCC adds multimedia, web design certificates</option><option value="/497-spcc-aerospace-and-advanced-manufacturing-training-center-to-have-open-house.html">>&nbsp;SPCC Aerospace & Advanced Manufacturing Training Center to have open house</option><option value="/1089-spcc-and-wingate-to-offer-2+2-elementary-teacher-education-program.html">>&nbsp;SPCC and Wingate to Offer 2+2 Elementary Teacher Education Program</option><option value="/581-spcc-announces-business-start-up-seminar.html">>&nbsp;SPCC Announces Business Start-Up Seminar</option><option value="/513-spcc-announces-six-finalists-in-president-search-.html">>&nbsp;SPCC Announces Six Finalists in President Search </option><option value="/2011-2012/accelerating-opportunity-grant/">>&nbsp;SPCC Awarded Grant to Support Training for Jobs for the Future</option><option value="/1101-spcc-awards-endowed-and-community-scholarships.html">>&nbsp;SPCC Awards Endowed & Community Scholarships</option><option value="/505-spcc-begins-compensatory-education-class-in-anson-county.html">>&nbsp;SPCC Begins Compensatory Education Class in Anson County</option><option value="/1074-spcc-begins-compensatory-education-class-in-anson-county.html">>&nbsp;SPCC begins compensatory education class in Anson County</option><option value="http://www.spcc.edu/news.php?id=2632">>&nbsp;SPCC Board of Trustees Announces New President</option><option value="/787-spcc-career-cruiser-offers-tax-prep-in-wadesboro-on-april-14.html">>&nbsp;SPCC Career Cruiser offers tax prep in Wadesboro on April 14</option><option value="/514-spcc-career-cruiser-to-offer-free-tax-prep-in-anson-county.html">>&nbsp;SPCC Career Cruiser To Offer Free Tax Prep in Anson County</option><option value="/1152-spcc-career-cruiser-was-topic-at-anson-chamber-lunch-and-learn.html">>&nbsp;SPCC Career Cruiser was topic at Anson Chamber Lunch & Learn</option><option value="/1117-spcc-compensatory-education-students-learn-about-safety.html">>&nbsp;SPCC Compensatory Education students learn about safety</option><option value="/1086-spcc-expands-short-term-training-opportunities.html">>&nbsp;SPCC Expands Short-Term Training Opportunities</option><option value="/167-spcc-foundation.html">>&nbsp;SPCC Foundation</option><option value="/1104-spcc-foundation-and-premiere-fibers-create-new-scholarships.html">>&nbsp;SPCC Foundation & Premiere Fibers Create New Scholarships</option><option value="/1077-spcc-foundation-recognizes-work-of-frank-carpenter.html">>&nbsp;SPCC Foundation Recognizes Work of Frank Carpenter</option><option value="/1131-spcc-gets-golden-leaf-extension-for-career-cruiser.html">>&nbsp;SPCC gets Golden LEAF extension for Career Cruiser</option><option value="/1071-spcc-graduates-235-with-ged-or-adult-high-school-diplomas.html">>&nbsp;SPCC Graduates 235 with GED or Adult High School Diplomas</option><option value="/1144-spcc-graduates-413-with-ged,-adult-high-school-diplomas.html">>&nbsp;SPCC graduates 413 with GED, Adult High School diplomas</option><option value="/1093-spcc-holds-blet-graduation.html">>&nbsp;SPCC Holds BLET Graduation</option><option value="/1092-spcc-holds-graduation-at-brown-creek-correctional-institution.html">>&nbsp;SPCC Holds Graduation at Brown Creek Correctional Institution</option><option value="/827-spcc-holds-graduation,-honors-retiring-president.html">>&nbsp;SPCC holds graduation, honors retiring president</option><option value="/1107-spcc-holds-phi-theta-kappa-induction.html">>&nbsp;SPCC Holds Phi Theta Kappa Induction</option><option value="/1108-spcc-holds-triple-celebration-at-lockhart-taylor-center.html">>&nbsp;SPCC Holds Triple Celebration at Lockhart-Taylor Center</option><option value="/1106-spcc-holds-two-commencement-exercises---2007.html">>&nbsp;SPCC Holds Two Commencement Exercises - 2007</option><option value="/1103-spcc-honors-medical-sonography-graduates-2007.html">>&nbsp;SPCC Honors Medical Sonography Graduates 2007</option><option value="/1336-spcc-honors-scholarship-winners,-donors.html">>&nbsp;SPCC honors scholarship winners, donors</option><option value="/766-spcc-hosts-2011-anson-career-connections-fair-in-lockhart-taylor-center.html">>&nbsp;SPCC Hosts 2011 Anson Career Connections Fair in Lockhart-Taylor Center</option><option value="/1070-spcc-hosts-camp-health-tech.html">>&nbsp;SPCC Hosts Camp Health Tech</option><option value="/1094-spcc-hosts-camp-health-tech-2007.html">>&nbsp;SPCC Hosts Camp Health Tech 2007</option><option value="/1095-spcc-hosts-child-care-conference.html">>&nbsp;SPCC Hosts Child Care Conference</option><option value="/1091-spcc-hosts-graphic-design-camp.html">>&nbsp;SPCC Hosts Graphic Design Camp</option><option value="/1265-spcc-hosts-speedway-ceo-for-chamber-luncheon.html">>&nbsp;SPCC hosts speedway CEO for chamber luncheon</option><option value="/1069-spcc-hosts-student-art-exhibit-at-lockhart-taylor-center.html">>&nbsp;SPCC Hosts Student Art Exhibit at Lockhart-Taylor Center</option><option value="/1079-spcc-hosts-student-art-exhibit-at-lockhart-taylor-center.html">>&nbsp;SPCC Hosts Student Art Exhibit at Lockhart-Taylor Center</option><option value="/516-spcc-in-the-news.html">>&nbsp;SPCC In The News</option><option value="/1251-spcc-increases-prize-money-for-fifth-battle-of-the-bands.html">>&nbsp;SPCC increases prize money for fifth Battle of the Bands</option><option value="/1082-spcc-instructor-writes-software-manual.html">>&nbsp;SPCC Instructor Writes Software Manual</option><option value="/1085-spcc-instructors-win-townsend-press-essay-contest.html">>&nbsp;SPCC Instructors Win Townsend Press Essay Contest</option><option value="/512-spcc-invites-public-to-attend-forums-with-six-candidates-for-president.html">>&nbsp;SPCC Invites Public to Attend Forums with Six Candidates for President</option><option value="/1096-spcc-is-superior!.html">>&nbsp;SPCC Is Superior!</option><option value="/1098-spcc-launches-career-readiness-certificate-program.html">>&nbsp;SPCC Launches Career Readiness Certificate Program</option><option value="http://www.spcc.edu/future-students/libraries/">>&nbsp;SPCC libraries</option><option value="/1062-spcc-marketing-and-communications-wins-two-awards.html">>&nbsp;SPCC Marketing and Communications wins two awards</option><option value="/1132-spcc-massage-therapy-department-making-clinical-appointments.html">>&nbsp;SPCC Massage Therapy Department making clinical appointments</option><option value="/168-spcc-master-plan.html">>&nbsp;SPCC Master Plan</option><option value="/1102-spcc-names-2006-07-graduates.html">>&nbsp;SPCC Names 2006-07 Graduates</option><option value="/1078-spcc-names-boardroom-in-honor-of-longtime-trustee-chair.html">>&nbsp;SPCC Names Boardroom in Honor of Longtime Trustee Chair</option><option value="/1105-spcc-names-ged-and-adult-hs-graduates-2007.html">>&nbsp;SPCC Names GED & Adult HS Graduates 2007</option><option value="/795-spcc-night-owl-carnival-is-april-29.html">>&nbsp;SPCC Night Owl Carnival is April 29</option><option value="/1165-spcc-nursing-students-to-have-health-and-wellness-fairs.html">>&nbsp;SPCC nursing students to have Health and Wellness Fairs</option><option value="/834-spcc-offers-classes-on-internet-research-for-legal-topics.html">>&nbsp;SPCC offers classes on Internet research for legal topics</option><option value="/1129-spcc-offers-free-computer-skills-courses-for-unemployed-and-elderly.html">>&nbsp;SPCC offers free computer skills courses for unemployed and elderly</option><option value="/1278-spcc-offers-new-'introduction-to-auto-body-careers'-course.html">>&nbsp;SPCC offers new 'Introduction to Auto Body Careers' course</option><option value="/835-spcc-offers-summer-fitness-classes.html">>&nbsp;SPCC offers summer fitness classes</option><option value="/future-students/distance-learning/learner-orientation/">>&nbsp;SPCC Online Learner Digital Orientation</option><option value="/1084-spcc-presents-annual-employee-awards.html">>&nbsp;SPCC Presents Annual Employee Awards</option><option value="/1316-spcc-presents-employee-service-awards.html">>&nbsp;SPCC presents employee service awards</option><option value="/1126-spcc-receives-$225,400-from-duke-energy-grant-program.html">>&nbsp;SPCC receives $225,400 from Duke Energy grant program</option><option value="/1228-spcc-receives-$75,000-grant-to-create-anson-union-workforce-mobilization-project.html">>&nbsp;SPCC receives $75,000 grant to create Anson-Union Workforce Mobilization Project</option><option value="/1068-spcc-receives-approval-for-associate-degree-nursing-program.html">>&nbsp;SPCC Receives Approval for Associate Degree Nursing Program</option><option value="/1080-spcc-receives-contributions-from-local-businesses.html">>&nbsp;SPCC Receives Contributions from Local Businesses</option><option value="/869-spcc-recognized-as-exceptional-institution-.html">>&nbsp;SPCC Recognized as Exceptional Institution </option><option value="/1143-spcc-recognized-as-exceptional-institution.html">>&nbsp;SPCC recognized as exceptional institution</option><option value="/1264-spcc-releases-fall-2011-honors-lists.html">>&nbsp;SPCC releases fall 2011 honors lists</option><option value="/1099-spcc-releases-honors-lists---fall-2006.html">>&nbsp;SPCC Releases Honors Lists - Fall 2006</option><option value="/1100-spcc-releases-honors-lists---spring-2007.html">>&nbsp;SPCC Releases Honors Lists - Spring 2007</option><option value="/1142-spcc-releases-honors-lists-for-spring-2011-semester.html">>&nbsp;SPCC releases honors lists for Spring 2011 semester</option><option value="/786-spcc-schedules-cna-i-class-in-wadesboro.html">>&nbsp;SPCC Schedules CNA I Class in Wadesboro</option><option value="/1130-spcc-schedules-early-educator-renewal-courses.html">>&nbsp;SPCC schedules Early Educator renewal courses</option><option value="/788-spcc-schedules-professional-activity-coordinator-course.html">>&nbsp;SPCC Schedules Professional Activity Coordinator Course</option><option value="/1081-spcc-selected-for-breaking-through-initiative.html">>&nbsp;SPCC Selected for Breaking Through Initiative</option><option value="/1128-spcc-student-had-highest-ged-score-in-state.html">>&nbsp;SPCC student had highest GED score in state</option><option value="/1303-spcc-student-wins-logo-contest-for-state-organization.html">>&nbsp;SPCC student wins logo contest for state organization</option><option value="/1255-spcc-to-have-black-history-month-celebration-on-feb.-15.html">>&nbsp;SPCC to have Black History Month celebration on Feb. 15</option><option value="/2011-2012/child-care-conference/">>&nbsp;SPCC to host 11th Creating the Future Conference</option><option value="/1076-spcc-to-host-cdl-truck-driver-info-sessions.html">>&nbsp;SPCC To Host CDL Truck Driver Info Sessions</option><option value="/1247-spcc-to-host-fafsa-day-in-two-locations.html">>&nbsp;SPCC to host FAFSA Day in two locations</option><option value="/515-spcc-to-host-federal-grants-workshop.html">>&nbsp;SPCC To Host Federal Grants Workshop</option><option value="/1088-spcc-to-host-school-and-community-security-conference.html">>&nbsp;SPCC to Host School and Community Security Conference</option><option value="/1083-spcc-to-host-train-to-work-program.html">>&nbsp;SPCC To Host Train to Work Program</option><option value="/500-spcc-to-kick-off-morning-conversations-series-sept.-16.html">>&nbsp;SPCC to kick off Morning Conversations Series Sept. 16</option><option value="/609-spcc-to-offer-basic-photography-workshop-beginning-nov.-2.html">>&nbsp;SPCC To Offer Basic Photography Workshop Beginning Nov. 2</option><option value="/1321-spcc-to-offer-medical-lab-assisting-course-over-summer.html">>&nbsp;SPCC to offer Medical Lab Assisting course over summer</option><option value="/1329-spcc-to-offer-two-free-multimedia-design-workshops.html">>&nbsp;SPCC to offer two free Multimedia Design workshops</option><option value="/1301-spcc-to-offer-two-new-mechanical-engineering-programs.html">>&nbsp;SPCC to offer two new Mechanical Engineering programs</option><option value="/169-spcc-trustees.html">>&nbsp;SPCC Trustees</option><option value="/1097-spcc-trustees-elect-new-officers.html">>&nbsp;SPCC Trustees Elect New Officers</option><option value="/1067-spcc-unveils-portrait-of-retired-president-don-altieri.html">>&nbsp;SPCC Unveils Portrait of Retired President Don Altieri</option><option value="/896-spcc-welcomes-new-president,-dr.-stan-sidor.html">>&nbsp;SPCC welcomes new president, Dr. Stan Sidor</option><option value="/1141-spcc-welcomes-new-president,-dr.-stan-sidor.html">>&nbsp;SPCC welcomes new president, Dr. Stan Sidor</option><option value="/1174-spcc's-health-and-wellness-events-a-success.html">>&nbsp;SPCC's Health and Wellness events a success</option><option value="/1164-spring-2012.html">>&nbsp;Spring 2012</option><option value="/616-spring-massage-clinics.html">>&nbsp;Spring Massage Clinics</option><option value="/735-staff.html">>&nbsp;Staff</option><option value="/1136-staff-awards-presented-at-convocation.html">>&nbsp;Staff awards presented at convocation</option><option value="/1050-state-wide-articulated-course-credit.html">>&nbsp;State-Wide Articulated Course Credit</option><option value="/171-stories.html">>&nbsp;Stories</option><option value="/170-strategic-plan.html">>&nbsp;Strategic Plan</option><option value="/194-student-account-information.html">>&nbsp;Student Account Information</option><option value="/856-student-federal-work-study-job-openings.html">>&nbsp;Student Federal Work-Study Job Openings</option><option value="/354-student-government-association.html">>&nbsp;Student Government Association</option><option value="/583-student-handbook.html">>&nbsp;Student Handbook</option><option value="/future-students/319-student-life.html">>&nbsp;Student Life</option><option value="/319-student-life.html">>&nbsp;Student Life</option><option value="/future-students/320-student-records.html">>&nbsp;Student Records - Registrar</option><option value="/378-student-records-registrar-staff-and-office-hours.html">>&nbsp;Student Records/Registrar Staff and Office Hours</option><option value="/145-student-resources.html">>&nbsp;Student Resources</option><option value="/811-students-presented-business-plans-at-spcc-entrepreneurship-expo.html">>&nbsp;Students presented business plans at SPCC Entrepreneurship Expo</option><option value="/51-students-with-disabilities.html">>&nbsp;Students with disabilities</option><option value="/620-success.html">>&nbsp;Success</option><option value="/621-success-summer-2009.html">>&nbsp;Success Summer 2009</option><option value="/622-success-winter-2009.html">>&nbsp;Success Winter 2009</option><option value="/future-students/libraries/finding-articles-and-e-books/researchguides/-by-subject-/sur/">>&nbsp;Surgical Technician Research Guide</option><option value="/252-surgical-technology.html">>&nbsp;Surgical Technology</option><option value="/375-surgical-technology-club.html">>&nbsp;Surgical Technology Club</option><option value="http://www.spcc.edu/future-students/252-surgical-technology.html">>&nbsp;Surgical Technology Diploma</option><option value="/492-surgical-technology-pinning.html">>&nbsp;Surgical Technology pinning</option><option value="/1140-surgical-technology-pinning-ceremony.html">>&nbsp;Surgical Technology pinning ceremony</option><option value="/1280-surgical-technology,-practical-nursing-application-deadlines-approaching.html">>&nbsp;Surgical Technology, Practical Nursing application deadlines approaching</option><option value="/future-students/libraries/taskstream/">>&nbsp;TaskStream Tutorials</option><option value="/cce/nclicense/teacherrecert/">>&nbsp;Teacher Recertification</option><option value="/cce/survey/">>&nbsp;Tell Us What you Think</option><option value="/61-testing-center.html">>&nbsp;Testing Center</option><option value="/563-the-anson-record---returning-to-school-not-scary-for-former-nerd.html">>&nbsp;The Anson Record - Returning to school not scary for former nerd</option><option value="/548-the-anson-record:-anson-inmates-build-a-better-future,-brick-by-brick.html">>&nbsp;The Anson Record: Anson inmates build a better future, brick by brick</option><option value="/529-the-anson-record:-chef-gives-anson-inmates-secret-ingredients-to-success.html">>&nbsp;The Anson Record: Chef gives Anson inmates secret ingredients to success</option><option value="/562-the-anson-record:-early-reluctance-gives-way-to-success-at-anson-county-early-college.html">>&nbsp;The Anson Record: Early reluctance gives way to success at Anson County Early College</option><option value="/555-the-anson-record:-golden-leaf-foundation-presents-over-$1.7-million-to-anson-county.html">>&nbsp;The Anson Record: Golden LEAF Foundation presents over $1.7 million to Anson County</option><option value="/539-the-anson-record:-groups-to-share-golden-leaf-funds.html">>&nbsp;The Anson Record: Groups to Share Golden LEAF Funds</option><option value="/556-the-anson-record:-job-ready-bus-arrives-at-spcc.html">>&nbsp;The Anson Record: Job Ready bus arrives at SPCC</option><option value="/spcc-in-the-news/anson-record-ncren/">>&nbsp;The Anson Record: NCREN could have significant impact on Anson County</option><option value="/530-the-anson-record:-spcc-battle-of-the-bands-heats-up.html">>&nbsp;The Anson Record: SPCC Battle of the Bands Heats Up</option><option value="/569-the-anson-record:-spcc-forced-to-add-parking-on-l.l.-polk-campus.html">>&nbsp;The Anson Record: SPCC forced to add parking on L.L. Polk Campus</option><option value="/532-the-anson-record:-spcc-student-elected-regional-vp-of-phi-theta-kappa.html">>&nbsp;The Anson Record: SPCC Student Elected Regional VP of Phi Theta Kappa</option><option value="/about-spcc/news-and-publications/spcc-in-the-news/anson-record-sidor/">>&nbsp;The Anson Record: SPCC welcomes new president</option><option value="/547-the-anson-record:-the-anson-womens-center-officially-opens-.html">>&nbsp;The Anson Record: The Anson Womens Center Officially Opens </option><option value="/564-the-anson-record:-unwavering-focus-was-key-to-wadesboro-mans-college-graduation.html">>&nbsp;The Anson Record: Unwavering focus was key to Wadesboro mans college graduation</option><option value="/531-the-anson-record:-writers-conference-is-a-grassroots-effort.html">>&nbsp;The Anson Record: Writers conference is a grassroots effort</option><option value="/520-the-charlotte-business-journal-on-the-simulation-education-center-at-cmc-union.html">>&nbsp;The Charlotte Business Journal on the Simulation Education Center at CMC-Union</option><option value="/spcc-in-the-news/the-charlotte-observer-sidor-now-president/">>&nbsp;The Charlotte Observer: College leader: funding is a challenge</option><option value="/spcc-in-the-news/charlotte-observer-monroe-ged-highest-score/">>&nbsp;The Charlotte Observer: Monroe man's GED score is best in North Carolina</option><option value="/spcc-in-the-news/day-of-free-classes/">>&nbsp;The Charlotte Observer: Monroe's South Piedmont Community College to offer day of free classes</option><option value="/charlotte-observer-new-president/">>&nbsp;The Charlotte Observer: SPCC Names New President</option><option value="/spcc-in-the-news/job-training-grant/">>&nbsp;The Charlotte Observer: Union Co. October jobless rate steady; SPCC gets three-year grant for job training</option><option value="/854-the-enquirer-journal.html">>&nbsp;The Enquirer Journal</option><option value="/565-the-enquirer-journal:-spcc-president-announces-retirement-plans.html">>&nbsp;The Enquirer Journal: SPCC President Announces Retirement Plans</option><option value="/521-the-enquirer-journal-on-american-academy-of-professional-coders.html">>&nbsp;The Enquirer-Journal on American Academy of Professional Coders</option><option value="/524-the-enquirer-journal-on-skills-for-a-new-life.html">>&nbsp;The Enquirer-Journal on Skills for a New Life</option><option value="/523-the-enquirer-journal-on-spcc-student-and-faculty-art.html">>&nbsp;The Enquirer-Journal on SPCC student and faculty art</option><option value="/522-the-enquirer-journal-on-the-seventh-cnc-machining-class-at-spcc.html">>&nbsp;The Enquirer-Journal on the Seventh CNC Machining Class at SPCC</option><option value="/519-the-enquirer-journal-on-the-simulation-education-center-at-cmc-union.html">>&nbsp;The Enquirer-Journal on the Simulation Education Center at CMC-Union</option><option value="/535-the-enquirer-journal-job-seekers-wait-hours-for-hiring-fair.html">>&nbsp;The Enquirer-Journal-Job seekers wait hours for hiring fair</option><option value="/927-the-enquirer-journal:-a-qanda-with-spcc's-new-president,-stan-sidor.html">>&nbsp;The Enquirer-Journal: A Q&A with SPCC's new president, Stan Sidor</option><option value="/528-the-enquirer-journal:-at-spcc,-a-place-for-the-displaced.html">>&nbsp;The Enquirer-Journal: At SPCC, a place for the displaced</option><option value="/spcc-in-the-news/better-jobs-require-better-skills/">>&nbsp;The Enquirer-Journal: Better jobs require better skills</option><option value="/spcc-in-the-news/union-career-fair-2012/">>&nbsp;The Enquirer-Journal: Career fair draws 57 employers</option><option value="/925-the-enquirer-journal:-college-consolidation-benefits-questioned.html">>&nbsp;The Enquirer-Journal: College consolidation benefits questioned</option><option value="/542-the-enquirer-journal:-condensed-instruction...spcc-offering-courses-that-cram-16-weeks-into-12.html">>&nbsp;The Enquirer-Journal: Condensed instruction...SPCC offering courses that cram 16 weeks into 12</option><option value="/spcc-in-the-news/academic-excellence-winner-2012/">>&nbsp;The Enquirer-Journal: Crane juggles life as SPCC winner</option><option value="/568-the-enquirer-journal:-crowded-campus.html">>&nbsp;The Enquirer-Journal: Crowded Campus</option><option value="/541-the-enquirer-journal:-dressing-with-just-$20,-can-jobhunters-find-bargains-on-new-wardrobes?.html">>&nbsp;The Enquirer-Journal: Dressing with just $20, Can jobhunters find bargains on new wardrobes?</option><option value="/543-the-enquirer-journal:-egg-drop-'chute.html">>&nbsp;The Enquirer-Journal: Egg drop 'chute</option><option value="/spcc-in-the-news/free-college-day-report/">>&nbsp;The Enquirer-Journal: Free college draws 1,000</option><option value="/525-the-enquirer-journal:-free-spcc-classes-help-job-seekers-sharpen-skills.html">>&nbsp;The Enquirer-Journal: Free SPCC classes help job seekers sharpen skills</option><option value="/566-the-enquirer-journal:-getting-back-on-track,-spcc-program-helps-them-get-a-taste-for-college.html">>&nbsp;The Enquirer-Journal: Getting back on track, SPCC program helps them get a taste for college</option><option value="/561-the-enquirer-journal:-job-fair-today-(april-16).html">>&nbsp;The Enquirer-Journal: Job Fair Today (April 16)</option><option value="/546-the-enquirer-journal:-legal-status-no-bar-at-spcc.html">>&nbsp;The Enquirer-Journal: Legal status no bar at SPCC</option><option value="/526-the-enquirer-journal:-many-healthquest-volunteers-are-students.html">>&nbsp;The Enquirer-Journal: Many HealthQuest volunteers are students</option><option value="/554-the-enquirer-journal:-patents-and-jobs.html">>&nbsp;The Enquirer-Journal: Patents and jobs</option><option value="/527-the-enquirer-journal:-qanda-on-advanced-manufacturing-at-spcc.html">>&nbsp;The Enquirer-Journal: Q&A on Advanced Manufacturing at SPCC</option><option value="/537-the-enquirer-journal:-ready-for-the-next-step,-spcc-graduates-head-'out-to-the-real-world'.html">>&nbsp;The Enquirer-Journal: Ready for the next step, SPCC graduates head 'out to the real world'</option><option value="/540-the-enquirer-journal:-smart-start-resource-center-reopens.html">>&nbsp;The Enquirer-Journal: Smart Start Resource Center Reopens</option><option value="/551-the-enquirer-journal:-spa-helps-spcc-massage-students-get-careers-started.html">>&nbsp;The Enquirer-Journal: Spa helps SPCC massage students get careers started</option><option value="/558-the-enquirer-journal:-spcc-basic-life-support-lab-gets-lifelike-mannequins.html">>&nbsp;The Enquirer-Journal: SPCC Basic Life Support lab gets lifelike mannequins</option><option value="/enquirer-journal-new-president/">>&nbsp;The Enquirer-Journal: SPCC Hires New President</option><option value="/538-the-enquirer-journal:-spcc-honors-volunteers-with-degrees.html">>&nbsp;The Enquirer-Journal: SPCC Honors Volunteers With Degrees</option><option value="/spcc-in-the-news/nd-publications/spcc-in-the-news/spcc-hosts-career-fair/">>&nbsp;The Enquirer-Journal: SPCC hosts career fair</option><option value="/spcc-in-the-news/federal-loans/">>&nbsp;The Enquirer-Journal: SPCC will opt out of offering fed loans</option><option value="/553-the-enquirer-journal:-spcc-wins-grant-to-train-aerospace-workers.html">>&nbsp;The Enquirer-Journal: SPCC wins grant to train aerospace workers</option><option value="/spcc-in-the-news/accelerating-opportunity/">>&nbsp;The Enquirer-Journal: SPCC's grant will help workers get marketable skills</option><option value="/570-the-enquirer-journal:-students,-employers-welcome-new-community-college-program.html">>&nbsp;The Enquirer-Journal: Students, employers welcome new community college program</option><option value="/559-the-enquirer-journal:-the-third-time-around-for-spcc-battle-of-the-bands.html">>&nbsp;The Enquirer-Journal: The third time around for SPCC Battle of the Bands</option><option value="/536-the-enquirer-journal:-union-bands-head-to-polkton-competition.html">>&nbsp;The Enquirer-Journal: Union bands head to Polkton competition</option><option value="/560-the-enquirer-journal:-union-county's-dark-past-remembered.html">>&nbsp;The Enquirer-Journal: Union County's dark past remembered</option><option value="/544-the-express:-spcc-expands-12-week-session-course-offerings-to-help-accommodate-demand.html">>&nbsp;The Express: SPCC Expands 12-Week Session Course Offerings to Help Accommodate Demand</option><option value="/cce/rosettastone/">>&nbsp;The Language Institute powered by Rosetta Stone</option><option value="/615-therapeutic-massage-open-house.html">>&nbsp;Therapeutic Massage Open House</option><option value="/408-therapeutic-massage-research-guide.html">>&nbsp;Therapeutic Massage Research Guide</option><option value="/1149-three-students-have-photos-selected-for-book.html">>&nbsp;Three students have photos selected for book</option><option value="/1276-three-win-prizes-just-by-registering-for-spring-classes.html">>&nbsp;Three win prizes just by registering for spring classes</option><option value="/417-tips-to-simplify-the-financial-aid-process.html">>&nbsp;Tips to Simplify the Financial Aid Process</option><option value="/future-students/libraries/top10/">>&nbsp;Top 10 Things Faculty Should Know About the Library</option><option value="/379-transcripts.html">>&nbsp;Transcripts</option><option value="/56-transcripts,-tuition,-enrollment-and-residence-forms.html">>&nbsp;Transcripts, Tuition, Enrollment and Residence forms</option><option value="/502-travel-to-italy-and-greece-with-spcc.html">>&nbsp;Travel to Italy and Greece with SPCC</option><option value="/1112-tutor-l.l.-polk-campus---sl-epda11-02.html">>&nbsp;Tutor L.L. Polk Campus - SL-EPDA11-02</option><option value="/1224-tutoring-services.html">>&nbsp;Tutoring Services</option><option value="/1137-two-named-to-honors-list-for-summer-session.html">>&nbsp;Two named to honors list for summer session</option><option value="/1134-two-spcc-students-awarded-$5,000-secu-scholarships.html">>&nbsp;Two SPCC students awarded $5,000 SECU scholarships</option><option value="/413-types-of-financial-aid.html">>&nbsp;Types of Financial Aid</option><option value="/cce/nclicense/unarmedguard/">>&nbsp;Unarmed Security Guard</option><option value="/1334-unc's-destiny-bus-visits-union-county-early-college.html">>&nbsp;UNC's Destiny bus visits Union County Early College</option><option value="/1318-union-county-career-fair-is-april-27.html">>&nbsp;Union County Career Fair is April 27</option><option value="/557-union-county-chamber:-ati-allvac,-spcc-grants-fuel-union-county-aerospace-momentum-.html">>&nbsp;Union County Chamber: ATI Allvac, SPCC Grants Fuel Union County Aerospace Momentum </option><option value="/1147-union-county-early-college-graduating-first-class.html">>&nbsp;Union County Early College graduating first class</option><option value="/853-union-county-weekly.html">>&nbsp;Union County Weekly</option><option value="/549-union-county-weekly:-cmc-union's-birth-center-pampers-new-mothers-and-babies-with-massages.html">>&nbsp;Union County Weekly: CMC-Union's birth center pampers new mothers and babies with massages</option><option value="/704-use-of-facilities.html">>&nbsp;Use of Facilities</option><option value="/630-vascular-sonography-instructor.html">>&nbsp;Vascular Sonography Instructor</option><option value="/cce/nclicense/vehicleinspection/">>&nbsp;Vehicle Inspection School</option><option value="/414-veterans-benefits.html">>&nbsp;Veterans Benefits</option><option value="/1176-veterans-club-(salute).html">>&nbsp;Veterans Club (Salute)</option><option value="/1178-veterans-club-by-laws.html">>&nbsp;Veterans Club by-laws</option><option value="/1214-vice-president-school-of-arts-and-sciences.html">>&nbsp;Vice President School of Arts and Sciences</option><option value="/822-video-from-the-2011-battle-of-the-bands.html">>&nbsp;Video from the 2011 Battle of the Bands</option><option value="/31-visit-our-campus.html">>&nbsp;Visit Our Campus</option><option value="/321-visit-our-campus.html">>&nbsp;Visit Our Campus</option><option value="/356-voter-registration.html">>&nbsp;Voter Registration</option><option value="/cce/nclicense/wastewater/">>&nbsp;Wastewater Treatment Professional</option><option value="/736-ways-to-give.html">>&nbsp;Ways to give</option><option value="/534-wbtv-news:-career-fair-today-in-monroe.html">>&nbsp;WBTV News: Career Fair Today in Monroe</option><option value="/spcc-in-the-news/wcnc-free-college-day/">>&nbsp;WCNC Channel 36: SPCC offers free classes for a day</option><option value="/533-wcnc-news:-free-of-charge.-job-training-that-doesn-'t-cost-a-dime.html">>&nbsp;WCNC News: Free of charge. Job training that doesn\'t cost a dime</option><option value="http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&type=P&pid=ST-WESTS12A">>&nbsp;Webadvisor</option><option value="/1133-wells-fargo-scholarship.html">>&nbsp;Wells Fargo scholarship</option><option value="/774-what-is-a-learning-college.html">>&nbsp;What is a Learning College</option><option value="/898-wind-and-solar-power-at-spcc.html">>&nbsp;Wind and solar power at SPCC</option><option value="/cce/bit/safety/">>&nbsp;Workplace Safety</option><option value="/302-workplace-safety.html">>&nbsp;Workplace Safety</option><option value="/spcc-in-the-news/wsoc-tv-on-fiber-optic-cable/">>&nbsp;WSOC TV News: Fiber optic cable to bring high-speed Internet to schools, universities</option>					</select></div>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+		<div id="menu-container">
+					<link href="/css/dropdownmenu.css" media="all" rel="stylesheet" type="text/css" />
+				
+<div class="menu-bt-01 menu-bt" onmouseout="MM_showHideLayers('sub_menu_01','','hide');" onmouseover="MM_showHideLayers('sub_menu_01','','show');"><a href="/future-students/" title="Future Students" >Future Students</a></div><div class="menu-bt-02 menu-bt" onmouseout="MM_showHideLayers('sub_menu_02','','hide');" onmouseover="MM_showHideLayers('sub_menu_02','','show');"><a href="/current-students/" title="Future Students" >Current Students</a></div><div class="menu-bt-03 menu-bt" onmouseout="MM_showHideLayers('sub_menu_03','','hide');" onmouseover="MM_showHideLayers('sub_menu_03','','show');"><a href="/cce/" title="Future Students" >Corporate & Continuing Education</a></div><div class="menu-bt-04 menu-bt" onmouseout="MM_showHideLayers('sub_menu_04','','hide');" onmouseover="MM_showHideLayers('sub_menu_04','','show');"><a href="/faculty-and-staff/" title="Future Students" class="last_menu">Faculty & Staff</a></div><script type="text/javascript">var menu1;</script><script type="text/javascript">var menu2;</script><script type="text/javascript">var menu3;</script><script type="text/javascript">var menu4;</script>
+<script type='text/javascript'>
+var t
+function MM_showHideLayers() { //v9.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) 
+  with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+    if (obj.style) { 
+    			obj=obj.style;
+			if(v=='show')
+			{
+				obj.visibility = 'visible';if(menu1 == 'disactivated')
+					getElementById('sub_menu_01').style.visibility = 'hidden';if(menu2 == 'disactivated')
+					getElementById('sub_menu_02').style.visibility = 'hidden';if(menu3 == 'disactivated')
+					getElementById('sub_menu_03').style.visibility = 'hidden';if(menu4 == 'disactivated')
+					getElementById('sub_menu_04').style.visibility = 'hidden';}
+			else
+			{
+				obj.visibility = 'hidden';
+			}
+	}
+	}
+}
+function MM_hide(obj)
+{
+	obj.visibility = 'hidden';
+}
+</script><div id="sub_menu_01" class="sub_menu_style" onmouseover="MM_showHideLayers('sub_menu_01','','show');" onmouseout="document.getElementById('sub_menu_01').style.visibility = 'hidden';">
+<div class='sub_container' onmouseover=''><a href='/future-students/758-academic-advising.html' title='Academic Advising' class='submenu'>Academic Advising</a></div><div class='sub_container' onmouseover=''><a href='/future-students/academic-support/' title='Academic Support' class='submenu'>Academic Support</a></div><div class='sub_container' onmouseover=''><a href='/future-students/admission-health-programs/' title='Admission to Health Programs' class='submenu'>Admission to Health Programs</a></div><div class='sub_container' onmouseover=''><a href='/future-students/6-admissions.html' title='Admissions' class='submenu'>Admissions</a></div><div class='sub_container' onmouseover=''><a href='/future-students/8-adult-basic-skills-(ged-adult-h.s.).html' title='Adult Basic Skills (GED/Adult H.S.)' class='submenu'>Adult Basic Skills (GED/Adult H.S.)</a></div><div class='sub_container' onmouseover=''><a href='/future-students/9-bookstore.html' title='Bookstore' class='submenu'>Bookstore</a></div><div class='sub_container' onmouseover=''><a href='/future-students/10-business-office.html' title='Business Office' class='submenu'>Business Office</a></div><div class='sub_container' onmouseover=''><a href='/calendar.php' title='Calendar' class='submenu'>Calendar</a></div><div class='sub_container' onmouseover=''><a href='/future-students/966-career-services.html' title='Career Services' class='submenu'>Career Services</a></div><div class='sub_container' onmouseover=''><a href='/about-spcc/news-and-publications/572-college-catalog.html' title='College Catalog' class='submenu'>College Catalog</a></div><div class='sub_container' onmouseover=''><a href='http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&type=P&pid=ST-XWESTS12A'  target="_blank" title='College Class Schedule' class='submenu'>College Class Schedule</a></div><div class='sub_container' onmouseover=''><a href='/future-students/14-counseling.html' title='Counseling' class='submenu'>Counseling</a></div><div class='sub_container' onmouseover=''><a href='/future-students/1042-credit-for-high-school-courses.html' title='Credit for High School Courses' class='submenu'>Credit for High School Courses</a></div><div class='sub_container' onmouseover=''><a href='/future-students/distance-learning/' title='Distance Learning' class='submenu'>Distance Learning</a></div><div class='sub_container' onmouseover=''><a href='/future-students/15-financial-aid.html' title='Financial Aid' class='submenu'>Financial Aid</a></div><div class='sub_container' onmouseover=''><a href='/future-students/libraries/' title='Libraries' class='submenu'>Libraries</a></div><div class='sub_container' onmouseover=''><a href='/future-students/18-orientation.html' title='Orientation' class='submenu'>Orientation</a></div><div class='sub_container' onmouseover=''><a href='/future-students/19-programs-of-study.html' title='Programs of Study' class='submenu'>Programs of Study</a></div><div class='sub_container' onmouseover=''><a href='/future-students/1064-registration-information.html' title='Registration Information' class='submenu'>Registration Information</a></div><div class='sub_container' onmouseover=''><a href='/future-students/319-student-life.html' title='Student Life' class='submenu'>Student Life</a></div><div class='sub_container' onmouseover=''><a href='/future-students/320-student-records---registrar.html' title='Student Records - Registrar' class='submenu'>Student Records - Registrar</a></div><div class='sub_container' onmouseover=''><a href='/future-students/321-visit-our-campus.html' title='Visit Our Campus' class='submenu'>Visit Our Campus</a></div></div>
+<div id="sub_menu_02" class="sub_menu_style" onmouseover="MM_showHideLayers('sub_menu_02','','show');" onmouseout="document.getElementById('sub_menu_02').style.visibility = 'hidden';">
+<div class='sub_container' onmouseover=''><a href='/future-students/758-academic-advising.html' title='Academic Advising' class='submenu'>Academic Advising</a></div><div class='sub_container' onmouseover=''><a href='/future-students/academic-support/' title='Academic Support' class='submenu'>Academic Support</a></div><div class='sub_container' onmouseover=''><a href='/future-students/admission-health-programs/' title='Admission to Health Programs' class='submenu'>Admission to Health Programs</a></div><div class='sub_container' onmouseover=''><a href='/current-students/33-bookstore.html' title='Bookstore' class='submenu'>Bookstore</a></div><div class='sub_container' onmouseover=''><a href='/future-students/10-business-office.html' title='Business Office' class='submenu'>Business Office</a></div><div class='sub_container' onmouseover=''><a href='/current-students/spcc-calendar/' title='Calendar' class='submenu'>Calendar</a></div><div class='sub_container' onmouseover=''><a href='/future-students/966-career-services.html' title='Career Services' class='submenu'>Career Services</a></div><div class='sub_container' onmouseover=''><a href='/572-college-catalog.html' title='College Catalog' class='submenu'>College Catalog</a></div><div class='sub_container' onmouseover=''><a href='http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&type=P&pid=ST-XWESTS12A'  target="_blank" title='College Class Schedule' class='submenu'>College Class Schedule</a></div><div class='sub_container' onmouseover=''><a href='/future-students/14-counseling.html' title='Counseling' class='submenu'>Counseling</a></div><div class='sub_container' onmouseover=''><a href='/future-students/distance-learning/' title='Distance Learning' class='submenu'>Distance Learning</a></div><div class='sub_container' onmouseover=''><a href='/future-students/15-financial-aid.html' title='Financial Aid' class='submenu'>Financial Aid</a></div><div class='sub_container' onmouseover=''><a href='/current-students/go.spcc.edu/' title='GO Student Portal' class='submenu'>GO Student Portal</a></div><div class='sub_container' onmouseover=''><a href='/current-students/40-graduation.html' title='Graduation' class='submenu'>Graduation</a></div><div class='sub_container' onmouseover=''><a href='/future-students/libraries/' title='Libraries' class='submenu'>Libraries</a></div><div class='sub_container' onmouseover=''><a href='/future-students/19-programs-of-study.html' title='Programs of Study' class='submenu'>Programs of Study</a></div><div class='sub_container' onmouseover=''><a href='/current-students/1065-registration-information.html' title='Registration Information' class='submenu'>Registration Information</a></div><div class='sub_container' onmouseover=''><a href='/future-students/319-student-life.html' title='Student Life' class='submenu'>Student Life</a></div><div class='sub_container' onmouseover=''><a href='/future-students/320-student-records.html' title='Student Records - Registrar' class='submenu'>Student Records - Registrar</a></div></div>
+<div id="sub_menu_03" class="sub_menu_style" onmouseover="MM_showHideLayers('sub_menu_03','','show');" onmouseout="document.getElementById('sub_menu_03').style.visibility = 'hidden';">
+<div class='sub_container' onmouseover=''><a href='/cce/register/' title='Search, Register, and Pay for Classes' class='submenu'>Search, Register, and Pay for Classes</a></div><div class='sub_container' onmouseover=''><a href='/cce/careers/' title='Careers' class='submenu'>Careers</a></div><div class='sub_container' onmouseover=''><a href='/cce/moodle/' title='Moodle' class='submenu'>Moodle</a></div><div class='sub_container' onmouseover=''><a href='/cce/altenergy/' title='Alternative Energy - Solar Technology' class='submenu'>Alternative Energy - Solar Technology</a></div><div class='sub_container' onmouseover=''><a href='/cce/autobody/' title='Auto Body Program' class='submenu'>Auto Body Program</a></div><div class='sub_container' onmouseover=''><a href='/cce/bit/' title='Business & Industry Training' class='submenu'>Business & Industry Training</a></div><div class='sub_container' onmouseover=''><a href='/cce/careercruiser/' title=' Career Cruiser' class='submenu'> Career Cruiser</a></div><div class='sub_container' onmouseover=''><a href='/cce/computers/' title='Computers (Short-Term Training Options)' class='submenu'>Computers (Short-Term Training Options)</a></div><div class='sub_container' onmouseover=''><a href='/cce/emergencyservices/' title='Emergency Services' class='submenu'>Emergency Services</a></div><div class='sub_container' onmouseover=''><a href='/cce/hrd/' title='Human Resources Development' class='submenu'>Human Resources Development</a></div><div class='sub_container' onmouseover=''><a href='/cce/manufacturing/' title='Manufacturing - Advanced Technologies' class='submenu'>Manufacturing - Advanced Technologies</a></div><div class='sub_container' onmouseover=''><a href='/cce/massage/' title='Massage Therapy' class='submenu'>Massage Therapy</a></div><div class='sub_container' onmouseover=''><a href='/cce/medical/' title='Medical Professions' class='submenu'>Medical Professions</a></div><div class='sub_container' onmouseover=''><a href='/cce/nclicense/' title='NC Professional Licensing/Renewal' class='submenu'>NC Professional Licensing/Renewal</a></div><div class='sub_container' onmouseover=''><a href='/cce/onlinelearning/' title='Online Learning' class='submenu'>Online Learning</a></div><div class='sub_container' onmouseover=''><a href='/cce/personalinterest/' title='Personal Interest' class='submenu'>Personal Interest</a></div><div class='sub_container' onmouseover=''><a href='/cce/profcertifications/' title='Professional Certifications' class='submenu'>Professional Certifications</a></div><div class='sub_container' onmouseover=''><a href='/cce/sbec/' title='Small Business and Entrepreneurship Center' class='submenu'>Small Business and Entrepreneurship Center</a></div><div class='sub_container' onmouseover=''><a href='/cce/rosettastone/' title='The Language Institute powered by Rosetta Stone' class='submenu'>The Language Institute powered by Rosetta Stone</a></div><div class='sub_container' onmouseover=''><a href='/cce/31-visit-our-campus.html' title='Visit Our Campus' class='submenu'>Visit Our Campus</a></div><div class='sub_container' onmouseover=''><a href='/cce/survey/' title='Tell Us What you Think' class='submenu'>Tell Us What you Think</a></div><div class='sub_container' onmouseover=''><a href='/cce/contact/' title='Contact CCE' class='submenu'>Contact CCE</a></div></div>
+<div id="sub_menu_04" class="sub_menu_style" onmouseover="MM_showHideLayers('sub_menu_04','','show');" onmouseout="document.getElementById('sub_menu_04').style.visibility = 'hidden';">
+<div class='sub_container' onmouseover=''><a href='/faculty-and-staff/directory.php' title='Directory' class='submenu'>Directory</a></div><div class='sub_container' onmouseover=''><a href='/faculty-and-staff/1250-human-resources.html' title='Human Resources' class='submenu'>Human Resources</a></div><div class='sub_container' onmouseover=''><a href='/faculty-and-staff/jobs/' title='Jobs @SPCC' class='submenu'>Jobs @SPCC</a></div><div class='sub_container' onmouseover=''><a href='/faculty-and-staff/704-use-of-facilities.html' title='Use of Facilities' class='submenu'>Use of Facilities</a></div></div>
+<!-- #nav_bar --> 		</div>
+	</div>
+</div>
+<div id="content-container">
+	<div class="wrapper">
+		<div id="content-left-container">
+			<div id="submenu-links">
+				<ul>
+				<li><a href="/future-students/19-programs-of-study.html" title="Programs of Study">Programs of Study</a></li><li class="separator"></li><li><a href="/145-student-resources.html" title="Student Resources">Student Resources</a></li><li class="separator"></li><li><a href="/future-students/17-online-learning.html" title="Online Learning">Online Learning</a></li><li class="separator"></li><li><a href="/147-about-spcc.html" title="About SPCC">About SPCC</a></li><li class="separator"></li><li><a href="calendar.php" title="Calendar">Calendar</a></li>				</ul>
+			</div>
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$('#quicklinks2-select').getSetSSValue('Quick Links').sSelect().change(function(){
+						if ($(this).val())
+						{
+							document.location.href = $(this).val();
+						}
+					});
+				});
+			</script>
+			<div id="quicklinks2"><select id="quicklinks2-select" style="display:none;">
+				<option value="" selected="selected">Quick Links</value>
+				<option value="/147-about-spcc.html">About SPCC</option><option value="/758-academic-advising.html">Academic Advising</option><option value="/future-students/8-adult-basic-skills-(ged-adult-high-school).html">Adult Basic Skills</option><option value="/586-announcements.html">Announcements</option><option value="/410-applying-for-financial-aid.html">Applying for Financial Aid</option><option value="/current-students/spcc-calendar/">Calendar</option><option value="/966-career-services.html">Career Services</option><option value="/classes-schedules.php">Class Schedule</option><option value="/572-college-catalog.html">College Catalog</option><option value="/917-community-links.html">Community Links</option><option value="/1045-consumer-information.html">Consumer Information</option><option value="/future-students/academic-support/developmental-studies/">Developmental Studies</option><option value="/158-directions-and-campus-maps.html">Directions & Campus Maps</option><option value="/203-disability-services.html">Disability Services</option><option value="/future-students/distance-learning/">Distance Learning</option><option value="/923-gainful-employment.html">Gainful Employment</option><option value="/current-students/go.spcc.edu/">GO Student Portal</option><option value="/faculty-and-staff/jobs/">Jobs @SPCC</option><option value="/387-login-and-access-dates.html">Login and Access Dates</option><option value="/cce/massage/">Massage Therapy</option><option value="/388-moodle-help.html">Moodle Help</option><option value="/163-news-and-publications.html">News & Publications</option><option value="/cce/onlinelearning/">Online Learning</option><option value="/future-students/academic-support/academic-support-centers/online-tutoring/">Online Tutoring</option><option value="/18-orientation.html">Orientation</option><option value="/19-programs-of-study.html">Programs of Study</option><option value="/announcements/registration-summer-fall/">Registration Information</option><option value="/332-research-guides-by-subject-.html">Research Guides by Subject </option><option value="/about-spcc/safety/">Safety at SPCC</option><option value="/583-student-handbook.html">Student Handbook</option><option value="/future-students/320-student-records.html">Student Records - Registrar</option><option value="/61-testing-center.html">Testing Center</option><option value="/379-transcripts.html">Transcripts</option>			</select>
+			</div>
+			<!--<a href="/future-students/admission-to-health-technologies-programs/64-application-process.html">
+			<div id="enroll"></div></a>	-->			
+			
+			<a href="#inlineContent" class="defaultDOMWindow">
+
+	<div id="enroll">
+
+				
+
+	</div>
+
+</a>
+
+<div id="inlineContent" style="display: none;">
+
+<!--<div id="closeBtn">
+
+here
+
+</div>-->
+
+	<div class="quiz_wrapper" align="center">
+
+			<div class="row_1">
+
+				<img src="/images/logo.gif" />
+
+				<span class="closeBtn">
+
+				
+
+				 Close
+
+				
+
+				</span>
+
+				<span class="backBtn">Back One Step</span>
+
+				<span class="homeBtn">Start Over</span>
+
+
+
+			</div>
+
+		<div id="quiz_main">
+
+			<div class="quizHeader" align="center">
+
+				Easy Enrollment for First-Time Students
+
+			</div>
+
+			<div id="block1" class="q_block">
+
+				<a href="?step=1&path=1">
+
+					College Credit Classes
+
+				</a>
+
+				<p align="left">
+
+				These classes will apply to your degree, certificate or diploma and can be transferred to other colleges or universities.
+
+				</p>
+
+			</div>
+
+			<div id="block2" class="q_block">
+
+				<a href="/future-students/8-adult-basic-skills-%28ged-adult-high-school%29.html">
+
+				Basic Skills
+
+				</a>
+
+				<p align="left">
+
+				Classes for individuals who need: to earn a GED or Adult High School diploma to learn English as a second language to develop basic reading, writing and math skills compensatory education.
+
+				</p>
+
+			</div>
+
+			<div id="block3" class="q_block">
+
+				<a href="/3-corporate-&-continuing-education-programs.html">		
+
+					Continuing Education
+
+				</a>
+
+				<p align="left">
+
+					Classes for individuals who need training in their vocation or professional field or for those who wish to enhance their personal or community life.
+
+				</p>
+
+			</div>
+
+			<div class="row_2">
+
+				<a href="/future-students/14-counseling.html">
+
+					I Don't Know.
+
+				</a>
+
+			</div>
+
+		</div>
+
+			
+
+	<!-- step 2 path 1 -->	
+
+	<div class="choice" id="step1">
+
+		<a target="_blank" href="http://www1.cfnc.org/applications/NC_community_college/apply.html?application_id=1478">		
+
+			Apply online
+
+		</a>
+
+
+
+				<div id="progressContainer"><div id="progressBar" style="width:20%;">&nbsp;</div>
+
+			<div class="meter" align="center">20%</div>
+
+			</div>
+
+			</div>
+
+	<!--Meter shows 20% completed.-->
+
+
+
+	<!-- step 3 path 1 -->	
+
+	<div class="choice" id="step2">
+
+		<a target="_blank" href="/uploads/Transcript%20Request%20Form%20(high%20school).pdf">
+
+			Submit official transcripts to SPCC Admissions
+
+		</a>
+
+				<div id="progressContainer"><div id="progressBar" style="width:25%;">&nbsp;</div>
+
+			<div class="meter" align="center">25%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 25% completed.-->
+
+
+
+	<!-- step 4 path 1 -->	
+
+	<div class="choice" id="step3">
+
+			Apply online for 
+
+		<a target="_blank" href="/15-financial-aid.html">
+
+			Financial Aid</a> 
+
+		and 
+
+		<a target="_blank" href="/15-financial-aid.html">
+
+			Scholarships
+
+		</a>
+
+		
+
+				<div id="progressContainer"><div id="progressBar" style="width:35%;">&nbsp;</div>
+
+			<div class="meter" align="center">35%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 35% completed.-->		
+
+
+
+
+
+	<!-- step 5 path 1 -->	
+
+	<div class="choice" id="step4">
+
+		<a target="_blank" href="/admissions/61-testing-center.html">
+
+			College Placement Test
+
+		</a>
+
+				<div id="progressContainer"><div id="progressBar" style="width:45%;">&nbsp;</div>
+
+			<div class="meter" align="center">45%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 45% completed.-->	
+
+
+
+
+
+	<!-- step 6 path 1 -->	
+
+	<div class="choice" id="step5">
+
+		<a target="_blank" href="/18-orientation.html">
+
+			Complete Online Orientation
+
+		</a>	
+
+
+
+				<div id="progressContainer"><div id="progressBar" style="width:55%;">&nbsp;</div>
+
+			<div class="meter" align="center">55%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 55% completed.-->	
+
+
+
+
+
+	<!-- step 7 path 1 -->	
+
+	<div class="choice"  id="step6">
+
+		Visit an
+
+			<a target="_blank" href="/158-directions-and-campus-maps.html" >
+
+				SPCC campus</a> 
+
+				during
+
+			<a target="_blank" href="/future-students/1064-registration-information.html">
+
+				registration dates</a> 
+
+		to register for your first classes.
+
+
+
+				<div id="progressContainer"><div id="progressBar" style="width:75%;">&nbsp;</div>
+
+			<div class="meter" align="center">75%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 75% completed.-->	
+
+
+
+
+
+	<!-- step 8 path 1 -->	
+
+	<div class="choice" id="step7">
+
+		<a target="_blank" href="/10-business-office.html" >
+
+			Pay for your classes
+
+		</a>	
+
+
+
+				<div id="progressContainer"><div id="progressBar" style="width:90%;">&nbsp;</div>
+
+			<div class="meter" align="center">90%</div>
+
+				</div>
+
+				</div>
+
+	<!--Meter shows 90% completed.-->	
+
+
+
+
+
+	<!-- step 9 path 1 -->	
+
+		<div class="choice" id="step8">
+
+			<a target="_blank" href="/9-bookstore.html" >
+
+				Purchase text books
+
+			</a>
+
+			<div id="progressContainer"><div id="progressBar" style="width:100%;">
+
+				&nbsp;
+
+			</div>
+
+			<div class="meter" align="center">
+
+				100%
+
+			</div>
+
+		</div>
+
+<br /><br />
+Thank you for your interest in South Piedmont Community College!<br /><br />
+Click the Close Link at the top right to close this box.
+
+		</div>
+
+	<!--Meter shows 100% completed.-->	
+
+
+
+
+
+</div>
+
+</div>			
+            <a href="http://www.spcc.edu/619-registration-information.html"><img src="/cms_wfc/uploads/6-photo-32.png" alt="" width="205" class="call-to-action-home" /></a><a href="http://www.spcc.edu/future-students/966-career-services.html"><img src="/cms_wfc/uploads/6-photo-138.png" alt="" width="205" class="call-to-action-home" /></a><a href="http://www.spcc.edu/future-students/1197-career-and-college-promise.html"><img src="/cms_wfc/uploads/6-photo-139.png" alt="" width="205" class="call-to-action-home" /></a><a href="http://www.spcc.edu/corporate-and-continuing-education/814-schedule.html"><img src="/cms_wfc/uploads/6-photo-140.png" alt="" width="205" class="call-to-action-home" /></a>		</div>
+		<div id="content-right-container">
+			<div id="slideshow-container" class="clearboth slideshow-container">
+				<div id="slideshow-top" class="clearboth slideshow-top"><img src="images/slideshow-top.gif" class="slideshow-top-img" name="slideshow-top-img" title="" alt="" /></div>
+				<div id="slideshow-content" class="clearboth slideshow-content">
+										<div id="slideshow-text-container" class="slideshow-left">
+										<div id="slideshow-text-0" class="slideshow-hidden">
+						<div class="slideshow-left-title">I-CAR Training at SPCC</div>
+						<div class="slideshow-left-text"><p>SPCC offers classes from I-CAR, the largest certifying organization in the automotive repair field.</p></div>
+						<div class="slideshow-left-readmore-link"><a href="/745-i-car-training-at-spcc.html" title="Read More" class="link">Read More ></a></div>
+					</div>
+										<div id="slideshow-text-1" class="slideshow-hidden">
+						<div class="slideshow-left-title">Mechatronics</div>
+						<div class="slideshow-left-text"><p>This exciting program provides training in basic machine and systems maintenance, repair and troubleshooting. Topics include electronics and electricity, wiring, pneumatics, hydraulics, PLCs, motor controls, pumps, and more.</p></div>
+						<div class="slideshow-left-readmore-link"><a href="http://216.119.108.63/corporate-and-continuing-education/111-mechatronics---industrial-maintenance.html" title="Read More" class="link">Read More ></a></div>
+					</div>
+										<div id="slideshow-text-2" class="slideshow-hidden">
+						<div class="slideshow-left-title">Electrical/Electronics Technology</div>
+						<div class="slideshow-left-text"><p>The Electrical/Electronics Technology program at SPCC provides training in the installation and maintenance of electrical/electronic systems found in residential, commercial and industrial facilities.</p></div>
+						<div class="slideshow-left-readmore-link"><a href="http://www.spcc.edu/future-students/www.spcc.edu/future-students/243-electrical-and-electronics-technology.html" title="Read More" class="link">Read More ></a></div>
+					</div>
+										<div id="slideshow-text-3" class="slideshow-hidden">
+						<div class="slideshow-left-title">Human Services Technology</div>
+						<div class="slideshow-left-text"><p>Study Human Services Technology at SPCC and help build stronger and healthier communities.</p></div>
+						<div class="slideshow-left-readmore-link"><a href="http://www.spcc.edu/future-students/programs-of-study/college-credit-programs/245-human-services-technology.html" title="Read More" class="link">Read More ></a></div>
+					</div>
+										<div id="slideshow-text-4" class="slideshow-hidden">
+						<div class="slideshow-left-title">Advertising and Graphic Design</div>
+						<div class="slideshow-left-text"><p>Learn the basics of creating promotional materials such as print ads, posters, logos, Flash animation, video, brochures, and signs in SPCC's Advertising and Graphic Design program.</p></div>
+						<div class="slideshow-left-readmore-link"><a href="/481-advertising-and-graphic-design.html" title="Read More" class="link">Read More ></a></div>
+					</div>
+											<div class="slideshow-left-buttons">
+							<div class="slideshow-button"><a href="/171-stories.html" title="More Stories" class="link bold">More Stories</a></div>
+							<div class="slideshow-button"><a href="mailto:rbritt@spcc.edu" title="Send Us A Story" class="link bold">Send Us A Story</a></div>
+							<div style="clear:both"></div>
+						</div>
+					</div>
+					<div class="slideshow-right">
+                    <!--
+			                    animSpeed:400,
+								pauseTime:10000,
+                    -->
+						<script type="text/javascript">
+						$(window).load(function() {
+							$('.slideshow-main-image').nivoSlider({
+								effect:'random',
+								slices:10,
+								animSpeed:400,
+								pauseTime:8000,
+								startSlide:1,
+								directionNav:false,
+								directionNavHide:true,
+								controlNav:true,
+								controlNavThumbs:true,
+								controlNavThumbsFromRel:false,
+								controlNavThumbsSearch: 'mid',
+								controlNavThumbsReplace: 'mid',
+								keyboardNav:false,
+								pauseOnHover:true,
+								manualAdvance:false,
+								captionOpacity:0.8,
+								beforeChange: function(){},
+								afterChange: function(){},
+								slideshowEnd: function(){}
+							});
+						});
+						</script>
+						<div class="slideshow-main-image" style="overflow:hidden; height: 240px; width: 360px;">
+							<img src="/cms_wfc/uploads/745-mid-65.jpg" alt="" width="360" height="240" /><img src="/cms_wfc/uploads/912-mid-109.jpg" alt="" width="360" height="240" /><img src="/cms_wfc/uploads/877-mid-83.jpg" alt="" width="360" height="240" /><img src="/cms_wfc/uploads/1010-mid-123.jpg" alt="" width="360" height="240" /><img src="/cms_wfc/uploads/481-mid-36.jpg" alt="" width="360" height="240" />						</div>
+					</div>
+					<div style="clear:both"></div>
+				</div>
+				<div class="clearboth slideshow-bottom"><img src="images/slideshow-top-bottom-bg.gif" id="slideshow-top-bottom-img" name="slideshow-top-bottom-img" title="" alt="" /></div>
+				<div class="clearboth slideshow-bottom-content">
+								<span class="redtitle"></span><br />
+								</div>
+				<div id="slideshow-bottom-bottom" class="clearboth"><img src="images/slideshow-bottom-bottom-bg.gif" id="slideshow-bottom-img" name="slideshow-bottom-img" title="" alt="" /></div>
+			</div>
+			<div id="news-container">
+				<div id="news-title"><img src="images/title-latest-news.gif" class="classname" id="title-latest-news-img" name="title-latest-news-img" title="Latest news &amp; Upcoming Events" alt="Latest news &amp; Upcoming Events" /></div>
+				<div id="news">
+						<a href="news.php?id=2721" title="SPCC honors scholarship winners, donors" class="blue bold px12 link">SPCC honors scholarship winners, donors</a><br />South Piedmont Community College recognized scholarship winners for the 2011-2012 school year, as well as those donors who helped make the scholarships possible, during a luncheon on Monday, April 30, on the Old Charlotte Highway Campus.
+<br /><br /><a href="news.php?id=2722" title="450 attend Union County Career Fair" class="blue bold px12 link">450 attend Union County Career Fair</a><br />Around 450 job seekers attended the Union County Career Fair on Friday, April 27, on South Piedmont Community College’s Old Charlotte Highway Campus. There were also 56 vendors, many of them local employers who were looking to hire.<br /><br /><a href="news.php?id=2720" title="Battle of the Bands rescheduled for Aug. 17" class="blue bold px12 link">Battle of the Bands rescheduled for Aug. 17</a><br />South Piedmont Community College’s fifth annual Battle of the Bands has been rescheduled for the evening of Friday, Aug. 17. The event was originally scheduled for April 21 but was postponed because of threatening weather.<br /><br /><a href="news.php?id=2719" title="UNC's Destiny bus visits Union County Early College" class="blue bold px12 link">UNC's Destiny bus visits Union County Early College</a><br />Destiny, a mobile classroom from the University of North Carolina’s Morehead Planetarium and Science Center, visited the Union County Early College on Wednesday, April 25.<br /><br /><a href="news.php?id=2717" title="SPCC offers two Multimedia Design workshops" class="blue bold px12 link">SPCC offers two Multimedia Design workshops</a><br />South Piedmont College will offer two free Multimedia Design workshops, one this Saturday, April 21, and another on Saturday, April 28. Both will last from 8:30 a.m. until noon on the Old Charlotte Highway Campus in Monroe.<br /><br />					
+                    <!-- Home Page Center Links -->
+                    					<hr />
+<p style="text-align: center"><span style="color: rgb(35,35,142)"><span style="font-size: 12px"><a href="http://www.spcc.edu/586-announcements.html"><span style="color: rgb(35,35,142)"><strong>Announcements</strong></span></a> </span></span><span style="font-size: 12px"><strong>&#160;&#160;&#160; <span style="color: rgb(153,153,153)">|</span> &#160;&#160;&#160; </strong></span><a href="http://www.spcc.edu/news.php"><span style="color: rgb(35,35,142)"><span style="font-size: 12px"><strong>View all News &amp; Events </strong></span></span></a></p>
+<hr />
+                    
+                    
+                    <!--<ul>
+						<li><a href="news.php" title="View All Upcoming Campus Events" class="link blue">View All Upcoming Campus Events</a></li>
+						<li><a href="#" title="Spring Enrollment Schedule" class="link blue">Spring Enrollment Schedule</a></li>
+						<li><a href="#" title="Send Us Your Events" class="link blue">Send Us Your Events</a></li>
+					</ul>-->
+					
+				</div>
+				<div id="news-links">
+					<!-- Home Page Rightside Links -->
+                    					<ul>
+    <li><a class="link blue" title="Spring Enrollment Schedule" href="http://webadvisor.spcc.edu/WebAdvisor/WebAdvisor?%20CONSTITUENCY=WBAP&amp;type=P&amp;pid=ST-XWESTS12A">Class schedule</a></li>
+    <li><a title="Continuing at SPCC" href="http://www.spcc.edu/future-students/8-adult-basic-skills-%28ged-adult-high-school%29.html">GED/Adult High&#160;School/ESOL<br />
+    </a></li>
+    <li><a title="Learning College" href="http://www.spcc.edu/faculty-and-staff/jobs/">Jobs @SPCC<br />
+    </a></li>
+    <li><a title="Business Office/Bookstore" href="/future-students/10-business-office.html">Business Office</a></li>
+    <li><a title="Getting Started" href="http://www.spcc.edu/158-directions-and-campus-maps.html">Directions to SPCC</a></li>
+    <li><a href="http://www.spcc.edu/future-students/libraries/">Libraries</a></li>
+</ul>
+<p>&#160;</p>				</div>
+			</div>
+		</div>
+		<div style="clear:both"></div>
+	</div>
+</div>
+
+<div id="footer-container-wrapper">
+<div id="footer-container">
+		<div id="footer-left">
+			<span class="bold">L.L. Polk Campus</span>, US 74 (PO Box 126), Polkton, NC 28135 | 704.272.5300<br />
+            <span class="bold">Old Charlotte Highway Campus</span>, 4209 Old Charlotte Hwy, Monroe, NC 28110 | 704.290.5100<br />
+			<span class="bold">Lockhart-Taylor Center</span>, 514 N. Washington St, Wadesboro, NC 28170 | 704.272.5300<br />
+            <br />The opinions or statements expressed on personal pages of this site and links on these pages to non-college sites do not represent endorsement by South Piedmont Community College or its affiliates.
+		</div>
+		<div id="footer-right">
+			<img src="/images/social-bts3.jpg" alt="" name="social" border="0" usemap="#socialMap" id="social" title=""/>
+			<map name="socialMap" id="socialMap">
+        		<area shape="rect" coords="1,1,36,26" href="https://www.google.com/a/students.spcc.edu" target="_blank" alt="Student Gmail" />
+        		<area shape="rect" coords="42,2,72,25" href="http://www.spcc.edu/current-students/go.spcc.edu/" alt="GO Student Portal" />
+        		<area shape="rect" coords="76,0,112,26" href="http://online.spcc.edu/" target="_blank" alt="Moodle" />
+        		<area shape="rect" coords="117,1,150,26" href="/future-students/196-nelnet-tuition-payment-option.html" alt="Nelnet Tuition Payment Information" />
+        		<area shape="rect" coords="156,0,183,27" href="http://www.facebook.com/SouthPiedmontCC" target="_blank" alt="SPCC on FaceBook" />
+        		<area shape="rect" coords="186,2,215,25" href="http://twitter.com/SouthPiedmontCC" target="_blank" alt="SPCC on Twitter" />
+        		<area shape="rect" coords="218,2,246,26" href="http://www.linkedin.com/groups?gid=4027319" target="_blank" alt="SPCC LinkedIn Group" />
+        		<area shape="rect" coords="250,1,280,27" href="http://youtu.be/Q2lATsIrXCI" target="_blank" alt="Health Programs Information Session" />
+        		<area shape="rect" coords="284,1,310,27" href="/uploads/Technology-Handout.pdf" target="_blank" />
+                <area shape="rect" coords="318,1,369,26" href="http://www.youtube.com/user/SPCCMarketing" target="_blank" alt="SPCC on YouTube" />
+			</map>
+            <br /><br />
+			<!-- AddThis Button BEGIN -->
+				<div class="addthis_toolbox addthis_default_style" style="float:right">
+					<a class="addthis_counter addthis_pill_style"></a>
+				</div>
+				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e8e025f145332b4"></script>
+				<!-- AddThis Button END -->
+			<br /><br />
+			<a href="/4-faculty-and-staff.html" title="Contact Us" class="blue link">Contact Us</a> | <a href="http://www.spcc.edu/future-students/55-contact-admissions.html" title="Class Questions" class="blue link">Class Questions</a> | <a href="mailto:wmaster@spcc.edu" title="Web Site Questions" class="blue link">Web Site Questions</a> | <a href="/437-legal.html" title="Legal" class="blue link">Legal</a> | <a href="/sitemap.php" title="Site Map" class="blue link">Site Map</a><br />
+			Official Site: South Piedmont Community College © 2010 All Rights Reserved<br />
+			<a href="http://www.webfullcircle.com/" title="Web Site Design" target="_blank" class="blue link">Web Site Design</a> | <a href="http://www.webfullcircle.com/" title="Internet Marketing" target="_blank" class="blue link">Internet Marketing</a>
+		</div>
+		<div style="clear:both"></div>
+</div>
+</div>
+<!-- This should go at the very end of your footer -->
+</body>
+</html>

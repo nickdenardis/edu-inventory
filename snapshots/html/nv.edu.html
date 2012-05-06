@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xml:lang="en-US" lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><meta content="text/javascript" http-equiv="Content-Script-Type" /><meta content="text/css" http-equiv="Content-Style-Type" /><meta id="MetaCopyright" name="COPYRIGHT" content="Copyright 2012" /><meta id="MetaAuthor" name="AUTHOR" content="NVCC | Naugatuck Valley Community College" /><meta name="RESOURCE-TYPE" content="DOCUMENT" /><meta name="DISTRIBUTION" content="GLOBAL" /><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" /><meta name="REVISIT-AFTER" content="1 DAYS" /><meta name="RATING" content="GENERAL" /><meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" /><style id="StylePlaceholder" type="text/css"></style><link id="ADesktopModules_EngageRotator" rel="stylesheet" type="text/css" href="/DesktopModules/EngageRotator/module.css" /><link id="ADesktopModules_EventsCalendar" rel="stylesheet" type="text/css" href="/DesktopModules/EventsCalendar/module.css" /><link id="APortals__default_" rel="stylesheet" type="text/css" href="/Portals/_default/default.css" /><link id="APortals__default_Skins_NVCC_" rel="stylesheet" type="text/css" href="/Portals/_default/Skins/NVCC/skin.css" /><link id="APortals__default_Skins_NVCC_HomePage_css" rel="stylesheet" type="text/css" href="/Portals/_default/Skins/NVCC/HomePage.css" /><link id="APortals__default_Containers_NVCC_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/NVCC/container.css" /><link id="APortals__default_Containers_NVCC_v1_1_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/NVCC_v1.1/container.css" /><link id="ADesktopModules_EngageRotator_Templates_NVCC_Featured_small_Style_css" rel="stylesheet" type="text/css" href="DesktopModules/EngageRotator/Templates/NVCC-Featured-small/Style.css" /><link id="APortals_0_" rel="stylesheet" type="text/css" href="/Portals/0/portal.css" /><link id="ADesktopModules_EngageRotator_Templates_NVCC_FeaturedArticlesHomePage_Style_css" rel="stylesheet" type="text/css" href="DesktopModules/EngageRotator/Templates/NVCC-FeaturedArticlesHomePage/Style.css" />
+<script type="text/javascript" src="/Resources/Shared/Scripts/jquery/jquery.min.js" ></script><link href="/Portals/_default/Skins/_default/WebControlSkin/Default/TabStrip.Default.css" rel="stylesheet" type="text/css" /><link id="ecrportal-0-nvcc-customcss" href="/desktopmodules/eventscalendar/themes/default/portal-0-nvcc-custom.css" type="text/css" rel="stylesheet" /><title>
+	Naugatuck Valley Community College: Learning for Every Stage of Life™
+</title></head>
+<body id="Body">
+    <form method="post" action="/" id="Form" enctype="multipart/form-data">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2NDIyOTEzMjkPZBYGZg8WAh4EVGV4dAV6PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPiBkAgEPZBYOAgQPFgIeB1Zpc2libGVoZAIFDxYEHgdjb250ZW50ZB8BaGQCBg8WBB8CZB8BaGQCBw8WAh8CBQ5Db3B5cmlnaHQgMjAxMmQCCA8WBB8CZB8BaGQCCQ8WAh8CBSlOVkNDIHwgTmF1Z2F0dWNrIFZhbGxleSBDb21tdW5pdHkgQ29sbGVnZWQCDA8WAh8CBQ1JTkRFWCwgRk9MTE9XZAICD2QWAgIBD2QWBmYPZBYCZg8WAh8BaBYEAgEPZBYIAgMPEGRkFgBkAgcPFgIfAWhkAgkPFgIfAWhkAgsPZBYCZg8PFgYeCEltYWdlVXJsBRQvaW1hZ2VzL2NvbGxhcHNlLmdpZh4NQWx0ZXJuYXRlVGV4dAUITWluaW1pemUeB1Rvb2xUaXAFCE1pbmltaXplFgoeB3VzZXJjdHIFCVVzYWJpbGl0eR4HdXNlcmtleQUUQ29udHJvbFBhbmVsVmlzaWJsZTAeB29uY2xpY2sFTGlmIChfX2Rubl9TZWN0aW9uTWF4TWluKHRoaXMsICAnUmliYm9uQmFyLmFzY3hfUkJfUmliYm9uQmFyJykpIHJldHVybiBmYWxzZTseCG1heF9pY29uBRIvaW1hZ2VzL2V4cGFuZC5naWYeCG1pbl9pY29uBRQvaW1hZ2VzL2NvbGxhcHNlLmdpZmQCAw9kFgQCAQ8UKwACFCsAAmQQFgRmAgECAgIDFgQUKwACZGQUKwACZGQUKwACDxYCHwFoZGQUKwACDxYCHwFoZGQPFgRmZmZmFgEFblRlbGVyaWsuV2ViLlVJLlJhZFRhYiwgVGVsZXJpay5XZWIuVUksIFZlcnNpb249MjAxMC4yLjkyOS4zNSwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj0xMjFmYWU3ODE2NWJhM2Q0ZBYEAgIPDxYCHwFoZGQCAw8PFgIfAWhkZAIDDxQrAAJkFQQIUGFnZUhvbWULUGFnZUN1cnJlbnQIUGFnZVNpdGUOUGFnZUhvc3RTeXN0ZW0WBAICDw8WAh8BaGRkAgMPDxYCHwFoZGQCBQ9kFgJmD2QWKgICD2QWAmYPDxYEHwUFKU5WQ0MgfCBOYXVnYXR1Y2sgVmFsbGV5IENvbW11bml0eSBDb2xsZWdlHgtOYXZpZ2F0ZVVybAUSaHR0cDovL3d3dy5udi5lZHUvZGQCBA9kFgRmDw8WBB4FV2lkdGgbAAAAAACAYUABAAAAHgRfIVNCAoACZGQCAg8PFgIfAGVkZAIGDxYCHgVjbGFzcwUVTG9nb1BhbmUgRE5ORW1wdHlQYW5lZAIKDxYCHw4FFFRvcFBhbmUgRE5ORW1wdHlQYW5lZAIMDxYCHw4FHVRvcExlZnRQYW5lIGxlZnQgRE5ORW1wdHlQYW5lZAIODxYCHw4FH1RvcFJpZ2h0UGFuZSByaWdodCBETk5FbXB0eVBhbmVkAhAPZBYCZg8WAh8OBSpEbm5Nb2R1bGUgRG5uTW9kdWxlLUROTl9IVE1MIERubk1vZHVsZS0zNzYWAgIBD2QWCmYPFgIfDgUMRE5OQWxpZ25sZWZ0FgQCAQ8PFgIfAWhkZAIEDw9kFgIfDgULTW9kRE5OSFRNTENkAgEPZBYCZg8PFgIfAWhkZAICD2QWAmYPDxYCHwFoZGQCAw9kFgJmDw8WAh8BaGRkAgQPZBYCZg8PFgIfAWhkZAISDxYCHw4FGkxlZnRQYW5lIGxlZnQgRE5ORW1wdHlQYW5lZAIUDxYCHw4FH0NvbnRlbnRQYW5lMiByaWdodCBETk5FbXB0eVBhbmVkAhYPFgIfDgUeQ29udGVudFBhbmUzIGxlZnQgRE5ORW1wdHlQYW5lZAIYDxYCHw4FHFJpZ2h0UGFuZSByaWdodCBETk5FbXB0eVBhbmVkAhoPZBYIZg8WAh8OBSpEbm5Nb2R1bGUgRG5uTW9kdWxlLUROTl9IVE1MIERubk1vZHVsZS0zNTAWAgIBD2QWDGYPZBYCAgIPFgIfAWgWBmYPFgIfBQUERWRpdGQCAQ8WAh8FBQZVcGRhdGVkAgIPFgIfBQUGQ2FuY2VsZAIBDxYCHw4FKGxvZ29fZ3JleV9ib3JkZXJfYmctcm91bmRlZCBETk5BbGlnbmxlZnQWBAIBDw8WAh8BaGRkAgQPD2QWAh8OBQtNb2RETk5IVE1MQ2QCAg9kFgJmDw8WAh8BaGRkAgMPZBYCZg8PFgIfAWhkZAIED2QWAmYPDxYCHwFoZGQCBQ9kFgJmDw8WAh8BaGRkAgEPFgIfDgUqRG5uTW9kdWxlIERubk1vZHVsZS1ETk5fSFRNTCBEbm5Nb2R1bGUtMzc3FgICAQ9kFgxmD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCAQ8WAh8OBRRsb2dvX2JnIEROTkFsaWdubGVmdBYEAgEPDxYCHwFoZGQCBA8PZBYCHw4FC01vZEROTkhUTUxDZAICD2QWAmYPDxYCHwFoZGQCAw9kFgJmDw8WAh8BaGRkAgQPZBYCZg8PFgIfAWhkZAIFD2QWAmYPDxYCHwFoZGQCAg8WAh8OBStEbm5Nb2R1bGUgRG5uTW9kdWxlLUROTl9IVE1MIERubk1vZHVsZS0yMDc5FgICAQ9kFgxmD2QWAgICDxYCHwFoFgZmDxYCHwUFBEVkaXRkAgEPFgIfBQUGVXBkYXRlZAICDxYCHwUFBkNhbmNlbGQCAQ9kFgQCAQ8PFgIfAWhkZAIEDw9kFgIfDgULTW9kRE5OSFRNTENkAgIPZBYCZg8PFgIfAWhkZAIDD2QWAmYPDxYCHwFoZGQCBA9kFgJmDw8WAh8BaGRkAgUPZBYCZg8PFgIfAWhkZAIDDxYCHw4FLURubk1vZHVsZSBEbm5Nb2R1bGUtRE5OX0lGcmFtZSBEbm5Nb2R1bGUtMjA2OBYCAgEPZBYCZg9kFgICAg8PZBYCHw4FDU1vZEROTklGcmFtZUMWAgIBD2QWAmYPFhIeBXdpZHRoBQMxODIeC2ZyYW1lYm9yZGVyBQEwHg9oaWRlYWRtaW5ib3JkZXIFBUZhbHNlHgZoZWlnaHQFAzM1MB4JaW5uZXJodG1sBStZb3VyIGJyb3dzZXIgZG9lcyBub3Qgc3VwcG9ydCBpbmxpbmUgZnJhbWVzHgVzdHlsZQUdYm9yZGVyOm5vbmU7IG92ZXJmbG93OmhpZGRlbjseCXNjcm9sbGluZwUCbm8eEWFsbG93dHJhbnNwYXJlbmN5BQR0cnVlHgNzcmMFiwFodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9jb25uZWN0L2Nvbm5lY3QucGhwP2lkPSAyOTk5NDA4NzQ2MjUmY29ubmVjdGlvbnM9NiZzdHJlYW09MCZsb2NhbGU9ZW5fVVMmYW1wO2NvbG9yc2NoZW1lPWxpZ2h0JmFtcDtoZWFkZXI9dHJ1ZSZhbXA7ZAIcD2QWAmYPFgIfDgUrRG5uTW9kdWxlIERubk1vZHVsZS1MaXZlVGFicyBEbm5Nb2R1bGUtMjEyMhYCAgEPZBYCZg9kFgICAg8PZBYCHw4FDE1vZExpdmVUYWJzQxYCAgEPZBYCZg9kFgQCAQ9kFgJmDxYCHw4FMERubk1vZHVsZSBEbm5Nb2R1bGUtRW5nYWdlUm90YXRvciBEbm5Nb2R1bGUtMTc0ORYCAgEPZBYCZg9kFgICAQ8PZBYCHw4FEU1vZEVuZ2FnZVJvdGF0b3JDZAIDD2QWAmYPFgIfDgU7RG5uTW9kdWxlIERubk1vZHVsZS1FdmVudHNDYWxlbmRhci1TYXRlbGxpdGUgRG5uTW9kdWxlLTIxMjkWAgIBD2QWAgIBD2QWBAIBDw8WAh8BaGRkAgUPD2QWAh8OBRtNb2RFdmVudHNDYWxlbmRhclNhdGVsbGl0ZUMWAmYPZBYCZg9kFgICAQ9kFgYCBA88KwAJAGQCBg8QZGQWAGQCCg8WAh8ABRpNb3JlIGV2ZW50cyBjb21pbmcgc29vbi4uLmQCHg9kFgJmDxYCHw4FMERubk1vZHVsZSBEbm5Nb2R1bGUtRW5nYWdlUm90YXRvciBEbm5Nb2R1bGUtMTI4MBYCAgEPZBYMZg9kFgICAg8WAh8BaBYGZg8WAh8FBQRFZGl0ZAIBDxYCHwUFBlVwZGF0ZWQCAg8WAh8FBQZDYW5jZWxkAgEPFgIfDgUUbG9nb19iZyBETk5BbGlnbmxlZnQWBAIBDw8WAh8BaGRkAgQPD2QWAh8OBRFNb2RFbmdhZ2VSb3RhdG9yQ2QCAg9kFgJmDw8WAh8BaGRkAgMPZBYCZg8PFgIfAWhkZAIED2QWAmYPDxYCHwFoZGQCBQ9kFgJmDw8WAh8BaGRkAiAPFgIfDgUfQm90dG9tQ29sdW1uMSBsZWZ0IEROTkVtcHR5UGFuZWQCIg8WAh8OBR9Cb3R0b21Db2x1bW4yIGxlZnQgRE5ORW1wdHlQYW5lZAIkDxYCHw4FH0JvdHRvbUNvbHVtbjMgbGVmdCBETk5FbXB0eVBhbmVkAiYPFgIfDgUgQm90dG9tQ29sdW1uNCByaWdodCBETk5FbXB0eVBhbmVkAigPFgIfDgUXQm90dG9tUGFuZSBETk5FbXB0eVBhbmVkAioPZBYCZg8PFgYeCENzc0NsYXNzBQtmb290ZXItbGluax8NAgIfAWhkZAIsD2QWAmYPDxYGHxgFC2Zvb3Rlci1saW5rHwAFBUxvZ2luHw0CAmRkAgsPFCsAAhQrAANkZGRkZGTAqb02fO0toqpOx24jJGepSDI2dw==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=N7iL8RlKvwYaIvb06ubCkQKMsIH3jjXDcveD6X4OOT-0kIE0kEjSMhh9oQPjYG19L00H-6zPwTOI-kJm0&amp;t=634704959059007109" type="text/javascript"></script>
+
+
+<script src="/js/dnncore.js" type="text/javascript"></script><script src="/WebResource.axd?d=g4DnHjc--LQ0ms_L7vRZT0ka2XaCw6JHXvWuOBUO7sut_EODXKROuyqLb4-Adfh_W31t8ue9ZZ0kpYA7bS-I1Ftl5EisAH1F6_yXbhFFX_hreAz9jObU_yyKLyIcbjKe__AdKbB3_2frUpe76ALnFsgxOSoIU4_IoCJgVRES4qeD3Coktg8SXGFKJCA1&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=UWhNfC719XfbEr9Vb_NB5pzmVHa1wkygR9pQtuSkOFPRw9Ek7XS5380DfeUYcZ9P5MQUwke5BNK5bwtv46Io7NlmD48S92uBulRj0lizOVH75ezatf0chKCGn_sYQWz0pqybDlUX9rL3AIi9wpnCCv-qj5oMHNOS74QekEmRzWgO3naaf3RwgMYKP_A1&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=TsLSfrTY_J4axK7EN1sMzLNpLpS72V6MKER6Nl1qB4udjCOby5_PRdoPrgn3pj68u8Pn6EwmixHznsvyXNhFOxPh_xjXTwd5JCV9Kl9biT2Grxfmsfs9JHifplh4fy16Z-CqGw8YxVWtRFvmswELaJdr683hMX9-GpaFE9OU3oLdC08zLXhZX1FSquw1&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=8OAxjJdOu9d8Jq1jMqW_2GEi3v9ArxCaJBqcX3VFzwyaIEj032SAsQQXj-7geoPUzzbJn2VwjJcudakOcXOVFgqh1o7smRo43UKP9ODG0yanXHscWnX0QSLDuBZ-PfkI4c-45srRtyAkLThM14m6XF9g63Tz569G0atMBGeXbO7gk6n6zGNFpr3-Y-M1&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=10jVFloUpDwALUcQOcAINoygtdMwuypzggu1xemuBZyk_0MhFmgd3SgydFv_E707jy4e0q1Qa81jUcD-QUV-KxrAIsAitPis1-H8jddjNaw0sPJpUXxce2wa5IaFg4keuEA5UV-w_LdhZ1GWJm0Fd0zZIP4Yncq_qyA1fMKev3jLS628oEy6KMa1XH81&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=d5jQ-nU5jo97CpV_9fdhXQUwVSe-aweIuQsgC9MQmuQYniKT0RJehSZMuqofqr6GfRtsfKwg3EhV9MtbKWULt_T2tl9Z1j_dnvR0h_szyDk_hbvvJVgvdPfEaNa9SiG_O0Esxul-np1fHGYZZAyig613krTdLbsnRyc3LEjT8d6bSxCe0&t=634613605030589298" type="text/javascript"></script><script src="/WebResource.axd?d=RmtWEFcPCdrkQqKcCKTeIBNgeT_wqxCWS64GAViFTppT2IDOdRKeoYf9o-rPyIV5Bfi5U2z6_hKuDb_bDM6OvejClgKfm8fSdhR7PHkARfVm-52oLs0_ADtr9d6QSoR7DNgyRMfpPB9CYVb5Sr4hFWpRLoCD3OC6urEXygCYUB36b8GVnuyhVlOh2u01&t=634613605030589298" type="text/javascript"></script><link rel="stylesheet" href="/desktopmodules/LiveTabs/Themes/Redmond/Redmond.css" type="text/css" />
+<script src="/WebResource.axd?d=twkH8cA0cSwzMACbTeOrfWrTVgmPoeqISTTCp4yx2F0pG5Yg297B-rVJJYzRh-BN3c-LQjmhwffA1oBuDmrdv5bc_lxy83sjaMJ34mlxu4ccBDd3mzWeorRu-KhyVQ19caEBSE1_0QKVG404v-vD4ZG4iTIVS5a1J5PiLQ2&amp;t=634285559752887478" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=ptKjr8KiV-96WgACYHTqVjFZo85m5PjjavkZvZ5Dukhd83oPr8s7IFORf3jXMV1ZsiDh-7cb20T_POaDXeBc_RH84evlVjHjTAmTgrjI76kHMbPD-uaFbv8mH0ZJ8mip3Molwltza3E3ya8uAqpKtui_ZfI1&amp;t=ffffffff940d030f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=2ArPg7puEWe2bChUr7gzQkC4fTW6Q1eZHcX9xxtx6BTHrzC9lTpHuxpF-ec2qnVcs_NKd6fWK0qG2qYCSOVQnIuWe02xh9_p8YdQ2wB8Ak4qHuinu0yQyms3k1wT8mbYVrwSJrb55AJXuDmTFninvK5eTbKPy2-eDBMSGw2&amp;t=ffffffff940d030f" type="text/javascript"></script>
+<script src="/js/dnn.js" type="text/javascript"></script>
+<script src="/js/dnn.xml.js" type="text/javascript"></script>
+<script src="/js/dnn.xmlhttp.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', 'Form', ['tdnn$ctr2122$View$ctr2129$Satellite_UP','dnn_ctr2122_View_ctr2129_Satellite_UP'], [], [], 90, '');
+//]]>
+</script>
+
+        
+        <!--
+
++========================================================+
+|                                                        |
+|  DotNetNuke Skin - Naugatuck Valley Community College  |
+|               Developed by Adammer LLC                 |
+|                http://www.adammer.com                  |
+|                                                        |
+|                     August 2009                        |
+|                                                        |
++========================================================+
+
+Version    : 2.0
+Released   : September 2009
+
+-->          
+
+<script src="/Portals/0/HeaderExpandCollapse.js" type="text/javascript"></script>
+<center>
+  <div id="TopDiv"></div>
+  <div id="BorderBgDiv">
+    <div id="HeaderDiv">
+      <div id="HeaderPane" class="HeaderPane right"><a href="/Admissions/Apply-to-NVCC">Apply to NVCC</a> | <a href="/Academics/Academic-Calendar">Calendars</a> | <a href="/About-NVCC/News-Press-Releases">College News</a> | <a href="/Academics/Catalogs-Schedules">Course Schedules</a> | <a href="/Academics/Library">Library</a> | <a href="/Student-Life/Events-Performances">Upcoming Events</a></div>
+      <div id="dnnLogo" class="dnnLogo left">
+        <a id="dnn_dnnLOGO_hypLogo" title="NVCC | Naugatuck Valley Community College" href="http://www.nv.edu/"><img id="dnn_dnnLOGO_imgLogo" src="/Portals/0/nvcc_logo.png" alt="NVCC | Naugatuck Valley Community College" style="border-width:0px;" /></a>
+      </div>
+      <div id="Search">
+        <input name="dnn$dnnGCSEARCH$q" type="text" maxlength="512" id="dnn_dnnGCSEARCH_q" class="GCSearchBox" style="width:140px;" />&nbsp;
+<input type="submit" name="dnn$dnnGCSEARCH$bSearch" value="" id="dnn_dnnGCSEARCH_bSearch" class="GCSearchButton" />
+<input name="dnn$dnnGCSEARCH$cx" type="hidden" id="dnn_dnnGCSEARCH_cx" value="014117210520345821265:i3z0lzbc8xs" />
+<input name="dnn$dnnGCSEARCH$cof" type="hidden" id="dnn_dnnGCSEARCH_cof" value="FORID:9" />
+
+<INPUT style="DISPLAY: none; VISIBILITY: hidden" name="dummyHidden"> <input name="dnn$dnnGCSEARCH$safe" type="hidden" id="dnn_dnnGCSEARCH_safe" value="inactive" />
+
+        <div id="myCommNet"><a href="http://www.my.commnet.edu"><img src="/Portals/_default/Skins/NVCC/graphics/myCommNet_logo.gif" alt="MyCommNet" /></a></div>
+      </div>
+      <div id="dnn_LogoPane" class="LogoPane DNNEmptyPane"></div>
+    </div>
+    
+    <div id="menu-bg">
+      <div id="menu">
+        <div id="nav" class="TabList"><ul class="Level0"><li id="nav54"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC" title="About NVCC">About NVCC</a><ul class="Level1"><li id="nav77"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Presidents-Message" title="President's Message">President's Message</a></li><li id="nav76"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/College-Facts" title="">College Facts</a></li><li id="nav551"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Danbury-Center" title="Danbury Center">Danbury Center</a></li><li id="nav646"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Accreditation-NEASC" title="Accreditation (NEASC)">Accreditation (NEASC)</a></li><li id="nav549"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Maps-Directions" title="Maps & Directions">Maps & Directions</a></li><li id="nav171"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Mission-Vision" title="Mission & Vision">Mission & Vision</a></li><li id="nav347"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/News-Press-Releases" title="News & Press Releases">News & Press Releases</a></li><li id="nav540"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/NVCC-Foundation" title="NVCC Foundation">NVCC Foundation</a></li><li id="nav374"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/About-NVCC/Visit-Us" title="Visit Us">Visit Us</a></li></ul></li><li id="nav56"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions" title="Admissions">Admissions</a><ul class="Level1"><li id="nav335"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Apply-to-NVCC" title="Apply to NVCC">Apply to NVCC</a></li><li id="nav586"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Information-Tours" title="Information & Tours">Information & Tours</a></li><li id="nav339"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Underage-Homeschooled-Students" title="Underage & Homeschooled Students">Underage & Homeschooled Students</a></li><li id="nav340"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/International-Students" title="International Students">International Students</a></li><li id="nav398"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Testing-Center" title="Testing Center">Testing Center</a></li><li id="nav395"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Transfer-Students" title="Transfer Students">Transfer Students</a></li><li id="nav377"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Senior-Citizen-Registration" title="Senior Citizen Registration">Senior Citizen Registration</a></li><li id="nav375"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Non-credit-Lifelong-Learning" title="Non-credit Lifelong Learning">Non-credit Lifelong Learning</a></li><li id="nav498"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Admissions/Request-Information" title="Request Information">Request Information</a></li></ul></li><li id="nav172"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Paying-for-College" title="Paying for College">Paying for College</a><ul class="Level1"><li id="nav97"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Paying-for-College/Financial-Aid" title="Financial Aid">Financial Aid</a></li><li id="nav95"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Paying-for-College/Tuition-and-Fees" title="">Tuition and Fees</a></li><li id="nav96"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Paying-for-College/Types-Of-Aid" title="">Types Of Aid</a></li><li id="nav692"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Paying-for-College/Veteran-Students" title="Veteran Students">Veteran Students</a></li></ul></li><li id="nav57"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics" title="Academics">Academics</a><ul class="Level1"><li id="nav570"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Calendar" title="Academic Calendar">Academic Calendar</a></li><li id="nav266"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Credit-Programs-Courses" title="Credit Programs & Courses">Credit Programs & Courses</a><ul class="Level2"><li id="nav578"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Credit-Programs-Courses/Degree-Programs" title="Degree Programs">Degree Programs</a></li><li id="nav580"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Credit-Programs-Courses/Certificate-Programs" title="Certificate Programs">Certificate Programs</a></li><li id="nav579"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Credit-Programs-Courses/Courses" title="Courses">Courses</a></li></ul></li><li id="nav84"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions" title="">Academic Divisions</a><ul class="Level2"><li id="nav85"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Allied-Health-Nursing-and-Physical-Education" title="">Allied Health, Nursing and Physical Education</a></li><li id="nav86"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Arts-Humanities" title="">Arts & Humanities</a></li><li id="nav87"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Behavioral-Social-Sciences" title="">Behavioral & Social Sciences</a></li><li id="nav88"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Business" title="">Business</a></li><li id="nav89"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Science-Technology-Engineering-and-Math-STEM" title="Science, Technology, Engineering and Math (STEM)">Science, Technology, Engineering and Math (STEM)</a><ul class="Level3"><li id="nav211"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Science-Technology-Engineering-and-Math-STEM/Mathematics-Department" title="Mathematics Department">Mathematics Department</a></li><li id="nav213"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Academic-Divisions/Science-Technology-Engineering-and-Math-STEM/Science-Department" title="Science Department">Science Department</a></li></ul></li></ul></li><li id="nav80"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Non-credit-Lifelong-Learning" title="Non-credit Lifelong Learning">Non-credit Lifelong Learning</a></li><li id="nav81"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Distance-Learning" title="">Distance Learning</a></li><li id="nav576"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Catalogs-Schedules" title="Catalogs & Schedules">Catalogs & Schedules</a></li><li id="nav328"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Library" title="Library">Library</a></li><li id="nav338"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Records-Registration" title="Records/Registration">Records/Registration</a></li><li id="nav82"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Workforce-Training" title="Workforce Training">Workforce Training</a></li></ul></li><li id="nav59"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life" title="Student Life">Student Life</a><ul class="Level1"><li id="nav397"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/ACE-Tutoring" title="Academic Center for Excellence">ACE (Tutoring)</a></li><li id="nav618"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Bookstore" title="Bookstore">Bookstore</a></li><li id="nav102"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Cafe" title="Marigold's Cafe">Cafe</a></li><li id="nav99"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Counseling-Advising" title="">Counseling & Advising</a></li><li id="nav300"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Disability-Services" title="Disability Services">Disability Services</a></li><li id="nav104"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Events-Calendar" title="Events Calendar">Events Calendar</a></li><li id="nav100"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Getting-to-NVCC" title="Getting to NVCC">Getting to NVCC</a></li><li id="nav671"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Information-Center" title="Information Center">Information Center</a></li><li id="nav654"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center" title="Job Placement Center">Job Placement Center</a><ul class="Level2"><li id="nav653"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Job-Search" title="Job Placement Center Job Search Resources">Job Search</a></li><li id="nav656"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Nursing-Students" title="Nursing Students">Nursing Students</a></li><li id="nav667"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Cooperative-Education-Field-Work" title="Cooperative Education / Field Work">Cooperative Education / Field Work</a><ul class="Level3"><li id="nav670"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Cooperative-Education-Field-Work/Coop-CJS" title="Coop-CJS">Coop-CJS</a></li><li id="nav691"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Cooperative-Education-Field-Work/FW-HSEH281" title="Human Services Field Work 1 - HSE*H281">FW-HSEH281</a></li></ul></li><li id="nav668"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Academics/Workforce-Training" title="Workforce Investment Act / Dislocated Workers">Workforce Investment Act Dislocated Workers</a></li><li id="nav655"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Employers" title="Job Placement Center Resources for Employers">Employers</a></li><li id="nav659"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Faculty" title="Job Placement Center Resources for Faculty">Faculty</a></li><li id="nav652"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Calendar" title="Job Placement Center Events | NVCC">Calendar</a></li><li id="nav697"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Student-Assistants" title="Students Assistants">Student Assistants</a></li><li id="nav698"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Work-Study" title="Work Study">Work Study</a></li><li id="nav660"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Resources" title="Job Placement Center Resources">Resources</a></li><li id="nav658"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Job-Placement-Center/Contact-Us" title="Job Placement Center Staff">Contact Us</a></li></ul></li><li id="nav103"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Places-to-Study" title="Places to Study">Places to Study</a></li><li id="nav101"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Student-Life/Student-Activities" title="Clubs & Activities">Student Activities</a></li></ul></li><li id="nav562"  onmouseover="this.className+=' iehover ';" onmouseout="this.className=this.className.replace(' iehover ', '');" ><a href="http://www.nv.edu/Offices-Departments" title="Offices & Departments">Offices & Departments</a></li></ul></div>
+      </div>
+    </div>
+    
+    <div id="content">
+      <div id="dnn_TopPane" class="TopPane DNNEmptyPane"></div>
+      <div id="TopPaneDiv" class="TopPaneDiv">
+        <div id="dnn_TopLeftPane" class="TopLeftPane left DNNEmptyPane"></div>
+        <div id="dnn_TopRightPane" class="TopRightPane right DNNEmptyPane"></div>
+      </div>
+      <div id="dnn_ContentPane" class="ContentPane ContentPaneDiv"><div class="DnnModule DnnModule-DNN_HTML DnnModule-376"><a name="376"></a>
+
+<div class="">
+  <div class="Banner">
+    <div id="dnn_ctr376_ContentPane" class="DNNAlignleft">
+      
+    <!-- Start_Module_376 --><div id="dnn_ctr376_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr376_HtmlModule_lblContent" class="Normal">
+	<div style="background-image: url(http://www.nvcc.commnet.edu/portals/0/images/homepage-textarea-ace5.jpg); background-attachment: scroll; background-color: transparent; height: 244px; background-position: 0% 0%;">
+<div style="margin: 50px 0pt 0pt 30px; width: 464px; float: left; height: 168px;">
+<p style="font-family: verdana,geneva,sans-serif; color: #97c5fc; font-size: 17px;">Time to register for Summer and Fall 2012!</p>
+<p style="color: #ffffff;">Did you know that summer and fall registration are already underway<br />
+for continuing NVCC students? New students can register for summer now and on 4/23 for the fall semester. Make an appointment with <br />
+your advisor to make sure you're on the right track and then visit<br />
+<strong><a target="_blank" style="color: #ffffff;" href="http://www.my.commnet.edu/">my.commnet.edu</a></strong> to sign up for classes! Non-refundable college <br />
+and student activities fees are due at registration. For more info download the <a style="color: #ffffff;" href="/Academics/Catalogs-Schedules/Publications/itemId/1380/Credit-Enrollment-and-Admissions-Guide">Credit Enrollment Guide</a>.</p>
+</div>
+<!-- ### Begin Target Audience List ### -->
+<div style="margin: 20px 0pt 0pt; width: 210px; float: right;" class="homepage-banner">
+<p style="font-family: verdana,geneva,sans-serif; margin-bottom: 20px; color: #97c5fc; font-size: 22px;"><a style="color: #ffffff;" href="/current-students">Information for:</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/alumni">Alumni</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/Future-Students/">Future Students</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/Current-Students/">Current Students</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/Community-Partners/">Community Partners</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/NVCC-Foundation">Donors</a></p>
+<p style="font-size: 14px;"><a style="color: #ffffff;" href="/paying-for-college/Veteran-Students">Veterans</a></p>
+</div>
+<!-- ### END Target Audience List ### --> </div>
+</div>
+
+</div><!-- End_Module_376 --></div>
+    
+    <div class="action-buttons">
+      
+      
+      
+      
+    </div>
+    
+  </div>
+</div></div></div>
+      <div id="ContentPane2Div" class="ContentPaneDiv">
+        <div id="dnn_LeftPane" class="LeftPane left DNNEmptyPane"></div>
+        <div id="dnn_ContentPane2" class="ContentPane2 right DNNEmptyPane"></div>
+      </div>
+      <div id="ContentPaneDiv" class="ContentPaneDiv">
+        <div id="dnn_ContentPane3" class="ContentPane3 left DNNEmptyPane"></div>
+        <div id="dnn_RightPane" class="RightPane right DNNEmptyPane"></div>
+      </div>
+      <div id="MiddlePaneDiv" class="MiddlePaneDiv">
+        <div id="dnn_MiddleLeftPane" class="MiddleLeftPane left"><div class="DnnModule DnnModule-DNN_HTML DnnModule-350"><a name="350"></a>
+
+<div class="logo_grey_border_rounded">
+  <div class="Title-UL">
+    <div class="left_corner"></div>
+    <div class="right_corner"></div>
+    
+    <div class="greyTitleLogoRounded">
+      <span id="dnn_ctr350_dnnTITLE_lblTitle" class="Head">Quick Links</span>
+
+
+
+    </div>
+    <div id="dnn_ctr350_ContentPane" class="logo_grey_border_bg-rounded DNNAlignleft">
+      
+    <!-- Start_Module_350 --><div id="dnn_ctr350_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr350_HtmlModule_lblContent" class="Normal">
+	<a href="https://www.facebook.com/NaugatuckValleyCommunityCollege" target="_blank"><img alt="" width="20" height="20" src="/Portals/0/Images/icons/FB.jpg" /></a><a href="http://twitter.com/#!/NaugatuckValley" target="_blank"><img alt="" width="20" height="20" src="/Portals/0/Images/icons/twitter.jpg" /></a><a href="http://www.flickr.com/photos/59966013@N07/sets/" target="_blank"><img alt="" width="20" height="20" src="/Portals/0/Images/icons/flickrsm.jpg" /></a><a href="http://www.linkedin.com/company/naugatuck-valley-community-college" target="_blank"><img alt="" width="20" height="20" src="/Portals/0/Images/icons/linkedin.jpg" /></a><a href="http://my.commnet.edu"><img alt="" width="112" height="26" src="/Portals/0/Images/icons/myCommNet_logo.gif" style="margin-left: 8px; border-width: 0px; border-style: solid;" /></a> <br />
+<div style="text-align: center;"><a href="/Offices-Departments/Bridge-to-College/itemId/1779/AmeriCorps"><br />
+</a></div>
+<ul>
+    <li><a href="/Admissions/Apply-to-NVCC">Apply</a></li>
+    <li><a target="_blank" href="http://www.online.commnet.edu/pls/x/bzskfcls.P_CrseSearch">Search courses</a></li>
+    <li><a href="../../../../Offices-Departments/College-Support-Services/Public-Safety/itemId/1629/Weather-Closings">Weather closings</a></li>
+    <li><a href="/Academics/Catalogs-Schedules">Catalogs &amp; Enrollment Guides</a></li>
+    <li><a href="/Admissions/Request-Information">Admission info</a></li>
+    <li><a href="/Academics/Non-credit-Lifelong-Learning">Career Advancement</a></li>
+    <li><a href="/Non-Credit/Boating/itemId/625/Boating" title="Boating Certification at NVCC">Boating</a> &amp; <a href="/Non-Credit/Motorcycle" title="CT Motorcycle Rider Education Program">Motorcycle Safety</a></li>
+    <li><a target="_blank" href="/Portals/0/Documents/StudentServices/NVCCStudentHandbook.pdf">Student Handbook</a> </li>
+    <li><a href="/Student-Life/itemId/522/Information-Center">Information Center</a></li>
+    <li><a href="/Admissions/Apply-to-NVCC/itemId/793/Contact-Us">Contact us</a></li>
+</ul>
+<div style="text-align: center;"><a href="/Offices-Departments/Bridge-to-College/AmeriCorps/itemId/1779/Waterbury-AmeriCorps"><img alt="" width="100" height="100" src="/Portals/0/Images/BridgetoCollege/AmeriCorpsLogo_Waterbury.gif" /></a></div>
+<p></p>
+<div style="text-align: center;"><a href="/Offices-Departments/College-Support-Services/Public-Safety/itemId/1499/myCommNetAlert"><img alt="" width="126" height="42" src="/Portals/0/Images/PublicSafety/mycommnetalert.gif" /></a><br />
+</div>
+</div>
+
+</div><!-- End_Module_350 --></div>
+    
+    <div class="action-buttons logo_grey_border_bg-rounded grey_border_bottom">
+      
+      
+      
+      
+    </div>
+    
+  </div>
+</div>
+</div><div class="DnnModule DnnModule-DNN_HTML DnnModule-377"><a name="377"></a>
+
+<div class="logo">
+  <div class="Title">
+    
+    <div class="TitleLogo">
+      <span id="dnn_ctr377_dnnTITLE_lblTitle" class="Head">Convenient Location </span>
+
+
+
+    </div>
+    <div id="dnn_ctr377_ContentPane" class="logo_bg DNNAlignleft">
+      
+    <!-- Start_Module_377 --><div id="dnn_ctr377_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr377_HtmlModule_lblContent" class="Normal">
+	<div align="center"><a href="/About-NVCC/Maps-Directions"><img alt="alt text here" src="/Portals/0/images/directions.gif" border="0" height="69" width="212" /></a></div>
+<div align="center">&nbsp;</div>
+<!--
+<div align="center"><a title="Connect with NVCC on Facebook!" href="http://www.facebook.com/NaugatuckValleyCommunityCollege" target="_blank"><img alt="" src="/Portals/0/Images/icons/facebook.gif" border="0" height="44" width="144" /></a></div>
+-->
+
+</div>
+
+</div><!-- End_Module_377 --></div>
+    
+    <div class="action-buttons logo_bg" style="padding-bottom:5px;">
+      
+      
+      
+      
+    </div>
+    
+  </div>
+</div></div><div class="DnnModule DnnModule-DNN_HTML DnnModule-2079"><a name="2079"></a>
+
+<div class="width3">
+  <div class="Title-UL">
+    
+    <div class="no-title-padding"></div>
+    <div id="dnn_ctr2079_ContentPane">
+      
+    <!-- Start_Module_2079 --><div id="dnn_ctr2079_ModuleContent" class="ModDNNHTMLC">
+	<div id="dnn_ctr2079_HtmlModule_lblContent" class="Normal">
+	<div style="text-align: center"><a href="http://www.twitter.com/NaugatuckValley"><img alt="Follow NaugatuckValley on Twitter" src="http://twitter-badges.s3.amazonaws.com/follow_us-c.png" /></a></div>
+</div>
+
+</div><!-- End_Module_2079 --></div>
+    
+    <div class="action-buttons">
+      
+      
+      
+      
+    </div>
+    
+  </div>
+</div></div><div class="DnnModule DnnModule-DNN_IFrame DnnModule-2068"><a name="2068"></a><div id="dnn_ctr2068_ContentPane"><!-- Start_Module_2068 --><span class="Normal"><div class="CenterFB">
+<style>.CenterFB .connections {text-align:center;}</style>
+<style>.CenterFB .total total_plus hidden_elem{color:red;}</style></span><div id="dnn_ctr2068_ModuleContent" class="ModDNNIFrameC">
+	<iframe id="dnn_ctr2068_IFrame_htmIFrame" width="182" frameborder="0" hideadminborder="False" height="350" style="border:none; overflow:hidden;" scrolling="no" allowtransparency="true" src="http://www.facebook.com/connect/connect.php?id= 299940874625&amp;connections=6&amp;stream=0&amp;locale=en_US&amp;amp;colorscheme=light&amp;amp;header=true&amp;amp;">Your browser does not support inline frames</iframe>
+
+</div><span class="Normal"></div></span><!-- End_Module_2068 --></div>
+</div></div>
+        <div id="dnn_MiddlePane" class="MiddlePane left"><div class="DnnModule DnnModule-LiveTabs DnnModule-2122"><a name="2122"></a><div id="dnn_ctr2122_ContentPane"><!-- Start_Module_2122 --><span class="Normal"><div class="bluebackground">
+<style>.bluebackground {background:url(/Portals/0/blue-bg.gif) repeat #e9f0f5;text-align:left;height:100%;}
+.ListEventDate, .ListEventDate span {font-size: 11px;}
+.ListTitle {font-size: 12px;}
+a.satellite {font-size:10px;}</style>
+</span><div id="dnn_ctr2122_ModuleContent" class="ModLiveTabsC">
+	<div  class="livetabsredmondredmond">
+<div id="LiveTabsWrapper2122">
+<ul id="LiveTabs2122" >
+<li id="LiveTab21222"><a href="#LiveTabsContent21222">News</a></li>
+<li id="LiveTab21221"><a href="#LiveTabsContent21221">Events</a></li>
+<li id="LiveTab21223"><a href="#LiveTabsContent21223">Math Announcement <!--<span style="font-size: 9px; color: red;">(NEW)</span>--></a></li>
+</ul>
+<div  id="LiveTabsContent21222" class="Normal"> <div id="dnn_ctr2122_View_LiveTabsiMod1749"><div class="DnnModule DnnModule-EngageRotator DnnModule-1749"><a name="1749"></a><div id="dnn_ctr2122_View_ctr1749_ContentPane"><!-- Start_Module_1749 --><div id="dnn_ctr2122_View_ctr1749_ModuleContent" class="ModEngageRotatorC">
+		<div id="dnn_ctr2122_View_ctr1749_Rotator_RotatorContainer" class="engage-rotator-container">
+			 <div class="temp-2 wrap">
+ 	<div class="rotate-wrap">
+    
+            <div>
+            	<div class="body">
+					<div class="content_body_wrap">
+						<div class="content">
+                            <div class="thumb"></div>
+                            <h2 class="slidetitle">You're Never Too Old for the Honor Roll...</h2>
+                            <div class="content_body"><p>Do you miss being an Honors student? Well there's a new way to let your excellence shine at NVCC by applying for a coveted slot in the Honors Institute. </p>
+<p>The Honors Institute affords students a better teacher-student ratio, smaller classes, more direct access to faculty mentoring, more independent study opportunities and early entrance into Phi Theta Kappa Honor Society. </p>
+<p>Needless to say, success in the Honors Institute increases transfer opportunities, gains student recognition at the Honors Showcase, banquet, and commencement, and includes honor status on your transcript. </p>
+<p>You know how hard you work -&nbsp; but wouldn't the world be a better place if everybody did? Learn More!</p></div>
+                            <div class="link"><a class="rotatorReadMoreLink" href="http://www.nvcc.commnet.edu/Offices-Departments/Administration/Academic-Affairs/itemId/1839/The-Honors-Institute">Read More...</a></div>
+                        </div>
+                    </div>
+				</div>
+             </div>
+       
+            <div>
+            	<div class="body">
+					<div class="content_body_wrap">
+						<div class="content">
+                            <div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/PublishThumbnails/sm-2011-05-19-Commencement.jpg" /></div>
+                            <h2 class="slidetitle">2012 Graduation Information Available</h2>
+                            <div class="content_body"><p>The 2012 Naugatuck Valley Community College Commencement Ceremony will take place at 2 pm on Friday, May 25 at the Palace Theater in Waterbury. </p>
+<p>All students who will be graduating next month are required to complete and submit a <a href="/Portals/0/Documents/Graduation/2012GradDeadline.pdf" target="_blank">graduation application</a> by April 30 in order to receive their diploma on stage.</p>
+<p>More information about tickets, what to wear, getting there and everything else you need to know about this year's Commencement under "Current Students".</p></div>
+                            <div class="link"><a class="rotatorReadMoreLink" href="/Current-Students">Read More...</a></div>
+                        </div>
+                    </div>
+				</div>
+             </div>
+       
+            <div>
+            	<div class="body">
+					<div class="content_body_wrap">
+						<div class="content">
+                            <div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/PublishThumbnails/sm-2012-04-17-MysteryDinnerTheater.jpg" /></div>
+                            <h2 class="slidetitle">Attending fundraisers has never been SO EASY!</h2>
+                            <div class="content_body"><p>NVCC's annual fundraiser, the Mystery Dinner Theater is back with a twist. You stay home, relax, make a contribution and make a difference in the lives of many NVCC students. </p>
+<p>Find out how you can <a target="_blank" href="../../../../Portals/0/Documents/OCE/NVCC%20Mystery%20Dinner%20Event.pdf">be a part of this year's stay-at-home event!</a></p>
+<p>The Naugatuck Valley Community College Foundation is a 501(c)(3) non-profit organization established to support the students, programs, and services of the college. The volunteer board of directors includes community leaders, students and faculty. The Foundation funds scholarships, tutoring, equipment and special projects. Donations to the foundation are tax-deductible. </p></div>
+                            <div class="link"><a class="rotatorReadMoreLink">Read More...</a></div>
+                        </div>
+                    </div>
+				</div>
+             </div>
+       
+            <div>
+            	<div class="body">
+					<div class="content_body_wrap">
+						<div class="content">
+                            <div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/PublishThumbnails/sm-2010-07-14-WeldingGraduates.jpg" /></div>
+                            <h2 class="slidetitle">Workforce Development and Job Training at NVCC</h2>
+                            <div class="content_body">Non-credit courses and certification programs can help you gain the skills and knowledge necessary
+to enter or
+re-enter the workforce and become economically
+self-sufficient. We offer a variety of options designed for young people and adults of all backgrounds all year-round.</div>
+                            <div class="link"><a class="rotatorReadMoreLink" href="/Academics/Non-credit-Lifelong-Learning">Read More...</a></div>
+                        </div>
+                    </div>
+				</div>
+             </div>
+       
+</div>
+	<div class="pager_wrap">
+		<div class="pager_items_wrap">
+			<div class="pager_items">
+				
+					<div class="pager-item-0">
+				
+                        <p>You're Never Too Old for the Honor Roll...</p>
+                    
+			</div>
+                 
+					<div class="pager-item-1">
+				
+                        <p>2012 Graduation Information Available</p>
+                    
+			</div>
+                 
+					<div class="pager-item-2">
+				
+                        <p>Attending fundraisers has never been SO EASY!</p>
+                    
+			</div>
+                 
+					<div class="pager-item-3">
+				
+                        <p>Workforce Development and Job Training at NVCC</p>
+                    
+			</div>
+                 
+			</div>
+		</div><div style="clear:both"></div>
+	</div>
+    
+	</div>
+	<div style="clear:both"></div>
+		</div>
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('#dnn_ctr2122_View_ctr1749_Rotator_RotatorContainer .rotate-wrap').cycle({"fx":"fade","timeout":8300,"continuous":false,"speed":300,"next":"#dnn_ctr2122_View_ctr1749_Rotator_RotatorContainer .rotator-next","prev":"#dnn_ctr2122_View_ctr1749_Rotator_RotatorContainer .rotator-prev","pager":"#dnn_ctr2122_View_ctr1749_Rotator_RotatorContainer .rotator-pager","pagerEvent":"click","height":"475px","width":"","startingSlide":0,"sync":true,"random":false,"fit":true,"containerResize":true,"pause":true,"pauseOnPagerHover":false,"autostop":false,"autostopCount":0,"delay":0,"nowrap":false,"fastOnEvent":0,"cleartypeNoBg":false,"randomizeEffects":true,"manualTrump":false});
+    });
+</script>
+	</div><!-- End_Module_1749 --></div>
+</div></div> </div>
+<div  id="LiveTabsContent21221" class="Normal"> <div id="dnn_ctr2122_View_LiveTabsiMod2129"><div class="DnnModule DnnModule-EventsCalendar-Satellite DnnModule-2129"><a name="2129"></a>
+<table cellpadding="0" cellspacing="0" summary="Module Design Table" width="98%">
+  <tr>
+    <td id="dnn_ctr2122_View_ctr2129_ContentPane">
+		
+    <!-- Start_Module_2129 --><span class="Normal"><div class="bluebg">
+<style>.bluebg {background:url(/Portals/0/blue-bg.gif) repeat #e9f0f5;}</style></span><div id="dnn_ctr2122_View_ctr2129_ModuleContent" class="ModEventsCalendarSatelliteC">
+		<div id="dnn_ctr2122_View_ctr2129_Satellite_UP">
+			
+<script type="text/javascript" src='/DesktopModules/EventsCalendar/Scripts/excanvas-compressed.js?v=020505'></script>
+<script type="text/javascript" src='/DesktopModules/EventsCalendar/Scripts/jquery.bt.min.js?v=020505'></script>
+<script type="text/javascript" src='/DesktopModules/EventsCalendar/Scripts/eventscalendar.js?v=020505'></script>
+<script type="text/javascript" src='/DesktopModules/EventsCalendar/Scripts/common.js?v=020505'></script>
+
+
+
+
+              
+<div>More events coming soon...</div>
+
+
+		</div><div id="dnn_ctr2122_View_ctr2129_Satellite_UP_Prog" style="display:none;">
+			<img src="/images/progressbar.gif" alt="ProgressBar" />
+		</div>
+	</div><span class="Normal"></div></span><!-- End_Module_2129 --></td>
+	
+  </tr>
+</table></div></div> </div>
+<div  id="LiveTabsContent21223" class="Normal"> <div style="margin-top: 4px; position: relative;">
+<h2 style="margin-top: 6px; margin-right: 0px; margin-bottom: 6px; margin-left: 0px;">Introducing STATWAY - NVCC's New Math Course</h2>
+<div style="position: absolute; top: 75px; left: 0px; z-index: 10; width: 152px; height: 157px;"><a target="_blank" class="hidepdficon" href="/Portals/0/Documents/MathScience/Statway-Flyer.pdf"><img alt="" width="152" height="157" style="border-width: 0px;border-style: solid;" src="/Portals/0/Images/STEM/Mathematics/statway.png" /></a></div>
+<div style="z-index: -1;"><object width="453" height="280" style="height: 280px; width: 453px;">
+<param wmode="transparent" name="movie" value="http://www.youtube.com/v/RJXVmDBel20?version=3&amp;autoplay=1&amp;rel=0">
+<param name="allowFullScreen" value="true">
+<param name="allowScriptAccess" value="always"><embed wmode="transparent" src="http://www.youtube.com/v/RJXVmDBel20?version=3&amp;autoplay=1&amp;rel=0" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" height="280" width="453"></object></div>
+</div> </div>
+</div>
+</div>
+
+</div><span class="Normal"><div style="clear"></div>
+</div></span><!-- End_Module_2122 --></div>
+</div></div>
+        <div id="dnn_MiddleRightPane" class="MiddleRightPane right"><div class="DnnModule DnnModule-EngageRotator DnnModule-1280"><a name="1280"></a>
+
+<div class="logo">
+  <div class="Title">
+    
+    <div class="TitleLogo">
+      <span id="dnn_ctr1280_dnnTITLE_lblTitle" class="Head">Alumni Spotlight</span>
+
+
+
+    </div>
+    <div id="dnn_ctr1280_ContentPane" class="logo_bg DNNAlignleft">
+      
+    <!-- Start_Module_1280 --><div id="dnn_ctr1280_ModuleContent" class="ModEngageRotatorC">
+	<div id="dnn_ctr1280_Rotator_RotatorContainer" class="engage-rotator-container">
+		<div class="temp1">
+<div class="rotate-wrap">
+    
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Gleen-McCabe.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Glenn McCabe</h2>
+							<div class="content_body">Glenn's<span> work has been recognized by national and  international awards from Film Fest New Haven, Telly Awards, Worldfest  Houston, Communicator Awards, Vision Awards, Videographer Awards,  Writer/Director.com Filmfest and the AVA Awards.</span></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="http://www.nvcc.commnet.edu/Alumni/Alumni-Spotlight/itemId/1654/Glenn-McCabe-President-Glenn-Andrew-Productions">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/BruceLoman.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Bruce Loman</h2>
+							<div class="content_body"><div><span>"I've been places and met people I never could have  imagined... I had no plan  after high school but everything changed because of my attendance at  Mattatuck Community College in 1967."</span></div></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="http://www.nvcc.commnet.edu/Alumni/Alumni-Spotlight/itemId/1655/Bruce-Loman-Golf-Industry-Professional">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Mauricio_PitaGoncalves.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Mauricio Pita-Goncalves</h2>
+							<div class="content_body"><p align="left">Mauricio Pita-Goncalves, a 2009 graduate of the visual and performing arts theatre and dance program at Naugatuck Valley Community College, and former vice-president of the College&#8217;s Student Government Association, was accepted into Yale University's 2009 Summer Conservatory for Actors at the Yale School of Drama.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1033/Mauricio-PitaGoncalves-Actor-Dancer-and-Singer">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Maria_Arcari.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Maria Arcari</h2>
+							<div class="content_body"><p>Maria Arcari was born in Ecuador and came to the United States when she was 18 years old. Fluent in Spanish and English, she has lived and experienced the American and Latino cultures as part of her everyday life.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1032/Maria-Arcari-Regulatory-Consultant-CT-Dept-of-C">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Natalie_Testa.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Natalie Testa</h2>
+							<div class="content_body"><p align="left">Natalie is the owner of a 26 year old business, Ragtime Boutique in Watertown, which she purchased in 1999. Her business serves as the official wardrobe sponsor to Miss Connecticut, to whom she has donated several gowns and outfits throughout the years, as well as helping to prepare Miss Connecticut for the Miss America Pageant.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1034/Natalie-Testa-Owner-Ragtime-Boutique-Watertown">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/RobKane.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Robert J. Kane</h2>
+							<div class="content_body"><p>Senator Kane, a long-time resident of Watertown, was elected to represent the 32nd Senatorial District in a special election on January 15, 2008 and was re-elected in November 2008. </p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1035/Robert-J-Kane-State-Senator-D32">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/VictorDiaz.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Victor Diaz</h2>
+							<div class="content_body"><div><span><div>Formerly the deputy city clerk of Waterbury, Victor was promoted to deputy  commissioner of the Department of Motor Vehicles in January 2011.</div></span></div></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="http://www.nvcc.commnet.edu/Alumni/Alumni-Spotlight/itemId/1652/Victor-Diaz-Deputy-City-Clerk-Waterbury">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/John_Fusco.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">John Fusco</h2>
+							<div class="content_body"><p align="left">John Fusco, accomplished Hollywood screenwriter, credits Naugatuck Valley Community College with the start of his successful career.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1031/John-Fusco-Hollywood-Screenwriter">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Chris_Collibee.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Chris Collibee</h2>
+							<div class="content_body"><p>Chris graduated in 1997 from Amity High School in Woodbridge before attending Naugatuck Valley Community College, where he took an associate degree in general studies in 1999. At the College, he was the editor-in-chief of <em>The Tamarack</em> and a member of the Student Senate.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1028/Chris-Collibee-News-Assignment-Editor-WFSB-Chann">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/Florin_Firimita.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Florin Ion Firimita</h2>
+							<div class="content_body"><p align="left">Florin Ion Firimita is a visual artist, teacher, author and filmmaker who traces his interest in art back to his father&#8217;s modest amateur photo lab in Bucharest, Romania, where he was entrusted with mixing chemicals, developing lm and printing black-and-white photos at the age of six.</p></div>
+							<div class="link"><a class="rotatorReadMoreLink" href="/Alumni/Alumni-Spotlight/itemId/1029/Florin-Ion-Firimita-Visual-Artist-Teacher-Autho">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+            <div>
+               <div class="wrap">
+					<div class="body">
+						<div class="thumb"><img class="rotatorThumbnail" src="/Portals/0/Images/SuccessStories/ReginaDemarasse.jpg" /></div>
+						<div class="content">
+							<h2 class="slidetitle">Regina Demarasse</h2>
+							<div class="content_body">After graduating from the New York High School for Music and Art in 1976, a spinal tumor changed Regina's body and life. Despite her devastating dramas, however, she earned a master's degree, became a homeowner, counselor, international speaker and biographer.</div>
+							<div class="link"><a class="rotatorReadMoreLink" href="http://www.nvcc.commnet.edu/Alumni/Alumni-Spotlight/itemId/1653/Regina-Demarasse-Musician-Artist-Writer-and-Poe">Read More...</a></div>
+						</div>
+					</div>
+				</div>
+            </div>
+       
+</div>
+	<div class="pager_wrap">
+		<div class="pager_items_wrap">
+			<div class="pager_items">
+				
+					<div class="pager-item-0">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Gleen-McCabe-thumbnail.jpg" alt="Glenn McCabe" />
+                    
+		</div>
+                 
+					<div class="pager-item-1">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/BruceLoman-thumbnail.jpg" alt="Bruce Loman" />
+                    
+		</div>
+                 
+					<div class="pager-item-2">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Mauricio_PitaGoncalves-thumbnail.jpg" alt="Mauricio Pita-Goncalves" />
+                    
+		</div>
+                 
+					<div class="pager-item-3">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Maria_Arcari-thumbnail.jpg" alt="Maria Arcari" />
+                    
+		</div>
+                 
+					<div class="pager-item-4">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Natalie_Testa-thumbnail.jpg" alt="Natalie Testa" />
+                    
+		</div>
+                 
+					<div class="pager-item-5">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/robkane-thumbnail.jpg" alt="Robert J. Kane" />
+                    
+		</div>
+                 
+					<div class="pager-item-6">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/VictorDiaz-thumbnail.jpg" alt="Victor Diaz" />
+                    
+		</div>
+                 
+					<div class="pager-item-7">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/John_Fusco-thumbnail.jpg" alt="John Fusco" />
+                    
+		</div>
+                 
+					<div class="pager-item-8">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Chris_Collibee-thumbnail.jpg" alt="Chris Collibee" />
+                    
+		</div>
+                 
+					<div class="pager-item-9">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/Florin_Firimita-thumbnail.jpg" alt="Florin Ion Firimita" />
+                    
+		</div>
+                 
+					<div class="pager-item-10">
+			
+                    	<img class="rotatorPositionThumbnail" src="/Portals/0/Images/SuccessStories/ReginaDemarasse-thumbnail.jpg" alt="Regina Demarasse" />
+                    
+		</div>
+                 
+			</div>
+		</div>
+	<div class="rotator-prev">
+
+		</div><div class="rotator-next">
+
+		</div>
+	</div>
+	<div style="clear:both"></div>
+	</div>
+	</div>
+<script type="text/javascript">
+    jQuery(function() {
+        jQuery('#dnn_ctr1280_Rotator_RotatorContainer .rotate-wrap').cycle({"fx":"blindZ, curtainY, fade, scrollRight, turnDown, uncover, wipe, zoom","timeout":5500,"continuous":false,"speed":1500,"next":"#dnn_ctr1280_Rotator_RotatorContainer .rotator-next","prev":"#dnn_ctr1280_Rotator_RotatorContainer .rotator-prev","pager":"#dnn_ctr1280_Rotator_RotatorContainer .rotator-pager","pagerEvent":"click","height":"auto","width":"","startingSlide":0,"sync":true,"random":true,"fit":false,"containerResize":true,"pause":true,"pauseOnPagerHover":false,"autostop":false,"autostopCount":0,"delay":0,"nowrap":false,"fastOnEvent":0,"cleartypeNoBg":false,"randomizeEffects":true,"manualTrump":true});
+    });
+</script>
+</div><!-- End_Module_1280 --></div>
+    
+    <div class="action-buttons logo_bg" style="padding-bottom:5px;">
+      
+      
+      
+      
+    </div>
+    
+  </div>
+</div></div></div>
+      </div>
+      <div id="BottomPaneDiv" class="BottomPaneDiv">
+        <div id="dnn_BottomColumn1" class="BottomColumn1 left DNNEmptyPane"></div>
+        <div id="dnn_BottomColumn2" class="BottomColumn2 left DNNEmptyPane"></div>
+        <div id="dnn_BottomColumn3" class="BottomColumn3 left DNNEmptyPane"></div>
+        <div id="dnn_BottomColumn4" class="BottomColumn4 right DNNEmptyPane"></div>
+      </div>
+      <div id="dnn_BottomPane" class="BottomPane DNNEmptyPane"></div>
+    </div>
+  </div>
+  <div id="content_footer"></div>
+  <div class="footer-links"><a href="/" class="footer-link">Home</a>|<a href="/Offices-Departments/Student-Resources/Bookstore" class="footer-link">Bookstore</a>|<a href="/Admissions/Apply-to-NVCC/itemId/793/Contact-Us" class="footer-link">Contact Us</a>|<a href="/Offices-Departments/Administration/Human-Resources/Employment" class="footer-link">Employment Opportunities</a>|<a href="/About-NVCC/Maps-Directions" class="footer-link">Maps &amp; Directions</a>
+    
+    <a id="dnn_dnnLOGIN_cmdLogin" class="footer-link" href="javascript:__doPostBack(&#39;dnn$dnnLOGIN$cmdLogin&#39;,&#39;&#39;)">Login</a>
+  </div>
+  <div class="footer">
+    <table border="0" cellpadding="2" align="center">
+      <tr>
+        <td><img src="/Portals/_default/skins/NVCC/graphics/footer_logo.gif" alt="Logo" width="20" height="20" /></td>
+        <td>Naugatuck Valley Community College 750 Chase Parkway, Waterbury, CT 06708 (203) 575-8040 <br />
+          &copy;
+          <span id="dnn_dnnCURRENTDATE2_lblDate" class="footer">2012</span>
+
+          Naugatuck Valley Community College. All Rights Reserved. </td>
+      </tr>
+    </table>
+  </div>
+  
+</center>
+
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" value="`{`__scdoff`:`1`}" />
+        
+    
+<script type="text/javascript" src="/Resources/Shared/scripts/initWidgets.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('4(\'#0\').3({5:{2:\'0\',6:a,b:\'/\'},9:{7:\'1\',8:\'1\'}});',12,12,'LiveTabsWrapper2122|toggle|name|tabs|jQuery|cookie|expires|height|opacity|fx|30|path'.split('|'),0,{}));
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"dnn_ctr2122_View_ctr2129_Satellite_UP","displayAfter":500,"dynamicLayout":true}, null, null, $get("dnn_ctr2122_View_ctr2129_Satellite_UP_Prog"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

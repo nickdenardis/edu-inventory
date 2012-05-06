@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="/dev/css/sakai/main-8af9c9694ade9224e77e8ff978cb58e5.css" />
+        <link rel="stylesheet" type="text/css" href="/dev/css/sakai/sakai.corev1-a05e844692563f4cc218d17147ac1eb0.css" />
+        <link rel="stylesheet" type="text/css" href="/dev/css/sakai/sakai.explore-74d999bb179d64dd6623b670208fa899.css" />
+    </head>
+    <body class="fl-centered explore i18nable">
+
+        <div style="display:none">__MSG__IE_PLACEHOLDER__</div>
+
+        <!-- HEADER -->
+        <div class="fl-container-flex header s3d-header">
+            <div class="s3d-navigation-container">
+                <div id="widget_topnavigation" class="widget_inline"></div>
+            </div>
+            <div class="fl-fix fl-centered fixed-container s3d-fixed-container">
+                <div class="s3d-container-shadow-left"><!----></div>
+                <div class="s3d-container-shadow-right"><!----></div>
+                <div class="s3d-page-header">
+                    <div id="widget_collections" class="widget_inline"></div>
+                    <div id="widget_institutionalskinning" class="widget_inline"></div>
+                    <div id="explore_categories"></div>
+                    <div id="explore_categories_template"><!--
+                        <div id="widget_categories" class="widget_inline"></div>
+                    --></div>
+                    <div id="explore_navigation">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fl-fix fl-centered fixed-container s3d-main-container">
+            <iframe src="/access/content/group/OAEGateway/splash.html" onload="$(this).height($(this).contents().height());" style="width:920px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" vspace="0" hspace="0"></iframe>
+            <!--div id="explore_content">
+            </div-->
+            <div class="s3d-bottom-spacer"></div>
+        </div>
+        <div id="explore_content_template"><!--
+            {if oneRow && widgets.oneRowWidget}
+                <div id="widget_${widgets.oneRowWidget}" class="widget_inline"></div>
+            {else}
+                <div id="explore_content_second_column">
+                    <div id="widget_${widgets.rightcol}" class="widget_inline"></div>
+                </div>
+                <div id="explore_content_first_column">
+                    <hr class="s3d-split-line"/>
+                    <div id="widget_${widgets.bottom}" class="widget_inline"></div>
+                </div>
+            {/if}
+        --></div>
+
+        <!-- FOOTER WIDGET -->
+        <div id="widget_footer" class="widget_inline footercontainer"></div>
+
+        <!-- Dependency JS -->
+        <script data-main="/dev/lib/sakai/sakai.dependencies-86b95d260ad1972ec15909a2aac9a30b.js" src="/dev/lib/jquery/require-db4a1fec2eeb2a92805f1e4eda57e0cd.js"></script>
+        <script>require(["/dev/javascript/explore-9070034311cec6c56c7c5b5b06f58caf.js"]);</script>
+        <script type="text/javascript" charset="utf-8">
+          var is_ssl = ("https:" == document.location.protocol);
+          var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+          document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript" charset="utf-8">
+          var feedback_widget_options = {};
+          feedback_widget_options.display = "overlay";
+          feedback_widget_options.company = "rsmart";
+          feedback_widget_options.placement = "hidden";
+          feedback_widget_options.color = "#AFBC36";
+          feedback_widget_options.style = "question";
+          feedback_widget_options.product = "rsmart_rsmart_academic";
+          feedback_widget_options.limit = "5";
+          var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+          require(
+              {
+                  baseUrl:"/dev/lib/",
+                  paths: {
+                      "jquery": "jquery/jquery-1.7.0"
+                  }
+              }
+          );
+          require(["jquery"], function($) {
+              $("#help_tab").live("click", function(e) {
+                  feedback_widget.show();
+                  e.preventDefault();
+              });
+              $("#fdbk_close").live("click", function(e) {
+                  feedback_widget.hide();
+                  e.preventDefault();
+              });
+          });
+        </script>
+    </body>
+</html>

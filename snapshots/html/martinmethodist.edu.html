@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+
+<!--[if IE]><![endif]-->
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Martin Methodist College</title>
+	<meta name="title" content="Home" />
+	<meta property="og:title" content="Home" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="" />
+	<meta property="og:url" content="http://www.martinmethodist.edu/home" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="generator" content="Sitemason Content Management System" />
+	<link href="/.sm/styles/sitemason_style.css" rel="stylesheet" type="text/css" />
+	
+	<link rel="stylesheet" type="text/css" href="/views/css/martin.css" />
+	<link rel="stylesheet" type="text/css" href="/views/css/ceebox-min.css" />
+	<link rel="stylesheet" type="text/css" href="/views/css/datepicker.css" />
+	<link href='https://fonts.googleapis.com/css?family=Bitter:400,700' rel='stylesheet' type='text/css'>
+
+	<script type="text/javascript" src="/views/js/jquery.js"></script>
+<!-- 
+	<script type="text/javascript" src="/views/js/cufon.js"></script>
+	<script type="text/javascript" src="/views/js/archer.js"></script>
+ -->
+	<script type="text/javascript" src="/views/js/autocolumn.js"></script> 
+ 
+ 
+	<script type="text/javascript" src="/views/js/jquery.swfobject.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.ceebox-min.js"></script>
+	<script type="text/javascript" src="/views/js/dates.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.datePicker.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.hoverIntent.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.easing.compatibility.js"></script>
+	<script type="text/javascript" src="/views/js/cycle.js"></script>
+	<script type="text/javascript" src="/views/js/jquery.timers.js"></script>
+	<script type="text/javascript" src="/views/js/ticker.js"></script>
+
+	<style type="text/css">
+		.acolumn { padding-left: 20px; }
+	</style>
+	<script type="text/javascript">
+/* 
+        Cufon.replace('h1.pagetitle');
+        Cufon.replace('h2.blue');
+        Cufon.replace('h2.red');
+        Cufon.replace('h2.section_title');
+        Cufon.replace('div.pagecontent p.intro');
+        Cufon.replace('div.small_feature h4');
+        Cufon.replace('div.redblock h2');
+        Cufon.replace('div.more_btn a');
+        Cufon.replace('#feature_text h3');
+
+ */
+		$(document).ready(function(){
+			// create a random number up to 5 to use as a starting slide
+			//	var randomnumber = Math.floor(Math.random()*15)
+			// run the cycle animation on feature images
+			$('#feature_photos').cycle({
+				fx:     'fade',
+				speed:  4000,
+				before: onBefore,
+				delay: -3000,
+			});
+			var slidesAdded = false;
+			function onBefore(curr, next, opts) {
+				// make sure we don't call addSlide before it is defined
+				if (!opts.addSlide || slidesAdded)
+				return;
+				// add slides for images 3 - 8
+				// slides can be a DOM element, a jQuery object, or a string
+				slidesAdded = true;
+			};
+			var newsItems = $('.news-headline');
+			var count = newsItems.length;
+			loadNewsFader(count);
+			$("#subnav").hide();
+			$("div#topnav").hoverIntent(function(){
+				$("#subnav").slideDown(500);
+			},function(){
+				$("#subnav").slideUp(500);
+			});
+			$(function(){
+				$('.columns').columnize({ width: 300 });
+			});
+			$(".ceebox").ceebox({borderColor:'#dcdcdc',boxColor:"#fff"});
+			$('a.form_submit, a.submit, a.save').click(function(){
+				$('form.application').submit();
+				return false;
+			});
+			$(function(){
+			Date.format = 'dd/mm/yyyy';
+			$('.datepicker').datePicker({ "clickInput": "false", "startDate": "01/01/1950" }).val(new Date().asString()).trigger('change');
+		});
+		/*
+$('select.login').change(function(){ window.location.href = $(this).val(); });
+*/
+		$('#subFormSubmit').click(function(){
+			$('#subForm').submit();
+			return false;
+		});
+	});
+	</script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div id="header">
+				<div id="logo">
+					<a href="/">
+						<img src="/views/images/mmc_logo_small.jpg" alt="Martin Methodist College" />
+					</a>
+				</div>
+				<div id="top_buttons">
+					<div id="top_search">
+						<form method="get" action="/search/list">
+							<input type="search" name="q" placeholder="Search" /> <input type="submit" value="Search" />
+						</form>
+<!-- 						<input type="text" class="search_input" value="Search MMC Website" /><input type="submit" value="Go" /> -->
+					</div>
+					<div id="top_links">
+						<a href="/learn-more" class="applynow">
+							Learn More</a>&nbsp;&nbsp;|
+ &nbsp&nbsp;<a href="/payments" class="">Payments</a>&nbsp;&nbsp;|
+ &nbsp;&nbsp;<a href="https://dnbweb1.blackbaud.com/OPXDONATE/AddDonor.asp?cguid=BEF3423E%2DEE07%2D4123%2D9EE9%2D01E8F3B3F245&amp;sTarget=https%3A%2F%2Fdnbweb1%2Eblackbaud%2Ecom%2FOPXDONATE%2Fdonate%2Easp%3Fcguid%3DBEF3423E%252DEE07%252D4123%252D9EE9%252D01E8F3B3F245%26dpid%3D3541&amp;sid=B6D9F8EA%2D6859%2D4208%2DB293%2DB24EA25201DF">Give to MMC</a>&nbsp;&nbsp;| 
+ &nbsp;&nbsp;<a href="http://www.goredhawks.com/">Athletics</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.mmcbookstore.com/">Bookstore</a>&nbsp;&nbsp;|
+ &nbsp;&nbsp;<a href="/about/contact-us">Contact Us
+						</a>
+						<div style="display: inline">
+		<select class="login" dpieagent_iecontroltype="7" id="loginbox" name="login" onchange="javascript:window.location.href = this.options[this.selectedIndex].value;"><option selected="selected" value="/">Quick Links</option><option value="http://www.martinmethodist.edu/campus-life/sm_files/Menu 4292012.pdf">Dining Hall Menu</option><option value="http://home.live.com">Student Email</option><option value="http://www.livetext.com">LiveText</option><option value="http://www.backprint.com/storefront.asp?PID=bp%1D%7CN%7B">Buy MMC Pics Here!</option><option value="https://mmcweb.martinmethodist.edu/mmcadmin/studsect.cfm">Student Account</option><option value="https://www.myschoolbuilding.com/myschoolbuilding/msbdefault_email.asp?frompage=myrequest.asp">Work Order Request</option><option value="http://www.martinmethodist.edu/campus-life/staff-cal">Faculty-Staff Calendar</option><option value="https://mmcweb.martinmethodist.edu/mmcadmin/index.cfm">Sonisweb</option><option value="https://mmcmail1.martinmethodist.edu/owa">Faculty/Staff Email</option><option value="http://kbox1/">IT Help Desk</option><option value="https://sp.martinmethodist.edu">Faculty/Staff SharePoint</option><option value="https://mmcweb.martinmethodist.edu/mmcadmin/alumsect.cfm">Alumni Account</option></select></div>
+							</div>
+<!--
+      <span><img src="images/not_a_student_yet.png" alt="Not a student yet?" /></span>
+      <a href="/learn-more"><img src="images/learn_more_btn.png" alt="" /></a>
+            <a href="http://martinmethodist.edu/applications/login"><img src="images/login_btn.png" alt="" /></a>
+         -->
+				</div>
+				<div id="topnav">
+	<div class="sm_nav">
+	<ul class="l1">
+		<li id="nav_cVyds4" class="label">CONTACT</li>
+		<li id="nav_fcjGta"><a href="http://www.martinmethodist.edu/about">About MMC</a></li>
+		<li id="nav_ghZA9q"><a href="http://www.martinmethodist.edu/admissions">Admissions</a></li>
+		<li id="nav_hnFtPG"><a href="http://www.martinmethodist.edu/alumni">Alumni</a></li>
+		<li id="nav_itlnvW"><a href="http://www.martinmethodist.edu/academics">Academics</a></li>
+		<li id="nav_jz1hcc"><a href="http://www.martinmethodist.edu/ccl">Church Leadership</a></li>
+		<li id="nav_kEHaSs"><a href="http://www.martinmethodist.edu/campus-life">Campus Life</a></li>
+		<li id="nav_bPSjLO"><a href="http://www.martinmethodist.edu/community">Community</a></li>
+	</ul>
+</div>
+	<div id="subnav">
+		<div id="contact">
+			<p>
+				433 West Madison Street,
+				<br />
+				Pulaski, TN 38478
+			</p>
+			<p>
+				Main Switchboard
+				<br />
+				1.800.467.1273
+				<br />
+				931.363.9804
+			</p>
+			<p>
+				<a href="mailto:info@martinmethodist.edu">
+					info@martinmethodist.edu</a>
+			</p>
+		</div>
+		<ul class="about">
+			<li><a href="http://www.martinmethodist.edu/about/vision">Mission & Vision</a></li><li><a href="http://www.martinmethodist.edu/about/presidents-message">President's Message</a></li><li><a href="http://www.martinmethodist.edu/about/college-history">College History</a></li><li><a href="http://www.martinmethodist.edu/about/governance">Governance</a></li><li><a href="http://www.martinmethodist.edu/news">MMC News</a></li><li><a href="http://www.martinmethodist.edu/about/associations">Associations</a></li><li><a href="http://www.martinmethodist.edu/about/strategicplan">Strategic Plan</a></li><li><a href="http://www.martinmethodist.edu/about/business-services">Business Services</a></li><li><a href="http://www.martinmethodist.edu/about/human-resources">Human Resources</a></li><li><a href="http://www.martinmethodist.edu/about/pande">Planning & Effectiveness</a></li><li><a href="http://www.martinmethodist.edu/about/contact-us">Contact Us</a></li><li><a href="http://www.martinmethodist.edu/about/directory">Faculty/Staff Directory</a></li>		</ul>
+		<ul class="admissions">
+			<li><a href="https://www.martinmethodist.edu/site/clGoeY/newstudent">Summer Orientation 2012</a></li><li><a href="http://www.martinmethodist.edu/admissions/undergraduate">Undergraduate</a></li><li><a href="http://www.martinmethodist.edu/admissions/evening-college">Evening College</a></li><li><a href="http://www.martinmethodist.edu/admissions/international-students">International Students</a></li><li><a href="http://www.martinmethodist.edu/apply-now">Apply Now</a></li><li><a href="https://mmcweb.martinmethodist.edu/mmcadmin/app/mmcwebiq.cfm">Request Information</a></li><li><a href="http://www.martinmethodist.edu/financial-aid">Financial Aid</a></li>		</ul>
+		<ul class="alumni">
+			<li><a href="http://www.martinmethodist.edu/alumni/alumnicouncil">Alumni Council</a></li><li><a href="http://www.martinmethodist.edu/alumni/alumni-association">Alumni Association</a></li><li><a href="http://www.martinmethodist.edu/alumni/hall-of-distinction">Hall of Distinction</a></li><li><a href="http://www.martinmethodist.edu/alumni/sports-hall-of-fame">Sports Hall of Fame</a></li><li><a href="http://www.martinmethodist.edu/alumni/servant-leadership">Servant Leadership</a></li><li><a href="http://www.martinmethodist.edu/alumni/giving">Give to MMC</a></li>		</ul>
+		<ul class="academics">
+			<li><a href="http://www.martinmethodist.edu/academics/divisions-programs">Divisions & Programs</a></li><li><a href="http://www.martinmethodist.edu/academics/registrars-office">Registrar's Office</a></li><li><a href="http://www.martinmethodist.edu/academics/registrars-office/veterans-affairs">Veterans Affairs </a></li><li><a href="http://www.martinmethodist.edu/academics/library">Library</a></li><li><a href="http://www.martinmethodist.edu/academics/src">SRC</a></li><li><a href="http://www.martinmethodist.edu/academics/first-year-experience">First-Year Experience</a></li><li><a href="http://www.martinmethodist.edu/academics/story-center">The Story Center</a></li><li><a href="http://www.mmcbookstore.com">Bookstore</a></li><li><a href="http://www.martinmethodist.edu/academics/upward-bound">Upward Bound</a></li>		</ul>
+		<ul class="church">
+			<li><a href="http://www.martinmethodist.edu/ccl/ccl_calendar">Church Leadership Calendar</a></li><li><a href="http://www.martinmethodist.edu/ccl/ccl-staff">CCL Staff</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/church-relations">Church Relations</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/educational-services">Educational Services</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/religious-life">Religious Life</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/martin-serves">Martin SERVES</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/course-of-study">Course of Study</a></li><li><a href="http://www.martinmethodist.edu/church-leadership/echristianed">E Christian Education</a></li>		</ul>
+		<ul class="campus">
+			<li><a href="http://www.martinmethodist.edu/campus-life/clubs">Clubs</a></li><li><a href="http://www.martinmethodist.edu/campus-life/residential-life">Residential Life</a></li><li><a href="http://www.martinmethodist.edu/campus-life/campus-dining">Campus Dining</a></li><li><a href="http://www.martinmethodist.edu/campus-life/martin-moments">Martin Moments</a></li><li><a href="http://www.martinmethodist.edu/campus-life/it-dept">IT Department</a></li><li><a href="http://www.martinmethodist.edu/campus-life/events">Calendar</a></li><li><a href="http://www.martinmethodist.edu/campus-life/videos">Videos</a></li><li><a href="http://www.martinmethodist.edu/student-activities">Student Activities</a></li><li><a href="http://www.martinmethodist.edu/safety">Campus Safety & Security</a></li><li><a href="http://www.martinmethodist.edu/campus-life/mmcphotography">MMC Photography</a></li>		</ul>
+		<ul class="community">
+			<li><a href="http://www.martinmethodist.edu/community/della-clayton-lee">Della Clayton Lee</a></li><li><a href="http://www.martinmethodist.edu/community/bartonartgallery">Barton Art Gallery</a></li><li><a href="http://www.martinmethodist.edu/community/summerprograms">Summer Programs</a></li><li><a href="http://www.moviesatmartin.com">Movies at Martin</a></li><li><a href="http://www.martinmethodist.edu/healthclub">Health Club</a></li>		</ul>
+		<div class="clear">
+		</div>
+	</div>
+</div>			</div>
+		<div id="features">
+	<div id="feature_text">
+		<h3>
+			<a href="/learn-more">
+				Martin to give degrees to 160 students			</a>
+			<div class="arrow">
+				&nbsp;
+			</div>
+		</h3>
+		<p>
+The largest graduating class in school history will take part in Saturday morning&rsquo;s commencement exercises, capping two days of festivities for the Class of 2012.</p>
+<a href="http://www.martinmethodist.edu/news/2012/04/30/martin-methodist-to-give-degrees-to-160-students.7166" class="feature_btn"><img src="/views/images/learn_more_btn.png" alt="Learn More" /></a>	</div>
+	<div id="feature_photos">
+		<img src="http://sitemason.martinmethodist.edu/files/esMGsg/green.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/ifCrYc/Beachvolleyball.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/cD1nz2/gfac.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/bHz3SE/4.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/kkcELu/students.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/dSURfa/soccerball.gif/main.gif" alt="" /><img src="http://sitemason.martinmethodist.edu/files/ewMf3a/5.jpg/main.jpg" alt="" />	</div>
+</div>
+<div id="news">
+	<div id="news-container">
+		<div class="news-headline"><a href="http://www.martinmethodist.edu/news/2012/05/05/record-number-of-graduates-receive-mmc-degrees.7184"><strong>Record number of graduates receive MMC degrees</strong></a></div><div class="news-headline"><a href="http://www.martinmethodist.edu/news/2012/05/03/english-instructor-student-team-up-to-publish-novel.7183"><strong>English instructor, student team up to publish novel</strong></a></div><div class="news-headline"><a href="http://www.martinmethodist.edu/news/2012/05/03/biology-major-earns-prestigious-ornithology-award.7182"><strong>Biology major earns prestigious ornithology award</strong></a></div><div class="news-headline"><a href="http://www.martinmethodist.edu/news/2012/04/30/martin-methodist-to-give-degrees-to-160-students.7166"><strong>Martin Methodist to give degrees to 160 students</strong></a></div><div class="news-headline"><a href="http://www.martinmethodist.edu/news/2012/04/23/martin-methodist-student-tabbed-for-umc-internship.7107"><strong>Martin Methodist student tabbed for UMC internship</strong></a></div>	</div>
+</div>
+<div class="lightblue">
+	<div class="whiteblock blog">
+		<h2 class="blue">News</h2><div class="blog_preview"><h3><a href="http://www.martinmethodist.edu/news/2012/05/05/record-number-of-graduates-receive-mmc-degrees.7184">Record number of graduates receive MMC degrees</a></h3><p class="blog_author"></p><div class="clear"></div></div><div class="more_btn"><a href="/news">More News</a></div>		
+		<h2 class="blue">Events</h2><div class="blog_preview"><h3><a href="http://www.martinmethodist.edu/campus-life/events/2012/05/03/baccalaureate-rehearsal.4523">Baccalaureate Rehearsal</a></h3><p class="blog_author"></p><div class="clear"></div></div><div class="more_btn"><a href="/campus-life/events/">More Events</a></div>
+		<h2 class="blue">Movies</h2><div class="blog_preview"><h3><a href="http://www.martinmethodist.edu/campus-life/showtimes/2012/05/01/the-avengers.7172">"THE AVENGERS"</a></h3><p class="blog_author"></p><img src="http://sitemason.martinmethodist.edu/files/ixdnQA/220pxTheAvengers2012Poster.jpg/main.jpg" id="blog_movie" /><div class="clear"></div></div><div class="more_btn"><a href="http://www.moviesatmartin.com/" style="font-size: 12px;" >Movies at Martin</a></div>
+			</div>
+	<div class="right_container">
+		<div class="whiteblock athletics">
+			<h2 class="red">
+				RedHawks' Athletics
+			</h2>
+			<a href="http://www.goredhawks.com/">
+				<img src="/views/images/redhawk.jpg" alt="" />
+			</a>
+			<a href="http://www.goredhawks.com/" class="btn">
+				<img src="/views/images/visit_our_athletics_site_btn.png" alt="" />
+			</a>
+		</div>
+		<div class="whiteblock video">
+			<h2>
+				<img src="/views/images/todays_featured_video_title.png" alt="" />
+			</h2>
+			<div class="sm_media float_left"><iframe src="http://www.ustream.tv/embed/8767748" width="331" height="179" scrolling="no" frameborder="0" style="border: 0px none transparent;"></iframe></div>
+					<div class="grey">
+						<p class="video_title"></p>
+						<p class="video_desc"></p>
+						<p class="author">
+							<span class="author_name">
+								<a href="/campus-life/videos">
+									<img src="/views/images/more_videos_btn.png" alt="More Videos" />
+								</a>
+							</span>
+						<div class="clear">
+						</div>
+						</p>
+					</div>
+						</div>
+		
+				<style>
+					.video { height: 430px; }
+					#presidential-honor { position: relative; z-index: 9999; width: 405px; padding-left: 350px; padding-top: 195px; padding-bottom: 15px; }
+					#presidential-honor img { float: left; padding-right: 10px; padding-top: 2px; }
+					#presidential-honor h2 { border-bottom: 0; }
+					#presidential-honor p { width: 350px; font-size: 12px; line-height: 14px; }
+				</style>
+				<div id="presidential-honor">
+					<img src="/views/images/presidents-honor-roll.png" />
+					<h2 class="red">President's Higher Education Community Service Honor Roll</h2>
+					<p>Martin Methodist College is among the colleges and universities across the nation selected to this honor in 2012 for the many hours of community service and outreach being done by students, faculty and staff. <a href="http://www.martinmethodist.edu/news/2012/04/09/martin-methodist-named-to-national-honor-roll-for-service.7048">Read all about it</a>.</p>
+				</div>
+					<div class="clear">
+		</div>
+	</div>
+	<div class="right_container" id="getsocial">
+		<p class="">
+			Get social with us at these other sites:
+		</p>
+		<ul>
+<!-- 
+			<li>
+				<a href="http://www.facebook.com/Rowdy.Redhawk">
+					<img src="/views/images/facebook_pic.png" alt="" />
+					&nbsp;&nbsp;Facebook</a>
+			</li>
+ -->
+			<li>
+				<a href="http://twitter.com/MMC10001">
+					<img src="/views/images/twitter_pic.png" alt="" />
+					&nbsp;&nbsp;Twitter</a>
+			</li>
+<!-- <li><a href="#"><img src="images/flickr_pic.png" alt="" />&nbsp;&nbsp;Flickr</a></li> -->
+			<li>
+				<a href="http://www.youtube.com/user/MMC10001">
+					<img src="/views/images/youtube_pic.png" alt="" />
+					&nbsp;&nbsp;YouTube</a>
+			</li>
+		</ul>
+	</div>
+	<div class="right_container">
+		<div class="otherblock student">
+			<h2 class="blue">
+				<a href="/campus-life/events">
+					Events Calendar</a>
+			</h2>
+			<a href="/campus-life/events" class="calendar_pic">
+				<img src="/views/images/calendar_pic2.jpg" alt="" />
+			</a>
+			<p>
+				Check out the master events calendar to see what's going on around campus.
+			</p>
+			<div class="btn">
+				<a href="/campus-life/events">
+					<img src="/views/images/learn_more_btn.png" alt="Learn More" />
+				</a>
+			</div>
+		</div>
+		<div class="otherblock apply">
+			<h2 class="red">
+				Apply Now
+			</h2>
+			<p>
+				<strong>
+					Apply online today, or ask for info and we'll send you a package to help you get ready.
+				</strong>
+				Simply click one of the buttons below and we'll help you right along.
+			</p>
+			<div class="btn">
+				<a href="/learn-more"><img src="/views/images/send_me_info_btn.png" alt="Send Me Info" /></a>
+				&nbsp;
+				<a href="/apply-now"><img src="/views/images/apply_online_btn.png" alt="Apply Now" /></a>
+			</div>
+			<div class="email">
+				<h2>
+					<img src="/views/images/subscribe_to_our_email_newsletter_title.png" alt="Subscribe To Our Email Newsletter" />
+				</h2>
+				<p>
+					Enter your email address below to get our newsletter.
+				</p>
+				<form action="http://nerdburn.createsend.com/t/r/s/bduujd/" method="post" id="subForm">
+					<input type="text" class="email_txt" name="cm-bduujd-bduujd" id="bduujd-bduujd" />
+					<a href="#" id="subFormSubmit">
+						<img src="/views/images/go_btn.png" alt="Go" />
+					</a>
+					<div class="clear">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="clear">
+	</div>
+</div>		<div id="footer">
+			<div id="getsocial">
+				<p class="">
+					Get social with us:
+				</p>
+				<ul>
+<!-- 
+					<li>
+						<a href="http://www.facebook.com/Rowdy.Redhawk">
+							<img src="/views/images/facebook_pic.png" alt="" />
+							&nbsp;&nbsp;Facebook</a>
+					</li>
+ -->
+					<li>
+						<a href="http://twitter.com/MMC10001">
+							<img src="/views/images/twitter_pic.png" alt="" />
+							&nbsp;&nbsp;Twitter</a>
+					</li>
+<!-- <li><a href="#"><img src="images/flickr_pic.png" alt="" />&nbsp;&nbsp;Flickr</a></li> -->
+					<li>
+						<a href="http://www.youtube.com/user/MMC10001">
+							<img src="/views/images/youtube_pic.png" alt="" />
+							&nbsp;&nbsp;YouTube</a>
+					</li>
+				</ul>
+			</div>
+			<a href="#">
+				<img src="/views/images/bottom_logo.png" alt="MMC" />
+			</a>
+			<p class="address">
+				<strong>
+					Martin Methodist College</strong>
+				<br />
+				433 West Madison Street, Pulaski, TN 38478
+ 
+			</p>
+			<p class="telephone">
+				<strong>
+					Telephone</strong>
+				<br />
+				1.800.467.1273
+ 
+			</p>
+			<div id="footerlinks">
+				<ul>
+					<li>
+						<a href="/about">
+							About</a>
+					</li>
+					<li>
+						<a href="admissions">
+							Admissions</a>
+					</li>
+					<li>
+						<a href="/alumni">
+							Alumni & Friends</a>
+					</li>
+					<li>
+						<a href="http://goredhawks.com/">
+							Athletics</a>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<a href="/academics">
+							Academics</a>
+					</li>
+					<li>
+						<a href="/church-leadership">
+							Church Leadership</a>
+					</li>
+					<li>
+						<a href="/campus-life">
+							Campus Life</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-20574616-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript" src="https://www.martinmethodist.edu/members/resources/interface/scripts/system/common.js"></script>
+
+</body>
+</html>

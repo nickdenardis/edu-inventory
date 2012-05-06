@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0014)about:internet --> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+    	<title>Campus Adventiste du Saleve - Accueil</title>
+		<meta content="text/html; charset=iso-8859-1"						http-equiv="content-type" />
+		<meta content="fr"					http-equiv="Content-language" />
+		<meta content="fr"					name="language" />
+		<meta content=""	name="Description" />
+		<meta content=""	name="Keywords" />
+		<meta content="INDEX, FOLLOW, ALL"									name="ROBOTS" />
+		<link rel="stylesheet" href="css/common.css" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/start/jquery-ui-1.8.custom.css" type="text/css" media="all" />
+		<link rel="stylesheet" type="text/css" href="shadowbox/shadowbox.css" media="all" />
+		<!--[if lte IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css"/><![endif]-->
+		<!--[if gte IE 7]><link rel="stylesheet" href="css/css_special_ie" type="text/css"/><![endif]-->
+<!--	 	<script type="text/javascript" src="javascript/scrolling.js"></script> -->
+		<script type="text/javascript" src="javascript/jquery-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.custom.min.js"></script>
+		<script type="text/javascript" src="javascript/jquery.mousewheel.min.js"></script>
+		<script type="text/javascript" src="javascript/jquery.em.js"></script>
+		<script type="text/javascript" src="javascript/droppy.js"></script>
+		<script type="text/javascript" src="javascript/swfobject.js"></script>
+		<script type="text/javascript" src="javascript/splash.image.js"></script>
+		<script type="text/javascript" src="js/jcarousellite_1.0.1c4.js"></script>
+		<script type="text/javascript" src="shadowbox/shadowbox.js"></script>
+		<script type="text/javascript" src="javascript/AC_RunActiveContent.js"></script>
+<!--[if lt IE 7]>
+<script defer type="text/javascript" src="javascript/pngfix.js"></script>
+<![endif]-->
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" /> 
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('#nav').droppy();
+		});
+		$(function(){
+			$(".boxSlide .boxInside").each(function(){
+				$(this).hover(function(){
+					$(this).animate({width: "444px"}, {queue:false, duration:450});
+				},function() {
+					$(this).animate({width: "166px"}, {queue:false, duration:450});
+				});
+			});
+		});
+		$(function() {
+			$(".newsticker-jcarousellite").jCarouselLite({
+				vertical: true,
+				hoverPause: true,
+				visible: 1,
+				auto:2000,
+				speed:1000
+			});
+		});
+		Shadowbox.init({
+			language:   "fr",
+			players:    ["qt", "flv", "wmp", "iframe", "img", "html", "swf"],
+			skipSetup:	true
+		});
+		function writedivcampus(texte) {
+			document.getElementById('campusinfo').innerHTML = texte;
+		}
+		function recup_campus(id, lang) {
+			if(texte = file('include/campusajax.php?id='+id+'&lang='+lang)) {
+				writedivcampus(texte);
+				Shadowbox.setup(); 
+			}
+		}
+		function file(fichier) {
+			if(window.XMLHttpRequest) // FIREFOX
+				xhr_object = new XMLHttpRequest();
+			else if(window.ActiveXObject) // IE
+				xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+			else
+				return(false);
+			xhr_object.open("GET", fichier, false);
+			xhr_object.send(null);
+			if(xhr_object.readyState == 4) return(xhr_object.responseText);
+			else return(false);
+		}
+		</script>
+	</head>
+	<body>
+<div id="header">
+	<div id="navTools">
+		<a href="Actualit&eacute;s-45-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Actualit&eacute;s</a>
+		&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="Contact-46-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Contact</a>
+		&nbsp;&nbsp;
+		<a class="select" href="home-1-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">
+			<img src="img/commun/flag-fr.gif" title="FR - version fran&ccedil;aise" alt="FR - version fran&ccedil;aise" style="vertical-align: absmiddle; width: 19px; height: 12px;" />
+		</a>
+		<a href="home-1-en.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">
+			<img src="img/commun/flag-en.gif" title="EN - English version" alt="EN - English version" style="vertical-align: absmiddle; width: 19px; height: 12px;" />
+		</a>
+		<a href="home-1-es.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">
+			<img src="img/commun/flag-es.gif" title="ES - Spanish Version" alt="ES - Spanish Version" style="vertical-align: absmiddle; width: 19px; height: 12px;" />
+		</a>
+		<!-- <a href="home-1-de.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21"> -->
+		<a>
+			<img src="img/commun/flag-de.gif" title="DE - Deutsche Version - Stand by" alt="DE - Deutsche Version - Stand by" style="vertical-align: absmiddle; width: 19px; height: 12px;" />
+		</a>
+	</div>
+	<div id="logo">
+		<a href="Accueil-1-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">
+			<img title="Accueil" alt="Accueil" src="img/commun/logo.png" />
+		</a>
+	</div>
+	<div id="navUp">
+		<a href="Qui_sommes_nous-44-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">
+			Qui sommes-nous ?		</a>
+	</div>
+	<div class="filer">&nbsp;</div>
+	<div class="clean">&nbsp;</div>
+	<div id="menu">
+		<center>
+			<ul id="nav">
+				<li class="menu">
+					<a id="menu0" href="Accueil-1-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21"><img src="img/commun/picto-home.png" alt="Accueil" width="15" height="11" style="padding-top:3px;" /></a>
+				</li>
+<li class="menu">	<a href="theolologie-3-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Enseignement	</a><ul style="display: none;"><li class="smenu">	<a href="theolologie-3-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Théologie	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Langue_francaise-11-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Langue française	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Ecole_maternelle_et_primaire-18-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Ecole maternelle et primaire	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="College_et_lycee-19-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Collège et lycée	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Bibliotheque-20-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Bibliothèque	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Centres_de_recherche-21-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Centres de recherche	</a>	<div class="clean">&nbsp;</div></li></ul></li><li class="menu">	<a href="groupes_seminaires-23-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Séjour	</a><ul style="display: none;"><li class="smenu">	<a href="groupes_seminaires-23-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Groupes et séminaires	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Individuels-30-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Individuels	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Portes_ouvertes-35-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Portes ouvertes	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Auditorium-37-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Auditorium	</a>	<div class="clean">&nbsp;</div></li></ul></li><li class="menu">	<a href="Plan_interactif_Flash_+_Mini_Galeries_Photos-39-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Visite interactive	</a><ul style="display: none;"><li class="smenu">	<a href="Plan_interactif_Flash_+_Mini_Galeries_Photos-39-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Visite du campus	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Acces-40-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Accès	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Reseau_mondial-42-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Réseau mondial	</a>	<div class="clean">&nbsp;</div></li><li class="smenu">	<a href="Staff-94-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Staff	</a>	<div class="clean">&nbsp;</div></li></ul></li><li class="buzz">	<a href="Buzz-47-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Buzz	</a></li>			
+			</ul>
+		</center>
+	</div>
+</div>
+<div id="content">
+	<div id="search">
+		<form action="Rechercher-68-fr.html" method="post"><input type="hidden" name="PHPSESSID" value="d39ff27ba9a7688c85321c35cf518e21" />
+			RECHERCHER DANS LE SITE			<input type="hidden" id="searchform" name="searchform" value="true" />
+			<input id="search" class="inputSearch" type="text" value="" name="search"/>
+			<input id="button" align="middle" type="image" src="img/commun/loupe.png?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" value="Envoyer" name="button"/>"
+		</form>
+	</div>
+	<div class="clean">&nbsp;</div>
+<div id="contenerHome">
+	<h1>Bienvenue sur le site du Campus adventiste du Sal&egrave;ve !</h1>
+	<center>
+		<table>
+			<tr>
+				<td>
+					<ul id="menuSlide">
+						<li class="boxSlide">
+							<div class="left boxInside" style="background: url(userdata/entreinement-1270635953.jpg) no-repeat 0 0;" title="Enseignement">
+								<div class="boxTitre">
+									<div class="title">Enseignement</div>
+									<div class="op50">&nbsp;</div>
+									<div class="op40">&nbsp;</div>
+									<div class="op30">&nbsp;</div>
+									<div class="op15">&nbsp;</div>
+								</div>
+								<div class="left">
+									<h1 class="titre">Enseignement</h1>
+									<p style="padding-left: 15px;">
+<a href="theolologie-3-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Théologie"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Théologie</a><br/><a href="Langue_francaise-11-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Langue française"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Langue française</a><br/><a href="Ecole_maternelle_et_primaire-18-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Ecole maternelle et primaire"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Ecole maternelle et primaire</a><br/><a href="College_et_lycee-19-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Collège et lycée"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Collège et lycée</a><br/><a href="Bibliotheque-20-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Bibliothèque"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Bibliothèque</a><br/><a href="Centres_de_recherche-21-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Centres de recherche"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Centres de recherche</a><br/>									</p>
+								</div>
+							</div>
+						</li>
+						<li class="boxSlide">
+							<div class="left boxInside" style="background: url(userdata/sejour-1270635965.jpg) no-repeat 0 0;" title="Séjour">
+								<div class="boxTitre">
+									<div class="title">Séjour</div>
+									<div class="op50">&nbsp;</div>
+									<div class="op40">&nbsp;</div>
+									<div class="op30">&nbsp;</div>
+									<div class="op15">&nbsp;</div>
+								</div>
+								<div class="left">
+									<h1 class="titre">Séjour</h1>
+									<p style="padding-left: 15px;">
+<a href="groupes_seminaires-23-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Groupes et séminaires"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Groupes et séminaires</a><br/><a href="Individuels-30-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Individuels"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Individuels</a><br/><a href="Portes_ouvertes-35-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Portes ouvertes"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Portes ouvertes</a><br/><a href="Auditorium-37-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Auditorium"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Auditorium</a><br/>									</p>
+								</div>
+							</div>
+						</li>
+						<li class="boxSlide">
+							<div class="left boxInside" style="background: url(userdata/visite-1270635975.jpg) no-repeat 0 0;" title="Visite interactive">
+								<div class="boxTitre">
+									<div class="title">Visite interactive</div>
+									<div class="op50">&nbsp;</div>
+									<div class="op40">&nbsp;</div>
+									<div class="op30">&nbsp;</div>
+									<div class="op15">&nbsp;</div>
+								</div>
+								<div class="left">
+									<h1 class="titre">Visite interactive</h1>
+									<p style="padding-left: 15px;">
+<a href="Plan_interactif_Flash_+_Mini_Galeries_Photos-39-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Visite du campus"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Visite du campus</a><br/><a href="Acces-40-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Accès"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Accès</a><br/><a href="Reseau_mondial-42-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Réseau mondial"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Réseau mondial</a><br/><a href="Staff-94-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" title="Staff"><img src="img/png/puce-liste-home.png" alt="" width="12" height="12" align="absmiddle" />&nbsp;Staff</a><br/>									</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</center>
+	<div class="clean">&nbsp;</div>
+	<div id="actusHome">
+		<p class="homeTitle">Actualit&eacute;s</p>
+		<div class="newsticker-jcarousellite">
+			<ul>
+				<li>
+					<div style="height: 200px;">
+						<span>Avril 2012</span>
+						<p>Bulletin hebdomadaire d'information du Campus. Si&nbsp;vous d&eacute;sirez le&nbsp;recevoir automatiquement,&nbsp;abonnez-vous en cliquant sur le lien infocampus@campusadventiste.edu</p>
+						<a href="Actualit&eacute;s-45-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21#7" class="lienPlusInfosUser">En savoir plus</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="videoHome">
+		<script type="text/javascript">
+			if (AC_FL_RunContent == 0) {
+				alert("Cette page nécessite le fichier AC_RunActiveContent.js.");
+			} else {
+				AC_FL_RunContent(
+					'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0',
+					'width', '412',
+					'height', '270',
+					'src', 'video',
+					'quality', 'high',
+					'pluginspage', 'http://www.macromedia.com/go/getflashplayer',
+					'align', 'middle',
+					'play', 'true',
+					'loop', 'true',
+					'scale', 'showall',
+					'wmode', 'window',
+					'devicefont', 'false',
+					'id', 'video',
+					'bgcolor', '#143b49',
+					'name', 'video',
+					'menu', 'true',
+					'allowFullScreen', 'false',
+					'allowScriptAccess','sameDomain',
+					'movie', 'video',
+					'salign', ''
+				); //end AC code
+			}
+		</script>
+		<noscript>
+			<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="412" height="270" id="video" align="middle">
+				<param name="allowScriptAccess" value="sameDomain" />
+				<param name="allowFullScreen" value="false" />
+				<param name="movie" value="video.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#143b49" />
+				<embed src="video.swf" quality="high" bgcolor="#143b49" width="412" height="270" name="video" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			</object>
+		</noscript>
+	</div>
+	<div id="compteUserHome">
+		<p class="homeTitle">Espace membres <img src="img/commun/picto-user.png" alt="Espace membres" width="23" height="18" align="absbottom" /></p>
+		<form id="form2" name="form2" method="post" action=""><input type="hidden" name="PHPSESSID" value="d39ff27ba9a7688c85321c35cf518e21" />
+			<input type="hidden" id="connect" name="connect" value="true" />
+			<table width="155" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 0;">
+				<tr>
+					<td width="52" height="10" align="left" valign="top">
+						LOGIN
+					</td>
+					<td height="10" valign="top"></td>
+				</tr>
+				<tr>
+					<td height="29" align="left">
+						<input name="Email" type="text" class="inputUserHome" id="Email" value="" />
+					</td>
+					<td height="29" valign="bottom"></td>
+				</tr>
+				<tr>
+					<td height="5" align="left" valign="top"></td>
+					<td height="5" valign="top"></td>
+				</tr>
+				<tr>
+					<td width="52" height="10" align="left" valign="top">
+						PASSWORD
+					</td>
+					<td width="71" height="10" valign="top"></td>
+				</tr>
+				<tr>
+					<td align="left">
+						<input name="Pwd" type="password" class="inputUserHome" id="Pwd" value="" />
+					</td>
+					<td valign="top">
+						<input name="button2" type="image" id="button2" value="Envoyer" src="img/commun/bouton-comptuser.gif?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" />
+					</td>
+				</tr>
+			</table>
+		</form>
+		<a href="Mot_de_passe_oubli&eacute;-69-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21" class="lienPlusInfosUser" style="text-transform: none;">Mot de passe oubli&eacute;</a>
+		<div class="clean">&nbsp;</div>
+	</div>
+	<div class="clean">&nbsp;</div>
+</div>
+<div id="contenerHomeBas"></div>
+<div class="clean">&nbsp;</div>
+	<div class="bottom">&nbsp;</div>
+</div><div id="footer">
+33, chemin du Pérouzet - BP 74 - 74165 Collonges-sous-Salève Cedex - France T&eacute;l. : +33 (0)4 50 87 68 00 - Fax : +33 (0)4 50 43 65 80 - E-mail : <a href="mailto:info@campusadventiste.edu " target="_blank">info@campusadventiste.edu </a><br/><a href="Conditions_generales_de_vente-48-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Conditions générales de vente</a>&nbsp;-&nbsp;<a href="Mentions_legales_&_credits-49-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Mentions légales & crédits</a>&nbsp;-&nbsp;<a href="Plan_du_site-50-fr.html?PHPSESSID=d39ff27ba9a7688c85321c35cf518e21">Plan du site</a></div>
+
+	</body>
+</html>

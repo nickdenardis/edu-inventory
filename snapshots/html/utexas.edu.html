@@ -1,0 +1,1206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="/sites/default/files/webcentral_favicon_0.ico" type="image/x-icon" />
+  <title>Home | The University of Texas at Austin</title>
+  <link type="text/css" rel="stylesheet" media="all" href="/sites/default/files/css/css_bd67b89d2793a648bb80e38a792d4730.css" />
+  <script type="text/javascript" src="/sites/default/files/js/js_609657437bca37dcbf5614a1deba2bac.jsmin.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, { "basePath": "/", "lightbox2": { "rtl": 0, "file_path": "/(\\w\\w/)sites/default/files", "default_image": "/sites/all/modules/lightbox2/images/brokenimage.jpg", "border_size": 10, "font_color": "000", "box_color": "fff", "top_position": "", "overlay_opacity": "0.8", "overlay_color": "000", "disable_close_click": true, "resize_sequence": 0, "resize_speed": 400, "fade_in_speed": 400, "slide_down_speed": 600, "use_alt_layout": false, "disable_resize": false, "disable_zoom": false, "force_show_nav": false, "show_caption": true, "loop_items": false, "node_link_text": "View Image Details", "node_link_target": false, "image_count": "Image !current of !total", "video_count": "Video !current of !total", "page_count": "Page !current of !total", "lite_press_x_close": "press \x3ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\x3e\x3ckbd\x3ex\x3c/kbd\x3e\x3c/a\x3e to close", "download_link_text": "", "enable_login": false, "enable_contact": false, "keys_close": "c x 27", "keys_previous": "p 37", "keys_next": "n 39", "keys_zoom": "z", "keys_play_pause": "32", "display_image_size": "original", "image_node_sizes": "()", "trigger_lightbox_classes": "", "trigger_lightbox_group_classes": "", "trigger_slideshow_classes": "", "trigger_lightframe_classes": "", "trigger_lightframe_group_classes": "", "custom_class_handler": 0, "custom_trigger_classes": "", "disable_for_gallery_lists": true, "disable_for_acidfree_gallery_lists": true, "enable_acidfree_videos": true, "slideshow_interval": 5000, "slideshow_automatic_start": true, "slideshow_automatic_exit": true, "show_play_pause": true, "pause_on_next_click": false, "pause_on_previous_click": true, "loop_slides": false, "iframe_width": 600, "iframe_height": 400, "iframe_border": 1, "enable_video": false }, "views": { "ajax_path": "/views/ajax", "ajaxViews": [ { "view_name": "homepage_events", "view_display_id": "block_1", "view_args": "", "view_path": "homepage", "view_base_path": null, "view_dom_id": 7, "pager_element": 0 } ] } });
+//--><!]]>
+</script>
+  <script type="text/javascript"> </script>
+
+	<style type="text/css">
+		.js .pane-homepage-features .view-display-id-block_1 .views-row {display: none;}
+		.js .pane-homepage-features .view-display-id-block_1 .views-row-first {display: block;}
+	</style>
+
+<script type="text/javascript"> 
+	$('html').addClass('js');
+	$(document).ready(function() { 
+    $('#know_show').css('height', 440);
+    $('#know_show').css('width', 570);
+   
+   });
+</script>
+<script type="text/javascript"> 
+$( function() { 
+       $.ajax({
+               type:"GET", 
+			   cache: false,
+               url:"/emergency/status.xml", 
+               dataType:"xml", 
+               success: function(xml) {
+                   var campus_status = $(xml).find("item").attr("ut:status");
+                   if (campus_status == "2" ) { 
+                       var title = $(xml).find("item title").text();
+                       var description = $(xml).find("item description").text();
+                       // set the Alert Div title from the RSS <title> tag
+                       $("#alert_title a").text( title ).css("color","#333333");
+                       // fill in the alert body with the RSS <description>
+                       $("div.padding span").html( description );
+// make the link color match the other links
+$("div.padding span a").css("color", "#000").css("font-weight","bold").css("font-size" , "1em");
+                       // reveal the alert box
+                       $("#campus_status").show();
+$("div.lessPad").hide();
+$("div.toggler").hide();
+if ($("#its_outage").is(":visible")) {
+$("div.item").hide();
+$("div.toggler").hide();
+}
+                   } 
+}
+           });
+});
+$( function() { 
+        $.ajax({
+                type:"GET",
+				cache: false,
+  				url:"/its/emergencyfeed/",
+                dataType:"xml", 
+                success: function(xml) {
+                    its_status = $(xml).find("item").attr("ut:status");
+                    if (its_status == "2" ) { 
+                        var title = $(xml).find("item title").text();
+                        var description = $(xml).find("item description").text();
+                        // set the Alert Div title from the RSS <title> tag
+                        $("#outage_title a").text( title ).css("color","#333333");
+                         // fill in the alert body with the RSS <description>
+                       $("div.padding span#outage_text").html( description );
+// make the link color match the other links
+$("div.padding span#outage_text a").css("color", "#000").css("font-weight","bold").css("font-size" , "1em");
+                       // reveal the alert box
+                       $("#its_outage").show();
+$("div.lessPad").hide();
+$("div.toggler").hide();
+if ($("#campus_status").is(":visible")) {
+$("div.item").hide();
+$("div.toggler").hide();
+}
+                   } 
+}
+           });
+});
+</script> 
+<script type="text/javascript" src="/wc/includes/js/ga_central.js"></script>
+
+</head>
+<body class="front not-logged-in page-homepage no-sidebars">
+  <div id="page">
+
+
+    <div id = "header">
+		<a href="#maincontent" class="label_hide">Skip Navigation</a>
+	    <div id = "banner">
+
+	    	<div id = "header_width">
+
+	        	<div id = "ribbon"><a href="http://www.utexas.edu"><img src="/sites/all/themes/webcentral/_images/ribbon.png" width="180" height="182" alt="the university of texas at austin" /></a></div>
+
+
+					
+	   	  			<div id = "header_top_nav">
+				 		
+				            <ul class=""><li class="menu-767 first"><a href="/academics/colleges-schools" title="Colleges &amp; Schools">Colleges &amp; Schools</a></li>
+<li class="menu-14171"><a href="/directory" title="Directory">Directory</a></li>
+<li class="menu-14172"><a href="/directory/offices" title="Offices">Offices</a></li>
+<li class="menu-14170"><a href="/maps" title="Maps">Maps</a></li>
+<li class="menu-14173"><a href="/calendars" title="Calendars">Calendars</a></li>
+<li class="menu-769"><a href="http://www.lib.utexas.edu/" title="Libraries">Libraries</a></li>
+<li class="menu-10533"><a href="http://m.utexas.edu" title="Mobile site">Mobile</a></li>
+<li class="menu-772 last"><a href="https://utdirect.utexas.edu" title="UT Direct">UT Direct</a></li>
+</ul>
+       			 		
+
+	                	<!-- REMOVE <ul>
+	                    	<li class="first"><a href="#">calendars</a></li>
+	                    	<li><a href="#">colleges & schools</a></li>
+	                        <li><a href="#">directory</a></li>
+	                        <li><a href="#">offices</a></li>
+
+	                        <li><a href="#">maps</a></li>
+	                        <li><a href="#">libraries</a></li>
+	                        <li class="noborder"><a href="#">UT Direct</a></li>
+
+	                     </ul> -->
+
+	          		</div>
+								<div id="make_a_gift"><a class="make_a_gift_button" href="https://utdirect.utexas.edu/apps/utgiving/online/nlogon/?source=HPG" title="Make a Gift">Make a Gift</a></div>
+
+					<div id = "header_main_nav">
+
+	                	<div id = "header_links_about">
+
+
+	                     <div class = "header_links_about_ul">
+																		       				<ul class="links"><li class="menu-14638 first"><a href="/about-ut" title="About UT">About UT</a></li>
+<li class="menu-14639"><a href="/academics" title="Academics">Academics</a></li>
+<li class="menu-14640 last"><a href="/athletics" title="Athletics">Athletics</a></li>
+</ul>       			 							                    </div>
+
+	                    <div class = "header_links_about_ul_last">
+																		       				<ul class="links"><li class="menu-18022 first"><a href="/campus-life" title="Campus Life">Campus Life</a></li>
+<li class="menu-14642"><a href="/community-engagement" title="Community Engagement">Community Engagement</a></li>
+<li class="menu-14643 last"><a href="/research" title="Research">Research</a></li>
+</ul>       			 							                    </div>
+
+	                </div>
+									<img src="sites/all/themes/webcentral/_images/header-line.jpg" id="header_line" width="2" height="58" alt="" />
+	                <div id = "header_links_constituents">
+
+					
+	                    							       	<ul class="links"><li class="menu-1345 first"><a href="/students" title="Students">Students</a></li>
+<li class="menu-1346"><a href="/faculty" title="Faculty">Faculty</a></li>
+<li class="menu-1347"><a href="/staff" title="Staff">Staff</a></li>
+<li class="menu-14127 last"><a href="/alumni-friends" title="Alumni &amp; Friends">Alumni &amp; Friends</a></li>
+</ul>       			 				                    <!---
+	                    REMOVE
+	                    	<ul>
+
+	                         <li><a href="#">students</a></li>
+	                         <li><a href="#">faculty</a></li>
+
+	                         <li><a href="#">staff</a></li>
+	                         <li><a href="#">alumni &amp; friends</a></li>
+
+	                    </ul> -->
+
+	                </div>
+									<div id="what_starts_here">
+										<img src="sites/all/themes/webcentral/_images/whatstartshere.png" alt="what starts here changes the world" width="290" height="12" />
+									</div>
+									
+	                <div id = "search">
+						      	<form action="search/results.php" method="get" id="cse_searchbox">
+						      		<div class="label_hide"><label for="search_input">Search UT</label></div>
+						        	<div><input type="hidden" name="cx" value="006470498568929423894:etsxpcor8wm" /></div>
+						        	<div><input type="hidden" name="cof" value="FORID:10" /></div>
+						        	<div><input type="text" name="q" size="45" maxlength="255" value="" class="input_textfield input_textfield_bg" id="search_input"  /></div>
+						        	<div><input type="submit" name="search_button" value="" class="input_btn" /></div>
+						      	</form>
+	                </div>
+
+				</div> <!-- end header_main_nav -->
+
+			</div> <!-- end header_width -->
+
+		</div> <!-- end banner -->
+
+	</div>  <!-- end header -->
+
+<div id = "header-shadow"></div> <!-- shadow goodness -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              						<a id="maincontent" name="maincontent"></a>
+            
+	<div class="panel-homepage-row clear-block" id="know_news">
+		<div id="know_show">
+			<div id="content-content" class="clear-block">
+           			<div class="panel-homepage clear-block panel-display" >					<div class="panel-homepage-row clear-block">						<div class="panel-homepage-first-row-left panel-panel">					<div class="inside">
+			<div class="panel-pane pane-views pane-homepage-features" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-homepage-features view-id-homepage_features view-display-id-block_1 features view-dom-id-3">
+    
+  
+  
+      <div class="view-content slideshow-div">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    
+<div class="views-field-field-home-page-feature-image-fid">
+	<span class="field-content"><a href="http://blogs.utexas.edu/towertalk/2012/05/03/regents-act-on-medical-school-funding-and-ut-austin-tuition/"><img src="/sites/default/files/1_75209.jpg" width="570" height="380" alt="Regents act on tuition, medical school funding" /></a></span>
+ </div>
+<div class="views-field-title">
+	<span class="field-content"><a href="http://blogs.utexas.edu/towertalk/2012/05/03/regents-act-on-medical-school-funding-and-ut-austin-tuition/" title="Regents act on tuition, medical school funding">Regents act on tuition, medical school funding</a></span>
+</div>
+<div class="views-field-body">
+	<div class="field-content">In his latest Tower Talk blog post, President Bill Powers discusses the two-year tuition freeze and the impact of a medical school on central Texas.</div>
+</div>
+<div class="branding-category category-huge-impact"></div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+    
+<div class="views-field-field-home-page-feature-image-fid">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/05/04/tower_darkens2012/"><img src="/sites/default/files/2_75210.jpg" width="570" height="380" alt="Tower lights darken tonight" /></a></span>
+ </div>
+<div class="views-field-title">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/05/04/tower_darkens2012/" title="Tower lights darken tonight">Tower lights darken tonight</a></span>
+</div>
+<div class="views-field-body">
+	<div class="field-content">On the night of UT Remembers, Friday, May 4, the Tower will be darkened in remembrance of university community members who died in the past year.</div>
+</div>
+<div class="branding-category category-common-purpose"></div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    
+<div class="views-field-field-home-page-feature-image-fid">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/05/03/texas_venture_labs/"><img src="/sites/default/files/3_75211.jpg" width="570" height="380" alt="Investing in the future of entrepreneurship" /></a></span>
+ </div>
+<div class="views-field-title">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/05/03/texas_venture_labs/" title="Investing in the future of entrepreneurship">Investing in the future of entrepreneurship</a></span>
+</div>
+<div class="views-field-body">
+	<div class="field-content">A $6 million gift from Fort Worth businessman and entrepreneur Jon Brumley will fund the growth of the Texas Venture Labs program.</div>
+</div>
+<div class="branding-category category-agenda-for-change"></div>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+    
+<div class="views-field-field-home-page-feature-image-fid">
+	<span class="field-content"><a href="http://www.utexas.edu/features/2012/04/30/early_earners/"><img src="/sites/default/files/4_75212.jpg" width="570" height="380" alt="Early earners" /></a></span>
+ </div>
+<div class="views-field-title">
+	<span class="field-content"><a href="http://www.utexas.edu/features/2012/04/30/early_earners/" title="Early earners">Early earners</a></span>
+</div>
+<div class="views-field-body">
+	<div class="field-content">Economist Sandra Black looks at the long-term effects of school starting age and family background.</div>
+</div>
+<div class="branding-category category-huge-impact"></div>
+  </div>
+  <div class="views-row views-row-5 views-row-odd views-row-last">
+    
+<div class="views-field-field-home-page-feature-image-fid">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/04/30/election_greenberg_general/"><img src="/sites/default/files/5_0_75213.jpg" width="570" height="380" alt="We are in the general now" /></a></span>
+ </div>
+<div class="views-field-title">
+	<span class="field-content"><a href="http://www.utexas.edu/know/2012/04/30/election_greenberg_general/" title="We are in the general now">We are in the general now</a></span>
+</div>
+<div class="views-field-body">
+	<div class="field-content">In this Elections 2012 analysis, Center for Politics and Governance Director Sherri Greenberg explains why November will bring a close general election.</div>
+</div>
+<div class="branding-category category-huge-impact"></div>
+  </div>
+    </div>
+		<div class="transparency">
+			<div class="know_graphic">
+				<a href="http://www.utexas.edu/know"><img src="/sites/all/themes/webcentral/_images/know-logo-hp.png" alt="Know: Your Connection to a World of Ideas" width="77" height="43" /></a>
+			</div>
+		</div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-homepage-features" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-homepage-features view-id-homepage_features view-display-id-block_2 features view-dom-id-4">
+    
+  
+  
+      <div class="view-content slideshow-div">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://blogs.utexas.edu/towertalk/2012/05/03/regents-act-on-medical-school-funding-and-ut-austin-tuition/" title="Regents act on tuition, medical school funding">Regents act on tuition, medical school funding</a></span>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content">In his latest Tower Talk blog post, President Bill Powers discusses the two-year tuition freeze and the impact of a medical school on central Texas.</div>
+  </div>
+  
+  <div class="views-field-field-home-page-feature-category-value">
+                <span class="field-content">Branding label: Huge Impact</span>
+  </div>
+  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.utexas.edu/know/2012/05/04/tower_darkens2012/" title="Tower lights darken tonight">Tower lights darken tonight</a></span>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content">On the night of UT Remembers, Friday, May 4, the Tower will be darkened in remembrance of university community members who died in the past year.</div>
+  </div>
+  
+  <div class="views-field-field-home-page-feature-category-value">
+                <span class="field-content">Branding label: Common Purpose</span>
+  </div>
+  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.utexas.edu/know/2012/05/03/texas_venture_labs/" title="Investing in the future of entrepreneurship">Investing in the future of entrepreneurship</a></span>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content">A $6 million gift from Fort Worth businessman and entrepreneur Jon Brumley will fund the growth of the Texas Venture Labs program.</div>
+  </div>
+  
+  <div class="views-field-field-home-page-feature-category-value">
+                <span class="field-content">Branding label: Agenda for Change</span>
+  </div>
+  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.utexas.edu/features/2012/04/30/early_earners/" title="Early earners">Early earners</a></span>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content">Economist Sandra Black looks at the long-term effects of school starting age and family background.</div>
+  </div>
+  
+  <div class="views-field-field-home-page-feature-category-value">
+                <span class="field-content">Branding label: Huge Impact</span>
+  </div>
+  </div>
+  <div class="views-row views-row-5 views-row-odd views-row-last">
+      
+  <div class="views-field-title">
+                <span class="field-content"><a href="http://www.utexas.edu/know/2012/04/30/election_greenberg_general/" title="We are in the general now">We are in the general now</a></span>
+  </div>
+  
+  <div class="views-field-body">
+                <div class="field-content">In this Elections 2012 analysis, Center for Politics and Governance Director Sherri Greenberg explains why November will bring a close general election.</div>
+  </div>
+  
+  <div class="views-field-field-home-page-feature-category-value">
+                <span class="field-content">Branding label: Huge Impact</span>
+  </div>
+  </div>
+    </div>
+		<div class="transparency">
+			<div class="know_graphic">
+				<a href="http://www.utexas.edu/know"><img src="/sites/all/themes/webcentral/_images/know-logo-hp.png" alt="Know: Your Connection to a World of Ideas" width="77" height="43" /></a>
+			</div>
+		</div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="superblock">
+			<div class="panel-pane pane-block pane-views-homepage-headlines-block-1" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-homepage-headlines view-id-homepage_headlines view-display-id-block_1 view-dom-id-5">
+    
+  
+  
+      <div class="view-content">
+      <div class="itemlist">
+<h4>News</h4>
+<a href="http://www.utexas.edu/news/" class="superblock-explore-all" title="Explore all news">Explore all news</a>
+
+<!-- this div #campus_status will show when there is a campus alert. --> 
+      
+          <div id="campus_status"> 
+            <div class="padding">
+                <div id="alert_title"><a href="http://www.utexas.edu/emergency"></a></div>
+                <a href="/emergency"><span id="alert_text"></span></a>
+<div id="alert_link">Go to <a href="/emergency">Emergency Information</a> for details.</div>
+            </div> 
+          </div> 
+          
+<!--end of #campus_status -->
+
+<!-- beginning of #its_outage -->
+            
+            <div id="its_outage"> 
+                <div class="padding"> 
+                <div id="outage_title"><a href="http://www.utexas.edu/its/alerts"></a></div>
+                    <a href="/its/alerts"><span id="outage_text"></span></a>
+<div id="outage_link">Go to <a href="/its/alerts/">ITS Alerts</a> for details.</div>
+            </div> 
+          </div> 
+          
+<!-- end of alerts divs -->
+
+ 
+  <div class="item"> 
+    <a href="http://www.utexas.edu/news/2012/05/03/medical-school/" title="Medical school moves closer to fruition">Medical school moves closer to fruition</a><br/>University of Texas System Board of Regents pledges $30 million a year for an Austin program. 
+ 
+     
+  </div> 
+ 
+  <div class="item"> 
+    <a href="http://www.utexas.edu/news/2012/04/25/wildflower_family_garden/" title="Gift of $1 million to create family garden at Wildflower Center">Gift of $1 million to create family garden at Wildflower Center</a><br/>Luci Baines Johnson, Ian Turpin help support a creative learning space for children on 4.5 acres of native plant gardens. 
+ 
+     
+  </div> 
+ 
+  <div class="item"> 
+    <a href="http://www.utexas.edu/news/2012/04/24/hicke_linda/" title="Provost appoints new College of Natural Sciences dean">Provost appoints new College of Natural Sciences dean</a><br/>Linda Hicke, a recognized expert in cell biology and biochemistry, will begin her new role July 15. 
+ 
+     
+  </div> 
+ 
+  <div class="item extended"> 
+    <a href="http://www.utexas.edu/news/2012/04/30/statoil-fellowship/" title="Graduate students receive energy research fellowships">Graduate students receive energy research fellowships</a><br/>Statoil will give $5 million in fellowships for research in geology, geophysics and petroleum engineering. 
+ 
+     
+  </div> 
+ 
+  <div class="item extended"> 
+    <a href="http://www.utexas.edu/news/2012/04/24/peppas_royal_academy/" title="Biomedical engineer elected to Spain&#039;s Royal Academy">Biomedical engineer elected to Spain&#039;s Royal Academy</a><br/>Nicholas Peppas is cited as a leader in biomaterials, drug delivery and pharmaceutical bioengineering. 
+ 
+     
+  </div> 
+ 
+</div> <!-- end itemlist -->
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-views pane-social-media" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-social-media view-id-social_media view-display-id-block_1 view-dom-id-6">
+    
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_social_media_directory " href="http://www.utexas.edu/know/directory/" title="Visit the UT Austin Social Media Directory">Visit the UT Austin Social Media Directory</a>
+		  </span>
+	  </div>
+  	
+    </div>
+  <div class="views-row views-row-2 views-row-even">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_rss " href="http://www.utexas.edu/know/feed" title="Visit the UT Austin RSS Know Feed">Visit the UT Austin RSS Know Feed</a>
+		  </span>
+	  </div>
+  	
+    </div>
+  <div class="views-row views-row-3 views-row-odd">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_youtube " href="http://www.youtube.com/utaustintexas" title="Visit the UT Austin YouTube Page">Visit the UT Austin YouTube Page</a>
+		  </span>
+	  </div>
+  	
+    </div>
+  <div class="views-row views-row-4 views-row-even">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_twitter " href="http://twitter.com/utaustin" title="Visit the UT Austin Twitter">Visit the UT Austin Twitter</a>
+		  </span>
+	  </div>
+  	
+    </div>
+  <div class="views-row views-row-5 views-row-odd">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_flickr " href="http://www.utexas.edu/know/directory/media-type_asc/#flickr" title="Visit the University Flickr Directory">Visit the University Flickr Directory</a>
+		  </span>
+	  </div>
+  	
+    </div>
+  <div class="views-row views-row-6 views-row-even views-row-last">
+    	
+  	
+  	  <div class="views-field-field-social-media-type-value">
+	    					  <span class="field-content">
+				<a class="hp_social_media_rollover hp_sm_facebook " href="http://www.facebook.com/UTAustinTX" title="Visit the UT Austin Facebook Page">Visit the UT Austin Facebook Page</a>
+		  </span>
+	  </div>
+  	
+    </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+<div class="panel-pane pane-block pane-views-homepage-events-block-1" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-homepage-events view-id-homepage_events view-display-id-block_1 view-dom-id-7">
+    
+  
+  
+      <div class="view-content">
+      <div class="itemlist">
+<h4>Events</h4>
+<a href="http://www.utexas.edu/know/events/" class="superblock-explore-all" title="Explore all events">Explore all events</a>
+ 
+  <div class="item lessPad"> 
+    May 4: <span><a href="http://www.utexas.edu/know/events/20120504/e20856" title="President&#039;s Staff Awards ceremony honors staff">President&#039;s Staff Awards ceremony honors staff</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad"> 
+    May 4: <span><a href="http://www.utexas.edu/know/events/20120504/e20884" title="UT Remembers is a day of reflection">UT Remembers is a day of reflection</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad"> 
+    May 4: <span><a href="http://www.utexas.edu/know/events/20120504/e17097" title="Michener Center for Writers hosts graduation reading">Michener Center for Writers hosts graduation reading</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad extended"> 
+    May 4: <span><a href="http://www.utexas.edu/know/events/20120504/e20881" title="Tower darkens to remember those who died">Tower darkens to remember those who died</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad extended"> 
+    May 5: <span><a href="http://www.utexas.edu/know/events/20120505/e20853" title="Saturday Morning Math Group explores knot theory">Saturday Morning Math Group explores knot theory</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad extended"> 
+    May 5: <span><a href="http://www.utexas.edu/know/events/20120505/e20693" title="Exhibit showcases performance design, technology">Exhibit showcases performance design, technology</a></span> 
+ 
+     
+  </div> 
+ 
+  <div class="item lessPad extended"> 
+    May 7: <span><a href="http://www.utexas.edu/know/events/20120507/e20800" title="&quot;Smart Thinking&quot; is employee engagement workshop">&quot;Smart Thinking&quot; is employee engagement workshop</a></span> 
+ 
+     
+  </div> 
+ 
+</div> <!-- end itemlist -->
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+			<div id="events_calendar_rule"> </div>
+			<div id="academic_calendar">
+				<div class="panel-pane pane-views pane-know-events-feed-widget" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-know-events-feed-widget view-id-know_events_feed_widget view-display-id-node_content_4 view-dom-id-9">
+      
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+    <div class="views-field-title">
+        <span class="field-content"><a href="http://registrar.utexas.edu/calendars/" title="Academic Calendars">Academic Calendars</a>: May 4, Friday Last class day except in the School of Law.</span>
+</div>
+  </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+			</div>
+		</div> <!-- end superblock -->
+	</div>
+
+	<div id = "white_border_bottom"></div>
+
+	<div id="learn">
+		<div class="verb_bucket">
+			<div id="apply_here">
+				<div class="panel-pane pane-block pane-menu-menu-apply-here" >
+  
+      <h2 class="pane-title">Apply Here</h2>
+  
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="expanded first"><a href="http://bealonghorn.utexas.edu/" title="Undergraduate Admissions">Undergraduate Admissions</a><ul class="menu"><li class="leaf first"><a href="http://bealonghorn.utexas.edu/freshmen/" title="First-Time Freshmen">First-Time Freshmen</a></li>
+<li class="leaf"><a href="http://bealonghorn.utexas.edu/transfer/" title="Transfer Students">Transfer Students</a></li>
+<li class="leaf last"><a href="http://bealonghorn.utexas.edu/international/" title="International Admissions">International Admissions</a></li>
+</ul></li>
+<li class="leaf"><a href="http://www.utexas.edu/ogs/prospective/" title="Graduate Admissions">Graduate Admissions</a></li>
+<li class="leaf"><a href="http://bealonghorn.utexas.edu/" title="Future Students">Future Students</a></li>
+<li class="leaf"><a href="http://finaid.utexas.edu/" title="Financial Aid">Financial Aid</a></li>
+<li class="leaf last"><a href="http://www.utexas.edu/tuition/" title="Tuition">Tuition</a></li>
+</ul>  </div>
+
+  
+  </div>
+			</div>
+			<div class="verb_buckets_bottom"></div>
+		</div>
+		<div class="verb_bucket">
+			<div id="visit_here">
+				<div class="panel-pane pane-block pane-menu-menu-visit-here" >
+  
+      <h2 class="pane-title">Visit Here</h2>
+  
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="leaf first"><a href="/about-ut/arts-attractions" title="Arts &amp; Attractions">Arts &amp; Attractions</a></li>
+<li class="leaf"><a href="/about-ut/campus-tours" title="Campus Tours">Campus Tours</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/maps/" title="Maps">Maps</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/parking/visitor/" title="Visitor Parking">Visitor Parking</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/know/events/" title="Events Calendar">Events Calendar</a></li>
+<li class="leaf"><a href="/about-ut/life-in-austin" title="Austin">Austin</a></li>
+<li class="leaf"><a href="/about-ut/history-traditions" title="History &amp; Traditions">History &amp; Traditions</a></li>
+<li class="leaf last"><a href="/athletics" title="Athletics">Athletics</a></li>
+</ul>  </div>
+
+  
+  </div>
+			</div>
+			<div class="verb_buckets_bottom"></div>
+		</div>
+		<div class="verb_bucket">
+			<div id="learn_here">
+				<div class="panel-pane pane-block pane-menu-menu-learn-here" >
+  
+      <h2 class="pane-title">Learn Here</h2>
+  
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="leaf first"><a href="http://courses.utexas.edu" title="Blackboard">Blackboard</a></li>
+<li class="leaf"><a href="http://registrar.utexas.edu/students/registration/" title="Registration">Registration</a></li>
+<li class="leaf"><a href="http://registrar.utexas.edu/schedules/" title="Course Schedules">Course Schedules</a></li>
+<li class="leaf"><a href="/academics/areas-of-study" title="Areas of Study">Areas of Study</a></li>
+<li class="leaf"><a href="/community-engagement/continuing-education" title="Continuing Education">Continuing Education</a></li>
+<li class="leaf"><a href="http://world.utexas.edu/abroad" title="Study Abroad">Study Abroad</a></li>
+<li class="leaf"><a href="http://lifelearning.utexas.edu/" title="Learning &amp; Career Support">Learning &amp; Career Support</a></li>
+<li class="leaf last"><a href="https://utdirect.utexas.edu/apps/student/coursedocs/nlogon/" title="Syllabi and CVs">Syllabi and CVs</a></li>
+</ul>  </div>
+
+  
+  </div>
+			</div>
+			<div class="verb_buckets_bottom"></div>
+		</div>
+		<div class="verb_bucket">
+			<div id="live_here">
+				<div class="panel-pane pane-block pane-menu-menu-live-here" >
+  
+      <h2 class="pane-title">Live Here</h2>
+  
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.utexas.edu/student/housing/" title="Housing on Campus">Housing on Campus</a></li>
+<li class="leaf"><a href="/campus-life/living-eating/places-to-eat" title="Places to Eat">Places to Eat</a></li>
+<li class="leaf"><a href="http://deanofstudents.utexas.edu/sald/studentorgs/" title="Student Organizations">Student Organizations</a></li>
+<li class="leaf"><a href="http://www.utrecsports.org/" title="RecSports ">RecSports </a></li>
+<li class="leaf"><a href="http://healthyhorns.utexas.edu/" title="University Health Services">University Health Services</a></li>
+<li class="leaf"><a href="http://cmhc.utexas.edu/" title="Counseling &amp; Mental Health ">Counseling &amp; Mental Health </a></li>
+<li class="leaf"><a href="http://www.utexas.edu/parking/transportation/shuttle/" title="Shuttle Buses">Shuttle Buses</a></li>
+<li class="leaf last"><a href="/campus-life/safety-security" title="Safety &amp; Security">Safety &amp; Security</a></li>
+</ul>  </div>
+
+  
+  </div>
+			</div>
+			<div class="verb_buckets_bottom"></div>
+		</div>
+		<div class="verb_bucket last">
+			<div id="work_here">
+				<div class="panel-pane pane-block pane-menu-menu-work-here" >
+  
+      <h2 class="pane-title">Connect Here</h2>
+  
+  
+  <div class="pane-content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.utexas.edu/jobs" title="Jobs">Jobs</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/hr" title="Human Resource Services">Human Resource Services</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/about-ut/corporate-connections" title="Corporate Connections">Corporate Connections</a></li>
+<li class="leaf"><a href="http://hiretexas.utexas.edu/" title="HireTexas">HireTexas</a></li>
+<li class="leaf"><a href="http://www.utvolunteers.org" title="Volunteer &amp; Service Learning">Volunteer &amp; Service Learning</a></li>
+<li class="leaf"><a href="http://texasexes.org" title="Texas Exes">Texas Exes</a></li>
+<li class="leaf"><a href="http://giving.utexas.edu" title="Giving to UT">Giving to UT</a></li>
+<li class="leaf last"><a href="http://www.utexas.edu/events/" title="University Events">University Events</a></li>
+</ul>  </div>
+
+  
+  </div>
+			</div>
+			<div class="verb_buckets_bottom"></div>
+		</div>
+	</div>
+
+	<div id="content_width_w_padding">
+		<div id="popular_search_terms">
+			<div class="panel-pane pane-views pane-google-cse-queries" >
+  
+  
+  
+  <div class="pane-content">
+    <div class="view view-google-cse-queries view-id-google_cse_queries view-display-id-block_1 view-dom-id-8">
+    
+  
+  
+      <div class="view-content">
+      
+<h3>SEARCH HERE: Our Popular Searches</h3>
+          <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=course schedule&amp;search_button=">course schedule</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=registrar&amp;search_button=">registrar</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=registration&amp;search_button=">registration</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=ris&amp;search_button=">ris</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=blackboard&amp;search_button=">blackboard</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=register&amp;search_button=">register</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=what i owe&amp;search_button=">what i owe</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=rose&amp;search_button=">rose</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=ate&amp;search_button=">ate</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=transcript&amp;search_button=">transcript</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=bevo bucks&amp;search_button=">bevo bucks</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=tuition&amp;search_button=">tuition</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=ida&amp;search_button=">ida</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=transcripts&amp;search_button=">transcripts</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=gpa calculator&amp;search_button=">gpa calculator</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=quest&amp;search_button=">quest</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=waitlists&amp;search_button=">waitlists</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=financial aid&amp;search_button=">financial aid</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=class listing&amp;search_button=">class listing</a>,  
+              <a href="http://www.utexas.edu/search/results.php?cx=006470498568929423894%3Aetsxpcor8wm&amp;cof=FORID%3A10&amp;q=webmail&amp;search_button=">webmail</a> 
+        </div>
+  
+  
+  
+  
+  
+  
+</div>   </div>
+
+  
+  </div>
+		</div>
+		<div id="three_column">
+			<div class="holder">
+				<div id="pane1" class="scroll-pane">
+					<div class="panel-pane pane-views pane-homepage-spotlights" >
+  
+  
+  
+  <div class="pane-content">
+    <a class="prev" href="#spotlight-scroll-up"><img src="/sites/all/themes/webcentral/_images/flatarrowup.png" alt="up arrow" width="31" height="14" /></a>
+<div class="view view-homepage-spotlights view-id-homepage_spotlights view-display-id-block_2 view-dom-id-1 scrollable">
+    
+  
+  
+      <div class="view-content items">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+    <img src="/sites/default/files/look_around_60_60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/about-ut/campus-tours/virtual-tour" title="Look Around">Look Around</a></h1>  
+    <p>
+	Get a new perspective on the university campus with this virtual tour's 360-degree views.</p>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+    <img src="/sites/default/files/spotlights/images/Diversity_0.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/diversity" title="Diversity">Diversity</a></h1>  
+    <p>
+	The university fosters a culture of leadership through diverse people and ideas.</p>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+    <img src="/sites/default/files/spotlights/images/tuition-dollars-sense2_0.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/tuition/index.php" title="Tuition Dollars &amp; Sense">Tuition Dollars &amp; Sense</a></h1>  
+    <p>
+	This is your one-stop shop for comprehensive information on tuition at the university.</p>  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+    <img src="/sites/default/files/spotlights/images/ut_history_central_60_60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.texasexes.org/uthistory/" title="UT History Central ">UT History Central </a></h1>  
+    <p>
+	Explore, experience and celebrate the history and traditions of the university.</p>  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+    <img src="/sites/default/files/spotlights/images/iphone_app_1.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/iphoneapp/" title="Texas iPhone App">Texas iPhone App</a></h1>  
+    <p>
+	The University of Texas at Austin is now available wherever you go.</p>  </div>
+  <div class="views-row views-row-6 views-row-even">
+      
+    <img src="/sites/default/files/spotlights/images/facebook_1.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.facebook.com/UTAustinTX" title="Get Social">Get Social</a></h1>  
+    <p>
+	Find The University of Texas at Austin on Facebook and other social channels.</p>  </div>
+  <div class="views-row views-row-7 views-row-odd views-row-last">
+      
+    <img src="/sites/default/files/pcl_map_collection.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.lib.utexas.edu/maps/" title="Map Collection">Map Collection</a></h1>  
+    <p>
+	Explore the world with the Perry-Castañeda Library's collection of online maps.</p>  </div>
+    </div>
+  
+  
+  
+  
+  
+  </div> <a class="next" href="#spotlight-scroll-down"><img src="/sites/all/themes/webcentral/_images/flatarrowdown.png" alt="down arrow" width="31" height="14" /></a>  </div>
+
+  
+  </div>
+				</div>
+			</div>
+			<div class="holder">
+				<div id="pane2" class="scroll-pane">
+					<div class="panel-pane pane-views pane-homepage-spotlights" >
+  
+  
+  
+  <div class="pane-content">
+    <a class="prev" href="#spotlight-scroll-up"><img src="/sites/all/themes/webcentral/_images/flatarrowup.png" alt="up arrow" width="31" height="14" /></a>
+<div class="view view-homepage-spotlights view-id-homepage_spotlights view-display-id-block_2 view-dom-id-2 scrollable">
+    
+  
+  
+      <div class="view-content items">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+    <img src="/sites/default/files/spotlights/images/powers60_60_1.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://blogs.utexas.edu/towertalk/" title="Tower Talk">Tower Talk</a></h1>  
+    <p>
+	President William Powers Jr. blogs about the life of The University of Texas at Austin.</p>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+    <img src="/sites/default/files/vikki_60_60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/inside_ut/lconf/" title="Longhorn Confidential">Longhorn Confidential</a></h1>  
+    <p>
+	Follow eight student bloggers for a behind-the-scenes look at Longhorn life.</p>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+      
+    <img src="/sites/default/files/spotlights/images/longhorn_1.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://texassports.com" title="TexasSports.com">TexasSports.com</a></h1>  
+    <p>
+	The official site of Texas Athletics keeps you up-to-date on all Longhorns sports.</p>  </div>
+  <div class="views-row views-row-4 views-row-even">
+      
+    <img src="/sites/default/files/spotlights/images/ditmire60-60_1.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/opa/blogs/research/" title="Further Findings">Further Findings</a></h1>  
+    <p>
+	Follow the research blog for the stories behind research at the university.</p>  </div>
+  <div class="views-row views-row-5 views-row-odd">
+      
+    <img src="/sites/default/files/brand_site_60_60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/what-starts-here" title="What Starts Here">What Starts Here</a></h1>  
+    <p>
+	Learn about the university's What Starts Here motto and the core messages. </p>  </div>
+  <div class="views-row views-row-6 views-row-even">
+      
+    <img src="/sites/default/files/digimorph-60-60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.digimorph.org/" title="DigiMorph">DigiMorph</a></h1>  
+    <p>
+	Experience spectacular 3-D imagery and animations of the interiors of natural objects.</p>  </div>
+  <div class="views-row views-row-7 views-row-odd">
+      
+    <img src="/sites/default/files/budget101_60_60.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/finances/" title="Budget 101">Budget 101</a></h1>  
+    <p>
+	Take a closer look at fiscal and budgetary management at The University of Texas at Austin.</p>  </div>
+  <div class="views-row views-row-8 views-row-even views-row-last">
+      
+    <img src="/sites/default/files/spotlights/images/gyhu_2.jpg" alt="" title="" class="imagecache imagecache-spotlight_thumb imagecache-default imagecache-spotlight_thumb_default" width="60" height="60" />  
+    <h1><a href="http://www.utexas.edu/opa/alumni/" title="Get Your Horns Up">Get Your Horns Up</a></h1>  
+    <p>
+	Alumni: Share a photo of yourself proudly showing your "Hook 'em, Horns."</p>  </div>
+    </div>
+  
+  
+  
+  
+  
+  </div> <a class="next" href="#spotlight-scroll-down"><img src="/sites/all/themes/webcentral/_images/flatarrowdown.png" alt="down arrow" width="31" height="14" /></a>  </div>
+
+  
+  </div>
+				</div>
+			</div>
+			<div id="static_third_column">
+				<div class="panel-pane pane-node" >
+  
+  
+  
+  <div class="pane-content">
+    <div id="node-10621" class="node clear-block">
+
+
+
+
+  <div class="meta">
+  
+    </div>
+
+  <div class="content imagelink">
+		<a href="http://giving.utexas.edu/"><img src="/sites/default/files/UT-HomePg-Giving2.jpg" alt="Large or small, every gift matters. Giving to UT Web site" width="294" height="210" /></a>
+  </div>
+
+  </div>
+  </div>
+
+  
+  </div>
+			</div>
+		</div>
+		<div id = "featured_graphic">
+			<div class="panel-pane pane-node" >
+  
+  
+  
+  <div class="pane-content">
+    <a href="http://utvac.org/" title="Visual Arts Center"><img src="sites/default/files/vac-uthomepage.jpg"  width="960" height="127" alt="Visual Arts Center" class="imagefield imagefield-field_full_page_width_image"/></a>  </div>
+
+  
+  </div>
+		</div>
+
+		<!-- beginning of footer .. the footer begins inside of the content_width_w_padding div -->
+ <!-- end of footer ribbon with links starts after the content_width_w_padding ends -->
+	 <!--  end of content_width_w_padding -->
+
+
+
+
+
+
+
+
+<div id = "footer">
+	  <div id="block-menu-menu-colleges-schools" class="block block-menu">
+  <h2>Colleges &amp; Schools</h2>
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.engr.utexas.edu" title="Cockrell School of Engineering">Cockrell School of Engineering</a></li>
+<li class="leaf"><a href="http://communication.utexas.edu" title="College of Communication">College of Communication</a></li>
+<li class="leaf"><a href="http://www.edb.utexas.edu/education/" title="College of Education">College of Education</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/finearts/" title="College of Fine Arts">College of Fine Arts</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/cola/" title="College of Liberal Arts">College of Liberal Arts</a></li>
+<li class="leaf"><a href="http://www.cns.utexas.edu" title="College of Natural Sciences">College of Natural Sciences</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/pharmacy/" title="College of Pharmacy">College of Pharmacy</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/ogs/" title="Graduate School">Graduate School</a></li>
+<li class="leaf"><a href="http://www.jsg.utexas.edu" title="Jackson School of Geosciences">Jackson School of Geosciences</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/lbj/" title="Lyndon B. Johnson School of Public Affairs">Lyndon B. Johnson School of Public Affairs</a></li>
+<li class="leaf"><a href="http://www.mccombs.utexas.edu" title="McCombs School of Business">McCombs School of Business</a></li>
+<li class="leaf"><a href="http://www.soa.utexas.edu" title="School of Architecture">School of Architecture</a></li>
+<li class="leaf"><a href="http://www.ischool.utexas.edu" title="School of Information">School of Information</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/law/" title="School of Law">School of Law</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/nursing/" title="School of Nursing">School of Nursing</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/ssw/" title="School of Social Work">School of Social Work</a></li>
+<li class="leaf last"><a href="http://www.utexas.edu/ugs/" title="School of Undergraduate Studies">School of Undergraduate Studies</a></li>
+</ul>  </div>
+</div>
+  <div id="block-menu-menu-libraries" class="block block-menu">
+  <h2>Libraries</h2>
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.lib.utexas.edu/apl/aaa/" title="Alexander Architectural Archive">Alexander Architectural Archive</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/apl/" title="Architecture and Planning Library">Architecture and Planning Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/benson/" title="Benson Latin American Collection">Benson Latin American Collection</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/classics/" title="Classics Library">Classics Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/fal/" title="Fine Arts Library">Fine Arts Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/pma/" title="Kuehne Physics Mathematics Astronomy Library">Kuehne Physics Mathematics Astronomy Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/lsl/" title="Life Science Library">Life Science Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/chem/" title="Mallet Chemistry Library">Mallet Chemistry Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/msl/" title="Marine Science Library">Marine Science Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/engin/" title="McKinney Engineering Library">McKinney Engineering Library</a></li>
+<li class="leaf"><a href="http://www.lib.utexas.edu/pcl/" title="Perry-Castañeda Library">Perry-Castañeda Library</a></li>
+<li class="leaf"><a href="http://tarlton.law.utexas.edu/" title="Tarlton Law Library">Tarlton Law Library</a></li>
+<li class="leaf last"><a href="http://www.lib.utexas.edu/geo/" title="Walter Geology Library">Walter Geology Library</a></li>
+</ul>  </div>
+</div>
+  <div id="block-menu-menu-museums" class="block block-menu">
+  <h2>Destinations</h2>
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://blantonmuseum.org/" title="Blanton Museum of Art">Blanton Museum of Art</a></li>
+<li class="leaf"><a href="http://www.cah.utexas.edu/museums/garner.php" title="Briscoe-Garner Museum">Briscoe-Garner Museum</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/universityunions/texas-union/scene/cactus-cafe-music" title="Cactus Cafe">Cactus Cafe</a></li>
+<li class="leaf"><a href="http://www.cah.utexas.edu/" title="Dolph Briscoe Center for American History">Dolph Briscoe Center for American History</a></li>
+<li class="leaf"><a href="http://www.uterwincenter.com/" title="Frank Erwin Center">Frank Erwin Center</a></li>
+<li class="leaf"><a href="http://www.hrc.utexas.edu/" title="Harry Ransom Center">Harry Ransom Center</a></li>
+<li class="leaf"><a href="http://www.starkcenter.org/" title="H.J. Lutcher Stark Center for Physical Culture and Sports">H.J. Lutcher Stark Center for Physical Culture and Sports</a></li>
+<li class="leaf"><a href="http://www.wildflower.org/" title="Lady Bird Johnson Wildflower Center">Lady Bird Johnson Wildflower Center</a></li>
+<li class="leaf"><a href="http://landmarks.utexas.edu/" title="Landmarks Public Art Program ">Landmarks Public Art Program </a></li>
+<li class="leaf"><a href="http://www.lbjlibrary.org/" title="Lyndon Baines Johnson Library and Museum">Lyndon Baines Johnson Library and Museum</a></li>
+<li class="leaf"><a href="http://www.utmsi.utexas.edu/" title="Marine Science Institute">Marine Science Institute</a></li>
+<li class="leaf"><a href="http://mcdonaldobservatory.org/" title="McDonald Observatory">McDonald Observatory</a></li>
+<li class="leaf"><a href="http://www.cah.utexas.edu/museums/rayburn.php" title="Sam Rayburn Museum">Sam Rayburn Museum</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/tmm/" title="Texas Natural Science Center">Texas Natural Science Center</a></li>
+<li class="leaf"><a href="http://texasperformingarts.org/" title="Texas Performing Arts">Texas Performing Arts</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/universityunions/" title="University Unions">University Unions</a></li>
+<li class="leaf last"><a href="http://utvac.org" title="Visual Arts Center">Visual Arts Center</a></li>
+</ul>  </div>
+</div>
+  <div id="block-block-1" class="block block-block">
+
+  <div class="content">
+    <div>
+<ul><li class="footer_wordmark">
+			<img alt="The University of Texas at Austin" height="84" src="/sites/default/files/images/ut_logo_glow.png" width="168" /></li>
+<li class="footer_address">
+			1 University Station<br />
+			Austin, Texas 78712
+<p>			512-475-7348<br /><a href="mailto:hello@utexas.edu" title="Email hello@utexas.edu">hello@utexas.edu</a></p></li>
+<li class="footer_mag">
+			<a class="make_a_gift" href="https://utdirect.utexas.edu/apps/utgiving/online/nlogon/" title="Make a Gift to UT">Make a Gift to UT</a></li>
+<li class="footer_visiting_campus">
+			<a class="visiting_campus" href="http://www.utexas.edu/maps" title="UT maps">UT maps</a></li>
+<li class="footer_iphone_app">
+			<a class="iphone_app" href="http://www.utexas.edu/iphoneapp/" title="Get the UT Austin Official iPhone App">Get the UT Austin Official iPhone App</a></li>
+<li class="footer_resources_disabilities">
+			<a class="resources_disabilities" href="http://www.utexas.edu/disability" title="Resources for People with Disabilities">Resources for People with Disabilities</a></li>
+<li>
+<p class="footer_social_media_header">
+				Connect</p>
+<p>
+				<a class="social_media_rollover sm_facebook" href="http://www.facebook.com/UTAustinTX" title="Visit the UT Austin Facebook"> Visit the UT Austin Facebook</a> <a class="social_media_rollover sm_flickr" href="http://www.utexas.edu/know/directory/media-type_asc/#flickr" title="Visit the UT Austin Flickr">Visit the UT Austin Flickr</a> <a class="social_media_rollover sm_twitter" href="http://twitter.com/utaustin" title="Visit the UT Austin Twitter">Visit the UT Austin Twitter</a> <a class="social_media_rollover sm_youtube" href="http://www.youtube.com/utaustintexas" title="Visit the UT Austin Youtube">Visit the UT Austin Youtube</a> <a class="social_media_rollover sm_social_media_directory" href="http://www.utexas.edu/know/directory/" title="Visit the UT Austin Social Media Directory">Visit the UT Austin Social Media Directory</a></p>
+</li>
+</ul></div>
+  </div>
+</div>
+</div>
+	</div>
+</div>
+<div id="graphic_footer">
+
+	<div id="footer_bottom">  <!-- beginning of tower ribbon part of footer at 100% width -->
+
+  		<div id="footer_tower"></div>  <!--div "footer_tower" is absolutely positioned on top of the "footer_top" and "footer_bottom"
+  and contains the graphic with the wordmark and tower in the background-->
+
+
+  		<div id="footer_ribbon">
+			  <div id="block-menu-menu-footer-menu-1" class="block block-menu">
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.utexas.edu/contact/" title="Contact">Contact</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/emergency/" title="Emergency Information">Emergency Information</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/its/help/" title="ITS Help &amp; Support">ITS Help &amp; Support</a></li>
+<li class="leaf last"><a href="/about-this-site" title="© 2012 The University of Texas at Austin">© 2012 The University of Texas at Austin</a></li>
+</ul>  </div>
+</div>
+  <div id="block-menu-menu-footer-menu-2" class="block block-menu">
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.utexas.edu/policies/privacy/" title="Web Privacy Policy">Web Privacy Policy</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/what-starts-here/web-guidelines/accessibility" title="Web Accessibility">Web Accessibility</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/disability" title="Resources for People with Disabilities">Resources for People with Disabilities</a></li>
+<li class="leaf last"><a href="/about-this-site" title="About this Site">About this Site</a></li>
+</ul>  </div>
+</div>
+  <div id="block-menu-menu-footer-menu-3" class="block block-menu">
+
+  <div class="content">
+    <ul class="menu"><li class="leaf first"><a href="http://www.utsystem.edu" title="UT System">UT System</a></li>
+<li class="leaf"><a href="http://www.texas.gov" title="State of Texas">State of Texas</a></li>
+<li class="leaf"><a href="http://www2.tsl.state.tx.us/trail/" title="Statewide Search">Statewide Search</a></li>
+<li class="leaf"><a href="http://www.utexas.edu/admin/audit/fraud.html" title="Fraud Hotline">Fraud Hotline</a></li>
+<li class="leaf"><a href="http://www.txhighereddata.org/approot/resumes/ir_launch.htm" title="Online Institutional Résumés">Online Institutional Résumés</a></li>
+<li class="leaf last"><a href="https://utdirect.utexas.edu/apps/student/coursedocs/nlogon/" title="Access Syllabi and CVs">Access Syllabi and CVs</a></li>
+</ul>  </div>
+</div>
+    	  		</div> <!--end of footer_ribbon -->
+
+    </div> <!-- close footer_bottom -->
+
+<div id="footer-wrapper">
+     <!--  <div id="footer"> -->
+                    <!--   </div>  /footer -->
+    </div> <!-- /footer-wrapper -->
+</div> <!-- end of graphic_footer -->
+<!-- <script>
+// execute your scripts when DOM is ready. this is a good habit
+$(function() {		
+		
+	// initialize scrollable with mousewheel support
+	$(".scrollable").scrollable({ vertical: true });	
+	
+});
+</script> -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$(function() {         
+           // initialize scrollable  
+           $("div.scrollable").scrollable({
+             size: 1,
+             vertical: 1,
+             speed: 500,
+             keyboard: 1,
+             items: ".items",
+             prev: ".prev",
+             next: ".next",
+             easing: "swing"
+           });     
+         });
+//--><!]]>
+</script>
+
+</body>
+
+</html>
+<!-- Page cached by Boost @ 2012-05-04 10:14:11, expires @ 2012-05-04 13:14:11 -->

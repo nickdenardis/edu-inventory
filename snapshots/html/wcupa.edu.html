@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+	<title>West Chester University</title>
+	
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="West Chester University, a member of the Pennsylvania State System of Higher Education, is a public, regional, comprehensive institution committed to providing access and offering high-quality undergraduate education, select post-baccalaureate and graduate programs, and a variety of educational and cultural resources for its students, alumni, and citizens of southeastern Pennsylvania." />
+	<link rel="icon" href="/global/images/favicon.ico" type="image/x-icon" />
+
+	<link href="global/css/global.css" rel="stylesheet" type="text/css" />
+	<link href="css/home.css" rel="stylesheet" type="text/css" />
+	<link href="global/css/menu_home.css" rel="stylesheet" type="text/css" />
+	<link href="css/ui.tabs.css" rel="stylesheet" type="text/css" />
+	<link href="/global/css/slider.css" rel="stylesheet" type="text/css" />
+	
+	<script type="text/javascript" src="global/js/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="global/js/jquery.cycle.js"></script>
+	<script type="text/javascript" src="global/js/ui.core-1.7.3-tabs.js"></script>
+	<script type="text/javascript" src="/global/js/drop_menu.js"></script>
+        
+
+<style type="text/css">
+/* The body is set to none to wait for all contents to load at one time */
+#slideshow, #stulogincontentwrapper, #slider {
+	display:none;
+}
+#textLink {
+	color: white;
+}
+
+</style>
+
+<script type="text/javascript">
+//Controls the slideshow
+	$(function() {
+		$('#slideshow').cycle({ 
+			fx:      'fade', 
+			random:   1,
+			speed:    750, 
+			timeout:  6000
+			
+		});		
+
+		$('#slider').cycle({
+			fx:     'fade',
+			speed:  1000,
+			timeout: 12000,
+			pager:  '#sliderthumbs',
+			pagerAnchorBuilder: function(idx, slide) {
+				// return selector string for existing anchor
+				return '#sliderthumbs ul li:eq(' + idx + ') a';
+			}
+		});
+
+
+		$('#sliderthumbs').cycle({
+			speed:   1000,
+			timeout: 0,
+			next:   '#next1',
+			prev:   '#prev1',
+			fx:     'scrollBothWays'
+		});
+
+
+		//controls the tabs
+		$('#stulogincontentwrapper').tabs({
+		select: function(event, ui) {
+			var url = $.data(ui.tab, 'load.tabs');
+			if( url ) {
+				location.href = url;
+				return false;
+			}
+			return true;
+		}
+		});
+	
+		$(document).ready(function() {
+			$('#slideshow').show();
+			$("#stulogincontentwrapper").show();
+			$("#slider").show();
+			document.getElementById("mail").setAttribute("autocomplete", "off");
+			document.getElementById("wcu").setAttribute("autocomplete", "off");
+			document.getElementById("bb").setAttribute("autocomplete", "off");
+		});
+	});
+
+
+	$.fn.cycle.transitions.scrollBothWays = function($cont, $slides, opts) {
+
+	$cont.css('overflow','hidden');
+	opts.before.push($.fn.cycle.commonReset);
+
+	// custom transition fn (trying to get it to scroll forward and backward)
+	opts.fxFn = function(curr, next, opts, cb, fwd) {
+
+		var w = $cont.width();
+		opts.cssFirst = { left: 0 };
+		opts.animIn	  = { left: 0 };
+
+		if(fwd){
+			opts.cssBefore= { left: w, top: 0 };
+			opts.animOut  = { left: 0-w };
+		}else{
+			opts.cssBefore= { left: -w, top: 0 };
+			opts.animOut  = { left: w };
+		};
+
+		var $l = $(curr), $n = $(next);
+		var speedIn = opts.speedIn, speedOut = opts.speedOut, animOut = opts.animOut, animIn = opts.animIn;
+		$n.css(opts.cssBefore);
+		var fn = function() {$n.show();$n.animate(animIn, speedIn, cb);};
+
+		$l.animate(animOut, speedOut, function() {
+			if (opts.cssAfter) $l.css(opts.cssAfter);
+			if (!opts.sync) fn();
+		});
+
+		if (opts.sync) fn();
+
+	};
+
+};
+
+// Go to a slide by index (zero-based)
+function setSlide(index) {
+	$('#slider').cycle(index);
+}
+
+function blankit() {
+	document.getElementById("searchbox").value = "";
+	document.getElementById("searchbox").style.color="#000000";
+}
+
+function filluser(username) {
+	document.getElementById("webmailuser").value = username;
+	document.getElementById("mywcuuser").value = username;
+	document.getElementById("d2luser").value = username;
+	return true;
+}
+
+function fillpass(password) {
+	document.getElementById("webmailpass").value = password;
+	document.getElementById("mywcupass").value = password;
+	document.getElementById("d2lpass").value = password;
+	return true;
+}
+
+</script>
+
+<!-- IE6 Conditionals are used to fix layout and page design conflicts -->
+<!--[if lte IE 6]>
+        <link href="/global/css/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]--> 
+
+</head>
+<body >
+<div id="topcurve"></div>
+<div id="wrapper">
+<div id="container">
+
+  <div id="header">
+  <div id="textLink"><a href="http://assistive.usablenet.com/tt/www.wcupa.edu">Text Only</a> &nbsp;|&nbsp; <a href="http://m.wcupa.edu">Mobile</a></div>
+  
+
+  <img src="global/images/2011fallheader9.jpg" alt="West Chester University of Pennsylvania" />
+  <a href="/"><img id="logo" src="global/images/logo.jpg" width="55" height="86" alt="Home" border="0" /></a>  
+  <a href="http://www.kiplinger.com/magazine/archives/best-values-in-public-colleges-2012.html" target="_blank"><img id="ribbonLink" src="/global/images/ribbon.png" width="87" height="148" border="0" alt="Kiplinger's Best Buy" /></a>
+  <a href="/pr/2011/1.6CarnegieHonor.asp" target="_blank"><img id="CFLink" src="/global/images/carnegie-badge.png" width="65" height="65" border="0" alt="" /></a>
+
+
+  <div id="searches">
+  
+  <div id="searchcontent">
+      <form action="/searchOption.asp" method="post">
+			<input style="margin:0 3px 0 0;color:#000;" name="searchOption" type="radio" value="pages" checked="checked" /><label>Pages</label>
+			<input style="margin:0 3px 0 0;" name="searchOption" type="radio" value="people" /><label>People</label>
+			<input id="searchbox" onfocus="javascript:blankit()" name="searchKey"  value="Search" type="text" />
+			<input type="submit" id="searchbutton" value="GO" />
+      </form>
+  </div>
+
+  </div>	
+  </div>
+	            <!-- Start primary navigation -->
+            <ul id="navigation">
+              <li><a href="/">Home</a></li>
+              
+              <li class="drop"  onmouseover="menu_drop('mainNav1')" onmouseout="menu_up('mainNav1')">
+					<ul id="mainNav1" style="width:215px;">
+            		<li><a href="/registrar/">Academic Calendar</a></li>
+                    <li><a href="/_academics/gradprogram.asp">Academic Programs - Graduate</a></li>
+                    <li><a href="/_academics/underprogram.asp">Academic Programs - Undergraduate</a></li>
+               		<li><a href="/distanceed/">Distance Education</a></li>
+                   
+                    <li class="lastitem"><a href="/currentstudents">Colleges and More...</a></li>
+					</ul>
+				<a name="mainNav1" href="/currentstudents">Current Students</a>
+			  </li>
+              
+              <li class="drop"  onmouseover="menu_drop('mainNav2')" onmouseout="menu_up('mainNav2')">
+					<ul id="mainNav2" style="width:215px;">
+               		<li><a href="/_academics/underprogram.asp">Academic Programs - Undergraduate</a></li> 
+                    <li><a href="/_academics/gradprogram.asp">Academic Programs - Graduate</a></li>
+                    <li><a href="/_ADMISSIONS/SCH_ADM/freshman_procedure.asp">Admissions - Requirements</a></li>
+            		<li><a href="/_admissions/sch_adm/">Office of Undergraduate Admissions</a></li>
+					<li><a href="/_admissions/sch_dgr//">Graduate Studies</a></li>
+                    <li><a href="/distanceed/">Distance Education</a></li>
+               		<li><a href="/_information/official.documents/undergrad.catalog">Undergraduate Catalog</a></li>
+					<li><a href="/_information/official.documents/graduate.catalog/">Graduate Catalog</a></li>
+                    
+                    <li class="lastitem"><a href="/prospectivestudents">Colleges and More...</a></li>
+					</ul>
+				<a name="mainNav2" href="/prospectivestudents">Prospective Students</a>
+			  </li>
+              
+              <li class="drop"  onmouseover="menu_drop('mainNav3')" onmouseout="menu_up('mainNav3')">
+					<ul id="mainNav3" style="width:120px;">
+            		<li><a href="/_services/stu.nsp/familyweekendinterim.asp">Family Weekend</a></li>
+               		<li><a href="/_services/stu.nsp/parentpage.asp">Parent Newsletter</a></li> 
+                    <li><a href="/_information/afa/fiscal/bursar/tuition.asp">Tuition &amp; Fees</a></li>
+               		<li><a href="/_information/afa/Fiscal/Bursar/bursarfaq.asp">Tuition FAQ</a></li>
+                    <li><a href="/visitors/">Visit Us</a></li>
+                                 
+                    <li class="lastitem"><a href="/parents">More...</a></li>
+					</ul>
+				<a name="mainNav3" href="/parents">Parents</a>
+			  </li>
+              
+              <li><a href="/alumni.asp">Alumni &amp; Donors</a></li> <!--http://www.alumniconnections.com/westchester -->
+              <li><a href="/visitors/">Visit Us</a></li>
+              <li><a href="/athletics.asp">Athletics</a></li> <!-- http://www.wcupagoldenrams.com -->
+              
+              <li class="drop"  onmouseover="menu_drop('mainNav4')" onmouseout="menu_up('mainNav4')">
+					<ul id="mainNav4" style="width:210px;">
+               		<li><a href="/_admin/provost/">Academic Affairs (Provost)</a></li> 
+                    <li><a href="/_information/afa/">Administration and Finance Division</a></li>
+               		<li><a href="/international/">Center for International Programs</a></li>
+                    <li><a href="/_academics/gradprogram.asp">Graduate Academic Programs</a></li>
+            		<li><a href="/_academics/underprogram.asp">Undergraduate Academic Programs</a></li>
+                                
+                    <li class="lastitem"><a href="/facultyresources">Colleges and More...</a></li>
+					</ul>
+				<a name="mainNav4" href="/facultyresources">Faculty &amp; Staff</a>
+			  </li>
+              
+              <li class="lastItem" id="departments"><a href="/departments.asp">Departments</a></li>
+            </ul>
+            
+  <div id="aroundwc">
+
+    <div id="aroundWCtop"> 
+    	<img class="left" src="global/images/left.png" width="6" height="27" alt="Around West Chester University" />
+        <h1 class="rounded">Around West Chester University 
+        <span id="calendar">
+        	<ul style="list-style:none; position:absolute; right:40px; top:4px;" onmouseover="menu_drop('calendarMenu')" onmouseout="menu_up('calendarMenu')"><li>
+            <ul id="calendarMenu">
+            		<li><a href="/registrar">Academic Calendar</a></li>
+                	<li><a href="/registrar/documents/Copyof2121Finals.pdf" target="_blank">Final Exam Schedule</a></li>
+			<li><a href="http://www.wcupagoldenrams.com">Athletic Events</a></li>
+			<li><a href="/CVPA/">Visual &amp; Performing Arts Events</a></li>
+ <li><a  href="http://wcu.orgsync.com/EventCalendar">Student Organizations Calendar </a></li>
+                        <li class="lastitem"><a href="/_INFORMATION/EVENTS/Calendar/">All Upcoming Events</a></li>
+			</ul>
+        	<a href="/_INFORMATION/EVENTS/Calendar/" style="line-height: 18px;">Events / Calendar</a>
+            
+            </li></ul>
+           
+           <a href="/_INFORMATION/EVENTS/Calendar/"> <img src="images/Calendar/calendar6.png" width="42" height="48" border="0" style="padding-left:3px;"/>
+            </a>
+            </span></h1>
+     	<img class="right" src="global/images/right.png" width="6" height="27" alt="Around West Chester University" /> 
+    </div>
+
+    
+    <div id="aroundWCcontent">
+    <noscript id="aroundwcNoscript">You must have Java Script Enabled to view this feature</noscript>
+        <div id="slideshow">
+        <!-- Code for adding some text
+            <div>
+                <p>A Desgination for Internation Students</p>
+                <img src="/images/slideshow/DSC_8390.jpg " width="542" height="161" alt="" /> 
+            </div>
+         --> 
+<img src="/images/slideshow/security_lab2.jpg" width="542px" height="161px" alt="Computer Security Lab" />
+<img src="/images/slideshow/security_lab.jpg" width="542px" height="161px" alt="Computer Security Lab" />
+<img src="/images/slideshow/campusmarch01.jpg" width="542" height="161" alt="Students Inbetween Classes in the Quad" />
+<img src="/images/slideshow/March04.jpg" width="542" height="161" alt="Springtime on Campus" />
+<img src="/images/slideshow/March08.jpg" width="542" height="161" alt="Springtime on Campus" />
+<img src="/images/slideshow/Diner01.jpg" width="542" height="161" alt="Students Eating at The Diner" />
+<img src="/images/slideshow/Nature02.jpg" width="542" height="161" alt="Springtime on Campus" />
+<img src="/images/slideshow/Students01.jpg" width="542" height="161" alt="Students Inbetween Classes Outside Sykes" />
+<img src="/images/slideshow/lanny03.jpg" width="542" height="161" alt="Lanny Sommese Exhibition" />
+<img src="/images/slideshow/wcur01.jpg" width="542" height="161" alt="WCUR-FM Executive Staff" />
+<img src="/images/slideshow/class01.jpg" width="542" height="161" alt="Spring Classes" />
+<img src="/images/slideshow/lab02.jpg" width="542" height="161" alt="Students Studying In Between Classes" />
+<img src="/images/slideshow/lab03.jpg" width="542" height="161" alt="Students Studying In Between Classes" />
+<img src="/images/slideshow/DAC01.jpg" width="542" height="161" alt="DAC Grand Opening" />
+<img src="/images/slideshow/golf1.jpg" width="542" height="161" alt="WCU Golf Tournament by Scott Rowan" />
+<img src="/images/slideshow/softball1.jpg" width="542" height="161" alt="WCU Softball Game by Scott Rowan" />
+<img src="/images/slideshow/track1.jpg" width="542" height="161" alt="WCU Track Meet by Scott Rowan" />
+<img src="/images/slideshow/track4.jpg" width="542" height="161" alt="WCU Track Meet by Scott Rowan" />
+<img src="/images/slideshow/womanslax2.jpg" width="542" height="161" alt="WCU Women's Lacrosse Game by Scott Rowan" />
+<img src="/images/slideshow/aidtosouthafrica01.jpg" width="542" height="161" alt="Aid to South Africa" />
+<img src="/images/slideshow/greekweek03.jpg" width="542" height="161" alt="Greek Week Canned Food Sculpture Contest" />
+<img src="/images/slideshow/carboncycle02.jpg" width="542" height="161" alt="The Carbon Cycle Class at Gordon Natural Area" />
+<img src="/images/slideshow/cbpa01.jpg" width="542" height="161" alt="CBPA Outstanding Students Recognition" />
+<img src="/images/slideshow/band02.jpg" width="542" height="161" alt="WCU Marching Band" />
+<img src="/images/slideshow/earthweek002.jpg" width="542" height="161" alt="Earth Week Fair At WCU" />
+<img src="/images/slideshow/earthweek003.jpg" width="542" height="161" alt="Earth Week Fair At WCU" />
+<img src="/images/slideshow/outdoorclassroom01.jpg" width="542" height="161" alt="WCU Artists From The Outdoor Classroom" />
+<img src="/images/slideshow/OMA02.jpg" width="542" height="161" alt="OMA Academic Award Ceremony" />
+<img src="/images/slideshow/CASaward01.jpg" width="542" height="161" alt="CAS Student Recognition Ceremony" />
+<img src="/images/slideshow/CASaward05.jpg" width="542" height="161" alt="CAS Student Recognition Ceremony" />
+<img src="/images/slideshow/SAP003.jpg" width="542" height="161" alt="SAP Michael Nusca Memorial Wiffle-Ball Tournament by Jeff Garcia" />
+<img src="/images/slideshow/civilwar01.jpg" width="542" height="161" alt="Civil War Reenactment in the Quad" />
+<img src="/images/slideshow/arborday01.jpg" width="542" height="161" alt="Arbor Day at WCU" />
+<img src="/images/slideshow/relay07.jpg" width="542" height="161" alt="WCU Relay for Life" />
+<img src="/images/slideshow/relay13.jpg" width="542" height="161" alt="WCU Relay for Life" />
+<img src="/images/slideshow/relay15.jpg" width="542" height="161" alt="WCU Relay for Life" />
+<img src="/images/slideshow/relay16.jpg" width="542" height="161" alt="WCU Relay for Life" />
+<img src="/images/slideshow/mustardgarlic01.jpg" width="542" height="161" alt="Mustard and Garlic Pull at the Gordon Natural Area" />
+<img src="/images/slideshow/mustardgarlic02.jpg" width="542" height="161" alt="Mustard and Garlic Pull at the Gordon Natural Area" />
+<img src="/images/slideshow/comexpo01.jpg" width="542" height="161" alt="Community Service Experience EXPO" />
+<img src="/images/slideshow/comexpo02.jpg" width="542" height="161" alt="CSE EXPO with The Pulsera Project Founders" />
+<img src="/images/slideshow/comexpo03.jpg" width="542" height="161" alt="Community Service Experience EXPO" />
+<img src="/images/slideshow/outdoor01.jpg" width="542" height="161" alt="WCU Outdoor Classroom Celebration" />
+
+
+
+
+
+
+
+
+
+
+        </div>
+ 
+    </div> <!-- end aroundWCContent -->
+  </div> <!-- end aroundwc -->
+  
+  <div id="stulogin">
+  
+    <div id="stulogintop"> 
+      <img class="left" src="global/images/left.png" width="6" height="27" alt="Campus Connections" />
+      <h1 class="rounded">Campus Connections <span id="lib"><a href="/library">Library <img src="images/library.png" width="60" height="42" alt="Library" /></a></span></h1>
+      <img class="right" src="global/images/right.png" width="6" height="27" alt="Campus Connections" />
+    </div>
+      
+    <div id="stulogincontent">
+    <noscript>You must have Java Script Enabled to view this feature</noscript>
+    <div id="stulogincontentwrapper">
+    
+        <ul>
+            <li><a href="#webmail"><span>Webmail</span></a></li>
+            <li><a href="#mywcu"><span>myWCU</span></a></li>
+            <li><a href="#d2l"><span>D2L</span></a></li>
+        </ul>
+        
+       <div id="webmail" class="tabstyle">
+          <form id="mail" action="https://outlook.wcupa.edu/owa/auth/owaauth.dll" method="post" name="logonForm">
+				<input type="hidden" name="destination" value="https://outlook.wcupa.edu/owa/" />
+				<input type="hidden" name="flags" value="0" />
+				<input type="hidden" name="forcedownlevel" value="0" />			
+            <dl>
+
+                <dt><label for="webmailuser">Username</label></dt>
+                <dd><input id="webmailuser" name="username" type="text" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="filluser(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+                
+                <dt><label for="webmailpass">Password</label></dt>
+                <dd><input id="webmailpass" name="password" type="password" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="fillpass(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+            </dl>
+                <input type="submit" class="button" value="Login" />
+        	</form>
+                <ul class="forgotPass">
+                    <li><a href="https://outlook.wcupa.edu/resetPassword.asp">Forgot Password</a></li>
+                    <li><a href="https://outlook.wcupa.edu/changePassword.asp">Change Password</a> <p><a href="/infoservices/acc/NewStudentAccountInformation.asp"><img src="images/help.png" width="20" height="20" alt="Help?" border="0" /></a></p></li>
+                </ul>
+        </div>
+
+        <div id="mywcu" class="tabstyle">
+            <form id="wcu" name="login" method="post" action="https://my.wcupa.edu/psp/pprd/EMPLOYEE/EMPL/?cmd=login">
+            <input value="login" name="action" type="hidden" />
+            <dl>
+                <dt><label for="mywcuuser">Username</label></dt>
+                <dd><input id="mywcuuser" name="userid" type="text" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="filluser(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+                
+                <dt><label for="mywcupass">Password</label></dt>
+                <dd><input id="mywcupass" name="pwd" type="password" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="fillpass(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+            </dl>
+                <input type="submit" class="button" value="Login" />
+        	</form>
+                <ul class="forgotPass">
+                    <li><a href="https://outlook.wcupa.edu/resetPassword.asp">Forgot Password</a></li>
+                    <li><a href="https://outlook.wcupa.edu/changePassword.asp">Change Password</a> <p><a href="/infoservices/acc/NewStudentAccountInformation.asp"><img src="images/help.png" width="20" height="20" alt="Help?" border="0" /></a></p></li>
+                </ul>
+        </div>
+	
+       	  
+        <div id="d2l" class="tabstyle">
+          <form id="bb" action="https://d2l.wcupa.edu/d2l/lp/auth/login/login.d2l" method="post" name="d2llogin">
+            <dl>
+                <dt><label for="d2luser">Username</label></dt>
+                <dd><input id="d2luser" name="username" type="text" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="filluser(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+                
+                <dt><label for="d2lpass">Password</label></dt>
+                <dd><input id="d2lpass" name="password" type="password" class="texta" onfocus="this.style.borderColor = '#94b5d7';this.style.borderWidth = '2px'" onblur="fillpass(this.value);this.style.borderColor = '#cee1f4';this.style.borderWidth = '2px'" /></dd>
+            </dl>
+                <input type="submit" name="Login" class="button" value="Login" onclick="return bb_validate_form(this)" />
+        	</form>
+                <ul class="forgotPass">
+                    <li><a href="https://outlook.wcupa.edu/resetPassword.asp">Forgot Password</a></li>
+                    <li><a href="https://outlook.wcupa.edu/changePassword.asp">Change Password</a> <p><a href="/infoservices/acc/NewStudentAccountInformation.asp"><img src="images/help.png" width="20" height="20" alt="Help?" border="0" /></a></p></li></ul>
+  </div>        
+       </div> <!-- end stulogincontentwrapper -->
+    </div> <!-- end stulogincontent -->
+  </div> <!-- end stulogin -->
+  
+ <div class="clear"></div> 
+ 
+  <div id="cpsanmts">
+    <div id="cpsanmtstop"> 
+    	<img class="left" src="global/images/left.png" width="6" height="27" alt="Campus Announcements" />
+      	<h1 class="rounded">Campus Announcements <span id="rss"><a href="/rss/">RSS <img src="images/rss.png" width="27" height="30" alt="RSS" /></a></span></h1>
+     	<img class="right" src="global/images/right.png" width="6" height="27" alt="Campus Announcements" />
+    </div>
+    
+    <div id="cpsanmtscontent">
+    <ul>   
+<li class="alert_status_normal"><a href="http://wcupa.edu/registrar/graduation/"><abbr title="WCU Commencement 2012">WCU Commencement 2012</abbr></a></li><li class="alert_status_normal"><a href="http://wcupa.edu/pr/this_month.asp"><abbr title="Events this May at WCU">Events this May at WCU</abbr></a></li><li class="alert_status_normal"><a href="http://youtu.be/phSpARgtgL8"><abbr title="WCU Weekly">WCU Weekly</abbr></a></li><li class="alert_status_normal"><a href="/summer/"><abbr title="SummerSessions 2012">SummerSessions 2012</abbr></a></li><li class="alert_status_normal"><a href="/cvpa/"><abbr title="Visual & Performing Arts Events ">Visual & Performing Arts Events </abbr></a></li><li class="alert_status_normal"><a target="_blank" href="/_information/events/West Chester Wednesdays Flyer for Customers.pdf"><abbr title="West Chester Wednesdays">West Chester Wednesdays</abbr></a></li><li class="alert_status_normal"><a href="http://www.wcupa.edu/KnowledgeCrossingBorders"><abbr title="Knowledge Crossing Borders Conference 2012">Knowledge Crossing Borders Conference 2012</abbr></a></li>
+</ul>
+            
+    </div> <!-- cpsanmtscontent -->
+  </div> <!-- cpsanmts -->
+  
+  <div id="info">
+    <div id="infotop"> 
+        <img class="left" src="global/images/left.png" width="6" height="27" alt="" />
+        <h1 class="rounded">WCU Spotlight <span id="budgetnews"><a href="/president/messages">Budget News</a></span>
+		<span id="ideasonline"><a href="/ideasonline">WCU Ideas Online <img src="images/wcuideasonline.png" width="47" height="45" alt="WCU Ideas Online" /></a></span></h1>
+        <img class="right" src="global/images/right.png" width="6" height="27" alt=""  />
+    </div>
+    
+    <div id="infocontent">
+		<div id="slider">
+			<div>
+				<a href="/learnmore/"><img src="/images/slider/learnmore-photo.jpg" height="164" width="118" border="0" alt="Learn More" /></a>
+				<h2>Learn More Here!</h2>
+				<p>When you see ads featuring some of the University&rsquo;s outstanding faculty, alumni and programs --- 
+				on TV, billboards, buses, at regional rail stops, in magazines and online --- you'll understand why the answer 
+				is always West Chester University!</p>
+				<p style="margin-top:0;padding-top:0;text-align:center;"><a href="/learnmore/" style="text-decoration: underline; color: blue;">Learn More. West Chester University.</a></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#SharedVision"><img src="/images/slider/sharedvision.jpg" height="164" width="118" border="0" alt="Creating a Shared Vision at WCU" /></a>
+				<h2>Creating a Shared Vision at WCU</h2>
+				<p>We&ndash;the faculty, staff, students, alumni, and friends of West Chester University&ndash;are proud 
+				that WCU is among the top regional comprehensive public universities in the country. Now our academic community is 
+				collaborating to move WCU to its next level. 
+				<em><a href="wcuspotlight.asp#SharedVision" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#CaitlinMahon"><img src="/images/slider/CaitlinMahon-photo.jpg" height="164" width="118" border="0" alt="Caitlin Mahon" /></a>
+				<h2>Caitlin Mahon, Class of &rsquo;10</h2>
+				<p>Caitlin Mahon, a class of 2010 communication studies alumna and a graduate student in higher educational counseling, 
+				is the first runner-up in the Miss Philadelphia pageant, held in April.
+				<em><a href="wcuspotlight.asp#CaitlinMahon" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#LeonardAltieri"><img src="/images/slider/leonardaltieri-photo.jpg" height="164" width="118" border="0" alt="Leonard B. Altieri III" /></a>
+				<h2>Leonard B. Altieri III, Senior</h2>
+				<p>West Chester senior Leonard B. Altieri III considers one of his major accomplishments to be &ldquo;having the honor 
+				and privilege to take part in the interviews for the positions of presidents at Lock Haven, IUP, East Stroudsburg and Slippery Rock Universities.&rdquo;
+				<em><a href="wcuspotlight.asp#LeonardAltieri" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#MonicaZimmerman"><img src="/images/slider/monicazimmerman-photo.jpg" height="164" width="118" border="0" alt="Monica Zimmerman" /></a>
+				<h2>Monica Zimmerman, Management</h2>
+				<p>Monica Zimmerman, PhD, CPA teaches entrepreneurship, business policy/strategic management at the graduate and undergraduate levels. 
+				She has published and presented studies addressing the management teams, legitimacy, and initial public offerings(IPOs) of early stage companies. 
+				<em><a href="wcuspotlight.asp#MonicaZimmerman" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+
+			<div>
+				<a href="wcuspotlight.asp#AngelaClarke"><img src="/images/slider/angelaclarke-photo.jpg" height="164" width="118" border="0" alt="Angela T. Clarke" /></a>
+				<h2>Angela T. Clarke, Psychology</h2>
+				<p>Dr. Clarke, an Assistant Professor of Psychology and Pennsylvania licensed psychologist, joined the WCU faculty in 2007. 
+				In 2008, she was awarded a National Institute of Mental Health grant (NIMH K23) 
+				totaling nearly $600,000 for a project.
+				<em><a href="wcuspotlight.asp#AngelaClarke" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#JeffSommers"><img src="/images/slider/jeffsommers-photo.jpg" height="164" width="118" border="0" alt="Jeff Sommers" /></a>
+				<h2>Jeff Sommers, English</h2>
+				<p>The National Two-Year College English Association (TYCA) was pleased to announce the winner of the 2012 Nell Ann Pickett Service Award, 
+				Jeff Sommers, West Chester University, Pennsylvania, for his outstanding dedication, service, and leadership.
+				<em><a href="wcuspotlight.asp#JeffSommers" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#MichaelRichards"><img src="/images/slider/michaelrichards-photo.jpg" height="164" width="118" border="0" alt="Michael Richards" /></a>
+				<h2>Michael Richards, Junior</h2>
+				<p>There are only five college fraternity and sorority students in the United States who are being recognized 
+				this year by HazingPrevention.Org for taking a stand against hazing. One is West Chester University junior Michael Richards.
+				<em><a href="wcuspotlight.asp#MichaelRichards" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+
+
+			<div>
+				<a href="wcuspotlight.asp#SandraFowkesGodek"><img src="/images/slider/sandra-photo.jpg" height="164" width="118" border="0" alt="Sandra Fowkes Godek" /></a>
+				<h2>Sandra Fowkes Godek, Health Sciences</h2>
+				<p>Dr. Sandra Fowkes Godek, the director of the HEAT Institute, is a professor of sports medicine at WCU. 
+				Her research on thermoregulation, hydration and electrolyte replacement in football players has attracted national attention. 
+				<em><a href="wcuspotlight.asp#SandraFowkesGodek" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#DanDePalma"><img src="/images/slider/dandepalma-photo.jpg" height="164" width="118" border="0" alt="Dan DePalma" /></a>
+				<h2>Dan DePalma, Class of &rsquo;11</h2>
+				<p>Former West Chester University football player, Dan DePalma ('11), wins Super Bowl title with the NFL New York Giants. 
+				<br /><em><a href="wcuspotlight.asp#DanDePalma" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#KevinMann"><img src="/images/slider/kevinmann-photo.jpg" height="164" width="118" border="0" alt="Kevin Mann" /></a>
+				<h2>Kevin Mann, Junior</h2>
+				<p>Kevin Mann of West Chester is working for the state Senate Democratic Research Office as part of a 15-week internship sponsored by the Pennsylvania State System of Higher Education (PASSHE).
+				<em><a href="wcuspotlight.asp#KevinMann" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#JeffreyOsgood"><img src="/images/slider/jeffreyosgood-photo.jpg" height="164" width="118" border="0" alt="Jeffrey Osgood" /></a>
+				<h2>Jeffrey Osgood, Political Science</h2>
+				<p>
+				Jeffrey L. Osgood Jr., a WCU political scientist with expertise in public administration, 
+				policy analysis and program evaluation is included among an elite group of scholars in 
+				the Fulbright Specialists Roster.
+				<em><a href="wcuspotlight.asp#JeffreyOsgood" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#JackieBorkowski"><img src="/images/slider/jackieborkowski-photo.jpg" height="164" width="118" border="0" alt="Jackie Borkowski" /></a>
+				<h2>Jackie Borkowski, Class of &rsquo;10</h2>
+				<p>Former West Chester University standout swimmer, Jackie Borkowski (&rsquo;10), qualified for the 2012 Olympic Trials during 
+				the USA Swimming Austin Grand Prix at the Lee &amp; Joe Jamail Texas Swimming Center on the campus of University of Texas.
+				<em><a href="wcuspotlight.asp#JackieBorkowski" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#AnnAlicia"><img src="/images/slider/annalicia-photo.jpg" height="164" width="118" border="0" alt="Alicia Hahn and Ann Rizer" /></a>
+				<h2>Ann Rizer &amp; Alicia Hahn, SHS</h2>
+				<p>This semester, Ann Rizer, Nurse Practitioner, researched, developed, and trained the Student Health Services (SHS) 
+				staff in the depression screening program specific for WCU students and the health services setting. 
+				<em><a href="wcuspotlight.asp#AnnAlicia" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#ChristineYim"><img src="/images/slider/christineyim-photo.jpg" height="164" width="118" border="0" alt="Christine Yim" /></a>
+				<h2>Christine Yim, Senior</h2>
+				<p>Christine Yim is currently a senior from Lancaster, PA. She is majoring in Nutrition and Health Sciences. 
+				Christine is a Resident Assistant at the Village and is also a member of the 2011-2012 Student Leadership Challenge. 
+				<em><a href="wcuspotlight.asp#ChristineYim" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+
+			<div>
+				<a href="wcuspotlight.asp#JoshBills"><img src="/images/slider/joshbills-photo.jpg" height="164" width="118" border="0" alt="Josh Bills" /></a>
+				<h2>Josh Bills, Senior</h2>
+				<p>
+				Most people are surprised to learn that Josh Bills is an employee at the Women&rsquo;s Center at West Chester University. 
+				Josh is a Criminal Justice major and President of Sigma Phi Epsilon who first became interested in gender issues after 
+				taking a Women&rsquo;s Studies course...
+				<em><a href="wcuspotlight.asp#JoshBills" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#MichaelBrune"><img src="/images/slider/michaelbrune-photo.jpg" height="164" width="118" border="0" alt="Michael Brune" /></a>
+				<h2>Michael Brune, Class of &rsquo;93</h2>
+				<p>Michael Brune, a 1993 graduate of West Chester University and Executive Director of 
+				the national Sierra Club, the nation's oldest environmental organization - gave the keynote 
+				address at the Third Annual Energy Forum: Strategies for a Sustainable Future on March 16, 
+				at West Chester University.
+				<em><a href="wcuspotlight.asp#MichaelBrune" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#Tamzid"><img src="/images/slider/tamzid-photo.jpg" height="164" width="118" border="0" alt="Mohammed Tamzid Hossain" /></a>
+				<h2>Mohammed Tamzid Hossain, Senior</h2>
+				<p>Mohammed Tamzid Hossain is a senior from Dhaka, Bangladesh. He is an international 
+				student majoring in Cell and Molecular Biology.
+				<em><a href="wcuspotlight.asp#Tamzid" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#Swope"><img src="/images/slider/swope-photo.jpg" height="164" width="118" border="0" alt="Swope" /></a>
+				<h2>Swope Music Building LEED Certified</h2>
+				<p>In Mid-April, faculty, students and administrators gathered in the Swope Music Building and The Performing Arts Center to celebrate its LEED Silver 
+				certification and the subsequent receipt of a commemorative plaque.
+				<em><a href="wcuspotlight.asp#Swope" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<div>
+				<a href="wcuspotlight.asp#MichaelJendzurski"><img src="/images/slider/michaeljendzurski-photo.jpg" height="164" width="118" border="0" alt="Michael Jendzurski" /></a>
+				<h2>Michael Jendzurski, Junior</h2>
+				<p>Michael Jendzurski, a West Chester University junior from Oaks, Pa., has been 
+				named one of the inaugural Campus Compact Newman Civic Fellows for his community 
+				engagement. Nationwide, only 135 student leaders received this honor.
+				<em><a href="wcuspotlight.asp#MichaelJendzurski" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+
+			<div>
+				<a href="wcuspotlight.asp#SheritaRooney"><img src="/images/slider/sheritarooney-photo.jpg" height="164" width="118" border="0" alt="Sherita Rooney" /></a>
+				<h2>Sherita Rooney, Senior</h2>
+				<p>Rooney is one of about 3.9 million student parents working on their undergraduate degrees in the United States. 
+				Nearly half those students are single parents and work full-time jobs, according to a 2011 report by the 
+				Institute for Women&rsquo;s Policy Research.
+				<em><a href="wcuspotlight.asp#SheritaRooney" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#KevinGuskiewicz"><img src="/images/slider/kevin-photo.jpg" height="164" width="118" border="0" alt="Kevin Guskiewicz" /></a>
+				<h2>Kevin Guskiewicz, Class of &rsquo;89</h2>
+				<p>Kevin Guskiewicz, a 1989 West Chester graduate with a bachelor's in athletic 
+				training, is among this year's MacArthur Fellows. A neuroscientist whose research 
+				has focused on the seriousness of long-term effects of sports-related concussions, 
+				he was on campus in December.
+				<em><a href="wcuspotlight.asp#KevinGuskiewicz" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#DrianaRaiJones"><img src="/images/slider/driana-photo.jpg" height="164" width="118" border="0" alt="Driana Rai Jones" /></a>
+				<h2>Driana Rai Jones, Multicultural Recruitment</h2>
+				<p>Driana Rai Jones is a Senior from Philadelphia, PA. She is an Elementary Education 
+				major who attended Springfield Township High School. She is a member of the Gospel Choir, 
+				Precise Modeling, Black Student Union, and the Multicultural Recruitment Team. 
+				<em><a href="wcuspotlight.asp#DrianaRaiJones" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#SalAlfano"><img src="/images/slider/sal-photo.jpg" height="164" width="118" border="0" alt="Sal Alfano" /></a>
+				<h2>Sal Alfano, Master of Social Work</h2>
+				<p>Sal Alfano is a graduate of West Chester University&rsquo;s Graduate Social Work Program, 
+				earning his Master of Social Work in 2007.  After graduation, he took a position as a 
+				Clinical Therapist at St. Gabriel&rsquo;s Hall, a residential treatment facility in Montgomery 
+				County, Pennsylvania. <em><a href="wcuspotlight.asp#SalAlfano" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#HyoejinYoon"><img src="/images/slider/hyoejin-photo.jpg" height="164" width="118" border="0" alt="Hyoejin Yoon" /></a>
+				<h2>Hyoejin Yoon, Faculty Associate for TLA</h2>
+				<p>As the Faculty Associate for Teaching, Learning, and Assessment, Hyoejin Yoon 
+				supports student learning outcomes assessment across campus and manages the TLAC Website, 
+				which provides resources for the work of TLA processes by 
+				faculty and staff. <em><a href="wcuspotlight.asp#HyoejinYoon" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#ChrisFranklin"><img src="/images/slider/chrisfranklin-photo.jpg" height="164" width="118" border="0" alt="Chris Franklin" /></a>
+				<h2>Chris Franklin, Class of &rsquo;87</h2>
+				<p>Most of us take the availability of clean drinking water in our homes for granted, 
+				but not Chris Franklin &rsquo;87, whose company delivers billions of gallons of water 
+				every day to three million customers in 14 states. 
+				<em><a href="wcuspotlight.asp#ChrisFranklin" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#JaneKenney"><img src="/images/slider/janekenney-photo.jpg" height="164" width="118" border="0" alt="Jane Kenney" /></a>
+				<h2>Jane Kenney, Professional &amp; Secondary Ed.</h2>
+				<p>Jane was given a Provost Research Initiatives grant to expand the use of a blended or 
+				hybrid learning approach in her large-sized, undergraduate, introductory education course. 
+				Blended instruction uses a combination of face-to-face, faculty-to-student, interaction 
+				and online learning activities. 
+				<em><a href="wcuspotlight.asp#JaneKenney" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#MitchGoldfarb"><img src="/images/slider/mitchgoldfarb-photo.jpg" height="164" width="118" border="0" alt="Mitch Goldfarb" /></a>
+				<h2>Mitch Goldfarb, Kinesiology</h2>
+				<p>Professor Goldfarb of the WCU&rsquo;s Kinesiology Department is fascinated by the phrase 
+				&ldquo;Do Less - Achieve More&rdquo;, one of the backbones of T&rsquo;ai Chi&rsquo;s Taoist philosophy. He&rsquo;s investigated the 
+				benefits of practicing an exercise that elevates laziness to an art form. 
+				<em><a href="wcuspotlight.asp#MitchGoldfarb" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#ChrisHanning"><img src="/images/slider/chrishanning-photo.jpg" height="164" width="118" border="0" alt="Chris Hanning" /></a>
+				<h2>Chris Hanning, Applied Music</h2>
+				<p>Dr. Chris Hanning and seven students from the WCU Percussion Ensemble traveled to Costa Rica to 
+				present two concerts. Dr. Hanning also conducted a master class with students from the music 
+				conservatory and presented a clinic on drumset techniques. 
+				<em><a href="wcuspotlight.asp#ChrisHanning" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			<div>
+				<a href="wcuspotlight.asp#StefaniYorges"><img src="/images/slider/stefaniyorges-photo.jpg" height="164" width="118" border="0" alt="Stefani Yorges" /></a>
+				<h2>Stefani Yorges, Psychology</h2>
+				<p>Dr. Yorges received funds to participate in a distance education course on executive coaching. With 
+				greater expertise in this popular and growing field, she anticipates being able to offer courses on executive 
+				coaching at WCU (online/distance, summer workshops, or regular semester offerings). 
+				<em><a href="wcuspotlight.asp#StefaniYorges" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+
+			<!--
+			<div>
+				<a href="wcuspotlight.asp"><img src="/images/slider/sample-photo.jpg" height="164" width="118" border="0" alt="Sample" /></a>
+				<h2>Sample Slide F</h2>
+				<p>This is a sample slide. <em><a href="wcuspotlight.asp" style="text-decoration: underline; color: blue;">read more &#187;</a></em></p>
+			</div>
+			-->
+
+
+		</div>
+		<div id="slidernav">
+			<a id="prev1" href="#"><img src="/images/slider/left-nav.png" height="29" width="28" border="0" alt="previous" /></a>
+			<a id="next1" href="#"><img src="/images/slider/right-nav.png" height="29" width="28" border="0" alt="next" /></a>
+		</div>
+		<div id="sliderthumbs">
+			<ul>
+				<li><a href="#"><img src="/images/slider/learnmore-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/sharedvision-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/caitlinmahon-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/leonardaltieri-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/monicazimmerman-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/angelaclarke-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/jeffsommers-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+			</ul>
+			<ul>
+				<li><a href="#"><img src="/images/slider/michaelrichards-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/sandra-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/dandepalma-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/kevinmann-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/jeffreyosgood-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/jackieborkowski-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/annalicia-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+			</ul>
+			<ul>
+				<li><a href="#"><img src="/images/slider/christineyim-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/joshbills-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/michaelbrune-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/tamzid-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/swope-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/michaeljendzurski-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/sheritarooney-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+			</ul>
+			<ul>
+				<li><a href="#"><img src="/images/slider/kevin-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/driana-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/sal-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/hyoejin-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/chrisfranklin-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/janekenney-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+				<li><a href="#"><img src="/images/slider/mitchgoldfarb-thumbnail.jpg" height="31" width="31" border="0" /></a></li>
+			</ul>
+		</div>
+
+     </div> <!-- end infocontent -->
+  </div> <!-- end info -->
+ 
+                <div class="clear"></div>
+
+                <div id="footer">
+		    <div style="position:absolute;top:10px;left:175px;">
+			<a href="/_ADMISSIONS/SCH_DGR/international/america.asp"><img src="/images/flags/america.png" height="20" width="30" border="0" alt="International Students America"/></a> &nbsp;
+			<a href="/_ADMISSIONS/SCH_DGR/international/spain.asp"><img src="/images/flags/spain.png" height="20" width="30" border="0" alt="International Students Spain"/></a> &nbsp;
+			<a href="/_ADMISSIONS/SCH_DGR/international/china.asp"><img src="/images/flags/china.png" height="20" width="30" border="0" alt="International Students China"/></a> &nbsp;
+			<a href="/_ADMISSIONS/SCH_DGR/international/norway.asp"><img src="/images/flags/norway.png" height="20" width="30" border="0" alt="International Students Norway"/></a>
+		    </div>
+
+                    <ul id="footerLeft">
+                        <li><img src="/global/images/envalope.png" alt="Feedback"/><a href="mailto:webmaster@wcupa.edu">Feedback</a></li>
+                        <li><img src="/global/images/collegeportrait.png" alt="College Portrait" /><a href="http://www.collegeportraits.org/PA/WCU" target="_blank">College Portrait</a></li>
+			<li><img src="/global/images/redcross.png" style="float:left;margin-bottom:12px;" height="16" width="16" alt="Emergency" />Emergency / Public Safety</a><br />
+			610-436-3311</li>
+                    </ul>
+
+                    <div id="footerMiddle">West Chester University of Pennsylvania<br />700 South High St, 
+					West Chester, PA 19383<br />610-436-1000<br />
+					<span style="color:#999;">[</span> <a href="/siteindex.asp">Site Index</a> <span style="color:#999;">]</span> &nbsp; 
+					<span style="color:#999;">[</span> <a href="/campusmap/">Campus Map</a> <span style="color:#999;">]</span><br />
+					<span style="color:#888; font-size: 10px;">&copy; Copyright West Chester University. All rights reserved; unauthorized use prohibited.</span>
+					</div>
+
+                    <ul id="footerRight">
+                        <li>
+                        <a href="/_INFORMATION/AFA/VPADMFIN/WeatherEmer.asp" alt="Weather Reported Information"><div id="sun" alt="Weather Reported Information" title="Weather Related Information"></div></a>
+                        <!-- Image loaded via css file -->
+						<a href="http://www.twitter.com/wcuofpa" target="_blank"><img src="/global/images/twitter-icon.png" height="32" width="32" alt="Follow WCU on Twitter" border="0" style="margin: 0 5px 2px 0;" /></a>
+						<a href="http://www.facebook.com/WCUPA" target="_blank"><img src="/global/images/facebook-icon.png" height="32" width="32" alt="Become a fan on Facebook" border="0" style="margin: 0 5px 2px 0;" /></a>
+						<a href="/wcualert/"><img src="/global/images/wcualertFooter.png" alt="Emergency Preparedness" height="35" width="68" border="0" /></a>
+						</li>
+                    </ul>
+                </div> 
+
+                <div class="clear"></div>
+                <!-- S: 1 -->
+
+
+</div> 
+</div>
+
+<div id="bottomcurve"></div>
+<!-- S: WCUPAWEB1 -->
+<!-- Start google analytics code -->
+
+<!-- For WCUPA (main) -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-5057745-1");
+pageTracker._setDomainName("wcupa.edu");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- 
+
+Code commented...not sure why there is a try catch within this tracking code
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5057745-22");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+-->
+
+</body>
+</html>

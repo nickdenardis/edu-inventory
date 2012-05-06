@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>
+		TJHSST - Thomas Jefferson High School for Science and Technology
+		</title>
+		<!--[if lt IE 7]>
+			<script type="text/javascript">
+				var iesix = true;
+			</script>
+		<![endif]-->
+		<script type="text/javascript" src="includes/jscss/jquery-1.3.2.min.js"> </script>
+		<script type="text/javascript" src="includes/jscss/jquery.curvycorners.packed.js"> </script>
+<script type="text/javascript">
+<!--
+
+
+var sub = new Array();
+
+sub[0]='<a target="_top" href="http://www.tjhsst.edu/abouttj/admissions/index.php">Admissions</a>  | <a target="_top" href="http://www.tjhsst.edu/supportingtj/leadership/index.php">TJ Administration</a>  | <a target="_top" href="http://postman.tjhsst.edu">Calendar</a>  | <a target="_top" href="http://www.tjhsst.edu/abouttj/plans/mission.php">Mission</a>  | <a target="_top" href="http://www.tjhsst.edu/abouttj/bell.php">Bell Schedule</a>  | <a target="_top" href="http://www.tjhsst.edu/abouttj/forms.php">Forms</a>  | <a target="_top" href="http://www.tjhsst.edu/abouttj/plans/index.php">School Plans</a>  | <a target="_top" href="http://www.tjhsst.edu/abouttj/visitors/index.php">Visitors</a> ';
+sub[1]='<a target="_top" href="http://www.tjhsst.edu/curriculum/scitech/index.php">Sci/Tech</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/mathcs/index.php">Math/CS</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/hum/index.php">Humanities</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/forlang/index.php">Languages</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/hpe/index.php">PE/Health/DriversEd</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/fa/index.php">Arts</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/dss/index.php">Student Services</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/library/">Library</a> ';
+sub[2]='<a target="_top" href="http://www.tjhsst.edu/studentlife/activ/index.php">Activities</a>  | <a target="_top" href="http://www.colonialathletics.org">Athletics</a>  | <a target="_top" href="http://www.tjhsst.edu/studentlife/publications/index.php">Publications</a>  | <a target="_top" href="http://www.tjhsst.edu/studentlife/events/index.php">Special Events</a>  | <a target="_top" href="/studentlife/oneq/index.php">1 Question</a>  | <a target="_top" href="http://www.tjhsst.edu/studentlife/events/srs/index.php">tjSTAR</a>  | <a target="_top" href="http://www.tjhsst.edu/studentlife/studentlead/index.php">Student Leadership</a> ';
+sub[3]='<a target="_top" href="http://www.tjpartnershipfund.org/">TJ Partnership Fund</a>  | <a target="_top" href="http://www.tjhsst.edu/supportingtj/employment/index.php">Job Opportunities</a>  | <a target="_top" href="/supportingtj/careercenter/index.html">College/Career Center</a>  | <a target="_top" href="http://www.tjhsst.edu/supportingtj/ptsa/">PTSA</a>  | <a target="_top" href="http://www.tjhsst.edu/supportingtj/ptsa/links.htm">Boosters</a>  | <a target="_top" href="http://www.tjhsstalumni.org/">Alumni</a> ';
+sub[4]='<a target="_top" href="http://www.tjhsst.edu/discovery/labs/index.php">Research Labs</a>  | <a target="_top" href="http://www.tjhsst.edu/discovery/labs/mentorship.php">Mentorship</a>  | <a target="_top" href="http://www.tjhsst.edu/discovery/ibet/index.php">IBET</a>  | <a target="_top" href="http://www.tjhsst.edu/studentlife/activ/index.php">Activities Period</a>  | <a target="_top" href="http://www.tjhsst.edu/discovery/outreach/index.php">Outreach</a>  | <a target="_top" href="http://www.tjhsst.edu/curriculum/library/">Library</a> ';
+$(document).ready(function() {
+		
+//==============BROSWER FIXES===================
+	var yesNet = (navigator.appName == "Netscape")
+
+	//this is a fix for the popping up images
+	var floatType = "IMG";
+	if (yesNet){
+		floatType = "TABLE";
+	}
+	
+//==============INITIALIZATION==========================	
+	$("div[class=articleContainer]").hide();			
+	$("div[id=logo_bright]").fadeTo("slow", 0);
+	$("a[href]").attr("target", "_top");
+
+//===============TJ LOGO FADING============================
+		$("div[id=logo_bright]").hover(
+			function(){
+				 document.getElementById("sublinks").innerHTML = "<a href=\"stayinformed.php\">Stay Informed!</a>";
+				if ($(this).attr('class') == "hidden")  $(this).fadeTo("fast", 1, function(){$(this).attr('class', 'visible');});
+			}, function(){
+				$(this).attr('class', 'fading'); 
+				$(this).fadeTo( 'fast', 0, function(){$(this).attr('class', 'hidden');});
+				
+			}
+		);
+
+//==============TOOLBOX FADING=========================
+/*	$("div[id*=tbox]").fadeTo("slow", 0.6);
+	$("div[id*=tbox]").hover(
+		function(){
+			if ($(this).attr('class') == "hidden")  $(this).fadeTo("fast", .8, function(){$(this).attr('class', 'visible');});
+		}, function(){
+			$(this).attr('class', 'fading'); 
+			$(this).fadeTo( 'fast', .6, function(){$(this).attr('class', 'hidden');});
+		}
+	);
+*/
+
+//===============NEWS DIALOG=============================
+	//This controls the news dialog - the newsShown index of -1 means nothing is showing.
+	var newsShown = -1;
+	$("div[newsid]").hide();
+	$("a[class=news]:odd").css("color", "#cee5f8");
+
+	$("a[class=change]").hover(
+	function(){
+		//$(this).css("text-decoration", "underline");
+		$(this).css({'text-decoration' : 'underline' , 'cursor' : 'pointer'});
+	}, function() {
+		$(this).css("text-decoration","none");
+	});
+	
+	$("a[class=news]").hover(
+	function(){
+		//$(this).css("text-decoration", "underline");
+		$(this).css({'text-decoration' : 'underline' , 'cursor' : 'pointer'});
+	}, function() {
+		$(this).css("text-decoration","none");
+	});
+
+
+		$("a[class=news]").bind("click", function(){
+			if (newsShown != $(this).attr("newsID")){
+				if (newsShown == -1){
+					$("div[class=articleContainer]").toggle();//user opened dialog, show it
+				} else {
+					$("div[newsID=" + newsShown + "]").toggle("slow");//user clicked another item while dialog was open
+				}			
+				newsShown = $(this).attr("newsID");
+				if (newsShown == -1){
+					$("div[class=articleContainer]").fadeOut("slow"); //user clicked close, hide the dialog
+				} else {
+					$("div[newsID=" + newsShown + "]").toggle("fast"); //user clicked another news item, show it
+				}
+			}
+		});
+
+
+
+
+
+
+//=============================IMAGE TABS==================================================
+	//This section is long because of JQuery hover issues - this is a homebrew fix
+	//This is the popping up mechanism for the image links
+	//browser capability issues: IE cant use sliding tables, FF cant use sliding imgs
+	$("IMG[id*=link]").fadeTo('slow', .5);
+
+			var up = 0;
+			var last = -1;
+			$("IMG[id*=link]").hover(
+				function(){	//makes jquery select the correct table to slide
+					var i = $(this).attr("index");   // dr: status of the block(floating image): D (down), U (Up going), T (top)
+					if (last >= 0 && last != i){ // if not the first hover, and image is not already fully raised
+						$("IMG#link" + last).attr("dr", "D"); //set status to moving down
+						$(floatType + ".float"+ last).slideDown('slow'); //slide down slow
+						$("IMG#link" + last).fadeTo('slow', 0.5); //fade out like image slow
+						up -= 1;
+					}
+					$("IMG#link" + $(this).attr("index")).attr("cn", "1"); //cn: 1 if cursor is over, 0 if not
+					if ( $("IMG#link" + i).attr("dr") == "D" ) { //if block fully down, move up
+						$("IMG#link" + $(this).attr("index")).attr("dr", "U");
+						$(floatType + ".float"+ i).slideUp('fast', function() { 
+							$("IMG#link" + $(this).attr("index")).fadeTo('fast', 1); //after image is fully up, fade in link image fast
+							$("IMG#link" + $(this).attr("index")).attr("dr", "T"); //set location to fully up (top)
+
+							if ( $("IMG#link" + $(this).attr("index")).attr("cn") == "0") { //if cursor is not over block
+								$("IMG#link" + $(this).attr("index")).attr("dr", "D"); //set status to moving down
+								$(floatType + ".float"+ $(this).attr("index")).slideDown('slow'); //slide down slow
+								$("IMG#link" + $(this).attr("index")).fadeTo('slow', 0.5); //fade out like image slow
+							} else {
+								up += 1; // increase count of fully raised images
+								last = i; // keep track of last raised image
+								document.getElementById("sublinks").innerHTML = sub[last];
+							}
+						} );
+					}
+				}, function() {
+				//	alert (up);
+						$("IMG#link" + $(this).attr("index")).attr("cn", "0"); //when hovering off, turn attr cn to 0 (cursor is off)
+						if ((up > 1) ) {
+						if ( $("IMG#link" + $(this).attr("index")).attr("dr") == "T" ) { //if image is fully up (top)
+							$("IMG#link" + $(this).attr("index")).attr("dr", "D"); //set status to moving down
+							$(floatType + ".float"+ $(this).attr("index")).slideDown('slow'); //move block down slow
+							$("IMG#link" + $(this).attr("index")).fadeTo('slow', 0.5); //fade link slow
+							up -= 1;
+						}
+					}	
+				} );
+});
+
+//============================AJAX SLIDESHOW LOADER=========================
+//The slideshow works by always having two images available - one that is visible and the other "behind the scenes"
+//When the user clicks change, the "behind the scenes" image is turned visible and the ajax loader finds another random image to place "behind the scenes"
+//For this reason, there must always be TWO images to load... This is an improbable reality, so there is no fix
+function getHTTPObject(){
+	var xmlHttp=null;
+	try{ // Firefox, Opera 8.0+, Safari
+	  xmlHttp=new XMLHttpRequest();
+	}
+	catch (e){ // Internet Explorer
+		try{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		} catch (e){
+			xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	}
+return xmlHttp;
+}
+
+function getUrls(){
+	httpObject = getHTTPObject();
+	if (httpObject != null) {
+		httpObject.onreadystatechange = createPlaylist;
+		httpObject.open("GET", "includes/php/listimages.php", true);
+		httpObject.send(null);
+	}
+}
+
+playlist = new Array();
+answer = new Array();
+captions = new Array();
+var playLength = 0;
+function createPlaylist(){
+if(httpObject.readyState == 4){
+	answer = httpObject.responseText.split("+");
+//	alert(answer);
+	playlist = answer[0].split(";");
+		
+	captions = answer[1].split("|");
+	playLength = playlist.length -1;
+//	alert("length is "+playLength);
+//	alert(playlist);
+				
+	loadBack();
+	loadNext();
+	}
+}
+
+var oldIndex = -1;
+var backCaption = "";
+backImage = new Image();
+function loadNext() {
+	
+	document.getElementById("caption").innerHTML= backCaption;
+	$("div[class=picwrap]").fadeOut("slow", function(){
+		document.images.picture.onload = loadBack; 
+		document.images.picture.src = backImage.src;
+
+	});
+//	alert(newIndex + " - " + newImage.src);	
+	
+}	 
+                                   
+function loadBack(){
+
+	$("div[class=picwrap]").fadeIn("slow");
+	var newIndex = 0;
+	newIndex = Math.floor(playLength * Math.random());
+	while (oldIndex == newIndex){
+		newIndex = Math.floor(playLength * Math.random());
+	}			
+	
+	backCaption = captions[newIndex];
+	backImage = new Image();
+	backImage.src = playlist[newIndex];
+	oldIndex = newIndex;
+}
+
+-->
+ </script>
+
+		<style type="text/css">
+		#credits{
+			font-family: arial;
+			font-size: 8pt;
+			text-align: center;
+			color: #666;
+		}
+		#credits a{
+			color:#aaa;
+			text-decoration: none;
+		}
+		#credits a:hover{
+			color:#aaa;
+			text-decoration: underline;
+		}
+		#credits a:visited{	
+			color:#aaa;
+			text-decoration: none;	
+		}
+		</style>
+
+		<link rel="stylesheet" href="includes/dialog2/demo/dialog.css" media="screen" />
+		<link rel="stylesheet" href="includes/dialog2/demo/example-variants.css" media="screen" />
+		<link rel="stylesheet" href="includes/jscss/splash.css" media="screen" />
+
+	</head>
+	<body bgcolor="black" onload="getUrls()">
+
+	<div class="picwrap" style="position:absolute; top:0px; left:0px; right:0px;">
+		<div style="width:780px; margin-left:auto; margin-right:auto;">
+			<table width="100%">
+				<tr>	<td width="25%">
+					</td>
+					<td height="700"> <center><img name="picture" width="600" height="500" src="includes/frame/dummy.gif" alt=""/> </center>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+
+	<div style="postition:relative; bottom:0px; left:0px; width:100%; height:100%">
+		<div class="container">
+
+
+
+		<table height="100%" width="100%">
+			<tr>	<td height="180">
+					filler
+					<div id="allhead">
+						<div id="logo" style="position:absolute; left:0px; top:24px; z-index:5;">
+							<img alt="" src="includes/frame/logo.png" width="188" height="184" />
+						</div>
+
+						<div id="logo_bright" style="position:absolute; left:0px; top:24px; z-index:5;">
+							<a href="http://www.tjhsst.edu/"><img alt="" src="includes/frame/logo_bright.gif" width="188" height="184" border="0" /></a>
+						</div>
+
+						<div id="tabs" style="position: absolute; left: 185px; top: 0px; z-index: 3;">
+							<table cellspacing="0" cellpadding="0" height="150">
+								<tr>
+
+							<td valign="top" width="123">
+										<table cellpadding="0" cellspacing="0">
+											<tr>	<td>
+											<table class="float0" index="0" cellpadding="0" cellspacing="0"><tr><td><img class="float0" index="0" height="15" src="includes/frame/dummy.gif" /></td></tr>
+											</table>
+												</td>
+											</tr>
+											<tr>	<td>
+													<img src="includes/frame/abouttj.jpg" height="84" width="123" />
+												</td>
+											</tr>
+										</table>
+									</td>							<td valign="top" width="123">
+										<table cellpadding="0" cellspacing="0">
+											<tr>	<td>
+											<table class="float1" index="1" cellpadding="0" cellspacing="0"><tr><td><img class="float1" index="1" height="15" src="includes/frame/dummy.gif" /></td></tr>
+											</table>
+												</td>
+											</tr>
+											<tr>	<td>
+													<img src="includes/frame/curriculum.jpg" height="84" width="123" />
+												</td>
+											</tr>
+										</table>
+									</td>							<td valign="top" width="123">
+										<table cellpadding="0" cellspacing="0">
+											<tr>	<td>
+											<table class="float2" index="2" cellpadding="0" cellspacing="0"><tr><td><img class="float2" index="2" height="15" src="includes/frame/dummy.gif" /></td></tr>
+											</table>
+												</td>
+											</tr>
+											<tr>	<td>
+													<img src="includes/frame/studentlife.jpg" height="84" width="123" />
+												</td>
+											</tr>
+										</table>
+									</td>							<td valign="top" width="123">
+										<table cellpadding="0" cellspacing="0">
+											<tr>	<td>
+											<table class="float3" index="3" cellpadding="0" cellspacing="0"><tr><td><img class="float3" index="3" height="15" src="includes/frame/dummy.gif" /></td></tr>
+											</table>
+												</td>
+											</tr>
+											<tr>	<td>
+													<img src="includes/frame/supportingtj.jpg" height="84" width="123" />
+												</td>
+											</tr>
+										</table>
+									</td>							<td valign="top" width="123">
+										<table cellpadding="0" cellspacing="0">
+											<tr>	<td>
+											<table class="float4" index="4" cellpadding="0" cellspacing="0"><tr><td><img class="float4" index="4" height="15" src="includes/frame/dummy.gif" /></td></tr>
+											</table>
+												</td>
+											</tr>
+											<tr>	<td>
+													<img src="includes/frame/discovery.jpg" height="84" width="123" />
+												</td>
+											</tr>
+										</table>
+									</td>								</tr>
+							</table>
+	
+						<div id="tablinks" style="position: absolute; left:-2px; top: 20px; z-index:1;">
+							<table  cellspacing="0" cellpadding="0" height="105">
+								<tr>
+								<td width="123">
+										<center><a href="http://www.tjhsst.edu/abouttj/"><img id="link0" cn="0" dr="D" index="0" src="includes/frame/t_abouttj.gif" border="0" /><br /></a></center>
+									</td>								<td width="123">
+										<center><a href="http://www.tjhsst.edu/curriculum/"><img id="link1" cn="0" dr="D" index="1" src="includes/frame/t_curriculum.gif" border="0" /><br /></a></center>
+									</td>								<td width="123">
+										<center><a href="http://www.tjhsst.edu/studentlife/"><img id="link2" cn="0" dr="D" index="2" src="includes/frame/t_studentlife.gif" border="0" /><br /></a></center>
+									</td>								<td width="123">
+										<center><a href="http://www.tjhsst.edu/supportingtj/"><img id="link3" cn="0" dr="D" index="3" src="includes/frame/t_supportingtj.gif" border="0" /><br /></a></center>
+									</td>								<td width="123">
+										<center><a href="http://www.tjhsst.edu/discovery/"><img id="link4" cn="0" dr="D" index="4" src="includes/frame/t_discovery.gif" border="0" /><br /></a></center>
+									</td>								</tr>
+							</table>
+						</div>
+					</div>
+
+				<div id="redhead" style="position:absolute; z-index:2;">
+					<table width="808" cellpadding="0" cellspacing="0" border="0">
+						<tr>	<td width="10" height="25">	
+							</td>
+	
+							<td>
+							</td>
+		
+							<td width="7">
+							</td>
+						</tr>
+						<tr>	<td width="10">	
+							</td>
+	
+							<td width="100%" bgcolor="#890908">
+							</td>
+	
+							<td height="86" width="7">
+								<img src="includes/frame/main_red_end.png" height="86" width="7" />
+							</td>
+						</tr>
+					</table>
+				</div>
+	
+				<div id="bluehead" style="position: absolute; left: 178px; top: 111px; z-index:4;">
+					<table cellpadding="0" cellspacing="0" width="632">
+						<tr>	<!--<td height="37" width="14" background="sub_blue_start.jpg">-->
+							<td height="37" background="includes/frame/sub_red.png">
+								<div id="sublinks" class="sublinks"><a href="stayinformed.php">Stay Informed!</a></div>
+							</td>
+							<td background="includes/frame/sub_red_end.png" width="17">
+							</td>
+						</tr>		
+					</table>
+	
+				</div>
+			</div>
+
+					</td>
+				</tr>	
+				<tr>	<td>
+						<table width="100%" border="0">
+			 				<tr>	<td height="15">
+								</td>
+							</tr>
+							<tr valign="top">
+								 <td valign="middle" height="380">
+									<div id="side">
+										<div id="add">
+										<p>Thomas Jefferson High School for Science and Technology</p>
+										</div>
+										<br />
+										<div>
+											
+											<a href="http://postman.tjhsst.edu">Calendar</a><br />
+											<a href="http://intranet.tjhsst.edu">Intranet</a><br />
+											<a href="help.php">Help</a><br />
+											<a href="directory.php">Contact</a><br />
+											
+										</div>
+										<br />
+										<div id="tbox" class="hidden" fill="news">
+												
+												<strong>News </strong><br />
+														<a class="news" newsid="0">
+			tjToday expands online 
+		</a><br /> 
+			<a class="news" newsid="1">
+			Want to teach at TJHSST?  
+		</a><br /> 
+			<a class="news" newsid="2">
+			Information for Summer School 2012 
+		</a><br /> 
+			<a class="news" newsid="3">
+			STEMbassadors outreach program  
+		</a><br /> 
+	<a href="http://www.tjhsst.edu/news/">All news...</a><br />
+
+</div>
+<br />
+<div id="tbox" class="hidden" fill="visitors">
+
+	<a class="news" newsid="4">Parents of Current Students</a><br />
+	<a class="news" newsid="5">Business/Corporate Relations</a><br />
+	<a class="news" newsid="6">Visitors</a><br />
+	<a class="news" newsid="7">Prospective Students</a><br />
+
+</div>
+<br />
+<div id="tbox" class="hidden" fill="visitors">
+
+<!-- <a href="http://blueribbon.rmcres.com"><img src="/images/BREagle-1.jpg" alt="Blue Ribbon Award" align="right"></a> -->
+	<a href="http://www.fcps.edu/kit">KIT</a><br />
+	<a href="http://www.fcps.edu">FCPS</a><br />
+
+</div>
+
+												
+									</div>
+								</td>
+							</tr>
+							<tr>	<td>
+								</td>
+							</tr>			
+						</table>
+					</td>
+					<td colspan="3"> &#32;
+						<div class="articleContainer" style="display:none">
+							<div class="dialog" fill="newsArticle">
+								 <div class="content"> 
+									<div class="t">
+									</div>
+										
+
+	
+
+	<div class="news" newsid="0">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	
+					tjToday expands online				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td colspan="2">
+				<p>
+					Check out articles and pictures about TJ life that go above and beyond the printed edition in the <a href="http://www.tjhsst.edu/studentlife/publications/tjtoday/wordpress/">tjToday online edition. </a>  
+
+				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+		
+
+	
+
+	<div class="news" newsid="1">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	
+					Want to teach at TJHSST? 				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td colspan="2">
+				<p>
+					Are you a talented teacher? We're looking for you! We've got motivated students, attentive administrators, enthusiastic parents, and the very best colleagues around. Join us! <a href= "http://www.tjhsst.edu/supportingtj/employment/index.php">Click here for a list of openings for the summer 2012 and full 2012-2013 school year.</a> 				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+		
+
+	
+
+	<div class="news" newsid="2">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	
+					Information for Summer School 2012				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td colspan="2">
+				<p>
+					Follow <a href="http://www.tjhsst.edu/curriculum/summer/">this link </a>to find the most up-to-date information about summer school and summer research opportunities. 				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+		
+
+	
+
+	<div class="news" newsid="3">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	
+					STEMbassadors outreach program 				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td colspan="2">
+				<p>
+					
+
+TJ has launched a <a href="http://www.tjhsst.edu/~emglazer/STEMbassadors.php">STEMbassadors program</a> to promote volunteerism at neighborhood schools for STEM-based efforts as well as TJ outreach events aimed at promoting the TJ mission to younger populations.
+ 
+				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+	
+	<div class="news" newsid="4">
+		<table border="0">
+		<tr>	<td width="90%">
+				<br />
+				<h3>	Parent Links	
+				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td width="600" colspan="2"><p><a href="../../abouttj/b2spacket.php">Back to School Packet Forms</a><br />
+			<a href="http://www.tjhsst.edu/supportingtj/ptsa/">PTSA</a><br />
+                                <a href="http://www.tjhsst.edu/supportingtj/ptsa/announ/announce.ppt">TJ Morning Announcements</a><br />
+			<a href="http://www.tjhsst.edu/supportingtj/ptsa/links.htm">Boosters</a><br />
+			<a href="http://www.tjhsst.edu/curriculum/dss/">Student Services</a><br />
+		  <a href="contact.php">Search Contacts</a><br />
+		 Attendance: 703-750-8315
+		  </p></td>
+		</tr>
+		</table>
+	</div>
+
+
+	<div class="news" newsid="5">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	Business Links	
+				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td width="600" colspan="2">
+				<p>
+					<a href="http://tjpartnershipfund.org">TJ Partnership Fund</a><br />
+					<a href="http://www.tjhsst.edu/discovery/labs/mentorship.php">Mentorship</a><br />
+					<a href="http://www.tjhsst.edu/discovery/labs/index.php">Research Labs</a><br />
+				<!--	<a href="">blah</a><br />  add contact page? -->
+				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<div class="news" newsid="6">
+		<table border="0">
+		<tr>	<td width="90%">
+			-	<h3>	Visitor Links	
+				</h3>  
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td width="600" colspan="2">
+				<p>
+					<a href="http://www.tjhsst.edu/abouttj/visitors/index.php">Information</a><br />
+					<a href="http://www.tjhsst.edu/abouttj/visitors/directions.php">Directions</a><br />
+					<a href="http://www.tjhsst.edu/abouttj/visitors/hotels.php">Nearby Hotels</a><br />
+				<!--	<a href="">blah</a><br />  -->
+				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+	<div class="news" newsid="7">
+		<table border="0">
+		<tr>	<td width="90%">
+				<h3>	Prospective Student Links	
+				</h3>
+			</td>
+			<td>
+				<p align="right"><a class="news" newsid="-1">close</a></p>
+				
+			</td>
+		</tr>
+		<tr>	<td width="600" colspan="2">
+				<p>
+					<a href="http://www.tjhsst.edu/abouttj/admissions/index.php">Admissions Office</a><br />
+					<a href="http://www.tjhsst.edu/studentlife/index.php">Student Life</a><br />
+				<!--	<a href="">blah</a><br />
+					<a href="">blah</a><br />  -->
+				</p>
+			</td>
+		</tr>
+		</table>
+	</div>
+								 </div>
+								<div class="b">
+									<div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+				</tr>				
+			</table>
+		</div>
+		<div id="blue" style="width:100%; position: absolute; left:10px; top:590px;">
+			<div class="container">
+				<table border="0" cellspacing="0" cellpadding="0">
+				<tr> 	<td width="9">
+						<img width="9" height="64" src="includes/frame/blue_start.png" />
+					</td>
+					<td width="780">
+						<img width="780" height="64" src="includes/frame/blue_long.png" />
+					</td>
+					<td width="9">
+						<img width="9" height="64" src="includes/frame/blue_end.png" />
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+		<div id="blue" style="width:100%; position: absolute; left:10px; top:590px;">
+			<div class="container">
+				<table width="800" border="0" cellspacing="0" cellpadding="0">
+				<tr> 	<td width="9" height="64">
+					</td>
+					<td>&#32;
+						<table cellpadding="0" cellspacing="0" width="780">
+							<tr>	<td valign="middle" width="90%">
+						<table cellspacing="0" cellpadding="0">
+										<tr>	<td height="15">
+											</td>
+										</tr>
+										<tr>	<td>												<div class="caption" id="caption"><strong>Loading...</strong></div> 
+								</td>
+										</tr>
+									</table>								</td>
+								<td><p align="right"><a onmouseup="loadNext();">Change</a></p>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td width="9">&#32;
+					</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="credits" style="display:inline-block; position:relative; top: 70px; margin-left:auto; margin-right:auto; text-align:center;">
+	<table style="text-align:center;">
+		<tr>
+		<td width="100">
+			<a href="http://www.ed.gov/programs/nclbbrs/index.html">
+				<img src="images/BREagle-blk.jpg" alt="Blue Ribbon Award" border="0" />
+			</a>
+		</td>
+		<td width="450">
+				6560 Braddock Road, Alexandria 22312 | 703-750-8300<br /> 
+				The TJHSST Web site is designed, developed and maintained by TJ Students. <br />
+				Faculty Curators: <a href="mailto:muchmiel@fcps.edu">Marjee Chmiel</a> and <a href="mailto:ahamilto@tjhsst.edu">Andrew Hamilton</a> <!-- | Current Webmaster: <a href="mailto:2010jlee@tjhsst.edu">Jennifer Lee</a> --> | Design: Simon Ho
+		</td>
+		<td width="100">
+			<a href="http://www.tjhsst.edu/redirect.php?redirect=http://www.usnews.com/sections/education/high-schools">
+				<img src="images/usnewsbadge.png" alt="Best High Schools" height="85" border="0" />
+			</a>
+		</td>
+		</tr>
+	</table>
+	</div>
+	</body>
+</html>

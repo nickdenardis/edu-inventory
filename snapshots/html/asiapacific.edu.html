@@ -1,0 +1,1553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Asia Pacific Institute of Management</title>
+<link href="http://www.asiapacific.edu/css/stayl.css" rel="stylesheet" type="text/css" />
+<link href="style/style.css" rel="stylesheet" type="text/css" /> 
+<!-- feedback-->
+<style type="text/css" media="screen">
+#slideout {
+position: fixed;
+top: 230px;
+right: 0;
+width: 25px;
+padding: 12px 0;
+text-align: center;			
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-border-radius: 0 5px 5px 0;
+-moz-border-radius: 0 5px 5px 0;
+border-radius: 0 5px 5px 0;
+z-index:10000;
+}
+#slideout_inner {
+position: fixed;
+top: 230px;
+right: -250px;
+background: #0e5084;
+width: 200px;
+padding: 25px;
+height: 250px;
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+text-align: left;
+-webkit-border-radius: 0 0 5px 0;
+-moz-border-radius: 0 0 5px 0;
+border-radius: 0 0 5px 0;
+}
+#slideout:hover {
+right: 250px;
+}
+#slideout:hover #slideout_inner {
+right: 0;
+}
+#slideout01 {
+position: fixed;
+top: 388px;
+right: 0;
+width: 25px;
+padding: 12px 0;
+text-align: center;
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+-webkit-border-radius: 0 5px 5px 0;
+-moz-border-radius: 0 5px 5px 0;
+border-radius: 0 5px 5px 0;
+z-index:10000;
+}
+#slideout_inner01 {
+position: fixed;
+top: 388px;
+right: -100px;
+background: #0e5084;
+width: 50px;
+padding: 25px;
+height: 110px;
+-webkit-transition-duration: 0.3s;
+-moz-transition-duration: 0.3s;
+-o-transition-duration: 0.3s;
+transition-duration: 0.3s;
+text-align: left;
+-webkit-border-radius: 0 0 5px 0;
+-moz-border-radius: 0 0 5px 0;
+border-radius: 0 0 5px 0;
+}
+#slideout01:hover {
+right: 95px;
+}
+#slideout01:hover #slideout_inner01 {
+right: 0;
+}
+</style>
+<!-- end of feedback-->
+<script type="text/javascript" src="jscript/father.js" language="javascript"></script> 
+<script type="text/javascript" src="js/jquery-1.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {	
+//Get all the LI from the #tabMenu UL
+$('#tabMenu li').click(function(){
+//perform the actions when it's not selected
+if (!$(this).hasClass('selected')) {    
+//remove the selected class from all LI    
+$('#tabMenu li').removeClass('selected');
+//Reassign the LI
+$(this).addClass('selected');
+//Hide all the DIV in .boxBody
+$('.boxBody div.parent').slideUp('1500');
+//Look for the right DIV in boxBody according to the Navigation UL index, therefore, the arrangement is very important.
+$('.boxBody div.parent:eq(' + $('#tabMenu > li').index(this) + ')').slideDown('1500');
+}
+}).mouseover(function() {
+//Add and remove class, Personally I dont think this is the right way to do it, anyone please suggest    
+$(this).addClass('mouseover');
+$(this).removeClass('mouseout');   
+}).mouseout(function() {
+//Add and remove class
+$(this).addClass('mouseout');
+$(this).removeClass('mouseover');    
+});
+//Mouseover with animate Effect for Category menu list
+$('.boxBody #category li').click(function(){
+//Get the Anchor tag href under the LI
+}).mouseover(function() {
+//Change background color and animate the padding
+$(this).css('backgroundColor','');
+$(this).children().animate({paddingLeft:"20px"}, {queue:false, duration:300});
+}).mouseout(function() {
+//Change background color and animate the padding
+$(this).css('backgroundColor','');
+$(this).children().animate({paddingLeft:"0"}, {queue:false, duration:300});
+});  
+//Mouseover effect for Posts, Comments, Famous Posts and Random Posts menu list.
+$('#.boxBody li').click(function(){
+}).mouseover(function() {
+$(this).css('backgroundColor','');
+}).mouseout(function() {
+$(this).css('backgroundColor','');
+});  	
+});
+</script>
+<style>
+body{font-family:Arial, Helvetica, sans-serif;
+font-size:12px;color:#000000;
+}
+#tabMenu {margin:0;padding:0 0 0 20px;list-style:none; width:670px; } 
+#tabMenu li {float:left;height:32px;cursor:pointer;cursor:hand}
+li.comments {background:url(images/tabComment.png) no-repeat 0 -33px; width:100px;}
+li.posts {background:url(images/tabComment.gif) no-repeat 0 -33px; width:100px;}
+li.category {background:url(images/tabFolder.gif) no-repeat 0 -33px; width:100px;}
+li.famous {background:url(images/tabStar.gif) no-repeat 0 -33px; width:170px;}
+li.random {background:url(images/tabRandom.gif) no-repeat 0 -33px; width:100px;}
+li.mouseover {background-position:0 0;}
+li.mouseout {background-position:0 -33px;}
+li.selected {background-position:0 0;}
+.box {width:705px;
+max-height:120px;}
+.boxTop {background:url(images/tab_top_bg.png) no-repeat;height:11px;clear:both}
+.boxBody {background:url(images/tab_middle_bg.png ) repeat-y; max-height:170px;}
+.boxBottom {background:url(images/tab_bottom_bg.png) no-repeat;height:11px;}
+.boxBody div.parent {display:none;}
+.boxBody div.show {display:block;}
+.boxBody div ul {margin:0 20px 0 25px; padding-top:10px; width:650px;list-style-image:url(images/arrow.gif)}
+.boxBody div ul li.last {border-bottom:none}
+.boxBody div li span {font-size:8px;font-style:italic; color:#888;}
+</style>
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+function MM_swapImgRestore() { //v3.0
+var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_findObj(n, d) { //v4.01
+var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+//-->
+</script>
+<script src="Scripts/AC_RunActiveContent.js" type="text/javascript"></script>
+<script src="Scripts/AC_ActiveX.js" type="text/javascript"></script>
+<!--marquee-->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<script src="jcarousellite_1.0.1c4.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function() {
+$(".newsticker-jcarousellite").jCarouselLite({
+vertical: true,
+hoverPause:true,
+visible: 4,
+auto:500,
+speed:1000
+});
+});
+function MM_swapImage() { //v3.0
+var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+</script>
+<!-- end marquee -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11207909-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></head>
+<body onload="MM_preloadImages('image/f_02.png','image/t_02.png','image/y_02.png','image/s_02.png','image/live_02.png','image/read_more_01.png','image/call_02.png','image/home_02.png','image/about_02.png','image/campus_02.png','image/programe_02.png','image/admission_02.png','image/carreer_02.png','image/conact_02.png','images/live_c_02.png','images/f_02.png','images/t_02.png','images/y_02.png','images/s_02.png','images/more_02.png','image/c_02.png','images/checkmail002.png','images/erp002.png','images/down_02.PNG')">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><table width="980" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center"><script type="text/javascript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<body onLoad="MM_preloadImages('images/don_01.png','images/get_02.png','http://www.asiapacific.edu/images/get_02.png')">
+<table width="970" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="600" rowspan="2"  align="left" valign="top" style="padding-left:10px;padding-top:5px;"><a href="http://www.asiapacific.edu"><img src="http://www.asiapacific.edu/images/logo_asia.png" width="600" height="100" border="0" /></a></td>
+<td align="center" valign="bottom"></td>
+<td align="right" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+
+<td><a href="http://www.asiapacific.edu/download" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','http://www.asiapacific.edu/images/don_01.png',1)"><img src="http://www.asiapacific.edu/images/don_00.png" name="Image7" width="77" height="19" border="0" id="Image7" /></a> </td>
+
+<td width="10">&nbsp; </td>
+
+
+<td width="50"  align="center" valign="top"><a href="http://www.asiapacific.edu/blog" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image56','','http://www.asiapacific.edu/images/blloging_002.png',0)" target="_blank"><img src="http://www.asiapacific.edu/images/blloging_001.png" name="Image56" width="77" height="19" border="0" id="Image56" /></a></td>
+<td width="10" align="center" valign="top">&nbsp;</td>
+<td width="50" align="center" valign="top"><a href="http://mail.asiapacific.edu/" target="_blank" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image57','','http://www.asiapacific.edu/images/checkmail002.png',1)"><img src="http://www.asiapacific.edu/images/checkmail001.png" name="Image57" width="77" height="19" border="0" id="Image57" /></a></td>
+<td width="10" align="center" valign="top">&nbsp;</td>
+<td width="50" align="center" valign="top"><a href="http://www.tcsion.com" target="_blank"  onmouseout="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image58','','http://www.asiapacific.edu/images/erp002.png',1)"><img src="http://www.asiapacific.edu/images/erp001.png" name="Image58" width="48" height="20" border="0" id="Image58" /></a></td>
+<td width="10" align="center" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td width="20" align="center" valign="bottom"></td>
+<td width="360" align="right" valign="top"><table width="360" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right" valign="top"><table width="360" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="10px"></td>
+        <td align="right"><a href="http://www.asiapacific.edu/application-form" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','http://www.asiapacific.edu/images/get_02.png',1)"><img src="http://www.asiapacific.edu/images/get_01.png" name="Image8" width="127" height="23" border="0" id="Image8" /></a></td>
+        <td align="right" valign="top"><form action="http://www.asiapacific.edu/search_back.php" method="post" name="website_search1111"><table width="180" border="0" cellspacing="0" cellpadding="0" style="padding-right:10px;">
+<tr>
+<td width="279" align="right" valign="middle" style="background:url(http://www.asiapacific.edu/images/search.png);background-repeat:no-repeat;width:153px;height:30px;background-position:right;right:2px;"><table width="152" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="40" align="center" valign="middle" id="sss"><input type="text" name="qw" id="qw" onfocus="if (this.value == 'search') { this.value = ''; }" 
+onblur="if (this.value == '') { this.value = 'search'; }" value="search"  /></td>
+</tr>
+</table></td>
+<td width="60" align="right" valign="middle"><input type="image" name="Submit4" src="http://asiapacific.edu/images/search01.png" style="border:none;" /></td>
+</tr>
+</table></form>
+</td>
+      </tr>
+      <tr>
+        <td height="4" align="right" valign="top"></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td height="4" align="right" valign="top"></td>
+  </tr>
+  <tr>
+    <td align="right" valign="top" style="padding-right:5px;"><a href="http://www.asiapacific.edu/Takshila"><img src="http://www.asiapacific.edu/images/ban.gif" width="317" height="59" style="border:none;" /></a></td>
+    
+  </tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr> 
+<td align="center" valign="top"> <table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="right" valign="top"><table width="970" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4" align="left" valign="bottom">&nbsp;</td>
+</tr>
+<tr>
+<td height="4" align="center" valign="top"><table width="976" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top"><div class="navigation" >
+<ul id="nav" style="list-style:none;">
+<li><a href="http://www.asiapacific.edu"><img src="http://www.asiapacific.edu/images/home.png" height="23px" width="42px"/></a></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/about-us">About Us</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/board-governors">Board of Governors</a></li>
+<li><a href="http://www.asiapacific.edu/international_collaborations">International Collaborations</a></li>
+<li><a href="http://www.asiapacific.edu/accreditations_affiliations">Accreditations & Affiliations</a></li>
+<li><a href="http://www.asiapacific.edu/academic-advisory-council">Academic Advisory Council</a></li>
+<li><a href="http://www.asiapacific.edu/vision-mission">Vision & Mission</a></li>
+<li><a href="http://www.asiapacific.edu/accreditation-letter">Accreditation Letter</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/programmes">Programme</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/post-graduate-diploma-management-pgdm">PGDM</a></li>
+<li><a href="http://www.asiapacific.edu/post-graduate-diploma-management-marketing-pgdm-m">PGDM Marketing</a></li>
+<li><a href="http://www.asiapacific.edu/post-graduate-diploma-management-international-business-pgdm-ib">PGDM IB</a></li>
+<li><a href="http://www.asiapacific.edu/post-graduate-diploma-management-banking-and-financial-services-pgdm-bfs">PGDM  BFS</a></li>
+<li><a href="http://www.asiapacific.edu/executive-post-graduate-diploma-management-ex-pgdm">Executive PGDM</a></li>
+<li><a href="http://www.asiapacific.edu/executive-post-graduate-diploma-managementmarketing-e-pgdm-m"> Executive PGDM (MKT)</a></li>
+<li><a href="http://www.asiapacific.edu/Ph.D.">Ph.D.</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/centre_for_corporate_relations">Placements</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/centre_for_corporate_relations">Centre for Corporate Relations</a></li>
+<li><a href="http://www.asiapacific.edu/placement_2009-11">Placement 2009-11</a></li>
+<li><a href="http://www.asiapacific.edu/our_students_speak">Our Students Speak</a></li>
+<li><a href="http://www.asiapacific.edu/summer-internship-placement-2010-12">Summer Internship (2010-12)</a></li>
+<li><a href="http://www.asiapacific.edu/list-employers">List of Employers</a></li>
+<li><a href="http://www.asiapacific.edu/contact-placement-cell">Contact CCR</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/alumi">Alumni</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/alumni_aim">Alumni AIM</a></li>
+<li><a href="http://www.asiapacific.edu/registration-alumni">Registration</a></li>
+<li><a href="http://www.asiapacific.edu/nostalgia">Nostalgia</a></li>
+<li><a href="http://www.asiapacific.edu/alumni-association">Alumni Association</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/admissions">Admissions</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/gdpi-dates">GD / PI Dates</a></li>
+<li><a href="http://www.asiapacific.edu/full-time-programmes">Full Time Programmes</a></li>
+<li><a href="http://www.asiapacific.edu/part-time-programmes">Part Time Programmes</a></li>
+<li><a href="http://www.asiapacific.edu/Scholarship For PGDM Programmes">Scholarship For PGDM Programmes</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/faculty-profiles">Faculty</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/faculty-profiles">Regular Faculty</a></li>
+<li><a href="http://www.asiapacific.edu/visiting-faculty">Visiting Faculty</a></li>
+<li><a href="http://www.asiapacific.edu/managementteam">Management Team</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/Center for MDP">MDP</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/MDP">MDP calendar</a></li>
+<li><a href="http://www.asiapacific.edu/upcoming_mdp">Upcoming MDP</a></li>
+<li><a href="http://www.asiapacific.edu/Seminars-Workshops">Seminars / Workshops</a></li>
+<li><a href="http://www.asiapacific.edu/Recent_MDP_at_AIM">Recent MDPs</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/research-asia-pacific-institute-management">Research</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/research-asia-pacific-institute-management">Research & Publication</a></li>
+<li><a href="http://www.asiapacific.edu/news-letter">News Letter</a></li>
+<li><a href="http://www.asiapacific.edu/call-papers-inaugural-issue-abr-published-sage">Call for Papers</a></li>
+<li><a href="http://www.asiapacific.edu/business-review">Asia-Pacific Business Review</a></li>
+<li><a href="http://www.asiapacific.edu/Asia-Pacific_Marketing_Review">Asia-Pacific Marketing Review</a></li>
+<li><a href="http://www.asiapacific.edu/media">AIM In Media</a></li>
+<li><a href="http://www.asiapacific.edu/Finance_and_ Accounting Review">Asia - Pacific Finance and Accounting Review</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/careers">Careers</a>
+<ul>
+<li><a href="http://www.asiapacific.edu/careers">Introduction</a></li>
+<li><a href="http://www.asiapacific.edu/faculty-position">Current Openings</a></li>
+<li><a href="http://www.asiapacific.edu/career_form">Form</a></li>
+</ul></li>
+<div class="divider"></div>
+<li><a href="http://www.asiapacific.edu/contact-us">Contact</a>
+</li>
+</ul>
+</div></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="200" align="center" valign="top"><script type="text/javascript" src="homeflash.js"></script></td>
+</tr>
+<tr>
+<td align="left" valign="top"><table width="980" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="730" align="center" valign="top" class="new_content_01"><table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="15"></td>
+</tr>
+<tr>
+<td><table width="700" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top">&nbsp;                      </td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="25" align="left" valign="top"><div class="box">
+<ul id="tabMenu">
+<li class="posts selected">&nbsp;</li>
+<li class="comments">&nbsp;</li>
+<li class="category">&nbsp;</li>
+<li class="famous">&nbsp;</li>
+<li class="random">&nbsp;</li>
+</ul>
+<div class="boxTop"></div>
+<div class="boxBody">
+<div id="posts" class="show parent" style="height:184px;">
+<ul>
+<li style="text-align:justify; list-style:none;">Established in 1996, Asia-Pacific Institute of Management ranks among the top Business schools in the Delhi region. Perceiving the tough challenges faced in the fast integrating global economy, the Institute strives to groom market leaders in different areas of management. With highly experienced faculty and world class infrastructure comparable to the best MBA colleges in India, Asia-Pacific aims to create a stimulated learning atmosphere conducive for overall development of its students. The Institute offers the best management courses to help realize managerial potential of each student. <br /><br /><br />
+<div style="float:right; "> <a href="about-us" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image52','','images/more_02.png',1)"><img src="images/more_01.png" name="Image52" width="74" height="24" border="0" id="Image52" /></a> </div>
+</li>
+</ul>
+</div>
+<div id="comments" class="parent" style="height:184px;">
+<ul>
+<li style="text-align:justify; list-style:none;"> <table width="100%" ><tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Crisil Rating A* at Delhi/NCR level</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">NBA Accredited & AIU Recognized</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Excellent Placement Record</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Industry focused Curriculum</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Highly Qualified Core Faculty</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Strategic Academic Exchange Programs</td></tr>
+<tr><td width="20" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="20" /></td>
+<td align="left" valign="top" class="textfotter_02">Strong 3 I's Approach (Industry-Institute Interface)</td></tr>
+</table>
+</li>
+</ul>
+</div>
+<div id="category" class="parent" style="height:184px; ">
+<ul>
+<li style="text-align:justify; list-style:none; " ><table width="100%" ><tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/library">Library</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/hostel">Hostel</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/cafeteria">Cafeteria</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/computer-centre">Computer Lab</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/auditorium">Auditorium</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/lecture-theatre">Lecture Theatre</a></td></tr>
+</table>
+</li>
+</ul>
+</div>
+<div id="famous" class="parent" style="height:184px;">
+<ul>
+<li class="last" style="text-align:justify; list-style:none;">Crisil Rating A at Delhi NCR Level.<br />
+<a href="http://www.asiapacific.edu/accreditation-letter"><img src="images/Ranking.jpg" name="ranking" width="550" height="130" border="0" /> </a> <br />
+<div style="float:right; "> </div>
+</li>
+</ul>
+</div>
+<div id="random" class="parent" style="height:184px;">
+<ul>
+<li style="text-align:justify; list-style:none;"><table width="100%" ><tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/Academic_Calender">Academic Calendar</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/Ecell">E-Cell</a></td></tr>
+<tr><td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/Employability_Enhancement_Programme">Employability Enhancement Programme</a></td></tr>
+</table><div style="float:right; "></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="boxBottom"></div>
+</div></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+</table></td>
+<td width="250" align="left" valign="top"><table width="240" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="10"></td>
+</tr>
+<tr>
+<td><table width="240" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" class="new_contact"><table width="240" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="3"></td>
+</tr>
+<tr>
+<td height="30" align="center"><table width="236" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="center" valign="top"><table width="220" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="text_01">Request a call back</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center"><script type="text/javascript">
+function validationindex()
+{
+if(document.getElementById('name1').value=="")
+{
+alert("Please Enter the Name");
+document.getElementById('name1').focus();
+return false;
+}
+var x=(document.getElementById('email1').value);
+var atpos=x.indexOf("@");
+var dotpos=x.indexOf(".");
+if(atpos<1||dotpos<atpos+2||dotpos+2>=x.length)
+{
+alert("Please Enter the Email Address");
+document.getElementById('email1').focus();
+return false; 
+}
+var a=(document.getElementById('phone1').value)  
+if(a.length>13||isNaN(a))
+{
+alert("Please Enter the Valid Phone Number");
+document.getElementById('phone1').focus();
+return false;
+}
+if(a.length<8)
+{
+alert("Please Enter the Phone Number");
+document.getElementById('phone1').focus();
+return false;
+}
+var y=(document.getElementById('message1').value);      
+if(y.length<10)
+{
+alert("Please Enter the Message");
+document.getElementById('message1').focus();
+return false;
+}  
+if(document.getElementById('capcha12').value=="Enter Security Code")
+{
+alert("Please Enter security code.");
+document.getElementById('capchauser').focus();
+return false;
+}
+if(document.getElementById('capcha12').value!=document.getElementById('capchauser').value)
+{
+alert("Please Enter correct security code.");
+document.getElementById('capchauser').focus();
+return false;
+}
+
+return true;
+}
+</script>
+<table width="220" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><table width="220" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top"><form name="contactFormindex" action="requestcallbackindex" method="post" id="QC2" onSubmit="javaScript:return validationindex();">
+<table width="210" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="5" colspan="4" class="text_03"></td>
+</tr>
+<tr>
+<td width="50" align="left" valign="top" class="text_03"><label for="label4">Name<font color="#FF0000">* </font></label></td>
+<td width="4" align="left" valign="top" class="text_03">&nbsp;</td>
+<td colspan="2" align="left" valign="top" class="text_03"><input name="name1" type="text" id="name1" maxlength="60"  class="text_03" style="width:155px;"  /></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_03"><label for="label4">Email<font color="#FF0000">* </font></label></td>
+<td align="left" valign="top" class="text_03">&nbsp;</td>
+<td colspan="2" align="left" valign="top" class="text_03"><input name="email1" type="text" id="email1" maxlength="60"  class="text_03" style="width:155px;"/></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_03">Phone<font color="#FF0000">* </font></td>
+<td align="left" valign="top" class="text_03">&nbsp;</td>
+<td colspan="2" align="left" valign="top" class="text_03"><input name="phone1" type="text" id="phone1" maxlength="15"  class="text_03" style="width:155px;"/></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_03"><label for="label4">Query<font color="#FF0000">* </font></label></td>
+<td align="left" valign="top" class="text_03">&nbsp;</td>
+<td colspan="2" align="left" valign="top" class="text_03"><textarea name="message1"  id="message1" style="width:140px; overflow:auto;"> </textarea></td>
+</tr>
+<tr>
+<td colspan="4" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="45%"  align="left">
+<label for="label4">Security Code<font color="#FF0000">* </font></label>
+ </td>
+<td width="55%"  align="left"><img src="demo.php?q=9764"/><input name="capcha12" id="capcha12" type="hidden" value="9764" /> </td>
+  </tr>
+</table></td>
+</tr>
+
+<tr>
+<td colspan="4" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="60%"  align="left" style="padding-top:5px; padding-right:5px" >
+<input type="text" name="capchauser" id="capchauser" class="text_03" style="width:120px;" onfocus="if (this.value == 'Enter Security Code') { this.value = ''; }" 
+
+            onblur="if (this.value == '') { this.value = 'Enter Security Code'; }" value="Enter Security Code"/>
+ </td>
+<td width="40%"  align="right"> <input type="image" name="Submit2" src="images/submit_new.png" style="border:none;" /></td>
+  </tr>
+</table></td>
+</tr>
+</table>
+<div style="clear:both;"></div>
+</form></td>
+</tr>
+</table></td>
+</tr>
+</table>
+</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="730" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="350" align="left" valign="top"><table width="350" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="middle" class="blue_top"><table width="310" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="left" valign="middle" class="text_01">Programmes</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_side_middle"><table width="345" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4"></td>
+</tr>
+<tr>
+<td class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="310" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top"><span class="text_02">Two Year-Full Time Programmes</span></td>
+</tr>
+<tr>
+<td><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td width="285" align="left" valign="top" class="textfotter_02"><a href="post-graduate-diploma-management-pgdm">PGDM(NBA Accredited, Recognised by AIU)</a></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="post-graduate-diploma-management-marketing-pgdm-m">PGDM (Marketing)</a></td>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="post-graduate-diploma-management-international-business-pgdm-ib">PGDM  (International Business)</a></td>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="post-graduate-diploma-management-banking-and-financial-services-pgdm-bfs">PGDM  (Banking &amp; Financial Services)</a></td>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></td>
+</tr>
+<tr>
+<td height="6"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><span class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_02">Three Year-Part Time Programmes</td>
+</tr>
+<tr>
+<td><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="executive-post-graduate-diploma-management-ex-pgdm">Executive-PGDM</a></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02"><a href="executive-post-graduate-diploma-managementmarketing-e-pgdm-m">Executive-PGDM(Marketing)</a></td>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="left" valign="top">&nbsp;</td>
+<td height="30" class="text_06"><a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image1','','images/more_02.png',1)"><img src="images/more_01.png" name="Image1" width="74" height="24" border="0" id="Image1" /></a></td>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><span class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></span></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="images/side_con_bottom.png" width="348" height="11" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="left" valign="top" height="15px"></td>
+</tr>
+<tr>
+<td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" class="blue_top"><table width="310" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="left" valign="middle" class="text_01">Placement</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_side_middle"><table width="345" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><span class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td class="text_02"><span class="textfotter_02"><img src="images/001_logo.jpg" width="247" height="26" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="10"></td>
+</tr>
+<tr>
+<td height="6" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_03"> Asia-Pacific Institute of Management ranks among the top Business schools in the Delhi region.</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="textfotter_02">&nbsp;</td>
+</tr>
+<tr>
+<td height="6" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_06"><a href="list-employers" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','images/more_02.png',1)"><img src="images/more_01.png" name="Image21" width="74" height="24" border="0" id="Image21" /></a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><span class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></span></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="images/side_con_bottom.png" width="348" height="11" /></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="350" align="left" valign="top"><table width="350" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" class="blue_top"><table width="310" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="left" valign="middle" class="text_01">Latest News</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_side_middle"><table width="345" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><span class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02">
+<a href="http://www.asiapacific.edu/news-view/21/dr._d._k._batra_joins_as_director">Dr. D. K. Batra joins as Director</td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02">
+<a href="http://www.asiapacific.edu/news-view/18/celebrating_the_women_power">Celebrating the Women Power</td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02">
+<a href="http://www.asiapacific.edu/news-view/17/employability_in_global_context">Employability in Global Context</td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td width="25" align="left" valign="top"><img src="images/bullet.png" width="20" height="22" /></td>
+<td align="left" valign="top" class="textfotter_02">
+<a href="http://www.asiapacific.edu/news-view/16/upcoming_campus_at_lucknow">Upcoming Campus at Lucknow</td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><span class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></span></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td height="8"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><span class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_02"> MDP </td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="6"></td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_03"><table width="296" border="0" cellspacing="0" cellpadding="0">
+   
+<tr>
+<td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td width="268" align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/MDP">MDP Calender</a></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+   
+<tr>
+<td width="25" align="left" valign="top"><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td width="268" align="left" valign="top" class="textfotter_02"><a href="http://www.asiapacific.edu/Recent_MDP_at_AIM">MDP Conducted</a></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+   
+</table></td>
+</tr>
+<tr>
+<td height="16"></td>
+</tr>
+<tr>
+<td class="text_06"><a href="upcoming_mdp" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','images/more_02.png',1)"><img src="images/more_01.png" name="Image22" width="74" height="24" border="0" id="Image22" /></a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><span class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></span></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="images/side_con_bottom.png" width="348" height="11" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="left" valign="top"  height="18px"></td>
+</tr>
+<tr>
+<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" class="blue_top"><table width="310" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="left" valign="middle" class="text_01">Journal</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_side_middle"><table width="345" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="6" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td><span class="text_02"><img src="images/content_new_002.png" width="338" height="13" /></span></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="content_new_0001"><table width="320" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="10" colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" align="left" valign="top" height="15px"class="text_03"> Call For Papers</td>
+</tr>
+<tr>
+<td width="25" align="left" ><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td class="textfotter_02" valign="top"><a href="http://www.asiapacific.edu/business-review">Asia-Pacific Business Review</a></td>
+</tr>
+<tr>
+<td width="25" align="left" ><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td class="textfotter_02" valign="top"><a href="http://www.asiapacific.edu/Asia-Pacific_Marketing_Review">Asia-Pacific Marketing Review</a>
+  </td>
+</tr>
+
+
+<tr>
+<td width="25" align="left" ><img src="http://www.asiapacific.edu/images/bullet.png" width="20" height="22" /></td>
+<td class="textfotter_02" valign="top"><a href="http://www.asiapacific.edu/Finance_and_%20Accounting%20Review">Finance and Accounting Review</a>
+  </td>
+</tr>
+
+
+<tr>
+<td height="6" colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="text_06"><a href="call-contributors" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','images/more_02.png',1)"><img src="images/more_01.png" name="Image23" width="74" height="24" border="0" id="Image23" /></a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td><span class="text_02"><img src="images/content_new_003.png" width="338" height="12" /></span></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><img src="images/side_con_bottom.png" width="348" height="11" /></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+<td align="center" valign="top"><table width="250" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" valign="middle" class="blue_top_right"><table width="220" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="left" valign="middle" class="text_01">Alumni &amp; Corporates</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="new_middle"><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top"><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="4" align="left" valign="top"></td>
+</tr>
+<tr>
+<td align="left" valign="top"><table width="210" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="center" valign="top" class="text1"><div id="newsticker-demo">
+<div class="newsticker-jcarousellite">
+<ul>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/105_khushboo_ojhaoroginal.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Khushboo Ojha</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Content Manager</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">MMI Online Ltd.</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2008 - 2010</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/104_anshit_chandra.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Anshit Chandra</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Assistant Manager-Marketing Communication</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Franchise India Brands Limited</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2008 - 2010</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/101_untitled-2_copy.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Arshad Khan</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Senior Analyst</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Royal Bank of scotland Group, Gurgaon</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2005 - 2007</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/85_10-copy-3277-mail.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">SUMAN KUMAR</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Manager Sales & Research</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">IRIS Software</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2001 - 2003</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/83_picture_012.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">K Vikram</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Area Manager Sales - Andhra Pradesh</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Lafarge Boral Gypsum India Pvt Ltd</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2003 - 2005</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/82_maaly_formal.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Malay Milind</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Assistant Manager</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">HDFC Bank Ltd</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2008 - 2010</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/68_sangam.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Sangram Keshari Panigrahi</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Assistant Manager Marketing Starategy</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Hyundai Motor India Ltd.</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2009-2011</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/60_27082007090.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Prasenjit Chakraborty</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Senior Associate</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">PricewaterhouseCoopers</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2006-08</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/50_rajatava_bagchi_.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Rajatava Bagchi</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Research Lead</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Evalueserve India Pvt. Ltd</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2003-2005</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/38_7_spm_a0891_(1).jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Vinit Kumar</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Manager-Operation & Sales</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">AAR ESS Group</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2006-2008</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+<li>
+<div class="img_bg_001" style="padding-right:10px;"><div><table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="70" align="left" valign="top"><img src="alumni_photo/4_h2219104_motpy_60925_ts.jpg" width="70" height="64" /></td>
+<td width="10" align="left" valign="top">&nbsp;</td>
+<td width="160" align="left" valign="top" style="padding-right:10px;"><table width="170" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Ravi Mishra</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">Assistant Manager Key Account</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">ABC Consultants Pvt Ltd.</td>
+</tr>
+<tr>
+<td align="left" valign="top" class="text_input" style="padding-right:22px;">2006-2008</td>
+</tr>
+</table></td>
+</tr>
+</table>
+</div></div><div class="clear"></div>
+</li>
+</ul>
+</div>
+</div></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="left" valign="top"><img src="images/new_bottom.png" width="240" height="12" /></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top">&nbsp;</td>
+<td align="center" valign="top">&nbsp;</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="left" valign="top">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="960" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="320" align="center" valign="top" class="bottom_bg"><table width="316" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="center" valign="middle"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_01"><a href="http://www.asiapacific.edu/imagegallery">Virtual Tour</a> </td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center"><a href="http://www.asiapacific.edu/imagegallery"><img src="images/life_01.png" width="300" height="182" border="0" /></a></td>
+</tr>
+</table></td>
+<td width="10">&nbsp;</td>
+<td width="320" align="center" valign="top" class="bottom_bg"><table width="316" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="center" valign="middle"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_01"><a href="faculty-profiles">Faculty and Staff</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center"><a href="http://www.asiapacific.edu/faculty-profiles"><img src="images/staff_01.png" width="300" height="182" border="0" /></a></td>
+</tr>
+</table></td>
+<td width="10">&nbsp;</td>
+<td width="320" align="center" valign="top" class="bottom_bg"><table width="316" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td height="30" align="center" valign="middle"><table width="300" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td align="left" valign="top" class="text_01">Videos</td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"><table width="300" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+<td><a href="videos"><img src="http://www.asiapacific.edu/images/video.png" width="300" height="182"  /></a></td>
+</tr>
+</table></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td colspan="5">&nbsp;</td>
+</tr>
+<tr>
+<td height="2" colspan="5" bgcolor="#0966ac"></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td height="8" align="left" valign="top"></td>
+</tr>
+<tr class="text_04">
+<td align="center" valign="top" class="text_04"><a href="http://www.asiapacific.edu/vision-mission">Vision & Mission</a> &nbsp;&nbsp; | &nbsp;&nbsp;  <a href="http://www.asiapacific.edu/chairmans-message">Chairman's Message </a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/directors-message">Director's Message   </a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/mandatory new.html">Mandatory Disclosure </a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/BrochureNew.pdf" target="_blank">Placements</a></td>
+</tr>
+<tr>
+<td height="6" align="center" valign="top"></td>
+</tr>
+<tr class="text_04">
+<td align="center" valign="top"><a href="http://www.asiapacific.edu/chat/request.php?l=admin&x=1&deptid=0" onclick="return popitup('http://www.asiapacific.edu/chat/request.php?l=admin&x=1&deptid=0')">Online&nbsp;Counseling</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/Prospectus-2012.pdf" target="_blank">Download Prospectus</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/onlineformpurchase/buyform.php" target="_blank">Apply Online</a> &nbsp;&nbsp; | &nbsp;&nbsp; <a href="http://www.asiapacific.edu/terms-and-conditions">Terms &amp; Conditions</a>&nbsp;&nbsp; | &nbsp;&nbsp;  <a href="http://www.asiapacific.edu/privacy-policy">Privacy Policy</a> &nbsp;&nbsp; | &nbsp;&nbsp;  <a href="http://www.asiapacific.edu/site-terms"> Site Terms</a></td>
+</tr>
+<tr>
+<td height="6" align="center" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="text_04">Copyright Asia-Pacific Institute of Management, All right reserved</td>
+</tr>
+<tr>
+<td height="6" align="center" valign="top"></td>
+</tr>
+<tr>
+<td align="center" valign="top" class="text_04"><strong>Address:</strong>&nbsp;&nbsp;3 & 4 Institutional Area, Jasola, Opp. Sarita Vihar, New Delhi - 110025. INDIA.&nbsp;&nbsp;<strong>Phone:</strong> +91-11-26950549&nbsp;&nbsp;<strong>Email:</strong> <a href="mailto:mailtous@asiapacific.edu?Subject=Contact Us">mailtous@asiapacific.edu</a></td>
+</tr>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top">&nbsp;</td>
+</tr>
+</table>  </td>
+</tr>
+</table>
+<script type="text/javascript" language="javascript"> 
+initDhtmlGoodiesMenu();
+initShowHideDivs();
+showHideContent(false,6);	// Automatically expand first item
+</script> 
+<div id="slideout">
+<img src="http://www.asiapacific.edu/images/requestacallback.png"/>
+<div id="slideout_inner"><script type="text/javascript">
+function validation()
+{
+if(document.getElementById('name').value=="")
+{
+alert("Please Enter the Name");
+document.getElementById('name').focus();
+return false;
+}
+var x=(document.getElementById('email').value);
+var atpos=x.indexOf("@");
+var dotpos=x.indexOf(".");
+if(atpos<1||dotpos<atpos+2||dotpos+2>=x.length)
+{
+alert("Please Enter the Email Address");
+document.getElementById('email').focus();
+return false; 
+}
+var a=(document.getElementById('phone').value)  
+if(a.length>13||isNaN(a))
+{
+alert("Please Enter the Valid Phone Number");
+document.getElementById('phone').focus();
+return false;
+}
+if(a.length<8)
+{
+alert("Please Enter the Phone Number");
+document.getElementById('phone').focus();
+return false;
+}
+var y=(document.getElementById('message').value);      
+if(y.length<10)
+{
+alert("Please Enter the Message");
+document.getElementById('message').focus();
+return false;
+}  
+if(document.getElementById('capcha121').value!=document.getElementById('capchauser1').value)
+{
+alert("Please Enter correct security code.");
+document.getElementById('capchauser1').focus();
+return false;
+}
+
+return true;
+}
+</script><form action="http://asiapacific.edu/requestcallback" method="post" name="contactForm" onSubmit="return validation();">
+<font color="#FFFFFF">
+<table width="230" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="50" align="left" class="input_field"> &nbsp;Name:</td>
+<td width="180" align="left" class="input_field"><input type="text" name="name" id="name" autocomplete="off"/></td>
+</tr>
+<tr>
+<td align="left" class="input_field">&nbsp;Email: </td>
+<td align="left" class="input_field"><input type="text" name="email" id="email"  autocomplete="off"/></td>
+</tr>
+<tr>
+<td align="left" class="input_field">&nbsp;Phone:</td>
+<td align="left" class="input_field"><input type="text" name="phone" id="phone"  autocomplete="off" /></td>
+</tr>
+<tr>
+<td colspan="2" align="left"><textarea name="message" cols="55" rows="3" class="text3" id="message" style="background-color:#FFFFFF; width:180px;"  autocomplete="off"></textarea></td>
+</tr>
+
+<tr>
+<td height="10" colspan="2" align="left" valign="top"></td>
+</tr>
+<tr>
+<td colspan="4" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="45%"  align="left">
+<label for="label4">Security Code<font color="#FF0000">* </font></label>
+ </td>
+<td width="55%"  align="left"><img src="demo1.php?q1=8170"/><input name="capcha121" id="capcha121" type="hidden" value="8170" /> </td>
+  </tr>
+</table></td>
+</tr>
+<tr>
+<td colspan="4" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="40%"  align="left" style="padding-top:5px; padding-right:15px" >
+<input type="text" name="capchauser1" id="capchauser1" class="text_03" style="width:90px;" onfocus="if (this.value == 'Enter Security Code') { this.value = ''; }" 
+
+            onblur="if (this.value == '') { this.value = 'Enter Security Code'; }" value="Enter Security Code"/>
+ </td>
+<td width="60%"  align="left"><input type="image" name="Submit" src="http://asiapacific.edu/images/submit_new.png" style="border:none;"/> </td>
+  </tr>
+</table></td>
+</tr>
+
+</table> </font>
+</form>
+</div>
+</div>
+<div id="slideout01">
+<img src="http://www.asiapacific.edu/images/social_links.png"/>
+<div id="slideout_inner01">
+<table width="220" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="60px"> <a href="http://www.facebook.com/AsiaPacificInstituteNewDelhi" target="_blank" ><img src="http://www.asiapacific.edu/images/facebook.png" border="0" /></a></td>
+</tr>
+<tr>
+<td height="20px"> </td>
+</tr>
+<tr>
+<td width="60px"><a href="http://twitter.com/AsiaPacific1996"  target="_blank" border="0"><img src="http://www.asiapacific.edu/images/t_01.png" border="0" /></a></td>
+</tr>
+</tr>
+<tr>
+<td height="20px"> </td>
+</tr>
+<tr>
+<td width="60px"><a href="https://plus.google.com/u/0/106188293047561644917/posts" target="_blank"><img src="http://www.asiapacific.edu/images/google.png" border="0" /></a></td>
+</tr>
+<tr>
+<td height="40px"> </td>
+</tr>
+</table>
+</div>
+</div>
+<style type="text/css">
+#feedback1
+img{background:none;border-color:#FFF #fff #fff #FFF;border-right:1px solid #030;display:block;padding:0px 0px;position:fixed;right:-1px;top:125px;cursor:pointer}#feedback img:active, #feedback img:focus, #feedback img:hover{border-color:#fff}
+</style>
+<div id="feedback1">
+<a href="http://www.asiapacific.edu/chat/request.php?l=admin&x=1&deptid=0" onclick="return popitup('http://www.asiapacific.edu/chat/request.php?l=admin&x=1&deptid=0')"><img src="http://www.asiapacific.edu/images/feedback.png"></a>
+</div>
+</body>
+</html>

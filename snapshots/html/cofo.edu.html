@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="X-UA-Compatible" content="chrome=1;IE=Edge" /> <!-- prefer chrome frame, if available.  In IE8, disable compatability view -->
+
+    <title>
+	College of the Ozarks
+</title><link rel="Stylesheet" type="text/css" href="css/imageCSS.aspx" /><link rel="Stylesheet" type="text/css" href="css/homepage.css" />
+    
+    <script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+    <style type="text/css">
+    #tempParaDiv
+    {
+        position:absolute;
+        bottom:210px;
+        margin-left:-300px;
+        left:50%;
+        border-radius:10px;
+        background-color:#504F4F;
+        max-width:400px;
+        color:White;
+        padding:10px;
+    }
+
+    
+    </style>
+    <script type='text/javascript'>
+        $(document).ready(function () {
+            $("#tempParaDiv").hover(function () {
+                $(this).fadeTo("slow", 1);
+                }, function () {
+
+                $(this).fadeTo("slow", .9);
+                });
+
+                if($("#tempParaDiv").text().trim() == "")
+                {
+                    $("#tempParaDiv").hide();
+                }
+                else
+                {
+                    $("#tempParaDiv").fadeTo("slow", .9);
+                }
+            
+        });
+
+        //<![CDATA[
+        appRoot = "/";
+        var a;
+        var current;
+    
+        function setExplaination(number, div)
+        {
+            $(".dotsDiv").attr("class", "dotsDiv");
+
+            $(div).attr("class", "dotsDiv dotsDivSelected");
+
+            if(number != current)
+            {
+                $(".explains").fadeOut(300);
+                clearInterval(a);
+                a = setTimeout("$('.explains').hide();$('#explaination" + number + "').fadeIn(300)", 300);
+
+                current = number;
+            }
+
+//            document.getElementById('explainationLabelDiv1').className='dotsDiv';
+//            document.getElementById('explainationLabelDiv2').className='dotsDiv';
+//            document.getElementById('explainationLabelDiv3').className='dotsDiv';
+//            document.getElementById('explainationLabelDiv4').className='dotsDiv';
+//        
+//            div.className='dotsDiv dotsDivSelected';
+//            
+//            document.getElementById('explaination1').style.display='none';
+//            document.getElementById('explaination2').style.display='none';
+//            document.getElementById('explaination3').style.display='none';
+//            document.getElementById('explaination4').style.display='none';
+//            
+//            document.getElementById('explaination'+number).style.display='block';
+        }
+        
+//        if(screen.width < 1122)
+//        {
+//            var headID = document.getElementsByTagName("head")[0];         
+//            var cssNode = document.createElement('link');
+//            cssNode.type = 'text/css';
+//            cssNode.rel = 'stylesheet';
+//            cssNode.href = '/css/lowResHomepage.css';
+//            cssNode.media = 'screen';
+//            headID.appendChild(cssNode);
+//        }
+        
+        function goToSearchPage()
+        {
+            var url = appRoot + "search/"+escape(document.getElementById('searchBox').value.replace("&", "and")); //'/content/sitemap.aspx?q=' + escape(document.getElementById('searchBox').value);
+            window.location=url;
+        }
+        
+        function doSearch(evt) {
+            var evt = (evt) ? evt : ((event) ? event : null);
+            var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+          
+            if ((evt.keyCode == 13) && (node.type=="text") && node.id=='searchBox')  
+            {
+                goToSearchPage();    
+                return false;
+            }
+        } 
+        
+        document.onkeypress = doSearch;
+        //]]>
+    </script>
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-11235172-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+</head>
+<body>
+
+    <form name="form1" method="post" action="" id="form1">
+<div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTQ0NTk0MTkxNw9kFgICAw9kFgJmD2QWDmYPFgIeBFRleHQF/wo8YSBocmVmPSIvUGFnZS9BYm91dC1DLW9mLU8vUHJlc2lkZW50cy1XZWxjb21lLjYyLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5QcmVzaWRlbnQmIzM5O3MgV2VsY29tZTwvYT4KPGEgaHJlZj0iL1BhZ2UvQWJvdXQtQy1vZi1PL0hpc3Rvcnktb2YtQy1vZi1PLjYzLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5IaXN0b3J5IG9mIEMgb2YgTzwvYT4KPGEgaHJlZj0iL1BhZ2UvQWJvdXQtQy1vZi1PL01pc3Npb24tVmlzaW9uLUdvYWxzLjY0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5NaXNzaW9uLCBWaXNpb24sIEdvYWxzPC9hPgo8YSBocmVmPSIvUGFnZS9BYm91dC1DLW9mLU8vVmlzaXRpbmctQy1vZi1PLjY3Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5WaXNpdGluZyBDIG9mIE88L2E+CjxhIGhyZWY9Ii9BcHAvQWJvdXQtQy1vZi1PL05ld3MtYW5kLUV2ZW50cy4yMDUuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPk5ld3MgYW5kIEV2ZW50czwvYT4KPGEgaHJlZj0iL1BhZ2UvQWJvdXQtQy1vZi1PL0NvbW11bml0eS1Qcm9ncmFtcy42MjEuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkNvbW11bml0eSBQcm9ncmFtczwvYT4KPGEgaHJlZj0iL1BhZ2UvQWJvdXQtQy1vZi1PL0ZhbW91cy1WaXNpdG9ycy40NTQuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkZhbW91cyBWaXNpdG9yczwvYT4KPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvQWJvdXQtQy1vZi1PL1RoZS1LZWV0ZXItQ2VudGVyLjQ1NS5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+VGhlIEtlZXRlciBDZW50ZXI8L2E+CjxhIGhyZWY9Ii9BcHAvQWJvdXQtQy1vZi1PL1NjaG9vbC1vZi10aGUtT3phcmtzLjY1Mi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+U2Nob29sIG9mIHRoZSBPemFya3M8L2E+CjxhIGhyZWY9Ii9QYWdlL0Fib3V0LUMtb2YtTy9IdW1hbi1SZXNvdXJjZXMuNzEuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkh1bWFuIFJlc291cmNlczwvYT4KPGEgaHJlZj0iL0FwcC9BYm91dC1DLW9mLU8vUG9saWNpZXMtYW5kLU5vdGljZXMuMzU1Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5Qb2xpY2llcyBhbmQgTm90aWNlczwvYT4KPGEgaHJlZj0iL1BhZ2UvQWJvdXQtQy1vZi1PL0NvbnRhY3QtSW5mb3JtYXRpb24uNzUuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkNvbnRhY3QgSW5mb3JtYXRpb248L2E+CjxhIGhyZWY9Ii9QYWdlL0Fib3V0LUMtb2YtTy9GQVFzLjc4Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5GQVFzPC9hPgpkAgEPFgIfAAWMCDxhIGhyZWY9Ii9QYWdlL0FkbWlzc2lvbnMvQWRtaXNzaW9uLUNyaXRlcmlhLjI1Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5BZG1pc3Npb24gQ3JpdGVyaWE8L2E+CjxhIGhyZWY9Ii9QYWdlL0FkbWlzc2lvbnMvQXBwbGljYXRpb24tUHJvY2Vzcy4yNy5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+QXBwbGljYXRpb24gUHJvY2VzczwvYT4KPGEgaHJlZj0iL1BhZ2UvQWRtaXNzaW9ucy9UaW1lbGluZS1hbmQtSW50ZXJ2aWV3LjQ0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5UaW1lbGluZSBhbmQgSW50ZXJ2aWV3PC9hPgo8YSBocmVmPSIvUGFnZS9BZG1pc3Npb25zL0lmLVlvdS1BcmUtQWRtaXR0ZWQuMzQ4Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5JZiBZb3UgQXJlIEFkbWl0dGVkLi4uPC9hPgo8YSBocmVmPSIvUGFnZS9BZG1pc3Npb25zL0ZpbmFuY2lhbC1BaWQuNTAuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkZpbmFuY2lhbCBBaWQ8L2E+CjxhIGhyZWY9Ii9QYWdlL0FkbWlzc2lvbnMvU3R1ZGVudC1MaWZlLjIzLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5TdHVkZW50IExpZmU8L2E+CjxhIGhyZWY9Ii9QYWdlL0FkbWlzc2lvbnMvQ2FtcHVzLVRvdXJzLjQ1Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5DYW1wdXMgVG91cnM8L2E+CjxhIGhyZWY9Ii9Qb2ludGVyL0FkbWlzc2lvbnMvVmlydHVhbC1Ub3VyLjEwOS5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+VmlydHVhbCBUb3VyPC9hPgo8YSBocmVmPSIvUG9pbnRlci9BZG1pc3Npb25zL1JlcXVlc3QtSW5mb3JtYXRpb24uMzQ0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5SZXF1ZXN0IEluZm9ybWF0aW9uPC9hPgo8YSBocmVmPSIvUG9pbnRlci9BZG1pc3Npb25zL0ZBUXMuMTE0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5GQVFzPC9hPgpkAgIPFgIfAAXMBTxhIGhyZWY9Ii9QYWdlL1N0dWRlbnRzL0FjYWRlbWljLVByb2dyYW1zLjkzLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5BY2FkZW1pYyBQcm9ncmFtczwvYT4KPGEgaHJlZj0iL1BhZ2UvU3R1ZGVudHMvUmVzb3VyY2VzLjk0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5SZXNvdXJjZXM8L2E+CjxhIGhyZWY9Ii9FeHRlcm5hbC1MaW5rL1N0dWRlbnRzL0NhbXB1c1dlYi41MzYuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkNhbXB1c1dlYjwvYT4KPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvU3R1ZGVudHMvQ29sbGVnZS1DYXRhbG9nLjUyOS5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+Q29sbGVnZSBDYXRhbG9nPC9hPgo8YSBocmVmPSIvUGFnZS9TdHVkZW50cy9Xb3JrLUVkdWNhdGlvbi45Ni5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+V29yayBFZHVjYXRpb248L2E+CjxhIGhyZWY9Ii9QYWdlL1N0dWRlbnRzL0NoYXJhY3Rlci1FZHVjYXRpb24uOTcuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkNoYXJhY3RlciBFZHVjYXRpb248L2E+CjxhIGhyZWY9Ii9QYWdlL1N0dWRlbnRzL0NocmlzdGlhbi1NaW5pc3RyaWVzLjk4Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5DaHJpc3RpYW4gTWluaXN0cmllczwvYT4KZAIDDxYCHwAFsQg8YSBocmVmPSIvUGFnZS9BbHVtbmkvQWx1bW5pLUNoYXB0ZXJzLjM4MS5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+QWx1bW5pIENoYXB0ZXJzPC9hPgo8YSBocmVmPSIvUGFnZS9BbHVtbmkvQWx1bW5pLU5ld3MuMi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+QWx1bW5pIE5ld3M8L2E+CjxhIGhyZWY9Ii9BcHAvQWx1bW5pL0FsdW1uaS1VcGRhdGUuMzczLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5BbHVtbmkgVXBkYXRlPC9hPgo8YSBocmVmPSIvQXBwL0FsdW1uaS9Eb2MtR29vZC1EYXkuNjE0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5Eb2MgR29vZCBEYXk8L2E+CjxhIGhyZWY9Ii9QYWdlL0FsdW1uaS9NZXJpdG9yaW91cy1Bd2FyZHMuMy5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+TWVyaXRvcmlvdXMgQXdhcmRzPC9hPgo8YSBocmVmPSIvUGFnZS9BbHVtbmkvR2lmdC1Qcm9ncmFtLjQuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkdpZnQgUHJvZ3JhbTwvYT4KPGEgaHJlZj0iL1BhZ2UvQWx1bW5pL0hvbWVjb21pbmctMjAxMS41MDQuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkhvbWVjb21pbmcgMjAxMTwvYT4KPGEgaHJlZj0iL1BhZ2UvQWx1bW5pL0NoYXBlbC1QYWludGluZy41Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5DaGFwZWwgUGFpbnRpbmc8L2E+CjxhIGhyZWY9Ii9QYWdlL0FsdW1uaS9Eb2J5bnMtUGFpbnRpbmcuNi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+RG9ieW5zIFBhaW50aW5nPC9hPgo8YSBocmVmPSIvUGFnZS9BbHVtbmkvVHJhbnNjcmlwdC1SZXF1ZXN0LjcuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPlRyYW5zY3JpcHQgUmVxdWVzdDwvYT4KPGEgaHJlZj0iL1BhZ2UvQWx1bW5pL0pvaW4tdGhlLUFzc29jaWF0aW9uLjM2Ni5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+Sm9pbiB0aGUgQXNzb2NpYXRpb248L2E+CmQCBA8WAh8ABdAGPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvQXRobGV0aWNzL0Jhc2ViYWxsLjI4My5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+QmFzZWJhbGw8L2E+CjxhIGhyZWY9Ii9FeHRlcm5hbC1MaW5rL0F0aGxldGljcy9NZW5zLUJhc2tldGJhbGwuMjgxLmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5NZW4mIzM5O3MgQmFza2V0YmFsbDwvYT4KPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvQXRobGV0aWNzL1dvbWVucy1CYXNrZXRiYWxsLjI4Mi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+V29tZW4mIzM5O3MgQmFza2V0YmFsbDwvYT4KPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvQXRobGV0aWNzL1ZvbGxleWJhbGwuMjg0Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5Wb2xsZXliYWxsPC9hPgo8YSBocmVmPSIvRXh0ZXJuYWwtTGluay9BdGhsZXRpY3MvQ2hlZXItVGVhbS4yODUuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkNoZWVyIFRlYW08L2E+CjxhIGhyZWY9Ii9FeHRlcm5hbC1MaW5rL0F0aGxldGljcy9GYW4tWm9uZS4yODYuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPkZhbiBab25lPC9hPgo8YSBocmVmPSIvRXh0ZXJuYWwtTGluay9BdGhsZXRpY3MvQm9vc3Rlci1DbHViLjI4Ny5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+Qm9vc3RlciBDbHViPC9hPgo8YSBocmVmPSIvRXh0ZXJuYWwtTGluay9BdGhsZXRpY3MvTkFJQS1Ub3VybmFtZW50LjU5Mi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+TkFJQSBUb3VybmFtZW50PC9hPgpkAgUPFgIfAAWXBDxhIGhyZWY9Ii9QYWdlL0dpdmluZy1Uby1DLW9mLU8vUHJvZ3JhbXMuMTM3Lmh0bWwiIGNsYXNzPSdtZW51TGluaycgdGFyZ2V0PSdfdG9wJz5Qcm9ncmFtczwvYT4KPGEgaHJlZj0iL0V4dGVybmFsLUxpbmsvR2l2aW5nLVRvLUMtb2YtTy9QbGFubmVkLUdpdmluZy40NzYuaHRtbCIgY2xhc3M9J21lbnVMaW5rJyB0YXJnZXQ9J190b3AnPlBsYW5uZWQgR2l2aW5nPC9hPgo8YSBocmVmPSIvRXh0ZXJuYWwtTGluay9HaXZpbmctVG8tQy1vZi1PL0dpdmUtT25saW5lLjE0MS5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+R2l2ZSBPbmxpbmU8L2E+CjxhIGhyZWY9Ii9FeHRlcm5hbC1MaW5rL0dpdmluZy1Uby1DLW9mLU8vR2lmdC1DYXRhbG9nLjU3Ni5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+R2lmdCBDYXRhbG9nPC9hPgo8YSBocmVmPSIvQXBwL0dpdmluZy1Uby1DLW9mLU8vUmVxdWVzdC1JbmZvLjMyNi5odG1sIiBjbGFzcz0nbWVudUxpbmsnIHRhcmdldD0nX3RvcCc+UmVxdWVzdCBJbmZvPC9hPgpkAgYPFgIfAAVXPGRpdj48YSBocmVmPSJodHRwczovL3d3dy5jb2ZvLmVkdS9BdXRoL2xvZ2luLmFzcHg/dGFyZ2V0VVJMPSUyZiI+QWRtaW4gTG9naW48L2E+PC9kaXY+ZGT8JYvnGMe+7tY4LdjBQwuUGEXbS1iGKakkx4RqOQShqQ==" />
+</div>
+
+    <div>
+        <div id="imageDiv" >
+        <div id='tempParaDiv'>
+            
+        </div>
+           <div id="grayTransparent"></div>
+            <div id="grayStripeDiv">
+                <div id="grayStripeContents">
+                    <div id="graySolidSection">
+                        <img src="/images/hardWorkU.jpg" alt="Hard Work U" id="hardWorkUImage" />
+                        <img src="/images/CollegeNameWhite.png" alt="College of the Ozarks" id="collegeOfTheOzarksImage" /><!--College of the Ozarks<span style="vertical-align: super; font-size: 12pt;">&reg;</span>-->
+                    </div>
+                    
+                    <div id='blackInfoDiv'>
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            Welcome to Hard Work U.<br />
+                            where students ...
+                        </div>
+                        <div id='explainationLabelDiv1' class='dotsDiv dotsDivSelected' onmouseover="setExplaination(1, this);">
+                            <img src="/images/homepage/effects/fourDots.png" alt="" class="fourDots" />
+                            Don't Pay Tuition
+                        </div>
+                        <div id='explainationLabelDiv2' class='dotsDiv' onmouseover="setExplaination(2, this);">
+                            <img src="/images/homepage/effects/fourDots.png" alt="" class="fourDots" />
+                            Work for an Education
+                        </div>
+                        <div id='explainationLabelDiv3' class='dotsDiv' onmouseover="setExplaination(3, this);">
+                            <img src="/images/homepage/effects/fourDots.png" alt="" class="fourDots" />
+                            Graduate Without Debt
+                        </div>
+                        <div id='explainationLabelDiv4' class='dotsDiv' onmouseover="setExplaination(4, this);">
+                            <img src="/images/homepage/effects/fourDots.png" alt="" class="fourDots" />
+                            Develop Character
+                        </div>
+                        <div id='explainationLabelDiv5' class='dotsDiv' onmouseover="setExplaination(5, this);">
+                            <img src="/images/homepage/effects/fourDots.png" alt="" class="fourDots" />
+                            Value God and Country
+                        </div>
+                        
+                        <div id='itemExplainationDiv'>
+                            <div class="explains" id='explaination1'>
+                                Each student participates in the on-campus Work Education Program 15 hours each week and two forty-hour work weeks.
+                                Credit from participation in the Work Program, plus any federal and/or state aid for which students qualify,
+                                plus a College of the Ozarks Cost of Education Scholarship combine to meet each student's full tuition charge.
+                            </div>
+                            <div class="explains" id='explaination2' style="display: none;">
+                                Working for an education is the continuing distinctive tradition of this college. The on-the-job experience gained
+                                at College of the Ozarks adds an extra dimension to learning. Unlike students attending many other colleges, 
+                                C of O graduates start their career debt-free, well-educated, and work-experienced!
+                            </div>
+                            <div class="explains" id='explaination3' style="display: none;">
+                                Debt is openly discouraged. The College does not participate in the federal student loan program. College of the Ozarks' Cost of Education Scholarship means students don’t pay tuition at C of O!
+                                Other scholarships, including the summer work scholarship, assist many students with the expenses for room and board, books,
+                                and other required costs.
+                            </div>
+                            <div class="explains" id='explaination4' style="display: none;">
+                                The Vision of College of the Ozarks is to develop citizens of Christ-like character who are well-educated, hard-working, and patriotic.
+                                To achieve this Vision, the College has Academic, Vocational, Christian, Patriotic and Cultural goals. 
+                            </div>
+                             <div class="explains" id='explaination5' style="display: none;">
+                                The Christian goal of the College is to foster the Christian faith through the integration of faith with learning, living, and service. 
+                                The Patriotic Goal of the College is to encourage an understanding of American heritage, civic responsibilities, love of country, and willingness to defend it.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- <div id='specialInfoDiv'>-->
+
+            <div style="width: 1014px; margin-left: auto; margin-right: auto; position: relative;top:-20px;">
+                 <div id="searchDiv">
+                    <input type='text' id='searchBox' style="width: 155px;border-radius:5px;" value="Search"
+                        onfocus="if(this.value=='Search') this.value='';"
+                        onblur="if(this.value=='') this.value='Search';"
+                     /> 
+                    <input type='button' id='searchButton' style="width: 45px; position: relative; right: 0px;" value="Go" onclick="goToSearchPage();" />
+                </div>
+            </div>
+        </div>
+        
+        
+        <div id='barDiv'></div>
+        
+
+
+<div id="bottomDiv">
+    <div id="bottomContentDiv">
+        <div class='menuSectionDiv' style="left: 0px;">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <a href="/Page/About-C-of-O.14.html" class='menuHeader' target='_top'>
+                About CofO
+            </a>
+            <a href="/Page/About-C-of-O/Presidents-Welcome.62.html" class='menuLink' target='_top'>President&#39;s Welcome</a>
+<a href="/Page/About-C-of-O/History-of-C-of-O.63.html" class='menuLink' target='_top'>History of C of O</a>
+<a href="/Page/About-C-of-O/Mission-Vision-Goals.64.html" class='menuLink' target='_top'>Mission, Vision, Goals</a>
+<a href="/Page/About-C-of-O/Visiting-C-of-O.67.html" class='menuLink' target='_top'>Visiting C of O</a>
+<a href="/App/About-C-of-O/News-and-Events.205.html" class='menuLink' target='_top'>News and Events</a>
+<a href="/Page/About-C-of-O/Community-Programs.621.html" class='menuLink' target='_top'>Community Programs</a>
+<a href="/Page/About-C-of-O/Famous-Visitors.454.html" class='menuLink' target='_top'>Famous Visitors</a>
+<a href="/External-Link/About-C-of-O/The-Keeter-Center.455.html" class='menuLink' target='_top'>The Keeter Center</a>
+<a href="/App/About-C-of-O/School-of-the-Ozarks.652.html" class='menuLink' target='_top'>School of the Ozarks</a>
+<a href="/Page/About-C-of-O/Human-Resources.71.html" class='menuLink' target='_top'>Human Resources</a>
+<a href="/App/About-C-of-O/Policies-and-Notices.355.html" class='menuLink' target='_top'>Policies and Notices</a>
+<a href="/Page/About-C-of-O/Contact-Information.75.html" class='menuLink' target='_top'>Contact Information</a>
+<a href="/Page/About-C-of-O/FAQs.78.html" class='menuLink' target='_top'>FAQs</a>
+
+           </div>
+           <div id="socialDiv">
+                <a href="https://www.facebook.com/CollegeoftheOzarks" target="_top"><img src="/images/icons/facebook-icon-small.png" alt="Facebook" /></a>
+                <a href="https://twitter.com/#!/cofoHardWorkU" target="_top"><img src="/images/icons/twitter-icon-small.png" alt="Twitter" /></a>
+                <a href="https://www.vimeo.com/hardworku/albums" target="_top"><img src="/images/icons/vimeo-icon-small.png" alt="Vimeo" /></a>
+         </div>
+        </div>
+         
+        
+        <div class='menuSectionDiv' style="left: 167px;">
+            <div style="width: 100%; height: 100%; position: relative;">
+                <a href="/Page/Admissions.15.html" class='menuHeader' target='_top'>
+                    Admissions
+                </a>
+                <a href="/Page/Admissions/Admission-Criteria.25.html" class='menuLink' target='_top'>Admission Criteria</a>
+<a href="/Page/Admissions/Application-Process.27.html" class='menuLink' target='_top'>Application Process</a>
+<a href="/Page/Admissions/Timeline-and-Interview.44.html" class='menuLink' target='_top'>Timeline and Interview</a>
+<a href="/Page/Admissions/If-You-Are-Admitted.348.html" class='menuLink' target='_top'>If You Are Admitted...</a>
+<a href="/Page/Admissions/Financial-Aid.50.html" class='menuLink' target='_top'>Financial Aid</a>
+<a href="/Page/Admissions/Student-Life.23.html" class='menuLink' target='_top'>Student Life</a>
+<a href="/Page/Admissions/Campus-Tours.45.html" class='menuLink' target='_top'>Campus Tours</a>
+<a href="/Pointer/Admissions/Virtual-Tour.109.html" class='menuLink' target='_top'>Virtual Tour</a>
+<a href="/Pointer/Admissions/Request-Information.344.html" class='menuLink' target='_top'>Request Information</a>
+<a href="/Pointer/Admissions/FAQs.114.html" class='menuLink' target='_top'>FAQs</a>
+
+            </div>
+            <div id="applyButtonDiv">
+                <a href="https://campusweb.cofo.edu/ics/Applications/" target="_top"><img src="/images/effects/applyButton.png" alt="Apply" /></a>
+            </div>
+        </div>
+        
+        <div class='menuSectionDiv' style="left: 337px;">
+          <div style="width: 100%; height: 100%; position: relative;">
+            <a href="/Page/Students.16.html" class='menuHeader' target='_top'>
+                Students
+            </a>
+            <a href="/Page/Students/Academic-Programs.93.html" class='menuLink' target='_top'>Academic Programs</a>
+<a href="/Page/Students/Resources.94.html" class='menuLink' target='_top'>Resources</a>
+<a href="/External-Link/Students/CampusWeb.536.html" class='menuLink' target='_top'>CampusWeb</a>
+<a href="/External-Link/Students/College-Catalog.529.html" class='menuLink' target='_top'>College Catalog</a>
+<a href="/Page/Students/Work-Education.96.html" class='menuLink' target='_top'>Work Education</a>
+<a href="/Page/Students/Character-Education.97.html" class='menuLink' target='_top'>Character Education</a>
+<a href="/Page/Students/Christian-Ministries.98.html" class='menuLink' target='_top'>Christian Ministries</a>
+
+          </div>
+          <div id="wearecofoDiv">
+                <a href="/Page/About-C-of-O/We-Are-College-of-the-Ozarks.289.html" target='_top'><img src="/images/videothumb.png" alt="We Are C of O" /></a>
+            </div>
+        </div>
+        
+        <div class='menuSectionDiv' style="left: 507px;">
+        <a href="/Page/Alumni.1.html" class='menuHeader' target='_top'>
+                Alumni
+            </a>
+            <a href="/Page/Alumni/Alumni-Chapters.381.html" class='menuLink' target='_top'>Alumni Chapters</a>
+<a href="/Page/Alumni/Alumni-News.2.html" class='menuLink' target='_top'>Alumni News</a>
+<a href="/App/Alumni/Alumni-Update.373.html" class='menuLink' target='_top'>Alumni Update</a>
+<a href="/App/Alumni/Doc-Good-Day.614.html" class='menuLink' target='_top'>Doc Good Day</a>
+<a href="/Page/Alumni/Meritorious-Awards.3.html" class='menuLink' target='_top'>Meritorious Awards</a>
+<a href="/Page/Alumni/Gift-Program.4.html" class='menuLink' target='_top'>Gift Program</a>
+<a href="/Page/Alumni/Homecoming-2011.504.html" class='menuLink' target='_top'>Homecoming 2011</a>
+<a href="/Page/Alumni/Chapel-Painting.5.html" class='menuLink' target='_top'>Chapel Painting</a>
+<a href="/Page/Alumni/Dobyns-Painting.6.html" class='menuLink' target='_top'>Dobyns Painting</a>
+<a href="/Page/Alumni/Transcript-Request.7.html" class='menuLink' target='_top'>Transcript Request</a>
+<a href="/Page/Alumni/Join-the-Association.366.html" class='menuLink' target='_top'>Join the Association</a>
+
+        </div>
+        
+        <div class='menuSectionDiv' style="left: 676px;">
+            <a href="/External-Link/Athletics.17.html" class='menuHeader' target='_top'>
+                Athletics
+            </a>
+            <a href="/External-Link/Athletics/Baseball.283.html" class='menuLink' target='_top'>Baseball</a>
+<a href="/External-Link/Athletics/Mens-Basketball.281.html" class='menuLink' target='_top'>Men&#39;s Basketball</a>
+<a href="/External-Link/Athletics/Womens-Basketball.282.html" class='menuLink' target='_top'>Women&#39;s Basketball</a>
+<a href="/External-Link/Athletics/Volleyball.284.html" class='menuLink' target='_top'>Volleyball</a>
+<a href="/External-Link/Athletics/Cheer-Team.285.html" class='menuLink' target='_top'>Cheer Team</a>
+<a href="/External-Link/Athletics/Fan-Zone.286.html" class='menuLink' target='_top'>Fan Zone</a>
+<a href="/External-Link/Athletics/Booster-Club.287.html" class='menuLink' target='_top'>Booster Club</a>
+<a href="/External-Link/Athletics/NAIA-Tournament.592.html" class='menuLink' target='_top'>NAIA Tournament</a>
+
+        </div>
+        
+        <div class='menuSectionDiv' style="left: 850px;">
+            <div id="givingMenu">
+                <a href="/Page/Giving-To-C-of-O.18.html" class='menuHeader' target='_top'>
+                    Giving To CofO
+                </a>
+                <a href="/Page/Giving-To-C-of-O/Programs.137.html" class='menuLink' target='_top'>Programs</a>
+<a href="/External-Link/Giving-To-C-of-O/Planned-Giving.476.html" class='menuLink' target='_top'>Planned Giving</a>
+<a href="/External-Link/Giving-To-C-of-O/Give-Online.141.html" class='menuLink' target='_top'>Give Online</a>
+<a href="/External-Link/Giving-To-C-of-O/Gift-Catalog.576.html" class='menuLink' target='_top'>Gift Catalog</a>
+<a href="/App/Giving-To-C-of-O/Request-Info.326.html" class='menuLink' target='_top'>Request Info</a>
+
+            </div>
+            <div id="legalDiv">
+                <img src="/images/bottomSeal.png" alt="College of the Ozarks"  style='float:right;padding-right:20px;'/>
+                <br style='clear:both' /><br />
+                <div >
+                    <div style="font-size: 8pt;">&copy; 2012 College of the Ozarks <span style="vertical-align: super; font-size: 6pt;">&reg;</span></div>
+                    <div><a href="/Page/About-C-of-O/Terms-of-Use.33.html" target='_top'>Terms of Use</a></div>
+                     <div><a href="/content/sitemaps/sitemap.aspx" target='_top'>Site Index</a></div>
+                    <div><a href="/Page/About-C-of-O/Site-Design.32.html" target='_top'>Site Design</a></div>
+
+                    <div><a href="https://www.cofo.edu/Auth/login.aspx?targetURL=%2f">Admin Login</a></div>
+
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en-US" lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head">
+<!--**********************************************************************************-->
+<!-- DotNetNuke� - http://www.dotnetnuke.com                                          -->
+<!-- Copyright (c) 2002-2010                                                          -->
+<!-- by DotNetNuke Corporation                                                        -->
+<!--**********************************************************************************-->
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><meta content="text/javascript" http-equiv="Content-Script-Type" /><meta content="text/css" http-equiv="Content-Style-Type" /><meta id="MetaKeywords" name="KEYWORDS" content=",DotNetNuke,DNN" /><meta id="MetaCopyright" name="COPYRIGHT" content="Copyright 2010 by DotNetNuke Corporation" /><meta id="MetaGenerator" name="GENERATOR" content="DotNetNuke " /><meta id="MetaAuthor" name="AUTHOR" content="Lincoln Institute of Land Policy" /><meta name="RESOURCE-TYPE" content="DOCUMENT" /><meta name="DISTRIBUTION" content="GLOBAL" /><meta id="MetaRobots" name="ROBOTS" content="INDEX, FOLLOW" /><meta name="REVISIT-AFTER" content="1 DAYS" /><meta name="RATING" content="GENERAL" /><meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" /><link rel="apple-touch-icon" href="apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png" /><style id="StylePlaceholder" type="text/css"></style><link id="APortals__default_" rel="stylesheet" type="text/css" href="/Portals/_default/default.css" /><link id="APortals__default_Skins_lilp_" rel="stylesheet" type="text/css" href="/Portals/_default/Skins/lilp/skin.css" /><link id="APortals__default_Containers_lilp_" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/lilp/container.css" /><link id="APortals__default_Containers_lilp_lilp_css" rel="stylesheet" type="text/css" href="/Portals/_default/Containers/lilp/lilp.css" /><link id="APortals_0_" rel="stylesheet" type="text/css" href="/Portals/0/portal.css" /><script type="text/javascript" src="/Resources/Shared/Scripts/jquery/jquery.min.js" ></script>
+    
+    <!-- LILP js -->
+    <script type="text/javascript" language="javascript" src="/js/jquery-1.5.1.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery.cycle.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/lilp.js"></script>
+
+	<!-- Begin Google Analytics --> 
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-5036628-1']);
+	  _gaq.push(['_setLocalRemoteServerMode']);
+	  _gaq.push(['_setLocalGifPath']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+
+	<script type="text/javascript">
+		// mjw 9/2010 replace synchronous handling with asynchronous, but do it here so we don't have to change every link url
+		// ref: http://code.google.com/apis/analytics/docs/tracking/asyncMigrationExamples.html
+		var pageTracker = {
+			_trackPageview : function(filename) {
+				_gaq.push(['_trackPageview', filename]);
+			}
+		};
+	</script>
+	<!-- End Google Analytics -->    
+<link href="/Portals/_default/Skins/_default/WebControlSkin/Default/TabStrip.Default.css" rel="stylesheet" type="text/css" /><title>
+	Lincoln Institute of Land Policy > Home
+</title></head>
+<!--[if IE 7 ]><body id="Body" class="ie7"><![endif]--> 
+	<!--[if IE 8 ]><body id="Body" class="ie8"><![endif]--> 
+	<!--[if (gt IE 9)|!(IE)]><!--><body id="Body"><!--<![endif]-->
+    <form name="Form" method="post" action="/" id="Form" enctype="multipart/form-data">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="3MjU7uOqk3up/NF2qw/+JfzDkLYjEpC9aN0zjF2YiDuT2BYlb1eUVCnIaOLJCKeQ08a9AkdVc54rXhq5WF+OUra4zxL//xcuPau0IoDESGOFVmlun2j68RLIFAYZN7GNrweOH1L6UnwjIRDvtHkiLW0WhNWQIzfn8t4+ypksSDR2+Mqa6WkU6WtBi4Z4fUzCaROAffwqWMPA2rphQ8LHSN+7XvFydgPhmDra3s8ygTpZyYZa3Sh4B2qrh9ANRHdYA65wotOqP9jl9tl0Y6FtM4/VJWvawYLge9XNluAa/1hSykr96EKCTV531quK4oHxWNJyqeQMeGrugu6aNFy+tjHx++N2zA6TDSl+ks8ZU0lPDwgwt/zGWuVhilFLUao/eBtLTID0d+ZEfuDP0dljdUKasAZTjZxIo45EhkjOfafp3NemJwhFYHLpwX80ccYnHJ5Uci3tUX0zHIDYJrEtW6322V7p6+/yxGhtF47GY41NpPZpvM3b06hJZMX2fF6vZPihuctM1H/8jtsEcQDBmQjWsZ4PiMupEwk0dnyTVYvO6n/NPqNsaH4IXIolZKtnCQsharnIoHNcHd6m9ft5E4TCNKZyZ92flAwoMTvz624zHjvjMhX0KV6yLjkDrfJs0/peRG7qAPj85Cxho2/BXxf+0i8SH+ehZWWlVKq7S1juRLP8QDcbc/cIcZ9xzAoOdXLgy6th53RVaQ1OHlSf4NNDtFw+qRiaJZJOcmBzqe3xvU97BdLG6dEKooleZmeJfbUbKdp/sknFk/rRxh0d90fqa3qiC+bIlkkWBrXkmOT8d+cKv15Aczugxs2WwP6Ny5T9rVLkeBcZX8zELecm0sG+azcoiBzcWvXupvaIn7WRQpYz7vqRYnQCHj+O2dcF8Ow1r/ouf/wvyUq1xymPfwzy0y/fPJdilWJVBrJ2yKKQgrGvaVjGrLmbLJeyyy+/k5Ry/yAjeGv2dkKn27+kG+UYlqQ5QM+UuSydmeHFCOAuDF8DHj7RhC32FqxhkqKXjTDF+oltiXTVj7pdP4Q2fvwTazx6xR4sce91s9kgan+2SgYz3yJHTUP+wwnxTc77qoSh0/BvV1y1PvPeyvlS6WwSugTDvQ8+I1AQADmU1+R4iFlwMeqE3e2tDLjpMb/hfcncI5n9+RIPxvkWpvtemL7md5h1fMKr0rqkdAd59l5N4hxayJN1GFR9EjEH+H1lPClyCIh3J2xGGA2tudztL+xSTGLV4Phf4l3LGZTzbrHly+YrHRpJN/cj7FblOgIrrcbXlmf4A7qL6zTnD9auJKx6pIx3HIHz/o+2brF/Awj9awI8d0BH6YS4sl5d+kOwivH9x4PVl+8iiEqc6AUZU5k5zHK03/yy3vBKMIYRVOq5+DqPYMvDtG9UqsdsgANTSC0bbBrPx0fuKBhtXrqwG2dx8WtGw1l/pi54XWFg4h1rlnyXnFW/xIpQcKqjJoUxBCerekcO99mRLmM0BXZFyxb+DHzHRrkXhUaedgQqX15r73EhU4QE3lAQ/V+6gURIAqrcpJSs9SgeDeS0Tw8vYgU3Qaqp8HCDppWaYXmxF6HaooPvFQwOpuy0HYmDq/T1gmDOR4j9vVQj3xjQiDryltzkJaYd5v+BGNw9XBK/dhgvpjGLi8vwF0WqoTJS0PmBjD6r92oDlClI3BlXdW1HQuJrltXABhX42Z93EXBp+h8zgkcM0TsBFlNJ54yqOtkiCmI0yBWg+VJmIZoRgJtBYO1SEtoANye1rsrv1uX2EsRqUUrAWgp42c36nH/QIfFQ9QDmxDer3oCZfNlZLpJQSUO7yBozUckeEtqCeADvgNfIdq83rayUcE/BJVA79F1OrODs4eega0j3lI9cU5mRpQ8faQD6WGMuArXgT2Da39zdb4kWDGPadD9SGSxoznh74qC8jyD7ZsGXgFkZALFlmmbRhI6OyfbAAc5rWrUc+QpdoxDizZNknWh4VjyVRVZvcl3po5ugyadyqe5ifzHNkia3aQa+w2SWgMLZ/xjuoax69U+usbrQRS4u3VVwtTNUnI414dWuMZj2NQC6/MU+HI/VvluZEjfazWj6swNqR19Y/zqliqKW3UnfmgTVqaPvrxwlibmZeEa7d09YbdEPKnEuRiydYxCtRLHwKK7PMbxoYlsfs64QWOL9awfcpRarU/W+A220HgQ6Oh7AgmZqM0TAlTBr167lXzMnqTXcQyr1JtVrHIDqvNxf/BMeMSDotymxZu+iPy07GxbminnaKXXyZ3L5BxAaYTJLB6AsA39NNEl7WlWjl3uT+pkBPru0kjuHqeRy7Kk8+n2COdpB73r9/8V5zVeE1pqKb4HwyalIAfARhxVn70xFe+p/Nt+q0X2jpHuU30gqaL4PP7qqM6lwWpXeMrFV2SMLU5P66obu2ydR0aP1HMs78tdoqJVRCnenQCHrg5o58Op0nkNphB3Ssi8IZV4AHcEx70KSSazhTaJmP7KoJA4vMq/gAlphk/1t/9AmJoJkNptih2FFqbGocBs3J9Bd/835EXYOxLD9qIOWIT+vl6kpNJfoelnZ3yGFeuibRxVVFm/w1iV+QO7oyMTr2MtjmvFyPD1VwqPIHyqKxhfAWxM7+KIRRiKDTd4vVQMqG8T0d1hK5ueZIxP4T0EcEnUCE/C3O97dMu59QEOfbP8fO6ETvMfmzUwf/MLdbMOluGdxTLg1Q0b2/aVFHWEL49d9svOa3HKgFskAtLWZUCVmLJgWihqaQMyfU2sLlV9ZkOipVh0vuEMzxwWPTwO40fYs9hkCuVRMsd09h1E39gjPALIScs/2BcL0DF5uvn6r0ovWRWsFyMiHF4Gxxkt2fgxM99ksuNTXozmQ5mIsdIb+TcRqhYw96Kv1KwaFCLBE0d+Lc+nXZ702qhfIhkuJhibvdBYjcuEOaQ8k/2Jn8iu7mwZjXjWltB7aMSTORzopg2e6qXd3TmgKzSbRb3/Iz9zJeOxIDYNhXrCxRXp3cZauLDs79MPeRsUgjyNDPDQf/AtLODGbfyZ+cTIghEoAU7yIdgJ9eSAJo4NUmh1vnjELiph58Ts7rQInCdhJTx2qwg3Z90j0YA8xkj9DvJ60iUyi/juCK6papiuYzywYKZMpId9NBuX3Rf5BoU7AK96lxnDdMAxNTFjxYySLU7+xCY3on0aUBbB+z0su1/E77kBIe957B/Fud/r+XpRrARFLLAIwigASn3TEh4m+SIwGhQn0H9Kg0WnpMWc3dBKGm9x8pbl5jmr4CDNNplIMHubRFlrr1tU73HPFML82HD/uhSPZxUBtNbuvvoEnLc1jodn3sZYaSVOg5hsj5CQ2pkqUGBpjA9glqbNk7CTv/BKpNli4unxSJfJ0axKUMS+JtIRemXNPlzKN19qxI4V6Pvc0ul3Dym9SQ+LycL7ZiziTIHiJQ16R/AoMgQw8coqpbU81mS0WcCvDeratxG22HMMRnfm1M39DnXTCtIMhJviO/os4YYn/BKFToDBE2GPykACud5i2hCJYS/hOdGKSfgnGAug031SErStEsA3vdbpGTDobfAYErmJmvnozeWUVi+SqXfU1jbQltGdmtw3bw++crMystvot4WgvejrZv+7wN285Xq9kLBlTDKJRcX6PkWpkyujb7NnOd13Ul2FasGevfFuld633bMj+Vp/sASJmDCi8ANVNhgdaFDdzcJK4mgqxuyUQ2u8kTPpDeaF/qtLcH3ezy7Wx1ub7UgIPJcnovx7bkrym4S5YW03lKf6t41o/v6ZvTej2d67bKX/ZToDoLJB6Oc3fFK5rIk+PRqf/XBaES7XTlf7gBSJGyhQ81WIrbzR+cLAlZ4hpoxgbWZvfZOVIv1Dcr6kVMm551jcuozQdriDmrJm2t0YofCo56yggeuyCZwGqmkD25mTvi/Uod4fHfK2rw61SHnH2m/gdnYZRtNj4mdaq5FMFsvafingR8o77GKyAxZn0DfQLPJEnYoCMP4VErMWgkOBOFOK9X2qWBBgdgGYQcvRjQw7fZ7FXz04kckjwAkSr6Rr5AsBcdlmfb10rpQch5EQniDzKuwub8/5KWxx8zFosOqAse0GBdw/j7BWYht46kPNqLRQ3H1zWxfswUceT2WhNX0Ob8p0Cxuwfh8UeJqC6hvqMUFFv62vUKQ9G3mR96sNjEpS/HQk31qeoPURhHPbwrPQyE2moWnAKII/POubJ1etg/WTHfZ7nrMITS4Nm8oVZJ8mqPSCkpfOlc9wRswA73EOw5ASo0nNhN0YOJMu+5ptwUGyLhaGGLyUAU4QOJKvJk9tXUbSGbTyrCLMnUvFWpG5CUkt+zo+dmbr6WdHxvSH6FZQZhzoIn2d4ArrpTPfQH/aBYpWhx31R8DG66ngDES0OqYhnw7zgt/kYCPSivYe2cdtqHYFbESTYwJUzJfCflWWnSu3A0ZyId5273EC84Pv/BwEdTdKZU468AvqNKH/Z9n5j6L0y35l+W/Qsd424cevRaCDUZ7nQVfEExjdundWyx42We7i+TeisaVv89E1RBVrWPUZN5/K/13vR3DwWP6MIOvKBHvAbdlHcAjngIRaZB8HKrPQFjxK6/EEfjIlBxOTfMtpgY3YHMme0jZbxsYN8OGH6ffGrw/x3gRqOeAZlV+Vb3vVV2m5JskEG7XgLaQlf3bDLjilHwuH3o2hxmTAJGm47A+M7krQ0ZTqaDBibGi5b2+VdkZ1B59xXNFHjPPyMnEEZKH3EZr29Te8NnZMLDKcGJuRocvM8/Uqta+2KjfHq8X8gvT3QRMJFL9g+96ebU9u2O1RVJtn8OaFaT81kSq04D2njd3SQi9Pv8gDfNOYqlqIKbl9OntBXgF1OjnMFbdt7zYsiTSlyPBFsCOGAypzk7lLi0cuNBed5YSBRPiiCxCWz+wtqLb0JCt4EdEouumoDPZLB9+sX4h+PsWTIs1UTDOswXaQUBONmiRulVinYfkgHt+N6++FYtnzxY2y2lMmn9eZtg1mM40JfQOzvWg3YfsL6GvAnGrvkAhHZ2154Eyu9K0gVXz24kUu+RPSj4rGy4Lq6Xqpj21Tj1D1ZaKoOC8V0zd/1SkKYu2g+6NcZ1JiprXSVAuVTC7RbmTxH9CTeSq2y0mCDmlAmnkFVgw97K/fhQXhkeXjMtsVjwB5phlQu6njS5s2xEIafQcabWZcBJtWyQsukQxEiQKQSFEKYhHu0/FkVsyU9T8GvVUz777ifVK7y1zdlpunCHsmoSJRmwGKe9SPgO6C9vddcYl485rPuwCN4LZwDZKIqZlUvX81ZAl2GGmG5Og9lEXlkqagNHaeWUDotL1IYTFD/YPce9wVQaV9M/LzXb/ZgFchrwMVnKjIjJuvbZqGCumKhyBWPeXZR2zW3iUAsRJgcoThucrc5e9QLW4YK8iLajEjZTHzcAoi7CgOP6kEeknyTshZpJt1abwvx59FmgCPTvJF6qAvL6zyYeVHTd4BUrcivz2nYg5tMPIi8skWdXwd4j4iC0nA9xYY1YXnfBEoKY2vaAVa3zub6u1bX5OOWE/Uddy/E3FyxsWZvt1n1fUOLlGCh5z33fBzgB1xqh32NGSiyVTLOoIxrpwUsEKvom6z9mzNKOr8YsUf3g7yRR8mwkH827FH5AbCGMxcDBoO1TOkH3FCroS8wctSe1E69vLH3jfW7/1Y+xysj8kSs0H7FXz1ARnpogRusPdyUvXdFkUeVh0k/lGmKhvmxKBDBopmbR995MJxALg9zyHUL7wzhdzk9bI9tE65htymi+g9tzNFyIuhaslIt7CX9139ZyBoACO/lRMrFFhIYwnyz+DeiYxBoEHgGGM7XMzXUIL4nWEDWR2wgTCg5ivepn8PUewK+n28B8BHYwo53BV9uP3A+BLl46x26rAdD8Rb00gj+SAyfwkYZAq2mqRJMrwKNJymTsznWWJoLEudPnnw8iiUGxLZq1puc+OMsR0Gr1tmDwo29f4yOopxdROlGrMOIrlinauPCk1Uc5kIoL/pMe8E8Z2JPbR+e8GsWFnpHjXnl31UHMXdfCDo0gtI0rm6qJznsZNqqPw2+e+1xt/dJLjybnVA0yiFWs+2PO3U9q3Hl1SMAU/HmpXJ9oaDfKnjrobxANC2vPcjVpUHnXBRr3CJYIPjspP9qwC9UfXCyl9ztqNX1K5/t04qRGU/n2j32gYpB0QzCJGIBGGrH/J4cCZ1sPy9vSpVDFjEkgIW484Y3AnpQiUzhMrbYCO+yp+3FqaDvJvbTsWJAW5Ph3vbtUYhYXkJRZYATdu1Mn2OvwxjNXL4wP6d9mVZ1HNSLQhJScM0/M/7wCGU9dHlfvN3u107DmojqKM4HWK+FdYAMP8qngp1Xa2H5iicdSai2LcdD+X9OrdGfzGsPH1f+sJP6aTAkBdweVGfboEbiVFp1shwkIC5trqkOjyy4jgIijc+LldRtIV1IyOUSgD0PnMi+NXheksAiy4CW9BDUWoeddwA47FAhvePaPEbdgg14JG8xkYLPhjsZQmun2/jxMimUZnv3jvqfd8qaevWOfqyPE6sH0B4tAV/wtoDYmZO3UFs9AHjIP5WyvIwK/7i0LYvD5vc5Cg4Cvw8NYRd0THyKWJ+c40OQ1gKmojfjyIzM+bidM+x8Gs57c3LDWyRisQaF+slkRtGpGXx3zrqccqsZw+e97ZKcC63baIepuRhnDwQO2GO472x9LRfCCWRYsE7qpIPFesfJwnRI4/kDqEzWfE4pfOXVN66igo5F3i3jJd6IqoUujcBZlW/O7uXdzBg1kLSEWAt+56zjmN3TnO/HjqkLuM9mkRfxo6yX4EeXeDGbDMabl8PwCLXFC7JiK9GLMuVTlozGnj1qRuPlSRCyrg6cTbuSwjoMGQRh30Otps90yz97tP5YVW/tXrMHVt5U7XyHuVZxnOxFcCPF+ZGeLXFBpBkNdvR7yKrGl+dJuB87cnc02CsFaKzKMKvAzHMRQYG8+WrIP6xMJ+kGIafAkuNqSqddbLBMjV+915+AcxaqV4hY96VadcVbuqw8cCLLTDupPJKItZ1+Ium8f8Nu5IqmE9bANwRhSiFC1CAgjUZiC7kPrGacalEyqRUyA3jRJxZUZXij1uNPeZWHhtRsSJ+kAbG/z7imTB/wDtVRkNlsHmg+V5gse9mur8aY7cpfWxYag3z9lOyhOVR4XkRZtaZTVDsVaK8yoQotJWq4UH+UwirFkPfyKkyz7D6tB50Ia5SAhXNi9S7D9jsRmUrEMhi7yzj8hCnwzwAY2lu81G8QM2lrutmC8J5FN82U5+r7h1kJQidHoF7FLBL7o5lorRYPZEZWwdaWI1TAbvC1AiFcLLF4lWK/cma/XkDteCeU3NWXnSNgPx5rZPI1pq9kxGT3y3xSDkfV7iM+As1T6kogiXbWx65Qu950gEQTHgtX8AkjRjcqjZmSzOSDxMMr8NtpJGoMFBicDhDWtrcFhPIt8HDclj9ahO5pE8Erb4i4AxnfBceLgcOMQ6WT4dhpVsozZn5yWit6nr8OcBgU5CjdxDIzVcUQaBfHr8rWIUgQBqKPV9WLgD9sxrtgoxqROOr+NPxml+LPLiXV7vbcTz+CUnCS6dL6UB5mEJDy2trVmD3IXUoBKcANSNr6igqcryWffhKh3UjpRTvixZqrEqAAN/F/yRe5U6YB7IGBIm5EsbvUTQHRuWl2W7Easy/lQSsUtfOXsiBMFMOpy+De8ixHuLzo/sOD7PxwsyR6tUHOON9IB0iDkLRCwrECqQmsabuRWVhhmD9SbZ3Wpv5N70qJkluDCmd5icApUj4D83Wu9RqUogBC6ESHFSMJ9oKTK9Zxo76GCj9n0VZ23Xg/LBSRbcVNsXLmcX/NjmLHzU8rOdjpIUMJFqnn0Z8mUH//xr5046C0VgHgZfQsREjYbvtveiiveVZ3zceL1nqOF3DQGn66BTiVTFoCuGLQurHalJ1hn/1KMb7BMNwn74sR8G/lCa2BAHO6dWPygwE3KcDNQ+d61Ftvv1KZGKvrfLf/eRB7Ui18meJg2eSFssnldpMwLxJPt+nEeV7ArRd+lRK5nCU+ou8/HJcEiYAV5kXLQSrr4TjlheAhR5I9q8pdt2b2JL6lLI7hb/vFCJd0x+d6QB8V7NZS3IoVO1We/YTV/TYPFS1R+W4g19Js380mVwQgheUgSaHQErLbxuraO4FyasLx/AzCVFYVlFmpkUFXh6XW1DC05hBa8/sJUO3RSzbnsJW3iWmF6gE0a8djGvPuf50uvvVVLEwuPTYfuDDh/y76TA9dRHqFACFFQWBk3B9y1elCssmEWUXp8J5z3xnuEu6SZ2PeKtCJoOhe2Dn6lILjvLKrPdJVLJoLQifsQjzwHtS3X0PzG1CY75tlPIaIYamQRrDEGfr9bhXa9Ig3fdg3D68M483OCYt96kzWHeV6D0QHpqU+2LzGnAjgfOXLSy4ejhmquaYlxzLCBAEKJAyx6JKihBQGdAF6CwnUdMpSY6xgSJFSfXl8wE1Xveh+E1V8ZufevZyrsaSi8aBxpIuNiWYiK03uzVuWpKnfOf9xbyjORAMHx5uO41+JzZVaj9Rs03o5L/zYlTYWSqw5nkhaUKfGZu393g/J+qMFwV8vFySyn4104C0SFQSn5uilU4gHH9zoQcuwSfkdDtN9YeEfNq/EaRCEe/6hXcxu1MyeL3hIYrVfnBhml9m/kzyi2qDF/VZLsRFUTVf5eBgEvx4BFUjpQtKyCxHSzJJpPJD5Kaw+v8rqtvhRCEgu4fDBzRy88TI63GyeTE9uibq8YukQaiFkQyYyBclQU/aQtjv7SnOHHH44FkCcqbqCama8JG7uV6ktdrIaTW/PayDL87hPBbQEmlbxHo9g+UzGbRpegFj/970I6F6hbYNkIKhuGDR+XhpDH+bFQju2hCPabi85eymfXklyEXlDtztytY+czrPrCGj23d421a9shSW4duXJeNv3LSE6Nh+4NqI1LqFwqhPumzaR+1NJaTcnRr/8LX6eV8jPUdo2VhcJX2J1tz2H+jZDx0dmvBPUfgeUbf7df8RmnZ1omRx5R1YtG9DYKTUYgg4r9IdGV8ghED6MusOXK8AivLbBlP/zWxFqua7E7S9urNyAn8DsMWBajfcMhjw/e68bg+aue3TjJXBI2WNGnsvP1fYb5pwyt9nUvi0fmZLmuyKj7NaT+PfuButkU9VCTSiKQi5vUeFbSmBxfEQ8tYUX2ngrVqFt9iFKGc8aprtZVJVIUNYq8+Jz/X9CNl3bfV5q/RGIm8dXQBXkO9JlodCDZZakHYCuDerDnw7cLkmzZuLTjThRGOuB9KQuXgT3LSXu0wh647/O027bysCmhWpKU2MT3xnXKnEY0TuUDsfqKUGq0FG50JB8T3ff0yYbhmbjXYk6DnUohvR+wQOJqx3KgK2tbS0McUkk9O1heE9RfTjqbG9EeHg+tSB+tgoe+WZt4fOSlSv91MbaaqpfM0OCwhoaP6nqsfGPDE0ZrrS1ZkX7eQccRFRn77oDBEfKGx9WQho/KCzAqce0nweIC9FiYa1Y1Y2jIXrBtjhFJiGcFS6gWn+uhZVyd6bp9sOctT82zBehHOmBCrMU6HPJ9GJEeCozz3KxRyNtJWiSN1xXh3Sy1E8w2D3V4Ctkv2qtaARXpx+FiUsuXwFQRIpZHFSmssftY2N3wZTkEwO3z3DuSOy8Lg42Ef+bbbcjVILjDdB8d3xUDfsWNQLr1N9Pj8OTJQ9hl8ihp+i4uMG0/dwOx4TFIpmyGlJPWbVTgQ3L9lxtJg2fLzAAkc0B/v6fYIB+3fV+nIK9oCutDgp312Cms1qA/YjJG+GgNekhBO/FUI/IMu4DZYax5Dxknwem+S6QlgSoeqgiJK0GcBvsNJdiSbd93FR6dXvN53f4vMG0vfh2631x8MrQnNuAsNYdFDGyDiC15W5QgYt9spUB15cV53ik2Hj6lL44wILkwi2ir8cc82uoi0hhAQCOsLs/L10VQUXCGoT/RJ0NRYe+oV13c5j6PqHqeb9akKl1awNafRDznCUtmRmkmkUUIP5nOnvM8RQPmIWzDr0A3HMDLbbsivNfJpd2N0Do4CVIaUo8M3zM4i4H2W1GnEiFgAS8FsPoYEs0ErWsmP6nn77ZF9f3/7/CaJJz5P+EeqpGN5/h9l+NXxD4DC0/eCT0K78qoTTH7nCPCSY5hRP43juNNRp+Wc+GiQ1VwGRGHH/3QyUEqjTo5OsFXQqbHPyOW2s3GYV6uX5pzTvM0z6/KqHP5j39NCd/3l2ZHWM6TgonWoB0UEyJReljLbprOVnrSEjoiF56vCTQyVRGkE0XObDKCJWzeEF5ZPP9F8GzdPH2Uz9aYZJOFOPMbtUilNYQHTt45W5OQVk/+ObzeEczjIyIH0/U0DHRsoj8C6ahbQPxqyKVWywMK1ZTmk8cZjs8YJlWQ/vp2eiF/Lv/EXVuTAYfEOXd35LnuOxkGRcuhXfku+zg8J4jRM/f9Bj39IZ0VaC72GgpbaqeiALxvfgrlpNEXabc9ZdI2NoFJrKh9MyN9pmHs99LlWS+Dd4Cq8f4XRMky8Il6FsGiAHb92bG5MH6PMSW0jwQBkZYeiST6xYw8ydZrTA8gtt003v8AsdKrmVXn29OtmEGotIK9hHHyd/e8kRxSP0ql9Ba41VCvYxZ++BDvFQxV/6v+QV2PcKDB8u38ajehehCl6Zo8pwkx8x5O493pvKrGlaTY+AZZWhxDL6AtOm2rd+fsrkbsoLbuI7ir2NhPQo5T9uZMVfzsLM68GNM4mWLid9YFPZ90YnAtcv/0U7SBfTx/z2F4Id0jAwwzAYtPyxV40XYiDhGQm8HFLe4eAfO3L3Kd5wfnkAUhcOQz/Y2H/ANy2hzL+VgFzIdgSPeKx+UIgVoK1SwKS68cxaAoDy1hDxk/XyQHihyrkJllxAsUBif4cTB4H6UnzVA7AqcnhUSoNxSfgGsyDbKCI0uDQ4UtpwtMjRKcf2iQgG0/AOs+3fm3v9byR8We54TH0dApy40DyeUWOz0FW0eLhNJ1xspRdW05iAbmQYvx4/hWW+TeR58Vaq5aDLyLjRGfGJxUELZpiuKFokUjicvOV31m0JcQ1SOJWPTduYfEdRwfJMc3tQSvsC2WyVsPbgYt4xyiMl/Cfm0hM+fpNtJWAl4WL6CKh+oEHtRcbN6v4vq3yMXPQjKfRBw9Qi30uXftlbjlbVnJnbH4ody7v5GgrWmH485LIdZ1zgqilFxn8ZYnFa6YedE4c2RKlmCkavrI9bNYhpczBjFuVJTBke77SjMxrNWU/R/CkXpHOncZt+5wD44aEpZf/4CBbmD794hmR4MowC56HiDFCxHw14rtC1dro7jjMAMMS0sHD49Uj3UaQ0/kJlpRIhf0dEZSOnZIl5lwEOAwZg719SFWvmfNlwyWsaKKbMMDsfpTQA7yn8FTeoA0gsmmM2v/Ttdnfbgi/DUNwwmZOB8Tdht7mcLu4v7bxOi8GaZEWWVlXdX2sVkcqOmjspJ3YUkTcxYR4ec0dcwnCdEnvDpdq84fY+EjDurQGNlY5RKqkqHYS21lHC0HgBl9R0SXD0QTNnDDeymqE5ac68I3Q6vyKxpEJNGhPZjToc57iVUhUL6kcwIymCRTOZAVlnWH31JebNZeadAM9Vu1B6k2HCZGnJrWt+lHvGoRhS1OZqILUx19+EYIM19P0QtztUcDOK9W25dC4O8C4OjMNZIVIZBHyDEgFmP/wdR9VnuvrQ6CBMVOLhVScCmfqAMwOMogecWQAZtwsH7x/zHsd4W0fNO7p9JybTOb4dug7/k0AjLe9QRxdRCM1AnR+8B0DoCTHvYyTJqLxtqsN5+Iwi3bxKwkxokFNE24Fe2oGT0dVK0c6sU5NNE52raCxCg9/LxG/WGyWnkOgQCLUXJjWo9oXmzOT/enwY71g/Iw5fLLGMi7hrPQX3C+pQMRxgbXpr0LqKcGjS2qfh9i2SRZoCnKWLE5s0oCRLiD568j14NMM8KZ05R7kRgAtZNFWx05d3l5hQdcVsWMTcWYFmjRh4u8zn59tOKqreZYZMff0mDrrNTOUgaoji0UjBAVtUxpgXMel8rbbieCq9GsiwEICkL6m8aOQmcm5vZx29YMTAixXVmvjFqpBFbRWB834+81GxgMKf4ZwFVivMGhPRs4l8GFmylmV04WyQDHljGjgd0nF3AShpjU9pjHpG04pIbzOUElQ7SDofM6tkuu4IFfJ1geKmlWtk6KJudskcLbN0DXZMc8a5506LBtKNsTmDcANLUTdXHVeI5qfJt+BsuObz72DsjbzLj3KzPhP/YmVX3D/h8qpTmipi/6f9Riawh29h17qOBvlt+W7JhgEnWr+gyarMQj10NTOigutZ/HYwWCfC3gzCaTipF2LR3MDuZAD31LComZa0lVhaslJefINefFKbZXkr87PagP8O85RQ6//jynygKPstcIDRjS2lJSy+YbkSq3EvhIcbqy9jge5+8fbM15/cMquqTq18zPaKBUdoFPmVDOdi8qCVw24wJZUx/N7Zti7lapDa4EBwqlNOj7AfCYZCyEzQtgl1ruwI02M/ehvx/0Qhn2DYhD74P0BoM3dHdXlGaQU2B1ec/+InUhDZ1/NmRfk0uYk4oNk5nMGGe8J4vH32PCxO+u10eRZkBPNbP6tkmCQVNgYX7+sRB+/PaNelFSMk3ZCueONN+daECJEEQzUuYdUnC2zSgaGVOhbB8veyZRDdzVNHeHnshAOKSWIPVp9TVlw8cyouTYdZ9giLScqFgWV4I5V+HRJrxM6F4dlZJC1LSp26Odcsd821xJHoJkWyHCcNU0+4Qi0PkJR1fC22Vn6dsPmQI1KKH1W+hWcHd5GMdvyiSwGhSQSC0fYcnf2N/iEd4zMG7Xi9bFR7g3w6ICA0rI54nrZR41PE08pF8l6fZlAZpZg4UmHvvuRINfwHw4zYs5pt/pchC03lunCVg2bpoheIL9y2xAYOkXugXfY5/+uf4EcACtox5a03iFkAzs3lO30FFVeWk3Q6Bn7VO5iE+8DqIl/VBydUAcDeB30R7vEu6VOSdMUxh0e6QyIKDB1xjWOEOTsMnyQxIJ2uzwoYvxIFEKkwM3ftrIQMVQxQdqBpMTi2U94U0weqRMi3sFvXEqjstWZqc/+Go7OBqx3nvpVLYa3ScZGzur0p1CFTAT/9QelfIH8WKhVbkyfkUZvKFSwlC5ZRrhgDETB4fL/lpNjfkurh7JDe5XAnfaIzs96iHS+Zgy/bQVrc/MS9635iMfLddWhwnrBsLY/rxii6ItB9c1g5VosON6Y5Qm2IiBYuRfxHL3QfXsA42dyjgc5A0CUvLnrZHls35lZubh7b+TpO/YuCs1T5NVDNmUAz6vaUIQOSjBCuHzyNOAbtQB06LXGqnxF3NikqG6dMxrH6ZyvP9y/97ePXtrxEEAv23g++kJ8QYwrffs0kT8UBnwceKbGd5SnV8EvZgvVDHLKTFG5FUYgC98yXDaM009JrJtM+dRDtZUoKS0n1fgZRVNlYoN1F0Bay5VgwBX93Th3XBy01j06XVI22if/d90lkae0R1HLfmy0kG842UiN2S7UlNg2SqijR3Dtxmuy5wn01JNFuVnHBMR9B2mVwWRC9631F+ZCCA2HAod/dU6jUrICnsVEVT/Tu3HsmKdfvt8XR3QoeXRRNSG1x+iJ5iwn6hQUGMKHTmGGZjEm0RP2pKGlsQDevn07l4vHaJlc7kb1SIJL4tgjEvt9xn5c8WzSBruqR1m9lQi1v5Q3MGkwfsS6EAVsCsp8D2PhyuArPZUtYrxdh7xLqeTgfI655CYaLODOI+/G2RToVppV7rufTPjKBO6AY5SsHGk/tHfIMAZ9zypoQ8AT03s6TByLuKL5sB1uHhAexug5YuqlR2BnZKiQa9C9wu7RSZfNTO7PlRXmocWzkLAPBBkg75Px3BmqFx6ik137KPYcw9ozDn6CoO2IwFf9Tdo9x+Z4FxNAHD8mrw+mj5WDW+8uHDrA9opdoTFkuvFQt6qtAKG82Zl5MZ2XxAuGk3UQYPU7OhPoe2EVcqMm/7N4LNPuLDMm5GOny97rJ9VssZBqX0H22f99achTPs1thF22zn+zgbZV2LE9ekdE2bw7vYBxBqKv/xEDVRxdxIojCL2rpLwX0zXIMlX5lZ6vaI" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['Form'];
+if (!theForm) {
+    theForm = document.Form;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=wkO2j41U6FAytD-XMHGgqQHojjEIK3fXGJOq3hlusF_wtTUVI6KfwpLhWNRJa5dliFcYQiQMWeRaVpjp0&amp;t=634605330834856163" type="text/javascript"></script>
+
+
+<script src="/js/dnncore.js" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=cddJuPWAvZ31VFpS-YVwokrl1AOjefPxgT_eTNTid0giOlBBTIJsnKaGz6t7W2hPowAkWs-60OP1L6ubiJf7Mn294HVF0uHs-jnKSU9KUnMIvaAWnUmgQXBmQZyGdWf_aiXoBZyODCV8FJ3E2WGAHRp5eH4LKglgZhFkFA2&amp;t=ffffffff92b8dcf8" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=KVR1kmovWQNpmxJKCFhINWi4XPJgmEVzMjGM6TVJK9_qlt9bTD2XUO_OEOZZNguAAJDFM29eHZuEgJJ7qisxSrtIPxKf21R75Cq7eAsTz0k8WcBC_af3CCPnoWzF1oXySMBPixCTiZXpIybLrfgwlQLNkRDr1kmUqqlBz-e-m7y1DA260&amp;t=ffffffff92b8dcf8" type="text/javascript"></script>
+<script src="/js/dnn.js" type="text/javascript"></script>
+<script src="/js/dnn.xml.js" type="text/javascript"></script>
+<script src="/js/dnn.xmlhttp.js" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ScriptManager', document.getElementById('Form'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+        
+        
+<div id="container" class="home">
+     
+<div id="header">
+    <ul id="tool-nav">
+        <li><a href="/news-events/at-lincoln-house-blog">At Lincoln House Blog</a></li>
+        <li><a href="/news-events/pressroom-information-center">Pressroom / Information Center</a></li>
+        <li><a href="/news-events/calendar">Calendar</a></li>
+        <li><a href="/login/createprofile.asp">Register &gt;</a></li>
+        <li>
+        <a href="/login/login.asp" id="dnn_header_cmsLoginLink">Login</a>
+        </li>
+    </ul>
+    <a href="/" id="logo">
+        <img src="/images/lilp/logo.gif" alt="Lincoln Institute of Land Policy" width="237"
+            height="32" /></a>
+    <div id="header-tools">
+        <ul>
+            <li class="quicklinks"><a href="">Quick Links</a>
+                <div class="sub-menu">
+                    <div class="frame">
+                        <ul>
+                            <li><a href="/news-events/at-lincoln-house-blog">At Lincoln House Blog</a></li>
+                            <li><a href="/news-events/sourcebook">Find an Expert </a></li>
+                            <li><a href="/pubs/PubDetail.aspx?pubid=1948">Latest Policy Focus Report</a></li>
+                            <li><a href="/education/online-education/">Online Education</a></li>
+                            <li><a href="/news-events/lectures-videos">Lectures &amp; Videos</a></li>
+                            <li><a href="/resources/">Resources &amp; Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                    </div>
+                </div>
+            </li>
+            <li class="departments"><a href="">Departments &amp; Programs</a>
+                <div class="sub-menu">
+                    <div class="frame">
+                        <ul>
+                            <li><a href="/aboutlincoln/planning_urban.asp">Planning and Urban Form</a></li>
+                            <li><a href="/aboutlincoln/valuation_taxation.asp">Valuation and Taxation</a></li>
+                            <li><a href="/aboutlincoln/international_studies.asp">International Studies</a></li>
+                            <li><a href="/aboutlincoln/peoples-republic-china.asp">China Program</a></li>
+                            <li><a href="/aboutlincoln/latin-america-caribbean.asp">Latin America Program</a></li>
+                        </ul>
+                    </div>
+                    <div class="bottom">
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <p class="search">
+            <label for="search">
+                <input name="dnn$header$search" type="text" id="dnn_header_search" maxlength="60" /></label>
+            <input type="button" id="search-submit" onclick="document.getElementById('Form').submit();" />
+            </p>
+        <p id="toggle">
+            <a href="/aboutlincoln/latin-america-caribbean.asp">Espa&ntilde;ol</a> | <a href="/aboutlincoln/peoples-republic-china.asp">中文</a></p>
+    </div>
+    <!-- /header-tools -->
+</div>
+<!-- /header -->
+<ul id="nav">
+    
+            <li id="about" class="">
+                <a href="/aboutlincoln">
+                    About</a>
+                
+            </li>
+        
+            <li id="news" class="">
+                <a href="http://www.lincolninst.edu/news-events">
+                    News & Events</a>
+                
+            </li>
+        
+            <li id="education" class="">
+                <a href="/education">
+                    Education & Research</a>
+                
+            </li>
+        
+            <li id="publications" class="">
+                <a href="/pubs">
+                    Publications & Multimedia</a>
+                
+            </li>
+        
+            <li id="resources" class="">
+                <a href="/resources">
+                    Resources & Tools</a>
+                
+            </li>
+        
+</ul>
+
+    <div id="dnn_TitlePane">
+    <div class="DnnModule DnnModule-LILPFeaturedHeadline DnnModule-541"><a name="541"></a><div id="dnn_ctr541_ContentPane">
+<!-- Start_Module_541 --><div id="dnn_ctr541_ModuleContent" class="DNNModuleContent ModLILPFeaturedHeadlineC">
+	
+<div id="main">
+    
+
+<div style="background-color: #a09592;" id="one" class="slide">
+        <div class="photo">
+            <img height="316" width="640" alt="Adapting to Climate Change" src="/images/lilp/featured_headline/hero-resilient-coastal-city-regions-sydney.jpg">
+            <div class="photo-content">
+                <ul class="slide-nav">
+                    <li class="one"><a class="on" href="">1</a></li>
+                    <li class="two"><a class="" href="">2</a></li>
+                    <li class="three"><a class="" href="">3</a></li>
+                    <li class="four"><a class="" href="">4</a></li>
+                </ul>
+                <h3>Adapting to Climate Change
+                    </h3>
+                <p>
+                    Adaptation strategies, from restoring wetlands to development bans and “strategic retreat,” are underway in the U.S. and Australia<a href="/pubs/1994_Resilient-Coastal-City-Regions">More &gt;&gt;</a></p>
+            </div>
+        </div>
+        <div class="content" style="background-color:">
+            <p>
+                The Lincoln Institute of Land Policy is a leading resource for key issues concerning the use, regulation, and taxation of land. Providing high quality education and research, the Institute strives to improve public dialogue and decisions about land policy.<a href="/aboutlincoln">About &gt;&gt;</a></p>
+        </div>
+    </div>
+
+<div style="background-color: #ce3922;" id="two" class="slide off">
+        <div class="photo">
+            <img height="316" width="640" alt="Answers on the Property Tax" src="/images/lilp/featured_headline/sfpt-fire-station.jpg">
+            <div class="photo-content">
+                <ul class="slide-nav">
+                    <li class="one"><a class="" href="">1</a></li>
+                    <li class="two"><a class="on" href="">2</a></li>
+                    <li class="three"><a class="" href="">3</a></li>
+                    <li class="four"><a class="" href="">4</a></li>
+                </ul>
+                <h3>Answers on the Property Tax
+                    </h3>
+                <p>
+                    Significant Features of the Property Tax is an extensive database with information on the property tax –  including tax relief, tax caps, and abatements<a href="/subcenters/significant-features-property-tax/">More &gt;&gt;</a></p>
+            </div>
+        </div>
+        <div class="content" style="background-color:">
+            <p>
+                The Lincoln Institute of Land Policy is a leading resource for key issues concerning the use, regulation, and taxation of land. Providing high quality education and research, the Institute strives to improve public dialogue and decisions about land policy.<a href="/aboutlincoln">About &gt;&gt;</a></p>
+        </div>
+    </div>
+
+<div style="background-color: #00477f;" id="three" class="slide off">
+        <div class="photo">
+            <img height="316" width="640" alt="Scenario Planning Tools" src="/images/lilp/featured_headline/Opening_Access_hero2.jpg">
+            <div class="photo-content">
+                <ul class="slide-nav">
+                    <li class="one"><a class="" href="">1</a></li>
+                    <li class="two"><a class="" href="">2</a></li>
+                    <li class="three"><a class="on" href="">3</a></li>
+                    <li class="four"><a class="" href="">4</a></li>
+                </ul>
+                <h3>Scenario Planning Tools
+                    </h3>
+                <p>
+                    A new report and online initiative seeks to open access to planning software for better citizen participation in planning<a href="/pubs/2027_Opening-Access-to-Scenario-Planning-Tools">More &gt;&gt;</a></p>
+            </div>
+        </div>
+        <div class="content" style="background-color:">
+            <p>
+                The Lincoln Institute of Land Policy is a leading resource for key issues concerning the use, regulation, and taxation of land. Providing high quality education and research, the Institute strives to improve public dialogue and decisions about land policy.<a href="/aboutlincoln">About &gt;&gt;</a></p>
+        </div>
+    </div>
+
+<div style="background-color: #185426;" id="four" class="slide off">
+        <div class="photo">
+            <img height="316" width="640" alt="A Planet of Cities" src="/images/lilp/featured_headline/map-nine-world-regions-google.jpg">
+            <div class="photo-content">
+                <ul class="slide-nav">
+                    <li class="one"><a class="" href="">1</a></li>
+                    <li class="two"><a class="" href="">2</a></li>
+                    <li class="three"><a class="" href="">3</a></li>
+                    <li class="four"><a class="on" href="">4</a></li>
+                </ul>
+                <h3>A Planet of Cities
+                    </h3>
+                <p>
+                    A report and accompanying subcenter confronts the challenge of planning future megacities in the developing world<a href="/subcenters/atlas-urban-expansion/">More &gt;&gt;</a></p>
+            </div>
+        </div>
+        <div class="content" style="background-color:">
+            <p>
+                The Lincoln Institute of Land Policy is a leading resource for key issues concerning the use, regulation, and taxation of land. Providing high quality education and research, the Institute strives to improve public dialogue and decisions about land policy.<a href="/aboutlincoln">About &gt;&gt;</a></p>
+        </div>
+    </div>
+   
+   
+</div>
+
+</div><!-- End_Module_541 --></div>
+
+
+
+
+</div></div>
+    <div id="news-pubs">
+        <div id="dnn_NewsCarousel"><div class="DnnModule DnnModule-LILPNewsCarousel DnnModule-389"><a name="389"></a><div id="dnn_ctr389_ContentPane">
+<!-- Start_Module_389 --><div id="dnn_ctr389_ModuleContent" class="DNNModuleContent ModLILPNewsCarouselC">
+	
+<div id="scroller">
+    <h4>
+        News &amp; Recent Publications</h4>
+    <a id="scroll-left" href="">Scroll Left</a>
+    <div class="items" style="position: relative; overflow: hidden;">
+        
+                
+                        <div class="group" style="position: absolute; top: 0px; left: 0px; display: none;
+                            z-index: 4; opacity: 1;">
+                    
+                        <div class="item book">
+                            <div class="cover">
+                                <p>
+                                    Book</p>
+                                <a href='http://www.lincolninst.edu/pubs/1893_Regional-Planning-in-America'>
+								<img height="70" width="50" alt='Regional Planning in America'
+                                    src="/Portals/0//RPA_Cover_Web_Carousel.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1893_Regional-Planning-in-America'>
+                                    Regional Planning in America</a></h3>
+                            <p>
+                                The regional planning tradition, from Patrick Geddes and Ian McHargh to today&rsquo;s megaregions: also available as an eBook
+                                </p>
+                        </div>
+                    
+                        <div class="item report middle">
+                            <div class="cover">
+                                <p>
+                                    Report</p>
+                                <a href='http://www.lincolninst.edu/pubs/1948_High-Speed-Rail'>
+								<img height="70" width="50" alt='Toward high-speed rail'
+                                    src="/Portals/0//book-high-speed-rail_cover.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1948_High-Speed-Rail'>
+                                    Toward high-speed rail</a></h3>
+                            <p>
+                                Report says focus on California and Northeast to start, build public private partnerships
+                                </p>
+                        </div>
+                    
+                        <div class="item book">
+                            <div class="cover">
+                                <p>
+                                    Book</p>
+                                <a href='http://www.lincolninst.edu/pubs/1993_A-Tale-of-Two-Taxes'>
+								<img height="70" width="50" alt='Getting the property tax right'
+                                    src="/Portals/0//book-property-tax-reform-ontario_correct size.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1993_A-Tale-of-Two-Taxes'>
+                                    Getting the property tax right</a></h3>
+                            <p>
+                                A Tale of Two Taxes: Property Tax Reform in Ontario, is a compelling case study
+                                </p>
+                        </div>
+                    
+                        </div>
+                    
+            
+                
+                        <div class="group" style="position: absolute; top: 0px; left: 0px; display: none;
+                            z-index: 4; opacity: 1;">
+                    
+                        <div class="item book">
+                            <div class="cover">
+                                <p>
+                                    Book</p>
+                                <a href='http://www.lincolninst.edu/pubs/1974_Property-in-Land-and-Other-Resources'>
+								<img height="70" width="50" alt='Managing resources'
+                                    src="/Portals/0//book-property-land-other-resources.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1974_Property-in-Land-and-Other-Resources'>
+                                    Managing resources</a></h3>
+                            <p>
+                                From Iceland fisheries to cap-and-trade in Property in Land and Other Resources, co-edited by Nobel Laureate Elinor Ostrom
+                                </p>
+                        </div>
+                    
+                        <div class="item book middle">
+                            <div class="cover">
+                                <p>
+                                    Book</p>
+                                <a href='http://www.lincolninst.edu/pubs/1852_China-s-Local-Public-Finance-in-Transition'>
+								<img height="70" width="50" alt='Changes in China'
+                                    src="/Portals/0//book-china-public-finance.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1852_China-s-Local-Public-Finance-in-Transition'>
+                                    Changes in China</a></h3>
+                            <p>
+                                A look at rapidly changing public finance in China, and the role of local government as urbanization intensifies
+                                </p>
+                        </div>
+                    
+                        <div class="item data">
+                            <div class="cover">
+                                <p>
+                                    Data</p>
+                                <a href='http://www.lincolninst.edu/subcenters/land-values/'>
+								<img height="70" width="50" alt='The value of land'
+                                    src="/Portals/0//1_land-values.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/subcenters/land-values/'>
+                                    The value of land</a></h3>
+                            <p>
+                                Land and Property Values in the US is an indispensible database for housing research
+                                </p>
+                        </div>
+                    
+                        </div>
+                    
+            
+                
+                        <div class="group" style="position: absolute; top: 0px; left: 0px; display: none;
+                            z-index: 4; opacity: 1;">
+                    
+                        <div class="item film">
+                            <div class="cover">
+                                <p>
+                                    Film</p>
+                                <a href='http://www.lincolninst.edu/pubs/1620_Portland--Quest-for-the-Livable-City'>
+								<img height="70" width="50" alt='Considering Portland'
+                                    src="/Portals/0//film-portland.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1620_Portland--Quest-for-the-Livable-City'>
+                                    Considering Portland</a></h3>
+                            <p>
+                                Portland: Quest for the Livable City is one of three documentary films on cities in the U.S., along with Phoenix and Cleveland
+                                </p>
+                        </div>
+                    
+                        <div class="item video middle">
+                            <div class="cover">
+                                <p>
+                                    Video</p>
+                                <a href='http://www.lincolninst.edu/pubs/Video.aspx?videoid=4a9d0f054585405e9b70a4fe99f1dd93&id=0'>
+								<img height="70" width="50" alt='Explaining PILOTs'
+                                    src="/Portals/0//pfr-pilots-kenyon-100x140.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/Video.aspx?videoid=4a9d0f054585405e9b70a4fe99f1dd93&id=0'>
+                                    Explaining PILOTs</a></h3>
+                            <p>
+                                Visiting fellow Daphne Kenyon on payments in lieu of taxes by nonprofits, based on the recently published Policy Focus Report
+                                </p>
+                        </div>
+                    
+                        <div class="item report">
+                            <div class="cover">
+                                <p>
+                                    Report</p>
+                                <a href='http://www.lincolninst.edu/pubs/1906_Regularization-of-Informal-Settlements-in-Latin-America'>
+								<img height="70" width="50" alt='Improving slums'
+                                    src="/Portals/0//pfr-informal-settlements.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1906_Regularization-of-Informal-Settlements-in-Latin-America'>
+                                    Improving slums</a></h3>
+                            <p>
+                                New report examines the regularization of informal settlement in Latin America
+                                </p>
+                        </div>
+                    
+                        </div>
+                    
+            
+                
+                        <div class="group" style="position: absolute; top: 0px; left: 0px; display: none;
+                            z-index: 4; opacity: 1;">
+                    
+                        <div class="item book">
+                            <div class="cover">
+                                <p>
+                                    Book</p>
+                                <a href='http://www.lincolninst.edu/pubs/1894_Climate-Change-and-Land-Policies'>
+								<img height="70" width="50" alt='Land and climate change'
+                                    src="/Portals/0//1_book-climate-chage-land-policies.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1894_Climate-Change-and-Land-Policies'>
+                                    Land and climate change</a></h3>
+                            <p>
+                                Sea level rise, VMT, energy sprawl, and LEED-ND in Climate Change and Land Policies, now also an eBook
+                                </p>
+                        </div>
+                    
+                        <div class="item report middle">
+                            <div class="cover">
+                                <p>
+                                    Report</p>
+                                <a href='http://www.lincolninst.edu/pubs/1760_Assessing-the-Theory-and-Practice-of-Land-Value-Taxation'>
+								<img height="70" width="50" alt='Assessing the LVT'
+                                    src="/Portals/0//pfr-assessing-lvt.jpg"></a>
+                            </div>
+                            <h3>
+                                <a href='http://www.lincolninst.edu/pubs/1760_Assessing-the-Theory-and-Practice-of-Land-Value-Taxation'>
+                                    Assessing the LVT</a></h3>
+                            <p>
+                                Henry George's big idea, the land value tax or single tax on land, is examined in this Policy Focus Report
+                                </p>
+                        </div>
+                    
+                        </div>
+                    
+            
+    </div>
+    <a id="scroll-right" href="">Scroll Right</a>
+</div>
+
+</div><!-- End_Module_389 --></div>
+
+
+
+
+</div></div>
+        <div id="follow">
+            <h4>
+                Follow the<br>
+                Lincoln Institute</h4>
+            <ul>
+                <li id="twitter"><a href="http://twitter.com/#!/landpolicy" target="_blank">Twitter</a></li>
+                <li id="facebook"><a href="https://www.facebook.com/lincolninstituteoflandpolicy" target="_blank">Facebook</a></li>
+                <li id="linkedin"><a href="http://www.linkedin.com/company/1210434" target="_blank">LinkedIn</a></li>
+                <li id="youtube"><a href="http://www.youtube.com/user/LincolnLandPolicy" target="_blank">YouTube</a></li>
+            </ul>
+        </div>
+        <!-- /follow -->
+    </div>
+    <div id="dnn_ContentPane" class="DNNEmptyPane">
+    </div>
+    <div id="actions">
+        <div id="left-col">
+            <div id="dnn_ColumnOne">
+            <div class="DnnModule DnnModule-DNN_HTML DnnModule-444"><a name="444"></a><div id="dnn_ctr444_ContentPane">
+<!-- Start_Module_444 --><div id="dnn_ctr444_ModuleContent" class="DNNModuleContent ModDNNHTMLC">
+	<div id="dnn_ctr444_HtmlModule_lblContent" class="Normal">
+	<div id="downloads">
+<h4>Downloads</h4>
+<img alt="" src="/Portals/0/upload/homepage/ll-2012-04.jpg" style="width: 70px; height: 90px;" class="img-left" width="70" height="90" />
+<h3>Land Lines</h3>
+<p>Articles on Institute-sponsored programs, research, and publications</p>
+<p><a href="/pubs/PubDetail.aspx?pubid=2018" class="more">Current Issue: Apr 2012</a><br />
+<a href="/pubs/default.aspx?pub_type=4" class="more">View All</a></p>
+<ul>
+    <li><a href="/pubs/Default.aspx?pub_type=3" class="more">Working Papers</a>&nbsp; </li>
+    <li><a href="/education/fellowships.asp" class="more">Fellowships &amp; RFPs</a> </li>
+    <li><a href="/pubs/1947_2011-2012-Lincoln-Institute-Program" class="more">2011&ndash;2012 Program</a> </li>
+</ul>
+</div>
+</div>
+
+</div><!-- End_Module_444 --></div>
+
+
+
+
+</div></div>
+        </div>
+        <div id="mid-col">
+            <div id="dnn_ColumnTwo">
+            <div class="DnnModule DnnModule-LILPNews DnnModule-418"><a name="418"></a><div id="dnn_ctr418_ContentPane">
+<!-- Start_Module_418 --><div id="dnn_ctr418_ModuleContent" class="DNNModuleContent ModLILPNewsC">
+	
+<div id="in-the-news" class="module">
+    <h4>
+        <a href='http://www.lincolninst.edu/news-events/news-listing/articletype/categoryview/categoryid/4/lincoln-institute-in-the-news'>Lincoln Institute in the News</a> <a href="/DesktopModules/DnnForge%20-%20NewsArticles/Rss.aspx?TabID=74&ModuleID=402&MaxCount=25">
+            <img src="/images/lilp/icon-rss-small.gif" alt="RSS Feed" width="14" height="14" /></a></h4>
+	<ul class="article-list">
+    
+            <li>
+                05.03.2012
+				<br />
+                <a target="_blank" href="http://www.thefreelibrary.com/Governing+the+twenty-first-century+city.-a0287956972">Governing the 21st century city</a>   
+				<br />				
+				Journal of International Affairs
+            </li>
+        
+            <li>
+                05.03.2012
+				<br />
+                <a target="_blank" href="http://www.smartgrowth.org/engine/index.php/resources/">Opening access to scenario planning tools</a>   
+				<br />				
+				Smart Growth Online
+            </li>
+        
+            <li>
+                05.02.2012
+				<br />
+                <a target="_blank" href="http://chronicle.com/article/Brown-U-to-Pay-Its-Hometown/131757/">Brown to pay hometown $31.5 million to help close budget gap</a>   
+				<br />				
+				Chronicle of Higher Education
+            </li>
+        
+	</ul>
+</div>
+
+</div><!-- End_Module_418 --></div>
+
+
+
+
+</div></div>
+        </div>
+        <div id="right-col">
+            <div id="dnn_ColumnThree">
+            <div class="DnnModule DnnModule-LILPBlogFeed DnnModule-400"><a name="400"></a><div id="dnn_ctr400_ContentPane">
+<!-- Start_Module_400 --><div id="dnn_ctr400_ModuleContent" class="DNNModuleContent ModLILPBlogFeedC">
+	
+<div id="blog" class="module">
+    <h4>
+        <a href="/news-events/at-lincoln-house-blog">At Lincoln House Blog</a></h4>
+    <img height="116" width="111" class="img-left" alt="fpo-book3" src="/images/lilp/fpo-book3.jpg" />
+    
+            <div class="entry1" style="display: ">
+                <h3 class="blog-title">
+                    Lessons from an unbuilt beltway</h3>
+                <h4 class="date">05.01.2012</h4>                
+                <p>
+                    A little over forty years ago, Boston said no to the Inner Belt -- an eight-lane freeway that would have blasted through the urban fabric from south of downtown, through Cambridge, and reconnecting with Interstate 93 north of the city in Somerville. It was the era of urban renewal and auto-centric transportation planning, and the roadways were being sketched out with great zeal -- a Southwest Expressway would bring I-95 to Back Bay, and Route 2 would extend through Cambridge to be another spoke for the wheel. But Republican Governor Francis W. Sargent called it all off.
+                    <a class="more" href="http://atlincolnhouse.typepad.com/weblog/2012/05/lessons-from-an-unbuilt-beltway.html">Full Story</a>
+                </p>
+            </div>
+        
+            <div class="entry2" style="display: none">
+                <h3 class="blog-title">
+                    Helping economies in transition</h3>
+                <h4 class="date">04.27.2012</h4>                
+                <p>
+                    An international faculty of experts from Estonia, Poland and Northern Ireland joined Lincoln Institute fellows Joan Youngman, Jane Malme, and Sally Powers in Slovenia last month for "Market Value-Based Taxation of Real Property: Lessons from International Experience," a weeklong course on the benefits and challenges of market value-based property taxes.Bosnia and Herzegovina, Croatia, the Czech Republic, Kosovo, Serbia, and Slovenia were represented. The course, which addresses the fiscal, legal, poitical, social and administrative issues facing countries in economic transition was held at the Center of Excellence in Finance in Ljubljana, Slovenia.
+                    <a class="more" href="http://atlincolnhouse.typepad.com/weblog/2012/04/helping-economies-in-transition.html">Full Story</a>
+                </p>
+            </div>
+        
+            <div class="entry3" style="display: none">
+                <h3 class="blog-title">
+                    The contested city</h3>
+                <h4 class="date">04.25.2012</h4>                
+                <p>
+                    The annual Journalists Forum on Land and the Built Environment concluded last weekend, wrapping up two days with some fifty writers, architecture critics, and editors. The theme of the forum, co-sponsored by the Lincoln Institute, the Nieman Foundation for Journalism at Harvard University, and Harvard University's Graduate School of Design, was The Contested City, and featured speakers Rhode Island state treasurer Gina Raimando, former Chicago mayor Richard Daley, Kara Swisher from All Things D, Peter Hammond from Friends of the High Line, and many others.
+                    <a class="more" href="http://atlincolnhouse.typepad.com/weblog/2012/04/the-contested-city.html">Full Story</a>
+                </p>
+            </div>
+        
+    <p class="entry-select moreLink">
+        <a href="/news-events/at-lincoln-house-blog"><strong>More Blog Entries:</strong></a> <a id="entry1" class="entry" href="">
+            Article</a> <a id="entry2" class="entry" href="">Article</a> <a id="entry3" class="entry"
+                href="">Article</a>
+</div>
+
+</div><!-- End_Module_400 --></div>
+
+
+
+
+</div></div>
+        </div>
+    </div>
+    
+<div id="footer">
+    &copy; 2012 Lincoln Institute of Land Policy 113 Brattle Street, Cambridge, MA 02138-3400
+    USA <a href="/">Home</a> <a href="/aboutlincoln/contact_us.asp">Contact</a> <a href="/tools/help.asp">Help</a> <a href="/tools/privacy.asp">Privacy</a>
+</div>
+<!-- Crazy Egg tracking BEGIN -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName('script')[0];
+a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0010/5153.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- Crazy Egg tracking END -->
+</div>
+
+        <input name="ScrollTop" type="hidden" id="ScrollTop" />
+        <input name="__dnnVariable" type="hidden" id="__dnnVariable" value="`{`__scdoff`:`1`}" />
+        
+    
+<script type="text/javascript" src="/Resources/Shared/scripts/initWidgets.js" ></script>
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>

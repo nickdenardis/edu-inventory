@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>Inver Hills Community College: A Place Where You Belong </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+    <link rel="stylesheet" type="text/css" media="all" href="../../css/global/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="../../css/global/screen.css" />
+    <link rel="stylesheet" type="text/css" media="print" href="../../css/global/print.css" />
+    <!--[if IE 6]>
+		    <link rel="stylesheet" href="../../css/global/ie6.css" type="text/css" />
+	    <![endif]-->
+    <!--[if IE 7]>
+		<link rel="stylesheet" href="../../css/global/ie7.css" type="text/css" />
+	<![endif]-->
+	    
+    <script type="text/javascript" src="../../js/menu/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="../../js/menu/jquery.dropshadow.js"></script>
+    <script type="text/javascript" src="../../js/menu/jquery.easing.js"></script>
+    <script type="text/javascript" src="../../js/menu/jquery.cycle.all.min.js"></script>
+    <script type="text/javascript" src="../../js/menu/jquery.pngFix.pack.js"></script> 
+    <script type="text/javascript" src="../../js/menu/jquery.hoverIntent.js"></script>
+    <script type="text/javascript" src="../../js/menu/jquery.megamenu.js"></script> 
+   
+    <script type="text/javascript">
+
+        jQuery.fn.fadeToggle = function(speed, easing, callback) {
+            return this.animate({ opacity: 'toggle' }, speed, easing, callback);
+        };
+
+        jQuery().ready(function() {
+
+            //text drop shadow
+            $("#home_news_events").dropShadow({ left: 0, top: 5, opacity: 0.2, blur: 0, color: "#000" });
+            $("#home_slide_show").dropShadow({ left: 0, top: 0, opacity: 0, blur: 0, color: "#000" });
+            $("#nav").dropShadow({ left: 0, top: 5, opacity: 0.1, blur: 0, color: "#000" });
+
+
+            // redefine jquery Cycle's updateActivePagerLink function and control slide show thumb images
+            $.fn.cycle.updateActivePagerLink = function(pager, currSlideIndex) {
+            $(pager).find('img.thumb_0').attr('src', 'images/homepage/thumb_home_0.jpg');
+            $(pager).find('img.thumb_1').attr('src', 'images/homepage/thumb_home_1.jpg');
+            $(pager).find('img.thumb_2').attr('src', 'images/homepage/thumb_home_2.jpg');
+                $(pager).find('img')
+			    .filter('img:eq(' + currSlideIndex + ')').attr('src', 'images/homepage/thumb_home_' + currSlideIndex + '_over.jpg');
+                $(pager).find('a').removeClass('activeSlide')
+        	    .filter('a:eq(' + currSlideIndex + ')').addClass('activeSlide');
+            };
+
+            // home page slide show
+            $('#slide_wrap').cycle({
+                fx: 'fade',
+                speed: 700,
+                timeout: 10000,
+                cleartype: 1, // enable cleartype corrections 
+                cleartypeNoBg: true,
+                random: 1,
+                pager: '#thumb_box',
+                pagerAnchorBuilder: function(idx, slide) {
+                    var slideid = $(slide).attr('name');
+                    return '<a href="javascript://"><img class="thumb_' + slideid + '" src="images/homepage/thumb_home_' + slideid + '.jpg" width="110" height="74" /></a>';
+                }
+            });
+
+            // image rollover function
+            $(function() {
+                $("img.rollover")
+				.mouseover(function() {
+				    var src = $(this).attr("src").replace(".gif", "_over.gif");
+				    $(this).attr("src", src);
+				})
+				.mouseout(function() {
+				    var src = $(this).attr("src").replace("_over", "");
+				    $(this).attr("src", src);
+				});
+            });
+
+            //set form default field values
+            var default_values = {};
+            jQuery('input.hidelabel').each(function(i) {
+                var index = jQuery(this).attr('name');
+                var value = jQuery(this).val();
+                default_values[index] = value;
+            });
+
+            jQuery('input.hidelabel').focus(function() {
+                if (jQuery(this).val() === default_values[jQuery(this).attr('name')]) {
+                    jQuery(this).val('');
+                };
+            })
+
+            jQuery('input.hidelabel').blur(function() {
+                if (jQuery(this).val() === "") {
+                    jQuery(this).val(default_values[jQuery(this).attr('name')]);
+                };
+            })
+
+            // png transparency fix
+            $(document).pngFix();
+
+            // mega menu drop-downs
+            $(".MegaMenuLink").megamenu(".MegaMenuContent", {
+        });
+
+    });
+
+    </script>
+
+    <!-- GOOGLE ANALYTICS TAG updated-->	
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-5988396-6']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+     
+</head>
+<body id="home">
+
+    
+
+
+<div id="header">
+	<div id="header_container">
+    
+        <div id="student_staff_nav">
+            <ul>
+                <li><a href="http://www.inverhills.edu/Students/index.aspx">Students</a></li>
+                <li><a href="http://www.inverhills.edu/FacultyStaff/index.aspx">Faculty / Staff</a></li>
+            </ul>
+			<div class="clearer"></div>
+        </div>
+        
+       <a href="http://www.inverhills.edu/default.aspx">
+            <img src="../../images/global/logo_ihcc.gif" width="183" height="65" alt="Inver Hills Community College" title="Inver Hills Community College" id="logo" />
+        </a>
+        
+        <div id="header_right">
+            <div id="secondary_nav">
+               <a href="http://www.inverhills.edu/Calendar/">Calendar</a> <span>/</span> <a href="http://www.inverhills.edu/directory/index.aspx">Directory</a> <span>/</span>  <a href="http://www.inverhills.edu/location/index.aspx">Maps</a> <span>/</span>  <a href="http://inverhills.askadmissions.net/emtinterestpage.aspx?ip=inquiry">Contact</a>
+            </div>
+             <form method="get" action="http://www.inverhills.edu/Search/Search.asp?zoom_query=' + this.form.zoom_query.value">  
+               <img src="../../images/global/tagline.gif" width="238" height="32" alt="Define. Believe. Achieve." title="Define. Believe. Achieve." />
+                <input type="text" name="zoom_query" size="15" value="Search IHCC" class="query hidelabel" />
+                <input type="submit" value="" style="border-style: none; background: url('../../images/global/btn_search.gif') no-repeat; width: 27px; height: 25px;">
+            </form>
+        </div>
+    
+    </div>
+</div>
+
+	
+	
+
+<div id="container">	
+    <div id="content">
+        <!--begin dropdown menu-->
+            <div id="nav" class="MegaMenu">
+                <ul class="level_one">
+                    <li>
+            	        <a class="MegaMenuLink" href="http://www.inverhills.edu/admissions/index.aspx">Admissions</a>
+                        <div class="MegaMenuContent">
+                	        <div class="menu_wrap_one_column">
+            
+                                <ul class="level_two">
+                                    <li><a href="http://www.inverhills.edu/admissions/WhyInver/index.aspx">Why Inver?</a></li>
+							        <li><a href="http://www.inverhills.edu/admissions/VisitUs.aspx">Visit Us</a></li>
+                                    <li><a href="http://www.inverhills.edu/admissions/Steps/index.aspx">Admissions Steps</a></li>
+                                    <li><a href="http://www.inverhills.edu/admissions/CostsFinancialAid.aspx">Costs and Financial Aid</a></li>
+                                    <li><a href="http://www.inverhills.edu/admissions/Staff/index.aspx">Meet Admissions Staff</a></li>
+                                    <li><a href="http://inverhills.askadmissions.net/emtinterestpage.aspx?ip=inquiry">Request Information</a></li>
+                                </ul>
+                                <div class="clearer"></div>
+                                
+                          </div>
+                      </div>
+                    </li>
+                    <li>
+                        <a class="MegaMenuLink" href="http://www.inverhills.edu/CourseRegistration/index.aspx">Course Registration</a>
+                        <div class="MegaMenuContent">
+                            <div class="menu_wrap_one_column">
+            
+                                <ul class="level_two">
+                                    <li><a href="http://www.inverhills.edu/ClassSchedule/index.asp">Class Schedule</a></li>
+							        <li><a href="http://www.inverhills.edu/CourseRegistration/HowToRegister.aspx">How to register</a></li>
+                                    <li><a href="http://www.inverhills.edu/CourseRegistration/TuitionPayment.aspx">Tuition and Payment</a></li>
+                                    <li><a href="http://www.inverhills.edu/CourseRegistration/DropWithdrawal.aspx">Add / Drop / Withdraw</a></li>
+                                </ul>
+                                <div class="clearer"></div>
+                                
+                          </div>
+                      </div>
+                    </li>
+                    <li>
+                        <a class="MegaMenuLink" href="http://www.inverhills.edu/ProgramsAndMajors/index.aspx">Programs and Majors</a>
+                        <div class="MegaMenuContent">
+                            <div class="menu_wrap_two_column">
+            
+                                <ul class="level_two additional">
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/UnivTransfer.aspx">University Transfer</a></li>
+							        <li><a href="http://www.inverhills.edu/ProgramsAndMajors/CareerPrograms.aspx">Career Programs</a></li>
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/Certificates.aspx">Certificates</a></li>
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/OnlinePrograms.aspx">Online Programs</a></li>
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/ASAP/index.aspx">ASAP (Adult Accelerated)</a></li>       
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/HighSchool/index.aspx">High School Programs</a></li>                        
+                               </ul>
+                                
+                                <ul class="level_two">
+                                    <li><a href="http://www.inverhills.edu/Departments/index.aspx">Academic Departments</a></li>
+                                    <li><a href="http://www.inverhills.edu/ProgramsAndMajors/Transfer/index.aspx">Transfer Options </a></li>
+							        <li><a href="http://www.inverhills.edu/ProgramsAndMajors/HonorsProgram.aspx">Honors Program</a></li>
+							        <li><a href="http://www.inverhills.edu/ProgramsAndMajors/LearningCommunities.aspx">Learning Communities</a></li>
+							        <li><a href="http://www.inverhills.edu/ProgramsAndMajors/ServiceLearning/index.aspx">Service Learning</a></li>
+							        <li><a href="http://www.inverhills.edu/ProgramsAndMajors/OpenEnrollment/index.aspx">Open Enrollment</a></li>
+                                </ul>
+						        <div class="clearer"></div>
+                                
+                          </div>
+                      </div>
+                    </li>
+                    <li>
+            	        <a class="MegaMenuLink" href="http://www.inverhills.edu/StudentResources/">Student Resources</a>
+                        <div class="MegaMenuContent">
+	                        <div class="menu_wrap_two_column">
+            			        <ul class="level_two additional">
+                        	        <li><a href="http://www.inverhills.edu/StudentResources/AcademicCalendar/">Academic Calendar</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/AssessmentCenter/">Assessment Center </a></li>
+                                    <li><a href="http://www.inverhillsbookstore.com">Bookstore</a></li>
+							        <li><a href="http://www.inverhills.edu/StudentResources/CareerCenter.aspx">Career & Employment<br /> &nbsp;&nbsp; Services</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/CollegeCatalog.aspx">College Catalog</a></li>
+                           
+                                    <li><a href="http://www.inverhills.edu/StudentResources/Counseling/">Counseling</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/DisabilityServices.aspx">Disability Services</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/EnrollmentCenter/">Enrollment Center</a></li>
+                       	        </ul>
+                                
+                                <ul class="level_two">                        	
+                                    <li><a href="http://www.inverhills.edu/StudentResources/FinancialAid/">Financial Aid</a></li>
+							        <li><a href="http://www.inverhills.edu/Library/">Library</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/MathCenter/">Math Center</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/PeerTutoring/">Peer Tutoring</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/SecurityTransportati.aspx">Security & Transportation</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/StudentSupportSrvs.aspx">Student Support Services</a></li>
+                                    <li><a href="http://www.inverhills.edu/Technology/">Technology</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/VeteranServices/">Veteran Services</a></li>
+                                    <li><a href="http://www.inverhills.edu/StudentResources/WritingCenter/">Writing Center</a></li>
+                     	        </ul>
+                  	        <div class="clearer"></div>
+	                    </div>
+    	             </div>
+        	        </li>
+                    <li>
+                        <a class="MegaMenuLink" href="http://www.inverhills.edu/CampusLife/index.aspx">Campus Life</a>
+                        <div class="MegaMenuContent">
+                            <div class="menu_wrap_one_column">
+            
+                                <ul class="level_two">
+                                    <li><a href="http://www.inverhills.edu/CampusLife/ClubsOrganizations/index.aspx">Clubs / Organizations</a></li>
+							        <li><a href="http://www.inverhills.edu/CampusLife/CulturalArts.aspx">Cultural Arts</a></li>
+                                    <li><a href="http://www.inverhills.edu/CampusLife/FitnessRecreation/index.aspx">Fitness / Recreation</a></li>
+                                    <li><a href="http://www.inverhills.edu/CampusLife/MulticulturalAffairs.aspx">Multicultural Affairs</a></li>
+                                    <li><a href="http://www.inverhills.edu/CampusLife/LeadershipPrograms.aspx">Leadership Programs</a></li>
+                                    <li><a href="http://www.inverhills.edu/CampusLife/HealthService/index.aspx">Health Service </a></li>
+                                    <li><a href="http://www.lancercatering.com/inverhills/inverhills.html">Fresh Stop Cafe</a></li>
+                                </ul>
+                                <div class="clearer"></div>
+
+                          </div>
+                      </div>
+                    </li>
+                    <li>
+                        <a class="MegaMenuLink" href="http://www.inverhills.edu/about/index.aspx">About Inver Hills</a>
+                        <div class="MegaMenuContent">
+                            <div class="menu_wrap_one_column">
+            
+                                <ul class="level_two">
+							        <li><a href="http://www.inverhills.edu/about/fastfacts.aspx">Fast Facts</a></li>
+                    		        <li><a href="http://www.inverhills.edu/About/Administration.aspx">Administration</a></li>
+							        <li><a href="http://www.inverhills.edu/About/NewsAwards/index.aspx">News & Awards</a></li>
+                                    <li><a href="http://www.inverhills.edu/About/Accreditation/index.aspx">Accreditation</a></li>
+                                    <li><a href="http://www.inverhills.edu/about/CentrsOfExcellence.aspx">Centers of Excellence</a></li>
+                                    <li><a href="http://www.inverhills.edu/about/StrategicPlanning/index.aspx">Strategic Planning</a></li>
+                                    <li><a href="http://www.inverhills.edu/about/IR/index.aspx">Institutional Research</a></li>
+							        <li><a href="http://www.inverhills.edu/Foundation/index.aspx">Inver Hills Foundation</a></li>
+                                     <li><a href="http://www.inverhills.edu/about/CollegePolicies/">College Policies</a></li>
+                                    <li><a href="http://www.inverhills.edu/About/HR/index.aspx">Human Resources</a></li>
+                     	        </ul>
+                                <div class="clearer"></div>
+                                
+                          </div>
+                      </div>
+                    </li>
+                    <li class="last">
+                        <a class="MegaMenuLink" href="http://www.inverhills.edu/cpwd/">Continuing Education</a>
+                        <div class="MegaMenuContent">
+                            <div class="menu_wrap_one_column">
+            
+                                 <ul class="level_two">
+                                    <li><a href="http://inverhills.augusoft.net/index.cfm?fuseaction=1010">Courses</a></li>
+                                    <li><a href="http://www.inverhills.edu/CPWD/HowRegister.aspx">How to Register </a></li>
+                                    <li><a href="http://www.inverhills.edu/CPWD/MeetStaff.aspx">Meet the Staff</a></li>
+                                </ul>
+
+                                <div class="clearer"></div>
+                                
+                          </div>
+                      </div>
+                    </li>
+                    <div class="clearer"></div>
+                </ul>
+            </div>
+            <div class="clearer"></div>
+            <!--end menu-->
+        
+	
+	<div id="left_column">
+    
+        <div id="green_headline_box">
+            <h1>Celebrating <br/>42 Years</h1>
+            <a href="../ApplyOnline/index.aspx" class="green_apply_today">Apply Today</a>
+        </div>
+        <img src="images/global/shadow_greenbox_home.png" width="286" height="51" />
+        
+        <div id="LeftNav" class="quick_links_nav">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="http://inverhills.askadmissions.net/emtinterestpage.aspx?ip=inquiry">Information Request</a></li>
+                <li><a href="/Admissions/VisitUs.aspx">Visit Our Campus</a></li>
+                <li><a href="/ClassSchedule/">Class Schedule</a></li>
+                <li><a href="/StudentResources/EnrollmentCenter/TranscriptRequest.aspx">Transcript Request</a></li>
+                <li><a href="/Calendar/">College Calendar</a></li>
+                <li><a href="http://www.inverhills.edu/CampusLife/MulticulturalAffairs.aspx">Diversity</a></li>
+				<li><a href="/Forms/">Forms</a></li>
+                <li><a href="/ProgramsAndMajors/ASAP/"> Adult Learners</a></li>
+                <li><a href="/ProgramsAndMajors/OpenEnrollment/ALL.aspx">Academy for Lifelong Learning </a></li>
+                <li><a href="/Foundation/index.aspx">Foundation/Alumni </a></li>
+                <li class="last"><a href="/About/HR/">Human Resources</a></li>
+            </ul>
+        </div>
+
+    </div>
+        
+    <!--center-->    
+    <div id="home_slide_show">
+        <div id="slide_box">
+            <div id="slide_wrap">
+                <!--Annie updated slide 0: 04/13-->
+                <a href="http://www.inverhills.edu/Foundation/Scholarships.aspx" class="slide" id="slide_0" name="0">
+                    <img src="images/homepage/home_slide_0.jpg" width="423" height="273" alt="IHCC student" title="IHCC student" />
+                    <div class="infobox">
+                        <h3>Scholarships now available for fall</h3>
+                        <p>New and returning students are eligible. Apply today!</p>
+                    </div>
+                </a>
+               
+               <!--Jason updated slide 1: 03/20-->
+			   <a href="http://www.inverhills.edu/SmartSTART" class="slide" id="slide_1" name="1">
+                    <img src="images/homepage/home_slide_1.jpg" width="423" height="273" alt="SmartSTART logo" title="SmartSTART logo" />
+                    <div class="infobox">
+                        <h3>New students: Get prepared for classes</h3>
+                        <p>Advising and registration sessions offered through May 24</p>
+                    </div>
+                </a>
+                <!--end-->
+                <!--Annie updated slide 2: 05/04-->
+                <a href="http://www.inverhills.edu/ProgramsAndMajors/OpenEnrollment/ALL.aspx " class="slide" id="slide_2" name="2">
+                    <img src="images/homepage/home_slide_2.jpg" width="423" height="273" alt="The Civil War Trunk" title="The Civil War Trunk" />
+                    <div class="infobox">
+                        <h3>ALL presents The Civil War Trunk</h3>
+                        <p>May 10 event offers insight into life during Civil War</p> 
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="thumb_box"></div>    
+    </div>
+    <!--end center-->
+        
+    <div id="home_news_events">
+        <div class="column">
+            <h2>Events</h2>
+            <script src="http://www.trumba.com/scripts/spuds.js" type="text/javascript"></script> 
+            <script type="text/javascript">
+               $Trumba.addSpud({
+                   webName: "inver-hills-community-college",
+                   spudType: "upcoming",
+                   url: { filter1: "_91553_91548_91551_176910_190635_", filterfield1: "19194" },
+                   teaserBase: "http://www.inverhills.edu/calendar/index.aspx"
+               });
+            </script>
+
+            <noscript>Your browser must support JavaScript to view this content.
+            Please enable JavaScript in your browser settings then try again.
+            <a href='http://www.trumba.com'>Events calendar powered by Trumba</a></noscript>
+            <br />
+            <p><a href="../calendar/index.aspx" class="home_more">More Events</a></p>
+        </div>
+        <div class="column">
+            <h2>News</h2>
+            <script type="text/javascript">
+               $Trumba.addSpud({
+                   webName: "InverHillsNewsReleases",
+                   spudType: "upcoming",
+                   teaserBase: "http://www.trumba.com/calendars/InverHillsNewsReleases"
+               });
+            </script>
+            <noscript>Your browser must support JavaScript to view this content.
+            Please enable JavaScript in your browser settings then try again.</noscript>
+           <br />
+            <p><a href="../about/newsawards/index.aspx" class="home_more">More News</a></p>
+        </div>
+        <div class="column">
+            <h2>Announcements</h2>
+            
+		         <script type="text/javascript" src="http://www.trumba.com/scripts/spuds.js"></script>
+                        <script type="text/javascript">
+                            $Trumba.addSpud({
+                                webName: "InverHillsAnnouncements",
+                                spudType: "upcomingphoto",
+                                url: { filter1: "_116458_", filterfield1: "20358" },
+                                teaserBase: "http://www.inverhills.edu/StudentResources/AcademicCalendar/"
+                            });
+                        </script>
+                        <noscript>Your browser must support JavaScript to view this content. 
+                        Please enable JavaScript in your browser settings then try again. 
+                        <a href='http://www.trumba.com'>Events calendar powered by Trumba</a></noscript>
+
+                
+			  
+        </div>
+    </div>
+        
+	
+
+</div>
+</div>
+	
+<div id="footer">
+    <div class="icons">
+        <a href="http://www.youtube.com/user/inverhillscollege"><img src="../../images/global/icon_you_tube.gif" width="30" height="30" alt="You Tube" title="You Tube" class="rollover" /></a>
+        <a href="http://inverhills.wordpress.com/"><img src="../../images/global/icon_word_press.gif" width="30" height="30" alt="Word Press" title="Word Press" class="rollover" /></a>
+        <a href="http://twitter.com/InverHillsCC"><img src="../../images/global/icon_twitter.gif" width="30" height="30" alt="Twitter" title="Twitter" class="rollover" /></a>
+        <a href="http://www.facebook.com/pages/Inver-Grove-Heights-MN/Inver-Hills-Community-College/161013485834"><img src="../../images/global/icon_facebook.gif" width="30" height="30" alt="Facebook" title="Facebook" class="rollover" /></a>
+    </div>
+    <div class="address">
+        <p>Inver Hills Community College<br/>
+        2500 East 80th Street<br />
+        Inver Grove Heights, MN 55076<br/>
+        Tel: (651) 450-3000</p>
+    </div>
+    <div class="copyright">
+        <img src="../../images/global/logo_mscu.gif" width="71" height="72" alt="Minnesota State Colleges and Universities System" title="Minnesota State Colleges and Universities System" />
+        <p>© 2011 Inver Hills Community College | <a href="http://www.inverhills.edu/directory/index.aspx">Directory</a> | <a href="http://www.inverhills.edu/About/CollegePolicies/">Policies</a><br />
+        Inver Hills Community College is a member of the <a href="http://www.mnscu.edu">Minnesota State <br />
+        Colleges and Universities System</a>, and is an affirmative action, equal<br />
+        opportunity employer and educator. <a href="http://www.aqip.org/">AQIP Accreditation</a></p>
+  </div>
+    <div class="clearer"></div>
+</div>
+<div class="clearer"></div>
+ 
+ 
+</body>
+</html>
+
+

@@ -1,0 +1,1372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+
+<script type="text/javascript">
+<!--
+var flag=0
+//var loginTime = new Date.getTime()
+var isn1=null;
+var isn2=false;
+var prevpop;
+var curpop;
+function stopit()
+	{
+	 if(isn2) { clearTimeout(isn1);}
+	 isn2 = false;
+ 	}
+
+function startit()
+	{
+	 stopit();
+	 isnclock();
+	 }
+ 
+function isnclock()
+	{
+	var ndays = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+	var pop1999 =1022590770;
+	var date1999 = new Date(99,6,1);
+	var date1 = new Date();
+        var date2 = new Date(2001,2,1);
+	
+	var cursec = date1.getSeconds(); 
+	var curmin = date1.getMinutes();
+	var curhrs = date1.getHours();
+	var curday = date1.getDate();
+	var curmth = date1.getMonth();
+	var curyrs = date1.getYear();
+
+	var finalsec = date2.getSeconds(); 
+	var finalmin = date2.getMinutes();
+	var finalhrs = date2.getHours();
+	var finalday = date2.getDate();
+	var finalmth = date2.getMonth();
+	var finalyrs = date2.getYear();
+
+if (curyrs>99){ curyrs=100+curyrs%100; }
+if (finalyrs>99){ finalyrs=100+finalyrs%100; }
+
+
+
+	var secrem = finalsec - cursec; 
+	var minrem = finalmin - curmin; 
+	var hrsrem = finalhrs - curhrs;
+	var dayrem = finalday - curday;
+	var mthrem = finalmth - curmth;
+	var yrsrem = finalyrs - curyrs;
+
+	if (secrem < 0 ){ secrem +=60; minrem -=1; } 
+	if (minrem < 0 ){ minrem +=60; hrsrem -=1; } 
+	if (hrsrem < 0 ){ hrsrem +=24; dayrem -=1; } 
+	if (dayrem < 0 ){ dayrem +=ndays[curmth]; mthrem -=1; } 
+	if (mthrem < 0 ){ mthrem +=12; yrsrem -=1; } 
+
+	var popu =Math.round(pop1999+((Math.abs(date1.getTime() - date1999.getTime()))/1000)*.49113919247);
+	
+	if(flag==0)
+	{
+	 loginTime = new Date()
+	}
+	curDate = new Date()
+        var kidsborn= Math.round((curDate.getSeconds()  - loginTime.getSeconds())*(29/60));
+	if( kidsborn < 0)
+	   kidsborn = -1 * kidsborn
+	++flag;
+var popustr = new String();
+var tmppopu = new String();
+popustr = popu.toString();
+kidsbornstr = kidsborn.toString()
+
+	if (popu < 999999999)
+		{
+		tmppopu="  "+popustr.substring(0,3)+","+popustr.substring(3,6)+","+popustr.substring(6,9);
+		}
+	else
+		{
+		tmppopu=popustr.substring(0,1)+","+popustr.substring(1,4)+","+popustr.substring(4,7)+","+popustr.substring(7,10);
+		}
+
+document.clckp.dispp.value= tmppopu;
+document.clckp.dispb.value= kidsbornstr;
+/*document.clcky.disp.value=yrsrem;
+document.clckm.disp.value=mthrem;
+document.clckd.disp.value=dayrem;
+document.clckh1.disp.value=hrsrem;  
+document.clckm1.disp.value=minrem;
+document.clcks1.disp.value=secrem;*/
+
+ isn1=setTimeout("isnclock()",1000);
+ isn2=true;
+ }
+//play sound
+function playsound()
+{
+while(true)
+ document.embeds[0].start
+}
+
+function viewSubjectData2(){
+	var q = document.getElementById('q').value;
+	window.location="index.php?_act=manageSearch&DO=viewSearch&q="+q;
+}
+
+var xmlHttp
+function showResult(str){
+	if (str.length==0){ 
+	 document.getElementById("livesearch").innerHTML="";
+	 return
+	 }
+
+	xmlHttp=GetXmlHttpObject()
+
+	if (xmlHttp==null){
+	 alert ("Browser does not support HTTP Request")
+	 return
+	 } 
+
+	var url="http://web.pau.edu/index.php?_act=manageSearchAPI&DO=listSearch"
+	url=url+"&q="+str
+	url=url+"&sid="+Math.random()
+	xmlHttp.onreadystatechange=stateChanged 
+	xmlHttp.open("GET",url,true)
+	xmlHttp.send(null)
+} 
+
+function stateChanged(){ 
+		document.getElementById('livesearch').style.display='';
+	if (xmlHttp.readyState==4 || xmlHttp.readyState=="complete"){ 
+		document.getElementById("livesearch").innerHTML=xmlHttp.responseText;
+		 } 
+}
+
+function GetXmlHttpObject(){
+	var xmlHttp=null;
+	try{
+		 xmlHttp=new XMLHttpRequest();
+	}	
+	catch (e)	{
+ // Internet Explorer
+	 try{
+		xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+	  }
+	 catch (e){
+	  xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+ }
+return xmlHttp;
+}
+
+function dismissMessage(value){
+		document.getElementById('livesearch').style.display='none';
+	document.getElementById('letter').value=value;
+}
+function showWeb(){
+			document.getElementById('web_form').style.display = 'block';
+      	    document.getElementById('pauedu_form').style.display = 'none';
+}
+
+function showPauEdu(){
+			document.getElementById('web_form').style.display = 'none';
+			document.getElementById('pauedu_form').style.display = 'block';
+}
+
+
+function popup(url){
+window.open(url,null,"height=270,width=810,scroll=yes status=yes,toolbar=no,menubar=no,left=100,top=50,location=no");
+}
+
+function pUp(url){
+window.open(url,null,"height=270,width=810,scroll=yes status=yes,toolbar=no,menubar=no,location=no");
+}
+//-->
+
+
+//left side
+
+function opendiv(val){
+	if(document.getElementById(val).style.display=='inline'){
+		document.getElementById(val).style.display='none'
+	}else{
+		document.getElementById(val).style.display='inline'
+}
+}
+
+</script>
+	
+
+
+<link href="./style/home_style.css" rel="stylesheet" type="text/css" />
+<meta name="verify-v1" content="xSZiHW6/wBpv1qyRXuR97gl3/9R2DQESi57lzb00EBc=" />
+<link href="favicon.ico" type="image/x-icon" rel="icon" />
+<link href="favicon.ico" type="image/x-icon" rel="shortcut icon" />
+<title>Punjab Agricultural University</title>
+</head>
+<body onload="startit();" style="margin: 0px; padding:0;" bgcolor="#8BC22E">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr>
+	 <td colspan="3">
+				<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+				<tr>
+				<td width="500" align="center"><a href="./"><img border="0" src="images/pau_logo.jpg" align="bottom" alt="" /></a></td>
+				<td valign="bottom" style="background-image: url('images/hd_bg.gif')">
+<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" cellspacing="0">
+				<tr>
+				<td align="right" width="81%" style="padding: 0px 10px 0px 10px" valign="top" nowrap="nowrap">
+				
+<table border="0" cellpadding="0" style="border-collapse: collapse">
+<tr>
+		<td valign="top">
+		<table border="0" cellpadding="0" cellspacing="0">
+<form action="np.php" method="post"><tr>
+<td>
+<input type="text" class="searchBox" id="q" name="q" autocomplete="off" style="width: 140; border:1px solid #006200; color:#111111; background-color:#7BAA29; font-size:11px; font-weight:700; font-family: Arial; height:14px; padding-left:4px; padding-right:4px; padding-top:1px; padding-bottom:1px" /></td>
+	<td style="padding: 1px 4px 1px 4px;">
+	<input type="submit" value="SEARCH" style="border:1px solid #166106; color: #FFFFFF; background-color: #7BAA29; font-size:10px; font-family:Trebuchet MS; font-weight:bold; width:50; height:18px" name="search" /></td>
+</tr>
+	<tr>
+		<td colspan="2" align="center"><table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td style="padding-right: 2px; font-size: 11px; font-family: Arial; color:#FFFFFF"><input id="all" type="radio" value="web_all" name="sitesearch" style="font-family: inherit;" /></td>
+		<td style="padding-right: 2px; font-size: 10px; font-family: Arial"><font color="#FFFFFF">
+		Web</font></td>
+		<td style="padding-right: 2px; font-size: 11px; font-family: Arial"><font color="#FFFFFF"><input id="pau" type="radio" value="pau_edu" name="sitesearch" style="font-family: inherit" checked="checked" /></font></td>
+		<td style="padding-right: 2px; font-size: 10px; font-family: Arial"><font color="#FFFFFF">PAU</font></td>	  
+	</tr>
+</table></td>
+	</tr></form>
+</table>
+		</td>
+	</tr>
+</table>
+</td>
+				<td align="center" width="19%" nowrap="nowrap" style="padding: 1px 5px 0px 0px">
+				<a target="_blank" style="text-decoration: none" href="http://web.pau.edu/usit_index.php"><font face="Arial" style="font-size: 11px" color="#FFFFFF"><b>UDC</b></font></a></td>
+				</tr>
+							
+				<tr>
+				<td width="100%" colspan="2">
+				<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+				
+				<tr>
+				<td colspan="2" align="left">
+						<table border="0" width="100%" cellspacing="0" cellpadding="0" style="border-collapse: collapse">
+							 
+						  <tr>
+							 
+							  <td  align="left" valign="bottom" style="padding-right:15px">
+<table border="0" cellspacing="1" style="border-collapse: collapse">
+	<tr>
+		<td><table border="0" cellspacing="1" style="border-collapse: collapse">
+			<table border="0" cellspacing="1" style="border-collapse: collapse">
+<form name="clckp" onsubmit="0" action="index.php"><tr>
+				<td align="center"><input type="hidden" name="dispb" />
+				<input type="text" readonly="readonly" name="dispp" style="width: 70px; border:1px solid #006200; color:#111111; background-color:#7BAA29; font-size:11px; font-weight:700; padding: 1px 4px 1px 4px; font-family: Arial;" /></td>
+			</tr>
+<tr><td align="center"><font face="Arial" style="font-size: 10px" color="#ffffff">India's Population<br />(Estimated)</font></td>
+			</tr></form>
+			</table></td>
+		<td valign="bottom" nowrap><table border="0" cellspacing="1" style="border-collapse: collapse">
+			<tr>
+				<td style="padding: 2px 2px 1px 15px" align="center"><a target="_blank" style="text-decoration: none" href="http://mail.google.com/a/pau.edu"><font face="Arial" style="font-size: 11px" color="#FFFFFF">Web Mail</font></a></td>
+				<td style="padding: 2px" align="center">
+				<font color="#000000" face="Arial" size="1">
+				|</font></td>
+				<td style="padding: 2px" align="center"><a href="http://web.pau.edu/index.php?_act=manageIndex&amp;DO=viewData&amp;letter=Full">
+<font face="Arial" style="font-size: 11px" color="#FFFFFF">A-Z Index</font></a></td>
+			</tr>
+			</table></td>
+	</tr>
+</table>								</td>
+							 
+							  <td  align="right" valign="bottom" style="padding-right:15px">
+			<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+<tr>
+<!--<td align="center" style="padding: 1px" nowrap="nowrap"><a href="#">
+<font face="Arial" style="font-size: 13px; font-weight:700"><font color="#FFFFFF">PAU</font>
+<font color="#002FCC">P</font><font color="#FF0000">u</font><font color="#FFFF66">b</font><font color="#D81830">l</font><font color="#990033">i</font><font color="#800000">c</font><font color="#CC0066">a</font><font color="#FF3399">t</font><font color="#FFFF00">i</font><font color="#333300">o</font><font color="#FFFFCC">n</font><font color="#663300">s</font></font></a></td>
+<td align="center" style="padding: 1px" nowrap="nowrap"><font color="#000000" face="Trebuchet MS" size="1">|</font></td>-->
+
+<td align="center" style="padding: 1px" nowrap="nowrap"><a href="http://web.pau.edu/directory/" target="_blank"><font face="Arial" style="font-size: 11px" color="#C0C0C0">
+Faculty Directory</font></a></td>
+<td align="center" style="padding: 1px" nowrap="nowrap">
+<font color="#000000" face="Trebuchet MS" size="1">|</font></td>
+<td align="center" style="padding: 1px" nowrap="nowrap"><a href="#" onclick="popup('http://web.pau.edu/index.php?_act=manageWeather&amp;DO=weather');"><font face="Arial" style="font-size: 11px" color="#C0C0C0">
+Weather</font></a></b></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+				</td>
+				</tr>
+				</table>
+				</td>
+				</tr>
+				</table>
+				</td>
+				</tr>
+				</table>
+	</td>
+	</tr>
+<!--head1 -->
+
+<tr>
+<td colspan="3">
+				<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+				<tr><td width="100%" align="center" style="border-top: 0px solid #1A640D" height="1"></td></tr>
+				<tr bgcolor="#FFE91C"><td height="2"></td></tr>
+<tr><td width="100%" align="center" height="1"></td></tr>
+</table>
+</td>
+</tr><tr>
+<td width="23%" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+<tr bgcolor="#ffffff"><td width="100%" align="center" colspan="3" style="padding: 0px;border-top: 2px dotted #ffffff; border-bottom: 2px dotted #ffffff;"><b><font face="Trebuchet MS" size="3" color="#2F5313">Information About</font></b></td></tr>
+			<tr>
+			<td width="10"></td>
+			<td width="9">
+			<img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+			<td width="95%"><a href="./"><font size="2" face="Trebuchet MS" color="#000000"><b>Home</b></font></a></td>
+			</tr>			
+												<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test4" style="cursor:pointer;" onclick="opendiv('t4')"><font size="2" face="Trebuchet MS" color="#000000"><b>The University</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t4">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=11"><font face="Trebuchet MS" size="2" color="#000000">History</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=12"><font face="Trebuchet MS" size="2" color="#000000">Facts</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=13"><font face="Trebuchet MS" size="2" color="#000000">Misson</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=14"><font face="Trebuchet MS" size="2" color="#000000">Achievements</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=15"><font face="Trebuchet MS" size="2" color="#000000">Contribution to Society</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=16"><font face="Trebuchet MS" size="2" color="#000000">Administration</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=17"><font face="Trebuchet MS" size="2" color="#000000">The Vice-Chancellor</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=73"><font face="Trebuchet MS" size="2" color="#000000">Budget Estimates</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=115"><font face="Trebuchet MS" size="2" color="#000000">Ex-Vice Chancellors</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test19" style="cursor:pointer;" onclick="opendiv('t19')"><font size="2" face="Trebuchet MS" color="#000000"><b>Academics</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t19">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+						<a target="_blank" href="http://web.pau.edu/coa/"><font face="Trebuchet MS" size="2" color="#000000">College of Agriculture</font></a>
+						</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+						<a target="_blank" href="http://web.pau.edu/coaet/"><font face="Trebuchet MS" size="2" color="#000000">College of Agricultural Engineering &amp; Technology</font></a>
+						</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+				<a target="_blank" href="http://web.pau.edu/cobsh/"><font face="Trebuchet MS" size="2" color="#000000">College of Basic Sciences &amp; Humanities</font></a>
+						</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+						<a target="_blank" href="http://web.pau.edu/cohs/"><font face="Trebuchet MS" size="2" color="#000000">College  of Home Science</font></a>
+						</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=123"><font face="Trebuchet MS" size="2" color="#000000">Post Graduate Studies</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test5" style="cursor:pointer;" onclick="opendiv('t5')"><font size="2" face="Trebuchet MS" color="#000000"><b>Courses &amp; Admissions</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t5">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=20"><font face="Trebuchet MS" size="2" color="#000000">NRI Admissions</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=92"><font face="Trebuchet MS" size="2" color="#000000">Admission Notice</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test6" style="cursor:pointer;" onclick="opendiv('t6')"><font size="2" face="Trebuchet MS" color="#000000"><b>Research</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t6">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=22"><font face="Trebuchet MS" size="2" color="#000000">Research Priorities</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=27"><font face="Trebuchet MS" size="2" color="#000000">Collaborative Projects</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=29"><font face="Trebuchet MS" size="2" color="#000000">Accomplishments</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=77"><font face="Trebuchet MS" size="2" color="#000000">Research Centres</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=80"><font face="Trebuchet MS" size="2" color="#000000">Journal of Research</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test7" style="cursor:pointer;" onclick="opendiv('t7')"><font size="2" face="Trebuchet MS" color="#000000"><b>Linkages</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t7">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=75"><font face="Trebuchet MS" size="2" color="#000000">International Linkages</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=76"><font face="Trebuchet MS" size="2" color="#000000">National Linkages</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=97"><font face="Trebuchet MS" size="2" color="#000000">Centre for Communication &amp; International Linkages</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=98"><font face="Trebuchet MS" size="2" color="#000000">Technical details for Advertisements in P.A.U. Publications</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=99"><font face="Trebuchet MS" size="2" color="#000000">PAU Publications</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=101"><font face="Trebuchet MS" size="2" color="#000000">Publications for Sale</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=120"><font face="Trebuchet MS" size="2" color="#000000">Subscription Rate card for PAU Publications</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=127"><font face="Trebuchet MS" size="2" color="#000000">Technical details for advertisement's in PAU publications for advertising agency</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test8" style="cursor:pointer;" onclick="opendiv('t8')"><font size="2" face="Trebuchet MS" color="#000000"><b>Extension Services</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t8">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=33"><font face="Trebuchet MS" size="2" color="#000000">Directorate of Extension Education</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=34"><font face="Trebuchet MS" size="2" color="#000000">ATIC</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=35"><font face="Trebuchet MS" size="2" color="#000000">Faculty</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=36"><font face="Trebuchet MS" size="2" color="#000000">Kisan Melas</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=81"><font face="Trebuchet MS" size="2" color="#000000">Krishi Vigyan Kendra</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=82"><font face="Trebuchet MS" size="2" color="#000000">Farm Advisory Services</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=83"><font face="Trebuchet MS" size="2" color="#000000">Farm Operations</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=108"><font face="Trebuchet MS" size="2" color="#000000">Training Schedule</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=111"><font face="Trebuchet MS" size="2" color="#000000">Directory – Farm Advisory Services</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=112"><font face="Trebuchet MS" size="2" color="#000000">Directory - Krishi Vigyan Kendras</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test13" style="cursor:pointer;" onclick="opendiv('t13')"><font size="2" face="Trebuchet MS" color="#000000"><b>Library</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t13">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/msrlibrary/" target="_blank"><font face="Trebuchet MS" size="2" color="#000000">M S R Library</font></a>
+						</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test14" style="cursor:pointer;" onclick="opendiv('t14')"><font size="2" face="Trebuchet MS" color="#000000"><b>Student Welfare</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t14">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=47"><font face="Trebuchet MS" size="2" color="#000000">Directorate of Students Welfare</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=48"><font face="Trebuchet MS" size="2" color="#000000">Medals to be Awarded</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=49"><font face="Trebuchet MS" size="2" color="#000000">Placement Cells</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=50"><font face="Trebuchet MS" size="2" color="#000000">Students Home</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test15" style="cursor:pointer;" onclick="opendiv('t15')"><font size="2" face="Trebuchet MS" color="#000000"><b>State of Art Labs</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t15">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=70"><font face="Trebuchet MS" size="2" color="#000000">Electron Microscopy &amp; Nanoscience Laboratory</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test17" style="cursor:pointer;" onclick="opendiv('t17')"><font size="2" face="Trebuchet MS" color="#000000"><b>Others Institutes</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t17">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=55"><font face="Trebuchet MS" size="2" color="#000000">PAMETI</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=56"><font face="Trebuchet MS" size="2" color="#000000">CIPHET</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=58"><font face="Trebuchet MS" size="2" color="#000000">Bio-Informatics Centre</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=59"><font face="Trebuchet MS" size="2" color="#000000">PHPTC</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test21" style="cursor:pointer;" onclick="opendiv('t21')"><font size="2" face="Trebuchet MS" color="#000000"><b>Useful Links</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t21">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=86"><font face="Trebuchet MS" size="2" color="#000000">Related Organisations</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=113"><font face="Trebuchet MS" size="2" color="#000000">PAU Important Links</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test22" style="cursor:pointer;" onclick="opendiv('t22')"><font size="2" face="Trebuchet MS" color="#000000"><b>Notifications</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t22">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=87"><font face="Trebuchet MS" size="2" color="#000000">Punjab Govt.'s Guidelines for the case of Sexual Harassment</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test24" style="cursor:pointer;" onclick="opendiv('t24')"><font size="2" face="Trebuchet MS" color="#000000"><b>Professional Societies</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t24">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=88"><font face="Trebuchet MS" size="2" color="#000000">Indian Society of Plant Pathologists</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test27" style="cursor:pointer;" onclick="opendiv('t27')"><font size="2" face="Trebuchet MS" color="#000000"><b>Download</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t27">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=114"><font face="Trebuchet MS" size="2" color="#000000">PAU Useful Downloads</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test29" style="cursor:pointer;" onclick="opendiv('t29')"><font size="2" face="Trebuchet MS" color="#000000"><b>Right to Information Act</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t29">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=96"><font face="Trebuchet MS" size="2" color="#000000">RTI</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test30" style="cursor:pointer;" onclick="opendiv('t30')"><font size="2" face="Trebuchet MS" color="#000000"><b>PAU Expert Areas</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t30">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=100"><font face="Trebuchet MS" size="2" color="#000000">Expert &amp; Corporate Services from Home Science College</font></font></a>
+					</td>
+			</tr>
+															</table></div>
+</td></tr>
+<tr>
+<td>&nbsp;</td>
+<td><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /></td>
+<td valign="top" align="left" style="line-height:181%"><span id="test31" style="cursor:pointer;" onclick="opendiv('t31')"><font size="2" face="Trebuchet MS" color="#000000"><b>Facilities</b></font></span></td>
+</tr>
+			<tr>
+			<td colspan="3"><div style="display:none" id="t31">
+			<table border="0" cellpadding="0" cellspacing="0">
+						<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=102"><font face="Trebuchet MS" size="2" color="#000000">Facilities - COAE&amp;T</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=103"><font face="Trebuchet MS" size="2" color="#000000">Facilities - COHS</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=104"><font face="Trebuchet MS" size="2" color="#000000">Facilities - COBSH</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=105"><font face="Trebuchet MS" size="2" color="#000000">Facilities - COA</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=106"><font face="Trebuchet MS" size="2" color="#000000">Facilities - Director (Seeds)</font></font></a>
+					</td>
+			</tr>
+												<tr>
+			<td width="20" style="padding: 2px"></td>
+			<td style="padding: 2px;">
+			<img src="images/blk_dot_r.png" alt="" /></td>
+			<td class="navright" valign="top" style="padding: 2px; line-height:150%">
+			<a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=107"><font face="Trebuchet MS" size="2" color="#000000">Facilities - Out Stations</font></font></a>
+					</td>
+			</tr>
+									</table></div>
+			</td>
+			</tr>
+			<tr>
+			<td>&nbsp;</td>
+			<td><img src="images/blk_dot.png" alt="" /></td>
+			<td class="navright" valign="top">
+			<a href="http://web.pau.edu/index.php?_act=manageContactUs&amp;DO=contactUs"><font face="Trebuchet MS" size="2" color="#000000"><b>Contact Us</b></font></a>
+			</td>
+			</tr>
+<tr bgcolor="#ffffff"><td width="100%" align="center" colspan="3" style="padding: 0px;border-top: 2px dotted #ffffff; border-bottom: 2px dotted #ffffff;"><b><font face="Trebuchet MS" size="3" color="#2F5313">Information For</font></b></td></tr>
+<tr><td width="100%" colspan="3"><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /> <a href="http://web.pau.edu/index.php?_act=manageInformationFor&amp;DO=viewInformationFirst&amp;intToID=1"><font face="Trebuchet MS" size="2" color="#000000"><b>Prospective Students</b></font></a></td></tr>
+<tr><td width="100%" colspan="3"><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /> <a href="http://web.pau.edu/index.php?_act=manageInformationFor&amp;DO=viewInformationFirst&amp;intToID=2"><font face="Trebuchet MS" size="2" color="#000000"><b>Reseachers</b></font></a></td></tr>
+<tr><td width="100%" colspan="3"><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /> <a href="http://web.pau.edu/index.php?_act=manageInformationFor&amp;DO=viewInformationFirst&amp;intToID=3"><font face="Trebuchet MS" size="2" color="#000000"><b>Farmers</b></font></a></td></tr>
+<tr><td width="100%" colspan="3"><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /> <a href="http://web.pau.edu/index.php?_act=manageInformationFor&amp;DO=viewInformationFirst&amp;intToID=4"><font face="Trebuchet MS" size="2" color="#000000"><b>Alumni</b></font></a></td></tr>
+<tr><td width="100%" colspan="3"><img src="./images/blk_dot.png" alt="" hspace="3" vspace="3" /> <b><a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=83">
+<font face="Trebuchet MS" size="2" color="#000000">Farm Operations</font></a></b></td></tr>
+<tr><td height="1" colspan="3" style="padding: 0px; border-bottom: 0px dotted #ffffff;"></td></tr>
+<!--
+<tr><td height="1" colspan="3" style="padding: 0px; border-bottom: 1px dotted #ffffff;"></td></tr>
+<tr><td width="100%" colspan="3" align="center"><a href="http://web.pau.edu/index.php?_act=manageInformationFor&amp;DO=viewInformationFirst&amp;intToID=4"><img border="0" src="images/pau_alumni.jpg" alt="" /></a></td></tr>
+<tr><td height="1" colspan="3" style="padding: 0px; border-bottom: 0px dotted #ffffff;"></td></tr>
+-->
+</table>			
+</td>
+<td style="padding: 0px; border-left: 1px dotted #ffffff;" width="1"></td>
+<style>
+.txt5 {
+ FONT-FAMILY: 'Trebuchet MS';
+ font-size: 14px;
+ -webkit-text-stroke: 1px #fff;
+ background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#333));
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ text-shadow: 0.1em 0.1em 0.2em #fff;
+}
+</style>
+
+
+<td width="77%" valign="top">
+			<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+<tr><td align="center"  style="border-bottom: 1px dotted #1A640D" height="1" nowrap colspan="2"></td></tr>
+
+<tr><td width="40%" valign="top" style="border-right: 1px dotted #ffffff;">
+<table border="0" width="100%" cellpadding="0" style="border-collapse: collapse">
+			
+<tr bgcolor="#699423" style="border-bottom: 1px dotted #ffffff">
+<td style="padding: 2px" align="center" width="10%"><img border="0" src="images/leaf_w.png" alt="" /></td>
+<td style="padding: 2px">
+
+<script type="text/javascript" src="style/lb.js"></script>
+<script type="text/javascript" src="style/gj.js"></script>
+<script language="JavaScript" type="text/javascript">//golJub();</script>
+
+<script language="javascript" type="text/javascript">
+spe=250;
+na=document.all.tags("blink");
+swi=1;
+bringBackBlinky();
+
+function bringBackBlinky() {
+
+if (swi == 1) {
+sho="visible";
+swi=0;
+}
+else {
+sho="hidden";
+swi=1;
+}
+
+for(i=0;i<na.length;i++) {
+na[i].style.visibility=sho;
+}
+
+setTimeout("bringBackBlinky()", spe);
+}
+
+var hvals1 = Array( "A", "B", "C", "D", "E", "F", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" );
+            function ftext1() {
+             var color = '#';
+             for( var ctr = 1; ctr <= 6; ctr ++ ) 
+             {
+             var hval1 = hvals1[ Math.floor( hvals1.length * Math.random() ) ];
+             color = color + hval1;
+             }
+            // document.getElementById( 'ftext' ).style.color = color;
+             }
+             setInterval( 'ftext1()', 150 );
+</script>
+<script language="javascript" type="text/javascript">
+var va1 = Array('#800000','#FFFFFF');
+            function ftext() {
+             var va11 = Math.round(va1.length*Math.random());
+             document.getElementById('ftext1').style.color = va1[va11];
+             }
+             setInterval('ftext()', 150);
+
+var vc1 = Array('#1E5081','#FFFFFF');
+            function ftn() {
+             var va1 = Math.round(vc1.length*Math.random());
+             document.getElementById('ftext3').style.color = vc1[va1];
+             }
+             setInterval('ftn()', 175);
+var vc2 = Array('#800000','#FFFFFF');
+            function ftn1() {
+             var va2 = Math.round(vc2.length*Math.random());
+             document.getElementById('ftext4').style.color = vc2[va2];
+             }
+             setInterval('ftn1()', 175);
+
+var vc5 = Array('#800000','#FFFFFF');
+            function ftn5() {
+             var va5 = Math.round(vc5.length*Math.random());
+             document.getElementById('ftext5').style.color = vc5[va5];
+             }
+             setInterval('ftn5()', 125);
+
+var vc6 = Array('#3F2D25','#FFFFFF','#0000FF');
+            function ftn6() {
+             var va6 = Math.round(vc6.length*Math.random());
+             document.getElementById('ftext6').style.color = vc6[va6];
+             }
+             setInterval('ftn6()', 150);
+
+      </script>
+
+
+<span id="ftext1"><b><font size="2">What's New</font></b></span>
+</td></tr>
+	<tr>
+<td colspan="2"><font size="2" face="Trebuchet MS">
+
+<marquee onmouseover="this.stop()" style="padding: 5px" onmouseout="this.start()" scrollAmount="1" scrollDelay="5" direction="up" width="99%" height="150">
+<table width="99%" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+<tr>
+<td align="center" width="3%" style="border-bottom: 0px dashed #ffffff; padding: 5px" valign="top"><font size="2" face="Trebuchet MS" color="#800000">&#9658;</font></td>
+<td valign="top" style="border-bottom: 1px dashed #ffffff; padding: 5px"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=310"><font color="#000000"  style="font-size: 11px" face="Trebuchet MS"><strong>Application for the post of Resaerch Fellow in the Deptt of Plant Breeding</strong></font></a></td></tr>
+<tr><td style="padding: 1px; border-top: 0px solid #1A640D;" height="1" colspan="2"></td></tr>
+<tr>
+<td align="center" width="3%" style="border-bottom: 0px dashed #ffffff; padding: 5px" valign="top"><font size="2" face="Trebuchet MS" color="#800000">&#9658;</font></td>
+<td valign="top" style="border-bottom: 1px dashed #ffffff; padding: 5px"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=308"><font color="#000000"  style="font-size: 11px" face="Trebuchet MS"><strong>Admission Notice 2012-13 - New</strong></font></a></td></tr>
+<tr><td style="padding: 1px; border-top: 0px solid #1A640D;" height="1" colspan="2"></td></tr>
+<tr>
+<td align="center" width="3%" style="border-bottom: 0px dashed #ffffff; padding: 5px" valign="top"><font size="2" face="Trebuchet MS" color="#800000">&#9658;</font></td>
+<td valign="top" style="border-bottom: 1px dashed #ffffff; padding: 5px"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=307"><font color="#000000"  style="font-size: 11px" face="Trebuchet MS"><strong>Field Day on "Mechanical Paddy Transplanting Technology" on May 8, 2012 at the Research Farm, near Gate No.4, PAU</strong></font></a></td></tr>
+<tr><td style="padding: 1px; border-top: 0px solid #1A640D;" height="1" colspan="2"></td></tr>
+<tr>
+<td align="center" width="3%" style="border-bottom: 0px dashed #ffffff; padding: 5px" valign="top"><font size="2" face="Trebuchet MS" color="#800000">&#9658;</font></td>
+<td valign="top" style="border-bottom: 1px dashed #ffffff; padding: 5px"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=306"><font color="#000000"  style="font-size: 11px" face="Trebuchet MS"><strong>Advertisement - Seed Production under Public – Private Partnership at Kheri, Sangrur</strong></font></a></td></tr>
+<tr><td style="padding: 1px; border-top: 0px solid #1A640D;" height="1" colspan="2"></td></tr>
+<tr>
+<td align="center" width="3%" style="border-bottom: 0px dashed #ffffff; padding: 5px" valign="top"><font size="2" face="Trebuchet MS" color="#800000">&#9658;</font></td>
+<td valign="top" style="border-bottom: 1px dashed #ffffff; padding: 5px"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=304"><font color="#000000"  style="font-size: 11px" face="Trebuchet MS"><strong>Tender Notice</strong></font></a></td></tr>
+<tr><td style="padding: 1px; border-top: 0px solid #1A640D;" height="1" colspan="2"></td></tr>
+</table></marquee>
+	</font></td>
+			</tr>
+			<tr style="border-top: 1px dashed #ffffff">
+				<td align="right" style="padding: 3px;" colspan="2"><b>
+				<a href="http://web.pau.edu/index.php?_act=manageAllBanner&amp;DO=viewAllBanner">
+				<font face="Trebuchet MS" color="#FFFFFF" style="font-size: 11px">View All</font></a></b></td>
+			</tr>
+			</table>
+<table border="0" cellpadding="0" width="100%" style="border-collapse: collapse">
+<tr bgcolor="#699423"style="border-top: 1px dotted #ffffff">
+<td style="padding: 2px" align="center"><img border="0" src="images/leaf_w.png" alt="" /></td>
+<td width="90%" style="padding: 2px"><b><font face="Trebuchet MS" color="#FFFFFF" size="2">In Media</font></b></td>
+</tr>
+<tr><td width="100%" style="border-bottom: 1px dotted #ffffff" align="center" colspan="2" height="1"></td></tr>
+</table>
+				<table style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" valign="top" style="padding: 3px"><img src="images/a_1.png" border="0" alt="" /></td>
+<td valign="top" width="93%" class="p_class" style="padding: 3px"><b><a href="http://web.pau.edu/index.php?_act=manageEvent&amp;DO=viewEventDetail&amp;intEventID=678"><font face="Trebuchet MS" style="font-size: 11px" color="#000000">04-May-2012
+<br />NATIONAL SEMINAR ON BIOTECHNOLOGY  FOR PEST MANAGEMENT MOLECULAR BIOLOGY, GREEN CHEMISTRY, IPM NEED OF THE HOUR: DR. DHILLON</font></a></b></td>
+</tr>
+<tr><td width="100%" height="1" colspan="2" style="border-bottom: 1px dashed #1A640D"></td></tr>
+</table>
+				<table style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" valign="top" style="padding: 3px"><img src="images/a_1.png" border="0" alt="" /></td>
+<td valign="top" width="93%" class="p_class" style="padding: 3px"><b><a href="http://web.pau.edu/index.php?_act=manageEvent&amp;DO=viewEventDetail&amp;intEventID=677"><font face="Trebuchet MS" style="font-size: 11px" color="#000000">04-May-2012
+<br />FOR PROFITABLE VEGETABLE PRODUCTION, GO FOR NET-HOUSE TECHNOLOGY: DR. EASDOWN</font></a></b></td>
+</tr>
+<tr><td width="100%" height="1" colspan="2" style="border-bottom: 1px dashed #1A640D"></td></tr>
+</table>
+				<table style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" valign="top" style="padding: 3px"><img src="images/a_1.png" border="0" alt="" /></td>
+<td valign="top" width="93%" class="p_class" style="padding: 3px"><b><a href="http://web.pau.edu/index.php?_act=manageEvent&amp;DO=viewEventDetail&amp;intEventID=675"><font face="Trebuchet MS" style="font-size: 11px" color="#000000">03-May-2012
+<br />TEXAS AGRICULTURAL LIFETIME LEADERSHIP VISITS PAU, INTERACTS ON AGRICULTURAL CHALLENGES AND OPPORTUNITIES</font></a></b></td>
+</tr>
+<tr><td width="100%" height="1" colspan="2" style="border-bottom: 1px dashed #1A640D"></td></tr>
+</table>
+				<table style="border-collapse: collapse;" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td align="center" valign="top" style="padding: 3px"><img src="images/a_1.png" border="0" alt="" /></td>
+<td valign="top" width="93%" class="p_class" style="padding: 3px"><b><a href="http://web.pau.edu/index.php?_act=manageEvent&amp;DO=viewEventDetail&amp;intEventID=674"><font face="Trebuchet MS" style="font-size: 11px" color="#000000">02-May-2012
+<br />NATIONAL SEMINAR ON WOMEN AND RURAL DEVELOPMENT BEGINS AT PAU</font></a></b></td>
+</tr>
+<tr><td width="100%" height="1" colspan="2" style="border-bottom: 1px dashed #1A640D"></td></tr>
+</table>
+				
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+<tr><td align="right" style="padding: 3px"><a href="http://web.pau.edu/index.php?_act=manageEvent&amp;DO=allEvent"><b><font face="Trebuchet MS"  color="#ffffff" style="font-size: 11px">All Events >></font></b></a></td></tr>
+</table>
+				</td>
+
+				<td width="60%" valign="top" style="padding-left: 1px; padding-right: 1px; padding-top: 0; padding-bottom: 0">
+
+<table border="0" width="100%" cellpadding="0" style="border-collapse: collapse">
+	<tr>
+		<td valign="top" align="center">
+
+                <table border="0" cellspacing="0" style="border-collapse: collapse" cellpadding="0" width="100%">
+
+<tr>
+<td align="center" style="padding: 2px; border-bottom:1px dashed #FFFFFF;" width="100%">
+<table border="0" cellspacing="0" style="border-collapse: collapse" cellpadding="0" width="100%">
+<tr>
+<td align="center" style="padding: 2px; border-bottom:1px dashed #ffffff; border-right: 1px dashed #FFFFFF" nowrap><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=301"><b><font size="2" face="Trebuchet MS"><span id="ftext6" style="text-decoration: none">General Prospectus<br>&<br>Admission Notice 2012-13</span></font></b></a></td>
+<td align="center" style="padding: 2px; border-bottom:1px dashed #ffffff; border-right: 1px dashed #FFFFFF" colspan="2"><a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=295">
+<b><font size="2" face="Trebuchet MS"><span id="ftext5" style="text-decoration: none">Revised result after removing discrepancies as pointed out by the candidates in response to advertisement published in the Daily Ajit on 04-04-2012  for various posts in the Departments of Agriculture, Horticulture and Soil & Water Conservation.</span></font></b></a></td>
+
+</tr>
+<tr>
+ <!--    <td align="center" style="padding: 2px; border-right:1px dotted #ffffff" width="50%">
+<a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=293">
+<span id="ftext2"><b><font size="2" face="Trebuchet MS">Convocation & Prize Distribution Function<br>
+College of Agriculture<br>
+1<sup>st</sup> March, 2012
+</br>
+at Pal Auditorium</font></b></span></a></td>--->
+<td align="center" style="padding: 3px; border-right: 1px dashed #FFFFFF" nowrap><a target="image_gallery" onclick="window.open('','image_gallery','toolbar=no,location=no,directories=no,status=no,menubar=no,width=500,height=310,scrollbars=yes,resizable=no,top=50,left=150')" href="http://web.pau.edu/image_gallery.htm">
+<font color="#800000" face="Trebuchet MS" size="2"><img border="0" src="images/gj_pau_logo.jpg"><br>
+<b>Photo Gallery</b></font></a></td>
+<td align="center" style="padding: 3px; border-right: 1px dashed #FFFFFF">
+<p align="justify">
+<a href="http://web.pau.edu/index.php?_act=manageAllBanner&DO=viewDataBanner&intBannerID=307">
+<b><font size="2" face="Trebuchet MS"><span id="ftext3" style="text-decoration: none">Field Day on "Mechanical Paddy Transplanting Technology" on May 8, 2012 at the Research Farm, near Gate No.4, PAU</span></font></b></a></td>
+
+<td align="center" style="padding: 3px;" nowrap><a href="http://web.pau.edu/icsa" target="_blank"><img border="0" src="images/icsa-logo-home.jpg"></a></td>
+
+</tr>
+</table></td>
+
+<td></td>
+
+</tr>
+
+<tr style="border-bottom: 1px dashed #FFFFFF">
+
+<td align="center" style="padding: 2px" nowrap>
+<table border="0" style="border-collapse: collapse" cellpadding="0" width="100%">
+<tr>
+<td align="center" style="padding: 2px; border-right: 1px dashed #FFFFFF" nowrap>
+<a href="http://web.pau.edu/index.php?_act=manageLink&DO=firstLink&intSubID=99">
+<img border="0" src="images/pau_pub_color.jpg"></a></td>
+
+<td align="center" style="padding: 2px; border-right: 1px dashed #FFFFFF" valign="top"><a target="_blank" href="http://web.pau.edu/punjabi_version_1/index.html">
+<img border="0" src="images/h1.jpg" alt="" /></a></td>
+
+<td align="center" style="padding: 2px;" valign="top"><a target="_blank" href="http://web.pau.edu/punjabi_version_2/index.html">
+<img border="0" src="images/h2.jpg" alt="" /></a></td>
+</tr>
+</table></td>
+
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+<!--<tr><td width="100%" align="center" style="padding: 1px; line-height:300%">
+	<table border="0" cellpadding="1" cellspacing="1">
+		<tr>
+		<td rowspan="3">
+		<a href="http://web.pau.edu/iday.htm" target="iday" onclick="window.open('','iday','resizable=yes,width=770,height=550,status=yes,menubar=yes,toolbar=no,scrollbars=yes,location=no,left=30,top=20');">
+		<img border="0" src="images/iday-3.jpg" style="border: 1px dotted #800000"></a></td>
+		<td>
+		<a href="http://web.pau.edu/iday.htm" target="iday" onclick="window.open('','iday','resizable=yes,width=770,height=550,status=yes,menubar=yes,toolbar=no,scrollbars=yes,location=no,left=30,top=20');">
+		<img border="0" src="images/iday-1.jpg" style="border: 1px dotted #800000"></a></td>
+		</tr>
+		<tr>
+		<td>
+		<a href="http://web.pau.edu/iday.htm" target="iday" onclick="window.open('','iday','resizable=yes,width=770,height=550,status=yes,menubar=yes,toolbar=no,scrollbars=yes,location=no,left=30,top=20');">
+
+		<img border="0" src="images/iday-4.jpg" style="border: 1px dotted #800000"></a></td>
+		</tr>
+		<tr>
+		<td>
+		<a href="http://web.pau.edu/iday.htm" target="iday" onclick="window.open('','iday','resizable=yes,width=770,height=550,status=yes,menubar=yes,toolbar=no,scrollbars=yes,location=no,left=30,top=20');">
+		<img border="0" src="images/iday-2.jpg" style="border: 1px dotted #800000"></a></td>
+		</tr>
+	</table>
+	    <a href="http://web.pau.edu/iday.htm" target="iday" onclick="window.open('','iday','resizable=yes,width=770,height=550,status=yes,menubar=yes,toolbar=no,scrollbars=yes,location=no,left=30,top=20');">
+	<marquee scrollamount="2" width="250"><font face="Trebuchet MS" size="2" color="#CC0000"><b>Independence Day celebrated at PAU</b></font></marquee></a></td>
+</tr>
+<tr><td width="100%" align="center" style="border-bottom: 1px solid #1A640D;" height="1"></td></tr>-->
+<tr><td width="100%" align="left" style="padding: 0px 2px 0px 7px"><font face="Trebuchet MS" size="5" color="#FFFFFF">
+	<b><script type="text/javascript">
+t1=new Date();
+y1=t1.getFullYear();
+t_y=y1-1962;
+
+Number.prototype.ordinal = function () {
+    var suffix = 'th',
+    	aNum = this;
+    while (aNum > 100) {
+    	aNum -= 100;
+    }
+    if (aNum < 10 || aNum > 13) {
+        switch (aNum % 10) {
+            case 1:
+                suffix = 'st';
+                break;
+            case 2: 
+                suffix = 'nd';
+                break;
+            case 3: 
+                suffix = 'rd';
+                break;
+        }
+    }
+    return new String(this + "<sup>"+suffix+"</sup>");
+}
+
+document.write (t_y.ordinal());
+
+</script>
+ <font face="Trebuchet MS" size="3" color="#FFFFFF">
+Year of Education & Service</font></b></td></tr>
+<tr><td align="center" width="100%" style="padding: 2px">
+	<img src="http://web.pau.edu/images/th1.jpg" name="pau" border="0px" alt="" /><p align="justify"><font face="Trebuchet MS" size="2">The Punjab Agricultural University was established in 1962 to serve the state of erstwhile Punjab. On trifurcation of Punjab in November 1966, Haryana Agricultural University was carved out of PAU by an Act of Parliament in February 1970. Later, in July 1970, Himachal Pradesh Krishi Vishvavidalya was established.&nbsp; In 2006 the College of Veterinary Science was upgraded to become Guru Angad Dev Veterinary and Animal Science University (GADVASU) at Ludhiana. The Punjab Agricultural University (PAU) is located in Ludhiana city <a href="http://web.pau.edu/index.php?_act=manageLink&amp;DO=firstLink&amp;intSubID=11"><b><font face="Trebuchet MS" color="#000000" size="2">....Read More</font></b></a></td></tr>
+</table></td>
+	</tr>
+</table>
+</td></tr> 
+<tr><td colspan="2" style="padding: 0px; border-bottom: 1px dotted #ffffff;" height="1"></td></tr>  
+<tr><td colspan="2" style="padding: 0px; border-bottom: 0px dotted #ffffff;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td align="center" style="padding: 5px; line-height: 150%;border-bottom: 1px dotted #ffffff; border-left: 1px dotted #ffffff; " width="33%">
+<b><a target="_blank" href="http://dss-lb.pau.edu/"><font color="#3F2D25" size="2" class="txt5">Decision Support System<br>for Late Blight</font></a></b></td>
+<td align="center" style="padding: 5px; line-height: 150%;border-bottom: 1px dotted #ffffff; border-left: 1px dotted #ffffff;" width="33%"><a target="_blank" href="http://web.pau.edu/cobsh/index.php?_act=manageDepartments&amp;DO=viewMatter&amp;intDepTitleID=138&amp;intLinkID=4">
+	<b>
+	<font color="#3F2D25" size="2" class="txt5">Agricultural Market<br>Intelligence Centre</font></b></a></td></tr>
+<tr>
+<td align="center" style="padding: 5px; line-height: 150%; border-left: 1px dotted #ffffff;"><b>
+<a target="_blank" href="http://web.pau.edu/citrus_horticulture/START.htm"><font color="#3F2D25" size="2" class="txt5">Citrus Cultivation<br>in Punjab</font></a></b></td>
+<td align="center" style="padding: 5px; border-left: 1px dotted #ffffff;"><a href="http://web.pau.edu/index.php?_act=manageContribute&amp;DO=viewContributePage"><b><font class="txt5" color="#3F2D25" size="2">Make a Difference<br>
+		Contribute Financially<br>
+		to PAU</font></b></a></td>
+</tr>
+</table>
+
+</td></tr> </table>
+</td></tr></table>
+</td></tr><tr><td colspan="3">
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" width="100%">
+<tr><td width="100%" style="border-top: 1px solid #FFFFFF" height="7" colspan="4"></td></tr>
+<tr><td style="padding:1px 5px"><font face="Trebuchet MS" color="#000000" style="font-size:8pt">For Any Discrepancy, Contact <a href="mailto:rakesh@pau.edu"><font color="#000000">webmaster@pau.edu</font></a></font></td>
+<td style="padding-left:5px; padding-right:5px; padding-top:1px; padding-bottom:1px"><font face="Trebuchet MS" color="#000000" style="font-size:8pt">Maintained &amp; Hosted by: </font> <a target="_blank" href="http://web.pau.edu/usit_index.php"><font face="Trebuchet MS" color="#000000" style="font-size:8pt"><strong>School of Elect. Engg. & Information Technology (SEEIT).</strong></font></a></td>
+<td style="padding: 1px 5px 1px 5px" align="right"><font face="Trebuchet MS" style="font-size: 11px"> © 1962 - <script type="text/javascript">
+t=new Date();
+y0=t.getFullYear();
+document.write(t.getFullYear());
+</script> Punjab Agricultural University</font></td>
+<td style="padding: 1px 5px 1px 5px" align="right"><!--<a href="#?_act=manageDisclaimer&amp;DO=viewDisclaimer"><font color="#C0C0C0" face="Trebuchet MS" style="font-size: 11px">Disclaimer</font></a>-->
+</td></tr>
+<tr><td style="border:1px solid #009900; padding:5px" colspan="4" bgcolor="#21660B" align="center"><font color="#C0C0C0" face="Trebuchet MS" style="font-size: 10pt">You are viewer no. <b>965123</b> on this Site</font></td>
+</tr>
+</table>
+</td></tr></table>
+</body></html>

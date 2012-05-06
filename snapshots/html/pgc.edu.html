@@ -1,0 +1,614 @@
+<html>
+<head>
+<title>Welcome to The Punjab Group</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script type="text/javascript">
+// Browser Slide-Show script. With image cross fade effect for those browsers
+// that support it.
+// Script copyright (C) 2004-2008 www.cryer.co.uk.
+// Script is free to use provided this copyright header is included.
+var FadeDurationMS=1000;
+function SetOpacity(object,opacityPct)
+{
+  // IE.
+  object.style.filter = 'alpha(opacity=' + opacityPct + ')';
+  // Old mozilla and firefox
+  object.style.MozOpacity = opacityPct/100;
+  // Everything else.
+  object.style.opacity = opacityPct/100;
+}
+function ChangeOpacity(id,msDuration,msStart,fromO,toO)
+{
+  var element=document.getElementById(id);
+  var msNow = (new Date()).getTime();
+  var opacity = fromO + (toO - fromO) * (msNow - msStart) / msDuration;
+  if (opacity>=100)
+  {
+    SetOpacity(element,100);
+    element.timer = undefined;
+  }
+  else if (opacity<=0)
+  {
+    SetOpacity(element,0);
+    element.timer = undefined;
+  }
+  else 
+  {
+    SetOpacity(element,opacity);
+    element.timer = window.setTimeout("ChangeOpacity('" + id + "'," + msDuration + "," + msStart + "," + fromO + "," + toO + ")",10);
+  }
+}
+function FadeInImage(foregroundID,newImage,backgroundID)
+{
+  var foreground=document.getElementById(foregroundID);
+  if (foreground.timer) window.clearTimeout(foreground.timer);
+  if (backgroundID)
+  {
+    var background=document.getElementById(backgroundID);
+    if (background)
+    {
+      if (background.src)
+      {
+        foreground.src = background.src; 
+        SetOpacity(foreground,100);
+      }
+      background.src = newImage;
+      background.style.backgroundImage = 'url(' + newImage + ')';
+      background.style.backgroundRepeat = 'no-repeat';
+      var startMS = (new Date()).getTime();
+      foreground.timer = window.setTimeout("ChangeOpacity('" + foregroundID + "'," + FadeDurationMS + "," + startMS + ",100,0)",10);
+    }
+  } else {
+    foreground.src = newImage;
+  }
+}
+var slideCache = new Array();
+function RunSlideShow(pictureID,backgroundID,imageFiles,displaySecs)
+{
+  var imageSeparator = imageFiles.indexOf(";");
+  var nextImage = imageFiles.substring(0,imageSeparator);
+  FadeInImage(pictureID,nextImage,backgroundID);
+  var futureImages = imageFiles.substring(imageSeparator+1,imageFiles.length)+ ';' + nextImage;
+  setTimeout("RunSlideShow('"+pictureID+"','"+backgroundID+"','"+futureImages+"',"+displaySecs+")",displaySecs*1000);
+  // Cache the next image to improve performance.
+  imageSeparator = futureImages.indexOf(";");
+  nextImage = futureImages.substring(0,imageSeparator);
+  if (slideCache[nextImage] == null)
+  {
+    slideCache[nextImage] = new Image;
+    slideCache[nextImage].src = nextImage;
+  }
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="">
+<!--************************DROP MENU START***************************-->
+<!--FOR DROP MENU include ajax.js, drop_menu.css to header portion, add function to onload event of body tag and add span to body portion-->
+<link rel="stylesheet" type="text/css" href="schemes/styles/drop_menu.css">
+<script language="JavaScript" src="schemes/scripts/ajax.js"></script>
+<!--************************DROP MENU END***************************-->
+<link rel="shortcut icon" type="image/x-icon" href="http://pgc.edu/schemes/icons/pgc_fav.ico" />
+<link href="schemes/styles/styles.css" rel="stylesheet" type="text/css">
+<link href="franchising/ads/popup.css" rel="stylesheet" type="text/css" />
+<script src="franchising/ads/popup.js" type="text/javascript"></script>
+</head>
+<body  leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div id="adsimg" onClick="document.getElementById('adsimg').innerHTML = ''; ">
+<div  style="position:absolute; top:0px; right:0px; left:0px; width:100%; height:100%; background:url(franchising/ads/transparent.png); repeat; z-index:9001;">
+	<br /><br /><br /><br />
+    <center>
+    <img src="franchising/ads/2012-03-30addsmall.jpg" width="600" height="491"onclick="window.open('franchising/ads/2012-03-30addlarge.jpg')" border="0" style="cursor:hand"/></a>
+    </center>
+</div>
+</div>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" language="javascript">
+	function Close_Add(close_div){
+		document.getElementById('advertise').innerHTML = '';
+	}
+</script>
+
+
+
+
+
+    
+    
+
+
+<div id="advertise">  
+	<div id="draggable" class="ui-widget-content" style="position:fixed; right:3px;"> 
+    	<div  id="add" style="position:relative; width:200px; float:right;">
+          <div style="position:absolute; top: 12px;"> <a href="pgc-result.aspx" target="_blank"><img id=dd2 src="img.png" width="200" height="192"  border="0"/></a></div>
+          <div style="position:absolute; right:-6px; top:5px; margin:3px 15px 0px 0px;"> <a href="#" onclick="Close_Add(advertise);"><img  src=   "close.png" width="18" height="18" border="0" /></a></div>
+          <div style="position:absolute; right:139px; top:31px; margin:3px 15px 0px 0px;"> <img  border="0" alt="Clipping Generic Icon 128x128px" src="new.gif" width="32" height="16" /></a></div>
+      </div>
+	</div> 
+</div>
+
+<table border="0" width="100%" cellspacing="0" cellpadding="0" bgcolor="#0A5181" style="font-size: 5px; font-family: Arial">
+	<tr>
+		<td>&nbsp;</td>
+	</tr>
+</table><br>
+<table align="center" border="1" width="950" cellpadding="5" bgcolor="#FFFFFF" style="border-collapse: collapse" bordercolor="#0A5181" cellspacing="0">
+<tr>
+		<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="background-image: url('schemes/images/logo.jpg'); background-repeat: no-repeat">
+  <tr>
+    <td height="71" align="right" valign="bottom" >&nbsp;
+	</td>
+    
+</table>
+<!--***********************DROP MENU CONTENT****************************-->
+<table border="0" width="100%" height="25" cellspacing="0" cellpadding="0">
+	<tr>
+		<td style="background-image: url('http://pgc.edu/schemes/images/main_menu_bg_black.png'); 20background-repeat:%20repeat-x')" align="center">
+		
+		<table border="0" cellpadding="0" cellspacing="0" align="center"><tr>
+			<td align="center">
+				<ul id="sddm">
+			    <li><a href="http://pgc.edu/index.aspx">Home</a>
+			    <li><a href="#" onmouseover="mopen('menu_about')" onmouseout="mclosetime()">About Us</a>
+			        <div id="menu_about" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			        <a href="http://pgc.edu/about/aboutpgc.aspx">About PGC</a>
+			        <a href="http://pgc.edu/about/about_punjabColleges.aspx">About Punjab Colleges</a>
+			        <a href="http://pgc.edu/about/mission.aspx">Mission</a>
+			        <a href="http://pgc.edu/about/growthOverYears.aspx">Growth Over Years</a>
+			        <a href="http://pgc.edu/about/campuses_location_map.aspx">Campuses Location Map</a>
+			        </div>
+			    </li>
+			    <li><a href="#" onmouseover="mopen('menu_colleges')" onmouseout="mclosetime()">Colleges</a>
+			      <div id="menu_colleges" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			        <a href="http://pgc.edu/pcc">Punjab College of Commerce</a>
+			        <a href="http://pgc.edu/pcs/">Punjab College of Science</a>
+			        <a href="http://pgc.edu/pcw/">Punjab College for Women</a>
+			        <a href="http://plc.edu.pk/">Punjab Law College</a>
+					<a>-------------------------------------</a>
+			        <a href="http://pgc.edu/newcampuses.aspx">New Campuses</a>
+		          </div>
+			    </li>
+			    <li><a href="#" onmouseover="mopen('menu_prospective')" onmouseout="mclosetime()">Salient Features</a>
+			        <div id="menu_prospective" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			        <a href="http://pgc.edu/features_coCurricular.aspx">Co-Curricular Activities</a>
+			        <a href="http://pgc.edu/features_libraries.aspx">Libraries</a>
+			        <a href="http://pgc.edu/features_specialties.aspx">Punjab Colleges' Specialities</a>
+			        <a href="http://pgc.edu/features_services.aspx">Services</a>
+			        <a href="http://pgc.edu/features_incentives.aspx">Incentives</a>
+			        <a href="http://pgc.edu/features_facilities.aspx">Facilities</a>
+			        <a href="http://pgc.edu/features_disciplinary_rule.aspx">Disciplinary Rules & Regulations</a>
+			        
+			        </div>
+			    </li>			    </li>
+				 <li><a href="#" onmouseover="mopen('menu_downloads')" onmouseout="mclosetime()">Downloads</a>
+			        <div id="menu_downloads" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			        <a href="http://pgc.edu/downloads/PGC_Prospectus.pdf">Prospectus</a>
+			        </div>	
+				 <li><a href="#" onmouseover="mopen('menu_teacher_training')" onmouseout="mclosetime()">Staff Development</a>
+			        <div id="menu_teacher_training" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+			        <a href="http://pgc.edu/teacher-training-about.aspx">Training & Staff Development Institute</a>
+			        <a href="http://pgc.edu/teacher_training_schedule.aspx">Training Schedule</a>
+			        </div>	
+			    <li><a href="http://alumni.pgc.edu">Alumni</a>
+				<li><a href="http://pgc.edu/contact_us.aspx">Contact Us</a>
+			    </li>
+			</ul>
+			
+			</td></tr>
+		</table>
+		
+		</td>
+	</tr>
+</table>
+					
+<!--********************************************************************-->
+	
+ 
+<script type="text/javascript"> 
+	
+	var timeout	= 500;
+	var closetimer	= 0;
+	var ddmenuitem	= 0;
+	
+	// open hidden layer
+	function mopen(id)
+	{	
+		// cancel close timer
+		mcancelclosetime();
+	
+		// close old layer
+		if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+	
+		// get new layer and show it
+		ddmenuitem = document.getElementById(id);
+		ddmenuitem.style.visibility = 'visible';
+		ddmenuitem.style.zIndex=100;
+	
+	}
+	// close showed layer
+	function mclose()
+	{
+		if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+	}
+	
+	// go close timer
+	function mclosetime()
+	{
+		closetimer = window.setTimeout(mclose, timeout);
+	}
+	
+	// cancel close timer
+	function mcancelclosetime()
+	{
+		if(closetimer)
+		{
+			window.clearTimeout(closetimer);
+			closetimer = null;
+		}
+	}
+	
+	// close layer when click-out
+	document.onclick = mclose;
+ 
+</script>
+ 
+<!--***********************DROP MENU CONTENT****************************-->
+
+
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr> 
+      <td height="126" valign="top">
+<table width="100%" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td ><table width="100%" height="116" cellpadding="0" cellspacing="0">
+                <tr> 
+                  <td width="100%" height="114" class="news" align="left" valign="top" bgcolor="#EEEEEE" style="background-image: url('schemes/images/bg_news.jpg'); background-repeat: no-repeat; background-position: center center">
+					<div style="width:410px;height:250px;overflow:hidden">
+                  <marquee behavior="scroll" direction="up" width="100%" height="100%" scrollamount="1" scrolldelay="80" onmouseover="this.stop()" onmouseout="this.start()">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="news">
+  <tr>
+    <td width="1%">&nbsp;</td>
+    <td width="99%">
+      <li class="group_info_text">26 Years of Services</li><br>
+      <li class="group_info_text">183 campuses of Punjab Colleges</li><br>
+      <li class="group_info_text">2 Universities</li><br>
+    <li class="group_info_text">250+ Schools</li><br>
+    <li class="group_info_text">over 1,44,000 students on roll</li><br>
+    <li class="group_info_text">700000 Alumni</li><br>
+    <li class="group_info_text">Premium faculty of 95 foreign, and local Ph.D's</li><br>
+    <li class="group_info_text">More than 4500 foreign and local masters degree holders</li><br>
+    <li class="group_info_text">3,25,150 Library books and Journals</li><br>
+    <li class="group_info_text">128 Libraries</li><br>
+    <li class="group_info_text">5000+ Latest Computers</li><br>
+    <li class="group_info_text">520 Multimedia Projectors</li><br>
+    <li class="group_info_text">167 Fully equipped Science Labs</li><br>
+    <li class="group_info_text">107 High Tech Computer Labs</li>
+    </td>
+  </tr>
+</table>
+</marquee>
+
+                  </div>
+                    </td>
+                </tr>
+              </table> </td>
+            <td width="526" align="right" valign="top">
+            <table border="0" width="526" cellspacing="0" cellpadding="0" height="120" background="schemes/images/home_imgs_bg.jpg">
+				<tr>
+					<td id="mainPicBackground">
+					<img border="0" src="schemes/images/home_imgs_1.jpg" width="526" height="250" name="slide" id="main_pic"></td>
+				</tr>
+			</table>
+            </td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+      <td width="78%">
+	<iframe src="http://ucp.edu.pk/dunyanews/pgcticker.htm" height="36" width="100%" scrolling=no marginheight=1 marginwidth=1 frameborder=0 name="dunyanews" align="left" style="background-color: #84B5DE">News will be available shortly</iframe>
+      </td>
+      <td width="22%"><a href="achievements_2005_2011.aspx"><img border="0" src="schemes/images/achievements2005-2011.jpg" width="200" height="36"></a><a href="http://pgc.edu/pgc-result.aspx"></a></td>
+    </tr>
+  </table>
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr> 
+      <td valign="top"> 
+        <table cellpadding="10" cellspacing="0">
+          <tr> 
+            
+
+            
+            <td width="180" rowspan="3" valign="top">
+            
+				<p align="center">
+				<img src="schemes/images/chairman_main.jpg" width="180" height="180"><br><span class="bodytext style2" style="font-family: Arial Narrow;font-size:12px"><strong>Mian Amer Mahmood</strong></span></p>
+				<p align="left">
+				<span class="bodytext style2" style="font-size:10px"><b>Chairman Board of Governors 
+				</b> <br>
+						<font color="#000000">University of Central Punjab</font><br>
+				<b>Chancellor<br>
+						</b>
+						<font color="#000000">Mohammad Ali Jinnah University<br>
+						</font><b>Chairman<br>
+						</b>
+						<font color="#000000">Punjab Colleges<br>
+						</font><b>Chairman<br>
+						</b>
+						<font color="#000000">Dunya Television<br>
+						</font><b>Chairman<br>
+						</b>
+						<font color="#000000">Allied Schools</font></span></p>            
+            
+	            </td>
+	            <td colspan="2" valign="top"><p><span class="bodytext"><font size="3" face="Arial, Helvetica, sans-serif"><strong>Chairman's 
+	                Message</strong></font><br>
+	                <br>
+	                Welcome to the Punjab Colleges. The Punjab Group has been committed to the cause of education to our nation's youth for over twenty six years and is the largest network of Colleges in private sector in Pakistan. Our experience and excellence has been proven time and again through our students' achievements.</span></p>	              <p align="justify"><span class="bodytext">Our aim is to create a community that is increasingly entrepreneurial and ever more reliant on technology and our courses are designed to give our students the skills and knowledge they need to succeed in today's competitive environment. We provide a stimulating and supportive environment which focuses on the power of the individual. We try to develop each student's maximum potential by providing not only the latest teaching methods and technology, but also individual guidance and assistance. With the latest labs, computers and well-stocked libraries, we give our students the tools they need to grow into competent, skilled and self-assured professionals. Punjab Colleges have an experienced, highly qualified and dedicated faculty. We have followed our passion and focused on our dreams.</span> <span class="bodytext"></a></span><a href="message_chairman.aspx" class="bodytext">..more&gt;&gt;</a><br>
+                </p></td>            
+          <tr>
+            <td align="center"><a href="http://pgc.edu/newcampuses.aspx"></a><a href="about/location-map.aspx"><img src="schemes/images/satelliteview.jpg" alt="" width="200" height="36" border="0"></a></td>
+            <td align="center"><a href="about/pgc-video.aspx"><img src="schemes/images/pgc-vid.jpg" alt="" width="200" height="36" border="0"></a><a href="achievements_2005_2011.aspx"></a></td>
+          <tr>
+            <td align="center"><a href="about/pgc-video.aspx"></a><a href="http://pgc.edu/newcampuses.aspx"><img src="schemes/images/new_campus_icon.jpg" alt="" width="200" height="36" border="0"></a><a href="about/location-map.aspx"></a></td>
+            <td valign="top"><a href="about/location-map.aspx"></a><a href="http://pgc.edu/newcampuses.aspx"></a></td>
+          <tr>
+            <td width="180" align="center" valign="bottom"><a href="achievements_2005_2011.aspx"></a></td>
+            <td align="center" valign="bottom"><a href="about/pgc-video.aspx"></a></td>
+            <td align="center" valign="bottom"><a href="about/location-map.aspx"></a></td>
+          </table>
+        
+      </td>
+      <td align="center" valign="top" style="border-left: 1px solid #808080; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px">&nbsp;
+		</td>
+      <td align="center" valign="top">
+		<table border="0" width="200" cellspacing="0" cellpadding="0">
+			<tr>
+				<td>
+                <table border="0" width="100%" style="background-image: url('schemes/images/news_top_bg.png'); background-repeat: repeat-x" height="63" cellspacing="0" cellpadding="0">
+				  <tr>
+						<td width="70" align="center">
+						<img border="0" src="schemes/images/news_icon.png" width="59" height="63"></td>
+						<td style="font-family: Arial Narrow; font-size: 18px; color: #095789; font-weight: bold">
+						PGC Updates</td>
+					</tr>
+				</table>
+                <table width="200" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+				<td style="border: 1px solid #095789" bgcolor="#D0E3F2">
+				<marquee direction="up" scrollamount=1 scrolldelay=80 onMouseOver="this.stop()" onMouseOut="this.start()" height="180"><table border="0" width="100%" cellspacing="0" cellpadding="3">
+<tr>
+		<td class="news_title">
+		<a href="http://pgc.edu/news_details_inter_top3.aspx">Punjab College students outshine in Intermediate Results 2011</a></td>
+	</tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="news_title"> Punjab College secured 94  positions across 8 boards in Punjab in recently announced Intermediate Results 2011  in F.Sc.(Pre-Medical, Pre-Engineering), Commerce and General Science Examinations.</td>
+  </tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>  
+  <tr>
+    <td class="news_title"><a href="http://pgc.edu/news-Top-Positions-bcom.aspx">Punjab College Bags Top Fifteen Positions in Punjab University B.Com Examinations 2011</a></td>
+  </tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="news_title"><a href="http://pgc.edu/Recruitments2011.aspx">RECRUITMENTS 2011 Short Listed Candidates</a></td>
+  </tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="news_title"><a href="http://pgc.edu/Competitions-2010.aspx">Students of Punjab Colleges outshine in Chief Minister Punjab Debates Competitions 2010 </a></td>
+  </tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+		<td class="news_title">
+		<a href="http://pgc.edu/news_details_eassy-writing.aspx">Students of Punjab Colleges outshine in Chief Minister Punjab Debates & Essay-writing Competitions 2010 </a></td>
+  </tr>
+	<tr>
+	  <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="news_title">Punjab College wins Third Punjab Olympic Games with 1472 points</td>
+  </tr>
+  <tr>
+    <td class="news_title">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="news_title">&quot;Kanwal Yousaf of Punjab College secures Ist Position in Punjab University B. Com Part 1 Examinations with 650 marks&quot; </td>
+  </tr>
+	<tr>
+	  <td class="news_title">&nbsp;</td>
+  </tr>
+	<tr>
+		<td class="news_title"><a href="http://pgc.edu/news_details_20year.htm">Student breaks 20 years Record in Punjab University B.Sc Examinations 2010</a></td>
+	</tr>
+	<tr>
+		<td class="news_title">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="news_title">
+		<a href="http://pgc.edu/news_details_top2BZU_Bcom.htm">Punjab College Bags Top 02 Positions in BZU University B.Com Examinations 2010</a></td>
+	</tr>
+	<tr>
+		<td class="news_title">&nbsp;</td>
+	</tr>
+	<tr>
+		<td class="news_title">
+		<a href="http://pgc.edu/news_details_top2PU_BSc.htm">Punjab College Bags Top 2 Positions in Punjab University B.Sc Examinations 2010</a></td>
+	</tr>
+	<tr>
+		<td class="news_title">&nbsp;</td>
+	</tr>
+</table>
+<!--#exec file="news.asp"--></marquee></td>
+			</tr>
+			<tr>
+				<td style="font-size: 4px" bgcolor="#095789">&nbsp;</td>
+			</tr>
+				  <tr>
+				    <td><span class="heading1" style="height:18px">Campus Network</span></td>
+				    </tr>
+				  <tr>
+				    <td class="news">
+                    <div style="width:200px; float:left; height:150px; overflow:hidden">
+				      <script type='text/javascript' src="flexcroll.js"></script>
+<link href="flexcrollstyles.css" rel="stylesheet" type="text/css" />
+
+<div class="percentagewrap" style="height:100%">
+
+	<div id='mycustomscroll2' class='flexcroll' style="height:100%">
+
+		  <div class='campus_list'>
+
+			<p style="line-height:20px; padding-left:10px;" class="campus_list">
+              <a href="campus_pages/Abbotabad_campus.aspx">Abbotabad</a><br />
+              <a href="campus_pages/Attock_campus.aspx">Attock</a><br />
+              <a href="campus_pages/Bahawalpur_campus.aspx">Bahawalpur</a><br />
+              <a href="campus_pages/Bhalwa_campus.aspx">Bhalwal</a><br />
+              <a href="campus_pages/Burewala_campus.aspx">Burewala</a><br />
+                <a href="campus_pages/Chakwal_campus.aspx">Chakwal</a><br />
+                <a href="campus_pages/Chichawatni_campus.aspx">Chichawatni</a><br />
+                <a href="campus_pages/Chiniot_campus.aspx">Chiniot</a><br />
+                <a href="campus_pages/Chishtian_campus.aspx">Chishtian</a><br />
+                <a href="campus_pages/Daska_campus.aspx">Daska</a><br />
+                <a href="campus_pages/Dera Ghazi Khan_campus.aspx">Dera Ghazi Khan</a><br />
+                <a href="campus_pages/faislabad_campus.aspx">Faisalabad Campus</a><br />
+                <a href="campus_pages/Gojra_campus.aspx">Gojra Campus</a> <br />
+                <a href="campus_pages/Gujar Khan_campus.aspx">Gujar Khan Campus</a><br />
+                <a href="campus_pages/gujranwala_campus.aspx">Gujranwala Campus Hafizabad Campus</a><br />
+                <a href="campus_pages/Gujrat_campus.aspx">Gujrat Campus</a><br />
+                <a href="campus_pages/Hafizabad_campus.aspx">Hafizabad Campus </a><br/>
+                <a href="campus_pages/islamabad_campus.aspx">Islamabad Campus</a><br />
+                <a href="campus_pages/Jaranwala_campus.aspx">Jaranwala Campus</a><br />
+                <a href="campus_pages/Jouharabad_campus.aspx">Jauharabad Campus</a> <br />
+                <a href="campus_pages/Jehlum_campus.aspx">Jehlum Campus</a><br />
+                <a href="campus_pages/Jhang_campus.aspx">Jhang Campus</a><br />
+                <a href="campus_pages/Kamoke_campus.aspx">Kamoki Campus</a><br />
+                <a href="campus_pages/Kasur_campus.aspx">Kasur Campus</a><br />
+                <a href="campus_pages/Khanewal_campus.aspx">Khanewal Campus</a><br />
+                <a href="campus_pages/Kharian_campus.aspx">Kharian Campus</a><br />
+                <a href="campus_pages/Kot Addu_campus.aspx">Kot Addu Campus</a><br />
+                <a href="campus_pages/campus_pages/lahore_campus.aspx">Lahore Campus</a><br />
+                <a href="campus_pages/layyah_campus.aspx">Layyah</a><br />
+                <a href="campus_pages/Melsi_campus.aspx">Mailsi</a><br />
+                <a href="campus_pages/Mandi Bahauddin_campus.aspx">Mandi Bahudin Campus</a><br />
+                <a href="campus_pages/Mianwali_campus.aspx">Mianwali</a><br />
+                <a href="campus_pages/Mirpur_campus.aspx">Mirpur</a><br />
+                <a href="campus_pages/multan_campus.aspx">Multan Campus</a><br />
+                <a href="campus_pages/Narowal_campus.aspx">Narowal</a><br />
+                <a href="campus_pages/Phalia_campus.aspx">Phalia Campus</a><br />
+                <a href="campus_pages/Rahim Yar khan_campus.aspx">Rahim Yar Khan Campus</a><br />
+                Raiwind<br />
+                <a href="campus_pages/campus_pages/rawalpindi_campus.aspx">Rawalpindi Campus</a><br />
+                <a href="campus_pages/Sahiwal_campus.aspx">Sahiwal</a><br />
+                <a href="campus_pages/Sargodha_campus.aspx">Sargodha Campus</a><br />
+                <a href="campus_pages/Shahdara_campus.aspx">Shahdra Campus</a><br />
+                <a href="campus_pages/Shahkot_campus.aspx">Shahkot</a><br />
+                <a href="campus_pages/Shakargarh_campus.aspx">Shakargarh</a><br />
+                <a href="campus_pages/Sheikhupura_campus.aspx">Sheikhupura Campus</a><br />
+                <a href="campus_pages/Sialkot_campus.aspx">Sialkot Campus</a><br />
+                <a href="campus_pages/Toba Tek Singh_campus.aspx">Toba Tek Singh Campus</a><br />
+                <a href="campus_pages/wahcantt_campus.aspx">Wah Cantt Campus</a><br />
+                <a href="campus_pages/Wazirabad_campus.aspx">Wazirabad</a><br />
+            </p>
+
+		  </div>
+
+	</div>
+
+</div>
+				      </div></td>
+				    </tr>
+				  </table>
+				  
+				</td>
+			</tr>
+			
+		</table>
+		<table width="200" cellspacing="0" cellpadding="0" style="font-size: 4px"><tr><td>&nbsp;</td></tr><tr><td>
+					<a href="http://pgc.edu/newcampuses.aspx"></a></td></tr></table>
+		</td>
+    </tr>
+  </table>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td  align="center"><hr noshade width="100%" size="0">
+		</td>
+	</tr>
+	<tr>
+		<td  align="center"><a><img border="0" src="http://pgc.edu/schemes/images/index_utilities.jpg" width="757" height="131" usemap="#footer_map" align="center"></a>
+			<map name="footer_map">
+				<area shape="rect" coords="23,39,131,92" href="http://www.alliedschools.edu.pk" target="_blank" alt="Allied Schools">
+				<area shape="rect" coords="316,54,441,81" href="http://www.thetowertech.com" target="_blank" alt="Towertechnologies">
+				<area shape="circle" coords="182,63,27" href="http://www.resourceacademia.edu.pk/" target="_blank" alt="Resource Academia">
+				<area shape="circle" coords="266,65,25" href="http://www.ucp.edu.pk" target="_self" alt="UCP">
+				<area shape="circle" coords="552,64,25" href="http://www.jinnah.edu.pk" target="_blank" alt="M.A.J.U. Islamabad">
+				<area shape="rect" coords="463,29,501,90" href="http://www.pgc.edu.pk" target="_blank" alt="PGC">
+				<area shape="rect" coords="603,48,665,80" href="http://www.jinnah.edu/" target="_blank" alt="M.A.J.U. Karachi">
+				<area shape="rect" coords="686,47,733,79" href="http://www.dunyatv.tv" target="_blank" alt="Dunya Tv">
+			</map>
+		</td>
+	</tr>
+</table>
+
+		</td>
+	</tr>
+</table>
+	<div align="center">
+		<table border="0" width="950" cellspacing="0" cellpadding="0" align="center">
+			<tr>
+				<td>
+				<table border="0" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 0; margin-bottom: 0; line-height:130%; font-family:Arial; font-size:10px">
+					<tr>
+						<td style="color: #3465CB; font-family: Arial; font-size: 12px; font-weight: bold" width="90">&nbsp;</td>
+						<td width="90">&nbsp;</td>
+						<td width="50">&nbsp;</td>
+						<td>&nbsp;</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td class="footerHeading" style="font-family: Arial; font-size: 12px; font-weight: bold" width="90">PGC MAIL</td>
+						<td class="footerHeading" style="font-family: Arial; font-size: 12px; font-weight: bold" width="90" >&nbsp;</td>
+						<td class="footerHeading" style="font-family: Arial; font-size: 12px; font-weight: bold" width="50" >&nbsp;</td>
+						<td class="footerHeading" style="font-family: Arial; font-size: 12px; font-weight: bold" >Punjab Group of Colleges</td>
+						<td class="footerHeading" style="font-family: Arial; font-size: 12px" width="200" align="right">Powered by 
+						<i><a class="footerHeading" href="http://thetowertech.com" style="font-family: Arial; font-size: 12px; font-weight: bold;text-decoration:none" >Tower Technologies</a></i></td>
+					</tr>
+					<tr>
+						<td width="90" valign="top">
+						<a style="text-decoration: none; color: #000000" href="http://mail.lhr.pgc.edu/" target="_blank">Lahore</a><br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.fsd.pgc.edu/" target="_blank">Faisalabad</a><br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.grw.pgc.edu/" target="_blank">Gujranwala</a><br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.skt.pgc.edu/" target="_blank">Sialkot</a><br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.sgd.pgc.edu/" target="_blank">Sargodha</td>
+						<td valign="top" width="90">
+						<a style="text-decoration: none; color: #000000" href="http://mail.rwp.pgc.edu/" target="_blank">Rawalpindi<br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.ibd.pgc.edu/" target="_blank">Islamabad<br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.mul.pgc.edu/" target="_blank">Multan<br>
+						<a style="text-decoration: none; color: #000000" href="http://mail.google.com/a/ryk.pgc.edu" target="_blank">Rahim Yar Khan<p></td>
+						<td valign="top" width="50">&nbsp;</td>
+						<td valign="top">64-E/1, Gulberg III, Lahore.<br>
+						Tel: +92-42- 35870192-6<br>
+						Fax: +92-42-35712637<br>
+						Email: info@pgc.edu</td>
+						<td valign="top">&nbsp;</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+<script type="text/javascript">RunSlideShow("main_pic","mainPicBackground","schemes/images/home_imgs_23.jpg;schemes/images/home_imgs_22.jpg;schemes/images/home_imgs_21.jpg;schemes/images/home_imgs_20.jpg;schemes/images/home_imgs_19.jpg;schemes/images/home_imgs_18.jpg;schemes/images/home_imgs_17.jpg;schemes/images/home_imgs_16.jpg;schemes/images/home_imgs_15.jpg;schemes/images/home_imgs_14.jpg;schemes/images/home_imgs_13.jpg;schemes/images/home_imgs_12.jpg;schemes/images/home_imgs_11.jpg;schemes/images/home_imgs_10.jpg;schemes/images/home_imgs_9.jpg;schemes/images/home_imgs_8.jpg;schemes/images/home_imgs_7.jpg;schemes/images/home_imgs_6.jpg;schemes/images/home_imgs_5.jpg;schemes/images/home_imgs_4.jpg;schemes/images/home_imgs_3.jpg;schemes/images/home_imgs_2.jpg;schemes/images/home_imgs_1.jpg;",4);</script>
+
+</body>
+
+</html>

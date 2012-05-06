@@ -1,0 +1,844 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><!-- PageID 36047 - published by Open Text Web Solutions 10.1 - 10.1.2.320 - 30591 -->
+<!-- Page Info: 
+        Page ID: 36047
+        Publish Date: 5/6/2012 3:31:52 PM
+-->
+
+
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=7;FF=3;OtherUA=4" />
+<!--[if IE]>
+<meta http-equiv="Page-Enter" content="revealtrans(duration=0.0)">
+<![endif]-->
+<link rel="icon" href="http://www.gsu.edu/templatefiles2009/gsufavicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="http://www.gsu.edu/templatefiles2009/gsufavicon.ico" type="image/x-icon" />
+<title>Georgia State University</title>
+
+
+<link rel="alternate" type="application/rss+xml" title="GSU - News Feed" href="http://www.gsu.edu/gsunewsfeed.rss" /><link rel="alternate" type="application/rss+xml" title="GSU - Featured Stories" href="http://www.gsu.edu/gsufeaturedstories.rss" />
+
+
+<style type="text/css" media="screen, projection">
+/*<![CDATA[*/
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .ui-tabs-hide {
+        display: none;
+        visibility:hidden;
+    }
+}
+ 
+.ui-tabs-hide {
+        display: none;
+        visibility:hidden;
+        
+    }
+
+.ui-tabs .ui-tabs-nav { list-style: none;  padding: .2em .2em 0; }
+.ui-tabs .ui-tabs-nav li { position: relative; float: left; border-bottom-width: 0 !important; margin: 0 .2em -1px 0; padding: 0; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+#tabs ul#menu  li.ui-tabs-selected   { background-image: url(http://www.gsu.edu/templateimages2009/tab_selected_left_bg.gif);}
+#tabs ul#menu  li.ui-tabs-selected  a  { background-image: url(http://www.gsu.edu/templateimages2009/tab_selected_right_bg.gif); color: #666666;}
+    /*]]>*/
+</style> 
+
+<!-- CSS Calls -->
+
+<link href="http://www.gsu.edu/main.css" rel="stylesheet" type="text/css" />
+<!--[if IE]>
+<link href="http://www.gsu.edu/ieonly.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+
+
+
+<style type="text/css" media="print">
+    .grid_13full .roundimage, #tabs, #tools, #promobanner, .noprint { display: none;} 
+    .grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 {clear:both;}   
+</style>
+
+<!-- CSS Calls -->
+
+<!--[if lt IE 7]>
+  <script type="text/javascript" src="http://www.gsu.edu/pngfix.js"></script>
+<![endif]--> 
+<script type="text/javascript"> 
+        //<![CDATA[ <!-- 
+        var key_press=false; 
+        function jump_menu(target, sel_obj) { 
+        if (!key_press) {
+            eval(target + ".location='" + sel_obj.options[sel_obj.selectedIndex].value + "'");
+        } 
+    } 
+    function key(evt, sel_obj) {
+        var key_code = document.layers ? evt.which : evt.keyCode;
+        if (key_code == 13) {
+            sel_obj.form.submit();
+        } else {
+            key_press = true;
+            return false;
+        } 
+    }
+    //--> //]]>
+    </script>
+
+
+<script src="http://www.gsu.edu/templatefiles2009/jquery.min.js" type="text/javascript"></script>
+<script src="http://www.gsu.edu/templatefiles2009/jquery-ui.min.js" type="text/javascript"></script>
+<script src="http://www.gsu.edu/templatefiles2009/ui.tabs.js" type="text/javascript"></script>  
+<script  type="text/javascript" src="http://www.gsu.edu/templatefiles2009/swfobject.js"></script> 
+<script type="text/javascript"> 
+        function redir(url){ //v3.0
+                    if (url.length > 5)
+                        window.location = url;
+                }
+
+           var fgreg="na";
+            $(function() {
+           
+            var slcted="na";
+                $('#tabs').tabs({
+                   collapsible: true
+                   //fx: { height: 'toggle',  }
+                   /// fx: { height: 'toggle', opacity: 'toggle', duration:'slow' }
+                });
+                
+                
+               $('#tabs').bind('tabsselect', function(event, ui){
+               
+                        if(slcted==ui.panel.id || ui.panel.id== fgreg ) {
+                               if($('#fgreg').hasClass("active") &&  ui.panel.id != fgreg ) { 
+                                  $('#fgreg').removeClass("active");
+                               } else{ $('#fgreg').addClass("active"); }
+                       } else { $('#fgreg').removeClass("active"); }
+                       slcted=ui.panel.id; 
+               });
+
+        });
+</script> 
+
+<script type="text/javascript"> 
+
+
+   $(document).ready(function(){
+
+  $('div.hide-reveal:eq(0) > div').hide();  
+  $('div.hide-reveal:eq(0) > p ').click(function() {
+    $(this).next().slideToggle('fast',
+    function () {
+         $(this).prev().toggleClass("open"); 
+      }
+    
+    );
+  });
+
+
+
+     $("#searchform").submit(function() {
+         if ( $("#directory").attr('checked')  == true ) {    
+             $("#searchform").attr("action","http://campusdirectory.gsu.edu/eguide.cfm");
+             var searchterm  = $("input#q").val()  
+             $('#sn').val( searchterm );              
+             if (searchterm.split(' ')[1] )    {    
+                  $('#sn').val( searchterm.split(' ')[1]  );    
+                  $('#givenname').val( searchterm.split(' ')[0]  );  
+             }     
+         }
+
+           if ( $("#Law").attr('checked')  == true ) { 
+            $("#searchform").attr("action","http://law.gsu.edu/search/index.php");
+         }      
+
+             //return false;
+     });
+     // return false;
+   });
+</script>
+<script type="text/javascript"> 
+      $(function() { $("table.zebra tr:nth-child(even)").addClass("striped");});
+</script> 
+<meta name="google-site-verification" content="tOlyuc67_Lb7rKxrIK5T0dRLhe4fpil5JhHu_oteZnY" />
+</head>
+<body>
+<div id="skipper"><a href="#content">Skip to Content</a> | <a href="http://text.usg.edu:8080/tt/referrer" id="jmpside">Text-only</a> </div>
+
+
+            <!-- University Header -->
+            <div class="container_16 header noprint" id="university">
+                <div class="grid_6" id="logo"><a href="http://www.gsu.edu/index.html"><img src="http://www.gsu.edu/templateimages2009/gastatelogo.gif" alt="Georgia State University"></a></div>
+                <div class="grid_10" id="tools" style="padding:0px; margin:0px; width:580px;">
+                    <div style="margin-right:0px;">
+                        <ul class="toollinks">
+                            <li><a href="http://www.gsu.edu/web_mail.html">E-mail</a></li><li><a href="https://paws.gsu.edu">PAWS</a></li><li><a href="https://www.gosolar.gsu.edu/webforstudent.htm">GoSOLAR</a></li><li><a href="http://gsu.view.usg.edu/">Ulearn</a></li><li><a href="http://calendar.gsu.edu/calendar">Calendar</a></li><li><a href="http://www.gsu.edu/map.html">Map</a></li><li><a href="http://www.gsu.edu/a_to_z_offices_services.html">Index</a></li>
+                        </ul>
+                        <form action="http://lucia.gsu.edu/search" method="get" name="searchform" class="searchbar" id="searchform"> 
+                            <input name="searchtarget" value="gsu" type="hidden" /> 
+                            <input name="client" value="GeorgiaState" type="hidden" /> 
+                            <input name="proxystylesheet" value="GSUMainHeader" type="hidden" /> 
+                            <input name="output" value="xml_no_dtd" type="hidden" /> 
+                            <!-- remove form all from. eguide  and use this q -->
+                            <input type=hidden value="*" name="givennames" />
+                            <input type=hidden value="*" name="sns" />
+                            <input type=hidden value="All" name="search" id="a1212" />
+                            <input type=hidden value="" name="sn" id="sn" />
+                            <input type=hidden value="" name="givenname" id="givenname" />
+                            <label for="q"><strong>Search</strong></label>
+                            <input type="text" value="" name="q"  size="14"  id="q" />&nbsp;<input name="Submit" value="Submit" src="http://www.gsu.edu/templateimages2009/spacer.gif" alt="Go" type="image" class="gobutton" /> 
+                            <br/>
+                            <label><input name="site" type="radio" value="GeorgiaState" checked="checked"  />
+                              <strong>Georgia State</strong></label>
+                            <label><input name="site" type="radio" value="GeorgiaState"  id="directory"  />
+                               <strong>Directory</strong>  </label>
+                        </form>
+                    </div>
+                    <div class="tagline">A leading research university located in Atlanta, Ga</div>
+                </div>
+            </div>
+            <div class="clear"></div> 
+        
+
+
+<div class="container_16">
+<div class='grid_16full'><!-- Emergency Management Notice -->
+  
+</div></div>
+<div class="clear"></div>
+
+
+
+<div class="container_16" id="promobanner"><script src="http://www.gsu.edu/templatefiles2009/jquery.cycle.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+    var initialChange = true;                                                                        //Set a variable flag for the initial setup
+
+    /************************************
+
+    function beforeChange()
+    Callback function run before every slide change. Handles updating the link for each image as well as auto-updating the thumbnail (or other) pager
+
+    *************************************/
+
+    function beforeChange(currSlideElement, nextSlideElement, opts) {
+        if(initialChange)
+        {
+            feature = 1;                                                                             //Set the feature variable for the thumbnail
+            initialChange = false;                                                                   //Turn off intial flag
+        }
+        else
+        {
+            feature = opts.nextSlide+1;                                                              //If not initial change, set new thumbnail value (nextSlide is zero-indexed, so add one to it)
+        }
+        
+        $('.thumbnailFiller').css('opacity', '0.4').removeClass('currentThumbnail');                            //Clear the old thumbnail
+        $('#thumbnail'+feature).find('.thumbnailFiller').addClass('currentThumbnail').css('opacity', '1');       //Highlight the new thumbnail
+        $('#features').click(function() {window.location = $('#feature'+feature).attr('rel');});                                            //Change the image hyperlink to the rel attribute of the story
+        
+
+        if(true)
+        {                                                                                             // A little bit of mathmagic to determine where to move the slider
+            sliderCurrentPosition = $('#thumbnailSliderBox').position().top;                          //Get current position
+            newPosition = (feature - 1) * 75;                                                         //Get new position
+            positionIncrement = (newPosition - sliderCurrentPosition);                                //Get increment 
+            absPositionIncrement = Math.abs(positionIncrement);                                       //Get absolute value of increment
+            if(positionIncrement < 0){positionSign = "-";}else{positionSign = "+";}                   //Set the sign of the value to determine if it should move up or down
+            
+            $('#thumbnailSliderBox').stop().animate({    
+                top: positionSign+"="+absPositionIncrement+"px"                                       //Move the slider with an animation...top: +=15px, for example
+            }, 250 ); 
+        }
+    }
+
+    $(document).ready(function(){
+        $('#slideshow #features').cycle({                                                              //Start Cycle Plugin
+            before: beforeChange,                                                                      //Set the callback function to change the thumbnail
+            timeout: 6000,                                                       //Set the time between fades
+            speed: 1000,                                                              //Set the duration of fade effect
+            pause: false                                                                //Pause if mouse is over image
+        });
+        
+        $('.thumbnailContainer a').each(function(index) {                                              //Set up the pager
+        
+            $(this).click(function() {
+                $('#slideshow #features').cycle(index);                                                //cycle function is passed the index from the anchor    
+                if(false){$('#slideshow #features').cycle('pause');}             //If desired, pause the rotation after user selects an image
+                return false;
+            });
+            
+            $(this).hover(
+                  function () {
+                    //this line highlights the image on mouseover
+                        $(this).find('.thumbnailFiller').css('opacity', '1');
+                  }, 
+                  function () {
+                    //this block unhighlights the image on mouseout as long as it is not the currently selected one
+                        if(!$(this).find('.thumbnailFiller').hasClass("currentThumbnail"))
+                        {
+                            $(this).find('.thumbnailFiller').css('opacity', '0.4');
+                        }
+            });
+        });
+    });
+
+//]]>
+</script>
+
+
+<div class="container_16" id="promobanner" style="background-color: #335cae;">
+  <!--[if lt IE 7]>
+  <div id="ie6">
+  <![endif]-->
+
+
+    <span id="thumbnailSliderBox"><img src="http://www.gsu.edu/templateimages2009/pb_selectorBox.png" /></span>
+
+    <div id="slideshow">
+        <div id="features">
+    <div id="feature1" class="featureContainer news" rel="http://www.gsu.edu/news/60302.html"><div class="featureImage" style="background: url('http://www.gsu.edu/images/homepage_features/12_0430-commencement.jpg');"></div><div id="featureCaption1" class="featureCaption"><h1>GSU Readies for Commencement</h1><p>With research papers and final exams finished, nearly 4,000 spring and summer graduates will receive degrees at Georgia State University’s largest ever commencement ceremony at 2 p.m. May 6 in the Georgia Dome. <span class="readMore">Read More >></span></p></div></div><div id="feature2" class="featureContainer market" rel="http://www.gsu.edu/news/60300.html"><div class="featureImage" style="background: url('http://www.gsu.edu/images/homepage_features/12_0430-legacy-pan.jpg');"></div><div id="featureCaption2" class="featureCaption"></div></div><div id="feature3" class="featureContainer market" rel="http://www.gsu.edu/news/59801.html"><div class="featureImage" style="background: url('http://www.gsu.edu/images/homepage_features/12_0416-discovery-pan.jpg');"></div><div id="featureCaption3" class="featureCaption"></div></div><div id="feature4" class="featureContainer market" rel="http://www.gsu.edu/news/60170.html"><div class="featureImage" style="background: url('http://www.gsu.edu/images/homepage_features/12_0424-speaker-pan.jpg');"></div><div id="featureCaption4" class="featureCaption"></div></div></div><div class="thumbnailContainer"><div id="thumbnail1" class="featureThumbnail" style="top: 0px; left: 0px;"><a href="#" class="thumbnailAnchor" id="thumbnailAnchor1" rel="1"><span class="thumbnailFiller"><img class="thumbnailImage" src="http://www.gsu.edu/images/homepage_features/12_0430-commencementTN.jpg" /></span></a></div><div id="thumbnail2" class="featureThumbnail" style="top: 75px; left: 0px;"><a href="#" class="thumbnailAnchor" id="thumbnailAnchor2" rel="2"><span class="thumbnailFiller"><img class="thumbnailImage" src="http://www.gsu.edu/images/homepage_features/12_0430-legacy-tn.jpg" /></span></a></div><div id="thumbnail3" class="featureThumbnail" style="top: 150px; left: 0px;"><a href="#" class="thumbnailAnchor" id="thumbnailAnchor3" rel="3"><span class="thumbnailFiller"><img class="thumbnailImage" src="http://www.gsu.edu/images/homepage_features/12_0416-discovery-tn.jpg" /></span></a></div><div id="thumbnail4" class="featureThumbnail" style="top: 225px; left: 0px;"><a href="#" class="thumbnailAnchor" id="thumbnailAnchor4" rel="4"><span class="thumbnailFiller"><img class="thumbnailImage" src="http://www.gsu.edu/images/homepage_features/12_0424-speaker-tn.jpg" /></span></a></div></div>
+
+
+
+            <!--[if lt IE 7]>
+            </div>
+            <![endif]-->
+        </div> <!-- Close Slideshow -->
+    <div class="clear"></div>
+</div> <!-- Close Promobanner -->
+<div class="clear"></div> 
+<!-- End Banner Code --></div>
+<div class="clear"></div>
+
+
+<div id="tabs" class="container_16">
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+    document.write ("<ul id='menu'>");
+    document.write ("<li id='fgreg' class='ui-corner-top ui-state-active active'  style='background-repeat: no-repeat; background-position: left top;'><a href='#home'  style='background-repeat: no-repeat; background-position: right top;'  onclick='parent.location=\"http://www.gsu.edu/index.html\"'><span>Home<\/span><\/a><\/li>");
+    
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#about' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>About<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#admissions' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>Admissions<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#degrees' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>Degrees &amp; Majors<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#colleges' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>Colleges<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#offices' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>Offices<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#libraries' onclick='return redir(\"0\");' style='background-repeat: no-repeat; background-position: right top;'><span>Libraries<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#' onclick='return redir(\"http://www.gsu.edu/gastate_research.html\");' style='background-repeat: no-repeat; background-position: right top;'><span>Research<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#' onclick='return redir(\"http://www.georgiastatesports.com/ \");' style='background-repeat: no-repeat; background-position: right top;'><span>Athletics<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#' onclick='return redir(\"http://netcommunity.gsu.edu/NetCommunity/Page.aspx?pid=251\");' style='background-repeat: no-repeat; background-position: right top;'><span>Alumni<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#' onclick='return redir(\"http://netcommunity.gsu.edu/NetCommunity/Page.aspx?pid=191&amp;srcid=-2\");' style='background-repeat: no-repeat; background-position: right top;'><span>Giving<\/span><\/a><\/li>");
+        
+            document.write ("<li style='background-repeat: no-repeat; background-position: left top;'><a href='#' onclick='return redir(\"http://www.gsu.edu/campusvisits/\");' style='background-repeat: no-repeat; background-position: right top;'><span>Campus Visits<\/span><\/a><\/li>");
+        
+    document.write ("<\/ul>");
+    document.write ("<div class='clear'><\/div>")
+    //]]>
+</script>
+<noscript>
+    <ul id="menu">
+        <li style="background-image: none;"><a href="http://www.gsu.edu/index.html" onclick='return fgreg=\"http://www.gsu.edu/index.html\";'style="background-image: none;"><span>Home</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/about.html" style="background-repeat: no-repeat; background-position: right top;"><span>About</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/gastate_admissions.html" style="background-repeat: no-repeat; background-position: right top;"><span>Admissions</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/degrees_programs.html" style="background-repeat: no-repeat; background-position: right top;"><span>Degrees &amp; Majors</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/colleges.html" style="background-repeat: no-repeat; background-position: right top;"><span>Colleges</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/a_to_z_offices_services.html" style="background-repeat: no-repeat; background-position: right top;"><span>Offices</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/gastate_libraries.html" style="background-repeat: no-repeat; background-position: right top;"><span>Libraries</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/gastate_research.html" style="background-repeat: no-repeat; background-position: right top;"><span>Research</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.georgiastatesports.com/" style="background-repeat: no-repeat; background-position: right top;"><span>Athletics</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://netcommunity.gsu.edu/NetCommunity/Page.aspx?pid=251" style="background-repeat: no-repeat; background-position: right top;"><span>Alumni</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://netcommunity.gsu.edu/NetCommunity/Page.aspx?pid=191&amp;srcid=-2" style="background-repeat: no-repeat; background-position: right top;"><span>Giving</span></a></li>
+        
+            <li style="background-repeat: no-repeat; background-position: left top;"><a href="http://www.gsu.edu/campusvisits/" style="background-repeat: no-repeat; background-position: right top;"><span>Campus Visits</span></a></li>
+        
+    </ul>
+<div class="clear"></div>
+</noscript>
+
+<div id="home" class="navdropdown container_16 " style="display:none"></div>
+
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='about' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/about.html'>Welcome<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/factsheet.html'>Quick Facts <\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/governance_strategy.html'>Governance and Strategy<\/a><\/li>");
+        
+            document.write ("<li class='column2 reset'><a href='http://www.gsu.edu/gsu_atlanta.html'>GSU and Atlanta<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/social.html'>Social Media at Georgia State<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/contact.html'>Contact Georgia State<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='admissions' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/36531.html'>Undergraduate Admissions<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/36532.html'>Graduate Admissions<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/36533.html'>Law Admissions<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='degrees' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/degrees_programs_undergraduate.html'>Undergraduate Degrees and Majors<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/degrees_programs_graduate.html'>Graduate Degrees and Majors<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/degrees_programs_bycollege.html'>Degrees and Majors Sorted by College<\/a><\/li>");
+        
+            document.write ("<li class='column2 reset'><a href='http://www.gsu.edu/degrees_programs.html'>All Degrees & Majors<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/academic_guides_undergraduate.html'>Undergraduate Academic Guides<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='colleges' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/36758.html'>Andrew Young School of Policy Studies<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/51709.html'>Byrdine F. Lewis School of Nursing and Health Professions<\/a><\/li>");
+        
+            document.write ("<li class='column2 reset'><a href='http://www.gsu.edu/36759.html'>College of Arts and Sciences<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/36764.html'>College of Education<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/36765.html'>College of Law<\/a><\/li>");
+        
+            document.write ("<li class='column3 reset'><a href='http://www.gsu.edu/53112.html'>Honors College<\/a><\/li>");
+        
+            document.write ("<li class='column3 '><a href='http://www.gsu.edu/53113.html'>Institute of Public Health<\/a><\/li>");
+        
+            document.write ("<li class='column3 '><a href='http://www.gsu.edu/36776.html'>J. Mack Robinson College of Business<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='offices' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/a_to_z_offices_services.html'>Complete A-Z Index of Offices & Services<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/academic_depts.html'>Academic Departments<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/administrative_offices.html'>Administrative Offices<\/a><\/li>");
+        
+            document.write ("<li class='column2 reset'><a href='http://www.gsu.edu/services.html'>Services<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/centers_institutes.html'>Centers & Institutes<\/a><\/li>");
+        
+            document.write ("<li class='column2 '><a href='http://www.gsu.edu/facilities_venues.html'>Facilities & Venues<\/a><\/li>");
+        
+            document.write ("<li class='column3 reset'><a href='http://www.gsu.edu/publications_media.html'>Publications & Media<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='libraries' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/37488.html'>University Library<\/a><\/li>");
+        
+            document.write ("<li class='column1 '><a href='http://www.gsu.edu/37489.html'>College of Law Library<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+            document.write ("<li class=' '><a href='http://www.gsu.edu/36660.html'>Giving<\/a><\/li>");
+        
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+            <script type="text/javascript" language="javascript">
+                document.write ("<div id='' class='navdropdown container_16 ui-tabs-hide'>");
+                document.write ("<div class='topbg'>");
+                document.write ("<div class='grid_16'>");
+                document.write ("<ul>");
+                document.write ("<li style='display:none;'>&nbsp;<\/li>");
+                
+                document.write ("<\/ul>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+                document.write ("<\/div>");
+            </script>
+            <noscript></noscript>          
+      
+</div>
+<div class="clear"></div>
+
+<div id="wrapper" class="collegehome">
+
+
+
+  <div id="page" class="container_16 collegehome">
+<a id="content"></a>
+    <div class="grid_8" id="sitenews">
+
+
+
+<div class="link_list module " style="padding-top: 5px;">
+  
+      
+
+<div class="content">
+
+
+<a href="http://www.gsu.edu/watch-commencement/?utm_source=gsuhome&utm_medium=banner&utm_term=commencement&utm_content=streamingvideo&utm_campaign=livecommencement"><img style="border: 0px solid;" alt="GSU Spring Commencement - The live streaming event is over but check back on Monday, May 7, to view the commencement online." src="http://www.gsu.edu/images/promos/12_0506-livestream-3.jpg" /></a>
+</div>
+</div>
+
+<div class="link_list module" style="border:none;">
+  <h3 class="moduleheader"><a href="http://www.gsu.edu/news/index.html">News</a></h3><div class="modcontent">
+  <div class="storyteaser"><img src="http://www.gsu.edu/images/homepage_features/12_0503-EricksonTN.jpg" alt="Georgia State appoints founding dean of the School of Public Health" />
+    <h4><a href="http://www.gsu.edu/news/60368.html">Georgia State appoints founding dean of the School of Public Health</a></h4>
+    
+        Risa I. Palm, provost and senior vice president of academic affairs at Georgia State University, has announced the appointment of Michael Eriksen as the founding dean of the School of Public Health.
+    &nbsp;<a href="http://www.gsu.edu/news/60368.html" title="Georgia State appoints founding dean of the School of Public Health">More&nbsp;&raquo;</a><br class="clear" />
+  </div>
+  <div class="storyteaser"><img src="http://www.gsu.edu/images/homepage_features/12_0427-LLPTN.jpg" alt="Latino Leadership Pipeline finalists honored on campus" />
+    <h4><a href="http://www.gsu.edu/news/60244.html">Latino Leadership Pipeline finalists honored on campus</a></h4>
+    Goizueta Foundation funds 25 GSU scholarships to recruit, retain and graduate Latino students and prepare them as global leaders.&nbsp;<a href="http://www.gsu.edu/news/60244.html" title="Latino Leadership Pipeline finalists honored on campus">More&nbsp;&raquo;</a><br class="clear" />
+  </div>
+  <div class="storyteaser"><img src="http://www.gsu.edu/images/homepage_features/12_0420-reccenter-tn.jpg" alt="GSU Student Recreation Center receives first Green Globes Certification for Georgia Higher Education" />
+    <h4><a href="http://www.gsu.edu/news/60089.html">GSU Student Recreation Center receives first Green Globes Certification for Georgia Higher Education</a></h4>
+    Georgia State University’s Student Recreation Center (SRC) has received three Green Globes for its efforts to use less energy, conserve natural resources and emit fewer pollutants into the air.&nbsp;<a href="http://www.gsu.edu/news/60089.html" title="GSU Student Recreation Center receives first Green Globes Certification for Georgia Higher Education">More&nbsp;&raquo;</a><br class="clear" />
+  </div>
+  <div class="storyteaser"><img src="http://www.gsu.edu/images/Features/12_0420-TaiwanTN.jpg" alt="GSU becomes Taiwan Academy affiliate" />
+    <h4><a href="http://www.gsu.edu/news/60087.html">GSU becomes Taiwan Academy affiliate</a></h4>
+    Georgia State University signed an agreement April 19 with the Taipei Economic and Cultural Office in Atlanta to serve as an affiliate for the Taiwan Academy.&nbsp;<a href="http://www.gsu.edu/news/60087.html" title="GSU becomes Taiwan Academy affiliate">More&nbsp;&raquo;</a><br class="clear" />
+  </div>
+
+</div>
+</div><div class="link_list module " style="padding-top: 5px;">
+  
+      
+
+<div class="content">
+
+<a href="http://www.gsu.edu/incept?utm_source=gsuhome&utm_medium=banner&utm_term=admissions&utm_campaign=incept"><img border="0" alt="Register for Incept: New Student Orientation. While on campus you will register for fall semester classes. Incept is required for all first-year students." src="http://www.gsu.edu/images/promos/admissions_module2.jpg" /></a><br />
+<img style="border: 0px solid;" alt=" " src="http://www.gsu.edu/images/ur/rule.jpg" /><br />
+<a href="javascript:;" onclick="popupx = Math.round((screen.availWidth-1000)/2);popupy=Math.round((screen.availHeight-634)/2);window.open('http://video.realviewtv.com/education/gsu/','launcher','width=1000,height=634,scrollbars=no,left='+popupx+',top='+popupy+',resizable=no')"><img style="border: 0px solid;" alt="Explore GSU - Campus Video Tour" src="http://www.gsu.edu/images/promos/promo_realview7.jpg" /></a>
+
+</div>
+</div>
+    </div>
+    <div class="grid_4" id="calendar">
+<div class="link_list module topdown">
+  <h3 class="moduleheader"><a href="http://calendar.gsu.edu/calendar">Event Highlights</a></h3>
+<div class="modcontent">
+<table>
+    <tr>
+        <td align="top">
+            <script language="javascript"  type="text/javascript" src="http://calendar.gsu.edu/calendar/EventListSyndicator.aspx?type=N&number=12&highlight=Y&adpid=1"></script>
+        </td>
+    </tr>
+</table>
+</div>
+</div>
+    </div>
+ 
+    <div class="grid_4" id="rightrail">
+
+<script type="text/javascript"> 
+function toggle(obj) {
+    var el = document.getElementById(obj);
+    el.style.display = (el.style.display != 'none' ? 'none' : '' );
+}
+</script>
+
+
+<div class="link_list module topdown" style="padding-bottom: 0px; margin-bottom:10px;">
+  
+      
+<!--     <h3></h3>-->
+    <h3 class="moduleheader"> <a href="javascript: void(0)" onclick="toggle('infofor');" style="cursor:hand;">Information For You</a></h3>
+<div class="modcontent" id="infofor" style="display:nonee;">
+
+
+
+  <ul>
+    <li><a href="http://www.gsu.edu/prospective_students.html">Prospective Students</a></li><li><a href="http://www.gsu.edu/current_students.html">Current Students</a></li><li><a href="http://www.gsu.edu/gastate_parents.html">Parents</a></li><li><a href="http://www.gsu.edu/faculty.html">Faculty</a></li><li><a href="http://www.gsu.edu/staff.html">Staff</a></li><li><a href="http://www.gsu.edu/gastate_alumni.html">Alumni</a></li><li><a href="http://www.gsu.edu/43542.html">Employment</a></li>
+    
+  </ul>
+</div>
+</div><div class="module jumpmenus">
+<script type="text/javascript" language="javascript">
+document.write ("<form name='36738' id='36738' action=''>");
+    document.write ("<select name='36738jumpMenu' id='36738jumpMenu' onkeydown='key(event, this)' onclick='key_press=false;' onchange='jump_menu(\"document\", this)' class='jump'>");
+      document.write ("<option value='#'>Quick Links<\/option>");
+document.write ("<!--http://www.gsu.edu/36740.htm-->");
+      document.write ("<option value='http://www.gsu.edu/admissions/'>Admissions<\/option>");document.write ("<!--http://www.gsu.edu/36863.htm-->");
+      document.write ("<option value='http://www.gsu.edu/enrollment/catalogs.html'>Catalogs<\/option>");document.write ("<!--http://www.gsu.edu/36864.htm-->");
+      document.write ("<option value='https://www.gosolar.gsu.edu/bprod/bwckctlg.P_DisplaySubjects'>Courses Offered<\/option>");document.write ("<!--http://www.gsu.edu/36865.htm-->");
+      document.write ("<option value='http://www.gsu.edu/jobs/index.html'>Employment<\/option>");document.write ("<!--http://www.gsu.edu/36867.htm-->");
+      document.write ("<option value='http://www.gsu.edu/financialaid/'>Financial Aid<\/option>");document.write ("<!--http://www.gsu.edu/36868.htm-->");
+      document.write ("<option value='http://www.galileo.usg.edu/'>GALILEO<\/option>");document.write ("<!--http://www.gsu.edu/36869.htm-->");
+      document.write ("<option value='http://www.gsu.edu/36458.html'>Georgia State News<\/option>");document.write ("<!--http://www.gsu.edu/36870.htm-->");
+      document.write ("<option value='http://www.gsu.edu/hr/index.html'>Human Resources<\/option>");document.write ("<!--http://www.gsu.edu/36871.htm-->");
+      document.write ("<option value='http://www.gsu.edu/gastate_libraries.html'>Libraries<\/option>");document.write ("<!--http://www.gsu.edu/37630.htm-->");
+      document.write ("<option value='http://www.gsu.edu/onestopshop/'>One Stop Shop<\/option>");document.write ("<!--http://www.gsu.edu/36872.htm-->");
+      document.write ("<option value='http://www.rialtocenter.org/'>Rialto Center<\/option>");document.write ("<!--http://www.gsu.edu/36866.htm-->");
+      document.write ("<option value='http://www.gsu.edu/success/'>Student Success<\/option>");
+    document.write ("<\/select>");
+  document.write ("<\/form>");
+</script>
+
+<noscript>
+<h3>Quick Links</h3>
+<ul>
+<!--http://www.gsu.edu/36740.htm-->
+<li><a href="http://www.gsu.edu/admissions/">Admissions</a></li><!--http://www.gsu.edu/36863.htm-->
+<li><a href="http://www.gsu.edu/enrollment/catalogs.html">Catalogs</a></li><!--http://www.gsu.edu/36864.htm-->
+<li><a href="https://www.gosolar.gsu.edu/bprod/bwckctlg.P_DisplaySubjects">Courses Offered</a></li><!--http://www.gsu.edu/36865.htm-->
+<li><a href="http://www.gsu.edu/jobs/index.html">Employment</a></li><!--http://www.gsu.edu/36867.htm-->
+<li><a href="http://www.gsu.edu/financialaid/">Financial Aid</a></li><!--http://www.gsu.edu/36868.htm-->
+<li><a href="http://www.galileo.usg.edu/">GALILEO</a></li><!--http://www.gsu.edu/36869.htm-->
+<li><a href="http://www.gsu.edu/36458.html">Georgia State News</a></li><!--http://www.gsu.edu/36870.htm-->
+<li><a href="http://www.gsu.edu/hr/index.html">Human Resources</a></li><!--http://www.gsu.edu/36871.htm-->
+<li><a href="http://www.gsu.edu/gastate_libraries.html">Libraries</a></li><!--http://www.gsu.edu/37630.htm-->
+<li><a href="http://www.gsu.edu/onestopshop/">One Stop Shop</a></li><!--http://www.gsu.edu/36872.htm-->
+<li><a href="http://www.rialtocenter.org/">Rialto Center</a></li><!--http://www.gsu.edu/36866.htm-->
+<li><a href="http://www.gsu.edu/success/">Student Success</a></li>
+</ul>
+</noscript>
+  <br /><script type="text/javascript" language="javascript">
+document.write ("<form name='36739' id='36739' action=''>");
+    document.write ("<select name='36739jumpMenu' id='36739jumpMenu' onkeydown='key(event, this)' onclick='key_press=false;' onchange='jump_menu(\"document\", this)' class='jump'>");
+      document.write ("<option value='#'>Popular Links<\/option>");
+document.write ("<!--http://www.gsu.edu/43976.htm-->");
+      document.write ("<option value=''>Strategic Plan<\/option>");document.write ("<!--http://www.gsu.edu/36891.htm-->");
+      document.write ("<option value='http://www.gsu.edu/pantherwelcome/index.html'>Panther Welcome<\/option>");document.write ("<!--http://www.gsu.edu/42215.htm-->");
+      document.write ("<option value='http://www.gsu.edu/budgetnews/index.html'>Budget News<\/option>");document.write ("<!--http://www.gsu.edu/36942.htm-->");
+      document.write ("<option value='http://www.collegeportraits.org/GA/GSU'>College Portrait<\/option>");document.write ("<!--http://www.gsu.edu/36943.htm-->");
+      document.write ("<option value='http://www.gsu.edu/itunesu/index.html'>Georgia State on iTunes U<\/option>");document.write ("<!--http://www.gsu.edu/37127.htm-->");
+      document.write ("<option value='http://www.gsu.edu/admissions/apply.html'>Apply Online<\/option>");document.write ("<!--http://www.gsu.edu/37128.htm-->");
+      document.write ("<option value='http://www.gsu.edu/admissions/next_steps.html'>Next Steps for Accepted Students<\/option>");document.write ("<!--http://www.gsu.edu/37129.htm-->");
+      document.write ("<option value='http://www.gsu.edu/campusvisits/'>Schedule a Campus Visit<\/option>");
+    document.write ("<\/select>");
+  document.write ("<\/form>");
+</script>
+
+<noscript>
+<h3>Popular Links</h3>
+<ul>
+<!--http://www.gsu.edu/43976.htm-->
+<li></li><!--http://www.gsu.edu/36891.htm-->
+<li><a href="http://www.gsu.edu/pantherwelcome/index.html">Panther Welcome</a></li><!--http://www.gsu.edu/42215.htm-->
+<li><a href="http://www.gsu.edu/budgetnews/index.html">Budget News</a></li><!--http://www.gsu.edu/36942.htm-->
+<li><a href="http://www.collegeportraits.org/GA/GSU">College Portrait</a></li><!--http://www.gsu.edu/36943.htm-->
+<li><a href="http://www.gsu.edu/itunesu/index.html">Georgia State on iTunes U</a></li><!--http://www.gsu.edu/37127.htm-->
+<li><a href="http://www.gsu.edu/admissions/apply.html">Apply Online</a></li><!--http://www.gsu.edu/37128.htm-->
+<li><a href="http://www.gsu.edu/admissions/next_steps.html">Next Steps for Accepted Students</a></li><!--http://www.gsu.edu/37129.htm-->
+<li><a href="http://www.gsu.edu/campusvisits/">Schedule a Campus Visit</a></li>
+</ul>
+</noscript>
+  <br />
+</div>
+
+<div class="module photopromo">
+  <div class="roundimage" style="background-image:url(http://www.gsu.edu/images/promos/12_03-magazine-railpromo.jpg); width:220; height:100px;">
+<!-- May need to specify the width and heights as px rather than leaving them blank. -->
+    <div class="topright" >
+      <div class="bottomright" >
+        <div class="bottomleft">
+          <div class="topleft">
+            <div class="image" ><a href="http://www.gsu.edu/magazine"><img src="http://www.gsu.edu/templateimages2009/spacer.gif" alt="" width="220" height="100px" /></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="module photopromo">
+  <div class="roundimage" style="background-image:url(http://www.gsu.edu/images/promos/12_0216-video.jpg); width:220; height:100px;">
+<!-- May need to specify the width and heights as px rather than leaving them blank. -->
+    <div class="topright" >
+      <div class="bottomright" >
+        <div class="bottomleft">
+          <div class="topleft">
+            <div class="image" ><a href="http://www.gsu.edu/video"><img src="http://www.gsu.edu/templateimages2009/spacer.gif" alt="" width="220" height="100px" /></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="module photopromo">
+  <div class="roundimage" style="background-image:url(http://www.gsu.edu/images/ur/promo_stratplan2.jpg); width:220; height:50px;">
+<!-- May need to specify the width and heights as px rather than leaving them blank. -->
+    <div class="topright" >
+      <div class="bottomright" >
+        <div class="bottomleft">
+          <div class="topleft">
+            <div class="image" ><a href="http://www.gsu.edu/strategicplan/"><img src="http://www.gsu.edu/templateimages2009/spacer.gif" alt="" width="220" height="50px" /></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+ <div class="clear "></div> 
+</div>
+  <div class="clear"></div>
+  <div id="footer" class="container_16">© 5/6/2012 3:31:52 PM Georgia State University | <a href="http://www.gsu.edu/gastate_legal_statement.html">View legal statement</a> | <a href="http://www.gsu.edu/contact.html">Contact us</a> | <a href="http://www.gsu.edu/feedback.html">Send feedback</a></div>
+ </div>
+<!-- </div> -->
+<!--  -->
+
+<!-- Google Tracking -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+_gaq.push(
+  //This is the University's current tracking code
+  ['_setAccount', 'UA-13240449-1'],
+  ['_trackPageview'],
+  //This is the University's old tracking code
+  ['b._setAccount', 'UA-411467-1'],
+  ['b._trackPageview']
+
+);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

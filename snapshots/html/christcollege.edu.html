@@ -1,0 +1,1103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="refresh" content="1800" />
+<title>Christ University, Bangalore, Karnataka</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="css_new/style_banner.css"/>
+<script type="text/javascript" src="../highslide/highslide-with-gallery.js"></script>
+<link rel="stylesheet" type="text/css" href="../highslide/highslide.css" />
+<script type="text/javascript">
+        hs.graphicsDir = '../highslide/graphics/';
+        hs.align = 'center';
+        hs.transitions = ['expand', 'crossfade'];
+        hs.outlineType = 'rounded-white';
+        hs.wrapperClassName = 'controls-in-heading';
+        hs.fadeInOut = true;
+        //hs.dimmingOpacity = 0.75;
+
+        // Add the controlbar
+        if (hs.addSlideshow) hs.addSlideshow({
+                //slideshowGroup: 'group1',
+                interval: 5000,
+                repeat: false,
+                useControls: true,
+                fixedControls: false,
+                overlayOptions: {
+                        opacity: 1,
+                        position: 'top right',
+                        hideOnMouseOut: false
+                }
+        });
+</script>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=7886688; 
+var sc_invisible=1; 
+var sc_security="26ffbeb7"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript><div class="statcounter"><a title="godaddy
+tracker"
+href="http://statcounter.com/godaddy_website_tonight/"
+target="_blank"><img class="statcounter"
+src="http://c.statcounter.com/7886688/0/26ffbeb7/1/"
+alt="godaddy tracker"></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->
+
+
+
+        <!--for sliding banner text-->
+        <script src="asset/jquery_004.js" type="text/javascript"></script>
+        <script src="asset/jquery_003.js" type="text/javascript"></script>
+        <script src="asset/jquery_002.js" type="text/javascript"></script>
+        <script src="asset/jquery.js" type="text/javascript"></script>
+        <!--[if IE 6]>
+        <script src="/javascript/ie6.js" type="text/javascript"></script>
+        <![endif]-->
+        <!--[if IE 6]>
+        <link rel="stylesheet" type="text/css" href="/css/front/ie.css" />
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/css/front/ie7.css" />
+        <![endif]-->
+        <link rel="stylesheet" type="text/css" href="asset/homepage2.css">
+        <script src="asset/homepage2.js" type="text/javascript"></script>
+        <!--sliding banner top-->
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js_new/stickynote.js"></script>
+		<!-----popup--------------->
+		<script>
+		
+		var mysticky=new stickynote({
+			content:{divid:'stickynote1', source:'inline'},
+			pos:['right', 'bottom'],
+			showfrequency:'always',
+			hidebox:8
+		})
+		
+		/*var mysticky2=new stickynote({
+			content:{divid:'stickynote2', source:'js_new/stickydata.txt'},
+			pos:['right', 'bottom'],
+			showfrequency:'always'  //no comma following last setting!
+		})*/
+		
+		</script>
+				 
+<!------End popup----------------->
+		  <script type="text/javascript" src="js/jquery.min2.js"></script>
+		  
+		 <!-- <script type="text/javascript" src="js_new/script.js"></script>-->
+		 <script>
+/*
+* Author:      Marco Kuiper (http://www.marcofolio.net/)
+*/
+
+// Speed of the automatic slideshow
+var slideshowSpeed = 12000;
+
+// Variable to store the images we need to set as background
+// which also includes some text and url's.
+
+var photos = [ 
+  	
+    {   
+		"title" : "Stairs",
+		"image" : "287_InterviewSchedule.jpg",
+		"url" : "http://christuniversity.in/msgdisplay.php?id=86440&f=2",
+		"firstline" : "Get out and be",
+		"secondline" : "active"
+		
+	},
+	 
+];
+$(document).ready(function() {
+		
+	// Backwards navigation
+	$("#back").click(function() {
+		stopAnimation();
+		navigate("back");
+	});
+	
+	// Forward navigation
+	$("#next").click(function() {
+		stopAnimation();
+		navigate("next");
+	});
+	
+	var interval;
+	$("#control").toggle(function(){
+		stopAnimation();
+	}, function() {
+		// Change the background image to "pause"
+		$(this).css({ "background-image" : "url(images/btn_pause.png)" });
+		
+		// Show the next image
+		navigate("next");
+		
+		// Start playing the animation
+		interval = setInterval(function() {
+			navigate("next");
+		}, slideshowSpeed);
+	});
+	
+	
+	var activeContainer = 1;	
+	var currentImg = 0;
+	var animating = false;
+	var navigate = function(direction) {
+		// Check if no animation is running. If it is, prevent the action
+		if(animating) {
+			return;
+		}
+		
+		// Check which current image we need to show
+		if(direction == "next") {
+			currentImg++;
+			if(currentImg == photos.length + 1) {
+				currentImg = 1;
+			}
+		} else {
+			currentImg--;
+			if(currentImg == 0) {
+				currentImg = photos.length;
+			}
+		}
+		
+		// Check which container we need to use
+		var currentContainer = activeContainer;
+		if(activeContainer == 1) {
+			activeContainer = 2;
+		} else {
+			activeContainer = 1;
+		}
+		
+		showImage(photos[currentImg - 1], currentContainer, activeContainer);
+		
+	};
+	
+	var currentZindex = -1;
+	var showImage = function(photoObject, currentContainer, activeContainer) {
+		animating = true;
+		
+		// Make sure the new container is always on the background
+		currentZindex--;
+		
+		// Set the background image of the new active container
+		    $("#features_panel").wrap('<a href="'+photoObject.url+'"></a>');
+			$("#headerimg" + activeContainer).wrap('<a href="'+photoObject.url+'"></a>');
+		$("#headerimg" + activeContainer).css({
+			"background-image" : "url(webadmin/slideimage/" + photoObject.image + ")",
+			
+			"display" : "block",
+			"z-index" : currentZindex
+		});
+		
+		// Hide the header text
+		$("#headertxt").css({"display" : "none"});
+		
+		// Set the new header text
+    
+		$("#firstline").html(photoObject.firstline);
+		
+		
+		
+		// Fade out the current container
+		// and display the header text when animation is complete
+		$("#headerimg" + currentContainer).fadeOut(function() {
+			setTimeout(function() {
+				$("#headertxt").css({"display" : "none"});
+				animating = false;
+			}, 500);
+		});
+	};
+	
+	var stopAnimation = function() {
+		// Change the background image to "play"
+		$("#control").css({ "background-image" : "url(images/btn_play.png)" });
+		
+		// Clear the interval
+		clearInterval(interval);
+	};
+	
+	// We should statically set the first image
+	navigate("next");
+	
+	// Start playing the animation
+	interval = setInterval(function() {
+		navigate("next");
+	}, slideshowSpeed);
+	
+});
+
+</script>
+		 
+		 
+		 
+         <!--sliding banner end--> 		 
+                   
+                    <!--footer slide
+                    <script type="text/javascript" src="js_new/jquery.js"></script>
+					<script type="text/javascript" src="js_new/jquery.jcarousel.min.js"></script>
+                    <script type="text/javascript" src="js_new/main.js"></script>
+                    <link href="css_new/main.css" rel="stylesheet" type="text/css" />-->
+                    <link href="css_new/footer.css" rel="stylesheet" type="text/css" />
+                    <!--footer slide end-->  
+                  
+ <!-- Tool Tip Start -->
+ <style type="text/css">
+
+#popitmenu{
+position: absolute;
+background-color: #002248;
+border:1px solid  #0033CC;
+font: normal 12px Arial, Helvetica, sans-serif;
+line-height: 18px;
+z-index: 100;
+visibility: hidden; padding:5px;
+
+}
+
+#popitmenu a{
+text-decoration: none;
+/*padding-left: 6px;*/
+color:   #c2d7ef;
+display: block;
+border-bottom:dotted 1px #0099CC; background:url(images/tick-smallpng.png) no-repeat 0 6px; padding:0 0 2px 19px;
+}
+
+#popitmenu a:hover{ /*hover background color*/
+background-color: #003366;
+color: #FFFFFF;
+}
+
+</style>
+
+<script type="text/javascript">
+
+var defaultMenuWidth="200px" //set default menu width.
+
+var linkset=new Array()
+
+//SPECIFY MENU SETS AND THEIR LINKS. FOLLOW SYNTAX LAID OUT
+  linkset[0] = '';
+  			//linkset[0]='<a href="http://dynamicdrive.com">Dynamic Drive3</a>'
+			linkset[0]+='<a href="secmenudisp.php?mid=1&subid=55"  target="">IFCU</a>'
+					
+					//linkset[]+='<a href="http://www.christuniversity.in/virtualtour/" target="">Virtual Tour</a>'
+								//linkset[]+='<a href="http://www.christuniversity.in/virtualtour/" target="">Virtual Tour</a>'
+				linkset[0]+='<a href="http://www.christuniversity.in/virtualtour/" target="">Virtual Tour</a>'
+								//linkset[]+='<a href="http://www.christuniversity.in/virtualtour/" target="">ABCD</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/campuslink.php" target="">Campus</a>'
+								//linkset[]+='<a href="http://www.christuniversity.in/campuslink.php" target="">Campus</a>'
+				linkset[0]+='<a href="http://www.christuniversity.in/campuslink.php" target="">Campus</a>'
+								//linkset[]+='<a href="http://www.christuniversity.in/campuslink.php" target="">ABCD</a>'
+									
+	  linkset[1] = '';
+  				//linkset[]+='<a href="http://www.christuniversity.in/School%20of%20Education/index.php?division=School%20of%20Education&dept=72" target="">School of Education</a>'
+				linkset[1]+='<a href="http://www.christuniversity.in/School%20of%20Education/index.php?division=School%20of%20Education&dept=72" target="">School of Education</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/departments.php?division=11" target="">General Departments</a>'
+				linkset[1]+='<a href="http://www.christuniversity.in/departments.php?division=11" target="">General Departments</a>'
+									
+	  linkset[2] = '';
+  				//linkset[]+='<a href="http://christuniversity.in/msgdisplay.php?id=86217&f=2" target="">M.Sc in Sustainable Development and Organization</a>'
+				linkset[2]+='<a href="http://christuniversity.in/msgdisplay.php?id=86217&f=2" target="">M.Sc in Sustainable Development and Organization</a>'
+									
+	  linkset[3] = '';
+  				//linkset[]+='<a href="http://library.christuniversity.in" target="">Online Catalogue</a>'
+				linkset[3]+='<a href="http://library.christuniversity.in" target="">Online Catalogue</a>'
+									
+					//linkset[]+='<a href="http://christuniversitylibrary.blogspot.com/p/useful-links.html" target="">Open Access Repositories </a>'
+				linkset[3]+='<a href="http://christuniversitylibrary.blogspot.com/p/useful-links.html" target="">Open Access Repositories </a>'
+									
+	  linkset[4] = '';
+  			//linkset[0]='<a href="http://dynamicdrive.com">Dynamic Drive3</a>'
+			linkset[4]+='<a href="secmenudisp.php?mid=6&subid=21"  target="">Department of Publications</a>'
+					
+					//linkset[]+='<a href="http://christbangalore.blogspot.com/" target="">Campus Blog</a>'
+				linkset[4]+='<a href="http://christbangalore.blogspot.com/" target="">Campus Blog</a>'
+									
+					//linkset[]+='<a href="http://journals.christuniversity.in/index.php" target="">Open Journal Systems</a>'
+				linkset[4]+='<a href="http://journals.christuniversity.in/index.php" target="">Open Journal Systems</a>'
+									
+	  linkset[5] = '';
+  				//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=102&arid=14&f=4" target="">Swansea University, UK</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=102&arid=14&f=4" target="">Swansea University, UK</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=44&arid=14&f=4" target="">Norwegian University of Science and Technology, Norway</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=44&arid=14&f=4" target="">Norwegian University of Science and Technology, Norway</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=46&arid=14&f=4" target="">Duta Wacana Christian University, Indonesia</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=46&arid=14&f=4" target="">Duta Wacana Christian University, Indonesia</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=48&arid=14&f=4" target="">Baldwin-Wallace College, Berea, Ohio, USA</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=48&arid=14&f=4" target="">Baldwin-Wallace College, Berea, Ohio, USA</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=60&arid=14&f=4" target="">IESEG School of Management, France</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=60&arid=14&f=4" target="">IESEG School of Management, France</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=74&arid=14&f=4" target="">India Gateway Programme (IGP)</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=74&arid=14&f=4" target="">India Gateway Programme (IGP)</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=102&arid=14&f=4" target="">University Studies Abroad Consortium (USAC)</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=102&arid=14&f=4" target="">University Studies Abroad Consortium (USAC)</a>'
+									
+					//linkset[]+='<a href="http://www.christuniversity.in/display_article.php?fid=104&arid=14&f=4" target="">Disney International Programs for BHM Students</a>'
+				linkset[5]+='<a href="http://www.christuniversity.in/display_article.php?fid=104&arid=14&f=4" target="">Disney International Programs for BHM Students</a>'
+									
+	
+////No need to edit beyond here
+
+var ie5=document.all && !window.opera
+var ns6=document.getElementById
+
+if (ie5||ns6)
+document.write('<div id="popitmenu" onMouseover="clearhidemenu();" onMouseout="dynamichide(event)"></div>')
+
+function iecompattest(){
+return (document.compatMode && document.compatMode.indexOf("CSS")!=-1)? document.documentElement : document.body
+}
+
+function showmenu(e, which, optWidth){ 
+if (!document.all&&!document.getElementById)
+return
+clearhidemenu()
+menuobj=ie5? document.all.popitmenu : document.getElementById("popitmenu")
+menuobj.innerHTML=which
+menuobj.style.width=(typeof optWidth!="undefined")? optWidth : defaultMenuWidth
+menuobj.contentwidth=menuobj.offsetWidth
+menuobj.contentheight=menuobj.offsetHeight
+eventX=ie5? event.clientX : e.clientX
+eventY=ie5? event.clientY : e.clientY
+//Find out how close the mouse is to the corner of the window
+var rightedge=ie5? iecompattest().clientWidth-eventX : window.innerWidth-eventX
+var bottomedge=ie5? iecompattest().clientHeight-eventY : window.innerHeight-eventY
+//if the horizontal distance isn't enough to accomodate the width of the context menu
+if (rightedge<menuobj.contentwidth)
+//move the horizontal position of the menu to the left by it's width
+menuobj.style.left=ie5? iecompattest().scrollLeft+eventX-menuobj.contentwidth+"px" : window.pageXOffset+eventX-menuobj.contentwidth+"px"
+else
+//position the horizontal position of the menu where the mouse was clicked
+menuobj.style.left=ie5? iecompattest().scrollLeft+eventX+"px" : window.pageXOffset+eventX+"px"
+//same concept with the vertical position
+if (bottomedge<menuobj.contentheight)
+menuobj.style.top=ie5? iecompattest().scrollTop+eventY-menuobj.contentheight+"px" : window.pageYOffset+eventY-menuobj.contentheight+"px"
+else
+menuobj.style.top=ie5? iecompattest().scrollTop+event.clientY+"px" : window.pageYOffset+eventY+"px"
+menuobj.style.visibility="visible"
+return false
+}
+
+function contains_ns6(a, b) {
+//Determines if 1 element in contained in another- by Brainjar.com
+while (b.parentNode)
+if ((b = b.parentNode) == a)
+return true;
+return false;
+}
+
+function hidemenu(){
+if (window.menuobj)
+menuobj.style.visibility="hidden"
+}
+
+function dynamichide(e){
+if (ie5&&!menuobj.contains(e.toElement))
+hidemenu()
+else if (ns6&&e.currentTarget!= e.relatedTarget&& !contains_ns6(e.currentTarget, e.relatedTarget))
+hidemenu()
+}
+
+function delayhidemenu(){ 
+delayhide=setTimeout("hidemenu()",500)
+}
+
+function clearhidemenu(){
+if (window.delayhide)
+clearTimeout(delayhide)
+}
+
+if (ie5||ns6)
+document.onclick=hidemenu
+
+</script> 
+<!-- Tool Tip End --> 
+
+<!-- Function --> 
+<script>
+function quick()
+{
+var quicklink=document.qqq.selquick.value;
+document.qqq.action=quicklink;
+document.qqq.submit();
+}
+</script>
+
+
+	<style type="text/css">
+	
+	.stickynote{
+	position:absolute;
+	visibility:hidden;
+	width: 300px;
+	border: 1px solid black;
+	background-color:#00002E;
+	padding: 4px;
+	box-shadow: 3px 3px 8px #818181;
+	-webkit-box-shadow: 3px 3px 8px #818181;
+	-moz-box-shadow: 3px 3px 8px #818181;
+	}
+	
+	</style>
+
+
+             
+					
+</head>
+<body> 
+<div id="wrap">
+<div id="header">
+	
+	<div id="headerimgs">
+		<div id="headerimg1" class="headerimg"></div>
+		<div id="headerimg2" class="headerimg"></div>
+	</div>
+
+ 
+<div id="wraper">
+<div id="top">
+
+<div id="logo"><img src="images/logo_new.jpg" width="255" height="119" /></div>
+<div id="topright">
+<div id="topsmlllink">
+<font color=#ffffff>Find Us On:</font><a href="http://www.facebook.com/Christ.University" target="_blank"><img src="../images/fb.gif" border="0" width="25px" height="25px"></a><a href="http://twitter.com/#!/christbangalore" target="_blank"><img src="../images/tw.gif" width="25px" height="25px" border="0"></a><a href="http://www.youtube.com/TheChristuniversity" target="_blank"><img src="../images/yt.gif" width="25px" height="25px" border="0"></a>
+<a href="http://www.christuniversity.in/videogallery/video_index.php" target="_blank"><img src="../images/ctv.gif" width="25px" height="25px" border="0"></a>
+<a href="http://www.flikr.com/christuniversity" target="_blank"><img src="../images/flr.gif" width="25px" height="25px" border="0"></a>
+<a href="http://christbangalore.blogspot.com/" target="_blank"><img src="../images/blog.gif" width="25px" height="25px" border="0"></a>
+</div>
+
+
+
+
+<div id="searchnqlink">
+<form action="result.php" id="cse-search-box">
+<input type="hidden" name="cx" value="018121290684888674381:hnkluzagngi" />
+<input type="hidden" name="cof" value="FORID:10" />
+<input type="hidden" name="ie" value="UTF-8" />
+<div id="search"><input name="q" type="text" class="searchfield" id="web" value="Search" onblur="if(this.value=='')this.value='Search'" onfocus="if(this.value=='Search')this.value=''" /></div>
+</form>
+<form method="post" name="qqq">
+<div id="quick">
+	<!--<select name="selquick" id="selquick" class="quickfield"  onchange="quick();" > 
+	<option value="-1"> Quick Links </option>-->
+		
+	<!--<option value="https://mail.google.com/a/christuniversity.in" >Faculty Email</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/studentemail.php?MID=75" >Student Email</option>-->
+		
+	<!--<option value="http://courses.christuniversity.in" >MyCourse</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/a-zprogrammes.php" >Apply Online</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/christalumni" >Alumni</option>-->
+		
+	<!--<option value="" >Calendar</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/secmenudisp.php?mid=6&subid=21" >Publications</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/StudentLogin.html" >Attendance</option>-->
+		
+	<!--<option value="http://maps.google.com/?ie=UTF8&ll=12.934885,77.607422&spn=0.004925,0.007296&z=17" >Locate Us</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/feature_list.php?gid=13&f=2" >Support Service</option>-->
+		
+	<!--<option value="http://decibel.christuniversity.in" >Campus Radio</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/career.php" >Careers</option>-->
+		
+	<!--<option value="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_ji7p6ls5u8gmoilsph8cplo1lc%40group.calendar.google.com&amp;ctz=Asia/Calcutta" >Bus Booking</option>-->
+		
+	<!--<option value="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_jqdd17erbanr1cdmipat9efkhc%40group.calendar.google.com&amp;ctz=Asia/Calcutta" >Auditorium Booking</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/virtualtour" >Campus Virtual Tour</option>-->
+		
+	<!--<option value="http://christuniversity.in/feature_list.php?gid=104&f=5" >Exam Alerts</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/sitemap.php" >Sitemap</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/msgdisplay.php?id=86143&f=2" >Academic Staff College </option>-->
+		
+	<!--<option value="http://www.christuniversity.in/virtualtour/" >Virtual Tour</option>-->
+		
+	<!--<option value="http://library.christuniversity.in" >Online Catalogue</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/enquiry.php" >Contact Us</option>-->
+		
+	<!--<option value="http://repository.christuniversity.in/" >Data Bank</option>-->
+		
+	<!--<option value="http://christuniversity.in/secmenudisp.php?mid=6&subid=50" >Publications by Faculty</option>-->
+		
+	<!--<option value="http://christuniversity.in/secmenudisp.php?mid=3&subid=14" >Admission 2012</option>-->
+		
+	<!--<option value="http://www.christuniversity.in/QBank" >Question Bank</option>-->
+		
+	<!--<option value="http://journals.christuniversity.in/index.php" >E-Journal</option>-->
+		<select name="selquick" id="selquick" class="quickfield"  onchange="quick();" > 
+	<option value="-1"> Quick Links </option>
+		<option value="http://www.christuniversity.in/msgdisplay.php?id=86143&f=2" >Academic Staff College </option>
+		<option value="http://christuniversity.in/secmenudisp.php?mid=3&subid=14" >Admission 2012</option>
+		<option value="http://www.christuniversity.in/christalumni" >Alumni</option>
+		<option value="http://www.christuniversity.in/a-zprogrammes.php" >Apply Online</option>
+		<option value="http://www.christuniversity.in/StudentLogin.html" >Attendance</option>
+		<option value="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_jqdd17erbanr1cdmipat9efkhc%40group.calendar.google.com&amp;ctz=Asia/Calcutta" >Auditorium Booking</option>
+		<option value="http://www.google.com/calendar/hosted/christuniversity.in/embed?src=christuniversity.in_ji7p6ls5u8gmoilsph8cplo1lc%40group.calendar.google.com&amp;ctz=Asia/Calcutta" >Bus Booking</option>
+		<option value="" >Calendar</option>
+		<option value="http://decibel.christuniversity.in" >Campus Radio</option>
+		<option value="http://www.christuniversity.in/virtualtour" >Campus Virtual Tour</option>
+		<option value="http://www.christuniversity.in/career.php" >Careers</option>
+		<option value="http://www.christuniversity.in/enquiry.php" >Contact Us</option>
+		<option value="http://repository.christuniversity.in/" >Data Bank</option>
+		<option value="http://journals.christuniversity.in/index.php" >E-Journal</option>
+		<option value="http://christuniversity.in/feature_list.php?gid=104&f=5" >Exam Alerts</option>
+		<option value="https://mail.google.com/a/christuniversity.in" >Faculty Email</option>
+		<option value="http://maps.google.com/?ie=UTF8&ll=12.934885,77.607422&spn=0.004925,0.007296&z=17" >Locate Us</option>
+		<option value="http://courses.christuniversity.in" >MyCourse</option>
+		<option value="http://library.christuniversity.in" >Online Catalogue</option>
+		<option value="http://www.christuniversity.in/secmenudisp.php?mid=6&subid=21" >Publications</option>
+		<option value="http://christuniversity.in/secmenudisp.php?mid=6&subid=50" >Publications by Faculty</option>
+		<option value="http://www.christuniversity.in/QBank" >Question Bank</option>
+		<option value="http://www.christuniversity.in/sitemap.php" >Sitemap</option>
+		<option value="http://www.christuniversity.in/studentemail.php?MID=75" >Student Email</option>
+		<option value="http://www.christuniversity.in/feature_list.php?gid=13&f=2" >Support Service</option>
+		<option value="http://www.christuniversity.in/virtualtour/" >Virtual Tour</option>
+		</select>
+	
+</div>
+</form>
+</div>
+
+<div class="clear"></div>
+<div id="quicklinks">
+<a href="a-zindex.php">A-Z Index</a>
+|
+<a href="http://decibel.christuniversity.in/">Campus Radio</a>
+ |  <a href="http://www.christuniversity.in/christalumni/home.php">Alumni</a> |   <a href="./videogallery/video_index.php"><font >Live TV</font></a>  |   <a href="./webmail.php">Web Mail</a></div>
+
+</div>
+</div>
+
+
+<div id="menuandcontent">
+<div id="content">
+
+<h1>Homepage</h1>
+<script type="text/javascript">
+/* <![CDATA[ */
+var featuresData = {
+feature_link_1: {
+//var linkID = document.getelmentbyid('feastuer_link').value;
+behaviour: showNewsFeature,
+itemclass: 'feature1',
+image: '/images/hi_res/12562_summereights.jpg',
+photo_info_link:'/test.html',
+photo_info_linktext:'test',
+
+stories: [
+{
+
+url: './msgdisplay.php?id=86440&f=2',headline:' Interview Schedule for BBM/BBA/BBA F&A)/LLB/BHM/B.Com (P) ', title: 'News   ', img: 'color:#01CBF1 !important '},
+{
+
+url: './msgdisplay.php?id=86444&f=2',headline:' Congratulations to Mr. B. Manoj, Mr.  Samson R Victor, Mr. Santhosh Kumar P K, Fr. Jossy P George, Ms. Shaeril Almeida', title: '', img: ''},
+{
+
+url: './msgdisplay.php?id=86443&f=2',headline:' UDBHAVA (May Edition) Newsletter published by the Christ University Institute of Management – Kengeri', title: '', img: ''},
+{finalitem: '<a  href=\"christcontent.php">View All</a>'}
+]
+},
+feature_link_2: {
+behaviour: showNewsFeature,
+itemclass: 'feature1',
+image: '/images/hi_res/12562_summereights.jpg',
+photo_info_link:'',
+photo_info_linktext:'Photograph information',
+
+stories: [
+{url: 'display_article.php?fid=50&arid=12&f=1',
+ headline: 'How to reach Christ University?'
+},
+{url: 'display_article.php?fid=51&arid=12&f=1',
+ headline: 'Where to stay?'
+},
+{url: 'display_article.php?fid=70&arid=12&f=1',
+ headline: 'Campus Culture and Specific Information'
+},
+{url: 'display_article.php?fid=69&arid=12&f=1',
+ headline: 'On Ragging'
+},
+{finalitem: '<a href=\"feature_list.php?gid=12&f=1">More</a>'}
+]
+},
+
+feature_link_3: {
+behaviour: showNewsFeature,
+itemclass: 'feature3',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '/images/hi_res/9778_profile-bricks.jpg',
+stories: [
+
+{
+url: 'display_article.php?fid=18&arid=13&f=2"', headline: 'Student Welfare Office', title: ''
+},
+{
+url: 'display_article.php?fid=19&arid=13&f=2"', headline: 'Counselling Centre', title: ''
+},
+{
+url: 'display_article.php?fid=20&arid=13&f=2"', headline: 'Placements & Career Guidance', title: ''
+},
+{
+url: 'display_article.php?fid=66&arid=13&f=2"', headline: 'International Students', title: ''
+},
+{finalitem: '<a href=\"feature_list.php?gid=13&f=2">More</a>'}
+]
+},
+feature_link_4: {
+behaviour: showNewsFeature,
+itemclass: 'feature4',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '/images/hi_res/11042_new-students.jpg',
+stories: [
+
+
+
+{
+url: 'display_article.php?fid=68&arid=15&f=3',
+headline: 'Centre for Research', title: ''
+},
+ {
+url: 'display_article.php?fid=31&arid=15&f=3',
+headline: 'Centre for Social Action [CSA]', title: ''
+},
+ {
+url: 'display_article.php?fid=32&arid=15&f=3',
+headline: 'Centre for Education Beyond Curriculum [CEDBEC]', title: ''
+},
+ {
+url: 'display_article.php?fid=33&arid=15&f=3',
+headline: 'Centre for Social Research [CSR]', title: ''
+},
+ {finalitem: '<a href=\"feature_list.php?gid=15&f=3">More</a>'}
+]
+},
+feature_link_5: {
+behaviour: showNewsFeature,
+itemclass: 'feature5',
+photo_info_link:'',
+photo_info_linktext:'',
+image: '/images/hi_res/11042_new-students.jpg',
+stories: [
+{
+url: 'display_article.php?fid=105&arid=104&f=5',
+headline: 'End Semester Examination Results-2012 ', title: ''
+},
+ {
+url: 'display_article.php?fid=106&arid=104&f=5',
+headline: 'Convocation Day 2012', title: ''
+},
+ {
+url: 'display_article.php?fid=108&arid=104&f=5',
+headline: 'Bangalore University Convocation date (Regular & Autonomous)', title: ''
+},
+ {finalitem: '<a href=\"feature_list.php?gid=104&f=5">More</a>'}
+]
+}
+
+}
+/* ]]> */
+</script>
+
+
+
+
+<div id="features_panel" style="background: url(&quot;/images/hi_res/11042_new-students.jpg&quot;) no-repeat scroll 50% 0pt transparent;" class="feature_link_4_selected">
+<ul style="top: 397px;" id="features_menu">
+<li style="width: 180px;" class="feature_1"><h2 ><a class="" id="feature_link_1" href="#" >News &amp; Events</a></h2></li>
+<li style="width: 180px;" class="feature_2"><h2><a class="" id="feature_link_2" href="#">
+For Parents and Students</a></h2></li>
+<li style="width: 225px;" class="feature_3"><h2><a class="" id="feature_link_3" href="#">
+Student Support Services</a></h2></li>
+<li style="width: 250px;" class="feature_4"><h2><a class="" id="feature_link_4" href="#">
+Special Centres</a></h2></li>
+<li style="width: 250px;" class="feature_5"><h2><a class="" id="feature_link_5" href="#">
+Exam Alerts&nbsp;</a></h2></li>
+
+</ul>
+<div style="display: block; top: 0px;" id="features_submenu"><ul style="float: right;" class="feature_stories"><li class="feature4"><h3>2012/13 funding</h3><a href="http://www.ox.ac.uk/fundingupdate">As a result of government changes to the way universities are funded, Christ has announced its proposed tuition charge and student funding support package for undergraduates for 2012/13</a></li></ul></div>
+</div>
+
+</div> 
+
+</div>
+
+<!--main menu end-->
+<!--
+<MARQUEE width="90%" style="COLOR: #461B7E; " scrollAmount=2 width=230 bgColor=#ffffff
+height=20 align="middle"><a href="http://appstat.christuniversity.in"><strong>UG/PG( M.Tech/MCA/M.Sc. Computer Science) Selection Process Results </strong></a></font></marquee>
+
+-->
+
+<marquee style="font-family:Book Antiqua; color: #25587E"  scrolldelay="190"><a href="http://christuniversity.in/msgdisplay.php?id=86410&f=2" >Important Dates for BBM/BBA/LLB/BCom Professional /BHMSelection Process 2012- Session I</a></marquee>
+
+
+
+
+
+<div id="maincontent" style="min-height:325px;">
+<div id="contentsection" style="margin:13px 10px 0 0;">
+<div class="bodyhead3" style="padding-left:0px; margin-bottom:10px; ">Events  </div>
+      <div id="eventsouter" > 
+    <div id="eventsleftborder">
+	
+				<div id="eventsleftmonth">May</div>
+        <div id="eventsleftdate">17</div>
+		    </div>
+
+
+
+<div id="eventright">
+   <div align="left">
+<a href="msgdisplay.php?id=86441&f=1">National Workshop on ICT IN HIGHER EDUCATION organized by CENTRE...</a></div>
+
+
+
+
+                <div id="eventrighttime_nxtmnth">
+         10 am</div>    </div>
+
+
+
+</div>
+     <div id="eventsouter" > 
+    <div id="eventsleftborder">
+	
+				<div id="eventsleftmonth">May</div>
+        <div id="eventsleftdate">21</div>
+		    </div>
+
+
+
+<div id="eventright">
+   <div align="left">
+<a href="msgdisplay.php?id=86432&f=1">National Workshop On Staff Excellence, Capability, Growth,...</a></div>
+
+
+
+
+                <div id="eventrighttime_nxtmnth">
+         9.00 am</div>    </div>
+
+
+
+</div>
+     <div id="eventsouter" > 
+    <div id="eventsleftborder">
+	
+				<div id="eventsleftmonth">May</div>
+        <div id="eventsleftdate">26</div>
+		    </div>
+
+
+
+<div id="eventright">
+   <div align="left">
+<a href="msgdisplay.php?id=86412&f=1">Convocation Day 2012 is Organized on 26th & 27th May 2012 at...</a></div>
+
+
+
+
+                <div id="eventrighttime_nxtmnth">
+         10.00 am</div>    </div>
+
+
+
+</div>
+<div style="padding:0px 0px 25px 50px; font-size:12px; color:#186AC9;" class="readmore"><a href="christcontent.php">All Events</a><br><br> <br><br> </div>
+<br><br>
+
+
+
+
+
+
+</div>
+
+
+
+
+<div id="homebulletsec">
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">About Us</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=2" target="">Vision and Mission</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=4" target="">Mandatory Disclosure</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=5" target="">Message from VC</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/secmenudisp.php?mid=1&subid=1" target="">Founder</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=1&subid=51"  target="">Administration</a>
+	 </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[0])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">Academics</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/departments.php?division=4" target="">Faculty of Engineering</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/School%20of%20Law/index.php?division=School%20of%20Law&dept=71" target="">School of Law</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/departments.php?division=7" target="">Commerce and Management</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/departments.php?division=2" target="">Sciences</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/departments.php?division=9" target="">Humanities and Social Sciences </a>
+  </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[1])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">Admission</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/apply.php" target="">Apply Online</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=3&subid=14"  target="">Admission 2012</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=3&subid=15"  target="">Application Status</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=3&subid=72"  target="">NRI / Foreign National </a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://christuniversity.in/msgdisplay.php?id=86208&f=2" target="">MBA Admissions 2012 </a>
+  </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[2])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+<div class="clear"></div>
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">Research</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=5&subid=43"  target="">MPhil Programmes</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=5&subid=44"  target="">Ph.D Programmes</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=5&subid=52"  target="">Minor Projects (RDC)</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=5&subid=53"  target="">Major Projects</a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://christuniversitylibrary.blogspot.com/p/databases.html" target="">Online Databases</a>
+  </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[3])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">Publications</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/secmenudisp.php?mid=6&subid=17" target="">Books   </a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=6&subid=18"  target="">Journals  </a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=6&subid=19"  target="">Newsletters   </a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=6&subid=20"  target="">Magazines  </a>
+	 </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+	<a href="secmenudisp.php?mid=6&subid=50"  target="">Publications by Faculty</a>
+	 	<a href="secmenudisp.php?mid=6&subid=50&secondsub=23"></a>
+    	<a href="secmenudisp.php?mid=6&subid=50&secondsub=113"></a>
+    	<a href="secmenudisp.php?mid=6&subid=50&secondsub=114"></a>
+    </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[4])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+
+<div id="contentsection1" >	
+
+<div class="headbotmline">
+<div class="bodyhead" style="padding:10px 0 0 0px; float:left; height:20px; margin-left:0px;"><a href="#">International</a></div>
+</div>
+<div class="clear"></div>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/display_article.php?fid=24&arid=14&f=4" target="">Liverpool Hope University, UK</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/display_article.php?fid=54&arid=14&f=4" target="">Sheffield Hallam University, UK</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/display_article.php?fid=72&arid=14&f=4" target="">Griffith University, Australia</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/display_article.php?fid=45&arid=14&f=4" target="">Lille Catholic University, France</a>
+  </li>
+</ol>
+ <ol class="bullets"><li><img src="images/tick-small.gif" />
+  <a href="http://www.christuniversity.in/display_article.php?fid=23&arid=14&f=4" target="">Western Michigan University, USA</a>
+  </li>
+</ol>
+	
+	<div  class="readmore"><a href="#" onMouseover="showmenu(event,linkset[5])" onMouseout="delayhidemenu()">More..</a></div>
+</div>
+<div class="clear"></div>
+<!--content end-->
+</div><!--End DIV maincontent -->
+<div class="clear"></div>
+</div><!-- End Div Wraper -->
+
+</div> <!-- End DIV header -->	
+</div>
+<!--page html area ends here-->
+<div id="main"></div>
+</div>
+
+
+</div>
+
+                   
+                 <!--   <link href="css_new/footer.css" rel="stylesheet" type="text/css" />
+                    <link href="css/style.css" rel="stylesheet" type="text/css" />-->
+
+<div id="footer">
+<div id="footerwrap">
+<div id="bottommenu">
+<ul>
+               <li><a href="http://www.christuniversity.in/virtualtour/" target="_blank">virtual tour</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://library.christuniversity.in" target="_blank">&nbsp;&nbsp;Library&nbsp;&nbsp;</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://repository.christuniversity.in" target="_blank">Data Bank</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/StudentLogin.html" target="_blank">Attendance</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/career.php" target="_blank"> careers </a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/campuslink.php" target="_blank">  Campus  </a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/secmenudisp.php?mid=7&subid=27" target="_blank"> Calendar </a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://courses.christuniversity.in" target="_blank">My Course</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/sitemap.php" target="_blank">  Sitemap  </a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://maps.google.com/?ie=UTF8&ll=12.934885,77.607422&spn=0.004925,0.007296&z=17" target="_blank">Locate Us</a>            
+                           <li><div class="gap"></div></li>
+             
+         
+				              <li><a href="http://www.christuniversity.in/enquiry.php" target="_blank">Contact US</a>            
+             
+         
+				                
+                       </ul>
+ <div class="clear"></div>      
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+</body>
+</html>

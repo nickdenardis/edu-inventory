@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to MVC!</title>
+
+
+	
+<!--PNG Support-->
+<!--[if lte IE 6]>
+	<script type="text/javascript" src="/js/DD_belatedPNG_0.0.8a.js"></script>
+<![endif]-->
+<!--/PNG Support-->
+
+<!--Search-->
+<!--<script type="text/javascript">
+	$(document).ready(function() {
+		$('input#searchbtn').click(function(){
+			$('form#SearchFrm').submit();
+		});
+	});
+</script>-->
+<!--/Search-->
+
+<!--ClearSearchText-->
+<script type="text/javascript">
+	function searchfield_focus(obj) {
+		obj.style.color="black"
+		obj.style.fontStyle="italic"
+		obj.style.fontWeight="bold"
+		obj.style.fontSize="14px"
+		obj.style.textAlign="left"
+		if (obj.value=="Search MVC.EDU") {
+			obj.value=""
+		}
+	}
+</script>
+<!--/ClearSearchText-->
+
+<!--ToggleOnOff Script-->
+<script type="text/javascript">
+	function toggleMe(a) {
+		var e=document.getElementById(a);
+		if(!e)return true;
+		if(e.style.display=="none") {
+			e.style.display="block"
+		}
+		else {
+			e.style.display="none"
+		}
+		return true;
+	}
+</script>
+<!--/ToggleOnOff Script-->
+
+<!--ddmenu-->
+<script type="text/javascript">
+<!--
+var timeout         = 250;
+var closetimer		= 0;
+var ddmenuitem      = 0;
+
+// open hidden layer
+function mopen(id) {	
+	// cancel close timer
+	mcancelclosetime();
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+}
+
+// close showed layer
+function mclose() {
+	if(ddmenuitem)
+		ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime() {
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime() {
+	if(closetimer) {
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+// -->
+</script>
+<!--/ddmenu-->
+
+
+
+
+<!--CSS for tables-->
+<script type="text/javascript" src="/js/tablecloth.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/tablecloth.css" />
+
+<!--CSS for Printer-Friendly format-->
+<link rel="stylesheet" type="text/css" media="print" href="/css/print.css" />
+
+<link rel="stylesheet" type="text/css" media="print" href="/css/barmenu.css" />
+
+
+<!--[if lte IE 6]>
+	<link rel="stylesheet" type="text/css" href="/css/ie.css" />
+<![endif]-->
+
+<link rel="stylesheet" type="text/css" href="/css/moval.css" />
+<link rel="stylesheet" type="text/css" href="/css/dropdown.css" />
+<link rel="shortcut icon" href="/favicon.ico" >
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="css/easySlider.css"/>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/easySlider1.7.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#slider").easySlider({
+			auto: true, 
+			continuous: true,
+			numeric: true,
+			speed: 100,
+			pause: 5000
+		});
+	});	
+</script>
+
+
+<!--PopUp Ad-->
+<style type="text/css">
+#popUpAd {
+	position:absolute;
+	z-index:1000;
+	top:50%;
+	left:50%;
+	width:32em;
+	height:28em;
+	margin-top:-14em; /*set to a negative number 1/2 of your height*/
+	margin-left:-16em; /*set to a negative number 1/2 of your width*/
+	border:3px solid #00727d;
+	background-color:#fff;
+	padding:5px 5px;
+	color:#00727d;
+	font:18px arial,sans-serif;
+	text-align:center;
+	display:none;
+}
+#popUpAd P, #popUpAd HR {
+	color:#00F;
+	font-size:12px;
+}
+#popUpAd a:link, #popUpAd a:visited {
+	color:#00F;
+	text-decoration:none;
+}
+#popUpAd a:hover, #popUpAd a:active {
+	color:#00F;
+	text-decoration:underline;
+}
+#popUpAd #adInner P {
+	font-size:12px;
+	padding:10px 0;
+}
+</style>
+
+<script type="text/javascript">
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0)
+			return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function showPopUp() {
+	var cookieExists = readCookie('showAd');
+	if (!cookieExists) {
+		var today = new Date();
+		var expire = new Date();
+		var cookieName="showAd";
+		var cookieValue="true";			
+		document.cookie = cookieName+"="+escape(cookieValue)+ "; expires="+expire.toGMTString();
+		document.getElementById("popUpAd").style.display="block";
+	}
+}
+
+function disablePopUp() {
+	var cookieExists = readCookie('showAd');
+	
+	if (!cookieExists) {
+		var today = new Date();
+		var expire = new Date();
+		var cookieName="showAd";
+		var cookieValue="true";			
+		expire.setTime(today.getTime() + 604800000);
+		//60000=1min, 28800000=8 hrs
+		document.cookie = cookieName+"="+escape(cookieValue)+ "; expires="+expire.toGMTString();
+		document.getElementById("popUpAd").style.display="none";
+	} else if (cookieExists) {
+		expire.setTime(today.getTime() + 604800000);
+		//60000=1min, 28800000=8 hrs
+		document.cookie = cookieName+"="+escape(cookieValue)+ "; expires="+expire.toGMTString();
+		document.getElementById("popUpAd").style.display="none";
+	}
+}
+
+function hidePopUp() {
+	document.getElementById("popUpAd").style.display="none";
+}
+
+</script>
+
+<!--/PopUp Ad-->
+
+
+
+<!--<div id="popUpAd">
+    TITLE_GOES_HERE
+    <hr>
+    <div id="adInner">
+    	<a href="#">
+            <p>XXXXXXXXXXXXXXXX</p>
+		</a>
+	</div>    
+    <p><a href="javascript:hidePopUp();">CLOSE THIS WINDOW</a></p>
+</div>-->
+<!--<script type="text/javascript">
+	showPopUp();
+</script>-->
+
+<div id="popUpAd">
+    	<a href="/services/ar/index.cfm#updates">
+        	<img src="images/popUp_AR.jpg" alt="Important Information for Students" />
+        </a>
+        <p>
+        	<a href="javascript:hidePopUp();" style="color:red">Close Window</a>&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+            <a href="javascript:disablePopUp();" style="color:red">Don't Show Window Again</a>
+        </p>
+</div>
+<script type="text/javascript">
+	showPopUp();
+</script>
+
+<style type="text/css">
+.rightSidebar {
+	margin:16px 10px 5px 5px;
+}
+</style>
+
+
+    
+
+
+
+	
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18855706-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+</head>
+ 
+<body>
+<div class="outer"> 
+
+	
+		
+<div class="globalNav">
+	<ul class="left">
+		<li><a href="http://www.rccd.edu">RCCD</a></li>
+		<li><a href="http://www.rcc.edu">Riverside City</a></li>
+		<li><a href="/" class="active" style="font-weight:bold">Moreno Valley</a></li>
+		<li><a href="http://www.norcocollege.edu">Norco</a></li>
+		<li><a href="http://www.rccd.edu/pages/findus.aspx">Education Centers</a></li>
+	</ul>
+	<ul class="right">
+		        
+			<form id="searchFrm" name="searchFrm" action="/search.cfm" method="get">
+				<div class="search">
+					<input name="q" type="text" class="keyword" id="q" label="q" size="50" style="color:#808080; font-style:italic; text-align:center" 
+					value="Search MVC.EDU" onfocus="searchfield_focus(this)" />
+					
+					<input type="submit" value="" class="button" />
+				</div>
+			</form>
+		 
+		<!--<li><a href="http://www.rccd.edu/administration/Pages/employees.aspx">Employees</a></li>
+		<li><a href="/students.cfm">Students</a></li>
+		<li><a href="/faculty.cfm">Faculty</a></li>
+		<li><a href="http://www.rccd.edu/community/foundation/Pages/">Alumni & Donors</a></li>
+		<li><a href="http://www.rccd.edu/community/Pages/">Business & Community</a></li>-->
+  </ul>
+</div>
+
+    
+    
+    <div class="top"> 
+        <div class="logo">
+        	<a href="/"><img src="/images/mvc_logo.jpg" alt="MVC Logo" title="MVC Home" border="0" /></a>
+		</div>
+
+		        
+            <!--NOT IN USE-->
+
+        
+    
+        
+            
+<div class="sitenav">
+	<ul id="sddm" class="nav">
+		<li><a href="/aboutus.cfm">About Us</a></li>
+		<li><a href="http://www.rccd.edu/academicprograms/Pages/">Academic Programs</a></li>
+		<li><a href="http://www.rccd.edu/community/foundation/Pages/">Alumni/Donors</a></li>
+		<li><a href="http://www.rccd.edu/community/Pages/">Community/Business</a></li>
+		<li><a href="/depts">Departments/Services</a></li>
+		<li>
+			<a href="#" onmouseover="mopen('faculty')" onmouseout="mclosetime()" onclick="mopen('faculty')" ><strong>Faculty</strong></a>
+			<div id="faculty" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+				<a href="/faculty.cfm">For Faculty Only</a>
+				<a href="/schedule.cfm#acadcal">Academic Calendar</a>
+				<a href="http://www.academic.rcc.edu/academicsenate/MV_Senate.html" target="_blank">Academic Senate</a>
+				<a href="/catalog.cfm">Catalog</a>
+				<a href="http://www.curricunet.com/rccd" target="_blank">CurricUNET</a>
+				<a href="http://www.rccd.edu/administration/humanresources/Pages/" target="_blank">Diversity & Human Resources</a>
+				<a href="http://academic.rcc.edu/facultywebsites.jsp" target="_blank">Faculty Web Sites</a>
+				<a href="/forms.cfm">Forms</a>
+				<a href="/files/MVC-Instructional-Program-Review-Process.pdf" target="_blank">Instructional Program Review Process</a>
+				<a href="http://intranet.rccd.net">Intranet</a>
+				<a href="/schedule.cfm">Schedule of Classes</a>
+				<a href="https://mymail.rcc.edu" target="_blank">Web Email</a>
+				<a href="https://was02.rcc.edu:443/Faculty/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=6856271058" target="_blank">WebAdvisor for Faculty</a>
+			</div>
+		</li>
+		<li>
+			<a href="#" onmouseover="mopen('staff')" onmouseout="mclosetime()"><strong>Staff</strong></a>
+			<div id="staff" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+				<a href="/schedule.cfm#acadcal">Academic Calendar</a>
+				<a href="/catalog.cfm">Catalog</a>
+				<a href="http://www.rccd.edu/administration/humanresources/Pages/" target="_blank">Diversity & Human Resources</a>
+				<a href="/forms.cfm">Forms</a>
+				<a href="http://intranet.rccd.net">Intranet</a>
+				<a href="http://r25.rcc.edu/moval" target="_blank">Resource25</a>
+				<a href="/schedule.cfm">Schedule of Classes</a>
+				<a href="https://mymail.rcc.edu" target="_blank">Web Email</a>
+			</div>
+		</li>
+		<li>
+			<a href="#" onmouseover="mopen('students')" onmouseout="mclosetime()"><strong>Students</strong></a>
+			<div id="students" onmouseover="mcancelclosetime()" onmouseout="mclosetime()">
+				<a href="/students.cfm">For Students Only</a>
+				<a href="/services/ar">Admissions & Records</a>
+				<a href="/services/ar/apply.cfm">Apply for College</a>
+				<a href="/assessment">Assessment Center</a>
+				<a href="/services/asmv/index.cfm">Associated Students</a>
+				<a href="/bookstore" target="_blank">Bookstore</a>
+				<a href="/catalog.cfm">Catalog</a>
+				<a href="/counseling">Counseling</a>
+				<!--<a href="/depts"><strong>Departments/Services</strong></a>-->
+				<a href="http://academic.rcc.edu/facultywebsites.jsp" target="_blank">Faculty Web Sites</a>
+				<a href="/sfs">Financial Aid</a>
+				<a href="/services/hs">Health Services</a>
+				<!--<a href="/services/ar/apply.cfm">How to Apply</a>-->
+				<a href="/map.cfm">Maps</a>
+				<a href="/schedule.cfm">Schedule of Classes</a>
+				<a href="/se">Student Employment</a>
+				<a href="/veterans">Veterans Services</a>
+				<a href="https://was02.rcc.edu/RCCD/RCCD" target="_blank">WebAdvisor</a>
+				<a href="http://researchguides.mvc.edu/wireless" target="_blank">Wireless Access</a>
+			</div>
+		</li>
+	</ul>
+	
+	<ul class="nav-right">
+			<li class="last-nav-item help"><a href="/az.cfm" style="color:red;">A-Z Index</a></li>
+	</ul>
+</div>
+
+        
+        
+    </div> 
+    
+    <div class="content"> 
+        <div class="main"> 
+
+          	<div id="breadcrumb">
+            	<script language="javascript" src="/js/breadnav-101.js"></script>
+                <!--<a href="/files/GoPassSurveyResults.pdf" onClick="javascript: _gaq.push(['_trackPageview', '/GoPassSurveyResults-Sign']);" target="_blank">
+                	<img src="images/sign.jpg" style="float:right; padding-right:10px;" />
+                </a>-->
+			</div>
+            
+            <div class="center"> 
+               	<div class="featured"> 
+                    <div class="item"> 
+                    
+<div class="thumb">
+ <div id="slider">
+  <ul>
+
+    <li><a href="/commencement"><img src="images/grad-banner.jpg" alt="Commencement 2012" /></a></li>
+    
+    <li><a href="http://www.rccd.edu/administration/strategiccomm/news/Pages/BusinessProfessortoGiveDistinguishedFacultyLecture.aspx" target="_blank"><img src="images/ad61.jpg" alt="Faculty Lecture 2012" /></a></li>
+  
+  	<li><a href="/lap"><img src="images/ad54.jpg" alt="Leadership Academy Programs" /></a></li>
+    
+    <li><a href="/academicprograms/ems/paramedicStudents.cfm"><img src="images/ad60.jpg" alt="Apply for Paramedic Program" /></a></li>
+    
+  </ul>
+ </div>
+</div>
+                        
+<div class="copy">
+  <p>
+
+    <span id="important" style="color:red; font-variant:small-caps; text-decoration:underline;">Important Information:</span><br />
+    
+    &raquo;&raquo; <a href="/files/CleryStatistics.pdf" target="_blank">
+    2011 Clery Statistics</a>  |  <a href="files/CleryReport.pdf" target="_blank">2011 Clery Report</a><br />
+            
+	
+    
+    
+    &raquo;&raquo; <a href="/services/ar/index.cfm#updates" >
+    	<span style="color:red;">Important Information</span> if you will be attending college in Summer or Fall 2012, and/or Winter or Spring 2013.
+    </a><br />
+    
+    
+    
+    
+    
+    &raquo;&raquo; <span style="color:red;">IN THE NEWS:</span> <a href="http://www.pe.com/local-news/topics/topics-education-headlines/20120428-moreno-valley-college-students-find-commercial-success.ece" target="_blank">
+    College students find commercial success (Game Art)</a>
+    
+    
+</p>
+</div>
+
+                    </div> 
+                </div> 
+
+                <div class="outer-grid"> 
+                    <div class="content"> 
+                        <div class="sidebar"> 
+							<div class="module events"> 
+                            
+                                <h3 style="padding-top:16px">
+                                	<a href="/events.cfm" class="calendar">Events</a>
+                                    <span class="icon" style="padding-top:16px">
+                                       	<a href="/events.cfm" class="calendar"></a>
+									</span>
+                                </h3>
+
+								
+                                    
+<style type="text/css">
+/*-- hides additional description section for events --*/
+<!--
+.desc {
+	display:none;
+}
+-->
+</style>
+
+<!---->
+
+
+
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/8</span>
+		9a
+	</li>
+	<li class="right"><a href="/files/BachelorDegree-Info-Seminar.pdf" target="_blank">Bachelor Degree in Fire Admin Seminar</a></li>
+	<li class="desc">Please kindly RVSP your attendance to Barbara.Williams@mvc.edu to ensure adequate meeting space and refreshments.  
+	See flyer for more details.</li>
+</ul>
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/9</span>
+		1:30p
+	</li>
+	<li class="right"><a href="/files/STEM-Workshops.pdf" target="_blank">Time Management Workshop</a></li>
+	<li class="desc">Workshop will take place from 1:30 - 2:30 p.m. in the STEM Center (Sci & Technoogy 151).  See flyer for more details.</li>
+</ul>
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/17</span>
+		1:30p
+	</li>
+	<li class="right"><a href="/files/STEM-Workshops.pdf" target="_blank">Preparing for Transfer Workshop</a></li>
+	<li class="desc">Workshop will take place from 1:30 - 2:30 p.m. in the STEM Center (Sci & Technoogy 151).  See flyer for more details.</li>
+</ul>
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/22</span>
+		1:30p
+	</li>
+	<li class="right"><a href="/files/STEM-Workshops.pdf" target="_blank">STEM Majors Workshop</a></li>
+	<li class="desc">Workshop will take place from 1:30 - 2:30 p.m. in the STEM Center (Sci & Technoogy 151).  See flyer for more details.</li>
+</ul>
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/24</span>
+		12p
+	</li>
+	<li class="right"><a href="/files/Transfer-Achievement-Reception.pdf" target="_blank">Transfer Achievement Reception</a></li>
+	<li class="desc">Mark your calendar to join us for our annual Transfer Achievement event as we celebrate students' dedication to
+	higher education.  See flyer for more details.</li>
+</ul>
+
+
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/29</span>
+		1:30p
+	</li>
+	<li class="right"><a href="/files/STEM-Workshops.pdf" target="_blank">Internships  &amp;<br />Scholarships Workshop</a></li>
+	<li class="desc">Workshop will take place from 1:30 - 2:30 p.m. in the STEM Center (Sci & Technoogy 151).  See flyer for more details.</li>
+</ul>
+
+
+<!--6/13, 20, 27, 7/11-->
+
+<ul class="event">
+	<li class="left">
+		<span class="date">5/30</span>
+		3:30p
+	</li>
+	<li class="right"><a href="/files/SFS-Workshop.pdf" target="_blank">Financial Aid File Completion Workshop</a></li>
+	<li class="desc">Did you receive an email saying that you need to turn in documents to complete your 2012-2013 file?  
+	Reserve a seat ASAP!  See flyer for more details.</li>
+</ul>
+
+
+
+<div style="border-bottom:#ccc 1px dotted; margin-bottom:18px;" width="100%">&nbsp;</div>
+
+                                					
+                            
+								
+                                    
+	<!--<div class="module module-alert-left2">
+		<a href="/files/SFS-FinancialAid-Awareness.pdf" target="_blank" onClick="javascript: _gaq.push(['_trackPageview', '/FA-Awareness-Link']);">
+			<img src="/images/finaid-awareness.gif" width="174" alt="Financial Aid Awareness Day" />
+		</a>
+		<div class="clear">-->
+			<!-- IE Fix -->
+		<!--</div>
+	</div>-->
+
+	<div class="module module-alert-left4">
+		<a href="/files/Textbooks-BandN.pdf" target="_blank" onClick="javascript: _gaq.push(['_trackPageview', '/BNTextbookSystem']);">
+			<img src="/images/BarnesNobleMV.jpg" width="174" alt="Textbooks Information" />
+		</a>
+		<div class="clear">
+			<!-- IE Fix -->
+		</div>
+	</div>
+
+	<div class="module module-alert-left3">
+		<a href="https://bosebill.salliemae.com/NetPay/Templates/1215/frameset1215.html" target="_blank" 
+			onClick="javascript: _gaq.push(['_trackPageview', '/FADisbursementInfo']);">
+			<img src="/images/FAmandatory_MV.gif" width="174" alt="Financial Aid Update" />
+		</a>
+		<div class="clear">
+			<!-- IE Fix -->
+		</div>
+	</div>
+
+                                
+
+          					</div> 
+						</div> 
+                        
+                        <div class="inner"> 
+                            <div class="module"> 
+                            
+                                <h3> <span class="heading">
+                                   	Welcome to Moreno Valley College!
+                                </span>
+                                </h3>
+<p align="justify">
+  On March 1, 2010 the Board of Governors officially recognized <strong><a href="accreditation/approval.cfm">Moreno Valley College</a></strong> as the <a href="accreditation/approval.cfm">111th Community
+    College</a> in the state of California.
+  Having received initial <a href="accreditation/">accreditation</a> on January 29, 2010 from the Association
+  for Community and Junior Colleges of the Western Association of Colleges,
+  Moreno Valley College met the standards of an independent two year college.
+  Moreno Valley College is now part of a multi college district of the <strong>Riverside
+    Community College District </strong>alongside Riverside City College and Norco College.</p>
+<p align="justify">The
+  vision, hard work, and dedication of faculty, staff, students and the community
+  has made this a reality. I am proud to be the President of the Moreno Valley
+  College. We will strengthen our commitment and presence in Moreno Valley
+  and the Inland Empire<strong>.</strong></p>
+<p align="justify">Learn more about Moreno Valley College on the <a href="aboutus.cfm">About Us </a>page.</p>
+<p align="right"><em>MVC President</em></p>
+<p align="justify">&nbsp;</p>
+<h2><a href="/accreditation/">Accreditation</a></h2>
+
+<p> ACCJC notes that MVC has <a href="files/ACCJC_Action_FollowUpReport_1-31-11.pdf" target="_blank">resolved Recommendations 1 and 3</a>, from the <a href="files/ACCJC_FollowUpReport_11-19-10.pdf" target="_blank">Follow-Up Visit Report from November 2010</a>.</p>
+<p align="justify">We are eager to have the follow up visit in early November, 2010 to demonstrate our continued commitment to institutional assessment and excellence in student services. Visit the <a href="accreditation/">Accreditation Site </a>for more information.</p>
+<p>&nbsp;</p>
+<h2>Mission Statement</h2>
+<p align="justify">Responsive to the educational needs of its region, Moreno
+  Valley College offers academic programs and student support services which
+  include baccalaureate transfer, professional, pre-professional, and pre-collegiate
+  curricula for all who can benefit from them. Life-long learning opportunities
+  are provided, especially, in health and public service preparation.</p>
+  
+<p align="justify">&nbsp;</p>
+                            
+
+<div class="recent">
+  	<div class="item item-first" style="padding-left:125px;">
+    <a href="http://www.rcc.edu/district/alertu.cfm">
+      <img src="images/alert-logo.jpg" alt="Alert-U" />
+      <P>Learn more about this<br />Emergency Messaging Service</P></a>
+    </div>
+
+    <!--<div class="item">
+        <object enableJSURL="false" enableHREF="false" saveEmbedTags="true" allowScriptAccess="always" type="application/x-shockwave-flash" allowScriptAccess="always" height="148" width="230" id="alertu_widget" align="middle" data="https://www.alertu.org/flash/alertu_widget.swf" style="border: 1px solid #CCCCCC; padding: 3px;" >
+            <param name="allowScriptAccess" value="always" />
+            <param name="movie" value="https://www.alertu.org/flash/alertu_widget.swf" />
+            <param name="quality" value="high" />
+            <param name="bgcolor" value="#006666" />
+            <param name="flashvars" value="autostart=no&keyword_id=13847&fill_color=0x006666&user_text=Emergency%20Alerts&info_text=Sign%20up%20for%20mobile%20alerts%20from%20MOVY.%20Enter%20your%20mobile%20#:&btn_color=0x000000&text_color=0xFFFFFF&btntext_color=0xCCCCCC&foottext_color=0xFFFFFF" />
+        </object>
+        <p>Sign-up now!</p>
+    </div>-->
+    
+</div>
+
+
+                            </div> 
+                      </div> 
+                    </div> 
+                </div>                 
+            </div> 
+            
+          <div class="rightSidebar"> 
+            	<div class="module module-first"> 
+                  <div class="module-first-inner">                     
+					<h3 class="gateways">
+                        	Gateways
+                    </h3>
+
+					
+                        
+<ul>
+	<!--<li><a href="/accreditation">Accreditation</a></li>
+	<li><a href="/administration.cfm">Administration</a></li>-->
+	<li><a href="/commencement">Commencement</a><span class="superscript">new</span></li>
+	<li><a href="/updates/">Construction/Parking</a></li>
+	<li><a href="http://www.curricunet.com/rccd" target="_blank">CurricUNET</a></li>
+	<li><a href="/depts/">Departments/Services</a></li>
+	<li><a href="" onclick="javascript:toggleMe('email_links');return false;">E-mail</a>
+		<div id="email_links" style="display:none;">
+			» <a href="https://mymail.rcc.edu" target="_blank"><strong>Faculty/Staff</strong></a><br />
+			» <a href="https://www.outlook.com/student.rcc.edu" target="_blank"><strong>Students</strong></a><br />
+			  <a href="/services/ar/email.cfm"><span class="superscript">Email has Migrated to New System (read more)</span></a>
+		</div>
+	</li>
+	<li><a href="/events.cfm">Events</a></li>
+	<li><a href="/services/sfs/">Financial Aid</a></li>
+	<li><a href="http://www.rccd.edu/FindPeople.aspx" >Find People (Directory)</a></li>
+	<li><a href="http://footprints.rccd.net/footprints/" target="_blank">Footprints</a><span class="superscript">new</span></li>
+	<li><a href="/forms.cfm">Forms</a></li>
+	<li><a href="/intranet.cfm">Intranet</a></li>
+	
+	<li><a href="/lap">Leadership Academy Programs</a><span class="superscript">new</span></li>
+	
+	<li><a href="/library">Library</a></li>
+	<!--<li><a href="/newsletters.cfm">Newsletters & Publications</a></li>-->
+	<li><a href="http://www.opencampus.com/" target="_blank">Open Campus/Blackboard</a></li>
+	<li><a href="http://r25.rcc.edu/moval/" target="_blank">Resource25</a></li>
+	<li><a href="/schedule.cfm">Schedule of Classes</a></li>
+	<li><a href="https://was02.rcc.edu/RCCD/RCCD">WebAdvisor</a></li>
+	<li><a href="http://researchguides.mvc.edu/wireless">Wireless</a></li>
+</ul>
+
+                    
+                        
+                  </div> 
+                </div> 
+                
+<div class="module module-first">
+                  <div class="module-first-inner">
+                  
+					
+						
+<!--ContactUs-->
+<!--<div class="module">-->
+	<h3 class="contact">
+		Contact Us
+	</h3>
+
+	<br />
+	
+	<p class="name">Moreno Valley College<br />(MVC)</p>
+	<p>16130 Lasselle Street<br/>
+	Moreno Valley, CA 92551<br />
+	(951) 571-6100</p>
+	<p><a href="http://g.co/maps/64qdz" target="_blank" onClick="javascript: _gaq.push(['_trackPageview', '/MVCDirectionsLink']);">Directions</a>  |  <a href="/map.cfm">Map</a></p>
+	<p>&nbsp;</p>
+
+	<p class="name">Ben Clark Training Center<br />(BCTC)</p>
+	<br />
+	<p><strong>Law Enforcement</strong><br />
+	16791 Davis Avenue<br />
+	Riverside, CA 92518<br />
+	(951) 571-6300</p>
+	
+	<p><strong>EMS/Fire Technology</strong><br />
+	16888 Bundy Avenue<br />
+	Riverside, CA 92518<br />
+	(951) 571-6197</p>
+	
+	<p><a href="http://g.co/maps/k2g52" target="_blank" onClick="javascript: _gaq.push(['_trackPageview', '/BCTCDirectionsLink']);">Directions</a>  |  <a href="/map.cfm">Map</a> | <a href="/bctc/">Web</a></p>
+
+<!--</div>-->
+<!--/ContactUs-->
+
+    	            
+                    
+				  </div>
+                </div>                                
+          </div> 
+        </div> 
+        
+        <div class="clear"><!-- IE Fix --></div>
+        
+    </div>     
+</div> 
+ 
+
+	
+<!--Footer-->
+<div class="footer">
+  <div class="content">
+		<div class="legal">
+			&copy; Copyright 2012 &nbsp;&nbsp;|&nbsp;&nbsp; <b>Moreno Valley College</b> &nbsp;&nbsp;|&nbsp;&nbsp; RCCD
+		</div>
+		<p>MVC &nbsp;&nbsp;|&nbsp;&nbsp; 16130 Lasselle  Street, Moreno Valley, CA 92551 &nbsp;&nbsp;|&nbsp;&nbsp; (951) 571-6100</p>
+		<p><a href="/suggestions/feedback_web.cfm">Comments/Suggestions</a> | 
+		<a href="http://g.co/maps/64qdz" target="_blank">Directions</a> | <a href="/map.cfm" >Map It</a> | 
+		Contact <a href="/email.cfm?ID=D25DA330BF37B069B094312D728AD6FE2B55B63ACDCE290C">Webmaster</a></p>
+  </div>
+  
+  <div class="content">
+	  <div class="social">
+			Socialize with us:&nbsp;&nbsp;
+			<a href="/socialmedia.cfm"><img src="/images/facebook_logo.png" alt="Facebook logo" border="0" /></a>&nbsp;
+			<a href="/socialmedia.cfm"><img src="/images/myspace_logo.png" alt="MySpace logo" border="0" /></a>&nbsp;
+			<a href="/socialmedia.cfm"><img src="/images/twitter_logo.png" alt="Twitter logo" border="0" /></a>
+	  </div>
+  </div>
+  
+</div>
+<!--/Footer-->
+
+
+
+</body>
+</html>

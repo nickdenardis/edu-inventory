@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>IIC - Intercultural Institute of California</title>
+<script src="/content/js/jquery.js" type="text/javascript"></script>
+<style type="text/css">
+<!--
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+
+/*
+	background:url(/content/images/logo/intro_background2.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+*/
+
+}
+
+a {
+	color: #000000;
+	text-decoration:none;
+}
+
+
+#CONTAINER {
+	margin-top:120px;
+/*	width:452px;*/
+	width:562px;
+	height:380px;
+/*	background-color:#ffffff;	*/
+
+/*border:1px solid red;*/
+}
+
+
+#INTRO_BACKGROUND {
+
+	height:200px;
+/*	width:440px;*/
+	width:550px;
+	background:url(/content/images/logo/intro_background2.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+
+
+
+
+}
+
+#KCI_CONTAINER, #IIC_CONTAINER {
+/*	width: 200px;*/
+	width: 150px;
+	height: 120px;
+	float:left;
+
+	cursor:pointer;
+}
+
+#KCI_CONTAINER {
+	margin-left:110px;
+	margin-right:40px;
+}
+
+#IIC_CONTAINER {
+	margin-right:100px;
+	
+}
+
+#KCI_CONTAINER span, #IIC_CONTAINER span {
+
+	font-weight:bold;
+	font-size:12px;
+	padding:2px 2px 2px 2px;
+}
+
+
+#KCI_CONTAINER a:hover {
+	color:#e11c1c;
+}
+
+#IIC_CONTAINER a:hover {
+	color:#275cba;
+}
+
+
+
+
+
+#KCI_LOGO, #IIC_LOGO {
+/*	height:113px;*/
+	height:73px;
+
+	padding-top:10px;
+	margin-bottom:5px;
+}
+
+#KCI_LOGO {
+/*
+
+	border:3px solid #f56b6b;
+*/
+	border:3px solid #cdcdcd;
+
+	background:url(/content/images/logo/kci_logo_40.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+
+}
+
+#IIC_LOGO {
+/*
+	border:3px solid #3168ca;
+*/
+	border:3px solid #cdcdcd;
+
+	background:url(/content/images/logo/iic_logo_60.jpg);
+	background-repeat:no-repeat;
+	background-position:center center;
+
+}
+
+
+-->
+</style>
+<script language="javascript">
+
+$(function() {
+
+	$('#KCI_CONTAINER').hover(
+		function () {
+			$('#KCI_CONTAINER span').css("color","#e11c1c");
+			$('#KCI_LOGO').css("border-color","#e11c1c");
+		}, 
+		function () {
+			$('#KCI_CONTAINER span').css("color","#000000");
+			$('#KCI_LOGO').css("border-color","#cdcdcd");
+		}
+	);
+
+	$('#IIC_CONTAINER').hover(
+		function () {
+			$('#IIC_CONTAINER span').css("color","#275cba");
+			$('#IIC_LOGO').css("border-color","#275cba");
+		}, 
+		function () {
+			$('#IIC_CONTAINER span').css("color","#000000");
+			$('#IIC_LOGO').css("border-color","#cdcdcd");
+		}
+	);
+
+
+	$('#KCI_CONTAINER').click(function () { 
+		document.location.href = '/content/kci/index.html';
+    });
+
+	$('#IIC_CONTAINER').click(function () { 
+		document.location.href = '/content/iic/index.html';
+    });
+
+
+});
+
+</script>
+</head>
+<body>
+
+
+<div align="center">
+
+	<div id="CONTAINER">
+		<div id="INTRO_BACKGROUND"> </div>
+		<div id="KCI_CONTAINER">
+			<div id="KCI_LOGO">
+				<!--a href="/content/kci/index.html"><img src="/content/images/logo/kci_logo.jpg" width="105" border="0"></a-->
+			</div>
+			<span> KOREAN CENTER, INC </span>
+		</div>
+		<div id="IIC_CONTAINER">
+			<div id="IIC_LOGO">
+				<!--a href="/content/iic/index.html"><img src="/content/images/logo/iic_logo.jpg" width="150" border="0"></a-->
+			</div>
+			<span>  INTERCULTURAL INSTITUTE OF CALIFORNIA </span>
+		</div>
+	</div>
+</div>
+</body>
+</html>

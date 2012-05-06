@@ -1,0 +1,305 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=8" />-->
+    <title>University of Mount Union | Top Ohio University</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />    
+    
+        <link rel="stylesheet" href="/scripts/mootools/mediabox/css/mediaboxAdvBlack.css" type="text/css" media="screen" />      
+        <!-- Styles -->
+        <link href="/Content/inc/960.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/Content/inc/base.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/Content/inc/home.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="/Content/inc/print.css" rel="stylesheet" type="text/css" media="print" />
+        <!--[if lte IE 7]>
+            <link href="/Content/inc/ie.css" rel="stylesheet" type="text/css" media="all" />
+        <![endif]-->
+    
+    <meta name="description" content="The University of Mount Union is a top Ohio university. Our student-faculty ratio is 14:1." />
+    <meta name="keywords" content="university of mount union, top ohio university" />
+
+    <script src="/scripts/mootools/core.js" type="text/javascript"></script>
+	<script src="/scripts/mootools/more.js" type="text/javascript"></script>
+    <script src="/scripts/mootools/mediabox/mediaboxAdv99g.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/scripts/mootools/noob.js"></script>
+
+    <script type="text/javascript">
+        var splashIndex = 1;
+        bInTransition = false;
+        bOutcomeTransition = false;
+        window.addEvent("domready", function () {
+            //$$('.mainImg').setTransform('rotate(-10deg)');
+            var aryItems = Array();
+            var itemCount = $$('#outcomeNav li').length;
+            var perSlide = 8;
+            if (itemCount <= perSlide) {
+                $('prev').setStyle('visibility', 'hidden');
+                $('next').setStyle('visibility', 'hidden');
+            }
+            else {
+                var intMaxSteps = Math.ceil(itemCount / perSlide);
+                for (var i = 0; i < intMaxSteps; i++) {
+                    aryItems[i] = i;
+                }
+                var noob = new noobSlide({
+                    box: $('outcomeNav'),
+                    items: aryItems,
+                    interval: 3000,
+                    fxOptions: {
+                        duration: 1000,
+                        transition: Fx.Transitions.Bounce.easeOut,
+                        wait: false
+                    },
+                    addButtons: {
+                        previous: $('prev'),
+                        next: $('next')
+                    }
+                });
+            }
+        });
+
+        var fnSlideSplash = function () {
+                slideSplash();
+        }
+       var pdSlideSplash = fnSlideSplash.periodical(8000);
+
+
+       function slideSplash() {
+           if (!bInTransition) {
+               var img = $('background-image').getElement('img');
+               var expandDiv = new Fx.Morph(img, {
+                   duration: 1000,
+                   onComplete: function () {
+                       $$(".AnimationSprite").each(function (el) { el.dispose() })
+                       bInTransition = false;
+                   },
+                   onStart: function () {
+                       bInTransition = true;
+                       var hidSplashImgs = $('hidSplash').getElements('img');
+
+                       var imgSlide = hidSplashImgs[splashIndex].clone();
+                       img.addClass('AnimationSprite');
+                       $('background-image').adopt(imgSlide);
+                       splashIndex++;
+                       if (splashIndex >= hidSplashImgs.length) {
+                           splashIndex = 0;
+                       }
+                   }
+               });
+               expandDiv.start({
+                   "margin-top": -600, "opacity": 0
+               })
+           }
+       }
+
+
+       function toggleOutcome(curIndex) {
+           if (!bOutcomeTransition) {
+               bOutcomeTransition = true;
+               var aryNav = $('outcomeNav').getChildren();
+               aryNav.each(function (el) { el.removeClass('active'); });
+               aryNav[curIndex].addClass('active');
+
+               /*var divFadeOut = $('gallery-main');
+               var divFadeIn = $('hidoutcomeStories').getChildren()[curIndex].clone();
+
+               new Fx.Tween(divFadeOut).start('opacity', 0).chain(
+				function () {
+					divFadeOut.empty().grab(divFadeIn);
+					this.start('opacity', 1);
+				});*/
+				bOutcomeTransition = false;
+			}
+        }
+    </script>
+    <meta name="google-site-verification" content="cJzSRj_WWT03XHejeVYb5XhEMjTDXLhwgZH_ekdB1-Y" />
+    <meta name="msvalidate.01" content="9A831FAE87E09389B45FBB8E32409149" />
+</head>
+<body>
+    <div class="access">
+        <a href="#site-search">Site Search</a>
+        <a href="#main-nav">Main Navigation</a>
+        <a href="#thumbs">Outcome Stories</a>
+        <a href="#get-started">Get Started</a>
+        <a href="#news">News</a>
+        <a href="#events">Events</a>
+        <a href="#copy">Page Content</a>
+        <a href="#utility">Utility Navigation</a>
+    </div>
+	<div id="branding">
+        <div class="center">
+            <img alt="University of Mount Union - Where Exceptional Begins" class="logo" src="/Content/img/logo-lq.png" />
+            <div id="branding-utility">
+                <p id="social"><span>Follow Us Online:</span> <a class="twitter" href="http://twitter.com/mountunion" target="_blank">Twitter</a><a class="youtube" href="http://www.youtube.com/mountunioncollege" target="_blank">Youtube</a><a class="flickr" href="http://www.flickr.com/photos/49909989@N04/sets/" target="_blank">Flickr</a><a class="facebook" href="http://www.facebook.com/UniversityofMountUnion" target="_blank">Facebook</a><a class="linkedin" href="http://www.linkedin.com/company/university-of-mount-union" target="_blank">Linkedin</a><a class="wordpress" href="http://blog.mountunion.edu" target="_blank">Wordpress</a></p>
+                <div id="site-search-wrap">
+                    <a class="access" href="#main-nav">Main Navigation</a>
+                    <form id="site-search" action="/site-search" method="get">
+            	        <fieldset>
+                            <input name="q" type="text" onblur="if (this.value=='') {this.value='Search Entire Site'}" onclick="if (this.value=='Search Entire Site') {this.value=''}" value="Search Entire Site" />
+                            <input type="image" src="/Content/img/btn-search.png" class="submit" alt="Search" />
+				        </fieldset>
+                    </form>
+                </div> <!-- /site-search-wrap -->
+                <br class="clear" />
+                <a class="header-link" href="http://alumni.mountunion.edu/give" target="_blank">Make a Gift <span>Support Mount Union</span></a>
+                <a class="header-link" href="/contact-us">Contact Us <span>Send a Message</span></a>
+            </div> <!-- branding-utility -->
+            <div id="main-nav-flare"></div>
+            <div id="apply-now"><a href="/apply-online">Apply Now</a></div>
+        </div> <!-- /center -->
+    </div> <!-- /branding -->
+    <div id="content-wrap">
+        <div id="content-wrap-inner">
+            <div class="center">    
+                <div id="content">
+                    <div id="content-inside">
+                        <div id="content-inside-wrap"> 
+                            <ol id="main-nav">
+                                <li class="future-students"><a href="/future-students">Future Students</a></li><li class="parents-and-families"><a href="/parents-and-families">Parents and Families</a></li><li class="alumni-and-friends"><a href="/alumni-and-friends">Alumni and Friends</a></li><li class="current-students"><a href="/current-students">Current Students</a></li><li class="faculty-and-staff"><a href="/faculty-and-staff">Faculty and Staff</a></li><li class="athletic-fans"><a href="/athletic-fans">Athletic Fans</a></li><li class="community-and-visitors"><a href="/community-and-visitors">Community and Visitors</a></li>
+                            </ol> <!-- /main-nav -->
+							
+							
+							
+							
+
+                            <div id="student-gallery">
+                            	<div id="background-image">
+                                    <img src="/Content/uploads/634631654120889E17.jpg" alt="Chapman 2" width="940"/>
+                                    
+                                </div>
+                                <p id="tag-line">Where exceptional begins</p>
+                                <a class="access" href="#main-nav">Main Navagation</a>
+                                <div id="thumbs">
+                                    <a id="prev">previous</a>
+                                    <div id="thumbwrap">
+                                        <ul id="outcomeNav">
+                                             <li><a href="/emily-baumgardner" onmouseover="toggleOutcome(0);return false"><img src="/Content/uploads/634644597979895E17-sm.jpg" alt="" /></a></li><li><a href="/zak-suhar" onmouseover="toggleOutcome(1);return false"><img src="/Content/uploads/634557434096914E17-sm.jpg" alt="" /></a></li><li><a href="/courtney-reese-15" onmouseover="toggleOutcome(2);return false"><img src="/Content/uploads/634647265016822E17-sm.jpg" alt="" /></a></li><li><a href="/tyler-wiersma-13" onmouseover="toggleOutcome(3);return false"><img src="/Content/uploads/634641996081396E17-sm.jpg" alt="" /></a></li><li><a href="/julie-amabeli-14" onmouseover="toggleOutcome(4);return false"><img src="/Content/uploads/634644606135465E17-sm.jpg" alt="" /></a></li><li><a href="/aj-shadrach-13" onmouseover="toggleOutcome(5);return false"><img src="/Content/uploads/634643726901283E17-sm.jpg" alt="" /></a></li><li><a href="/kelly-slutz-14" onmouseover="toggleOutcome(6);return false"><img src="/Content/uploads/63464719578261E17-sm.jpg" alt="" /></a></li><li><a href="/austin-raper" onmouseover="toggleOutcome(7);return false"><img src="/Content/uploads/634594496396851E17-sm.jpg" alt="" /></a></li>                                      
+                                        </ul>
+                                    </div> <!-- /thumbwrap -->
+                                    <a id="next">next</a>
+                                </div> <!-- /thumbs -->
+                                <div id="gallery-main-bg">
+									<ol><li><a href="/academics-5">Academics</a></li><li><a href="/campus-20">Campus</a></li><li><a href="/outcomes">Outcomes</a></li><li><a href="/recognitions-1">Recognitions</a></li><li><a href="/admissions">Value</a></li></ol>
+								</div>
+								<div id="bg-branding"></div>
+                                <a href="/visit-campus" id="campus">Visit Campus</a>
+                                <a href="/request-information" id="info">Request Information</a>
+                            </div> <!-- /student-gallery --> 
+                            <a class="access" href="#main-nav">Main Navagation</a>
+                            <ol id="i-sub-nav"><li><a href="/majors-and-minors-2">Undergraduate Programs</a></li><li><a href="/graduate-programs-2">Graduate Programs</a></li><li><a href="/student-life-3">Student Life</a></li><li><a href="/dining-services-3">Dining Services</a></li><li><a href="/quick-facts">Quick Facts</a></li><li><a href="/fine-arts">Fine Arts</a></li><li><a href="/athletics-and-recreation">Intramurals and Recreation</a></li></ol>
+                            <div id="callouts">
+                                <a class="access" href="#main-nav">Main Navagation</a>
+                                <div id="whats-happening">
+                                    <div id="video"><a href="#mb_204" rel="lightbox[set 420 315]"><img src="//i2.ytimg.com/vi/VGinD7Dj8Ns/hqdefault.jpg" alt="Thumbnail" data-thumb="//i2.ytimg.com/vi/VGinD7Dj8Ns/hqdefault.jpg" data-group-key="thumb-group-0"></a></div><div id="videos"><span>E. Dominic Capers Gives Commencement Address</span><p>E. Dominic Capers, 1972 graduate of the University of Mount Union and defensive coordinator for the Green Bay Packers, gave the 2012 Commencement address.</p><a href="/virtual-tours" id="video-tours"><span class="access">Virtual Tours</span></a></div><div id="mb_204" style="display:none;"><iframe width="420" height="315" src="http://www.youtube.com/embed/VGinD7Dj8Ns" frameborder="0" allowfullscreen></iframe></div>
+                                </div>
+                                <ul id="news">
+                                    <li><a href="/mount-union-holds-166th-baccalaureate-service"><span>Mount Union Holds 166th Baccalaureate Service</span><img src="/Content/uploads/634718314741668E17-sm.jpg" alt="" /></a></li><li><a href="/congratulatory-events-held-prior-to-commencement"><span>Congratulatory Events Held Prior to Commencement</span><img src="/Content/uploads/634718314983108E17-sm.jpg" alt="" /></a></li><li><a href="/166th-commencement-ceremony-held-at-mount-union"><span>166th Commencement Ceremony Held at Mount Union</span><img src="/Content/uploads/634718319256338E17-sm.JPG" alt="" /></a></li>
+                                   <li class="more-link"><a href="/campus-news">More News</a></li>
+                                </ul>
+                                <a class="access" href="#main-nav">Main Navagation</a>
+                                <ul id="events"><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5enOb1BNBS5T6lc7LYFj%2fCMEKkVXvq8I%2fo"><span>May 12</span>Bird Banding</a></li><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5eQX9jOQf9KwFW07hGgOR1oZeeA%2fVweZfG"><span>May 13</span>Walk with a Naturalist</a></li><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5eejeVp%2beE4kp1vQpcJ7Vk%2bRNIpsfnLA7q"><span>May 19</span>Barnyard Bonanza</a></li><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5ewDzNvZYW%2f2jQOnDcp8lIlf88dQqt0BFw"><span>May 26</span>Bird Banding</a></li><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5eBHL%2fiT9FAWhOZ47AcHibmgkwC48crovp"><span>May 27</span>Walk with a Naturalist</a></li><li><a href="/campus-events?link=http%3a%2f%2fcalendar.mountunion.edu%2fMasterCalendar%2fEventDetails.aspx%3fdata%3dhHr80o3M7J4ltoi3cdO8eFsYzPv1DH5edFCcvcBgWI6LY1y67XxU5QtbDOptYbIg"><span>June 3</span>Folk Jam</a></li><li class="more-link"><a href="/campus-events">More Events</a></li></ul>
+                                
+                            </div> <!-- /callouts --> 
+                            <a class="access" href="#main-nav">Main Navagation</a>
+                            <div id="copy">
+                                
+
+
+<script type="text/javascript">
+			function makeScrollbar(content,scrollbar,handle,horizontal,ignoreMouse){
+				var steps = (horizontal?(content.getScrollSize().x - content.getSize().x):(content.getScrollSize().y - content.getSize().y))
+				var slider = new Slider(scrollbar, handle, {	
+					steps: steps,
+					mode: (horizontal?'horizontal':'vertical'),
+					onChange: function(step){
+						// Scrolls the content element in x or y direction.
+						var x = (horizontal?step:0);
+						var y = (horizontal?0:step);
+						content.scrollTo(x,y);
+					}
+				}).set(0);
+				if( !(ignoreMouse) ){
+					// Scroll the content element when the mousewheel is used within the 
+					// content or the scrollbar element.
+					$$(content, scrollbar).addEvent('mousewheel', function(e){	
+						e = new Event(e).stop();
+						var step = slider.step - e.wheel * 30;	
+						slider.set(step);					
+					});
+				}
+				// Stops the handle dragging process when the mouse leaves the document body.
+				$(document.body).addEvent('mouseleave',function(){slider.drag.stop()});
+			}
+
+			window.addEvent('domready', function () {
+			    if ($('scrollbarFastFact')) {
+			        makeScrollbar($('facts-rp'), $('scrollbarFastFact'), $('handleFastFact'));
+			    }
+			});
+		</script>
+
+
+<div class="grid_4 alpha omega" id="facts">
+    <div id="facts-btm">
+        
+            
+        <div id="scrollbarFastFact" class="scrollbar-vert">
+            <div id="handleFastFact" class="handle-vert"></div>
+        </div>
+        
+        <div id="facts-rp">
+            <p><em>19</em><span>average class size</span></p><p><em>55</em><span>majors offered</span></p><p><em>80<sup>+</sup></em><span>number of student organizations</span></p><p><em>12.1</em><span>days is the average time to become employed after graduation based  on respondents</span></p><p><em>86%</em><span>of students were accepted into their first choice grad program out of respondents</span></p><p><em>13:1</em><span>student-faculty ratio</span></p><p><em>20</em><span>million dollars offered in grants and scholarships each year</span></p><p><em>2,200</em><span>undergraduate students</span></p><p><em>87<sup>%</sup></em><span>of our faculty hold a doctorate or other terminal degree</span></p><p><em>97.4%</em><span>of the 2010 graduating class found employment within their major field of study</span></p><p><em>115</em><span>acre campus, complemented by a 131-acre Nature Center</span></p><p><em>77<sup>%</sup></em><span>of students live on campus</span></p><p><em>91</em><span>majors, minors, concentrations and programs of study</span></p><p><em>21</em><span>intercollegiate athletic teams</span></p><p><em>99<sup>%</sup></em><span>of students receive some form of financial aid</span></p><p><em>80<sup>%</sup></em><span>of students receive need-based aid</span></p>
+        </div>
+    </div>
+</div> <!-- /facts --><h1>University of Mount Union</h1><p class="news" style="text-align: left;">Students at the University of Mount Union actively engage in our deliberately dynamic private university setting featuring a remarkable campus and facilities. Students benefit from preparation that is personal, practical and pertinent for the 21st century &ndash; an education that combines relentlessly relevant academic offerings with experiential and research-focused learning. To ensure success in our global society, our students are encouraged to pursue excellence, and Mount Union mirrors that sentiment with a commitment to be exceptional in all that we do.</p>
+                                <span class="st_sharethis" displayText="ShareThis"></span>
+                            </div> <!-- /copy -->
+                            <div class="clear" />
+                        </div> <!-- /content-inside-wrap -->
+                    </div> <!-- /content-inside-->
+                </div> <!-- /content -->          
+            </div> <!-- /center -->
+        </div> <!-- /content-wrap-inner -->
+    </div> <!-- /content-wrap -->
+    <div id="utility">
+        <div id="utility-inner">
+            <div class="center">
+                <a class="access" href="#main-nav">Main Navagation</a>
+                <ol id="utility-nav">
+                    <li><a href="/future-students" rel="nofollow">Future Students</a></li><li><a href="/parents-and-families" rel="nofollow">Parents and Families</a></li><li><a href="/alumni-and-friends" rel="nofollow">Alumni and Friends</a></li><li><a href="/current-students" rel="nofollow">Current Students</a></li><li><a href="/faculty-and-staff" rel="nofollow">Faculty and Staff</a></li><li><a href="/athletic-fans" rel="nofollow">Athletic Fans</a></li><li class="last"><a href="/community-and-visitors" rel="nofollow">Community and Visitors</a></li>
+                </ol> <!-- /utility-nav -->
+                 <ol id="utility-nav-sub"><li><a href="/administration">Administration</a></li><li><a href="/campus-map-4">Campus Map</a></li><li><a href="/directory-1">Directory</a></li><li><a href="/e-mail-2">E-mail</a></li><li><a href="/employment-3">Employment</a></li><li><a href="/library">Library</a></li><li><a href="/licensing">Licensing</a></li><li><a href="/media-4">Media</a></li><li><a href="/sustainability-5">Sustainability</a></li><li><a href="/university-store-3">University Store</a></li><li class="last"><a href="/site-map">Sitemap</a></li></ol>
+                 <a id="text-only" href="?css=false">Click to toggle a text-only or styled version of this site</a>
+				 <div id="copyright-info">
+					 <p>University of Mount Union is located at 1972 Clark Ave., Alliance, Ohio 44601<br />For more information, <a href="/contact-us">send us a message at info@mountunion.edu</a> or call 1-800-992-6682</p>
+					 <p>Copyright &copy; 2012 University of Mount Union</p>
+				</div>
+            </div> <!-- /center -->
+        </div> <!-- /utility-inner -->
+    </div> <!-- /utility -->
+    <div id="hidoutcomeStories" style="display:none">
+         <div id="o4540"><div class="text-wrap"><dl class="text"><dt>Emily Baumgardner '14</dt><dd><strong>Hometown:</strong><em>West Chester, Ohio</em></dd><dd><strong>Major:</strong><em>Chemistry</em></dd><dd><p>My grandparents are alumni of Mount Union and are still very active on campus. I grew up with the University, wearing Mount Union hoodies in elementary school and getting Raider gear every year for Christmas. I actually chose to attend Mount Union partially because my grandparents live nearby and the closeness of the campus community. I knew I would get more out of an education if I could have the type of one-on-one relationships with professors that Mount Union offers.</p></dd></dl><a href="/emily-baumgardner" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634644597979895E17.jpg" alt="" /></span></div><div id="o4522"><div class="text-wrap"><dl class="text"><dt>Zak Suhar '13</dt><dd><strong>Hometown:</strong><em>Cedarburg, Wisconsin</em></dd><dd><strong>Major:</strong><em>Business and Spanish</em></dd><dd><p>Mount Union gives you all the necessary tools and guidance to excel. Use the resources offered to exercise your passion.</p></dd></dl><a href="/zak-suhar" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634557434096914E17.jpg" alt="" /></span></div><div id="o4543"><div class="text-wrap"><dl class="text"><dt>Courtney Reese ’15</dt><dd><strong>Hometown:</strong><em>Cleveland, Ohio</em></dd><dd><strong>Major:</strong><em>Marketing</em></dd><dd><p>I chose to attend Mount Union because of the small class sizes and the one-on-one attention students receive from professors. At the University, you aren&rsquo;t just a number. Professors really care about you and your progress in and outside of the classroom. They also are really approachable and personable.</p></dd></dl><a href="/courtney-reese-15" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634647265016822E17.jpg" alt="" /></span></div><div id="o4533"><div class="text-wrap"><dl class="text"><dt>Tyler Wiersma ’13</dt><dd><strong>Hometown:</strong><em>Perry, Ohio</em></dd><dd><strong>Major:</strong><em>Psychology</em></dd><dd><p>My favorite class has actually been Introduction to Psychology. When I came to Mount Union, I didn&rsquo;t really know what I wanted to major in, but after taking this class I knew I wanted to learn more. I thought it was fascinating to learn about the prominent psychologists throughout history and the methods they used to get their results. It was like dipping a toe in the water before jumping in.</p></dd></dl><a href="/tyler-wiersma-13" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634641996081396E17.jpg" alt="" /></span></div><div id="o4541"><div class="text-wrap"><dl class="text"><dt>Julie Amabeli ’14</dt><dd><strong>Hometown:</strong><em>Alliance, Ohio</em></dd><dd><strong>Major:</strong><em>Accounting</em></dd><dd><p>Ruth Pogacnik, assistant professor of economics, accounting and business administration, has by far been my favorite professor at Mount Union because she took accounting topics that could easily be boring to people and made them fun and exciting! She is my advisor, so she is doing a wonderful job keeping me on track with all of my classes as well as offering me sound advice. She was also very supportive of my decision to minor in art. She&rsquo;s a fantastic teacher who wants me to excel in my major and life in general.</p></dd></dl><a href="/julie-amabeli-14" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634644606135465E17.jpg" alt="" /></span></div><div id="o4534"><div class="text-wrap"><dl class="text"><dt>AJ Shadrach ’13</dt><dd><strong>Hometown:</strong><em>Montgomery, New Jersey</em></dd><dd><strong>Major:</strong><em>Physics</em></dd><dd><p>My favorite professor at Mount Union is Dr. Bob Ekey, assistant professor of physics and chair of the Department of Physics. He&rsquo;s also my advisor, and I like the fact that I get to work with him every semester by helping him teach Introduction to Physics labs. Dr. Ekey also is on the pre-health professions committee and has given me a lot of advice as it pertains to preparing for the MCAT and applying to medical school.</p></dd></dl><a href="/aj-shadrach-13" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634643726901283E17.jpg" alt="" /></span></div><div id="o4542"><div class="text-wrap"><dl class="text"><dt>Kelly Slutz ’14</dt><dd><strong>Hometown:</strong><em>Smithville, Ohio</em></dd><dd><strong>Major:</strong><em>Spanish and Sociology</em></dd><dd><p>When I was in high school, I knew I wanted to attend a college that had strong academics, recreational opportunities and lots of different ways to get involved. I also wanted to attend a university that was committed to the environment and the community, and I felt like all of these things were important at Mount Union.</p></dd></dl><a href="/kelly-slutz-14" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/63464719578261E17.jpg" alt="" /></span></div><div id="o4524"><div class="text-wrap"><dl class="text"><dt>Austin Raper '13</dt><dd><strong>Hometown:</strong><em>Uniontown, Ohio</em></dd><dd><strong>Major:</strong><em>Biochemistry</em></dd><dd><p>I chose to attend Mount Union because I believed, and still do, that Mount Union would go the furthest in helping me achieve my goals.</p></dd></dl><a href="/austin-raper" class="see-full-story">See Full Story</a></div><span class="mainImg rotate-10"><img src="/Content/uploads/634594496396851E17.jpg" alt="" /></span></div>   
+    </div>
+    <div id="hidSplash" style="display:none">
+         <img src='/Content/uploads/634631654120889E17.jpg' width="940" alt=""/><img src='/Content/uploads/634631643011046E17.jpg' width="940" alt=""/><img src='/Content/uploads/634631643526274E17.jpg' width="940" alt=""/><img src='/Content/uploads/634631662015059E17.jpg' width="940" alt=""/><img src='/Content/uploads/634631660559139E17.jpg' width="940" alt=""/><img src='/Content/uploads/634631664142299E17.jpg' width="940" alt=""/>
+    </div>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-3153703-1']);
+        _gaq.push(['_setDomainName', 'mountunion.edu']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+
+    <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript">        stLight.options({ publisher: 'c9e96e87-637c-4487-a4ef-11310339aaab' });</script>
+</body>
+</html>

@@ -1,0 +1,2232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+
+
+
+
+<head>
+
+
+
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+
+
+
+
+
+<title>Welcome to the NOCCCD</title>
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+
+
+
+
+
+
+  var _gaq = _gaq || [];
+
+
+
+
+
+
+
+  _gaq.push(['_setAccount', 'UA-2140431-7']);
+
+
+
+
+
+
+
+  _gaq.push(['_trackPageview']);
+
+
+
+
+
+
+
+  (function() {
+
+
+
+
+
+
+
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+
+
+
+
+
+
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+
+
+
+
+
+
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+
+
+
+
+
+
+
+  })();
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<script language="javascript" type="text/javascript">
+
+
+
+
+
+
+
+var expDays = 400;
+
+
+
+
+
+
+
+var exp = new Date(); 
+
+
+
+
+
+
+
+exp.setTime(exp.getTime() + (expDays*24*60*60*1000));
+
+
+
+
+
+
+
+/*function getCookieVal (offset) {  
+
+
+
+
+
+
+
+	var endstr = document.cookie.indexOf (";", offset);  
+
+
+
+
+
+
+
+	if (endstr == -1) { endstr = document.cookie.length; }
+
+
+
+
+
+
+
+	return unescape(document.cookie.substring(offset, endstr));
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function GetCookie (name) {  
+
+
+
+
+
+
+
+	var arg = name + "=";  
+
+
+
+
+
+
+
+	var alen = arg.length;  
+
+
+
+
+
+
+
+	var clen = document.cookie.length;  
+
+
+
+
+
+
+
+	var i = 0;  
+
+
+
+
+
+
+
+	while (i < clen) {    
+
+
+
+
+
+
+
+		var j = i + alen;    
+
+
+
+
+
+
+
+		if (document.cookie.substring(i, j) == arg) return getCookieVal (j);    
+
+
+
+
+
+
+
+		i = document.cookie.indexOf(" ", i) + 1;    
+
+
+
+
+
+
+
+		if (i == 0) break;   
+
+
+
+
+
+
+
+	}  
+
+
+
+
+
+
+
+	return null;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function SetCookie (name, value) {  
+
+
+
+
+
+
+
+	var argv = SetCookie.arguments;  
+
+
+
+
+
+
+
+	var argc = SetCookie.arguments.length;  
+
+
+
+
+
+
+
+	var expires = (argc > 2) ? argv[2] : null;  
+
+
+
+
+
+
+
+	var path = (argc > 3) ? argv[3] : null;  
+
+
+
+
+
+
+
+	var domain = (argc > 4) ? argv[4] : null;  
+
+
+
+
+
+
+
+	var secure = (argc > 5) ? argv[5] : false;  
+
+
+
+
+
+
+
+	document.cookie = name + "=" + escape (value) + 
+
+
+
+
+
+
+
+	((expires == null) ? "" : ("; expires=" + expires.toGMTString())) + 
+
+
+
+
+
+
+
+	((path == null) ? "" : ("; path=" + path)) +  
+
+
+
+
+
+
+
+	((domain == null) ? "" : ("; domain=" + domain)) +    
+
+
+
+
+
+
+
+	((secure == true) ? "; secure" : "");
+
+
+
+
+
+
+
+}*/
+
+
+
+
+
+
+
+/*function SetCookie(c_name,value,expiredays)
+
+
+
+
+
+
+
+{
+
+
+
+
+
+
+
+var exdate=new Date();
+
+
+
+
+
+
+
+exdate.setDate(exdate.getDate()+expiredays);
+
+
+
+
+
+
+
+document.cookie=c_name+ "=" +escape(value)+
+
+
+
+
+
+
+
+((expiredays==null) ? "" : ";expires="+exdate.toGMTString());
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function GetCookie(c_name)
+
+
+
+
+
+
+
+{
+
+
+
+
+
+
+
+if (document.cookie.length>0)
+
+
+
+
+
+
+
+  {
+
+
+
+
+
+
+
+  c_start=document.cookie.indexOf(c_name + "=");
+
+
+
+
+
+
+
+  if (c_start!=-1)
+
+
+
+
+
+
+
+    { 
+
+
+
+
+
+
+
+    c_start=c_start + c_name.length+1; 
+
+
+
+
+
+
+
+    c_end=document.cookie.indexOf(";",c_start);
+
+
+
+
+
+
+
+    if (c_end==-1) c_end=document.cookie.length;
+
+
+
+
+
+
+
+    return unescape(document.cookie.substring(c_start,c_end));
+
+
+
+
+
+
+
+    } 
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+
+
+return null; //"";
+
+
+
+
+
+
+
+}*/
+
+
+
+
+
+
+
+var savedValue = null;
+
+
+
+
+
+
+
+function restorePageBG()
+
+
+
+
+
+
+
+{
+
+
+
+
+
+
+
+	return; // ALL OF THIS IS HANDLED REMOTELY IN AS
+
+
+
+
+
+
+
+	/*
+
+
+
+
+
+
+
+	//var savedValue = readPref(); //GetCookie('xfs_preview_color');
+
+
+
+
+
+
+
+	alert('cookie value: ' + savedValue);
+
+
+
+
+
+
+
+	if (savedValue == null || savedValue == '')
+
+
+
+
+
+
+
+		savedValue = '#FFFFFF';
+
+
+
+
+
+
+
+	//document.bgColor = savedValue;
+
+
+
+
+
+
+
+	document.body.style.backgroundColor = savedValue;
+
+
+
+
+
+
+
+	document.getElementById('color_ti').value = savedValue;
+
+
+
+
+
+
+
+	*/
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function savePageBG()
+
+
+
+
+
+
+
+{
+
+
+
+
+
+
+
+	var curValue = document.getElementById('color_ti').value;
+
+
+
+
+
+
+
+	//document.bgColor = curValue;
+
+
+
+
+
+
+
+	document.body.style.backgroundColor = curValue;
+
+
+
+
+
+
+
+	//writePref(curValue); //SetCookie('xfs_preview_color', curValue, 400);// exp);
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function MM_preloadImages() { //v3.0
+
+
+
+
+
+
+
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+
+
+
+
+
+
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+
+
+
+
+
+
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function MM_swapImgRestore() { //v3.0
+
+
+
+
+
+
+
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function MM_findObj(n, d) { //v4.01
+
+
+
+
+
+
+
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+
+
+
+
+
+
+
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+
+
+
+
+
+
+
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+
+
+
+
+
+
+
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+
+
+
+
+
+
+
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+function MM_swapImage() { //v3.0
+
+
+
+
+
+
+
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+
+
+
+
+
+
+
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+<style type="text/css">
+
+
+
+
+
+
+
+<!--
+
+
+
+
+
+
+
+.style22 {
+
+
+
+
+
+
+
+	color: #004E7C;
+
+
+
+
+
+
+
+	font-family: "Myriad Pro", "Myriad Pro Cond", "Myriad Pro Light";
+
+
+
+
+
+
+
+	font-weight: bold;
+
+
+
+
+
+
+
+	font-size: 13px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.style31 {
+
+
+
+
+
+
+
+	font-family: "Myriad Pro", "Myriad Pro Cond", "Myriad Pro Light";
+
+
+
+
+
+
+
+	color: #1C4E7C;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.style5 {
+
+
+
+
+
+
+
+	font-size: 11px;
+
+
+
+
+
+
+
+	font-family: "Myriad Pro", "Myriad Pro Cond", "Myriad Pro Light";
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.style32 {
+
+
+
+
+
+
+
+	font-family: Arial, Helvetica, sans-serif;
+
+
+
+
+
+
+
+	font-size: 13px;
+
+
+
+
+
+
+
+	color: #014E7C;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+.style42 {
+
+
+
+
+
+
+
+	font-family: Arial, Helvetica, sans-serif;
+
+
+
+
+
+
+
+	font-size: 13px;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+a:link {
+
+
+
+
+
+
+
+	color: #0000FF;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+a:visited {
+
+
+
+
+
+
+
+	color: #0000FF;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+a:active {
+
+
+
+
+
+
+
+	color: #0000FF;
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+-->
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body onload="restorePageBG();MM_preloadImages('_vti_cnf/Menu_CCLife_On.gif','_vti_cnf/Menu_CollegeCampuses_On.gif','http://www.nocccd.edu/images/HomePage/Menu_Serv2BusCom_On.gif','http://www.nocccd.edu/images/HomePage/Help_On.gif','http://www.nocccd.edu/images/HomePage/Search_On.gif','http://www.nocccd.edu/images/HomePage/Menu_WhoWeAre_On.gif','http://www.nocccd.edu/images/HomePage/Menu_Departments_On.gif','http://www.nocccd.edu/images/HomePage/Menu_Policies_On.gif','http://www.nocccd.edu/images/HomePage/Menu_CollegeCampuses_On.gif','http://www.nocccd.edu/images/HomePage/Menu_Trustees_On.gif','http://www.nocccd.edu/images/HomePage/Menu_Employment_On.gif','http://www.nocccd.edu/images/HomePage/Menu_CalendarEvents_On.gif','http://www.nocccd.edu/images/HomePage/Menu_FacilitiesBondInfo_On.gif','http://www.nocccd.edu/images/HomePage/Strategic_On.jpg','http://www.nocccd.edu/images/HomePage/DistrictFoundation_On.gif','http://www.nocccd.edu/images/HomePage/DistrictServices_On.gif','Menu_Accreditation_On.gif')">
+
+
+
+
+
+
+
+<table width="648" height="538" border="0" cellpadding="0" cellspacing="0">
+
+
+
+
+
+
+
+  <tbody>
+
+
+
+
+
+
+
+    <tr>
+
+
+
+
+
+
+
+      <td width="648"><img src="images/topbanner1.jpg" alt="North Orange County Community College District" width="640" height="100" border="0" usemap="#Map" /></td>
+
+
+
+
+
+
+
+    </tr>
+
+
+
+
+
+
+
+    <tr>
+
+
+
+
+
+
+
+      <td height="436" valign="top"><table cellspacing="0" cellpadding="0" width="644" border="0" height="585">
+
+
+
+
+
+
+
+          <tbody>
+
+
+
+
+
+
+
+            <tr>
+
+
+
+
+
+
+
+              <td valign="top" width="125" height="459"><p>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/WhoWeAre/WhoWeAre.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image23','','http://www.nocccd.edu/images/HomePage/Menu_WhoWeAre_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_WhoWeAre_Off.gif" alt="Who We Are" name="Image23" width="123" height="22" border="0" align="top" id="Image23" /></a>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/CCLife/CommCollegeLife.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image18','','_vti_cnf/Menu_CCLife_On.gif',1)"><img src="_vti_cnf/Menu_CCLife_Off.gif" alt="Community College Life" name="Image18" width="123" height="32" border="0" id="Image18" /></a>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/CollegeCampuses.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image26','','http://www.nocccd.edu/images/HomePage/Menu_CollegeCampuses_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_CollegeCampuses_Off.gif" alt="College Campuses" name="Image26" width="123" height="22" border="0" id="Image26" /></a>
+
+
+
+
+
+
+
+                  <a href="#" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image19','','_vti_cnf/Menu_CollegeCampuses_On.gif',1)"><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Serv2BusCom/Serv2BusCom.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image20','','http://www.nocccd.edu/images/HomePage/Menu_Serv2BusCom_On.gif',1)"><img src="_vti_cnf/Menu_Serv2BusCom_Off.gif" alt="Services to Business and Community" name="Image20" width="123" height="32" border="0" id="Image20" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Departments/Departments.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image24','','http://www.nocccd.edu/images/HomePage/Menu_Departments_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_Departments_Off.gif" alt="Departments" name="Image24" width="123" height="22" border="0" id="Image24" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Policies/PoliciesAndProcedures.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image25','','http://www.nocccd.edu/images/HomePage/Menu_Policies_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_Policies_Off.gif" alt="Policies and Procedures" name="Image25" width="123" height="32" border="0" id="Image25" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Trustees/Trustees.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image27','','http://www.nocccd.edu/images/HomePage/Menu_Trustees_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_Trustees_Off.gif" alt="Board of Trustees" name="Image27" width="123" height="22" border="0" id="Image27" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Employment/Employment.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image28','','http://www.nocccd.edu/images/HomePage/Menu_Employment_On.gif',1)"><img src="images/HomePage/Menu_Employment_Off.gif" alt="Employment" name="Image28" width="123" height="22" border="0" id="Image28" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/CalendarEvents/CalendarEvents.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image29','','http://www.nocccd.edu/images/HomePage/Menu_CalendarEvents_On.gif',1)"><img src="images/HomePage/Menu_CalendarEvents_Off.gif" alt="Calendar Events" name="Image29" width="123" height="22" border="0" id="Image29" /></a><br />
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/Departments/FandF/FacilitiesBond/FacilitiesBondInfo.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image30','','http://www.nocccd.edu/images/HomePage/Menu_FacilitiesBondInfo_On.gif',1)"><img src="images/HomePage/Menu_FacilitiesBondInfo_Off.gif" alt="Facilities Bond Information" name="Image30" width="123" height="32" border="0" id="Image30" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/StrategicPlanning/StrategicPlan.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image31','','http://www.nocccd.edu/images/HomePage/Strategic_On.jpg',1)"><img src="images/HomePage/Strategic_Off.jpg" alt="District-Wide Strategic Plan" name="Image31" width="123" height="32" border="0" id="Image31" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/NOCCCDFoundation.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','http://www.nocccd.edu/images/HomePage/DistrictFoundation_On.gif',1)"><img src="images/HomePage/DistrictFoundation_Off.gif" alt="District Foundation" name="Image32" width="123" height="32" border="0" id="Image32" /></a>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/masterplan/index.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('MasterPlan','','http://www.nocccd.edu/images/HomePage/Menu_MasterPlan_On.gif',1)"><img src="http://www.nocccd.edu/images/HomePage/Menu_MasterPlan_Off.gif" alt="Master Plan" name="MasterPlan" width="123" height="22" border="0" id="MasterPlan" /><br /></a>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/Accreditation.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Accreditation','','Menu_Accreditation_On.gif',1)"><img src="Menu_Accreditation_Off.gif" alt="Accreditation" name="Accreditation" width="123" height="22" border="0" id="Accreditation" /></a>
+
+
+
+
+
+
+
+                  <a href="http://www.nocccd.edu/NOCCCDFoundation.html" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image32','','http://www.nocccd.edu/images/HomePage/DistrictFoundation_On.gif',1)"><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Departments/InfoServices.htm#ServiceDesk" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image21','','http://www.nocccd.edu/images/HomePage/Help_On.gif',1)"><img src="images/HomePage/Help_Off.gif" alt="Help" name="Image21" width="125" height="23" border="0" id="Image21" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/Search.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image22','','http://www.nocccd.edu/images/HomePage/Search_On.gif',1)"><img src="images/HomePage/Search_Off.gif" alt="Search" name="Image22" width="125" height="18" border="0" id="Image22" /><br />
+
+
+
+
+
+
+
+                  </a><a href="http://www.nocccd.edu/DistrictServices.htm" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('Image33','','http://www.nocccd.edu/images/HomePage/DistrictServices_On.gif',1)"><img src="images/HomePage/DistrictServices_Off.gif" alt="District Services" name="Image33" width="125" height="18" border="0" id="Image33" /></a><img src="images/HomePage/MenuBottom.gif" alt="Copyright 2007" width="125" height="76" border="0" usemap="#Map2" /></p></td>
+
+
+
+
+
+
+
+              <td width="519" height="433" rowspan="2" valign="top"><div align="center">
+
+
+
+
+
+
+
+                  <center>
+
+
+
+
+
+
+
+                    <table height="597" cellpadding="2" border="0" bordercolor="#111111" cellspacing="0">
+
+
+
+
+
+
+
+                      <!--DWLayoutTable-->
+
+
+
+
+
+
+
+                      <tbody>
+
+
+
+
+
+
+
+                        <tr>
+
+
+
+
+
+
+
+                          <td width="482" height="323">&nbsp;
+
+
+
+
+
+
+
+                          
+
+
+
+
+
+
+
+                          <!-- Begin DWUser_EasyRotator -->                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://easyrotator.s3.amazonaws.com/1/js/easy_rotator.min.js"></script>                            <div class="dwuserEasyRotator" style="width: 500px; height: 300px; position:relative; text-align: left;" data-erConfig="{autoplayEnabled:true, randomize:true, autoplayDelay:4500}" data-erName="NOCCCD">                              
+
+
+
+
+
+
+
+<div data-ertype="content" style="display: none;">                                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ul style="margin-bottom: 0" data-erlabel="Main Category">                                  
+
+
+
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd37.jpg" alt="Cypress College Classified Staff Appreciation Luncheon 
+" /> <img class="thumb" src="http://www.nocccd.edu/images/nocccd37.jpg" alt="Cypress College Classified Staff Appreciation Luncheon 
+"/> <span class="desc">Cypress College Classified Staff Appreciation Luncheon 
+</span></li> 
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd16.jpg" alt="Newly Renovated Fullerton College Football Field and Track" /> <img class="thumb" src="http://www.nocccd.edu/images/nocccd16.jpg" alt="Newly Renovated Fullerton College Football Field and Track"/> <span class="desc">Newly Renovated Fullerton College Football Field and Track</span></li>                                  
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd39.jpg" alt="Fullerton College Worldfest 2012" /> <img class="thumb" src="http://www.nocccd.edu/images/nocccd39.jpg" alt="Fullerton College Worldfest 2012"/> <span class="desc">Fullerton College Worldfest 2012</span> </li>                                  
+
+<li> <img class="main" src="http://www.nocccd.edu/images/nocccd34.jpg" alt="Fullerton College's Donation of 190 Computers to Haiti Tec"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd34.jpg" alt="Fullerton College's Donation of 190 Computers to Haiti Tec"/> <span class="desc">Fullerton College's Donation of 190 Computers to Haiti Tec</span> </li>  
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd4.jpg" alt="Award-winning remodel of SCE's Wilshire Center"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd4.jpg" alt="Award-winning remodel of SCE's Wilshire Center"/> <span class="desc">Award-winning remodel of SCE's Wilshire Center</span> </li>               
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd36.jpg" alt=""/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd36.jpg" alt=""/> </li>  
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd38.jpg" alt="SCE Provost Chris Terry with Patrick Henry Elementary Students
+"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd38.jpg" alt="SCE Provost Chris Terry with Patrick Henry Elementary Students
+"/> <span class="desc">SCE Provost Chris Terry with Patrick Henry Elementary Students
+</span> </li>     
+
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd28.jpg" alt="Fullerton College's Donation of 190 Computers to Haiti Tec"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd28.jpg" alt="Fullerton College's Donation of 190 Computers to Haiti Tec"/> <span class="desc">Fullerton College's Donation of 190 Computers to Haiti Tec</span> </li>     
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd29.jpg" alt="President Kasler with Bruno Serato, 2012 Americana Man of the Year"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd29.jpg" alt="President Kasler with Bruno Serato, 2012 Americana Man of the Year"/> <span class="desc">President Kasler with Bruno Serato, 2012 Americana Man of the Year</span> </li>  
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd33.jpg" alt="2011-12 NOCCCD Board of Trustees"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd33.jpg" alt="2011-12 NOCCCD Board of Trustees"/> <span class="desc">2011-12 NOCCCD Board of Trustees</span> </li>
+
+
+
+
+
+
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd31.jpg" alt="Cypress College"/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd31.jpg" alt="Cypress College"/> <span class="desc">Cypress College</span> </li>
+
+
+
+    <li> <img class="main" src="http://www.nocccd.edu/images/nocccd35.jpg" alt="Cypress College 2012 Softball Orange Empire Conference Champions."/> <img class="thumb" src="http://www.nocccd.edu/images/nocccd35.jpg" alt="Cypress College 2012 Softball Orange Empire Conference Champions."/> <span class="desc">Cypress College 2012 Softball Orange Empire Conference Champions.</span> </li>               
+
+
+
+
+
+
+
+
+
+  </ul>                              
+
+
+
+
+
+
+
+</div>                              
+
+
+
+
+
+
+
+<div data-ertype="layout" data-ertemplateName="NONE">                                
+
+
+
+
+
+
+
+  <div class="erimgMain" style="position: absolute; left:0; right:0; top:-10px; bottom:0; height: 310px;" data-erConfig="{___numTiles:3, scaleMode:'fillArea', duration:800, imgType:'main', alwaysPreviousButton:true, __loopNextButton:false, __arrowButtonMode:'rollover'}">                                  
+
+
+
+
+
+
+
+      <div class="erimgMain_slides" style="position: absolute; left:9px; top:1px; bottom:0; right:0; height: 311px;">         
+
+
+
+
+
+
+
+          <div class="erimgMain_slide">                                      
+
+
+
+
+
+
+
+              <div class="erimgMain_img" style="position: absolute; left: -9px; right: 0; top:5px; bottom:0; width: 511px; height: 306px;"></div>                                      
+
+
+
+
+
+
+
+              <div class="" style="position: absolute; left:1px; right:0; bottom: 12px; padding: 7px 200px 15px 15px; background: transparent; background:rgba(0,0,0,0.9); color: #FFFFFF; font-family: Georgia, 'Times New Roman', Times, _serif; text-align: center; width: 468px; height: 24px;">                                        
+
+
+
+
+
+
+
+                 <p class="erimgMain_title" style="padding: 0; margin: 0 0 3px 0; font-weight: bold; font-size: 22px;"></p>                 <p class="erimgMain_desc" style="padding: 0; margin: 0; font: 14px/18px Arial,_sans;"></p>               </div>                                    
+
+
+
+
+
+
+
+               </div>                                  
+
+
+
+
+
+
+
+          </div>                                  <!-- <div class="erimgMain_arrowLeft" style="position:absolute; left: 10px; top: 50%; margin-top: -15px;" data-erConfig="{image:'circleSmall', image2:'circleSmall'}"></div>				<div class="erimgMain_arrowRight" style="position:absolute; right: 10px; top: 80%; margin-top: -15px;"></div> -->                                
+
+
+
+
+
+
+
+       </div>                                
+
+
+
+
+
+
+
+       <div class="erabout erFixCSS3" style="color: #FFF; text-align: left; background: #000; background:rgba(0,0,0,0.93); border: 2px solid #FFF; padding: 20px; font: normal 11px/14px Verdana,_sans; width: 300px; border-radius: 10px; display: none;"> This <a style="color:#FFF;" href="http://www.dwuser.com/easyrotator/" target="_blank">jQuery slider</a> was created with the free <a style="color:#FFF;" href="http://www.dwuser.com/easyrotator/" target="_blank">EasyRotator</a> software from DWUser.com. <br /><br />                                  Need a powerful <a style="color:#FFF;" href="http://www.dwuser.com/flashslideshow/" target="_blank">Flash slideshow</a> creator with built-in iPhone/iPad/Android support?  EasyRotator is supported by the <a style="color:#FFF;" href="http://www.dwuser.com/flashslideshow/" target="_blank">XML Flash Slideshow v4 Software</a>. <br />                                  <br />                                  <a style="color:#FFF;" href="#" class="erabout_ok">OK</a> </div>                              </div>                            
+
+
+
+
+
+
+
+</div>                            
+
+
+
+
+
+
+
+<!-- End DWUser_EasyRotator -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+                        <tr>
+
+
+
+
+
+
+
+                          <td height="7"><p style="margin-top: 0; margin-bottom: 0;"><img src="images/HorizLine515.gif" alt="NOCCCD" width="515" height="3" /></p></td>
+
+
+
+
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+                        <tr>
+
+
+
+
+
+
+
+                          <td height="68" valign="top"><table width="0" border="0">
+
+
+
+
+
+
+
+                              <tr>
+
+
+
+
+
+
+
+                                <td><table width="512" height="99" border="0">
+
+
+
+
+
+
+
+                                    <tr>
+
+
+
+
+
+
+
+                                      <td colspan="2" valign="baseline" bgcolor=""><p align="left" class="style22" style="margin-bottom: 0"><img src="images/newsandannouncements.jpg" alt="News And Announcements" width="250" height="25" /></p>
+
+
+
+
+
+
+
+                                        <div align="left">
+
+
+
+
+
+
+
+                                          <ul class="style31" style="margin-top: 0; margin-bottom: 0;">
+
+
+
+
+
+
+
+                                            <li class="style42"><a href="BudgetNews.htm">Notes from the April 24 Board Budget Workshop &amp; Study Session</a> </li>
+
+
+
+
+
+
+
+                                            <li class="style42"><a href="documents/AprilMemo4.9.12_001.pdf">Chancellor's Memo - April 9, 2012</a> </li>
+
+                                            <li class="style42"><a href="BudgetNews.htm">NOCCCD Budget Central </a></li>
+
+
+
+
+
+
+
+                                            <li class="style42"><a href="documents/MiddleClassResolution.pdf">Board of Trustees Resolution Supporting The Middle Class Scholarship Act </a> </li>
+
+                                            <li class="style42"><a href="documents/ResOpposeSB15603.27.12.pdf">Board of Trustees Resolution Opposing SB1560</a></li>
+
+
+
+                                            <li class="style42"><a href="documents/11-12-08OpposingAB2482.pdf">Board of Trustees Resolution Opposing AB2482 </a></li>
+
+
+
+                                            <li class="style42"><a href="documents/MarchMemo3.29.12.pdf">Chancellor's Memo - Virtual Hiring Freeze as of May 31, 2012 </a></li>
+
+
+
+
+
+
+
+                                            <li class="style42"><a href="Redistricting.htm">NOCCCD Board of Trustees Adopts New Trustee Areas</a></li>
+
+
+
+
+
+
+
+                                            <li class="style42"><a href="mobile">Download NOCCCD's Free Mobile Apps </a></li>
+
+
+
+
+
+
+
+                                          </ul>
+
+
+
+
+
+
+
+                                        </div>
+
+
+
+
+
+
+
+                                        <ul class="style31" style="margin-top: 0">
+
+
+
+
+
+
+
+                                        </ul></td>
+
+
+
+
+
+
+
+                                    </tr>
+
+
+
+
+
+
+
+                                  </table></td>
+
+
+
+
+
+
+
+                              </tr>
+
+
+
+
+
+
+
+                            </table></td>
+
+
+
+
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+                        <tr>
+
+
+
+
+
+
+
+                          <td height="68" valign="top"><div align="center" class="style32">
+
+
+
+
+
+
+
+                              <p style="margin-top: 0; margin-bottom: 0"><a href="http://www.cypresscollege.edu">Cypress College</a> (714) 484-7000</p>
+
+
+
+
+
+
+
+                              <p style="margin-top: 0; margin-bottom: 0;"><a href="http://www.fullcoll.edu">Fullerton College</a> (714) 992-7000</p>
+
+
+
+
+
+
+
+                              <p style="margin-top: 0; margin-bottom: 0;"><a href="http://www.sce.edu">School of Continuing Education</a> (714) 808-4999 <br />
+
+
+
+
+
+
+
+                              </p>
+
+
+
+
+
+
+
+                              <p style="margin-top: 0; margin-bottom: 0;">District   Offices - 1830 W. Romneya Dr. * Anaheim, CA   92801-1819 * (714) 808-4500</p>
+
+
+
+
+
+
+
+                            </div></td>
+
+
+
+
+
+
+
+                        </tr>
+
+
+
+
+
+
+
+                      </tbody>
+
+
+
+
+
+
+
+                    </table>
+
+
+
+
+
+
+
+                  </center>
+
+
+
+
+
+
+
+                </div></td>
+
+
+
+
+
+
+
+            </tr>
+
+
+
+
+
+
+
+            <tr>
+
+
+
+
+
+
+
+              <td valign="top" height="84"><div align="center"><a href="http://mygateway.nocccd.edu/cp/home/loginf"><img src="images/mygateway-button_000.jpg" alt="mygateway, formerly WebSTAR" width="100" height="84" align="texttop" border="0" /></a></div></td>
+
+
+
+
+
+
+
+            </tr>
+
+
+
+
+
+
+
+          </tbody>
+
+
+
+
+
+
+
+        </table></td>
+
+
+
+
+
+
+
+    </tr>
+
+
+
+
+
+
+
+  </tbody>
+
+
+
+
+
+
+
+</table>
+
+
+
+
+
+
+
+<map name="Map" id="Map">
+
+
+
+
+
+
+
+  <area shape="rect" coords="575,63,598,86" href="http://twitter.com/NOCCCD" target="_blank" alt="Twitter" />
+
+
+
+
+
+
+
+  <area shape="rect" coords="605,64,628,86" href="http://www.facebook.com/nocccd?sk=info" target="_blank" alt="Facebook" />
+
+
+
+
+
+
+
+</map>
+
+
+
+
+
+
+
+<map name="Map2" id="Map2">
+
+
+
+
+
+
+
+  <area shape="rect" coords="7,31,61,49" href="#http://www.nocccd.edu/Policies/PDFs/3740BP.pdf" target="_self" alt="Web Policy Disclaimer" />
+
+
+
+
+
+
+
+  <area shape="rect" coords="9,58,104,66" href="mailto:ishelpdesk@nocccd.edu" target="_self" alt="mailto:ishelpdesk@nocccd.edu" />
+
+
+
+
+
+
+
+</map>
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
+
+
+
+
+
+
+

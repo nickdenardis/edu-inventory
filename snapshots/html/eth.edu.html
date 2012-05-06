@@ -1,0 +1,953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <!--
+        IMPORTANT: THESE TEMPLATES MAY ONLY BE USED WITH THE WRITTEN PERMISSION
+        OF VISUAL COMMUNICATIONS (CC),
+        HTTP://WWW.CD.ETHZ.CH
+    -->
+    
+    <title>
+       ETH Zürich - Eidgenössische Technische Hochschule Zürich
+    </title>
+    
+      
+    
+    
+    <!-- copyright, author, e-mail address -->
+    
+      <meta name="copyright" content="ETH Zuerich" />
+      <meta name="author" content="Antje Wollenschläger" />
+      <meta name="Description"
+            content="Die Eidgenössische Technische Hochschule Zürich ist eine technisch-naturwissenschaftliche Universität mit ausgezeichnetem Forschungsausweis. Sie liegt in der grössten Stadt der Schweiz, mitten in Europa." />
+      <meta name="Keywords"
+            content="ETH Zürich, ETH, Zürich, Eidgenössische Technische Hochschule, Hochschule, Technische Hochschule, Studium,  Studieren, Lehre, Forschung, Forschen" />
+      <meta name="version"
+            content="Zope 2.8.12-final /Silva 1.5.13 /SilvaExtETHLayout 0.9.35" />
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <!-- supervision header -->
+    <meta name="Systemueberwachung" content="ETHZ" />
+    <!-- charset, home, base -->
+    <link href="http://www.ethz.ch/" rel="home" />
+    <link rel="SHORTCUT ICON"
+          href="http://www.ethz.ch/images/favicon.ico" />
+    <base href="http://www.ethz.ch/" />
+    
+    <!-- style sheet -->
+    
+        <link rel="stylesheet"
+              href="http://www.ethz.ch/css/colors_c000.css"
+              type="text/css" />
+        <link rel="stylesheet"
+              href="http://www.ethz.ch/css/ns4.css"
+              type="text/css" />
+        <style type="text/css">
+            <!--
+            @import url("http://www.ethz.ch/css/modernbrowsers.css");
+            @import url("http://www.ethz.ch/css/colors_c000.css");
+            @import url("http://www.ethz.ch/css/silva.css");
+            @import url("http://www.ethz.ch/customstyles.css");
+            -->
+            </style>
+        <link rel="stylesheet" media="print"
+              href="http://www.ethz.ch/css/print.css"
+              type="text/css" />
+        <style type="text/css">
+               .logo-bg, .logo-bg-alt { background-image: url(http://www.ethz.ch/images/head_bg_logo_home_c000.jpg); }
+               .identity-image { background-image: url(http://www.ethz.ch/images/head_bg_home_c000.jpg); background-repeat: repeat; }
+               .mainnav, .screenhead, .color5-back, .color4-back, .color3-back, .color2-back, .color1-back,  .servicenav, .transparent {background-image: url(http://www.ethz.ch/icons_site/transparent.gif); }</style>
+        
+          <style type="text/css">div.navblock, .margins div.contentblock-1col { margin-bottom:165px; }</style>
+        
+        
+        <!-- extra stylesheet for ie7 -->
+        <!--[if lte IE 6]>
+        <link rel='stylesheet' href='http://www.ethz.ch/css//ie6.css' type='text/css' />
+        <![endif]-->
+        <!--[if IE 7]>
+        <link rel='stylesheet' href='http://www.ethz.ch/css//ie7.css' type='text/css' />
+        <![endif]-->
+        
+    
+    <!-- keywords, description -->
+    
+    <!-- script slot -->
+    
+      
+        <script src="http://www.ethz.ch/scripts/scripts_de.js"
+                type="text/JavaScript"></script>
+      
+      
+      
+      
+      <script src="http://www.ethz.ch/scripts/jquery-1.6.4.min.js"
+              type="text/JavaScript"></script>
+      <script src="http://www.ethz.ch/scripts/scripts.js"
+              type="text/JavaScript"></script>
+      
+      <script type="text/javascript" language="JavaScript">
+      <!--
+        // opens a windows to change the color scheme
+        function openCenteredWindow(url, height, width, name, parms) {
+          var left = Math.floor( (screen.width - width) / 2);
+          var top = Math.floor( (screen.height - height) / 2);
+          var winParms = "top=" + top + ",left=" + left + ",height=" + height + ",width=" + width;
+          if (parms) { winParms += "," + parms; }
+            var win = window.open(url, name, winParms);
+          if (parseInt(navigator.appVersion) >= 4) { win.window.focus(); }
+            return win;
+        }
+        function openColorWindow() {
+          newwin = openCenteredWindow("colors.html",520,120,"ColorScheme","resizable=yes")}
+      //-->
+      </script>
+    
+  </head>
+  <body bgcolor="#FFFFFF" onload="setup()"
+        class="bg_logo_home">
+  <div class="margins" id="bodymargins" style="width:auto;">
+    <a id="top" name="top"></a>
+    <!-- START header table -->
+    <div id="printhead">
+      
+        <img alt="printlogo"
+             src="http://www.ethz.ch/icons_site/ethlogo-print.png"
+             width="220" height="57" />
+      
+      
+    </div>
+    <table id="screenhead" width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+      <!-- ETH / UNI logo -->
+        
+            
+              <td width="220" valign="top" class="logo-bg"><a href="http://www.ethz.ch/" title="ETH Z&uuml;rich - Startseite"><img border="0" src="http://www.ethz.ch/icons_site/transparent.gif" alt="http://www.ethz.ch/" width="220" height="105"/></a></td>
+            
+            
+        
+        
+        <!-- START picture and navigation -->
+        <td width="100%" valign="top" class="identity-image">
+          <table width="100%" border="0" cellpadding="0"
+                 cellspacing="0">
+          <!-- head picture and language -->
+            <tr>
+              <td colspan="2" width="100%" height="54" valign="bottom">
+                
+                <div class="sitename" id="sitename"><a href="http://www.ethz.ch/"><img alt="Eidgenössische Technische Hochschule Zürich" title="Eidgenössische Technische Hochschule Zürich" src="http://www.ethz.ch/images/head_sitename_c000.jpg" height="54" width="106" border="0" name="sitename" /></a></div>
+              </td>
+              <td class="transparent">&nbsp;</td>
+            </tr>
+            <!-- START navigation 1. row and service-navigation -->
+            <tr>
+              <td width="100%" height="17" valign="middle"
+                  class="color4-back">
+                
+                  <div class="mainnav">
+   <a class="mainnav-off" href="http://www.ethz.ch/news/index">Aktuell</a> | <a class="mainnav-off" href="http://www.ethz.ch/about/index">Über uns</a> | <a class="mainnav-off" href="http://www.ethz.ch/people/index">Personen</a>
+</div>
+                
+              </td>
+              <td rowspan="3" width="220" height="100%" class="color1-back">
+                <!-- START service-navigation and search -->
+                <table width="220" border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td height="18" valign="middle">
+                      
+                        <div class="servicenav">
+						  <a class="servicenav-off" href="http://www.ethz.ch/contact/index?page_url=http://www.ethz.ch">Kontakt</a>&nbsp;|
+						  <a class="servicenav-off" href="http://www.ethz.ch/sitemap/index_DE">&Uuml;bersicht</a>&nbsp;|
+						  <a class="servicenav-off" href="http://www.ethz.ch/help/index">Hilfe</a>
+                        </div>
+                      
+                      
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <!-- START search form -->
+                      
+      <form name="search" id="searchform" action="http://www.ethz.ch/cse_results/index_DE" method="GET" accept-charset="UTF-8">
+          <table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="middle">
+                <input id="qs" class="searchfield" type="text" name="qs" value="Suche" onblur="if(this.value=='')this.value='Suche';" onfocus="if(this.value=='Suche')this.value='';"/>
+                  <input type="hidden" name="ie" value="utf8" />
+                  <input type="hidden" name="oe" value="utf8" /><input type="hidden" name="q" value="site:ethz.ch" id="search_intranet" />
+              </td>
+              <td valign="middle" width="18" align="right" class="searchtd">
+                <input class="searchbutton" type="image" name="GO" src="http://www.ethz.ch/icons_site/lens_c000.gif"/>
+              </td>
+            </tr>
+          </table>
+        </form><script type="text/javascript" charset="utf-8">
+(function($) {
+$(document).ready(function() {
+    $('#searchform').submit(function() {
+        if ($('#search_intranet').length > 0) {
+            var q_intranet = $('#search_intranet').val() + " " + $('#qs').val();
+            $('#search_intranet').val(q_intranet);
+        } else {
+            $('#qs').attr('name','q');
+        }
+        //return false;
+    });
+});
+})(jwcd.jQuery);
+</script>
+    
+                      <!-- END search form -->
+                    </td>
+                  </tr>
+                </table>
+                <!-- END service-navigation and search -->
+              </td>
+              <td width="50" height="100%" rowspan="3" class="transparent"><img
+    alt=""
+    src="http://www.ethz.ch/icons_site/transparent.gif"
+    width="50" height="10" /></td>
+            </tr>
+            <!-- END navigation 1. row and service-navigation -->
+            <!-- START navigation 2. row -->
+            <tr>
+              <td width="100%" height="17" valign="middle"
+                  class="color3-back">
+                
+                  <div class="mainnav">
+   <a class="mainnav-off" href="http://www.ethz.ch/research/index">Forschung</a> | <a class="mainnav-off" href="http://www.ethz.ch/studies/index">Studium</a> | <a class="mainnav-off" href="http://www.ethz.ch/continuing/index">Weiterbildung</a>
+</div>
+                
+              </td>
+            </tr>
+            <!-- END navigation 2. row -->
+            <!-- START navigation 3. row -->
+            <tr>
+              <td width="100%" height="17" valign="middle"
+                  class="color2-back">
+                
+                  <div class="mainnav">
+   <a class="mainnav-off" href="http://www.ethz.ch/libraries/index">Bibliotheken &amp; Sammlungen</a> | <a class="mainnav-off" href="http://www.ethz.ch/intranet/index">Campus Info</a>
+</div>
+                
+              </td>
+            </tr>
+            <!-- END navigation 3. row -->
+          </table>
+          <!-- END picture and navigation -->
+        </td>
+      </tr>
+    </table>
+    <!-- END header table -->
+    <!-- ############################################################################ -->
+
+    <!-- START content -->
+    <!-- START path -->
+    
+
+    
+    
+      
+        
+<!-- START content divs -->
+<!-- START path -->
+<div id="path-service">
+  <!-- START servicenav2 -->
+  
+    <div id="pageicons">
+      <div class="servicenav2" id="servicenav2">
+        <a href="javascript:printpage();" class="icon-print" onfocus="if(this.blur)this.blur();" onmouseover="changeText(1);" onmouseout="changeText(0);">
+           <img src="http://www.ethz.ch/icons_site/icon_print.gif"
+                border="0" alt="print" />
+        </a><form method="post" class="icon-mail"
+                  action="http://www.ethz.ch/mail_this_page">
+          
+          <input type="hidden" name="page_url"
+                 value="http://www.ethz.ch" />
+          <input type="hidden" name="language_current"
+                 value="DE" />
+          <input type="hidden" name="language_default"
+                 value="DE" />
+          <input type="image"
+                 src="http://www.ethz.ch/icons_site/icon_email.gif"
+                 title="e-mail" alt="e-mail"
+                 onmouseover="changeText(2);"
+                 onmouseout="changeText(0);"
+                 style="border:none;padding:0" />
+        </form><form action="http://www.ethz.ch/pdf"
+                     method="post" class="icon-pdf">
+          
+          <input type="image"
+                 src="http://www.ethz.ch/icons_site/icon_pdf.gif"
+                 title="pdf" alt="pdf"
+                 onmouseover="changeText(3);"
+                 onmouseout="changeText(0);"
+                 style="border:none;padding:0" />
+        </form>
+        <span id="pageicons-text" style="visibility: visible;">&nbsp;&nbsp;</span>
+    </div>
+  </div>
+  <div class="pathline">
+    <a class="path" href="http://www.ethz.ch/"></a>
+	<!--
+    <span metal:use-macro="python:path(helpers.get_content_path(here, 'siteroot_path'))">
+      Siteroot Path
+    </span>
+	-->
+    
+  
+    <a class="path" href="http://www.ethz.ch">ETH Zürich</a>
+  
+
+  </div>
+  <div style="clear:both;"></div>
+  <!-- END servicenav2 -->
+  
+</div>
+<!-- END Path -->
+<!-- START content area -->
+<!-- no nav, textblock full, no 3rd col -->
+
+<!-- nav, textblock full, no 3rd col -->
+
+<!-- nav, textblock full, 3rd col -->
+
+  
+  
+
+<!-- START subnavigation 1. coloumn -->
+
+  <div class="navblock">
+    <div class="subnav">
+        
+  
+  
+
+
+        
+  
+  
+
+
+    </div>
+  </div>
+
+<div class="clearright"></div>
+<!-- END subnavigation 1. coloumn -->
+<!-- START content 2./3. coloumn -->
+<div class="contentblock-3col" style="width:auto;"
+     id="contentblock-3col">
+  <div id="languages">
+    <span class="text-lang lang-active">Deutsch</span>
+<span class="text-lang"><a href="http://www.ethz.ch/index_EN" class="languagelink">English</a></span>
+
+  </div>
+  <!-- START main heading -->
+  
+  <h2></h2>
+  
+
+  <!-- END main heading -->
+  <!-- START text box floating right -->
+  <!-- show column depending on layout switch -->
+  
+    
+          
+            
+  
+                        	
+    
+    	
+	      <div class="box-border">
+	        <div class="box">
+	          <p class="boxtitle">Favoriten</p>
+	          
+<script language="JavaScript">
+<!--
+function DropGo(form) {
+  var myindex = form.destination.selectedIndex
+  var URL = form.destination.options[myindex].value
+  if(URL.search("http://")==-1){
+        location=""+URL
+  }else{location=URL }
+}
+
+function DropChange(nav_form){
+  var URL = document.nav_form.destination.options[document.nav_form.destination.selectedIndex].value;
+  if(URL.search("http://")==-1){
+        window.location.href=""+URL
+  }else{window.location.href=URL      }
+}
+// -->
+</script>
+<div style="padding-bottom: 6px;">
+<form name="nav_form">
+    <select name="destination" size="1" style=" font-size: 8pt;" onchange="javascript:DropChange()">
+       <option value="#" selected>Bitte w&auml;hlen</option>
+       <option value="#"></option>
+     <optgroup label="Service">
+       <option value="http://www.sicherheit.ethz.ch/services/div/alarm_org">Alarmzentrale - Notruf</option>
+       <option value="http://www.ethz.ch/about/location">Lagepl&auml;ne</option>
+       <option value="http://www.gastro.ethz.ch/">Mensen</option>
+       <option value="http://www.ethz.ch/people/whoiswho">Who's who</option>
+     </optgroup>
+     <optgroup label="Lehre und Studium">
+       <option value="http://www.ethz.ch/prospectives/programmes">Studieng&auml;nge</option>
+       <option value="http://www.rektorat.ethz.ch/calendar">Semestertermine</option>
+       <option value="http://www.vvz.ethz.ch">Vorlesungsverzeichnis</option>
+     </optgroup>
+     <optgroup label="Internationales">
+       <option value="http://www.global.ethz.ch/partners/alliances/index_DE">Allianzen</option>
+       <option value="http://www.ethz.ch/prospectives/programmes/exchange">Austauschprogramme</option>
+       <option value="http://www.global.ethz.ch/research/index_DE">Forschungspartner</option>
+       <option value="http://www.global.ethz.ch/partners/agreements/index_DE">Partnerinstitutionen</option>
+     </optgroup>
+     <optgroup label="Technologietransfer">
+       <option value="http://www.euresearch.ethz.ch/">Euresearch Zurich</option>
+       <option value="http://www.eth-foundation.ch/de/">ETH Foundation</option>
+       <option value="http://www.transfer.ethz.ch/">ETH transfer</option>
+     </optgroup>
+
+    </select>
+  </form>
+</div>
+
+<form action="http://www.ethz.ch/people/results?session=0.397479514895" accept-charset="UTF-8" method="post">
+  <input name="schnellsuche" style="width: 145px; font-size: 8pt;" size="10" value="Telefonbuch: Name Vorname" onblur="if(this.value=='') this.value='Telefonbuch: Name Vorname';" onfocus="if(this.value=='Telefonbuch: Name Vorname') this.value='';" type="text"
+  />&#160;<input name="button" alt="Suche starten" src="http://www.ethz.ch/icons_site/go_c000.gif" style="vertical-align: top;" type="image" />
+  <input name="submitSearch" value="search" type="hidden" />
+  
+</form>
+
+
+	           
+	        </div>
+	      </div>
+    	
+    	
+	      
+    	
+    	
+	      <div class="box-border">
+	        <div class="box">
+	          <p class="boxtitle">Jahresbericht 2011</p>
+	          
+<div class="float-left"><img src="http://www.ethz.ch/news/box_feeder/ETH_Jahresbericht_Cover_sm.jpg?hires" width="75" height="108" alt="ETH_Jahresbericht_Cover_sm"  /></div>
+<p class="p">Der Jahres-<br />bericht 2011 der ETH Zürich zum <a href="http://www.ethz.ch/news/box_feeder/../../../../about/publications/annualreports" target="_self">Download<br /><br /><br /><br /></a></p>
+
+
+                          
+
+
+	           
+	        </div>
+	      </div>
+    	
+    	
+	      
+    	
+    	
+	      <div class="box-border">
+	        <div class="box">
+	          <p class="boxtitle">ETH-Klimablog</p>
+	          
+<div class="float-left"><a target="_self" href="http://www.klimablog.ethz.ch"><img src="http://www.ethz.ch/themen/energy_and_climate_change/box_feeder/eth_klimablog_web.jpg" width="75" height="100" alt="eth_klimablog_web"  /></a></div>
+<p class="p">Prof. Stefan Brönnimann bloggt zum Einfluss der Sonne auf das Klima. <em>[03.05.12]</em> <a href="http://www.klimablog.ethz.ch" target="_self">Mehr</a></p>
+
+
+                          
+
+
+	           
+	        </div>
+	      </div>
+    	
+    	
+	      
+    	
+    
+ 
+  
+
+          
+    
+  
+  <!--    END text box -->
+  <!-- START section main content -->
+      
+  
+<div class="float-right"><a target="_self" href="http://www.ethz.ch/news/lectures"><img src="http://www.ethz.ch/banners/banners_10/Banner_Vorlesungen_HS10_DE.png?hires" width="220" height="60" alt="Banner_Vorlesungen_HS10_DE"  /></a></div><div class="float-right"><a target="_self" href="http://www.focusterra.ethz.ch/focusterra/museum/special/gansser"><img src="http://www.ethz.ch/banners/banners_12/focusTerra_Gansser_banner.jpg?hires" width="220" height="60" alt="focusTerra_Gansser_banner"  /></a></div><div class="float-right"><a target="_self" href="http://www.gta.arch.ethz.ch/veranstaltungen/god-co-francois-dallegret"><img src="http://www.ethz.ch/banners/banners_12/gta_banner_God_und_Co_d.jpg?hires" width="220" height="60" alt="gta_banner_God_und_Co_d"  /></a></div><div class="float-right"><a target="_self" href="http://www.sustainability.ethz.ch/ETH-gespraeche/Wassergespraech2012/index"><img src="http://www.ethz.ch/banners/banners_12/banner_event_wassergespraech.jpg?hires" width="220" height="60" alt="banner_event_wassergespraech"  /></a></div><div class="lead" style="color:#2A6AB3; font-size:110%;">ETH Life - das Online-Magazin</div>
+
+  <style type="text/css">
+  div.inv h4 { margin-right:0px; }
+  </style>
+  <div style="margin-right: 240px;" class="inv">
+
+    
+      
+
+        
+          <h4>Live-Bilder aus dem Stoffwechsel</h4>
+          
+        
+
+        <div>
+          <div class="newsitem_description">
+            <table border="0" cellspacing="2" cellpadding="2"><tr><td valign="top"><img src="http://www.ethlife.ethz.ch/archive_articles/120504_citratsensor_cho/120504_citratsensor_s.jpg?thumbnail" width="53" height="53" alt="" rel="lightbox[gallery]" /></td><td valign="top">Bei der Erforschung von Krankheiten wie Übergewicht und Diabetes könnten Nanosensoren helfen, die Zucker oder Aminosäuren in lebenden Zellen sichtbar machen. Dadurch wird es möglich, Stoffwechselprozesse in Echtzeit zu beobachten. <em>[04.05.12]</em>  <a href="http://www.ethlife.ethz.ch/archive_articles/120504_citratsensor_cho/index">Mehr</a></td></tr></table>
+            
+            
+          </div>
+
+          
+         
+          
+         
+          
+           
+          <!-- replaced by here.insert_link()
+          <div tal:condition="python: options['show_link_article'] == 'separate'">
+            <a tal:attributes="href item/link"
+                tal:content="structure options/link_text_article">
+              view item
+            </a>
+          </div>
+          -->
+        </div>
+      
+      
+
+        
+          <h4>Tropisches Klima im Tropfstein gespeichert</h4>
+          
+        
+
+        <div>
+          <div class="newsitem_description">
+            <table border="0" cellspacing="2" cellpadding="2"><tr><td valign="top"><img src="http://www.ethlife.ethz.ch/archive_articles/120504_tropfsteine_cn/stalagmiten_s.jpg?thumbnail" width="53" height="53" alt="" rel="lightbox[gallery]" /></td><td valign="top">Ein internationales Forscherteam unter Führung der ETH Zürich liefert erstmals tropische Niederschlagsdaten aus Tropfsteinen, die bis zu 570'000 Jahre alt sind. Die Daten werfen ein neues Licht auf die Zusammenhänge im globalen Klimasystem. <em>[04.05.12]</em>  <a href="http://www.ethlife.ethz.ch/archive_articles/120504_tropfsteine_cn/index">Mehr</a></td></tr></table>
+            
+            
+          </div>
+
+          
+         
+          
+         
+          
+           
+          <!-- replaced by here.insert_link()
+          <div tal:condition="python: options['show_link_article'] == 'separate'">
+            <a tal:attributes="href item/link"
+                tal:content="structure options/link_text_article">
+              view item
+            </a>
+          </div>
+          -->
+        </div>
+      
+      
+
+        
+          <h4>Aktueller Kompass für Hochschulwahl</h4>
+          
+        
+
+        <div>
+          <div class="newsitem_description">
+            <table border="0" cellspacing="2" cellpadding="2"><tr><td valign="top"><img src="http://www.ethlife.ethz.ch/archive_articles/120503_CHE_ranking_per/050131_chemiebibliothek01_s.jpg?thumbnail" width="53" height="53" alt="" rel="lightbox[gallery]" /></td><td valign="top">Das Centrum für Hochschulentwicklung (CHE) hat in seinem Hochschul-Ranking ein Drittel der Fächerbeurteilungen aktualisiert. Die ETH belegt in den Naturwissenschaften weiterhin Spitzenränge. <em>[03.05.12]</em>  <a href="http://www.ethlife.ethz.ch/archive_articles/120503_CHE_ranking_per/index">Mehr</a></td></tr></table>
+            
+            
+          </div>
+
+          
+         
+          
+         
+          
+           
+          <!-- replaced by here.insert_link()
+          <div tal:condition="python: options['show_link_article'] == 'separate'">
+            <a tal:attributes="href item/link"
+                tal:content="structure options/link_text_article">
+              view item
+            </a>
+          </div>
+          -->
+        </div>
+      
+
+    
+
+    
+
+    
+  <p>&#160;</p>
+  
+ 
+
+  </div>
+
+
+<p class="p"><a href="http://www.ethlife.ethz.ch/">ETH Life</a> - weitere Artikel</p>
+
+
+                          
+<p>&nbsp;</p>
+
+<h3 class="heading">Veranstaltungen</h3>
+
+
+
+
+
+
+
+<h4 class="heading">Hinweise auf ausgewählte Veranstaltungen</h4>
+
+
+
+
+
+<p class="p"><a href="http://www.ethz.ch/news/ethupdate/2012/20120507_2/index" target="_self"><strong>Kunst am Montagmittag</strong></a><br />Die Führung in der Graphischen Sammlung am 7. Mai thematisiert Typographie als Kunstform. <a href="http://www.ethz.ch/news/ethupdate/2012/20120507_2/index" target="_self">Mehr</a></p>
+
+
+                          
+
+<p class="p"><a href="http://www.ethz.ch/news/ethupdate/2012/20120507/index" target="_self"><strong>Wolfgang Pauli Lectures 2012</strong></a><br />Am 7., 8. und 10. Mai betrachtet Professor Avi Wigderson die Welt aus dem Blickwinkel der theoretischen Informatik. <a href="http://www.ethz.ch/news/ethupdate/2012/20120507/index" target="_self">Mehr (in Englisch)</a></p>
+
+
+                          
+
+<p class="p"><a href="http://www.ethz.ch/news/ethupdate/2012/20120508/index" target="_self"><strong>Abendführung in der Kartensammlung der ETH-Bibliothek</strong></a><br />Am Dienstag, 8. Mai, können Interessierte in einer Führung die Meilensteine der Schweizer Kartographie entdecken. <a href="http://www.ethz.ch/news/ethupdate/2012/20120508/index" target="_self">Mehr</a></p>
+
+
+                          
+
+<p class="p"><a href="http://www.ethz.ch/news/ethupdate/2012/20120510/index" target="_self"><strong>Ausstellungseröffnung: «Göhner wohnen»</strong></a><br />Am Donnerstag, 10. Mai, eröffnet die gta-Ausstellung zu den Plattenbausiedlungen der Ernst Göhner AG. <a href="http://www.ethz.ch/news/ethupdate/2012/20120510/index" target="_self">Mehr</a></p>
+
+
+                          
+
+
+<h4 class="heading">Veranstaltungskalender</h4>
+
+
+
+
+
+<p class="p"><a href="http://www.vk.ethz.ch?lang=de" target="_self">Tagungen, öffentliche Vorlesungen, Ausstellungen, Konzerte und sonstige Veranstaltungen an der ETH Zürich oder im ETH-Bereich</a></p>
+
+
+                          
+<style type="text/css">
+div#boxes-left { position:absolute;left:-244px;top:52px;width:220px; }  
+</style>
+<!-- extra stylesheet for ie7 -->
+<!--[if gte IE 7]>
+<style type='text/css'>
+div#boxes-left { top:50px; }
+</style>
+<![endif]-->
+<!-- extra styles for ie6 --> 
+<!--[if gte IE 5.5]><![if lt IE 7]> 
+<style type='text/css'> 
+div#boxes-left { left:-23px;top:175px; } 
+</style> 
+<![endif]><![endif]-->
+<script src="/jquery-1.3.2.min.js" type="text/JavaScript"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+    $('.autowidth')[0].selectedIndex = 0;
+    $('.autowidth')[1].selectedIndex = 0;
+    $('.autowidth')[2].selectedIndex = 0;
+    $(".autowidth")
+        .click(function(){
+                if ($(this).val() != "#") {
+                    $(this).css("width", $(this).data("origWidth"));
+                    var URL = $(this).val() ;
+                    window.location.href = URL;
+                }
+        });
+    });
+</script>
+<!--[if IE]>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+    $('.autowidth')[0].selectedIndex = 0;
+    $('.autowidth')[1].selectedIndex = 0;
+    $('.autowidth')[2].selectedIndex = 0;
+    $(".autowidth")
+        .focus(function(){
+            $(this)
+                .data("origWidth", $(this).css("width"))
+                .css("width", "auto")
+        })
+        .blur(function(){
+            $(this).css("width", $(this).data("origWidth"));
+        });
+    });
+</script>
+<![endif]-->
+
+<div id="boxes-left">
+<div>
+<div class="box-border"
+     style="background-color:#CDDCED;width:180px;">
+<div class="box" style="background:#CDDCED;">
+<div style="padding-bottom:6px;font-size:90%;line-height:140%">
+<p class="boxtitle">Informationen f&uuml;r</p> 
+<a href="http://www.ethz.ch/prospectives">Studieninteressierte</a><br />
+<a href="http://www.ethz.ch/students">Studierende</a><br />
+<a href="http://www.ethz.ch/doctorate/index">Doktorierende</a><br />
+<a href="http://www.ethz.ch/faculty">Dozierende</a><br />
+<a href="http://www.alumni.ethz.ch/">Alumni</a><br>
+<a href="http://www.ethz.ch/industry">Industrie &amp; Wirtschaft</a><br />
+<a href="http://www.ethz.ch/about/donationen">Sponsoren & Donatoren</a><br>
+<a href="http://www.ethz.ch/media">Medien</a><br />
+</div>
+</div>
+</div>
+<div class="box-border"
+     style="background-color:#CDDCED;width:180px;">
+<div class="box" style="background:#CDDCED;">
+<div style="padding-bottom:6px;font-size:90%;">
+<p class="boxtitle">Informationen von</p> 
+
+<form name="nav_form3" id="nav_form3">
+<nobr>
+<!-- Dropdown Men�artementen" -->
+		<select name="destination1" id="destination1" size="1" class="autowidth"> 
+			<option value="#" selected="selected" class="option-margin">&#160;&#160;&#160;Departementen</option>
+			<optgroup label="Architektur und Bauwissenschaften">
+				<option value="http://www.arch.ethz.ch/">Architektur (D-ARCH)</option>
+				<option value="http://www.baug.ethz.ch/" class="option-margin">Bau, Umwelt und Geomatik (D-BAUG)</option>
+			</optgroup>
+			<optgroup label="Ingenieurwissenschaften">
+				<option value="http://www.bsse.ethz.ch/">Biosysteme (D-BSSE) </option>
+				<option value="http://www.inf.ethz.ch/index_DE">Informatik (D-INFK) </option>
+				<option value="http://www.ee.ethz.ch/de/home.html">Informationstechnologie & Elektrotechnik (D-ITET)</option>
+				<option value="http://www.mavt.ethz.ch/index_DE">Maschinenbau & Verfahrenstechnik (D-MAVT) </option>
+				<option value="http://www.mat.ethz.ch/" class="option-margin">Materialwissenschaft (D-MATL) </option>
+			</optgroup>
+			<optgroup label="Naturwissenschaften und Mathematik">
+				<option value="http://www.biol.ethz.ch/">Biologie (D-BIOL) </option>
+				<option value="http://www.chab.ethz.ch/">Chemie & Ang. Biowissenschaften (D-CHAB) </option>
+				<option value="http://www.math.ethz.ch/">Mathematik (D-MATH) </option>
+				<option value="http://www.phys.ethz.ch/" class="option-margin">Physik (D-PHYS) </option>
+			</optgroup>
+			<optgroup label="Systemorientierte Naturwissenschaften">
+				<option value="http://www.erdw.ethz.ch/">Erdwissenschaften (D-ERDW) </option>
+				<option value="http://www.hest.ethz.ch/" class="option-margin">Gesundheitswissenschaften und Technologie (D-HEST)</option>
+				<option value="http://www.usys.ethz.ch/" class="option-margin">Umweltsystemwissenschaften (D-USYS) </option>
+			</optgroup>
+			<optgroup label="Management- und Sozialwissenschaften">
+				<option value="http://www.mtec.ethz.ch/index_DE">Management, Technologie und &Ouml;konomie (D-MTEC)</option>
+				<option value="http://www.gess.ethz.ch/" class="option-margin">Geistes-, Sozial und Staatswissenschaften (D-GESS)<br></option>
+			</optgroup>
+		</select>
+
+</nobr>
+<br />
+<!-- Dropdown Men�petenzzentren" -->
+<nobr>
+<select name="destination2" size="1" class="autowidth"> 
+			<option value="#" selected="selected" class="option-margin">&#160;&#160;&#160;Kompetenzzentren</option>
+			<optgroup label="Kompetenzzentren ETH Z&uuml;rich">
+				<option value="http://www.cimst.ethz.ch/">Center for Imaging Science and Technology (CIMST)</option>
+<option value="http://www.esc.ethz.ch/">Energy Science Center (ESC) </option>
+<option value="http://www.educ.ethz.ch/">Kompetenzzentrum f&uuml;r Lehren und Lernen (EducETH)</option>
+<option value="http://www.micronano.ethz.ch/">Micro and Nano Science Platform (MNSP)</option>
+<option value="http://www.northsouth.ethz.ch/">Nord-S&uuml;d-Zentrum</option>
+<option value="http://www.riskcenter.ethz.ch/">Risk Center</option>
+<option value="http://www.serec.ethz.ch/">Swiss Electromagnetics Research & Engineering Centre (SEREC) </option>
+<option value="http://www.mrc.ethz.ch/">Zentrum f&uuml;r Materialforschung (MRC)</option>
+<option value="#"></option>
+			</optgroup>
+            <optgroup label="Kompetenzzentren mit anderen Hochschulen">
+            <option value="http://www.ccspmd.ethz.ch/">Kompetenzzentrum Systemphysiologie und metabolische Krankheiten (CC-SPMD) </option>
+            <option value="http://www.plantscience.ethz.ch/">Zurich-Basel Plant Science Center (PSC)</option>
+            <option value="http://www.neuroscience.uzh.ch/">Zentrum f&uuml;r Neurowissenschaften (ZNZ) </option>
+            <option value="http://www.ccfz.ch/">Competence Center Finance in Zurich (CCFZ)</option>
+            <option value="http://www.zgw.ethz.ch/">Kompetenzzentrum Geschichte des Wissens (CC-HK) </option>
+            <option value="http://www.c2sm.ethz.ch/">Centre for Climate Systems Modeling (C2SM)</option>
+            <option value="#"></option>
+		</optgroup>
+        <optgroup label="Kompetenzzentren ETH-Bereich">
+            <option value="http://ccem-ch.web.psi.ch/">Kompetenzzentrum f&uuml;r Energie und Mobilit&auml;t (CCEM-CH)</option>
+            <option value="http://www.cces.ethz.ch/">Kompetenzzentrum Umwelt und Nachhaltigkeit (CCES)</option>
+            <option value="http://www.ccmx.ch/">Kompetenzzentrum f&uuml;r Materialwissenschaft und Technologie (CCMX)</option>
+            <option value="#"></option>
+		</optgroup>
+        <optgroup label="Sonstige Forschungsverb&uuml;nde ">
+            <option value="http://www.nano-tera.ch/">Nano-Tera.ch (NTCH)</option>
+            <option value="http://www.systemsx.ch/">SystemsX.ch</option>
+            <option value="#"></option>
+		</optgroup> </select>
+
+</nobr>
+<br />
+<!-- Dropdown Men�nstleister" -->
+<nobr>
+		<select name="destination3" size="1" class="autowidth"> 
+			<option value="#" selected="selected">&#160;&#160;&#160;Dienstleistern (Auswahl)</option>
+            <optgroup label="">
+                <option value="http://www.atlasderschweiz.ch/">Atlas der Schweiz </option>
+                <option value="http://www.ethz.ch/libraries/">Bibliotheken</option>
+                <option value="http://www.cscs.ch/">Centro Svizzero di Calcolo Scientifico (CSCS)</option>
+                <option value="http://www.emez.ethz.ch/">EMEZ Elektronenmikroskopie-Zentrum der ETH Z&uuml;rich</option>
+                <option value="http://www.transfer.ethz.ch/">ETH Transfer </option>
+                <option value="http://www.euresearch.ethz.ch/">Euresearch Zurich </option>
+                <option value="http://www.first.ethz.ch/">FIRST Lab</option>
+                <option value="http://www.isn.ethz.ch/">International Relations and Security Network (ISN)</option>
+                <option value="http://www.kof.ethz.ch/">Konjunkturforschungsstelle (KOF) </option>
+                <option value="http://www.lifescience-zurich.ch/">Life Science Zurich</option>
+                <option value="http://www.ethz.ch/libraries/collections/">Sammlungen und Archive </option>
+                <option value="http://www.seismo.ethz.ch/">Schweizerischer Erdbebendienst (SED)</option>
+                <option value="http://www.ams.ethz.ch/">Ion Beam Physics </option>
+ 			</optgroup>
+		</select>
+        </nobr>
+</form>
+
+
+
+</div>
+</div>
+</div>
+<div class="box-border"
+     style="width:180px;background-color:#FADBAD;border-color:#F4AA38">
+<div class="box" style="background:#FADBAD;">
+<div style="padding-bottom:6px;font-size:90%;line-height:140%">
+
+<p class="boxtitle" style="color: #D27415">Strategische Themen</p> 
+<a href="http://www.ethz.ch/themen/energy_and_climate_change">Energie & Klimawandel</a><br />
+<a href="http://www.ethz.ch/themen/life_and_health">Leben & Gesundheit</a><br />
+<a href="http://www.ethz.ch/themen/risk_and_security">Sicherheit & Risiko</a><br />
+<a href="http://www.ethz.ch/themen/future_cities">St&auml;dte & Entwicklung</a><br />
+<a href="http://www.ethz.ch/themen/communications_technology">Information & Intelligenz</a><br />
+<a href="http://www.ethz.ch/themen/micro_and_nanotechnology">Materialien & Prozesse</a><br />
+<a href="http://www.ethz.ch/themen/universe">Atome & Universum</a><br />
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+           
+  
+
+  <!-- END section main content -->
+</div>
+
+
+
+
+      
+    
+    <!-- END content -->
+    <!-- START footer -->
+    <!-- ############################################################################ --><!-- START footer -->
+    <div class="clearboth">
+      &#160;
+    </div>
+    <!-- note for netscape 4.x users -->
+    <p id="ns4note" class="note">
+      <strong><font size="+1">Wichtiger Hinweis:</font><br />
+        Diese Website wird in &#228;lteren Versionen von Netscape ohne
+        graphische Elemente dargestellt. Die Funktionalit&#228;t der
+        Website ist aber trotzdem gew&#228;hrleistet. Wenn Sie diese
+        Website regelm&#228;ssig benutzen, empfehlen wir Ihnen, auf
+        Ihrem Computer einen aktuellen Browser zu installieren. Weitere
+        Informationen finden Sie auf<br />
+        <a href="http://www.cd.ethz.ch/services/web/">folgender
+        Seite</a>.<br />
+        <br />
+        <font size="+1">Important Note:</font><br />
+        The content in this site is accessible to any browser or
+        Internet device, however, some graphics will display correctly
+        only in the newer versions of Netscape. To get the most out of
+        our site we suggest you upgrade to a newer browser.<br />
+        <a href="http://www.cd.ethz.ch/services/web/">More
+        information</a></strong>
+    </p>
+
+    <!-- START footer -->
+    <div class="footerblock">
+        <div class="unitlogo">
+          <!-- secondary logo -->
+          
+          <!-- primary logo -->
+          <a href="http://www.ethz.ch/"><img src="http://www.ethz.ch/images/foot_unitlogo.gif" title="Eidgenössische Technische Hochschule Zürich" alt="Eidgenössische Technische Hochschule Zürich" width="95" height="95" border="0" /></a><br />
+        </div>
+        <div class="footerline">
+          <div class="footertext">
+            
+              
+        &copy; 2012 <a class="path" href="/index">ETH Z&uuml;rich</a> |
+    
+              <a class="path"
+                 href="http://www.ethz.ch/imprint/index">Impressum</a> | 
+              <a class="path" href="http://www.ethz.ch/disclaimer/index_DE">Disclaimer</a> | 
+            
+            
+            <!--
+			<span tal:omit-tag=""
+				  tal:define="ms python:metadata_context.service_metadata;
+				              contact_name python:ms.getMetadataValue(metadata_context, 'silva-extra', 'contactname');
+				              contact_mail python:ms.getMetadataValue(metadata_context, 'silva-extra', 'contactemail')"
+				  tal:condition="contact_name">
+			  <span tal:omit-tag=""
+				    tal:define='css_class string:class="path"'
+				    tal:replace="structure python:ETHhelpers.scramble_mail(contact_mail, contact_name, css_class)">contact_name</span>
+ 			  <span> | </span>
+			</span>
+			-->
+			
+        4.5.2012
+    
+          </div>
+          
+  
+  
+    <div class="footerwologo">
+      <img alt="powered by" border="0"
+           src="http://www.ethz.ch/icons_site/footer_zs_powered.gif" /><a href="http://www.zope.org/" target="_blank"><img
+    alt="zope" border="0"
+    src="http://www.ethz.ch/icons_site/footer_zs_zope.gif" /></a><img
+    alt="and" border="0"
+    src="http://www.ethz.ch/icons_site/footer_zs_and.gif" /><a href="http://www.infrae.com/" target="_blank"><img
+    alt="silva" border="0"
+    src="http://www.ethz.ch/icons_site/footer_zs_silva.gif" /></a><a
+    href="http://www.hk.ethz.ch/"><img
+    alt="Corporate Communications" border="0"
+    src="http://www.ethz.ch/icons_site/footer_eth_cc_DE.gif" /></a>
+    </div>
+  
+
+    </div>
+  </div><!-- END footer -->
+    <!-- START page top icon -->
+    <div id="pagetop">
+      
+         
+         <span>
+           <a href="#top"><img border="0"
+    src="http://www.ethz.ch/icons_site/top_c000.gif"
+    alt="top" title="top" /></a>
+         </span>
+      
+    </div>
+    <!-- END page top icon -->
+
+    
+
+
+    
+  </div></body>
+</html>

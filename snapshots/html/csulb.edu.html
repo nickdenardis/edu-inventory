@@ -1,0 +1,618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!-- InstanceBegin template="/Templates/csulbweb_audiences.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- (c) 2008 Copyright - All Rights Reserved - California State University, Long Beach. Audience Template -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<title>California State University, Long Beach</title>
+
+<meta name="Description" content="CSULB is a large, urban, comprehensive university in the 23-campus California State University system." />
+<meta name="Keywords" content="College, University, Long Beach, Long Beach State, 49ers, Dirtbags, Cal State, CSU, CSULB, Alexander, California" />
+<!-- InstanceEndEditable -->
+<meta name="language" content="en" />
+
+
+<script type="text/javascript">
+// Added config.html, contains config parameters for suggest in search, Pritesh Shah 04/27/2007
+// If you wish to turn off the suggestion feature for the search box, set suggest_in_search = false; 
+var suggest_in_search = true;
+var xmlpath = '/xml/keywords.xml';
+</script>
+
+<script type="text/javascript" src="/js/final_ac.js"></script>
+
+<!-- For Audience Page Search Box Autosuggest -->
+<script type="text/javascript" src="/js/bsn.AutoSuggest_2.1.3.js"></script>
+<!-- For Audience Page Search Box Autosuggest -->
+
+<!-- For Audience Page Search Box: Show/Hide Search Results -->
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.cycle.lite.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#banner_content').cycle({
+		fx: 'fade',
+		random: 1,
+		timeout: 10000 // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+	});
+});
+</script>
+<!-- For Audience Page Search Box: Show/Hide Search Results -->
+
+<link rel="shortcut icon" href="/images/favicon.ico" />
+<link href="/aud/css/ut-content.css" rel="stylesheet" media="screen" title="Content CSS" type="text/css" />
+<link href="/aud/css/ut-structure.css" rel="stylesheet" type="text/css" />
+<link href="/aud/css/audiences.css" rel="stylesheet" type="text/css" />
+<link href="css/audience.css" rel="stylesheet" type="text/css" />
+<link href="/css/autosuggest.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="/js/swfobject.js"></script>
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="home" type="text" value="home" -->
+</head>
+<body class="home" onclick="remove_box()">
+<div id="contain_abovefold">
+  <h1 class="hidden">California State University, Long Beach</h1>
+  <div id="contain_heading"> <!-- InstanceBeginEditable name="banner_text" --><p class="audHeading">CSULB</p>
+  <!-- InstanceEndEditable --> </div>
+  <!-- InstanceBeginEditable name="header" -->
+  <div id="contain_header">
+  <div id="contain_siteid">
+    <div id="siteid_content">
+      
+      <!-- Update Header ID here -->
+	  <!--<a href="/"><img src="/aud/img/hdr_seal_darkgray.gif" alt="California State University, Long Beach" title="California State University, Long Beach" width="400" height="75" /></a> -->
+	  
+      <!--<h1><a title="Link to home page" href="/">California State University, Long Beach</a></h1>-->
+      <!--<div id="click_siteid">
+	  	<a href="/"></a>
+	  </div>-->
+	  <a href="/" title="CSULB Homepage">
+	  <!-- <img src="/depot/assets/UT/spacer.gif" alt="California State University, Long Beach" title="California State University, Long Beach" /> -->
+	  </a>
+	  
+      
+      </div>
+  </div>
+  
+  <div id="contain_search">
+  <h2 class="hidden">Destinations, Site Search and Services</h2>
+
+	<div id="gSearchbox">
+
+<!-- Show/Hide Audience Page Search Results -->
+<script type="text/javascript">
+//Hide suggestion box
+function remove_box()
+{
+	$('.autosuggest').hide();
+}
+
+//Show suggestion box
+function show_box()
+{
+	$('.autosuggest').slideDown(1000);
+}
+</script>
+<!-- Show/Hide Audience Page Search Results -->
+
+
+<!-- Audience Page Search Box -->
+<form method="get" action="http://google.calstate.edu/search" class="asholder" name="search" id="searchbox">
+<div>
+	<label for="SiteSearch" style="font-size:12px; color:gray"></label>
+	<input name="q" class="sitesearchbox1" type="text" id="SiteSearch1" title="Search CSULB" alt="Search CSULB" tabindex="1" size="20"
+maxlength="120" value=""/>
+<input type="image" class="sitesearchbutton" src="http://www.csulb.edu/images/interface/searchbutton_icon.gif" tabindex="2" alt="Search" />
+	<input type="hidden" name="access" value="p" />
+	<input type="hidden" name="site" value="csulb" />
+	<input type="hidden" name="output" value="xml_no_dtd" />
+	<input type="hidden" name="client" value="csulb-edu" />
+	<input type="hidden" name="sort" value="date:D:L:d1" />
+	<input type="hidden" name="proxystylesheet" value="csulb-edu" />
+	<input type="hidden" name="oe" value="UTF-8" /> 
+</div>
+</form>
+<!-- Audience Page Search Box -->
+
+</div> <!-- End of gSearchbox -->
+
+
+<!-- Audience Page Search Box Value Scripting -->
+<script type="text/javascript">
+//Request results from search_keywords.php file according to the entered characters in the search box
+var options = 
+{
+	script:"/search/search_keywords.php?json=true&limit=6&",	/* limit is for displaying number of search suggest items. currently its 6 */
+	varname:"input",
+	json:true,
+	shownoresults:false,  
+	maxresults:6,
+	callback: function (obj) 
+	{
+		if(obj == "")
+		{ 
+			document.getElementById('SiteSearch1').value = obj.id;
+		}
+	}
+};
+
+//Return the matched results from search_keywords.php file and display
+var as_json = new bsn.AutoSuggest('SiteSearch1', options);
+var options_xml = 
+{
+	script: function (input) 
+	{ 			
+		return "search_keywords.php?input="+input+"&SiteSearch1="+document.getElementById('SiteSearch1').value; 
+	},varname:"input"
+};
+</script>
+<!-- Audience Page Search Box Value Scripting -->
+
+    
+    <!--<form method="get" action="http://www.google.com/u/lbsu" id="content_searchtools">
+      <label class="hidden" for="SiteSearch"> Search CSULB</label>
+      <input type="hidden" name="hq" value="inurl:www.csulb.edu" />
+      <input name="q" type="text" size="12" maxlength="120" id="SiteSearch" tabindex="1" class="sitesearchbox" value="Search" onfocus="clearText(this)" />-->
+      <!--<input type="image" class="sitesearchbutton" src="http://www.csulb.edu/misc/depot/assets/academic/icons/SEARCH_ICON_ROUND.gif" alt="Search" /> -->
+      <!--<input type="image" class="sitesearchbutton" src="/images/interface/searchbutton_icon.gif" alt="Search" />
+    </form>-->
+    
+    <!-- Key campus related web applications -->
+    
+    <ul id="searchtools_links">
+      <li><a href="http://my.csulb.edu">MyCSULB</a> <span class="bull"> &bull; </span></li>
+      <li><a href="http://beachboard.csulb.edu">BeachBoard</a> <span class="bull"> &bull; </span></li>
+      <li><a href="/library">Library</a> <span class="bull"> &bull; </span></li>
+      <li><a href="http://daf.csulb.edu/email">E-mail</a> <span class="bull"> &bull; </span></li>
+      <li><a href="/search">Campus Directory</a> <!-- <img src="/images/icons/icon_28x9_new.gif" alt="New" /> --></li> 
+      <!-- <li><a href="/directory">Campus Contacts</a></li> -->
+    </ul>
+  </div>
+  <div class="clear_float"><a href="#content">Skip links</a></div>
+</div>
+
+  <!-- InstanceEndEditable -->
+  <div id="design_audnavbanner">
+    <div id="contain_audiencenav_banner">
+      <div id="contain_leftnav">
+        <h2 class="hidden">Audiences</h2>
+<ul>
+<li class="hidden"><a href="/">CSULB Home</a></li>
+  <li class="studentaudience"><a href="/student-info/">Students</a></li>
+  <li class="facultyaudience"><a href="/people/">Faculty &amp; Staff</a></li>
+  <li class="alumniaudience"><a href="/alumni/">Alumni</a></li>
+  <li class="parentsaudience"><a href="/parents/">Parents</a></li>
+  <li class="communityaudience"><a href="/community/">Visitors &amp; Community</a></li>
+  <li class="friendsaudience"><a href="/friends-info/">Giving to CSULB</a></li>
+  <!--<li class="friendsaudience"><a href="/divisions/urad/yearendgiving.htm">Giving to CSULB</a></li>-->
+</ul>
+
+      </div>
+      <div id="contain_banner">
+        <div id="banner_content"><!-- InstanceBeginEditable name="banner-image-only" -->
+          <a href="http://www.csulb.edu/about/"><img src="/images/homeslides/jan11/bnr_655x250_pyramid.jpg" width="655" height="250" alt="Welcome to CSULB" /></a>
+<a href="http://www.csulb.edu/projects/commencement/"><img src="/images/homeslides/jan11/bnr_655x250_grads.jpg" width="655" height="250" alt="Welcome to CSULB" /></a>
+<a href="http://www.csulb.edu/sports/"><img src="/images/homeslides/jan11/bnr_655x250_basketball.jpg" width="655" height="250" alt="Welcome to CSULB" /></a>
+
+
+
+<!--<img src="/images/homeslides/jan11/bnr_655x250_pyramid.jpg" alt="Welcome to CSULB" width="655" height="250" title="Welcome to CSULB" />
+<p class="hidden"><a href="http://www.macromedia.com/go/getflashplayer">Get the Flash Player</a> to see this player.</p>-->
+
+<!--        
+<script type="text/javascript">
+	var so = new SWFObject("/flash/banner.swf", "banner", "655", "250", "7", "#333333");
+	so.addParam("wmode", "transparent");
+	so.addParam("menu", "true");
+	so.addVariable("file", "/xml/live.xml");
+	so.addVariable("shownavigation", "false");
+	so.addVariable("linkfromdisplay", "true");
+	so.addVariable("transition", "slowfade");
+	so.addVariable("showicons", "true");
+	so.addVariable("rotatetime", "10");
+	so.addVariable("backcolor", "0x333333");
+	so.write("banner_content");
+</script>
+-->
+          <!-- InstanceEndEditable --></div>
+      </div>
+      <div class="clear_float"></div>
+    </div>
+  </div>
+</div>
+<div id="contain_belowfold"> <a name="content" id="content"></a> <!-- InstanceBeginEditable name="lenses" -->
+  <div id="lenses">
+  <h2 class="hidden">Announcements</h2>
+    
+    <div class="lens">
+    <div class="lens_content">
+    <a href="http://www.ccpe.csulb.edu/summer/">
+    <img src="/images/lenses/lns_80_summer12a.gif" title="Summer Session 2012" alt="Generic icon" />
+    </a>
+    <h3><a href="http://www.ccpe.csulb.edu/summer/">Summer<br />Session 2012</a></h3>
+    <!--<p>CSULB graduation rate efforts pay off</p>-->
+    </div>
+    </div>
+    
+    <div class="lens">
+    <div class="lens_content">
+    <a href="http://www.csulb.edu/about/budgetcentral">
+    <img src="/images/lenses/lns_80_seal.gif" title="CSULB Budget Central" alt="Budget Central icon" />
+    </a>
+    <h3><a href="http://www.csulb.edu/about/budgetcentral">Budget Central</a></h3>
+    <p>Budget information &amp; updates</p>
+    </div>
+    </div>
+    
+    <div class="lens">
+    <div class="lens_content">
+    <a href="/president/education-partnership/">
+    <img src="/images/lenses/lns_80_seamlessed.gif" title="Seamless Education" alt="LB Education Partnership" />
+    </a>
+    <h3><a href="/president/education-partnership/">Long Beach Education Partnership</a></h3>
+    <!-- <p>Long Beach Education Partnership</p> -->
+    </div>
+    </div>
+    
+    
+    <!--
+<div class="lens">
+    <div class="lens_content">
+    <a href="/commencement">
+    <img src="/images/lenses/lns_80_comm2.gif" title="CSULB Commencement" alt="Commencement" />
+    </a>
+    <h3><a href="/commencement">Commencement</a></h3>
+    <p>2011 Ceremony Information</p>
+    </div>
+    </div>
+-->
+    
+    <!--
+<div class="lens">
+    <div class="lens_content">
+    <a href="/convocation">
+    <img src="/images/lenses/lns_80_convocation.gif" title="CSULB Convocation" alt="Convocation" />
+    </a>
+    <h3><a href="/convocation">Convocation</a></h3>
+    <p>August 26, 2011</p>
+    </div>
+    </div>
+-->
+    
+    <!--
+<div class="lens">
+    <div class="lens_content">
+    <a href="/homecoming">
+    <img src="/images/lenses/lns_80_homecoming.gif" title="CSULB Homecoming" alt="CSULB Homecoming" />
+    </a>
+    <h3><a href="/homecoming">Homecoming Day</a></h3>
+    <p>Saturday, November 12, 2011</p>
+    </div>
+    </div>
+-->
+    
+    <div class="lens">
+    <div class="lens_content">
+    <a href="/commencement">
+    <img src="/images/lenses/lns_80_comm.gif" title="CSULB Commencement" alt="Commencement" />
+    </a>
+    <h3><a href="/commencement">Commencement 2012</a></h3>
+    </div>
+    </div>
+    
+                 
+    <div class="clear_float"></div>
+
+</div>
+
+
+
+
+  <!--include virtual="/aud/ADMIN/home_lenses-3set.html" -->
+  <!-- InstanceEndEditable -->
+  <div id="content_belowfold">
+    <div id="contain_submenu">
+      <div id="contain_column1"> <!-- InstanceBeginEditable name="submenus" -->
+        <h2 class="hidden">Main University Links</h2>
+<ul>
+  <li><a href="/about/">About CSULB</a> </li>
+ 	<li><a href="http://www.csulb.edu/academics/?utm_source=CSULBHomepage&utm_medium=html&utm_campaign=AcademicsFlow">Academics </a></li>
+ 	<li><a href="/organization/">Administration &amp; Contacts</a></li>
+ 	<li><a href="/arts">Art Performances &amp; Exhibitions</a></li>
+  	<li><a href="/sports/">Athletics </a></li>
+  	<li><a href="/calendars">Calendars &amp; Events</a></li>
+  	<li><a href="/student-info/collegesdepartments.html">Colleges &amp; Departments</a></li>
+  	<li><a href="/auxiliaries">CSULB Auxiliaries</a></li>
+  	<li class="emergency"><a href="http://emergency.csulb.edu">Emergency Information</a></li>
+	<li><a href="/employment/">Jobs @ The Beach</a></li>
+  	<li><a href="/research">Research</a></li>
+  	<li><a href="http://csulb.edu/news/">University News</a></li>
+  </ul>
+<div class="menudivider"></div>
+<ul>
+<li class="bk-construction"><a href="/maps/">Maps, Parking &amp; Traffic Information</a></li>
+<li><a href="https://parking.csulb.edu/ebusiness/cmn/">Purchase Parking Permits</a></li>
+</ul>
+<div class="menudivider"></div>
+<a href="/about/youniversity/"><img src="/images/misc/youniversitytv-225w.gif" alt="youniversity TV video tour" /></a>      
+        <!-- InstanceEndEditable --> </div>
+    </div>
+    <div id="page">
+      
+      <!--  **************************  ALERT  ************************** -->
+    	<div class="alert"><!-- Live -->
+<!--
+<h2>December 7, 2011</h2>
+<p>On Wednesday morning a Cal State Long Beach employee was fatally injured in an apparent elevator malfunction in the CSULB Foundation Building. <a href="http://cf.papubs.csulb.edu/press-release/story.cfm?hackid=1257">More Information</a>.
+</p>
+--></div>
+      <!--  **************************  ALERT  ************************** -->	
+		
+	  <!--  **************************  INTRO  ************************** -->	 	
+		<!--<div class="block intro">
+        <h2>Heading</h2>
+        <p>zzzzzzzzz</p>
+		</div>
+		<div class="clear_float"></div>-->
+	  <!--  **************************  INTRO  ************************** -->
+			
+      <!-- <div class="clear_float hline"></div> -->
+      
+      <!--  **************************  ROW 1 starts  ************************** -->
+
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w218">
+      <a href="http://www.ccpe.csulb.edu/winter"><img src="images/misc/lyt_198x22_wintersession.gif" width="198" height="80" alt="Winter Session" /></a>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w436">
+      <h2>Heading</h2>
+      <p><a href="60th"><strong>60th Anniversary: </strong></a><br />Sixty years ago, the state of California realized the importance of meeting the higher education needs of residents in southern Los Angeles and Orange counties, so in 1949, Gov. Earl Warren signed legislation approving a new state college.</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+
+      <!--  **************************  ROW 1 ends ************************** -->
+      
+      <div class="clear_float"></div>
+      
+      <!--  **************************  ROW 2 starts ************************** -->
+      <!-- ***** BLOCK ***** -->
+      <div class="block w218">
+        
+        <!-- <h2>Academic spotlight</h2> -->
+        <img src="/images/misc/lyt_198x100_2students.gif" width="198" height="100" alt="Academic Spotlight" />
+        <!-- <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Divider" /> -->
+        
+        <img src="/images/misc/sbryson-40w.gif" alt="Stephanie Bryson" width="40" height="40" class="img-left" />
+        <p>A 2011 graduate of California State University, Long Beach has been named a <a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1702">2012 Rhodes Scholar</a>, the first graduate of the university to receive the internationally renowned award.</p>
+        
+        <img src="/images/misc/lyt_198x10_grayhdivider.gif" width="198" height="10" alt="Divider" />
+        
+        <p><a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1718"><em>Kiplinger's Personal Finance</em></a> has named CSULB among its 100 Best Values in Public Colleges, which ranks universities and colleges that deliver excellent academics while keeping costs to a minimum.</p>        
+        
+             
+        <!--
+<h2><a href="http://www.ccpe.csulb.edu/intersession/">May intersession</a></h2>
+        <a href="http://www.ccpe.csulb.edu/intersession/">
+        <img src="/images/lenses/lns_80_intersession.gif" alt="CSULB May Intersession" class="img-left" width="50" /></a>
+        <p>Credit classes offered in intensive 3-week format</p>
+-->
+                      
+      </div>
+      <!-- ***** BLOCK ***** -->     
+      <!-- ***** BLOCK ***** -->
+      <div class="block w218">
+        
+        <!-- <h2>On Campus</h2> -->
+        <!-- <img src="/images/misc/lyt_198x50_wallsign.gif" width="198" height="50" alt="Campus collage" /> -->
+        <img src="/images/misc/lyt_198x100_science.gif" width="198" height="100" alt="CSULB Entrance" />
+        <p>A new <em>Chronicle of Higher Education</em> report names <strong>CSULB</strong> among <a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1495">the best public institutions</a> in the nation in improving student graduation rates. </p>
+        
+        <img src="/images/misc/lyt_198x10_grayhdivider.gif" width="198" height="10" alt="Divider" />
+        
+        <!-- ENS Needed in future -->
+        <!--
+<a href="http://daf.csulb.edu/offices/ppfm/police/ens/"><img src="/images/lenses/lns_80_ens.gif" alt="Emergency Notification System" class="img-left" width="80" /></a>
+        <p>CSULB's Emergency Notification System <strong>(ENS)</strong> allows the campus to simultaneously broadcast emergency notices via home and cell phones, text messaging and email. The system serves university students, faculty and staff. For information about the system and to learn how to update personal contact information, visit the <a href="http://daf.csulb.edu/offices/ppfm/police/ens/">ENS Web site</a>.</p>
+-->
+        <!-- ENS Needed in future -->
+        
+        
+        <p>Cal State Long Beach is one of just five universities in the nation recognized for <a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1595">quality, affordability and access</a> in a new report  by The Education Trust. </p>
+                                           
+      </div>
+      <!-- ***** BLOCK ***** -->     
+      <!-- ***** BLOCK ***** -->
+      <div class="block w218">
+      
+      <h2>Construction Updates</h2>
+      
+      <p><img src="/images/misc/fwy-20w.gif" title="Bridge closure update" alt="Bridge closure update" class="img-left" /><a href="http://www.octa.net/SR-22/WCC.aspx">Freeway construction</a></p>
+
+      
+        <!-- <h2>This Week @ THE BEACH</h2> -->
+        <div class="newsbox">
+                <img src="/images/misc/lyt_178x30_thisweekatthebeach.gif" width="178" height="30" alt="This Week at the Beach Icon" />
+        <!-- enable include below to restore normal news feed -->
+        <span class="newsheadline"><a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1790">CSULB Passes Resolution in Support of President
+Obama's Efforts to Maintain Student Loan Interest Rate</a></span><br /><br /><span class="newsheadline"><a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1789">CSULB Hosting 26th Annual CSU Student Research
+Competition May 4-5; 10 CSULB Students Participating</a></span><br /><br /><span class="newsheadline"><a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1791">Ukleja Center at CSULB Presents Its 2012 John
+Wooden Ethics in Leadership Award to Pat Haden</a></span><br /><br /><span class="newsheadline"><a href="http://urd.csulb.edu/news-events/story.cfm?hackid=1784">CSULB Graduate Student Awarded iPad in Campus'
+Career Development Center Resume Roundup Contest</a></span><br /><br />
+
+        <!--include virtual="/gobeach/rss/newsfeed_alternate.html" -->
+        
+        </div>
+      </div>
+      <!-- ***** BLOCK ***** -->
+      
+      <!--  **************************  ROW 2 ends ************************** -->
+      
+	  <!-- <div class="clear_float hline"></div> -->
+      
+      <!--  **************************  ROW 3 starts ************************** -->
+      
+
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w218">
+      <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Placeholder" />
+      <h2><a href="60th">60th Anniversary</a></h2>
+      <a href="60th"><img src="images/misc/lyt_198x50_60thanniv.gif" width="198" height="50" alt="60th Anniversary" /></a>
+      <p>Sixty years ago, on Jan. 27, 1949, Gov. Earl Warren signed legislation approving a new state college for the region...</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+      
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w218">
+      <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Placeholder" />
+      <h2><a href="60th">60th Anniversary</a></h2>
+      <a href="60th"><img src="images/misc/lyt_198x50_60thanniv.gif" width="198" height="50" alt="60th Anniversary" /></a>
+      <p>Sixty years ago, on Jan. 27, 1949, Gov. Earl Warren signed legislation approving a new state college for the region...</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+      
+      <!-- ***** BLOCK ***** -->
+     <!--
+ <div class="block w218">
+      <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Placeholder" />
+      <h2><a href="60th">60th Anniversary</a></h2>
+      <a href="60th"><img src="images/misc/lyt_198x50_60thanniv.gif" width="198" height="50" alt="60th Anniversary" /></a>
+      <p>Sixty years ago, on Jan. 27, 1949, Gov. Earl Warren signed legislation approving a new state college for the region...</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+            
+      <!--  **************************  ROW 3 ends ************************** -->
+      
+      <!-- <div class="clear_float hline"></div> -->
+      
+      <!--  **************************  ROW 4 starts ************************** -->
+     
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w436">
+      <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Facebook" />
+      <h2>Heading</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing eur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+      
+      <!-- ***** BLOCK ***** -->
+      <!--
+<div class="block w218">
+      <img src="/alumni/images/lyt_198x50_gold.gif" width="198" height="20" alt="Facebook" />
+      <h2>Heading</h2>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempornim id est laborum.</p>
+      </div>
+-->
+      <!-- ***** BLOCK ***** -->
+      
+      <!--  **************************  ROW 4 ends ************************** -->
+
+<!-- InstanceEndEditable -->
+</div>
+</div>
+<div class="clear_float"></div>
+</div>
+<div id="siteindex_row">
+	<h2><a href="/sitemap/">CSULB Website Index</a></h2>
+<div class="siteindex_row">
+  <ul>
+    <li><a href="/sitemap/">A</a></li>
+    <li><a href="/sitemap/alphapages/B.html">B</a></li>
+    <li><a href="/sitemap/alphapages/CA-CL.html">CA-CL</a></li>
+    <li><a href="/sitemap/alphapages/CM-CZ.html">CM-CZ</a></li>
+    <li><a href="/sitemap/alphapages/D.html">D</a></li>
+    <li><a href="/sitemap/alphapages/E.html">E</a></li>
+    <li><a href="/sitemap/alphapages/F.html">F</a></li>
+    <li><a href="/sitemap/alphapages/G.html">G</a></li>
+    <li><a href="/sitemap/alphapages/H.html">H</a></li>
+    <li><a href="/sitemap/alphapages/I.html">I</a></li>
+    <li><a href="/sitemap/alphapages/J.html">J</a></li>
+    <li><a href="/sitemap/alphapages/K.html">K</a></li>
+    <li><a href="/sitemap/alphapages/L.html">L</a></li>
+    <li><a href="/sitemap/alphapages/M.html">M</a></li>
+    <li><a href="/sitemap/alphapages/N.html">N</a></li>
+    <li><a href="/sitemap/alphapages/O.html">O</a></li>
+    <li><a href="/sitemap/alphapages/P.html">P</a></li>
+    <li><a href="/sitemap/alphapages/Q.html">Q</a></li>
+    <li><a href="/sitemap/alphapages/R.html">R</a></li>
+    <li><a href="/sitemap/alphapages/S.html">S</a></li>
+    <li><a href="/sitemap/alphapages/T.html">T</a></li>
+    <li><a href="/sitemap/alphapages/U.html">U</a></li>
+    <li><a href="/sitemap/alphapages/V.html">V</a></li>
+    <li><a href="/sitemap/alphapages/W.html">W</a></li>
+    <li><a href="/sitemap/alphapages/XYZ.html">X Y Z</a></li>
+  </ul>
+</div>
+
+<div class="clear_float"></div>
+
+</div>
+
+
+
+<div id="footer">
+
+<h2 class="hidden">Information and Emergency Services</h2>
+  
+    
+    <div class="block">
+      <address>
+      <strong>California State University, Long Beach</strong><br />
+          <img src="/images/icons/icn_50x40_seal.gif" alt="CSULB Seal" class="img-left" />
+
+      1250 Bellflower Boulevard<br />
+      Long Beach, California 90840<br />
+      <span class="tel">562.985.4111</span>
+      </address>
+    </div>
+    
+    <div class="block">
+      
+      <ul>
+        <li><a href="/accessibility">Accessible Technology Initiative</a> </li>
+        <li><a href="http://www.calstate.edu">Cal State University Web Site</a></li>
+        <li><a href="/copyright">&#169; Copyright</a></li>
+      </ul>
+    
+    </div>
+    
+    <div class="block">
+      
+      <ul>
+        <li><a href="/emergency">Emergency Information</a></li>
+        <li><a href="http://www.csulb.edu/divisions/students2/dss/">Disability Resources</a></li>
+        <li><a href="/crisis">Crisis Assistance</a></li>
+      </ul>
+    
+    </div>
+    
+    <div class="block">
+      
+      <ul>
+		<li><a href="/feedback">Your Feedback</a> | <a href="/help/">Help</a></li>
+      </ul>
+      <a href="/vsa"><img src="/images/icons/icn_vsa.gif" alt="icn_vsa" title="College Portrait" class="img-right" /></a>	   
+    </div>
+    <div class="clear_float"></div>
+  
+
+</div>
+
+</body>
+<!-- InstanceEnd -->
+</html>
