@@ -7,6 +7,7 @@
     <meta name="description" content="EDU Inventory Project : Complete list of .edu domains, meta information and screenshots." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+	<link rel="shortcut icon" href="favicon.ico">
 
     <title>EDU Inventory Project</title>
   </head>
@@ -35,21 +36,48 @@
 
 <p>A list of all .edu domains and information about them.</p>
 
-<h2>Files</h2>
+<div class="contents-column">
+	<h3><a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-list.txt">edu-list.txt</a></h3>
+	<p><a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-list.txt"><img src="images/edu-list.png" alt="edu-list" width="150" height="114" class="static" /></a><br />
+	List of all .edu domains one per line.</p>
+</div>
+
+<div class="contents-column">
+	<h3><a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-info.csv">edu-info.csv</a></h3>
+	<p><a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-info.csv"><img src="images/edu-info.png" alt="edu-info" width="150" height="114" class="static" /></a><br />
+	Information about each domain. URL, title, response, size, speed.</p>
+</div>
+
+<div class="contents-column">
+	<h3><a href="https://github.com/nickdenardis/edu-inventory/tree/master/snapshots">snapshots/.../.jpg</a></h3>
+	<p><a href="https://github.com/nickdenardis/edu-inventory/tree/master/snapshots"><img src="images/edu-info.png" alt="edu-info" width="150" height="114" class="static" /></a><br />Collection of screenshots for each valid domain. Filename is unix timestamp.</p>
+</div>
+
+<div class="contents-column">
+	<h3>snapshots/.../.html</h3>
+	<p><img src="images/edu-list.png" alt="edu-list" width="150" height="114" class="static" /><br />
+	Snapshots of the raw HTML for each homepage.</p>
+</div>
+
+<div class="contents-column">
+	<h3>edu-links.csv</h3>
+	<p><img src="images/edu-list.png" alt="edu-list" width="150" height="114" class="static" /><br />
+	Stats about each homepage links, images, etc.</p>
+</div>
+
+<div class="contents-column">
+	<h3>edu-?</h3>
+	<p><img src="images/edu-list.png" alt="edu-list" width="150" height="114" class="static" /><br />
+	Looking for suggestions from you.</p>
+</div>
+
+
+<h2 class="clear">Command Line Tools</h2>
 
 <ul>
-<li>
-<a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-list.txt">edu-list.txt</a> - List of all .edu domains one per line.</li>
-<li>
-<a href="https://raw.github.com/nickdenardis/edu-inventory/master/edu-info.csv">edu-info.csv</a> - Information about each domain. URL, Title, Response, Size, Speed.</li>
-<li>
-<a href="https://github.com/nickdenardis/edu-inventory/tree/master/snapshots">snapshots/[domain]</a> - Collection of screenshots for each valid domain. Filename is unix timestamp.</li>
-</ul><h2>Command Line Tools</h2>
-
-<ul>
-<li>php update/edu-list.php - Update the list from the most recent EDUCAUSE database.</li>
-<li>php update/edu-info.php - Updates the csv with all meta information about each domain.</li>
-<li>php update/edu-snapshots.php - Takes a screenshot of each valid website from the CSV and saves it to the snapshots/[domain]/timestamp.jpg directory.</li>
+<li><code>php update/edu-list.php</code> - Update the list from the most recent EDUCAUSE database.</li>
+<li><code>php update/edu-info.php</code> - Updates the csv with all meta information about each domain.</li>
+<li><code>php update/edu-snapshots.php</code> - Takes a screenshot of each valid website from the CSV and saves it to the snapshots/[domain]/timestamp.jpg directory.</li>
 </ul>
       </section>
     </div>
