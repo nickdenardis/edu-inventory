@@ -37,7 +37,7 @@
 	        $info = array('url' => trim($url),
 	        			'url_final' => $page['info']['url'],
 	        			'title' => $title,
-	        			'http_code' => $page['info']['http_code'],
+	        			'http_code' => (($page['info']['http_code'] == '0')?'404',$page['info']['http_code']),
 	        			'file_size' => $page['info']['download_content_length'],
 	        			'response_time' => $page['info']['total_time']);
 	        
