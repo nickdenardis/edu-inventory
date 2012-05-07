@@ -15,7 +15,6 @@ Files
 
 Command Line Tools
 -------------
-* php update/edu-list.php - Update the list from the most recent EDUCAUSE database.
 * php update/edu-info.php - Updates the csv with all meta information about each domain.
 * php update/edu-snapshots.php - Takes a screenshot of each valid website from the CSV and saves it to snapshots/jpg/[site].jpg.
 * php update/edu-html.php - Gets the most recent HTML code for the homepage and saves it to snapshots/html/[site].html
